@@ -29,7 +29,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg import BgpVrfRouteTargetEnum
@@ -173,31 +173,14 @@ class Vrfs(object):
         
         	**range:** 0..32
         
-        .. attribute:: vpn_id
+        .. attribute:: afs
         
-        	VPN\-ID for the VRF
-        	**type**\: :py:class:`VpnId <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.VpnId>`
-        
-        .. attribute:: fallback_vrf
-        
-        	Fallback VRF
-        	**type**\: str
-        
-        	**range:** 0..32
-        
-        .. attribute:: remote_route_filter_disable
-        
-        	For disabling remote route filtering for this VRF on core\-facing card
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	VRF address family configuration
+        	**type**\: :py:class:`Afs <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
         
         .. attribute:: create
         
         	VRF global configuration
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: mode_big
-        
-        	Configuration enable of big VRF
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: description
@@ -207,10 +190,27 @@ class Vrfs(object):
         
         	**range:** 0..244
         
-        .. attribute:: afs
+        .. attribute:: fallback_vrf
         
-        	VRF address family configuration
-        	**type**\: :py:class:`Afs <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
+        	Fallback VRF
+        	**type**\: str
+        
+        	**range:** 0..32
+        
+        .. attribute:: mode_big
+        
+        	Configuration enable of big VRF
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: remote_route_filter_disable
+        
+        	For disabling remote route filtering for this VRF on core\-facing card
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: vpn_id
+        
+        	VPN\-ID for the VRF
+        	**type**\: :py:class:`VpnId <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.VpnId>`
         
         
 
@@ -222,31 +222,19 @@ class Vrfs(object):
         def __init__(self):
             self.parent = None
             self.vrf_name = None
-            self.vpn_id = None
-            self.fallback_vrf = None
-            self.remote_route_filter_disable = None
-            self.create = None
-            self.mode_big = None
-            self.description = None
             self.afs = Vrfs.Vrf.Afs()
             self.afs.parent = self
+            self.create = None
+            self.description = None
+            self.fallback_vrf = None
+            self.mode_big = None
+            self.remote_route_filter_disable = None
+            self.vpn_id = None
 
 
         class VpnId(object):
             """
             VPN\-ID for the VRF
-            
-            .. attribute:: vpn_oui
-            
-            	OUI of VPNID OUI
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: _is_presence
-            
-            	Is present if this instance represents presence container else not
-            	**type**\: bool
             
             .. attribute:: vpn_index
             
@@ -254,6 +242,18 @@ class Vrfs(object):
             	**type**\: int
             
             	**range:** 0..16777215
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
+            .. attribute:: vpn_oui
+            
+            	OUI of VPNID OUI
+            	**type**\: int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: _is_presence
             
@@ -271,13 +271,13 @@ class Vrfs(object):
 
             def __init__(self):
                 self.parent = None
-                self.vpn_oui = None
                 self.vpn_index = None
+                self.vpn_oui = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:vpn-id'
 
@@ -288,10 +288,10 @@ class Vrfs(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.vpn_oui is not None:
+                if self.vpn_index is not None:
                     return True
 
-                if self.vpn_index is not None:
+                if self.vpn_oui is not None:
                     return True
 
                 return False
@@ -346,15 +346,15 @@ class Vrfs(object):
                 
                 	**range:** 0..244
                 
-                .. attribute:: create
-                
-                	VRF configuration for a particular address family
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: bgp
                 
                 	BGP AF VRF config
                 	**type**\: :py:class:`Bgp <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
+                
+                .. attribute:: create
+                
+                	VRF configuration for a particular address family
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -368,19 +368,19 @@ class Vrfs(object):
                     self.af_name = None
                     self.saf_name = None
                     self.topology_name = None
-                    self.create = None
                     self.bgp = Vrfs.Vrf.Afs.Af.Bgp()
                     self.bgp.parent = self
+                    self.create = None
 
 
                 class Bgp(object):
                     """
                     BGP AF VRF config
                     
-                    .. attribute:: import_route_targets
+                    .. attribute:: export_route_policy
                     
-                    	Import Route targets
-                    	**type**\: :py:class:`ImportRouteTargets <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets>`
+                    	Route policy for export filtering
+                    	**type**\: str
                     
                     .. attribute:: export_route_targets
                     
@@ -392,15 +392,15 @@ class Vrfs(object):
                     	Route policy for global to vrf import filtering
                     	**type**\: :py:class:`GlobalToVrfImportRoutePolicy <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy>`
                     
-                    .. attribute:: export_route_policy
-                    
-                    	Route policy for export filtering
-                    	**type**\: str
-                    
                     .. attribute:: import_route_policy
                     
                     	Route policy for import filtering
                     	**type**\: str
+                    
+                    .. attribute:: import_route_targets
+                    
+                    	Import Route targets
+                    	**type**\: :py:class:`ImportRouteTargets <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets>`
                     
                     .. attribute:: vrf_to_global_export_route_policy
                     
@@ -416,13 +416,13 @@ class Vrfs(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.import_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets()
-                        self.import_route_targets.parent = self
+                        self.export_route_policy = None
                         self.export_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets()
                         self.export_route_targets.parent = self
                         self.global_to_vrf_import_route_policy = None
-                        self.export_route_policy = None
                         self.import_route_policy = None
+                        self.import_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets()
+                        self.import_route_targets.parent = self
                         self.vrf_to_global_export_route_policy = None
 
 
@@ -512,13 +512,6 @@ class Vrfs(object):
                                     """
                                     as or four byte as
                                     
-                                    .. attribute:: as_xx  <key>
-                                    
-                                    	AS number
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: as_  <key>
                                     
                                     	AS number
@@ -529,6 +522,13 @@ class Vrfs(object):
                                     .. attribute:: as_index  <key>
                                     
                                     	AS number Index
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_xx  <key>
+                                    
+                                    	AS number
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -549,25 +549,25 @@ class Vrfs(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.as_xx = None
                                         self.as_ = None
                                         self.as_index = None
+                                        self.as_xx = None
                                         self.stitching_rt = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.as_xx is None:
-                                            raise YPYDataValidationError('Key property as_xx is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.as_ is None:
-                                            raise YPYDataValidationError('Key property as_ is None')
+                                            raise YPYModelError('Key property as_ is None')
                                         if self.as_index is None:
-                                            raise YPYDataValidationError('Key property as_index is None')
+                                            raise YPYModelError('Key property as_index is None')
+                                        if self.as_xx is None:
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.stitching_rt is None:
-                                            raise YPYDataValidationError('Key property stitching_rt is None')
+                                            raise YPYModelError('Key property stitching_rt is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -576,13 +576,13 @@ class Vrfs(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.as_xx is not None:
-                                            return True
-
                                         if self.as_ is not None:
                                             return True
 
                                         if self.as_index is not None:
+                                            return True
+
+                                        if self.as_xx is not None:
                                             return True
 
                                         if self.stitching_rt is not None:
@@ -637,13 +637,13 @@ class Vrfs(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.address is None:
-                                            raise YPYDataValidationError('Key property address is None')
+                                            raise YPYModelError('Key property address is None')
                                         if self.address_index is None:
-                                            raise YPYDataValidationError('Key property address_index is None')
+                                            raise YPYModelError('Key property address_index is None')
                                         if self.stitching_rt is None:
-                                            raise YPYDataValidationError('Key property stitching_rt is None')
+                                            raise YPYModelError('Key property stitching_rt is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ipv4-address[Cisco-IOS-XR-ipv4-bgp-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ipv4-bgp-cfg:address-index = ' + str(self.address_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
 
@@ -673,9 +673,9 @@ class Vrfs(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.type is None:
-                                        raise YPYDataValidationError('Key property type is None')
+                                        raise YPYModelError('Key property type is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:route-target[Cisco-IOS-XR-ipv4-bgp-cfg:type = ' + str(self.type) + ']'
 
@@ -709,7 +709,7 @@ class Vrfs(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:route-targets'
 
@@ -735,7 +735,7 @@ class Vrfs(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:import-route-targets'
 
@@ -843,13 +843,6 @@ class Vrfs(object):
                                     """
                                     as or four byte as
                                     
-                                    .. attribute:: as_xx  <key>
-                                    
-                                    	AS number
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: as_  <key>
                                     
                                     	AS number
@@ -860,6 +853,13 @@ class Vrfs(object):
                                     .. attribute:: as_index  <key>
                                     
                                     	AS number Index
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_xx  <key>
+                                    
+                                    	AS number
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -880,25 +880,25 @@ class Vrfs(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.as_xx = None
                                         self.as_ = None
                                         self.as_index = None
+                                        self.as_xx = None
                                         self.stitching_rt = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.as_xx is None:
-                                            raise YPYDataValidationError('Key property as_xx is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.as_ is None:
-                                            raise YPYDataValidationError('Key property as_ is None')
+                                            raise YPYModelError('Key property as_ is None')
                                         if self.as_index is None:
-                                            raise YPYDataValidationError('Key property as_index is None')
+                                            raise YPYModelError('Key property as_index is None')
+                                        if self.as_xx is None:
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.stitching_rt is None:
-                                            raise YPYDataValidationError('Key property stitching_rt is None')
+                                            raise YPYModelError('Key property stitching_rt is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -907,13 +907,13 @@ class Vrfs(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.as_xx is not None:
-                                            return True
-
                                         if self.as_ is not None:
                                             return True
 
                                         if self.as_index is not None:
+                                            return True
+
+                                        if self.as_xx is not None:
                                             return True
 
                                         if self.stitching_rt is not None:
@@ -968,13 +968,13 @@ class Vrfs(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.address is None:
-                                            raise YPYDataValidationError('Key property address is None')
+                                            raise YPYModelError('Key property address is None')
                                         if self.address_index is None:
-                                            raise YPYDataValidationError('Key property address_index is None')
+                                            raise YPYModelError('Key property address_index is None')
                                         if self.stitching_rt is None:
-                                            raise YPYDataValidationError('Key property stitching_rt is None')
+                                            raise YPYModelError('Key property stitching_rt is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ipv4-address[Cisco-IOS-XR-ipv4-bgp-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ipv4-bgp-cfg:address-index = ' + str(self.address_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
 
@@ -1004,9 +1004,9 @@ class Vrfs(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.type is None:
-                                        raise YPYDataValidationError('Key property type is None')
+                                        raise YPYModelError('Key property type is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:route-target[Cisco-IOS-XR-ipv4-bgp-cfg:type = ' + str(self.type) + ']'
 
@@ -1040,7 +1040,7 @@ class Vrfs(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:route-targets'
 
@@ -1066,7 +1066,7 @@ class Vrfs(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:export-route-targets'
 
@@ -1092,20 +1092,20 @@ class Vrfs(object):
                         """
                         Route policy for global to vrf import filtering
                         
-                        .. attribute:: route_policy_name
+                        .. attribute:: advertise_as_vpn
                         
-                        	Global to vrf import route policy
-                        	**type**\: str
+                        	Enable advertising imported paths to PEs
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: _is_presence
                         
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: advertise_as_vpn
+                        .. attribute:: route_policy_name
                         
-                        	Enable advertising imported paths to PEs
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	Global to vrf import route policy
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -1123,13 +1123,13 @@ class Vrfs(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.route_policy_name = None
                             self.advertise_as_vpn = None
+                            self.route_policy_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:global-to-vrf-import-route-policy'
 
@@ -1140,10 +1140,10 @@ class Vrfs(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.route_policy_name is not None:
+                            if self.advertise_as_vpn is not None:
                                 return True
 
-                            if self.advertise_as_vpn is not None:
+                            if self.route_policy_name is not None:
                                 return True
 
                             return False
@@ -1156,7 +1156,7 @@ class Vrfs(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:bgp'
 
@@ -1167,7 +1167,7 @@ class Vrfs(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.import_route_targets is not None and self.import_route_targets._has_data():
+                        if self.export_route_policy is not None:
                             return True
 
                         if self.export_route_targets is not None and self.export_route_targets._has_data():
@@ -1176,10 +1176,10 @@ class Vrfs(object):
                         if self.global_to_vrf_import_route_policy is not None and self.global_to_vrf_import_route_policy._has_data():
                             return True
 
-                        if self.export_route_policy is not None:
+                        if self.import_route_policy is not None:
                             return True
 
-                        if self.import_route_policy is not None:
+                        if self.import_route_targets is not None and self.import_route_targets._has_data():
                             return True
 
                         if self.vrf_to_global_export_route_policy is not None:
@@ -1195,13 +1195,13 @@ class Vrfs(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.af_name is None:
-                        raise YPYDataValidationError('Key property af_name is None')
+                        raise YPYModelError('Key property af_name is None')
                     if self.saf_name is None:
-                        raise YPYDataValidationError('Key property saf_name is None')
+                        raise YPYModelError('Key property saf_name is None')
                     if self.topology_name is None:
-                        raise YPYDataValidationError('Key property topology_name is None')
+                        raise YPYModelError('Key property topology_name is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:af[Cisco-IOS-XR-infra-rsi-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-infra-rsi-cfg:saf-name = ' + str(self.saf_name) + '][Cisco-IOS-XR-infra-rsi-cfg:topology-name = ' + str(self.topology_name) + ']'
 
@@ -1221,10 +1221,10 @@ class Vrfs(object):
                     if self.topology_name is not None:
                         return True
 
-                    if self.create is not None:
+                    if self.bgp is not None and self.bgp._has_data():
                         return True
 
-                    if self.bgp is not None and self.bgp._has_data():
+                    if self.create is not None:
                         return True
 
                     return False
@@ -1237,7 +1237,7 @@ class Vrfs(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:afs'
 
@@ -1263,7 +1263,7 @@ class Vrfs(object):
         @property
         def _common_path(self):
             if self.vrf_name is None:
-                raise YPYDataValidationError('Key property vrf_name is None')
+                raise YPYModelError('Key property vrf_name is None')
 
             return '/Cisco-IOS-XR-infra-rsi-cfg:vrfs/Cisco-IOS-XR-infra-rsi-cfg:vrf[Cisco-IOS-XR-infra-rsi-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1277,25 +1277,25 @@ class Vrfs(object):
             if self.vrf_name is not None:
                 return True
 
-            if self.vpn_id is not None and self.vpn_id._has_data():
-                return True
-
-            if self.fallback_vrf is not None:
-                return True
-
-            if self.remote_route_filter_disable is not None:
+            if self.afs is not None and self.afs._has_data():
                 return True
 
             if self.create is not None:
                 return True
 
-            if self.mode_big is not None:
-                return True
-
             if self.description is not None:
                 return True
 
-            if self.afs is not None and self.afs._has_data():
+            if self.fallback_vrf is not None:
+                return True
+
+            if self.mode_big is not None:
+                return True
+
+            if self.remote_route_filter_disable is not None:
+                return True
+
+            if self.vpn_id is not None and self.vpn_id._has_data():
                 return True
 
             return False
@@ -1417,11 +1417,11 @@ class GlobalAf(object):
             @property
             def _common_path(self):
                 if self.af_name is None:
-                    raise YPYDataValidationError('Key property af_name is None')
+                    raise YPYModelError('Key property af_name is None')
                 if self.saf_name is None:
-                    raise YPYDataValidationError('Key property saf_name is None')
+                    raise YPYModelError('Key property saf_name is None')
                 if self.topology_name is None:
-                    raise YPYDataValidationError('Key property topology_name is None')
+                    raise YPYModelError('Key property topology_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-cfg:global-af/Cisco-IOS-XR-infra-rsi-cfg:afs/Cisco-IOS-XR-infra-rsi-cfg:af[Cisco-IOS-XR-infra-rsi-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-infra-rsi-cfg:saf-name = ' + str(self.saf_name) + '][Cisco-IOS-XR-infra-rsi-cfg:topology-name = ' + str(self.topology_name) + ']'
 
@@ -1502,15 +1502,10 @@ class Srlg(object):
     """
     srlg
     
-    .. attribute:: interfaces
+    .. attribute:: enable
     
-    	Set of interfaces configured with SRLG
-    	**type**\: :py:class:`Interfaces <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces>`
-    
-    .. attribute:: srlg_names
-    
-    	Set of SRLG name configuration
-    	**type**\: :py:class:`SrlgNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.SrlgNames>`
+    	Enable SRLG
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: groups
     
@@ -1522,10 +1517,15 @@ class Srlg(object):
     	Set of inherit nodes configured with SRLG
     	**type**\: :py:class:`InheritNodes <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes>`
     
-    .. attribute:: enable
+    .. attribute:: interfaces
     
-    	Enable SRLG
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	Set of interfaces configured with SRLG
+    	**type**\: :py:class:`Interfaces <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces>`
+    
+    .. attribute:: srlg_names
+    
+    	Set of SRLG name configuration
+    	**type**\: :py:class:`SrlgNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.SrlgNames>`
     
     
 
@@ -1535,15 +1535,15 @@ class Srlg(object):
     _revision = '2015-07-30'
 
     def __init__(self):
-        self.interfaces = Srlg.Interfaces()
-        self.interfaces.parent = self
-        self.srlg_names = Srlg.SrlgNames()
-        self.srlg_names.parent = self
+        self.enable = None
         self.groups = Srlg.Groups()
         self.groups.parent = self
         self.inherit_nodes = Srlg.InheritNodes()
         self.inherit_nodes.parent = self
-        self.enable = None
+        self.interfaces = Srlg.Interfaces()
+        self.interfaces.parent = self
+        self.srlg_names = Srlg.SrlgNames()
+        self.srlg_names.parent = self
 
 
     class Interfaces(object):
@@ -1580,6 +1580,11 @@ class Srlg(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
+            .. attribute:: enable
+            
+            	Enable SRLG interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: include_optical
             
             	Include optical configuration for an interface
@@ -1590,20 +1595,15 @@ class Srlg(object):
             	Group configuration for an interface
             	**type**\: :py:class:`InterfaceGroup <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup>`
             
-            .. attribute:: values
-            
-            	SRLG Value configuration for an interface
-            	**type**\: :py:class:`Values <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.Values>`
-            
             .. attribute:: interface_srlg_names
             
             	SRLG Name configuration for an interface
             	**type**\: :py:class:`InterfaceSrlgNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceSrlgNames>`
             
-            .. attribute:: enable
+            .. attribute:: values
             
-            	Enable SRLG interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	SRLG Value configuration for an interface
+            	**type**\: :py:class:`Values <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.Values>`
             
             
 
@@ -1615,15 +1615,15 @@ class Srlg(object):
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
+                self.enable = None
                 self.include_optical = Srlg.Interfaces.Interface.IncludeOptical()
                 self.include_optical.parent = self
                 self.interface_group = Srlg.Interfaces.Interface.InterfaceGroup()
                 self.interface_group.parent = self
-                self.values = Srlg.Interfaces.Interface.Values()
-                self.values.parent = self
                 self.interface_srlg_names = Srlg.Interfaces.Interface.InterfaceSrlgNames()
                 self.interface_srlg_names.parent = self
-                self.enable = None
+                self.values = Srlg.Interfaces.Interface.Values()
+                self.values.parent = self
 
 
             class IncludeOptical(object):
@@ -1655,7 +1655,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:include-optical'
 
@@ -1684,15 +1684,15 @@ class Srlg(object):
                 """
                 Group configuration for an interface
                 
-                .. attribute:: group_names
-                
-                	Set of group name under an interface
-                	**type**\: :py:class:`GroupNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup.GroupNames>`
-                
                 .. attribute:: enable
                 
                 	Enable SRLG interface group submode
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: group_names
+                
+                	Set of group name under an interface
+                	**type**\: :py:class:`GroupNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup.GroupNames>`
                 
                 
 
@@ -1703,9 +1703,9 @@ class Srlg(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.enable = None
                     self.group_names = Srlg.Interfaces.Interface.InterfaceGroup.GroupNames()
                     self.group_names.parent = self
-                    self.enable = None
 
 
                 class GroupNames(object):
@@ -1768,9 +1768,9 @@ class Srlg(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.group_name_index is None:
-                                raise YPYDataValidationError('Key property group_name_index is None')
+                                raise YPYModelError('Key property group_name_index is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:group-name[Cisco-IOS-XR-infra-rsi-cfg:group-name-index = ' + str(self.group_name_index) + ']'
 
@@ -1800,7 +1800,7 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:group-names'
 
@@ -1826,7 +1826,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:interface-group'
 
@@ -1837,10 +1837,10 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.group_names is not None and self.group_names._has_data():
+                    if self.enable is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.group_names is not None and self.group_names._has_data():
                         return True
 
                     return False
@@ -1885,17 +1885,17 @@ class Srlg(object):
                     
                     	**range:** 1..65535
                     
+                    .. attribute:: srlg_priority
+                    
+                    	SRLG priority
+                    	**type**\: :py:class:`SrlgPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriorityEnum>`
+                    
                     .. attribute:: srlg_value
                     
                     	SRLG value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: srlg_priority
-                    
-                    	SRLG priority
-                    	**type**\: :py:class:`SrlgPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriorityEnum>`
                     
                     
 
@@ -1907,15 +1907,15 @@ class Srlg(object):
                     def __init__(self):
                         self.parent = None
                         self.srlg_index = None
-                        self.srlg_value = None
                         self.srlg_priority = None
+                        self.srlg_value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.srlg_index is None:
-                            raise YPYDataValidationError('Key property srlg_index is None')
+                            raise YPYModelError('Key property srlg_index is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:value[Cisco-IOS-XR-infra-rsi-cfg:srlg-index = ' + str(self.srlg_index) + ']'
 
@@ -1929,10 +1929,10 @@ class Srlg(object):
                         if self.srlg_index is not None:
                             return True
 
-                        if self.srlg_value is not None:
+                        if self.srlg_priority is not None:
                             return True
 
-                        if self.srlg_priority is not None:
+                        if self.srlg_value is not None:
                             return True
 
                         return False
@@ -1945,7 +1945,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:values'
 
@@ -2017,9 +2017,9 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.srlg_name is None:
-                            raise YPYDataValidationError('Key property srlg_name is None')
+                            raise YPYModelError('Key property srlg_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:interface-srlg-name[Cisco-IOS-XR-infra-rsi-cfg:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -2043,7 +2043,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:interface-srlg-names'
 
@@ -2069,7 +2069,7 @@ class Srlg(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-cfg:srlg/Cisco-IOS-XR-infra-rsi-cfg:interfaces/Cisco-IOS-XR-infra-rsi-cfg:interface[Cisco-IOS-XR-infra-rsi-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2083,19 +2083,19 @@ class Srlg(object):
                 if self.interface_name is not None:
                     return True
 
+                if self.enable is not None:
+                    return True
+
                 if self.include_optical is not None and self.include_optical._has_data():
                     return True
 
                 if self.interface_group is not None and self.interface_group._has_data():
                     return True
 
-                if self.values is not None and self.values._has_data():
-                    return True
-
                 if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
                     return True
 
-                if self.enable is not None:
+                if self.values is not None and self.values._has_data():
                     return True
 
                 return False
@@ -2186,7 +2186,7 @@ class Srlg(object):
             @property
             def _common_path(self):
                 if self.srlg_name is None:
-                    raise YPYDataValidationError('Key property srlg_name is None')
+                    raise YPYModelError('Key property srlg_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-cfg:srlg/Cisco-IOS-XR-infra-rsi-cfg:srlg-names/Cisco-IOS-XR-infra-rsi-cfg:srlg-name[Cisco-IOS-XR-infra-rsi-cfg:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -2269,15 +2269,15 @@ class Srlg(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: group_values
-            
-            	Set of SRLG values configured under a group
-            	**type**\: :py:class:`GroupValues <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group.GroupValues>`
-            
             .. attribute:: enable
             
             	Enable SRLG group
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: group_values
+            
+            	Set of SRLG values configured under a group
+            	**type**\: :py:class:`GroupValues <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group.GroupValues>`
             
             
 
@@ -2289,9 +2289,9 @@ class Srlg(object):
             def __init__(self):
                 self.parent = None
                 self.group_name = None
+                self.enable = None
                 self.group_values = Srlg.Groups.Group.GroupValues()
                 self.group_values.parent = self
-                self.enable = None
 
 
             class GroupValues(object):
@@ -2328,17 +2328,17 @@ class Srlg(object):
                     
                     	**range:** 1..65535
                     
+                    .. attribute:: srlg_priority
+                    
+                    	SRLG priority
+                    	**type**\: :py:class:`SrlgPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriorityEnum>`
+                    
                     .. attribute:: srlg_value
                     
                     	SRLG value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: srlg_priority
-                    
-                    	SRLG priority
-                    	**type**\: :py:class:`SrlgPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriorityEnum>`
                     
                     
 
@@ -2350,15 +2350,15 @@ class Srlg(object):
                     def __init__(self):
                         self.parent = None
                         self.srlg_index = None
-                        self.srlg_value = None
                         self.srlg_priority = None
+                        self.srlg_value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.srlg_index is None:
-                            raise YPYDataValidationError('Key property srlg_index is None')
+                            raise YPYModelError('Key property srlg_index is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:group-value[Cisco-IOS-XR-infra-rsi-cfg:srlg-index = ' + str(self.srlg_index) + ']'
 
@@ -2372,10 +2372,10 @@ class Srlg(object):
                         if self.srlg_index is not None:
                             return True
 
-                        if self.srlg_value is not None:
+                        if self.srlg_priority is not None:
                             return True
 
-                        if self.srlg_priority is not None:
+                        if self.srlg_value is not None:
                             return True
 
                         return False
@@ -2388,7 +2388,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:group-values'
 
@@ -2414,7 +2414,7 @@ class Srlg(object):
             @property
             def _common_path(self):
                 if self.group_name is None:
-                    raise YPYDataValidationError('Key property group_name is None')
+                    raise YPYModelError('Key property group_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-cfg:srlg/Cisco-IOS-XR-infra-rsi-cfg:groups/Cisco-IOS-XR-infra-rsi-cfg:group[Cisco-IOS-XR-infra-rsi-cfg:group-name = ' + str(self.group_name) + ']'
 
@@ -2428,10 +2428,10 @@ class Srlg(object):
                 if self.group_name is not None:
                     return True
 
-                if self.group_values is not None and self.group_values._has_data():
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.group_values is not None and self.group_values._has_data():
                     return True
 
                 return False
@@ -2500,15 +2500,15 @@ class Srlg(object):
             
             	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
             
-            .. attribute:: inherit_node_values
-            
-            	Set of SRLG values configured under an inherit node
-            	**type**\: :py:class:`InheritNodeValues <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode.InheritNodeValues>`
-            
             .. attribute:: enable
             
             	Enable SRLG inherit node
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: inherit_node_values
+            
+            	Set of SRLG values configured under an inherit node
+            	**type**\: :py:class:`InheritNodeValues <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode.InheritNodeValues>`
             
             
 
@@ -2520,9 +2520,9 @@ class Srlg(object):
             def __init__(self):
                 self.parent = None
                 self.inherit_node_name = None
+                self.enable = None
                 self.inherit_node_values = Srlg.InheritNodes.InheritNode.InheritNodeValues()
                 self.inherit_node_values.parent = self
-                self.enable = None
 
 
             class InheritNodeValues(object):
@@ -2560,17 +2560,17 @@ class Srlg(object):
                     
                     	**range:** 1..65535
                     
+                    .. attribute:: srlg_priority
+                    
+                    	SRLG priority
+                    	**type**\: :py:class:`SrlgPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriorityEnum>`
+                    
                     .. attribute:: srlg_value
                     
                     	SRLG value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: srlg_priority
-                    
-                    	SRLG priority
-                    	**type**\: :py:class:`SrlgPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriorityEnum>`
                     
                     
 
@@ -2582,15 +2582,15 @@ class Srlg(object):
                     def __init__(self):
                         self.parent = None
                         self.srlg_index = None
-                        self.srlg_value = None
                         self.srlg_priority = None
+                        self.srlg_value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.srlg_index is None:
-                            raise YPYDataValidationError('Key property srlg_index is None')
+                            raise YPYModelError('Key property srlg_index is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:inherit-node-value[Cisco-IOS-XR-infra-rsi-cfg:srlg-index = ' + str(self.srlg_index) + ']'
 
@@ -2604,10 +2604,10 @@ class Srlg(object):
                         if self.srlg_index is not None:
                             return True
 
-                        if self.srlg_value is not None:
+                        if self.srlg_priority is not None:
                             return True
 
-                        if self.srlg_priority is not None:
+                        if self.srlg_value is not None:
                             return True
 
                         return False
@@ -2620,7 +2620,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:inherit-node-values'
 
@@ -2646,7 +2646,7 @@ class Srlg(object):
             @property
             def _common_path(self):
                 if self.inherit_node_name is None:
-                    raise YPYDataValidationError('Key property inherit_node_name is None')
+                    raise YPYModelError('Key property inherit_node_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-cfg:srlg/Cisco-IOS-XR-infra-rsi-cfg:inherit-nodes/Cisco-IOS-XR-infra-rsi-cfg:inherit-node[Cisco-IOS-XR-infra-rsi-cfg:inherit-node-name = ' + str(self.inherit_node_name) + ']'
 
@@ -2660,10 +2660,10 @@ class Srlg(object):
                 if self.inherit_node_name is not None:
                     return True
 
-                if self.inherit_node_values is not None and self.inherit_node_values._has_data():
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.inherit_node_values is not None and self.inherit_node_values._has_data():
                     return True
 
                 return False
@@ -2709,10 +2709,7 @@ class Srlg(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.srlg_names is not None and self.srlg_names._has_data():
+        if self.enable is not None:
             return True
 
         if self.groups is not None and self.groups._has_data():
@@ -2721,7 +2718,10 @@ class Srlg(object):
         if self.inherit_nodes is not None and self.inherit_nodes._has_data():
             return True
 
-        if self.enable is not None:
+        if self.interfaces is not None and self.interfaces._has_data():
+            return True
+
+        if self.srlg_names is not None and self.srlg_names._has_data():
             return True
 
         return False
@@ -2765,15 +2765,15 @@ class VrfGroups(object):
         
         	**range:** 0..32
         
-        .. attribute:: vrfs
-        
-        	Set of VRFs configured under a VRF group
-        	**type**\: :py:class:`Vrfs <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup.Vrfs>`
-        
         .. attribute:: enable
         
         	Enable VRF group
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: vrfs
+        
+        	Set of VRFs configured under a VRF group
+        	**type**\: :py:class:`Vrfs <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup.Vrfs>`
         
         
 
@@ -2785,9 +2785,9 @@ class VrfGroups(object):
         def __init__(self):
             self.parent = None
             self.vrf_group_name = None
+            self.enable = None
             self.vrfs = VrfGroups.VrfGroup.Vrfs()
             self.vrfs.parent = self
-            self.enable = None
 
 
         class Vrfs(object):
@@ -2838,9 +2838,9 @@ class VrfGroups(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.vrf_name is None:
-                        raise YPYDataValidationError('Key property vrf_name is None')
+                        raise YPYModelError('Key property vrf_name is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:vrf[Cisco-IOS-XR-infra-rsi-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -2864,7 +2864,7 @@ class VrfGroups(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:vrfs'
 
@@ -2890,7 +2890,7 @@ class VrfGroups(object):
         @property
         def _common_path(self):
             if self.vrf_group_name is None:
-                raise YPYDataValidationError('Key property vrf_group_name is None')
+                raise YPYModelError('Key property vrf_group_name is None')
 
             return '/Cisco-IOS-XR-infra-rsi-cfg:vrf-groups/Cisco-IOS-XR-infra-rsi-cfg:vrf-group[Cisco-IOS-XR-infra-rsi-cfg:vrf-group-name = ' + str(self.vrf_group_name) + ']'
 
@@ -2904,10 +2904,10 @@ class VrfGroups(object):
             if self.vrf_group_name is not None:
                 return True
 
-            if self.vrfs is not None and self.vrfs._has_data():
+            if self.enable is not None:
                 return True
 
-            if self.enable is not None:
+            if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
             return False

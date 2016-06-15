@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -2915,20 +2915,20 @@ class EthernetInterface(object):
     """
     Ethernet operational data
     
-    .. attribute:: statistics
+    .. attribute:: berts
     
-    	Ethernet controller statistics table
-    	**type**\: :py:class:`Statistics <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
+    	Ethernet controller BERT table
+    	**type**\: :py:class:`Berts <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
     
     .. attribute:: interfaces
     
     	Ethernet controller info table
     	**type**\: :py:class:`Interfaces <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
     
-    .. attribute:: berts
+    .. attribute:: statistics
     
-    	Ethernet controller BERT table
-    	**type**\: :py:class:`Berts <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
+    	Ethernet controller statistics table
+    	**type**\: :py:class:`Statistics <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
     
     
 
@@ -2938,12 +2938,12 @@ class EthernetInterface(object):
     _revision = '2015-10-14'
 
     def __init__(self):
-        self.statistics = EthernetInterface.Statistics()
-        self.statistics.parent = self
-        self.interfaces = EthernetInterface.Interfaces()
-        self.interfaces.parent = self
         self.berts = EthernetInterface.Berts()
         self.berts.parent = self
+        self.interfaces = EthernetInterface.Interfaces()
+        self.interfaces.parent = self
+        self.statistics = EthernetInterface.Statistics()
+        self.statistics.parent = self
 
 
     class Statistics(object):
@@ -2980,388 +2980,388 @@ class EthernetInterface(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: received_total_bytes
-            
-            	Total octets of all frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_good_bytes
-            
-            	Total octets of all good frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_frames
-            
-            	All frames, good or bad
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received8021q_frames
-            
-            	All 802.1Q frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_pause_frames
-            
-            	All pause frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_unknown_opcodes
-            
-            	Unsupported MAC Control frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total64_octet_frames
-            
-            	All 64 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from65_to127
-            
-            	All 65\-127 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from128_to255
-            
-            	All 128\-255 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from256_to511
-            
-            	All 256\-511 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from512_to1023
-            
-            	All 512\-1023 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from1024_to1518
-            
-            	All 1024\-1518 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_total_octet_frames_from1519_to_max
-            
-            	All > 1518 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_good_frames
-            
-            	Received Good Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_unicast_frames
-            
-            	Received unicast Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_multicast_frames
-            
-            	Received multicast Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: received_broadcast_frames
-            
-            	Received broadcast Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_buffer_overrun_packets_dropped
-            
-            	Drops due to buffer overrun
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_aborted_packets_dropped
+            .. attribute:: aborted_packet_drops
             
             	Drops due to packet abort
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: numberof_invalid_vlan_id_packets_dropped
-            
-            	Drops due to invalid VLAN id
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: invalid_dest_mac_drop_packets
-            
-            	Drops due to the destination MAC not matching
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: invalid_encap_drop_packets
-            
-            	Drops due to the encapsulation or ether type not matching
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_miscellaneous_packets_dropped
-            
-            	Any other drops not counted
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_giant_packets_greaterthan_mru
-            
-            	Good frames > MRU, dropped
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_ether_stats_undersize_pkts
-            
-            	Good frames < 64 Octet, dropped
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_jabbers_packets_greaterthan_mru
-            
-            	Bad Frames > MRU, dropped
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_ether_stats_fragments
-            
-            	Bad Frames < 64 Octet, dropped
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_packets_with_crc_align_errors
-            
-            	Frames 64 \- MRU with CRC error
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: ether_stats_collisions
-            
-            	All collision events
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: symbol_errors
-            
-            	Symbol errors
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: dropped_miscellaneous_error_packets
-            
-            	Any other errors not counted
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc2819_ether_stats_oversized_pkts
-            
-            	RFC2819 etherStatsOversizedPkts
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc2819_ether_stats_jabbers
-            
-            	RFC2819 etherStatsJabbers
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc2819_ether_stats_crc_align_errors
-            
-            	RFC2819 etherStatsCRCAlignErrors
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: rfc3635dot3_stats_alignment_errors
-            
-            	RFC3635 dot3StatsAlignmentErrors
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: total_bytes_transmitted
-            
-            	Total octets of all frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: total_good_bytes_transmitted
-            
-            	Total octets of all good frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: total_frames_transmitted
-            
-            	All frames, good or bad
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted8021q_frames
-            
-            	All 802.1Q frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_pause_frames
-            
-            	All pause frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total64_octet_frames
-            
-            	All 64 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from65_to127
-            
-            	All 65\-127 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from128_to255
-            
-            	All 128\-255 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from256_to511
-            
-            	All 256\-511 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from512_to1023
-            
-            	All 512\-1023 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from1024_to1518
-            
-            	All 1024\-1518 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_total_octet_frames_from1518_to_max
-            
-            	All > 1518 Octet Frame Count
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_good_frames
-            
-            	Transmitted Good Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_unicast_frames
-            
-            	Transmitted unicast Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_multicast_frames
-            
-            	Transmitted multicast Frames
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: transmitted_broadcast_frames
-            
-            	Transmitted broadcast Frames
-            	**type**\: int
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: buffer_underrun_packet_drops
             
             	Drops due to buffer underrun
-            	**type**\: int
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: aborted_packet_drops
+            .. attribute:: dropped_ether_stats_fragments
             
-            	Drops due to packet abort
-            	**type**\: int
+            	Bad Frames < 64 Octet, dropped
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: uncounted_dropped_frames
+            .. attribute:: dropped_ether_stats_undersize_pkts
             
-            	Any other drops not counted
-            	**type**\: int
+            	Good frames < 64 Octet, dropped
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_giant_packets_greaterthan_mru
+            
+            	Good frames > MRU, dropped
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_jabbers_packets_greaterthan_mru
+            
+            	Bad Frames > MRU, dropped
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_miscellaneous_error_packets
+            
+            	Any other errors not counted
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: dropped_packets_with_crc_align_errors
+            
+            	Frames 64 \- MRU with CRC error
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: ether_stats_collisions
+            
+            	All collision events
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: invalid_dest_mac_drop_packets
+            
+            	Drops due to the destination MAC not matching
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: invalid_encap_drop_packets
+            
+            	Drops due to the encapsulation or ether type not matching
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: miscellaneous_output_errors
             
             	Any other errors not counted
-            	**type**\: int
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_aborted_packets_dropped
+            
+            	Drops due to packet abort
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_buffer_overrun_packets_dropped
+            
+            	Drops due to buffer overrun
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_miscellaneous_packets_dropped
+            
+            	Any other drops not counted
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: numberof_invalid_vlan_id_packets_dropped
+            
+            	Drops due to invalid VLAN id
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received8021q_frames
+            
+            	All 802.1Q frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_broadcast_frames
+            
+            	Received broadcast Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_good_bytes
+            
+            	Total octets of all good frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_good_frames
+            
+            	Received Good Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_multicast_frames
+            
+            	Received multicast Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_pause_frames
+            
+            	All pause frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total64_octet_frames
+            
+            	All 64 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_bytes
+            
+            	Total octets of all frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_frames
+            
+            	All frames, good or bad
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from1024_to1518
+            
+            	All 1024\-1518 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from128_to255
+            
+            	All 128\-255 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from1519_to_max
+            
+            	All > 1518 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from256_to511
+            
+            	All 256\-511 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from512_to1023
+            
+            	All 512\-1023 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_total_octet_frames_from65_to127
+            
+            	All 65\-127 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_unicast_frames
+            
+            	Received unicast Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: received_unknown_opcodes
+            
+            	Unsupported MAC Control frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc2819_ether_stats_crc_align_errors
+            
+            	RFC2819 etherStatsCRCAlignErrors
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc2819_ether_stats_jabbers
+            
+            	RFC2819 etherStatsJabbers
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc2819_ether_stats_oversized_pkts
+            
+            	RFC2819 etherStatsOversizedPkts
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rfc3635dot3_stats_alignment_errors
+            
+            	RFC3635 dot3StatsAlignmentErrors
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: symbol_errors
+            
+            	Symbol errors
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: total_bytes_transmitted
+            
+            	Total octets of all frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: total_frames_transmitted
+            
+            	All frames, good or bad
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: total_good_bytes_transmitted
+            
+            	Total octets of all good frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted8021q_frames
+            
+            	All 802.1Q frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_broadcast_frames
+            
+            	Transmitted broadcast Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_good_frames
+            
+            	Transmitted Good Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_multicast_frames
+            
+            	Transmitted multicast Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total64_octet_frames
+            
+            	All 64 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from1024_to1518
+            
+            	All 1024\-1518 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from128_to255
+            
+            	All 128\-255 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from1518_to_max
+            
+            	All > 1518 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from256_to511
+            
+            	All 256\-511 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from512_to1023
+            
+            	All 512\-1023 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_octet_frames_from65_to127
+            
+            	All 65\-127 Octet Frame Count
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_total_pause_frames
+            
+            	All pause frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: transmitted_unicast_frames
+            
+            	Transmitted unicast Frames
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: uncounted_dropped_frames
+            
+            	Any other drops not counted
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
@@ -3375,66 +3375,66 @@ class EthernetInterface(object):
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
-                self.received_total_bytes = None
-                self.received_good_bytes = None
-                self.received_total_frames = None
-                self.received8021q_frames = None
-                self.received_pause_frames = None
-                self.received_unknown_opcodes = None
-                self.received_total64_octet_frames = None
-                self.received_total_octet_frames_from65_to127 = None
-                self.received_total_octet_frames_from128_to255 = None
-                self.received_total_octet_frames_from256_to511 = None
-                self.received_total_octet_frames_from512_to1023 = None
-                self.received_total_octet_frames_from1024_to1518 = None
-                self.received_total_octet_frames_from1519_to_max = None
-                self.received_good_frames = None
-                self.received_unicast_frames = None
-                self.received_multicast_frames = None
-                self.received_broadcast_frames = None
-                self.number_of_buffer_overrun_packets_dropped = None
-                self.number_of_aborted_packets_dropped = None
-                self.numberof_invalid_vlan_id_packets_dropped = None
-                self.invalid_dest_mac_drop_packets = None
-                self.invalid_encap_drop_packets = None
-                self.number_of_miscellaneous_packets_dropped = None
-                self.dropped_giant_packets_greaterthan_mru = None
-                self.dropped_ether_stats_undersize_pkts = None
-                self.dropped_jabbers_packets_greaterthan_mru = None
+                self.aborted_packet_drops = None
+                self.buffer_underrun_packet_drops = None
                 self.dropped_ether_stats_fragments = None
+                self.dropped_ether_stats_undersize_pkts = None
+                self.dropped_giant_packets_greaterthan_mru = None
+                self.dropped_jabbers_packets_greaterthan_mru = None
+                self.dropped_miscellaneous_error_packets = None
                 self.dropped_packets_with_crc_align_errors = None
                 self.ether_stats_collisions = None
-                self.symbol_errors = None
-                self.dropped_miscellaneous_error_packets = None
-                self.rfc2819_ether_stats_oversized_pkts = None
-                self.rfc2819_ether_stats_jabbers = None
+                self.invalid_dest_mac_drop_packets = None
+                self.invalid_encap_drop_packets = None
+                self.miscellaneous_output_errors = None
+                self.number_of_aborted_packets_dropped = None
+                self.number_of_buffer_overrun_packets_dropped = None
+                self.number_of_miscellaneous_packets_dropped = None
+                self.numberof_invalid_vlan_id_packets_dropped = None
+                self.received8021q_frames = None
+                self.received_broadcast_frames = None
+                self.received_good_bytes = None
+                self.received_good_frames = None
+                self.received_multicast_frames = None
+                self.received_pause_frames = None
+                self.received_total64_octet_frames = None
+                self.received_total_bytes = None
+                self.received_total_frames = None
+                self.received_total_octet_frames_from1024_to1518 = None
+                self.received_total_octet_frames_from128_to255 = None
+                self.received_total_octet_frames_from1519_to_max = None
+                self.received_total_octet_frames_from256_to511 = None
+                self.received_total_octet_frames_from512_to1023 = None
+                self.received_total_octet_frames_from65_to127 = None
+                self.received_unicast_frames = None
+                self.received_unknown_opcodes = None
                 self.rfc2819_ether_stats_crc_align_errors = None
+                self.rfc2819_ether_stats_jabbers = None
+                self.rfc2819_ether_stats_oversized_pkts = None
                 self.rfc3635dot3_stats_alignment_errors = None
+                self.symbol_errors = None
                 self.total_bytes_transmitted = None
-                self.total_good_bytes_transmitted = None
                 self.total_frames_transmitted = None
+                self.total_good_bytes_transmitted = None
                 self.transmitted8021q_frames = None
-                self.transmitted_total_pause_frames = None
+                self.transmitted_broadcast_frames = None
+                self.transmitted_good_frames = None
+                self.transmitted_multicast_frames = None
                 self.transmitted_total64_octet_frames = None
-                self.transmitted_total_octet_frames_from65_to127 = None
+                self.transmitted_total_octet_frames_from1024_to1518 = None
                 self.transmitted_total_octet_frames_from128_to255 = None
+                self.transmitted_total_octet_frames_from1518_to_max = None
                 self.transmitted_total_octet_frames_from256_to511 = None
                 self.transmitted_total_octet_frames_from512_to1023 = None
-                self.transmitted_total_octet_frames_from1024_to1518 = None
-                self.transmitted_total_octet_frames_from1518_to_max = None
-                self.transmitted_good_frames = None
+                self.transmitted_total_octet_frames_from65_to127 = None
+                self.transmitted_total_pause_frames = None
                 self.transmitted_unicast_frames = None
-                self.transmitted_multicast_frames = None
-                self.transmitted_broadcast_frames = None
-                self.buffer_underrun_packet_drops = None
-                self.aborted_packet_drops = None
                 self.uncounted_dropped_frames = None
-                self.miscellaneous_output_errors = None
 
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/Cisco-IOS-XR-drivers-media-eth-oper:statistics/Cisco-IOS-XR-drivers-media-eth-oper:statistic[Cisco-IOS-XR-drivers-media-eth-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -3448,85 +3448,25 @@ class EthernetInterface(object):
                 if self.interface_name is not None:
                     return True
 
-                if self.received_total_bytes is not None:
+                if self.aborted_packet_drops is not None:
                     return True
 
-                if self.received_good_bytes is not None:
+                if self.buffer_underrun_packet_drops is not None:
                     return True
 
-                if self.received_total_frames is not None:
-                    return True
-
-                if self.received8021q_frames is not None:
-                    return True
-
-                if self.received_pause_frames is not None:
-                    return True
-
-                if self.received_unknown_opcodes is not None:
-                    return True
-
-                if self.received_total64_octet_frames is not None:
-                    return True
-
-                if self.received_total_octet_frames_from65_to127 is not None:
-                    return True
-
-                if self.received_total_octet_frames_from128_to255 is not None:
-                    return True
-
-                if self.received_total_octet_frames_from256_to511 is not None:
-                    return True
-
-                if self.received_total_octet_frames_from512_to1023 is not None:
-                    return True
-
-                if self.received_total_octet_frames_from1024_to1518 is not None:
-                    return True
-
-                if self.received_total_octet_frames_from1519_to_max is not None:
-                    return True
-
-                if self.received_good_frames is not None:
-                    return True
-
-                if self.received_unicast_frames is not None:
-                    return True
-
-                if self.received_multicast_frames is not None:
-                    return True
-
-                if self.received_broadcast_frames is not None:
-                    return True
-
-                if self.number_of_buffer_overrun_packets_dropped is not None:
-                    return True
-
-                if self.number_of_aborted_packets_dropped is not None:
-                    return True
-
-                if self.numberof_invalid_vlan_id_packets_dropped is not None:
-                    return True
-
-                if self.invalid_dest_mac_drop_packets is not None:
-                    return True
-
-                if self.invalid_encap_drop_packets is not None:
-                    return True
-
-                if self.number_of_miscellaneous_packets_dropped is not None:
-                    return True
-
-                if self.dropped_giant_packets_greaterthan_mru is not None:
+                if self.dropped_ether_stats_fragments is not None:
                     return True
 
                 if self.dropped_ether_stats_undersize_pkts is not None:
                     return True
 
+                if self.dropped_giant_packets_greaterthan_mru is not None:
+                    return True
+
                 if self.dropped_jabbers_packets_greaterthan_mru is not None:
                     return True
 
-                if self.dropped_ether_stats_fragments is not None:
+                if self.dropped_miscellaneous_error_packets is not None:
                     return True
 
                 if self.dropped_packets_with_crc_align_errors is not None:
@@ -3535,46 +3475,124 @@ class EthernetInterface(object):
                 if self.ether_stats_collisions is not None:
                     return True
 
-                if self.symbol_errors is not None:
+                if self.invalid_dest_mac_drop_packets is not None:
                     return True
 
-                if self.dropped_miscellaneous_error_packets is not None:
+                if self.invalid_encap_drop_packets is not None:
                     return True
 
-                if self.rfc2819_ether_stats_oversized_pkts is not None:
+                if self.miscellaneous_output_errors is not None:
                     return True
 
-                if self.rfc2819_ether_stats_jabbers is not None:
+                if self.number_of_aborted_packets_dropped is not None:
+                    return True
+
+                if self.number_of_buffer_overrun_packets_dropped is not None:
+                    return True
+
+                if self.number_of_miscellaneous_packets_dropped is not None:
+                    return True
+
+                if self.numberof_invalid_vlan_id_packets_dropped is not None:
+                    return True
+
+                if self.received8021q_frames is not None:
+                    return True
+
+                if self.received_broadcast_frames is not None:
+                    return True
+
+                if self.received_good_bytes is not None:
+                    return True
+
+                if self.received_good_frames is not None:
+                    return True
+
+                if self.received_multicast_frames is not None:
+                    return True
+
+                if self.received_pause_frames is not None:
+                    return True
+
+                if self.received_total64_octet_frames is not None:
+                    return True
+
+                if self.received_total_bytes is not None:
+                    return True
+
+                if self.received_total_frames is not None:
+                    return True
+
+                if self.received_total_octet_frames_from1024_to1518 is not None:
+                    return True
+
+                if self.received_total_octet_frames_from128_to255 is not None:
+                    return True
+
+                if self.received_total_octet_frames_from1519_to_max is not None:
+                    return True
+
+                if self.received_total_octet_frames_from256_to511 is not None:
+                    return True
+
+                if self.received_total_octet_frames_from512_to1023 is not None:
+                    return True
+
+                if self.received_total_octet_frames_from65_to127 is not None:
+                    return True
+
+                if self.received_unicast_frames is not None:
+                    return True
+
+                if self.received_unknown_opcodes is not None:
                     return True
 
                 if self.rfc2819_ether_stats_crc_align_errors is not None:
                     return True
 
+                if self.rfc2819_ether_stats_jabbers is not None:
+                    return True
+
+                if self.rfc2819_ether_stats_oversized_pkts is not None:
+                    return True
+
                 if self.rfc3635dot3_stats_alignment_errors is not None:
+                    return True
+
+                if self.symbol_errors is not None:
                     return True
 
                 if self.total_bytes_transmitted is not None:
                     return True
 
-                if self.total_good_bytes_transmitted is not None:
+                if self.total_frames_transmitted is not None:
                     return True
 
-                if self.total_frames_transmitted is not None:
+                if self.total_good_bytes_transmitted is not None:
                     return True
 
                 if self.transmitted8021q_frames is not None:
                     return True
 
-                if self.transmitted_total_pause_frames is not None:
+                if self.transmitted_broadcast_frames is not None:
+                    return True
+
+                if self.transmitted_good_frames is not None:
+                    return True
+
+                if self.transmitted_multicast_frames is not None:
                     return True
 
                 if self.transmitted_total64_octet_frames is not None:
                     return True
 
-                if self.transmitted_total_octet_frames_from65_to127 is not None:
+                if self.transmitted_total_octet_frames_from1024_to1518 is not None:
                     return True
 
                 if self.transmitted_total_octet_frames_from128_to255 is not None:
+                    return True
+
+                if self.transmitted_total_octet_frames_from1518_to_max is not None:
                     return True
 
                 if self.transmitted_total_octet_frames_from256_to511 is not None:
@@ -3583,34 +3601,16 @@ class EthernetInterface(object):
                 if self.transmitted_total_octet_frames_from512_to1023 is not None:
                     return True
 
-                if self.transmitted_total_octet_frames_from1024_to1518 is not None:
+                if self.transmitted_total_octet_frames_from65_to127 is not None:
                     return True
 
-                if self.transmitted_total_octet_frames_from1518_to_max is not None:
-                    return True
-
-                if self.transmitted_good_frames is not None:
+                if self.transmitted_total_pause_frames is not None:
                     return True
 
                 if self.transmitted_unicast_frames is not None:
                     return True
 
-                if self.transmitted_multicast_frames is not None:
-                    return True
-
-                if self.transmitted_broadcast_frames is not None:
-                    return True
-
-                if self.buffer_underrun_packet_drops is not None:
-                    return True
-
-                if self.aborted_packet_drops is not None:
-                    return True
-
                 if self.uncounted_dropped_frames is not None:
-                    return True
-
-                if self.miscellaneous_output_errors is not None:
                     return True
 
                 return False
@@ -3679,10 +3679,10 @@ class EthernetInterface(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: phy_info
+            .. attribute:: admin_state
             
-            	PHY information
-            	**type**\: :py:class:`PhyInfo <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
+            	Port Administrative State
+            	**type**\: :py:class:`EthernetPortEnableEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnableEnum>`
             
             .. attribute:: layer1_info
             
@@ -3694,20 +3694,20 @@ class EthernetInterface(object):
             	MAC Layer information
             	**type**\: :py:class:`MacInfo <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
             
-            .. attribute:: transport_info
-            
-            	Transport state information
-            	**type**\: :py:class:`TransportInfo <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
-            
-            .. attribute:: admin_state
-            
-            	Port Administrative State
-            	**type**\: :py:class:`EthernetPortEnableEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnableEnum>`
-            
             .. attribute:: oper_state_up
             
             	Port Operational state \- TRUE if up
             	**type**\: bool
+            
+            .. attribute:: phy_info
+            
+            	PHY information
+            	**type**\: :py:class:`PhyInfo <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
+            
+            .. attribute:: transport_info
+            
+            	Transport state information
+            	**type**\: :py:class:`TransportInfo <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
             
             
 
@@ -3719,46 +3719,46 @@ class EthernetInterface(object):
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
-                self.phy_info = EthernetInterface.Interfaces.Interface.PhyInfo()
-                self.phy_info.parent = self
+                self.admin_state = None
                 self.layer1_info = EthernetInterface.Interfaces.Interface.Layer1Info()
                 self.layer1_info.parent = self
                 self.mac_info = EthernetInterface.Interfaces.Interface.MacInfo()
                 self.mac_info.parent = self
+                self.oper_state_up = None
+                self.phy_info = EthernetInterface.Interfaces.Interface.PhyInfo()
+                self.phy_info.parent = self
                 self.transport_info = EthernetInterface.Interfaces.Interface.TransportInfo()
                 self.transport_info.parent = self
-                self.admin_state = None
-                self.oper_state_up = None
 
 
             class PhyInfo(object):
                 """
                 PHY information
                 
-                .. attribute:: phy_details
-                
-                	Details about the PHY
-                	**type**\: :py:class:`PhyDetails <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
-                
                 .. attribute:: fec_details
                 
                 	Forward Error Correction information
                 	**type**\: :py:class:`FecDetails <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
+                
+                .. attribute:: loopback
+                
+                	Port operational loopback
+                	**type**\: :py:class:`EthernetLoopbackEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopbackEnum>`
                 
                 .. attribute:: media_type
                 
                 	Port media type
                 	**type**\: :py:class:`EthernetMediaEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMediaEnum>`
                 
+                .. attribute:: phy_details
+                
+                	Details about the PHY
+                	**type**\: :py:class:`PhyDetails <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
+                
                 .. attribute:: phy_present
                 
                 	Presence of PHY
                 	**type**\: :py:class:`EtherPhyPresentEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresentEnum>`
-                
-                .. attribute:: loopback
-                
-                	Port operational loopback
-                	**type**\: :py:class:`EthernetLoopbackEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopbackEnum>`
                 
                 
 
@@ -3769,23 +3769,18 @@ class EthernetInterface(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
-                    self.phy_details.parent = self
                     self.fec_details = EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails()
                     self.fec_details.parent = self
-                    self.media_type = None
-                    self.phy_present = None
                     self.loopback = None
+                    self.media_type = None
+                    self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
+                    self.phy_details.parent = self
+                    self.phy_present = None
 
 
                 class PhyDetails(object):
                     """
                     Details about the PHY
-                    
-                    .. attribute:: lane_field_validity
-                    
-                    	Digital Optical Monitoring (per lane information) validity
-                    	**type**\: :py:class:`LaneFieldValidity <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
                     
                     .. attribute:: dig_opt_mon_alarm_thresholds
                     
@@ -3796,6 +3791,37 @@ class EthernetInterface(object):
                     
                     	Digital Optical Monitoring alarms
                     	**type**\: :py:class:`DigOptMonAlarms <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
+                    
+                    .. attribute:: lane
+                    
+                    	Digital Optical Monitoring (per lane information)
+                    	**type**\: list of :py:class:`Lane <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
+                    
+                    .. attribute:: lane_field_validity
+                    
+                    	Digital Optical Monitoring (per lane information) validity
+                    	**type**\: :py:class:`LaneFieldValidity <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
+                    
+                    .. attribute:: optics_wavelength
+                    
+                    	Wavelength of the optics being used in nm \* 1000
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: transceiver_temperature
+                    
+                    	The temperature of the transceiver (mDegrees C)
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_voltage
+                    
+                    	The input voltage to the transceiver (mV)
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
                     
                     .. attribute:: vendor
                     
@@ -3812,32 +3838,6 @@ class EthernetInterface(object):
                     	Serial number for the port optics
                     	**type**\: str
                     
-                    .. attribute:: transceiver_temperature
-                    
-                    	The temperature of the transceiver (mDegrees C)
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: transceiver_voltage
-                    
-                    	The input voltage to the transceiver (mV)
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: optics_wavelength
-                    
-                    	Wavelength of the optics being used in nm \* 1000
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: lane
-                    
-                    	Digital Optical Monitoring (per lane information)
-                    	**type**\: list of :py:class:`Lane <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
-                    
                     
 
                     """
@@ -3847,21 +3847,21 @@ class EthernetInterface(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
-                        self.lane_field_validity.parent = self
                         self.dig_opt_mon_alarm_thresholds = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds()
                         self.dig_opt_mon_alarm_thresholds.parent = self
                         self.dig_opt_mon_alarms = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms()
                         self.dig_opt_mon_alarms.parent = self
-                        self.vendor = None
-                        self.vendor_part_number = None
-                        self.vendor_serial_number = None
-                        self.transceiver_temperature = None
-                        self.transceiver_voltage = None
-                        self.optics_wavelength = None
                         self.lane = YList()
                         self.lane.parent = self
                         self.lane.name = 'lane'
+                        self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
+                        self.lane_field_validity.parent = self
+                        self.optics_wavelength = None
+                        self.transceiver_temperature = None
+                        self.transceiver_voltage = None
+                        self.vendor = None
+                        self.vendor_part_number = None
+                        self.vendor_serial_number = None
 
 
                     class LaneFieldValidity(object):
@@ -3869,16 +3869,9 @@ class EthernetInterface(object):
                         Digital Optical Monitoring (per lane
                         information) validity
                         
-                        .. attribute:: wavelength_valid
+                        .. attribute:: laser_bias_valid
                         
-                        	The wavelength 'per lane' field is valid
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transmit_power_valid
-                        
-                        	The transmit power 'per lane' field is valid
+                        	The laser bias 'per lane' field is valid
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -3890,9 +3883,16 @@ class EthernetInterface(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: laser_bias_valid
+                        .. attribute:: transmit_power_valid
                         
-                        	The laser bias 'per lane' field is valid
+                        	The transmit power 'per lane' field is valid
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: wavelength_valid
+                        
+                        	The wavelength 'per lane' field is valid
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -3906,15 +3906,15 @@ class EthernetInterface(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.wavelength_valid = None
-                            self.transmit_power_valid = None
-                            self.receive_power_valid = None
                             self.laser_bias_valid = None
+                            self.receive_power_valid = None
+                            self.transmit_power_valid = None
+                            self.wavelength_valid = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:lane-field-validity'
 
@@ -3925,16 +3925,16 @@ class EthernetInterface(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.wavelength_valid is not None:
-                                return True
-
-                            if self.transmit_power_valid is not None:
+                            if self.laser_bias_valid is not None:
                                 return True
 
                             if self.receive_power_valid is not None:
                                 return True
 
-                            if self.laser_bias_valid is not None:
+                            if self.transmit_power_valid is not None:
+                                return True
+
+                            if self.wavelength_valid is not None:
                                 return True
 
                             return False
@@ -3954,65 +3954,16 @@ class EthernetInterface(object):
                         	Field validity
                         	**type**\: :py:class:`FieldValidity <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
                         
-                        .. attribute:: transceiver_temperature_alarm_high
-                        
-                        	Transceiver high temperature alarm threshold (mDegrees C)
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_temperature_warning_high
-                        
-                        	Transceiver high temperature warning threshold (mDegrees C)
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_temperature_warning_low
-                        
-                        	Transceiver low temperature warning threshold (mDegrees C)
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_temperature_alarm_low
-                        
-                        	Transceiver low temperature alarm threshold (mDegrees C)
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transceiver_voltage_alarm_high
-                        
-                        	Transceiver high voltage alarm threshold (mV)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_voltage_warning_high
-                        
-                        	Transceiver high voltage warning threshold (mV)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_voltage_warning_low
-                        
-                        	Transceiver low voltage warning threshold (mV)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: transceiver_voltage_alarm_low
-                        
-                        	Transceiver low voltage alarm threshold (mV)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: laser_bias_alarm_high
                         
                         	Laser bias high alarm threshold (mA)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: laser_bias_alarm_low
+                        
+                        	Laser bias low alarm threshold (mA)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4031,44 +3982,16 @@ class EthernetInterface(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: laser_bias_alarm_low
-                        
-                        	Laser bias low alarm threshold (mA)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_alarm_high
-                        
-                        	High optical transmit power alarm threshold (mW)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_warning_high
-                        
-                        	High optical transmit power warning threshold (mW)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_warning_low
-                        
-                        	Low optical transmit power warning threshold (mW)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: optical_transmit_power_alarm_low
-                        
-                        	Low optical transmit power alarm threshold (mW)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: optical_receive_power_alarm_high
                         
                         	High optical receive power alarm threshold (mW)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_receive_power_alarm_low
+                        
+                        	Low optical receive power alarm threshold (mW)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4087,9 +4010,86 @@ class EthernetInterface(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: optical_receive_power_alarm_low
+                        .. attribute:: optical_transmit_power_alarm_high
                         
-                        	Low optical receive power alarm threshold (mW)
+                        	High optical transmit power alarm threshold (mW)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_alarm_low
+                        
+                        	Low optical transmit power alarm threshold (mW)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_warning_high
+                        
+                        	High optical transmit power warning threshold (mW)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: optical_transmit_power_warning_low
+                        
+                        	Low optical transmit power warning threshold (mW)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_temperature_alarm_high
+                        
+                        	Transceiver high temperature alarm threshold (mDegrees C)
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_temperature_alarm_low
+                        
+                        	Transceiver low temperature alarm threshold (mDegrees C)
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_temperature_warning_high
+                        
+                        	Transceiver high temperature warning threshold (mDegrees C)
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_temperature_warning_low
+                        
+                        	Transceiver low temperature warning threshold (mDegrees C)
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: transceiver_voltage_alarm_high
+                        
+                        	Transceiver high voltage alarm threshold (mV)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_voltage_alarm_low
+                        
+                        	Transceiver low voltage alarm threshold (mV)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_voltage_warning_high
+                        
+                        	Transceiver high voltage warning threshold (mV)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: transceiver_voltage_warning_low
+                        
+                        	Transceiver low voltage warning threshold (mV)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4105,49 +4105,49 @@ class EthernetInterface(object):
                             self.parent = None
                             self.field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity()
                             self.field_validity.parent = self
-                            self.transceiver_temperature_alarm_high = None
-                            self.transceiver_temperature_warning_high = None
-                            self.transceiver_temperature_warning_low = None
-                            self.transceiver_temperature_alarm_low = None
-                            self.transceiver_voltage_alarm_high = None
-                            self.transceiver_voltage_warning_high = None
-                            self.transceiver_voltage_warning_low = None
-                            self.transceiver_voltage_alarm_low = None
                             self.laser_bias_alarm_high = None
+                            self.laser_bias_alarm_low = None
                             self.laser_bias_warning_high = None
                             self.laser_bias_warning_low = None
-                            self.laser_bias_alarm_low = None
-                            self.optical_transmit_power_alarm_high = None
-                            self.optical_transmit_power_warning_high = None
-                            self.optical_transmit_power_warning_low = None
-                            self.optical_transmit_power_alarm_low = None
                             self.optical_receive_power_alarm_high = None
+                            self.optical_receive_power_alarm_low = None
                             self.optical_receive_power_warning_high = None
                             self.optical_receive_power_warning_low = None
-                            self.optical_receive_power_alarm_low = None
+                            self.optical_transmit_power_alarm_high = None
+                            self.optical_transmit_power_alarm_low = None
+                            self.optical_transmit_power_warning_high = None
+                            self.optical_transmit_power_warning_low = None
+                            self.transceiver_temperature_alarm_high = None
+                            self.transceiver_temperature_alarm_low = None
+                            self.transceiver_temperature_warning_high = None
+                            self.transceiver_temperature_warning_low = None
+                            self.transceiver_voltage_alarm_high = None
+                            self.transceiver_voltage_alarm_low = None
+                            self.transceiver_voltage_warning_high = None
+                            self.transceiver_voltage_warning_low = None
 
 
                         class FieldValidity(object):
                             """
                             Field validity
                             
-                            .. attribute:: temperature_valid
-                            
-                            	The temperature fields are valid
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: voltage_valid
-                            
-                            	The voltage fields are valid
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
                             .. attribute:: laser_bias_valid
                             
                             	The laser bias fields are valid
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: receive_power_valid
+                            
+                            	The receive power fields are valid
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: temperature_valid
+                            
+                            	The temperature fields are valid
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -4159,9 +4159,9 @@ class EthernetInterface(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: receive_power_valid
+                            .. attribute:: voltage_valid
                             
-                            	The receive power fields are valid
+                            	The voltage fields are valid
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -4175,16 +4175,16 @@ class EthernetInterface(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.temperature_valid = None
-                                self.voltage_valid = None
                                 self.laser_bias_valid = None
-                                self.transmit_power_valid = None
                                 self.receive_power_valid = None
+                                self.temperature_valid = None
+                                self.transmit_power_valid = None
+                                self.voltage_valid = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:field-validity'
 
@@ -4195,19 +4195,19 @@ class EthernetInterface(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.temperature_valid is not None:
-                                    return True
-
-                                if self.voltage_valid is not None:
-                                    return True
-
                                 if self.laser_bias_valid is not None:
+                                    return True
+
+                                if self.receive_power_valid is not None:
+                                    return True
+
+                                if self.temperature_valid is not None:
                                     return True
 
                                 if self.transmit_power_valid is not None:
                                     return True
 
-                                if self.receive_power_valid is not None:
+                                if self.voltage_valid is not None:
                                     return True
 
                                 return False
@@ -4220,7 +4220,7 @@ class EthernetInterface(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:dig-opt-mon-alarm-thresholds'
 
@@ -4234,31 +4234,10 @@ class EthernetInterface(object):
                             if self.field_validity is not None and self.field_validity._has_data():
                                 return True
 
-                            if self.transceiver_temperature_alarm_high is not None:
-                                return True
-
-                            if self.transceiver_temperature_warning_high is not None:
-                                return True
-
-                            if self.transceiver_temperature_warning_low is not None:
-                                return True
-
-                            if self.transceiver_temperature_alarm_low is not None:
-                                return True
-
-                            if self.transceiver_voltage_alarm_high is not None:
-                                return True
-
-                            if self.transceiver_voltage_warning_high is not None:
-                                return True
-
-                            if self.transceiver_voltage_warning_low is not None:
-                                return True
-
-                            if self.transceiver_voltage_alarm_low is not None:
-                                return True
-
                             if self.laser_bias_alarm_high is not None:
+                                return True
+
+                            if self.laser_bias_alarm_low is not None:
                                 return True
 
                             if self.laser_bias_warning_high is not None:
@@ -4267,22 +4246,10 @@ class EthernetInterface(object):
                             if self.laser_bias_warning_low is not None:
                                 return True
 
-                            if self.laser_bias_alarm_low is not None:
-                                return True
-
-                            if self.optical_transmit_power_alarm_high is not None:
-                                return True
-
-                            if self.optical_transmit_power_warning_high is not None:
-                                return True
-
-                            if self.optical_transmit_power_warning_low is not None:
-                                return True
-
-                            if self.optical_transmit_power_alarm_low is not None:
-                                return True
-
                             if self.optical_receive_power_alarm_high is not None:
+                                return True
+
+                            if self.optical_receive_power_alarm_low is not None:
                                 return True
 
                             if self.optical_receive_power_warning_high is not None:
@@ -4291,7 +4258,40 @@ class EthernetInterface(object):
                             if self.optical_receive_power_warning_low is not None:
                                 return True
 
-                            if self.optical_receive_power_alarm_low is not None:
+                            if self.optical_transmit_power_alarm_high is not None:
+                                return True
+
+                            if self.optical_transmit_power_alarm_low is not None:
+                                return True
+
+                            if self.optical_transmit_power_warning_high is not None:
+                                return True
+
+                            if self.optical_transmit_power_warning_low is not None:
+                                return True
+
+                            if self.transceiver_temperature_alarm_high is not None:
+                                return True
+
+                            if self.transceiver_temperature_alarm_low is not None:
+                                return True
+
+                            if self.transceiver_temperature_warning_high is not None:
+                                return True
+
+                            if self.transceiver_temperature_warning_low is not None:
+                                return True
+
+                            if self.transceiver_voltage_alarm_high is not None:
+                                return True
+
+                            if self.transceiver_voltage_alarm_low is not None:
+                                return True
+
+                            if self.transceiver_voltage_warning_high is not None:
+                                return True
+
+                            if self.transceiver_voltage_warning_low is not None:
                                 return True
 
                             return False
@@ -4305,6 +4305,16 @@ class EthernetInterface(object):
                     class DigOptMonAlarms(object):
                         """
                         Digital Optical Monitoring alarms
+                        
+                        .. attribute:: laser_bias_current
+                        
+                        	Laser Bias Current Alarm
+                        	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                        
+                        .. attribute:: received_laser_power
+                        
+                        	Received Optical Power Alarm
+                        	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
                         .. attribute:: transceiver_temperature
                         
@@ -4321,16 +4331,6 @@ class EthernetInterface(object):
                         	Transmit Laser Power Alarm
                         	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
-                        .. attribute:: received_laser_power
-                        
-                        	Received Optical Power Alarm
-                        	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
-                        
-                        .. attribute:: laser_bias_current
-                        
-                        	Laser Bias Current Alarm
-                        	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
-                        
                         
 
                         """
@@ -4340,16 +4340,16 @@ class EthernetInterface(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.laser_bias_current = None
+                            self.received_laser_power = None
                             self.transceiver_temperature = None
                             self.transceiver_voltage = None
                             self.transmit_laser_power = None
-                            self.received_laser_power = None
-                            self.laser_bias_current = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:dig-opt-mon-alarms'
 
@@ -4360,6 +4360,12 @@ class EthernetInterface(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.laser_bias_current is not None:
+                                return True
+
+                            if self.received_laser_power is not None:
+                                return True
+
                             if self.transceiver_temperature is not None:
                                 return True
 
@@ -4367,12 +4373,6 @@ class EthernetInterface(object):
                                 return True
 
                             if self.transmit_laser_power is not None:
-                                return True
-
-                            if self.received_laser_power is not None:
-                                return True
-
-                            if self.laser_bias_current is not None:
                                 return True
 
                             return False
@@ -4388,11 +4388,6 @@ class EthernetInterface(object):
                         Digital Optical Monitoring (per lane
                         information)
                         
-                        .. attribute:: dig_opt_mon_alarm
-                        
-                        	Digital Optical Monitoring alarms
-                        	**type**\: :py:class:`DigOptMonAlarm <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
-                        
                         .. attribute:: center_wavelength
                         
                         	Center Wavelength (nm\*1000)
@@ -4400,12 +4395,17 @@ class EthernetInterface(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: transmit_laser_power
+                        .. attribute:: dig_opt_mon_alarm
                         
-                        	Transmit Laser Power (dBm\*1000)
+                        	Digital Optical Monitoring alarms
+                        	**type**\: :py:class:`DigOptMonAlarm <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
+                        
+                        .. attribute:: laser_bias_current
+                        
+                        	Laser Bias Current (uAmps)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: received_laser_power
                         
@@ -4414,12 +4414,12 @@ class EthernetInterface(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: laser_bias_current
+                        .. attribute:: transmit_laser_power
                         
-                        	Laser Bias Current (uAmps)
+                        	Transmit Laser Power (dBm\*1000)
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** \-2147483648..2147483647
                         
                         
 
@@ -4430,21 +4430,21 @@ class EthernetInterface(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.center_wavelength = None
                             self.dig_opt_mon_alarm = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm()
                             self.dig_opt_mon_alarm.parent = self
-                            self.center_wavelength = None
-                            self.transmit_laser_power = None
-                            self.received_laser_power = None
                             self.laser_bias_current = None
+                            self.received_laser_power = None
+                            self.transmit_laser_power = None
 
 
                         class DigOptMonAlarm(object):
                             """
                             Digital Optical Monitoring alarms
                             
-                            .. attribute:: transmit_laser_power
+                            .. attribute:: laser_bias_current
                             
-                            	Transmit Laser Power Alarm
+                            	Laser Bias Current Alarm
                             	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                             
                             .. attribute:: received_laser_power
@@ -4452,9 +4452,9 @@ class EthernetInterface(object):
                             	Received Optical Power Alarm
                             	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                             
-                            .. attribute:: laser_bias_current
+                            .. attribute:: transmit_laser_power
                             
-                            	Laser Bias Current Alarm
+                            	Transmit Laser Power Alarm
                             	**type**\: :py:class:`EtherDomAlarmEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                             
                             
@@ -4466,14 +4466,14 @@ class EthernetInterface(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.transmit_laser_power = None
-                                self.received_laser_power = None
                                 self.laser_bias_current = None
+                                self.received_laser_power = None
+                                self.transmit_laser_power = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:dig-opt-mon-alarm'
 
@@ -4484,13 +4484,13 @@ class EthernetInterface(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.transmit_laser_power is not None:
+                                if self.laser_bias_current is not None:
                                     return True
 
                                 if self.received_laser_power is not None:
                                     return True
 
-                                if self.laser_bias_current is not None:
+                                if self.transmit_laser_power is not None:
                                     return True
 
                                 return False
@@ -4503,7 +4503,7 @@ class EthernetInterface(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:lane'
 
@@ -4514,19 +4514,19 @@ class EthernetInterface(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.dig_opt_mon_alarm is not None and self.dig_opt_mon_alarm._has_data():
-                                return True
-
                             if self.center_wavelength is not None:
                                 return True
 
-                            if self.transmit_laser_power is not None:
+                            if self.dig_opt_mon_alarm is not None and self.dig_opt_mon_alarm._has_data():
+                                return True
+
+                            if self.laser_bias_current is not None:
                                 return True
 
                             if self.received_laser_power is not None:
                                 return True
 
-                            if self.laser_bias_current is not None:
+                            if self.transmit_laser_power is not None:
                                 return True
 
                             return False
@@ -4539,7 +4539,7 @@ class EthernetInterface(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:phy-details'
 
@@ -4550,13 +4550,27 @@ class EthernetInterface(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.lane_field_validity is not None and self.lane_field_validity._has_data():
-                            return True
-
                         if self.dig_opt_mon_alarm_thresholds is not None and self.dig_opt_mon_alarm_thresholds._has_data():
                             return True
 
                         if self.dig_opt_mon_alarms is not None and self.dig_opt_mon_alarms._has_data():
+                            return True
+
+                        if self.lane is not None:
+                            for child_ref in self.lane:
+                                if child_ref._has_data():
+                                    return True
+
+                        if self.lane_field_validity is not None and self.lane_field_validity._has_data():
+                            return True
+
+                        if self.optics_wavelength is not None:
+                            return True
+
+                        if self.transceiver_temperature is not None:
+                            return True
+
+                        if self.transceiver_voltage is not None:
                             return True
 
                         if self.vendor is not None:
@@ -4567,20 +4581,6 @@ class EthernetInterface(object):
 
                         if self.vendor_serial_number is not None:
                             return True
-
-                        if self.transceiver_temperature is not None:
-                            return True
-
-                        if self.transceiver_voltage is not None:
-                            return True
-
-                        if self.optics_wavelength is not None:
-                            return True
-
-                        if self.lane is not None:
-                            for child_ref in self.lane:
-                                if child_ref._has_data():
-                                    return True
 
                         return False
 
@@ -4594,22 +4594,22 @@ class EthernetInterface(object):
                     """
                     Forward Error Correction information
                     
+                    .. attribute:: corrected_codeword_count
+                    
+                    	Corrected codeword error count
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: fec
                     
                     	Port operational FEC type
                     	**type**\: :py:class:`EthernetFecEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFecEnum>`
                     
-                    .. attribute:: corrected_codeword_count
-                    
-                    	Corrected codeword error count
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: uncorrected_codeword_count
                     
                     	Uncorrected codeword error count
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4622,14 +4622,14 @@ class EthernetInterface(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.fec = None
                         self.corrected_codeword_count = None
+                        self.fec = None
                         self.uncorrected_codeword_count = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:fec-details'
 
@@ -4640,10 +4640,10 @@ class EthernetInterface(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.fec is not None:
+                        if self.corrected_codeword_count is not None:
                             return True
 
-                        if self.corrected_codeword_count is not None:
+                        if self.fec is not None:
                             return True
 
                         if self.uncorrected_codeword_count is not None:
@@ -4659,7 +4659,7 @@ class EthernetInterface(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:phy-info'
 
@@ -4670,19 +4670,19 @@ class EthernetInterface(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.phy_details is not None and self.phy_details._has_data():
+                    if self.fec_details is not None and self.fec_details._has_data():
                         return True
 
-                    if self.fec_details is not None and self.fec_details._has_data():
+                    if self.loopback is not None:
                         return True
 
                     if self.media_type is not None:
                         return True
 
-                    if self.phy_present is not None:
+                    if self.phy_details is not None and self.phy_details._has_data():
                         return True
 
-                    if self.loopback is not None:
+                    if self.phy_present is not None:
                         return True
 
                     return False
@@ -4702,45 +4702,32 @@ class EthernetInterface(object):
                 	Port autonegotiation configuration settings
                 	**type**\: :py:class:`Autoneg <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
                 
-                .. attribute:: current_alarms
+                .. attribute:: bandwidth_utilization
                 
-                	Current alarms
-                	**type**\: :py:class:`CurrentAlarms <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
+                	Bandwidth utilization (hundredths of a percent)
+                	**type**\: int
                 
-                .. attribute:: previous_alarms
-                
-                	Previous alarms
-                	**type**\: :py:class:`PreviousAlarms <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
-                
-                .. attribute:: error_counts
-                
-                	Statistics for detected errors
-                	**type**\: :py:class:`ErrorCounts <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
+                	**range:** 0..4294967295
                 
                 .. attribute:: ber_monitoring
                 
                 	BER monitoring details
                 	**type**\: :py:class:`BerMonitoring <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
                 
-                .. attribute:: link_state
+                .. attribute:: current_alarms
                 
-                	Link state
-                	**type**\: :py:class:`EtherLinkStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkStateEnum>`
-                
-                .. attribute:: led_state
-                
-                	State of the LED
-                	**type**\: :py:class:`EtherLedStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedStateEnum>`
-                
-                .. attribute:: speed
-                
-                	Port operational speed
-                	**type**\: :py:class:`EthernetSpeedEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
+                	Current alarms
+                	**type**\: :py:class:`CurrentAlarms <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
                 
                 .. attribute:: duplex
                 
                 	Port operational duplexity
                 	**type**\: :py:class:`EthernetDuplexEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
+                
+                .. attribute:: error_counts
+                
+                	Statistics for detected errors
+                	**type**\: :py:class:`ErrorCounts <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
                 
                 .. attribute:: flowcontrol
                 
@@ -4757,12 +4744,25 @@ class EthernetInterface(object):
                 	Laser Squelch \- TRUE if enabled
                 	**type**\: bool
                 
-                .. attribute:: bandwidth_utilization
+                .. attribute:: led_state
                 
-                	Bandwidth utilization (hundredths of a percent)
-                	**type**\: int
+                	State of the LED
+                	**type**\: :py:class:`EtherLedStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedStateEnum>`
                 
-                	**range:** 0..4294967295
+                .. attribute:: link_state
+                
+                	Link state
+                	**type**\: :py:class:`EtherLinkStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkStateEnum>`
+                
+                .. attribute:: previous_alarms
+                
+                	Previous alarms
+                	**type**\: :py:class:`PreviousAlarms <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
+                
+                .. attribute:: speed
+                
+                	Port operational speed
+                	**type**\: :py:class:`EthernetSpeedEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
                 
                 
 
@@ -4775,22 +4775,22 @@ class EthernetInterface(object):
                     self.parent = None
                     self.autoneg = EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg()
                     self.autoneg.parent = self
-                    self.current_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms()
-                    self.current_alarms.parent = self
-                    self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
-                    self.previous_alarms.parent = self
-                    self.error_counts = EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts()
-                    self.error_counts.parent = self
+                    self.bandwidth_utilization = None
                     self.ber_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring()
                     self.ber_monitoring.parent = self
-                    self.link_state = None
-                    self.led_state = None
-                    self.speed = None
+                    self.current_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms()
+                    self.current_alarms.parent = self
                     self.duplex = None
+                    self.error_counts = EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts()
+                    self.error_counts.parent = self
                     self.flowcontrol = None
                     self.ipg = None
                     self.laser_squelch_enabled = None
-                    self.bandwidth_utilization = None
+                    self.led_state = None
+                    self.link_state = None
+                    self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
+                    self.previous_alarms.parent = self
+                    self.speed = None
 
 
                 class Autoneg(object):
@@ -4804,6 +4804,23 @@ class EthernetInterface(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: config_override
+                    
+                    	If true, configuration overrides negotiated settings.  If false, negotiated settings in effect
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: duplex
+                    
+                    	Restricted duplex (if relevant bit is set in mask)
+                    	**type**\: :py:class:`EthernetDuplexEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
+                    
+                    .. attribute:: flowcontrol
+                    
+                    	Restricted flowcontrol (if relevant bit is set in mask)
+                    	**type**\: :py:class:`EtherFlowcontrolEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrolEnum>`
+                    
                     .. attribute:: mask
                     
                     	Validity mask\: 0x1 speed, 0x2 duplex, 0x4 flowcontrol
@@ -4816,23 +4833,6 @@ class EthernetInterface(object):
                     	Restricted speed (if relevant bit is set in mask)
                     	**type**\: :py:class:`EthernetSpeedEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
                     
-                    .. attribute:: duplex
-                    
-                    	Restricted duplex (if relevant bit is set in mask)
-                    	**type**\: :py:class:`EthernetDuplexEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
-                    
-                    .. attribute:: flowcontrol
-                    
-                    	Restricted flowcontrol (if relevant bit is set in mask)
-                    	**type**\: :py:class:`EtherFlowcontrolEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrolEnum>`
-                    
-                    .. attribute:: config_override
-                    
-                    	If true, configuration overrides negotiated settings.  If false, negotiated settings in effect
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
                     
 
                     """
@@ -4843,16 +4843,16 @@ class EthernetInterface(object):
                     def __init__(self):
                         self.parent = None
                         self.autoneg_enabled = None
-                        self.mask = None
-                        self.speed = None
+                        self.config_override = None
                         self.duplex = None
                         self.flowcontrol = None
-                        self.config_override = None
+                        self.mask = None
+                        self.speed = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:autoneg'
 
@@ -4866,10 +4866,7 @@ class EthernetInterface(object):
                         if self.autoneg_enabled is not None:
                             return True
 
-                        if self.mask is not None:
-                            return True
-
-                        if self.speed is not None:
+                        if self.config_override is not None:
                             return True
 
                         if self.duplex is not None:
@@ -4878,7 +4875,10 @@ class EthernetInterface(object):
                         if self.flowcontrol is not None:
                             return True
 
-                        if self.config_override is not None:
+                        if self.mask is not None:
+                            return True
+
+                        if self.speed is not None:
                             return True
 
                         return False
@@ -4893,9 +4893,19 @@ class EthernetInterface(object):
                     """
                     Current alarms
                     
-                    .. attribute:: received_loss_of_signal_alarm
+                    .. attribute:: hi_ber_alarm
                     
-                    	Received Loss of Signal
+                    	Hi BER
+                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    
+                    .. attribute:: local_fault_alarm
+                    
+                    	Local Fault
+                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    
+                    .. attribute:: loss_of_synchronization_data_alarm
+                    
+                    	Loss of Synchronization Data
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: pcs_loss_of_block_lock_alarm
@@ -4903,9 +4913,9 @@ class EthernetInterface(object):
                     	PCS Loss of Block Lock
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
-                    .. attribute:: local_fault_alarm
+                    .. attribute:: received_loss_of_signal_alarm
                     
-                    	Local Fault
+                    	Received Loss of Signal
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: remote_fault_alarm
@@ -4923,16 +4933,6 @@ class EthernetInterface(object):
                     	SF BER
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
-                    .. attribute:: loss_of_synchronization_data_alarm
-                    
-                    	Loss of Synchronization Data
-                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
-                    
-                    .. attribute:: hi_ber_alarm
-                    
-                    	Hi BER
-                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
-                    
                     .. attribute:: squelch_alarm
                     
                     	Squelch
@@ -4947,20 +4947,20 @@ class EthernetInterface(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.received_loss_of_signal_alarm = None
-                        self.pcs_loss_of_block_lock_alarm = None
+                        self.hi_ber_alarm = None
                         self.local_fault_alarm = None
+                        self.loss_of_synchronization_data_alarm = None
+                        self.pcs_loss_of_block_lock_alarm = None
+                        self.received_loss_of_signal_alarm = None
                         self.remote_fault_alarm = None
                         self.sd_ber_alarm = None
                         self.sf_ber_alarm = None
-                        self.loss_of_synchronization_data_alarm = None
-                        self.hi_ber_alarm = None
                         self.squelch_alarm = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:current-alarms'
 
@@ -4971,13 +4971,19 @@ class EthernetInterface(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.received_loss_of_signal_alarm is not None:
+                        if self.hi_ber_alarm is not None:
+                            return True
+
+                        if self.local_fault_alarm is not None:
+                            return True
+
+                        if self.loss_of_synchronization_data_alarm is not None:
                             return True
 
                         if self.pcs_loss_of_block_lock_alarm is not None:
                             return True
 
-                        if self.local_fault_alarm is not None:
+                        if self.received_loss_of_signal_alarm is not None:
                             return True
 
                         if self.remote_fault_alarm is not None:
@@ -4987,12 +4993,6 @@ class EthernetInterface(object):
                             return True
 
                         if self.sf_ber_alarm is not None:
-                            return True
-
-                        if self.loss_of_synchronization_data_alarm is not None:
-                            return True
-
-                        if self.hi_ber_alarm is not None:
                             return True
 
                         if self.squelch_alarm is not None:
@@ -5010,9 +5010,19 @@ class EthernetInterface(object):
                     """
                     Previous alarms
                     
-                    .. attribute:: received_loss_of_signal_alarm
+                    .. attribute:: hi_ber_alarm
                     
-                    	Received Loss of Signal
+                    	Hi BER
+                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    
+                    .. attribute:: local_fault_alarm
+                    
+                    	Local Fault
+                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    
+                    .. attribute:: loss_of_synchronization_data_alarm
+                    
+                    	Loss of Synchronization Data
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: pcs_loss_of_block_lock_alarm
@@ -5020,9 +5030,9 @@ class EthernetInterface(object):
                     	PCS Loss of Block Lock
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
-                    .. attribute:: local_fault_alarm
+                    .. attribute:: received_loss_of_signal_alarm
                     
-                    	Local Fault
+                    	Received Loss of Signal
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: remote_fault_alarm
@@ -5040,16 +5050,6 @@ class EthernetInterface(object):
                     	SF BER
                     	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
-                    .. attribute:: loss_of_synchronization_data_alarm
-                    
-                    	Loss of Synchronization Data
-                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
-                    
-                    .. attribute:: hi_ber_alarm
-                    
-                    	Hi BER
-                    	**type**\: :py:class:`EthCtrlrAlarmStateEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
-                    
                     .. attribute:: squelch_alarm
                     
                     	Squelch
@@ -5064,20 +5064,20 @@ class EthernetInterface(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.received_loss_of_signal_alarm = None
-                        self.pcs_loss_of_block_lock_alarm = None
+                        self.hi_ber_alarm = None
                         self.local_fault_alarm = None
+                        self.loss_of_synchronization_data_alarm = None
+                        self.pcs_loss_of_block_lock_alarm = None
+                        self.received_loss_of_signal_alarm = None
                         self.remote_fault_alarm = None
                         self.sd_ber_alarm = None
                         self.sf_ber_alarm = None
-                        self.loss_of_synchronization_data_alarm = None
-                        self.hi_ber_alarm = None
                         self.squelch_alarm = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:previous-alarms'
 
@@ -5088,13 +5088,19 @@ class EthernetInterface(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.received_loss_of_signal_alarm is not None:
+                        if self.hi_ber_alarm is not None:
+                            return True
+
+                        if self.local_fault_alarm is not None:
+                            return True
+
+                        if self.loss_of_synchronization_data_alarm is not None:
                             return True
 
                         if self.pcs_loss_of_block_lock_alarm is not None:
                             return True
 
-                        if self.local_fault_alarm is not None:
+                        if self.received_loss_of_signal_alarm is not None:
                             return True
 
                         if self.remote_fault_alarm is not None:
@@ -5104,12 +5110,6 @@ class EthernetInterface(object):
                             return True
 
                         if self.sf_ber_alarm is not None:
-                            return True
-
-                        if self.loss_of_synchronization_data_alarm is not None:
-                            return True
-
-                        if self.hi_ber_alarm is not None:
                             return True
 
                         if self.squelch_alarm is not None:
@@ -5127,17 +5127,17 @@ class EthernetInterface(object):
                     """
                     Statistics for detected errors
                     
-                    .. attribute:: sync_header_errors
-                    
-                    	Sync\-header error count
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: pcsbip_errors
                     
                     	PCS BIP error count
-                    	**type**\: int
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sync_header_errors
+                    
+                    	Sync\-header error count
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5150,13 +5150,13 @@ class EthernetInterface(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sync_header_errors = None
                         self.pcsbip_errors = None
+                        self.sync_header_errors = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:error-counts'
 
@@ -5167,10 +5167,10 @@ class EthernetInterface(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sync_header_errors is not None:
+                        if self.pcsbip_errors is not None:
                             return True
 
-                        if self.pcsbip_errors is not None:
+                        if self.sync_header_errors is not None:
                             return True
 
                         return False
@@ -5215,13 +5215,6 @@ class EthernetInterface(object):
                         """
                         The BER monitoring settings to be applied
                         
-                        .. attribute:: signal_degrade_threshold
-                        
-                        	BER threshold for signal to degrade
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: signal_degrade_alarm
                         
                         	Report alarm to indicate signal degrade
@@ -5229,9 +5222,9 @@ class EthernetInterface(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: signal_fail_threshold
+                        .. attribute:: signal_degrade_threshold
                         
-                        	BER threshold for signal to fail
+                        	BER threshold for signal to degrade
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -5242,6 +5235,13 @@ class EthernetInterface(object):
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: signal_fail_threshold
+                        
+                        	BER threshold for signal to fail
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: signal_remote_fault
                         
@@ -5259,16 +5259,16 @@ class EthernetInterface(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.signal_degrade_threshold = None
                             self.signal_degrade_alarm = None
-                            self.signal_fail_threshold = None
+                            self.signal_degrade_threshold = None
                             self.signal_fail_alarm = None
+                            self.signal_fail_threshold = None
                             self.signal_remote_fault = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:settings'
 
@@ -5279,16 +5279,16 @@ class EthernetInterface(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.signal_degrade_threshold is not None:
-                                return True
-
                             if self.signal_degrade_alarm is not None:
                                 return True
 
-                            if self.signal_fail_threshold is not None:
+                            if self.signal_degrade_threshold is not None:
                                 return True
 
                             if self.signal_fail_alarm is not None:
+                                return True
+
+                            if self.signal_fail_threshold is not None:
                                 return True
 
                             if self.signal_remote_fault is not None:
@@ -5304,7 +5304,7 @@ class EthernetInterface(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:ber-monitoring'
 
@@ -5331,7 +5331,7 @@ class EthernetInterface(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:layer1-info'
 
@@ -5345,28 +5345,19 @@ class EthernetInterface(object):
                     if self.autoneg is not None and self.autoneg._has_data():
                         return True
 
-                    if self.current_alarms is not None and self.current_alarms._has_data():
-                        return True
-
-                    if self.previous_alarms is not None and self.previous_alarms._has_data():
-                        return True
-
-                    if self.error_counts is not None and self.error_counts._has_data():
+                    if self.bandwidth_utilization is not None:
                         return True
 
                     if self.ber_monitoring is not None and self.ber_monitoring._has_data():
                         return True
 
-                    if self.link_state is not None:
-                        return True
-
-                    if self.led_state is not None:
-                        return True
-
-                    if self.speed is not None:
+                    if self.current_alarms is not None and self.current_alarms._has_data():
                         return True
 
                     if self.duplex is not None:
+                        return True
+
+                    if self.error_counts is not None and self.error_counts._has_data():
                         return True
 
                     if self.flowcontrol is not None:
@@ -5378,7 +5369,16 @@ class EthernetInterface(object):
                     if self.laser_squelch_enabled is not None:
                         return True
 
-                    if self.bandwidth_utilization is not None:
+                    if self.led_state is not None:
+                        return True
+
+                    if self.link_state is not None:
+                        return True
+
+                    if self.previous_alarms is not None and self.previous_alarms._has_data():
+                        return True
+
+                    if self.speed is not None:
                         return True
 
                     return False
@@ -5393,22 +5393,12 @@ class EthernetInterface(object):
                 """
                 MAC Layer information
                 
-                .. attribute:: unicast_mac_filters
+                .. attribute:: burned_in_mac_address
                 
-                	Port unicast MAC filter information
-                	**type**\: :py:class:`UnicastMacFilters <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
+                	Port Burned\-In MAC address
+                	**type**\: str
                 
-                .. attribute:: multicast_mac_filters
-                
-                	Port multicast MAC filter information
-                	**type**\: :py:class:`MulticastMacFilters <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
-                
-                .. attribute:: mtu
-                
-                	Port operational MTU
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: mru
                 
@@ -5417,12 +5407,17 @@ class EthernetInterface(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: burned_in_mac_address
+                .. attribute:: mtu
                 
-                	Port Burned\-In MAC address
-                	**type**\: str
+                	Port operational MTU
+                	**type**\: int
                 
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                	**range:** 0..4294967295
+                
+                .. attribute:: multicast_mac_filters
+                
+                	Port multicast MAC filter information
+                	**type**\: :py:class:`MulticastMacFilters <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
                 
                 .. attribute:: operational_mac_address
                 
@@ -5430,6 +5425,11 @@ class EthernetInterface(object):
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: unicast_mac_filters
+                
+                	Port unicast MAC filter information
+                	**type**\: :py:class:`UnicastMacFilters <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
                 
                 
 
@@ -5440,14 +5440,14 @@ class EthernetInterface(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.unicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters()
-                    self.unicast_mac_filters.parent = self
+                    self.burned_in_mac_address = None
+                    self.mru = None
+                    self.mtu = None
                     self.multicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters()
                     self.multicast_mac_filters.parent = self
-                    self.mtu = None
-                    self.mru = None
-                    self.burned_in_mac_address = None
                     self.operational_mac_address = None
+                    self.unicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters()
+                    self.unicast_mac_filters.parent = self
 
 
                 class UnicastMacFilters(object):
@@ -5477,7 +5477,7 @@ class EthernetInterface(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:unicast-mac-filters'
 
@@ -5505,15 +5505,15 @@ class EthernetInterface(object):
                     """
                     Port multicast MAC filter information
                     
-                    .. attribute:: multicast_promiscuous
-                    
-                    	Whether the port is in multicast promiscuous mode
-                    	**type**\: bool
-                    
                     .. attribute:: multicast_mac_address
                     
                     	MAC addresses in the multicast ingress destination MAC filter
                     	**type**\: list of :py:class:`MulticastMacAddress <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
+                    
+                    .. attribute:: multicast_promiscuous
+                    
+                    	Whether the port is in multicast promiscuous mode
+                    	**type**\: bool
                     
                     
 
@@ -5524,10 +5524,10 @@ class EthernetInterface(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.multicast_promiscuous = None
                         self.multicast_mac_address = YList()
                         self.multicast_mac_address.parent = self
                         self.multicast_mac_address.name = 'multicast_mac_address'
+                        self.multicast_promiscuous = None
 
 
                     class MulticastMacAddress(object):
@@ -5564,7 +5564,7 @@ class EthernetInterface(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:multicast-mac-address'
 
@@ -5591,7 +5591,7 @@ class EthernetInterface(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:multicast-mac-filters'
 
@@ -5602,13 +5602,13 @@ class EthernetInterface(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.multicast_promiscuous is not None:
-                            return True
-
                         if self.multicast_mac_address is not None:
                             for child_ref in self.multicast_mac_address:
                                 if child_ref._has_data():
                                     return True
+
+                        if self.multicast_promiscuous is not None:
+                            return True
 
                         return False
 
@@ -5620,7 +5620,7 @@ class EthernetInterface(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:mac-info'
 
@@ -5631,22 +5631,22 @@ class EthernetInterface(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.unicast_mac_filters is not None and self.unicast_mac_filters._has_data():
-                        return True
-
-                    if self.multicast_mac_filters is not None and self.multicast_mac_filters._has_data():
-                        return True
-
-                    if self.mtu is not None:
+                    if self.burned_in_mac_address is not None:
                         return True
 
                     if self.mru is not None:
                         return True
 
-                    if self.burned_in_mac_address is not None:
+                    if self.mtu is not None:
+                        return True
+
+                    if self.multicast_mac_filters is not None and self.multicast_mac_filters._has_data():
                         return True
 
                     if self.operational_mac_address is not None:
+                        return True
+
+                    if self.unicast_mac_filters is not None and self.unicast_mac_filters._has_data():
                         return True
 
                     return False
@@ -5661,26 +5661,26 @@ class EthernetInterface(object):
                 """
                 Transport state information
                 
-                .. attribute:: maintenance_mode_enabled
-                
-                	Maintenance Mode \- TRUE if enabled
-                	**type**\: bool
-                
                 .. attribute:: ains_status
                 
                 	AINS Soak status
                 	**type**\: :py:class:`EtherAinsStatusEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatusEnum>`
                 
-                .. attribute:: total_duration
+                .. attribute:: maintenance_mode_enabled
                 
-                	Total duration (seconds) of AINS soak timer
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	Maintenance Mode \- TRUE if enabled
+                	**type**\: bool
                 
                 .. attribute:: remaining_duration
                 
                 	Remaining duration (seconds) of AINS soak timer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: total_duration
+                
+                	Total duration (seconds) of AINS soak timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5694,15 +5694,15 @@ class EthernetInterface(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.maintenance_mode_enabled = None
                     self.ains_status = None
-                    self.total_duration = None
+                    self.maintenance_mode_enabled = None
                     self.remaining_duration = None
+                    self.total_duration = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:transport-info'
 
@@ -5713,16 +5713,16 @@ class EthernetInterface(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.maintenance_mode_enabled is not None:
-                        return True
-
                     if self.ains_status is not None:
                         return True
 
-                    if self.total_duration is not None:
+                    if self.maintenance_mode_enabled is not None:
                         return True
 
                     if self.remaining_duration is not None:
+                        return True
+
+                    if self.total_duration is not None:
                         return True
 
                     return False
@@ -5735,7 +5735,7 @@ class EthernetInterface(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/Cisco-IOS-XR-drivers-media-eth-oper:interfaces/Cisco-IOS-XR-drivers-media-eth-oper:interface[Cisco-IOS-XR-drivers-media-eth-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -5749,7 +5749,7 @@ class EthernetInterface(object):
                 if self.interface_name is not None:
                     return True
 
-                if self.phy_info is not None and self.phy_info._has_data():
+                if self.admin_state is not None:
                     return True
 
                 if self.layer1_info is not None and self.layer1_info._has_data():
@@ -5758,13 +5758,13 @@ class EthernetInterface(object):
                 if self.mac_info is not None and self.mac_info._has_data():
                     return True
 
-                if self.transport_info is not None and self.transport_info._has_data():
-                    return True
-
-                if self.admin_state is not None:
-                    return True
-
                 if self.oper_state_up is not None:
+                    return True
+
+                if self.phy_info is not None and self.phy_info._has_data():
+                    return True
+
+                if self.transport_info is not None and self.transport_info._has_data():
                     return True
 
                 return False
@@ -5838,16 +5838,16 @@ class EthernetInterface(object):
             	Current test status
             	**type**\: :py:class:`BertStatus <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
             
-            .. attribute:: time_left
+            .. attribute:: port_bert_interval
             
-            	Remaining time for this test in seconds
+            	Port BERT interval
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: port_bert_interval
+            .. attribute:: time_left
             
-            	Port BERT interval
+            	Remaining time for this test in seconds
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -5864,8 +5864,8 @@ class EthernetInterface(object):
                 self.interface_name = None
                 self.bert_status = EthernetInterface.Berts.Bert.BertStatus()
                 self.bert_status.parent = self
-                self.time_left = None
                 self.port_bert_interval = None
+                self.time_left = None
 
 
             class BertStatus(object):
@@ -5884,46 +5884,46 @@ class EthernetInterface(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: receive_count
+                .. attribute:: device_under_test
                 
-                	Receive count (if 0x1 set in flag)
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: transmit_count
-                
-                	Transmit count (if 0x2 set in flag)
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: receive_errors
-                
-                	Received errors (if 0x4 set in flag)
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
+                	Device being tested
+                	**type**\: :py:class:`EthernetDevEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevEnum>`
                 
                 .. attribute:: error_type
                 
                 	Bit, block or frame error
                 	**type**\: :py:class:`EthernetBertErrCntEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCntEnum>`
                 
+                .. attribute:: interface_device
+                
+                	Interface being tested
+                	**type**\: :py:class:`EthernetDevIfEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIfEnum>`
+                
+                .. attribute:: receive_count
+                
+                	Receive count (if 0x1 set in flag)
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: receive_errors
+                
+                	Received errors (if 0x4 set in flag)
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: test_pattern
                 
                 	Test pattern
                 	**type**\: :py:class:`EthernetBertPatternEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPatternEnum>`
                 
-                .. attribute:: device_under_test
+                .. attribute:: transmit_count
                 
-                	Device being tested
-                	**type**\: :py:class:`EthernetDevEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevEnum>`
+                	Transmit count (if 0x2 set in flag)
+                	**type**\: long
                 
-                .. attribute:: interface_device
-                
-                	Interface being tested
-                	**type**\: :py:class:`EthernetDevIfEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIfEnum>`
+                	**range:** 0..18446744073709551615
                 
                 
 
@@ -5936,18 +5936,18 @@ class EthernetInterface(object):
                     self.parent = None
                     self.bert_state_enabled = None
                     self.data_availability = None
-                    self.receive_count = None
-                    self.transmit_count = None
-                    self.receive_errors = None
-                    self.error_type = None
-                    self.test_pattern = None
                     self.device_under_test = None
+                    self.error_type = None
                     self.interface_device = None
+                    self.receive_count = None
+                    self.receive_errors = None
+                    self.test_pattern = None
+                    self.transmit_count = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:bert-status'
 
@@ -5964,25 +5964,25 @@ class EthernetInterface(object):
                     if self.data_availability is not None:
                         return True
 
-                    if self.receive_count is not None:
-                        return True
-
-                    if self.transmit_count is not None:
-                        return True
-
-                    if self.receive_errors is not None:
+                    if self.device_under_test is not None:
                         return True
 
                     if self.error_type is not None:
                         return True
 
+                    if self.interface_device is not None:
+                        return True
+
+                    if self.receive_count is not None:
+                        return True
+
+                    if self.receive_errors is not None:
+                        return True
+
                     if self.test_pattern is not None:
                         return True
 
-                    if self.device_under_test is not None:
-                        return True
-
-                    if self.interface_device is not None:
+                    if self.transmit_count is not None:
                         return True
 
                     return False
@@ -5995,7 +5995,7 @@ class EthernetInterface(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/Cisco-IOS-XR-drivers-media-eth-oper:berts/Cisco-IOS-XR-drivers-media-eth-oper:bert[Cisco-IOS-XR-drivers-media-eth-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -6012,10 +6012,10 @@ class EthernetInterface(object):
                 if self.bert_status is not None and self.bert_status._has_data():
                     return True
 
-                if self.time_left is not None:
+                if self.port_bert_interval is not None:
                     return True
 
-                if self.port_bert_interval is not None:
+                if self.time_left is not None:
                     return True
 
                 return False
@@ -6061,13 +6061,13 @@ class EthernetInterface(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.statistics is not None and self.statistics._has_data():
+        if self.berts is not None and self.berts._has_data():
             return True
 
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.berts is not None and self.berts._has_data():
+        if self.statistics is not None and self.statistics._has_data():
             return True
 
         return False

@@ -50,16 +50,16 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.openconfig.openconfig_mpls_types import LspOperStatus_Identity
-from ydk.models.openconfig.openconfig_mpls_types import LspRole_Identity
-from ydk.models.openconfig.openconfig_mpls_types import NullLabelType_Identity
-from ydk.models.openconfig.openconfig_mpls_types import ProtectionType_Identity
-from ydk.models.openconfig.openconfig_mpls_types import TunnelAdminStatus_Identity
+from ydk.models.openconfig.openconfig_mpls_types import LspOperStatusIdentity
+from ydk.models.openconfig.openconfig_mpls_types import LspRoleIdentity
+from ydk.models.openconfig.openconfig_mpls_types import NullLabelTypeIdentity
+from ydk.models.openconfig.openconfig_mpls_types import ProtectionTypeIdentity
+from ydk.models.openconfig.openconfig_mpls_types import TunnelAdminStatusIdentity
 from ydk.models.openconfig.openconfig_mpls_types import TunnelTypeEnum
-from ydk.models.openconfig.openconfig_mpls_types import TunnelType_Identity
+from ydk.models.openconfig.openconfig_mpls_types import TunnelTypeIdentity
 
 class CspfTieBreakingEnum(Enum):
     """
@@ -215,7 +215,7 @@ class TeMetricTypeEnum(Enum):
 
 
 
-class PathComputationMethod_Identity(object):
+class PathComputationMethodIdentity(object):
     """
     base identity for supported path computation
     mechanisms
@@ -233,7 +233,7 @@ class PathComputationMethod_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['PathComputationMethod_Identity']['meta_info']
+        return meta._meta_table['PathComputationMethodIdentity']['meta_info']
 
 
 class Mpls(object):
@@ -245,6 +245,26 @@ class Mpls(object):
     
     	general mpls configuration applicable to any type of LSP and signaling protocol \- label ranges, entropy label supportmay be added here
     	**type**\: :py:class:`Global <ydk.models.openconfig.openconfig_mpls.Mpls.Global>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: lsps
+    
+    	LSP definitions and configuration
+    	**type**\: :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: signaling_protocols
+    
+    	top\-level signaling protocol configuration
+    	**type**\: :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
     
     .. attribute:: _is_presence
     
@@ -271,26 +291,6 @@ class Mpls(object):
     	Is present if this instance represents presence container else not
     	**type**\: bool
     
-    .. attribute:: signaling_protocols
-    
-    	top\-level signaling protocol configuration
-    	**type**\: :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
-    .. attribute:: lsps
-    
-    	LSP definitions and configuration
-    	**type**\: :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
     
 
     This class is a :ref:`presence class<presence-class>`
@@ -303,14 +303,14 @@ class Mpls(object):
     def __init__(self):
         self.global_ = Mpls.Global()
         self.global_.parent = self
+        self.lsps = Mpls.Lsps()
+        self.lsps.parent = self
+        self.signaling_protocols = Mpls.SignalingProtocols()
+        self.signaling_protocols.parent = self
         self.te_global_attributes = Mpls.TeGlobalAttributes()
         self.te_global_attributes.parent = self
         self.te_interface_attributes = Mpls.TeInterfaceAttributes()
         self.te_interface_attributes.parent = self
-        self.signaling_protocols = Mpls.SignalingProtocols()
-        self.signaling_protocols.parent = self
-        self.lsps = Mpls.Lsps()
-        self.lsps.parent = self
 
 
     class Global(object):
@@ -324,15 +324,15 @@ class Mpls(object):
         	Top level global MPLS configuration
         	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.Config>`
         
-        .. attribute:: state
-        
-        	Top level global MPLS state
-        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.State>`
-        
         .. attribute:: mpls_interface_attributes
         
         	Parameters related to MPLS interfaces
         	**type**\: :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes>`
+        
+        .. attribute:: state
+        
+        	Top level global MPLS state
+        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.State>`
         
         
 
@@ -345,10 +345,10 @@ class Mpls(object):
             self.parent = None
             self.config = Mpls.Global.Config()
             self.config.parent = self
-            self.state = Mpls.Global.State()
-            self.state.parent = self
             self.mpls_interface_attributes = Mpls.Global.MplsInterfaceAttributes()
             self.mpls_interface_attributes.parent = self
+            self.state = Mpls.Global.State()
+            self.state.parent = self
 
 
         class Config(object):
@@ -358,7 +358,7 @@ class Mpls(object):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\: :py:class:`NullLabelType_Identity <ydk.models.openconfig.openconfig_mpls_types.NullLabelType_Identity>`
+            	**type**\: :py:class:`NullLabelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.NullLabelTypeIdentity>`
             
             
 
@@ -401,7 +401,7 @@ class Mpls(object):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\: :py:class:`NullLabelType_Identity <ydk.models.openconfig.openconfig_mpls_types.NullLabelType_Identity>`
+            	**type**\: :py:class:`NullLabelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.NullLabelTypeIdentity>`
             
             
 
@@ -499,15 +499,15 @@ class Mpls(object):
                     """
                     Configuration parameters related to MPLS interfaces\:
                     
-                    .. attribute:: name
-                    
-                    	reference to interface name
-                    	**type**\: str
-                    
                     .. attribute:: mpls_enabled
                     
                     	Enable MPLS forwarding on this interfacek
                     	**type**\: bool
+                    
+                    .. attribute:: name
+                    
+                    	reference to interface name
+                    	**type**\: str
                     
                     
 
@@ -518,13 +518,13 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
                         self.mpls_enabled = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -535,10 +535,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
+                        if self.mpls_enabled is not None:
                             return True
 
-                        if self.mpls_enabled is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -553,15 +553,15 @@ class Mpls(object):
                     """
                     State parameters related to TE interfaces
                     
-                    .. attribute:: name
-                    
-                    	reference to interface name
-                    	**type**\: str
-                    
                     .. attribute:: mpls_enabled
                     
                     	Enable MPLS forwarding on this interfacek
                     	**type**\: bool
+                    
+                    .. attribute:: name
+                    
+                    	reference to interface name
+                    	**type**\: str
                     
                     
 
@@ -572,13 +572,13 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
                         self.mpls_enabled = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -589,10 +589,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
+                        if self.mpls_enabled is not None:
                             return True
 
-                        if self.mpls_enabled is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -605,7 +605,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:global/openconfig-mpls:mpls-interface-attributes/openconfig-mpls:interface[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -671,10 +671,10 @@ class Mpls(object):
             if self.config is not None and self.config._has_data():
                 return True
 
-            if self.state is not None and self.state._has_data():
+            if self.mpls_interface_attributes is not None and self.mpls_interface_attributes._has_data():
                 return True
 
-            if self.mpls_interface_attributes is not None and self.mpls_interface_attributes._has_data():
+            if self.state is not None and self.state._has_data():
                 return True
 
             return False
@@ -689,11 +689,6 @@ class Mpls(object):
         """
         traffic\-engineering global attributes
         
-        .. attribute:: srlg
-        
-        	Shared risk link groups attributes
-        	**type**\: :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
-        
         .. attribute:: igp_flooding_bandwidth
         
         	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
@@ -703,6 +698,11 @@ class Mpls(object):
         
         	Top\-level container for admin\-groups configuration and state
         	**type**\: :py:class:`MplsAdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups>`
+        
+        .. attribute:: srlg
+        
+        	Shared risk link groups attributes
+        	**type**\: :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
         
         .. attribute:: te_lsp_timers
         
@@ -718,12 +718,12 @@ class Mpls(object):
 
         def __init__(self):
             self.parent = None
-            self.srlg = Mpls.TeGlobalAttributes.Srlg()
-            self.srlg.parent = self
             self.igp_flooding_bandwidth = Mpls.TeGlobalAttributes.IgpFloodingBandwidth()
             self.igp_flooding_bandwidth.parent = self
             self.mpls_admin_groups = Mpls.TeGlobalAttributes.MplsAdminGroups()
             self.mpls_admin_groups.parent = self
+            self.srlg = Mpls.TeGlobalAttributes.Srlg()
+            self.srlg.parent = self
             self.te_lsp_timers = Mpls.TeGlobalAttributes.TeLspTimers()
             self.te_lsp_timers.parent = self
 
@@ -797,18 +797,6 @@ class Mpls(object):
                     """
                     Configuration parameters related to the SRLG
                     
-                    .. attribute:: name
-                    
-                    	SRLG group identifier
-                    	**type**\: str
-                    
-                    .. attribute:: value
-                    
-                    	group ID for the SRLG
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: cost
                     
                     	The cost of the SRLG to the computation algorithm
@@ -821,6 +809,18 @@ class Mpls(object):
                     	The type of SRLG, either flooded in the IGP or statically configured
                     	**type**\: :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
                     
+                    .. attribute:: name
+                    
+                    	SRLG group identifier
+                    	**type**\: str
+                    
+                    .. attribute:: value
+                    
+                    	group ID for the SRLG
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -830,15 +830,15 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
-                        self.value = None
                         self.cost = None
                         self.flooding_type = None
+                        self.name = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -849,16 +849,16 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
-                            return True
-
-                        if self.value is not None:
-                            return True
-
                         if self.cost is not None:
                             return True
 
                         if self.flooding_type is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        if self.value is not None:
                             return True
 
                         return False
@@ -873,18 +873,6 @@ class Mpls(object):
                     """
                     State parameters related to the SRLG
                     
-                    .. attribute:: name
-                    
-                    	SRLG group identifier
-                    	**type**\: str
-                    
-                    .. attribute:: value
-                    
-                    	group ID for the SRLG
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: cost
                     
                     	The cost of the SRLG to the computation algorithm
@@ -897,6 +885,18 @@ class Mpls(object):
                     	The type of SRLG, either flooded in the IGP or statically configured
                     	**type**\: :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
                     
+                    .. attribute:: name
+                    
+                    	SRLG group identifier
+                    	**type**\: str
+                    
+                    .. attribute:: value
+                    
+                    	group ID for the SRLG
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -906,15 +906,15 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
-                        self.value = None
                         self.cost = None
                         self.flooding_type = None
+                        self.name = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -925,16 +925,16 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
-                            return True
-
-                        if self.value is not None:
-                            return True
-
                         if self.cost is not None:
                             return True
 
                         if self.flooding_type is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        if self.value is not None:
                             return True
 
                         return False
@@ -1071,7 +1071,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -1150,7 +1150,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -1177,9 +1177,9 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.from_address is None:
-                                raise YPYDataValidationError('Key property from_address is None')
+                                raise YPYModelError('Key property from_address is None')
 
                             return self.parent._common_path +'/openconfig-mpls:members-list[openconfig-mpls:from-address = ' + str(self.from_address) + ']'
 
@@ -1209,7 +1209,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:static-srlg-members'
 
@@ -1235,7 +1235,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:te-global-attributes/openconfig-mpls:srlg/openconfig-mpls:srlg[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -1326,27 +1326,10 @@ class Mpls(object):
                 Configuration parameters for TED
                 update threshold 
                 
-                .. attribute:: threshold_type
-                
-                	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
-                
                 .. attribute:: delta_percentage
                 
                 	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
                 	**type**\: int
-                
-                	**range:** 0..100
-                
-                .. attribute:: threshold_specification
-                
-                	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
-                
-                .. attribute:: up_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                	**type**\: list of int
                 
                 	**range:** 0..100
                 
@@ -1357,9 +1340,26 @@ class Mpls(object):
                 
                 	**range:** 0..100
                 
+                .. attribute:: threshold_specification
+                
+                	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
+                	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
+                
+                .. attribute:: threshold_type
+                
+                	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
+                	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
+                
                 .. attribute:: up_down_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
+                	**type**\: list of int
+                
+                	**range:** 0..100
+                
+                .. attribute:: up_thresholds
+                
+                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
                 	**type**\: list of int
                 
                 	**range:** 0..100
@@ -1373,18 +1373,18 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.threshold_type = None
                     self.delta_percentage = None
-                    self.threshold_specification = None
-                    self.up_thresholds = YLeafList()
-                    self.up_thresholds.parent = self
-                    self.up_thresholds.name = 'up_thresholds'
                     self.down_thresholds = YLeafList()
                     self.down_thresholds.parent = self
                     self.down_thresholds.name = 'down_thresholds'
+                    self.threshold_specification = None
+                    self.threshold_type = None
                     self.up_down_thresholds = YLeafList()
                     self.up_down_thresholds.parent = self
                     self.up_down_thresholds.name = 'up_down_thresholds'
+                    self.up_thresholds = YLeafList()
+                    self.up_thresholds.parent = self
+                    self.up_thresholds.name = 'up_thresholds'
 
                 class ThresholdSpecificationEnum(Enum):
                     """
@@ -1512,27 +1512,27 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.threshold_type is not None:
-                        return True
-
                     if self.delta_percentage is not None:
                         return True
-
-                    if self.threshold_specification is not None:
-                        return True
-
-                    if self.up_thresholds is not None:
-                        for child in self.up_thresholds:
-                            if child is not None:
-                                return True
 
                     if self.down_thresholds is not None:
                         for child in self.down_thresholds:
                             if child is not None:
                                 return True
 
+                    if self.threshold_specification is not None:
+                        return True
+
+                    if self.threshold_type is not None:
+                        return True
+
                     if self.up_down_thresholds is not None:
                         for child in self.up_down_thresholds:
+                            if child is not None:
+                                return True
+
+                    if self.up_thresholds is not None:
+                        for child in self.up_thresholds:
                             if child is not None:
                                 return True
 
@@ -1548,27 +1548,10 @@ class Mpls(object):
                 """
                 State parameters for TED update threshold 
                 
-                .. attribute:: threshold_type
-                
-                	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
-                
                 .. attribute:: delta_percentage
                 
                 	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
                 	**type**\: int
-                
-                	**range:** 0..100
-                
-                .. attribute:: threshold_specification
-                
-                	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
-                
-                .. attribute:: up_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                	**type**\: list of int
                 
                 	**range:** 0..100
                 
@@ -1579,9 +1562,26 @@ class Mpls(object):
                 
                 	**range:** 0..100
                 
+                .. attribute:: threshold_specification
+                
+                	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
+                	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
+                
+                .. attribute:: threshold_type
+                
+                	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
+                	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
+                
                 .. attribute:: up_down_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
+                	**type**\: list of int
+                
+                	**range:** 0..100
+                
+                .. attribute:: up_thresholds
+                
+                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
                 	**type**\: list of int
                 
                 	**range:** 0..100
@@ -1595,18 +1595,18 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.threshold_type = None
                     self.delta_percentage = None
-                    self.threshold_specification = None
-                    self.up_thresholds = YLeafList()
-                    self.up_thresholds.parent = self
-                    self.up_thresholds.name = 'up_thresholds'
                     self.down_thresholds = YLeafList()
                     self.down_thresholds.parent = self
                     self.down_thresholds.name = 'down_thresholds'
+                    self.threshold_specification = None
+                    self.threshold_type = None
                     self.up_down_thresholds = YLeafList()
                     self.up_down_thresholds.parent = self
                     self.up_down_thresholds.name = 'up_down_thresholds'
+                    self.up_thresholds = YLeafList()
+                    self.up_thresholds.parent = self
+                    self.up_thresholds.name = 'up_thresholds'
 
                 class ThresholdSpecificationEnum(Enum):
                     """
@@ -1734,27 +1734,27 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.threshold_type is not None:
-                        return True
-
                     if self.delta_percentage is not None:
                         return True
-
-                    if self.threshold_specification is not None:
-                        return True
-
-                    if self.up_thresholds is not None:
-                        for child in self.up_thresholds:
-                            if child is not None:
-                                return True
 
                     if self.down_thresholds is not None:
                         for child in self.down_thresholds:
                             if child is not None:
                                 return True
 
+                    if self.threshold_specification is not None:
+                        return True
+
+                    if self.threshold_type is not None:
+                        return True
+
                     if self.up_down_thresholds is not None:
                         for child in self.up_down_thresholds:
+                            if child is not None:
+                                return True
+
+                    if self.up_thresholds is not None:
+                        for child in self.up_thresholds:
                             if child is not None:
                                 return True
 
@@ -1882,7 +1882,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -1938,7 +1938,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -1965,7 +1965,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.admin_group_name is None:
-                        raise YPYDataValidationError('Key property admin_group_name is None')
+                        raise YPYModelError('Key property admin_group_name is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:te-global-attributes/openconfig-mpls:mpls-admin-groups/openconfig-mpls:admin-group[openconfig-mpls:admin-group-name = ' + str(self.admin_group_name) + ']'
 
@@ -2052,19 +2052,19 @@ class Mpls(object):
                 Configuration parameters related
                 to timers for TE LSPs
                 
-                .. attribute:: install_delay
-                
-                	delay the use of newly installed te lsp for a specified amount of time
-                	**type**\: int
-                
-                	**range:** 0..3600
-                
                 .. attribute:: cleanup_delay
                 
                 	delay the removal of old te lsp for a specified amount of time
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                .. attribute:: install_delay
+                
+                	delay the use of newly installed te lsp for a specified amount of time
+                	**type**\: int
+                
+                	**range:** 0..3600
                 
                 .. attribute:: reoptimize_timer
                 
@@ -2082,8 +2082,8 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.install_delay = None
                     self.cleanup_delay = None
+                    self.install_delay = None
                     self.reoptimize_timer = None
 
                 @property
@@ -2098,10 +2098,10 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.install_delay is not None:
+                    if self.cleanup_delay is not None:
                         return True
 
-                    if self.cleanup_delay is not None:
+                    if self.install_delay is not None:
                         return True
 
                     if self.reoptimize_timer is not None:
@@ -2119,19 +2119,19 @@ class Mpls(object):
                 """
                 State related to timers for TE LSPs
                 
-                .. attribute:: install_delay
-                
-                	delay the use of newly installed te lsp for a specified amount of time
-                	**type**\: int
-                
-                	**range:** 0..3600
-                
                 .. attribute:: cleanup_delay
                 
                 	delay the removal of old te lsp for a specified amount of time
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                .. attribute:: install_delay
+                
+                	delay the use of newly installed te lsp for a specified amount of time
+                	**type**\: int
+                
+                	**range:** 0..3600
                 
                 .. attribute:: reoptimize_timer
                 
@@ -2149,8 +2149,8 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.install_delay = None
                     self.cleanup_delay = None
+                    self.install_delay = None
                     self.reoptimize_timer = None
 
                 @property
@@ -2165,10 +2165,10 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.install_delay is not None:
+                    if self.cleanup_delay is not None:
                         return True
 
-                    if self.cleanup_delay is not None:
+                    if self.install_delay is not None:
                         return True
 
                     if self.reoptimize_timer is not None:
@@ -2218,13 +2218,13 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.srlg is not None and self.srlg._has_data():
-                return True
-
             if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth._has_data():
                 return True
 
             if self.mpls_admin_groups is not None and self.mpls_admin_groups._has_data():
+                return True
+
+            if self.srlg is not None and self.srlg._has_data():
                 return True
 
             if self.te_lsp_timers is not None and self.te_lsp_timers._has_data():
@@ -2276,15 +2276,15 @@ class Mpls(object):
             	Configuration parameters related to TE interfaces\:
             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
             
-            .. attribute:: state
-            
-            	State parameters related to TE interfaces
-            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
-            
             .. attribute:: igp_flooding_bandwidth
             
             	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
             	**type**\: :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth>`
+            
+            .. attribute:: state
+            
+            	State parameters related to TE interfaces
+            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
             
             
 
@@ -2298,20 +2298,30 @@ class Mpls(object):
                 self.name = None
                 self.config = Mpls.TeInterfaceAttributes.Interface.Config()
                 self.config.parent = self
-                self.state = Mpls.TeInterfaceAttributes.Interface.State()
-                self.state.parent = self
                 self.igp_flooding_bandwidth = Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth()
                 self.igp_flooding_bandwidth.parent = self
+                self.state = Mpls.TeInterfaceAttributes.Interface.State()
+                self.state.parent = self
 
 
             class Config(object):
                 """
                 Configuration parameters related to TE interfaces\:
                 
+                .. attribute:: admin_group
+                
+                	list of admin groups (by name) on the interface
+                	**type**\: list of str
+                
                 .. attribute:: name
                 
                 	reference to interface name
                 	**type**\: str
+                
+                .. attribute:: srlg_membership
+                
+                	list of references to named shared risk link groups that the interface belongs to
+                	**type**\: list of str
                 
                 .. attribute:: te_metric
                 
@@ -2319,16 +2329,6 @@ class Mpls(object):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
-                
-                .. attribute:: srlg_membership
-                
-                	list of references to named shared risk link groups that the interface belongs to
-                	**type**\: list of str
-                
-                .. attribute:: admin_group
-                
-                	list of admin groups (by name) on the interface
-                	**type**\: list of str
                 
                 
 
@@ -2339,19 +2339,19 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.name = None
-                    self.te_metric = None
-                    self.srlg_membership = YLeafList()
-                    self.srlg_membership.parent = self
-                    self.srlg_membership.name = 'srlg_membership'
                     self.admin_group = YLeafList()
                     self.admin_group.parent = self
                     self.admin_group.name = 'admin_group'
+                    self.name = None
+                    self.srlg_membership = YLeafList()
+                    self.srlg_membership.parent = self
+                    self.srlg_membership.name = 'srlg_membership'
+                    self.te_metric = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -2362,10 +2362,12 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.name is not None:
-                        return True
+                    if self.admin_group is not None:
+                        for child in self.admin_group:
+                            if child is not None:
+                                return True
 
-                    if self.te_metric is not None:
+                    if self.name is not None:
                         return True
 
                     if self.srlg_membership is not None:
@@ -2373,10 +2375,8 @@ class Mpls(object):
                             if child is not None:
                                 return True
 
-                    if self.admin_group is not None:
-                        for child in self.admin_group:
-                            if child is not None:
-                                return True
+                    if self.te_metric is not None:
+                        return True
 
                     return False
 
@@ -2390,10 +2390,20 @@ class Mpls(object):
                 """
                 State parameters related to TE interfaces
                 
+                .. attribute:: admin_group
+                
+                	list of admin groups (by name) on the interface
+                	**type**\: list of str
+                
                 .. attribute:: name
                 
                 	reference to interface name
                 	**type**\: str
+                
+                .. attribute:: srlg_membership
+                
+                	list of references to named shared risk link groups that the interface belongs to
+                	**type**\: list of str
                 
                 .. attribute:: te_metric
                 
@@ -2401,16 +2411,6 @@ class Mpls(object):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
-                
-                .. attribute:: srlg_membership
-                
-                	list of references to named shared risk link groups that the interface belongs to
-                	**type**\: list of str
-                
-                .. attribute:: admin_group
-                
-                	list of admin groups (by name) on the interface
-                	**type**\: list of str
                 
                 
 
@@ -2421,19 +2421,19 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.name = None
-                    self.te_metric = None
-                    self.srlg_membership = YLeafList()
-                    self.srlg_membership.parent = self
-                    self.srlg_membership.name = 'srlg_membership'
                     self.admin_group = YLeafList()
                     self.admin_group.parent = self
                     self.admin_group.name = 'admin_group'
+                    self.name = None
+                    self.srlg_membership = YLeafList()
+                    self.srlg_membership.parent = self
+                    self.srlg_membership.name = 'srlg_membership'
+                    self.te_metric = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -2444,10 +2444,12 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.name is not None:
-                        return True
+                    if self.admin_group is not None:
+                        for child in self.admin_group:
+                            if child is not None:
+                                return True
 
-                    if self.te_metric is not None:
+                    if self.name is not None:
                         return True
 
                     if self.srlg_membership is not None:
@@ -2455,10 +2457,8 @@ class Mpls(object):
                             if child is not None:
                                 return True
 
-                    if self.admin_group is not None:
-                        for child in self.admin_group:
-                            if child is not None:
-                                return True
+                    if self.te_metric is not None:
+                        return True
 
                     return False
 
@@ -2504,27 +2504,10 @@ class Mpls(object):
                     Configuration parameters for TED
                     update threshold 
                     
-                    .. attribute:: threshold_type
-                    
-                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
-                    
                     .. attribute:: delta_percentage
                     
                     	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
                     	**type**\: int
-                    
-                    	**range:** 0..100
-                    
-                    .. attribute:: threshold_specification
-                    
-                    	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
-                    
-                    .. attribute:: up_thresholds
-                    
-                    	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
@@ -2535,9 +2518,26 @@ class Mpls(object):
                     
                     	**range:** 0..100
                     
+                    .. attribute:: threshold_specification
+                    
+                    	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
+                    	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
+                    
+                    .. attribute:: threshold_type
+                    
+                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
+                    	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
+                    
                     .. attribute:: up_down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
+                    	**type**\: list of int
+                    
+                    	**range:** 0..100
+                    
+                    .. attribute:: up_thresholds
+                    
+                    	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
                     	**type**\: list of int
                     
                     	**range:** 0..100
@@ -2551,18 +2551,18 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.threshold_type = None
                         self.delta_percentage = None
-                        self.threshold_specification = None
-                        self.up_thresholds = YLeafList()
-                        self.up_thresholds.parent = self
-                        self.up_thresholds.name = 'up_thresholds'
                         self.down_thresholds = YLeafList()
                         self.down_thresholds.parent = self
                         self.down_thresholds.name = 'down_thresholds'
+                        self.threshold_specification = None
+                        self.threshold_type = None
                         self.up_down_thresholds = YLeafList()
                         self.up_down_thresholds.parent = self
                         self.up_down_thresholds.name = 'up_down_thresholds'
+                        self.up_thresholds = YLeafList()
+                        self.up_thresholds.parent = self
+                        self.up_thresholds.name = 'up_thresholds'
 
                     class ThresholdSpecificationEnum(Enum):
                         """
@@ -2681,7 +2681,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -2692,27 +2692,27 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.threshold_type is not None:
-                            return True
-
                         if self.delta_percentage is not None:
                             return True
-
-                        if self.threshold_specification is not None:
-                            return True
-
-                        if self.up_thresholds is not None:
-                            for child in self.up_thresholds:
-                                if child is not None:
-                                    return True
 
                         if self.down_thresholds is not None:
                             for child in self.down_thresholds:
                                 if child is not None:
                                     return True
 
+                        if self.threshold_specification is not None:
+                            return True
+
+                        if self.threshold_type is not None:
+                            return True
+
                         if self.up_down_thresholds is not None:
                             for child in self.up_down_thresholds:
+                                if child is not None:
+                                    return True
+
+                        if self.up_thresholds is not None:
+                            for child in self.up_thresholds:
                                 if child is not None:
                                     return True
 
@@ -2728,27 +2728,10 @@ class Mpls(object):
                     """
                     State parameters for TED update threshold 
                     
-                    .. attribute:: threshold_type
-                    
-                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
-                    
                     .. attribute:: delta_percentage
                     
                     	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
                     	**type**\: int
-                    
-                    	**range:** 0..100
-                    
-                    .. attribute:: threshold_specification
-                    
-                    	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
-                    
-                    .. attribute:: up_thresholds
-                    
-                    	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
@@ -2759,9 +2742,26 @@ class Mpls(object):
                     
                     	**range:** 0..100
                     
+                    .. attribute:: threshold_specification
+                    
+                    	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
+                    	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
+                    
+                    .. attribute:: threshold_type
+                    
+                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
+                    	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
+                    
                     .. attribute:: up_down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
+                    	**type**\: list of int
+                    
+                    	**range:** 0..100
+                    
+                    .. attribute:: up_thresholds
+                    
+                    	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
                     	**type**\: list of int
                     
                     	**range:** 0..100
@@ -2775,18 +2775,18 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.threshold_type = None
                         self.delta_percentage = None
-                        self.threshold_specification = None
-                        self.up_thresholds = YLeafList()
-                        self.up_thresholds.parent = self
-                        self.up_thresholds.name = 'up_thresholds'
                         self.down_thresholds = YLeafList()
                         self.down_thresholds.parent = self
                         self.down_thresholds.name = 'down_thresholds'
+                        self.threshold_specification = None
+                        self.threshold_type = None
                         self.up_down_thresholds = YLeafList()
                         self.up_down_thresholds.parent = self
                         self.up_down_thresholds.name = 'up_down_thresholds'
+                        self.up_thresholds = YLeafList()
+                        self.up_thresholds.parent = self
+                        self.up_thresholds.name = 'up_thresholds'
 
                     class ThresholdSpecificationEnum(Enum):
                         """
@@ -2905,7 +2905,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -2916,27 +2916,27 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.threshold_type is not None:
-                            return True
-
                         if self.delta_percentage is not None:
                             return True
-
-                        if self.threshold_specification is not None:
-                            return True
-
-                        if self.up_thresholds is not None:
-                            for child in self.up_thresholds:
-                                if child is not None:
-                                    return True
 
                         if self.down_thresholds is not None:
                             for child in self.down_thresholds:
                                 if child is not None:
                                     return True
 
+                        if self.threshold_specification is not None:
+                            return True
+
+                        if self.threshold_type is not None:
+                            return True
+
                         if self.up_down_thresholds is not None:
                             for child in self.up_down_thresholds:
+                                if child is not None:
+                                    return True
+
+                        if self.up_thresholds is not None:
+                            for child in self.up_thresholds:
                                 if child is not None:
                                     return True
 
@@ -2950,7 +2950,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-mpls:igp-flooding-bandwidth'
 
@@ -2977,7 +2977,7 @@ class Mpls(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/openconfig-mpls:mpls/openconfig-mpls:te-interface-attributes/openconfig-mpls:interface[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -2994,10 +2994,10 @@ class Mpls(object):
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.state is not None and self.state._has_data():
+                if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth._has_data():
                     return True
 
-                if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth._has_data():
+                if self.state is not None and self.state._has_data():
                     return True
 
                 return False
@@ -3036,6 +3036,11 @@ class Mpls(object):
         """
         top\-level signaling protocol configuration
         
+        .. attribute:: ldp
+        
+        	LDP global signaling configuration
+        	**type**\: :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
+        
         .. attribute:: rsvp_te
         
         	RSVP\-TE global signaling protocol configuration
@@ -3046,11 +3051,6 @@ class Mpls(object):
         	SR global signaling config
         	**type**\: :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
         
-        .. attribute:: ldp
-        
-        	LDP global signaling configuration
-        	**type**\: :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
-        
         
 
         """
@@ -3060,27 +3060,17 @@ class Mpls(object):
 
         def __init__(self):
             self.parent = None
+            self.ldp = Mpls.SignalingProtocols.Ldp()
+            self.ldp.parent = self
             self.rsvp_te = Mpls.SignalingProtocols.RsvpTe()
             self.rsvp_te.parent = self
             self.segment_routing = Mpls.SignalingProtocols.SegmentRouting()
             self.segment_routing.parent = self
-            self.ldp = Mpls.SignalingProtocols.Ldp()
-            self.ldp.parent = self
 
 
         class RsvpTe(object):
             """
             RSVP\-TE global signaling protocol configuration
-            
-            .. attribute:: sessions
-            
-            	Configuration and state of RSVP sessions
-            	**type**\: :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
-            
-            .. attribute:: neighbors
-            
-            	Configuration and state for RSVP neighbors connecting to the device
-            	**type**\: :py:class:`Neighbors <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors>`
             
             .. attribute:: global_
             
@@ -3092,6 +3082,16 @@ class Mpls(object):
             	Attributes relating to RSVP\-TE enabled interfaces
             	**type**\: :py:class:`InterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes>`
             
+            .. attribute:: neighbors
+            
+            	Configuration and state for RSVP neighbors connecting to the device
+            	**type**\: :py:class:`Neighbors <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors>`
+            
+            .. attribute:: sessions
+            
+            	Configuration and state of RSVP sessions
+            	**type**\: :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
+            
             
 
             """
@@ -3101,14 +3101,14 @@ class Mpls(object):
 
             def __init__(self):
                 self.parent = None
-                self.sessions = Mpls.SignalingProtocols.RsvpTe.Sessions()
-                self.sessions.parent = self
-                self.neighbors = Mpls.SignalingProtocols.RsvpTe.Neighbors()
-                self.neighbors.parent = self
                 self.global_ = Mpls.SignalingProtocols.RsvpTe.Global()
                 self.global_.parent = self
                 self.interface_attributes = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes()
                 self.interface_attributes.parent = self
+                self.neighbors = Mpls.SignalingProtocols.RsvpTe.Neighbors()
+                self.neighbors.parent = self
+                self.sessions = Mpls.SignalingProtocols.RsvpTe.Sessions()
+                self.sessions.parent = self
 
 
             class Sessions(object):
@@ -3202,9 +3202,9 @@ class Mpls(object):
                         """
                         List of RSVP sessions
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: destination_address  <key>
                         
-                        	Origin address of RSVP session
+                        	Destination address of RSVP session
                         	**type**\: one of the below types:
                         
                         	**type**\: str
@@ -3219,9 +3219,16 @@ class Mpls(object):
                         
                         
                         ----
-                        .. attribute:: destination_address  <key>
+                        .. attribute:: destination_port  <key>
                         
-                        	Destination address of RSVP session
+                        	RSVP source port
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: source_address  <key>
+                        
+                        	Origin address of RSVP session
                         	**type**\: one of the below types:
                         
                         	**type**\: str
@@ -3243,29 +3250,10 @@ class Mpls(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: destination_port  <key>
+                        .. attribute:: associated_lsps
                         
-                        	RSVP source port
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: status
-                        
-                        	Enumeration of RSVP session states
-                        	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum>`
-                        
-                        .. attribute:: type
-                        
-                        	Enumeration of possible RSVP session types
-                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum>`
-                        
-                        .. attribute:: tunnel_id
-                        
-                        	Unique identifier of RSVP session
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
+                        	List of label switched paths associated with this RSVP session
+                        	**type**\: list of str
                         
                         .. attribute:: label_in
                         
@@ -3297,10 +3285,22 @@ class Mpls(object):
                         
                         
                         ----
-                        .. attribute:: associated_lsps
+                        .. attribute:: status
                         
-                        	List of label switched paths associated with this RSVP session
-                        	**type**\: list of str
+                        	Enumeration of RSVP session states
+                        	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum>`
+                        
+                        .. attribute:: tunnel_id
+                        
+                        	Unique identifier of RSVP session
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: type
+                        
+                        	Enumeration of possible RSVP session types
+                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum>`
                         
                         
 
@@ -3311,18 +3311,18 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.source_address = None
                             self.destination_address = None
-                            self.source_port = None
                             self.destination_port = None
-                            self.status = None
-                            self.type = None
-                            self.tunnel_id = None
-                            self.label_in = None
-                            self.label_out = None
+                            self.source_address = None
+                            self.source_port = None
                             self.associated_lsps = YLeafList()
                             self.associated_lsps.parent = self
                             self.associated_lsps.name = 'associated_lsps'
+                            self.label_in = None
+                            self.label_out = None
+                            self.status = None
+                            self.tunnel_id = None
+                            self.type = None
 
                         class StatusEnum(Enum):
                             """
@@ -3386,16 +3386,16 @@ class Mpls(object):
 
                         @property
                         def _common_path(self):
-                            if self.source_address is None:
-                                raise YPYDataValidationError('Key property source_address is None')
                             if self.destination_address is None:
-                                raise YPYDataValidationError('Key property destination_address is None')
-                            if self.source_port is None:
-                                raise YPYDataValidationError('Key property source_port is None')
+                                raise YPYModelError('Key property destination_address is None')
                             if self.destination_port is None:
-                                raise YPYDataValidationError('Key property destination_port is None')
+                                raise YPYModelError('Key property destination_port is None')
+                            if self.source_address is None:
+                                raise YPYModelError('Key property source_address is None')
+                            if self.source_port is None:
+                                raise YPYModelError('Key property source_port is None')
 
-                            return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:rsvp-te/openconfig-mpls:sessions/openconfig-mpls:state/openconfig-mpls:session[openconfig-mpls:source-address = ' + str(self.source_address) + '][openconfig-mpls:destination-address = ' + str(self.destination_address) + '][openconfig-mpls:source-port = ' + str(self.source_port) + '][openconfig-mpls:destination-port = ' + str(self.destination_port) + ']'
+                            return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:rsvp-te/openconfig-mpls:sessions/openconfig-mpls:state/openconfig-mpls:session[openconfig-mpls:destination-address = ' + str(self.destination_address) + '][openconfig-mpls:destination-port = ' + str(self.destination_port) + '][openconfig-mpls:source-address = ' + str(self.source_address) + '][openconfig-mpls:source-port = ' + str(self.source_port) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -3404,26 +3404,22 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.source_address is not None:
-                                return True
-
                             if self.destination_address is not None:
-                                return True
-
-                            if self.source_port is not None:
                                 return True
 
                             if self.destination_port is not None:
                                 return True
 
-                            if self.status is not None:
+                            if self.source_address is not None:
                                 return True
 
-                            if self.type is not None:
+                            if self.source_port is not None:
                                 return True
 
-                            if self.tunnel_id is not None:
-                                return True
+                            if self.associated_lsps is not None:
+                                for child in self.associated_lsps:
+                                    if child is not None:
+                                        return True
 
                             if self.label_in is not None:
                                 return True
@@ -3431,10 +3427,14 @@ class Mpls(object):
                             if self.label_out is not None:
                                 return True
 
-                            if self.associated_lsps is not None:
-                                for child in self.associated_lsps:
-                                    if child is not None:
-                                        return True
+                            if self.status is not None:
+                                return True
+
+                            if self.tunnel_id is not None:
+                                return True
+
+                            if self.type is not None:
+                                return True
 
                             return False
 
@@ -3665,7 +3665,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.address is None:
-                                raise YPYDataValidationError('Key property address is None')
+                                raise YPYModelError('Key property address is None')
 
                             return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:rsvp-te/openconfig-mpls:neighbors/openconfig-mpls:state/openconfig-mpls:neighbor[openconfig-mpls:address = ' + str(self.address) + ']'
 
@@ -3754,15 +3754,15 @@ class Mpls(object):
                 	Operational state and configuration parameters relating to graceful\-restart for RSVP
                 	**type**\: :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart>`
                 
-                .. attribute:: soft_preemption
-                
-                	Protocol options relating to RSVP soft preemption
-                	**type**\: :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption>`
-                
                 .. attribute:: hellos
                 
                 	Top level container for RSVP hello parameters
                 	**type**\: :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos>`
+                
+                .. attribute:: soft_preemption
+                
+                	Protocol options relating to RSVP soft preemption
+                	**type**\: :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption>`
                 
                 .. attribute:: state
                 
@@ -3780,10 +3780,10 @@ class Mpls(object):
                     self.parent = None
                     self.graceful_restart = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart()
                     self.graceful_restart.parent = self
-                    self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption()
-                    self.soft_preemption.parent = self
                     self.hellos = Mpls.SignalingProtocols.RsvpTe.Global.Hellos()
                     self.hellos.parent = self
+                    self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption()
+                    self.soft_preemption.parent = self
                     self.state = Mpls.SignalingProtocols.RsvpTe.Global.State()
                     self.state.parent = self
 
@@ -3828,16 +3828,16 @@ class Mpls(object):
                         	Enables graceful restart on the node
                         	**type**\: bool
                         
-                        .. attribute:: restart_time
+                        .. attribute:: recovery_time
                         
-                        	Graceful restart time (seconds)
+                        	RSVP state recovery time
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: recovery_time
+                        .. attribute:: restart_time
                         
-                        	RSVP state recovery time
+                        	Graceful restart time (seconds)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -3852,8 +3852,8 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.enable = None
-                            self.restart_time = None
                             self.recovery_time = None
+                            self.restart_time = None
 
                         @property
                         def _common_path(self):
@@ -3870,10 +3870,10 @@ class Mpls(object):
                             if self.enable is not None:
                                 return True
 
-                            if self.restart_time is not None:
+                            if self.recovery_time is not None:
                                 return True
 
-                            if self.recovery_time is not None:
+                            if self.restart_time is not None:
                                 return True
 
                             return False
@@ -3894,16 +3894,16 @@ class Mpls(object):
                         	Enables graceful restart on the node
                         	**type**\: bool
                         
-                        .. attribute:: restart_time
+                        .. attribute:: recovery_time
                         
-                        	Graceful restart time (seconds)
+                        	RSVP state recovery time
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: recovery_time
+                        .. attribute:: restart_time
                         
-                        	RSVP state recovery time
+                        	Graceful restart time (seconds)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -3918,8 +3918,8 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.enable = None
-                            self.restart_time = None
                             self.recovery_time = None
+                            self.restart_time = None
 
                         @property
                         def _common_path(self):
@@ -3936,10 +3936,10 @@ class Mpls(object):
                             if self.enable is not None:
                                 return True
 
-                            if self.restart_time is not None:
+                            if self.recovery_time is not None:
                                 return True
 
-                            if self.recovery_time is not None:
+                            if self.restart_time is not None:
                                 return True
 
                             return False
@@ -4329,150 +4329,150 @@ class Mpls(object):
                         """
                         Platform wide RSVP statistics and counters
                         
-                        .. attribute:: path_timeouts
+                        .. attribute:: in_ack_messages
                         
-                        	TODO
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: reservation_timeouts
-                        
-                        	TODO
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: rate_limited_messages
-                        
-                        	RSVP messages dropped due to rate limiting
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_path_messages
-                        
-                        	Number of received RSVP Path messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_path_error_messages
-                        
-                        	Number of received RSVP Path Error messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_path_tear_messages
-                        
-                        	Number of received RSVP Path Tear messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_reservation_messages
-                        
-                        	Number of received RSVP Resv messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_reservation_error_messages
-                        
-                        	Number of received RSVP Resv Error messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_reservation_tear_messages
-                        
-                        	Number of received RSVP Resv Tear messages
-                        	**type**\: int
+                        	Number of received RSVP refresh reduction ack messages
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_hello_messages
                         
                         	Number of received RSVP hello messages
-                        	**type**\: int
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_path_error_messages
+                        
+                        	Number of received RSVP Path Error messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_path_messages
+                        
+                        	Number of received RSVP Path messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_path_tear_messages
+                        
+                        	Number of received RSVP Path Tear messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_reservation_error_messages
+                        
+                        	Number of received RSVP Resv Error messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_reservation_messages
+                        
+                        	Number of received RSVP Resv messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_reservation_tear_messages
+                        
+                        	Number of received RSVP Resv Tear messages
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_srefresh_messages
                         
                         	Number of received RSVP summary refresh messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_ack_messages
-                        
-                        	Number of received RSVP refresh reduction ack messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_path_messages
-                        
-                        	Number of sent RSVP PATH messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_path_error_messages
-                        
-                        	Number of sent RSVP Path Error messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_path_tear_messages
-                        
-                        	Number of sent RSVP Path Tear messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_reservation_messages
-                        
-                        	Number of sent RSVP Resv messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_reservation_error_messages
-                        
-                        	Number of sent RSVP Resv Error messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_reservation_tear_messages
-                        
-                        	Number of sent RSVP Resv Tear messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_hello_messages
-                        
-                        	Number of sent RSVP hello messages
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_srefresh_messages
-                        
-                        	Number of sent RSVP summary refresh messages
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_ack_messages
                         
                         	Number of sent RSVP refresh reduction ack messages
-                        	**type**\: int
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_hello_messages
+                        
+                        	Number of sent RSVP hello messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_path_error_messages
+                        
+                        	Number of sent RSVP Path Error messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_path_messages
+                        
+                        	Number of sent RSVP PATH messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_path_tear_messages
+                        
+                        	Number of sent RSVP Path Tear messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_reservation_error_messages
+                        
+                        	Number of sent RSVP Resv Error messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_reservation_messages
+                        
+                        	Number of sent RSVP Resv messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_reservation_tear_messages
+                        
+                        	Number of sent RSVP Resv Tear messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_srefresh_messages
+                        
+                        	Number of sent RSVP summary refresh messages
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: path_timeouts
+                        
+                        	TODO
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: rate_limited_messages
+                        
+                        	RSVP messages dropped due to rate limiting
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: reservation_timeouts
+                        
+                        	TODO
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4485,27 +4485,27 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.path_timeouts = None
-                            self.reservation_timeouts = None
-                            self.rate_limited_messages = None
-                            self.in_path_messages = None
-                            self.in_path_error_messages = None
-                            self.in_path_tear_messages = None
-                            self.in_reservation_messages = None
-                            self.in_reservation_error_messages = None
-                            self.in_reservation_tear_messages = None
-                            self.in_hello_messages = None
-                            self.in_srefresh_messages = None
                             self.in_ack_messages = None
-                            self.out_path_messages = None
-                            self.out_path_error_messages = None
-                            self.out_path_tear_messages = None
-                            self.out_reservation_messages = None
-                            self.out_reservation_error_messages = None
-                            self.out_reservation_tear_messages = None
-                            self.out_hello_messages = None
-                            self.out_srefresh_messages = None
+                            self.in_hello_messages = None
+                            self.in_path_error_messages = None
+                            self.in_path_messages = None
+                            self.in_path_tear_messages = None
+                            self.in_reservation_error_messages = None
+                            self.in_reservation_messages = None
+                            self.in_reservation_tear_messages = None
+                            self.in_srefresh_messages = None
                             self.out_ack_messages = None
+                            self.out_hello_messages = None
+                            self.out_path_error_messages = None
+                            self.out_path_messages = None
+                            self.out_path_tear_messages = None
+                            self.out_reservation_error_messages = None
+                            self.out_reservation_messages = None
+                            self.out_reservation_tear_messages = None
+                            self.out_srefresh_messages = None
+                            self.path_timeouts = None
+                            self.rate_limited_messages = None
+                            self.reservation_timeouts = None
 
                         @property
                         def _common_path(self):
@@ -4519,67 +4519,67 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.path_timeouts is not None:
-                                return True
-
-                            if self.reservation_timeouts is not None:
-                                return True
-
-                            if self.rate_limited_messages is not None:
-                                return True
-
-                            if self.in_path_messages is not None:
-                                return True
-
-                            if self.in_path_error_messages is not None:
-                                return True
-
-                            if self.in_path_tear_messages is not None:
-                                return True
-
-                            if self.in_reservation_messages is not None:
-                                return True
-
-                            if self.in_reservation_error_messages is not None:
-                                return True
-
-                            if self.in_reservation_tear_messages is not None:
+                            if self.in_ack_messages is not None:
                                 return True
 
                             if self.in_hello_messages is not None:
                                 return True
 
+                            if self.in_path_error_messages is not None:
+                                return True
+
+                            if self.in_path_messages is not None:
+                                return True
+
+                            if self.in_path_tear_messages is not None:
+                                return True
+
+                            if self.in_reservation_error_messages is not None:
+                                return True
+
+                            if self.in_reservation_messages is not None:
+                                return True
+
+                            if self.in_reservation_tear_messages is not None:
+                                return True
+
                             if self.in_srefresh_messages is not None:
                                 return True
 
-                            if self.in_ack_messages is not None:
-                                return True
-
-                            if self.out_path_messages is not None:
-                                return True
-
-                            if self.out_path_error_messages is not None:
-                                return True
-
-                            if self.out_path_tear_messages is not None:
-                                return True
-
-                            if self.out_reservation_messages is not None:
-                                return True
-
-                            if self.out_reservation_error_messages is not None:
-                                return True
-
-                            if self.out_reservation_tear_messages is not None:
+                            if self.out_ack_messages is not None:
                                 return True
 
                             if self.out_hello_messages is not None:
                                 return True
 
+                            if self.out_path_error_messages is not None:
+                                return True
+
+                            if self.out_path_messages is not None:
+                                return True
+
+                            if self.out_path_tear_messages is not None:
+                                return True
+
+                            if self.out_reservation_error_messages is not None:
+                                return True
+
+                            if self.out_reservation_messages is not None:
+                                return True
+
+                            if self.out_reservation_tear_messages is not None:
+                                return True
+
                             if self.out_srefresh_messages is not None:
                                 return True
 
-                            if self.out_ack_messages is not None:
+                            if self.path_timeouts is not None:
+                                return True
+
+                            if self.rate_limited_messages is not None:
+                                return True
+
+                            if self.reservation_timeouts is not None:
                                 return True
 
                             return False
@@ -4626,10 +4626,10 @@ class Mpls(object):
                     if self.graceful_restart is not None and self.graceful_restart._has_data():
                         return True
 
-                    if self.soft_preemption is not None and self.soft_preemption._has_data():
+                    if self.hellos is not None and self.hellos._has_data():
                         return True
 
-                    if self.hellos is not None and self.hellos._has_data():
+                    if self.soft_preemption is not None and self.soft_preemption._has_data():
                         return True
 
                     if self.state is not None and self.state._has_data():
@@ -4675,35 +4675,35 @@ class Mpls(object):
                     	references a configured IP interface
                     	**type**\: str
                     
+                    .. attribute:: authentication
+                    
+                    	Configuration and state parameters relating to RSVP authentication as per RFC2747
+                    	**type**\: :py:class:`Authentication <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication>`
+                    
                     .. attribute:: config
                     
                     	Configuration of per\-interface RSVP parameters
                     	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
-                    
-                    .. attribute:: state
-                    
-                    	Per\-interface RSVP protocol and state information
-                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
                     
                     .. attribute:: hellos
                     
                     	Top level container for RSVP hello parameters
                     	**type**\: :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos>`
                     
-                    .. attribute:: authentication
+                    .. attribute:: protection
                     
-                    	Configuration and state parameters relating to RSVP authentication as per RFC2747
-                    	**type**\: :py:class:`Authentication <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication>`
+                    	link\-protection (NHOP) related configuration
+                    	**type**\: :py:class:`Protection <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection>`
+                    
+                    .. attribute:: state
+                    
+                    	Per\-interface RSVP protocol and state information
+                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
                     
                     .. attribute:: subscription
                     
                     	Bandwidth percentage reservable by RSVP on an interface
                     	**type**\: :py:class:`Subscription <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription>`
-                    
-                    .. attribute:: protection
-                    
-                    	link\-protection (NHOP) related configuration
-                    	**type**\: :py:class:`Protection <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection>`
                     
                     
 
@@ -4715,18 +4715,18 @@ class Mpls(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config()
-                        self.config.parent = self
-                        self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State()
-                        self.state.parent = self
-                        self.hellos = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos()
-                        self.hellos.parent = self
                         self.authentication = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication()
                         self.authentication.parent = self
-                        self.subscription = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription()
-                        self.subscription.parent = self
+                        self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config()
+                        self.config.parent = self
+                        self.hellos = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos()
+                        self.hellos.parent = self
                         self.protection = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection()
                         self.protection.parent = self
+                        self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State()
+                        self.state.parent = self
+                        self.subscription = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription()
+                        self.subscription.parent = self
 
 
                     class Config(object):
@@ -4752,7 +4752,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -4778,29 +4778,29 @@ class Mpls(object):
                         """
                         Per\-interface RSVP protocol and state information
                         
+                        .. attribute:: active_reservation_count
+                        
+                        	Number of active RSVP reservations
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         .. attribute:: bandwidth
                         
                         	Available and reserved bandwidth by priority on the interface
                         	**type**\: list of :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth>`
                         
-                        .. attribute:: highwater_mark
-                        
-                        	Maximum bandwidth ever reserved
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: active_reservation_count
-                        
-                        	Number of active RSVP reservations
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: counters
                         
                         	Interface specific RSVP statistics and counters
                         	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters>`
+                        
+                        .. attribute:: highwater_mark
+                        
+                        	Maximum bandwidth ever reserved
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -4811,13 +4811,13 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.active_reservation_count = None
                             self.bandwidth = YList()
                             self.bandwidth.parent = self
                             self.bandwidth.name = 'bandwidth'
-                            self.highwater_mark = None
-                            self.active_reservation_count = None
                             self.counters = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters()
                             self.counters.parent = self
+                            self.highwater_mark = None
 
 
                         class Bandwidth(object):
@@ -4835,14 +4835,14 @@ class Mpls(object):
                             .. attribute:: available_bandwidth
                             
                             	Bandwidth currently available
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: reserved_bandwidth
                             
                             	Bandwidth currently reserved
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4862,9 +4862,9 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.priority is None:
-                                    raise YPYDataValidationError('Key property priority is None')
+                                    raise YPYModelError('Key property priority is None')
 
                                 return self.parent._common_path +'/openconfig-mpls:bandwidth[openconfig-mpls:priority = ' + str(self.priority) + ']'
 
@@ -4896,129 +4896,129 @@ class Mpls(object):
                             """
                             Interface specific RSVP statistics and counters
                             
-                            .. attribute:: in_path_messages
+                            .. attribute:: in_ack_messages
                             
-                            	Number of received RSVP Path messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: in_path_error_messages
-                            
-                            	Number of received RSVP Path Error messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: in_path_tear_messages
-                            
-                            	Number of received RSVP Path Tear messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: in_reservation_messages
-                            
-                            	Number of received RSVP Resv messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: in_reservation_error_messages
-                            
-                            	Number of received RSVP Resv Error messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: in_reservation_tear_messages
-                            
-                            	Number of received RSVP Resv Tear messages
-                            	**type**\: int
+                            	Number of received RSVP refresh reduction ack messages
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_hello_messages
                             
                             	Number of received RSVP hello messages
-                            	**type**\: int
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: in_path_error_messages
+                            
+                            	Number of received RSVP Path Error messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: in_path_messages
+                            
+                            	Number of received RSVP Path messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: in_path_tear_messages
+                            
+                            	Number of received RSVP Path Tear messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: in_reservation_error_messages
+                            
+                            	Number of received RSVP Resv Error messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: in_reservation_messages
+                            
+                            	Number of received RSVP Resv messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: in_reservation_tear_messages
+                            
+                            	Number of received RSVP Resv Tear messages
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_srefresh_messages
                             
                             	Number of received RSVP summary refresh messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: in_ack_messages
-                            
-                            	Number of received RSVP refresh reduction ack messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_path_messages
-                            
-                            	Number of sent RSVP PATH messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_path_error_messages
-                            
-                            	Number of sent RSVP Path Error messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_path_tear_messages
-                            
-                            	Number of sent RSVP Path Tear messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_reservation_messages
-                            
-                            	Number of sent RSVP Resv messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_reservation_error_messages
-                            
-                            	Number of sent RSVP Resv Error messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_reservation_tear_messages
-                            
-                            	Number of sent RSVP Resv Tear messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_hello_messages
-                            
-                            	Number of sent RSVP hello messages
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: out_srefresh_messages
-                            
-                            	Number of sent RSVP summary refresh messages
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_ack_messages
                             
                             	Number of sent RSVP refresh reduction ack messages
-                            	**type**\: int
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_hello_messages
+                            
+                            	Number of sent RSVP hello messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_path_error_messages
+                            
+                            	Number of sent RSVP Path Error messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_path_messages
+                            
+                            	Number of sent RSVP PATH messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_path_tear_messages
+                            
+                            	Number of sent RSVP Path Tear messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_reservation_error_messages
+                            
+                            	Number of sent RSVP Resv Error messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_reservation_messages
+                            
+                            	Number of sent RSVP Resv messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_reservation_tear_messages
+                            
+                            	Number of sent RSVP Resv Tear messages
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: out_srefresh_messages
+                            
+                            	Number of sent RSVP summary refresh messages
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5031,29 +5031,29 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.in_path_messages = None
-                                self.in_path_error_messages = None
-                                self.in_path_tear_messages = None
-                                self.in_reservation_messages = None
-                                self.in_reservation_error_messages = None
-                                self.in_reservation_tear_messages = None
-                                self.in_hello_messages = None
-                                self.in_srefresh_messages = None
                                 self.in_ack_messages = None
-                                self.out_path_messages = None
-                                self.out_path_error_messages = None
-                                self.out_path_tear_messages = None
-                                self.out_reservation_messages = None
-                                self.out_reservation_error_messages = None
-                                self.out_reservation_tear_messages = None
-                                self.out_hello_messages = None
-                                self.out_srefresh_messages = None
+                                self.in_hello_messages = None
+                                self.in_path_error_messages = None
+                                self.in_path_messages = None
+                                self.in_path_tear_messages = None
+                                self.in_reservation_error_messages = None
+                                self.in_reservation_messages = None
+                                self.in_reservation_tear_messages = None
+                                self.in_srefresh_messages = None
                                 self.out_ack_messages = None
+                                self.out_hello_messages = None
+                                self.out_path_error_messages = None
+                                self.out_path_messages = None
+                                self.out_path_tear_messages = None
+                                self.out_reservation_error_messages = None
+                                self.out_reservation_messages = None
+                                self.out_reservation_tear_messages = None
+                                self.out_srefresh_messages = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:counters'
 
@@ -5064,58 +5064,58 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.in_path_messages is not None:
-                                    return True
-
-                                if self.in_path_error_messages is not None:
-                                    return True
-
-                                if self.in_path_tear_messages is not None:
-                                    return True
-
-                                if self.in_reservation_messages is not None:
-                                    return True
-
-                                if self.in_reservation_error_messages is not None:
-                                    return True
-
-                                if self.in_reservation_tear_messages is not None:
+                                if self.in_ack_messages is not None:
                                     return True
 
                                 if self.in_hello_messages is not None:
                                     return True
 
+                                if self.in_path_error_messages is not None:
+                                    return True
+
+                                if self.in_path_messages is not None:
+                                    return True
+
+                                if self.in_path_tear_messages is not None:
+                                    return True
+
+                                if self.in_reservation_error_messages is not None:
+                                    return True
+
+                                if self.in_reservation_messages is not None:
+                                    return True
+
+                                if self.in_reservation_tear_messages is not None:
+                                    return True
+
                                 if self.in_srefresh_messages is not None:
                                     return True
 
-                                if self.in_ack_messages is not None:
-                                    return True
-
-                                if self.out_path_messages is not None:
-                                    return True
-
-                                if self.out_path_error_messages is not None:
-                                    return True
-
-                                if self.out_path_tear_messages is not None:
-                                    return True
-
-                                if self.out_reservation_messages is not None:
-                                    return True
-
-                                if self.out_reservation_error_messages is not None:
-                                    return True
-
-                                if self.out_reservation_tear_messages is not None:
+                                if self.out_ack_messages is not None:
                                     return True
 
                                 if self.out_hello_messages is not None:
                                     return True
 
-                                if self.out_srefresh_messages is not None:
+                                if self.out_path_error_messages is not None:
                                     return True
 
-                                if self.out_ack_messages is not None:
+                                if self.out_path_messages is not None:
+                                    return True
+
+                                if self.out_path_tear_messages is not None:
+                                    return True
+
+                                if self.out_reservation_error_messages is not None:
+                                    return True
+
+                                if self.out_reservation_messages is not None:
+                                    return True
+
+                                if self.out_reservation_tear_messages is not None:
+                                    return True
+
+                                if self.out_srefresh_messages is not None:
                                     return True
 
                                 return False
@@ -5128,7 +5128,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -5139,18 +5139,18 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.active_reservation_count is not None:
+                                return True
+
                             if self.bandwidth is not None:
                                 for child_ref in self.bandwidth:
                                     if child_ref._has_data():
                                         return True
 
-                            if self.highwater_mark is not None:
-                                return True
-
-                            if self.active_reservation_count is not None:
-                                return True
-
                             if self.counters is not None and self.counters._has_data():
+                                return True
+
+                            if self.highwater_mark is not None:
                                 return True
 
                             return False
@@ -5222,7 +5222,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -5278,7 +5278,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -5305,7 +5305,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:hellos'
 
@@ -5365,17 +5365,17 @@ class Mpls(object):
                             Configuration parameters relating
                             to authentication
                             
-                            .. attribute:: enable
-                            
-                            	Enables RSVP authentication on the node
-                            	**type**\: bool
-                            
                             .. attribute:: authentication_key
                             
                             	authenticate RSVP signaling messages
                             	**type**\: str
                             
                             	**range:** 1..32
+                            
+                            .. attribute:: enable
+                            
+                            	Enables RSVP authentication on the node
+                            	**type**\: bool
                             
                             
 
@@ -5386,13 +5386,13 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enable = None
                                 self.authentication_key = None
+                                self.enable = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -5403,10 +5403,10 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enable is not None:
+                                if self.authentication_key is not None:
                                     return True
 
-                                if self.authentication_key is not None:
+                                if self.enable is not None:
                                     return True
 
                                 return False
@@ -5422,17 +5422,17 @@ class Mpls(object):
                             State information associated
                             with authentication
                             
-                            .. attribute:: enable
-                            
-                            	Enables RSVP authentication on the node
-                            	**type**\: bool
-                            
                             .. attribute:: authentication_key
                             
                             	authenticate RSVP signaling messages
                             	**type**\: str
                             
                             	**range:** 1..32
+                            
+                            .. attribute:: enable
+                            
+                            	Enables RSVP authentication on the node
+                            	**type**\: bool
                             
                             
 
@@ -5443,13 +5443,13 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enable = None
                                 self.authentication_key = None
+                                self.enable = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -5460,10 +5460,10 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enable is not None:
+                                if self.authentication_key is not None:
                                     return True
 
-                                if self.authentication_key is not None:
+                                if self.enable is not None:
                                     return True
 
                                 return False
@@ -5476,7 +5476,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:authentication'
 
@@ -5557,7 +5557,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -5605,7 +5605,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -5629,7 +5629,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:subscription'
 
@@ -5687,17 +5687,17 @@ class Mpls(object):
                             """
                             Configuration for link\-protection
                             
-                            .. attribute:: link_protection_style_requested
-                            
-                            	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\: :py:class:`ProtectionType_Identity <ydk.models.openconfig.openconfig_mpls_types.ProtectionType_Identity>`
-                            
                             .. attribute:: bypass_optimize_interval
                             
                             	interval between periodic optimization of the bypass LSPs
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: link_protection_style_requested
+                            
+                            	Style of mpls frr protection desired\: link, link\-node, or unprotected
+                            	**type**\: :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
                             
                             
 
@@ -5708,13 +5708,13 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.link_protection_style_requested = None
                                 self.bypass_optimize_interval = None
+                                self.link_protection_style_requested = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -5725,10 +5725,10 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.link_protection_style_requested is not None:
+                                if self.bypass_optimize_interval is not None:
                                     return True
 
-                                if self.bypass_optimize_interval is not None:
+                                if self.link_protection_style_requested is not None:
                                     return True
 
                                 return False
@@ -5743,17 +5743,17 @@ class Mpls(object):
                             """
                             State for link\-protection
                             
-                            .. attribute:: link_protection_style_requested
-                            
-                            	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\: :py:class:`ProtectionType_Identity <ydk.models.openconfig.openconfig_mpls_types.ProtectionType_Identity>`
-                            
                             .. attribute:: bypass_optimize_interval
                             
                             	interval between periodic optimization of the bypass LSPs
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: link_protection_style_requested
+                            
+                            	Style of mpls frr protection desired\: link, link\-node, or unprotected
+                            	**type**\: :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
                             
                             
 
@@ -5764,13 +5764,13 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.link_protection_style_requested = None
                                 self.bypass_optimize_interval = None
+                                self.link_protection_style_requested = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -5781,10 +5781,10 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.link_protection_style_requested is not None:
+                                if self.bypass_optimize_interval is not None:
                                     return True
 
-                                if self.bypass_optimize_interval is not None:
+                                if self.link_protection_style_requested is not None:
                                     return True
 
                                 return False
@@ -5797,7 +5797,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:protection'
 
@@ -5824,7 +5824,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:rsvp-te/openconfig-mpls:interface-attributes/openconfig-mpls:interface[openconfig-mpls:interface-name = ' + str(self.interface_name) + ']'
 
@@ -5838,22 +5838,22 @@ class Mpls(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.config is not None and self.config._has_data():
+                        if self.authentication is not None and self.authentication._has_data():
                             return True
 
-                        if self.state is not None and self.state._has_data():
+                        if self.config is not None and self.config._has_data():
                             return True
 
                         if self.hellos is not None and self.hellos._has_data():
                             return True
 
-                        if self.authentication is not None and self.authentication._has_data():
+                        if self.protection is not None and self.protection._has_data():
+                            return True
+
+                        if self.state is not None and self.state._has_data():
                             return True
 
                         if self.subscription is not None and self.subscription._has_data():
-                            return True
-
-                        if self.protection is not None and self.protection._has_data():
                             return True
 
                         return False
@@ -5899,16 +5899,16 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.sessions is not None and self.sessions._has_data():
+                if self.global_ is not None and self.global_._has_data():
+                    return True
+
+                if self.interface_attributes is not None and self.interface_attributes._has_data():
                     return True
 
                 if self.neighbors is not None and self.neighbors._has_data():
                     return True
 
-                if self.global_ is not None and self.global_._has_data():
-                    return True
-
-                if self.interface_attributes is not None and self.interface_attributes._has_data():
+                if self.sessions is not None and self.sessions._has_data():
                     return True
 
                 return False
@@ -5923,15 +5923,15 @@ class Mpls(object):
             """
             SR global signaling config
             
-            .. attribute:: srgb
-            
-            	List of Segment Routing Global Block (SRGB) entries. These label blocks are reserved to be allocated as domain\-wide entries
-            	**type**\: list of :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
-            
             .. attribute:: interfaces
             
             	List of interfaces with associated segment routing configuration
             	**type**\: list of :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
+            
+            .. attribute:: srgb
+            
+            	List of Segment Routing Global Block (SRGB) entries. These label blocks are reserved to be allocated as domain\-wide entries
+            	**type**\: list of :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
             
             
 
@@ -5942,12 +5942,12 @@ class Mpls(object):
 
             def __init__(self):
                 self.parent = None
-                self.srgb = YList()
-                self.srgb.parent = self
-                self.srgb.name = 'srgb'
                 self.interfaces = YList()
                 self.interfaces.parent = self
                 self.interfaces.name = 'interfaces'
+                self.srgb = YList()
+                self.srgb.parent = self
+                self.srgb.name = 'srgb'
 
 
             class Srgb(object):
@@ -6031,7 +6031,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -6061,16 +6061,16 @@ class Mpls(object):
                     State parameters relating to the Segment Routing Global
                     Block (SRGB)
                     
-                    .. attribute:: lower_bound
+                    .. attribute:: free
                     
-                    	Lower value in the block
+                    	Number of SRGB indexes that have not yet been allocated
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: upper_bound
+                    .. attribute:: lower_bound
                     
-                    	Upper value in the block
+                    	Lower value in the block
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -6082,9 +6082,9 @@ class Mpls(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: free
+                    .. attribute:: upper_bound
                     
-                    	Number of SRGB indexes that have not yet been allocated
+                    	Upper value in the block
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -6105,16 +6105,16 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.lower_bound = None
-                        self.upper_bound = None
-                        self.size = None
                         self.free = None
+                        self.lower_bound = None
+                        self.size = None
+                        self.upper_bound = None
                         self.used = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -6125,16 +6125,16 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.lower_bound is not None:
+                        if self.free is not None:
                             return True
 
-                        if self.upper_bound is not None:
+                        if self.lower_bound is not None:
                             return True
 
                         if self.size is not None:
                             return True
 
-                        if self.free is not None:
+                        if self.upper_bound is not None:
                             return True
 
                         if self.used is not None:
@@ -6150,9 +6150,9 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.lower_bound is None:
-                        raise YPYDataValidationError('Key property lower_bound is None')
+                        raise YPYModelError('Key property lower_bound is None')
                     if self.upper_bound is None:
-                        raise YPYDataValidationError('Key property upper_bound is None')
+                        raise YPYModelError('Key property upper_bound is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:segment-routing/openconfig-mpls:srgb[openconfig-mpls:lower-bound = ' + str(self.lower_bound) + '][openconfig-mpls:upper-bound = ' + str(self.upper_bound) + ']'
 
@@ -6193,6 +6193,11 @@ class Mpls(object):
                 	Reference to the interface for which segment routing configuration is to be applied
                 	**type**\: str
                 
+                .. attribute:: adjacency_sid
+                
+                	Configuration for Adjacency SIDs that are related to the specified interface
+                	**type**\: :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
+                
                 .. attribute:: config
                 
                 	Interface configuration parameters for Segment Routing relating to the specified interface
@@ -6202,11 +6207,6 @@ class Mpls(object):
                 
                 	State parameters for Segment Routing features relating to the specified interface
                 	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.State>`
-                
-                .. attribute:: adjacency_sid
-                
-                	Configuration for Adjacency SIDs that are related to the specified interface
-                	**type**\: :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
                 
                 
 
@@ -6218,12 +6218,12 @@ class Mpls(object):
                 def __init__(self):
                     self.parent = None
                     self.interface = None
+                    self.adjacency_sid = Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid()
+                    self.adjacency_sid.parent = self
                     self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config()
                     self.config.parent = self
                     self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.State()
                     self.state.parent = self
-                    self.adjacency_sid = Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid()
-                    self.adjacency_sid.parent = self
 
 
                 class Config(object):
@@ -6250,7 +6250,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -6296,7 +6296,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -6425,7 +6425,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -6531,7 +6531,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -6562,7 +6562,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:adjacency-sid'
 
@@ -6589,7 +6589,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:segment-routing/openconfig-mpls:interfaces[openconfig-mpls:interface = ' + str(self.interface) + ']'
 
@@ -6603,13 +6603,13 @@ class Mpls(object):
                     if self.interface is not None:
                         return True
 
+                    if self.adjacency_sid is not None and self.adjacency_sid._has_data():
+                        return True
+
                     if self.config is not None and self.config._has_data():
                         return True
 
                     if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.adjacency_sid is not None and self.adjacency_sid._has_data():
                         return True
 
                     return False
@@ -6631,13 +6631,13 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.srgb is not None:
-                    for child_ref in self.srgb:
+                if self.interfaces is not None:
+                    for child_ref in self.interfaces:
                         if child_ref._has_data():
                             return True
 
-                if self.interfaces is not None:
-                    for child_ref in self.interfaces:
+                if self.srgb is not None:
+                    for child_ref in self.srgb:
                         if child_ref._has_data():
                             return True
 
@@ -6738,13 +6738,13 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.ldp is not None and self.ldp._has_data():
+                return True
+
             if self.rsvp_te is not None and self.rsvp_te._has_data():
                 return True
 
             if self.segment_routing is not None and self.segment_routing._has_data():
-                return True
-
-            if self.ldp is not None and self.ldp._has_data():
                 return True
 
             return False
@@ -6764,15 +6764,15 @@ class Mpls(object):
         	traffic\-engineered LSPs supporting different path computation and signaling methods
         	**type**\: :py:class:`ConstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath>`
         
-        .. attribute:: unconstrained_path
-        
-        	LSPs that use the IGP\-determined path, i.e., non traffic\-engineered, or non constrained\-path
-        	**type**\: :py:class:`UnconstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath>`
-        
         .. attribute:: static_lsps
         
         	statically configured LSPs, without dynamic signaling
         	**type**\: :py:class:`StaticLsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps>`
+        
+        .. attribute:: unconstrained_path
+        
+        	LSPs that use the IGP\-determined path, i.e., non traffic\-engineered, or non constrained\-path
+        	**type**\: :py:class:`UnconstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath>`
         
         
 
@@ -6785,10 +6785,10 @@ class Mpls(object):
             self.parent = None
             self.constrained_path = Mpls.Lsps.ConstrainedPath()
             self.constrained_path.parent = self
-            self.unconstrained_path = Mpls.Lsps.UnconstrainedPath()
-            self.unconstrained_path.parent = self
             self.static_lsps = Mpls.Lsps.StaticLsps()
             self.static_lsps.parent = self
+            self.unconstrained_path = Mpls.Lsps.UnconstrainedPath()
+            self.unconstrained_path.parent = self
 
 
         class ConstrainedPath(object):
@@ -6837,15 +6837,15 @@ class Mpls(object):
                 	Configuration parameters relating to named explicit paths
                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                 
-                .. attribute:: state
-                
-                	Operational state parameters relating to the named explicit paths
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
-                
                 .. attribute:: explicit_route_objects
                 
                 	List of explicit route objects
                 	**type**\: list of :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects>`
+                
+                .. attribute:: state
+                
+                	Operational state parameters relating to the named explicit paths
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
                 
                 
 
@@ -6859,11 +6859,11 @@ class Mpls(object):
                     self.name = None
                     self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config()
                     self.config.parent = self
-                    self.state = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State()
-                    self.state.parent = self
                     self.explicit_route_objects = YList()
                     self.explicit_route_objects.parent = self
                     self.explicit_route_objects.name = 'explicit_route_objects'
+                    self.state = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State()
+                    self.state.parent = self
 
 
                 class Config(object):
@@ -6890,7 +6890,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -6936,7 +6936,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -7045,7 +7045,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -7122,7 +7122,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -7152,9 +7152,9 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.index is None:
-                            raise YPYDataValidationError('Key property index is None')
+                            raise YPYModelError('Key property index is None')
 
                         return self.parent._common_path +'/openconfig-mpls:explicit-route-objects[openconfig-mpls:index = ' + str(self.index) + ']'
 
@@ -7184,7 +7184,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:lsps/openconfig-mpls:constrained-path/openconfig-mpls:named-explicit-paths[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -7201,13 +7201,13 @@ class Mpls(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
-                        return True
-
                     if self.explicit_route_objects is not None:
                         for child_ref in self.explicit_route_objects:
                             if child_ref._has_data():
                                 return True
+
+                    if self.state is not None and self.state._has_data():
+                        return True
 
                     return False
 
@@ -7229,27 +7229,27 @@ class Mpls(object):
                 .. attribute:: type  <key>
                 
                 	The tunnel type, p2p or p2mp
-                	**type**\: :py:class:`TunnelType_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Identity>`
-                
-                .. attribute:: config
-                
-                	Configuration parameters related to TE tunnels\:
-                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
-                
-                .. attribute:: state
-                
-                	State parameters related to TE tunnels
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
+                	**type**\: :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                 
                 .. attribute:: bandwidth
                 
                 	Bandwidth configuration for TE LSPs
                 	**type**\: :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth>`
                 
+                .. attribute:: config
+                
+                	Configuration parameters related to TE tunnels\:
+                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
+                
                 .. attribute:: p2p_tunnel_attributes
                 
                 	Parameters related to LSPs of type P2P
                 	**type**\: :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
+                
+                .. attribute:: state
+                
+                	State parameters related to TE tunnels
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
                 
                 
 
@@ -7262,34 +7262,36 @@ class Mpls(object):
                     self.parent = None
                     self.name = None
                     self.type = None
-                    self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Config()
-                    self.config.parent = self
-                    self.state = Mpls.Lsps.ConstrainedPath.Tunnel.State()
-                    self.state.parent = self
                     self.bandwidth = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth()
                     self.bandwidth.parent = self
+                    self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Config()
+                    self.config.parent = self
                     self.p2p_tunnel_attributes = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes()
                     self.p2p_tunnel_attributes.parent = self
+                    self.state = Mpls.Lsps.ConstrainedPath.Tunnel.State()
+                    self.state.parent = self
 
 
                 class Config(object):
                     """
                     Configuration parameters related to TE tunnels\:
                     
-                    .. attribute:: name
+                    .. attribute:: admin_status
                     
-                    	The tunnel name
+                    	TE tunnel administrative state
+                    	**type**\: :py:class:`TunnelAdminStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatusIdentity>`
+                    
+                    .. attribute:: description
+                    
+                    	optional text description for the tunnel
                     	**type**\: str
                     
-                    .. attribute:: type
+                    .. attribute:: hold_priority
                     
-                    	Tunnel type, p2p or p2mp
-                    	**type**\: :py:class:`TunnelType_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Identity>`
+                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                    	**type**\: int
                     
-                    .. attribute:: signaling_protocol
-                    
-                    	Signaling protocol used to set up this tunnel
-                    	**type**\: :py:class:`TunnelType_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Identity>`
+                    	**range:** 0..7
                     
                     .. attribute:: local_id
                     
@@ -7306,23 +7308,6 @@ class Mpls(object):
                     
                     
                     ----
-                    .. attribute:: description
-                    
-                    	optional text description for the tunnel
-                    	**type**\: str
-                    
-                    .. attribute:: admin_status
-                    
-                    	TE tunnel administrative state
-                    	**type**\: :py:class:`TunnelAdminStatus_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus_Identity>`
-                    
-                    .. attribute:: preference
-                    
-                    	Specifies a preference for this tunnel. A lower number signifies a better preference
-                    	**type**\: int
-                    
-                    	**range:** 1..255
-                    
                     .. attribute:: metric
                     
                     	LSP metric, either explicit or IGP
@@ -7338,10 +7323,22 @@ class Mpls(object):
                     
                     
                     ----
+                    .. attribute:: name
+                    
+                    	The tunnel name
+                    	**type**\: str
+                    
+                    .. attribute:: preference
+                    
+                    	Specifies a preference for this tunnel. A lower number signifies a better preference
+                    	**type**\: int
+                    
+                    	**range:** 1..255
+                    
                     .. attribute:: protection_style_requested
                     
                     	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\: :py:class:`ProtectionType_Identity <ydk.models.openconfig.openconfig_mpls_types.ProtectionType_Identity>`
+                    	**type**\: :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
                     
                     .. attribute:: reoptimize_timer
                     
@@ -7349,6 +7346,23 @@ class Mpls(object):
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    .. attribute:: setup_priority
+                    
+                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: signaling_protocol
+                    
+                    	Signaling protocol used to set up this tunnel
+                    	**type**\: :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                    
+                    .. attribute:: soft_preemption
+                    
+                    	Enables RSVP soft\-preemption on this LSP
+                    	**type**\: bool
                     
                     .. attribute:: source
                     
@@ -7367,24 +7381,10 @@ class Mpls(object):
                     
                     
                     ----
-                    .. attribute:: soft_preemption
+                    .. attribute:: type
                     
-                    	Enables RSVP soft\-preemption on this LSP
-                    	**type**\: bool
-                    
-                    .. attribute:: setup_priority
-                    
-                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: hold_priority
-                    
-                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                    	**type**\: int
-                    
-                    	**range:** 0..7
+                    	Tunnel type, p2p or p2mp
+                    	**type**\: :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                     
                     
 
@@ -7395,25 +7395,25 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
-                        self.type = None
-                        self.signaling_protocol = None
-                        self.local_id = None
-                        self.description = None
                         self.admin_status = None
-                        self.preference = None
+                        self.description = None
+                        self.hold_priority = None
+                        self.local_id = None
                         self.metric = None
+                        self.name = None
+                        self.preference = None
                         self.protection_style_requested = None
                         self.reoptimize_timer = None
-                        self.source = None
-                        self.soft_preemption = None
                         self.setup_priority = None
-                        self.hold_priority = None
+                        self.signaling_protocol = None
+                        self.soft_preemption = None
+                        self.source = None
+                        self.type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -7424,28 +7424,25 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        if self.signaling_protocol is not None:
-                            return True
-
-                        if self.local_id is not None:
+                        if self.admin_status is not None:
                             return True
 
                         if self.description is not None:
                             return True
 
-                        if self.admin_status is not None:
+                        if self.hold_priority is not None:
                             return True
 
-                        if self.preference is not None:
+                        if self.local_id is not None:
                             return True
 
                         if self.metric is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        if self.preference is not None:
                             return True
 
                         if self.protection_style_requested is not None:
@@ -7454,16 +7451,19 @@ class Mpls(object):
                         if self.reoptimize_timer is not None:
                             return True
 
-                        if self.source is not None:
+                        if self.setup_priority is not None:
+                            return True
+
+                        if self.signaling_protocol is not None:
                             return True
 
                         if self.soft_preemption is not None:
                             return True
 
-                        if self.setup_priority is not None:
+                        if self.source is not None:
                             return True
 
-                        if self.hold_priority is not None:
+                        if self.type is not None:
                             return True
 
                         return False
@@ -7478,20 +7478,27 @@ class Mpls(object):
                     """
                     State parameters related to TE tunnels
                     
-                    .. attribute:: name
+                    .. attribute:: admin_status
                     
-                    	The tunnel name
+                    	TE tunnel administrative state
+                    	**type**\: :py:class:`TunnelAdminStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatusIdentity>`
+                    
+                    .. attribute:: counters
+                    
+                    	State data for MPLS label switched paths. This state data is specific to a single label switched path
+                    	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
+                    
+                    .. attribute:: description
+                    
+                    	optional text description for the tunnel
                     	**type**\: str
                     
-                    .. attribute:: type
+                    .. attribute:: hold_priority
                     
-                    	Tunnel type, p2p or p2mp
-                    	**type**\: :py:class:`TunnelType_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Identity>`
+                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                    	**type**\: int
                     
-                    .. attribute:: signaling_protocol
-                    
-                    	Signaling protocol used to set up this tunnel
-                    	**type**\: :py:class:`TunnelType_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Identity>`
+                    	**range:** 0..7
                     
                     .. attribute:: local_id
                     
@@ -7508,23 +7515,6 @@ class Mpls(object):
                     
                     
                     ----
-                    .. attribute:: description
-                    
-                    	optional text description for the tunnel
-                    	**type**\: str
-                    
-                    .. attribute:: admin_status
-                    
-                    	TE tunnel administrative state
-                    	**type**\: :py:class:`TunnelAdminStatus_Identity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus_Identity>`
-                    
-                    .. attribute:: preference
-                    
-                    	Specifies a preference for this tunnel. A lower number signifies a better preference
-                    	**type**\: int
-                    
-                    	**range:** 1..255
-                    
                     .. attribute:: metric
                     
                     	LSP metric, either explicit or IGP
@@ -7540,10 +7530,27 @@ class Mpls(object):
                     
                     
                     ----
+                    .. attribute:: name
+                    
+                    	The tunnel name
+                    	**type**\: str
+                    
+                    .. attribute:: oper_status
+                    
+                    	The operational status of the TE tunnel
+                    	**type**\: :py:class:`LspOperStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.LspOperStatusIdentity>`
+                    
+                    .. attribute:: preference
+                    
+                    	Specifies a preference for this tunnel. A lower number signifies a better preference
+                    	**type**\: int
+                    
+                    	**range:** 1..255
+                    
                     .. attribute:: protection_style_requested
                     
                     	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\: :py:class:`ProtectionType_Identity <ydk.models.openconfig.openconfig_mpls_types.ProtectionType_Identity>`
+                    	**type**\: :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
                     
                     .. attribute:: reoptimize_timer
                     
@@ -7551,6 +7558,28 @@ class Mpls(object):
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    .. attribute:: role
+                    
+                    	The lsp role at the current node, whether it is headend, transit or tailend
+                    	**type**\: :py:class:`LspRoleIdentity <ydk.models.openconfig.openconfig_mpls_types.LspRoleIdentity>`
+                    
+                    .. attribute:: setup_priority
+                    
+                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: signaling_protocol
+                    
+                    	Signaling protocol used to set up this tunnel
+                    	**type**\: :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                    
+                    .. attribute:: soft_preemption
+                    
+                    	Enables RSVP soft\-preemption on this LSP
+                    	**type**\: bool
                     
                     .. attribute:: source
                     
@@ -7569,39 +7598,10 @@ class Mpls(object):
                     
                     
                     ----
-                    .. attribute:: soft_preemption
+                    .. attribute:: type
                     
-                    	Enables RSVP soft\-preemption on this LSP
-                    	**type**\: bool
-                    
-                    .. attribute:: setup_priority
-                    
-                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: hold_priority
-                    
-                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: oper_status
-                    
-                    	The operational status of the TE tunnel
-                    	**type**\: :py:class:`LspOperStatus_Identity <ydk.models.openconfig.openconfig_mpls_types.LspOperStatus_Identity>`
-                    
-                    .. attribute:: role
-                    
-                    	The lsp role at the current node, whether it is headend, transit or tailend
-                    	**type**\: :py:class:`LspRole_Identity <ydk.models.openconfig.openconfig_mpls_types.LspRole_Identity>`
-                    
-                    .. attribute:: counters
-                    
-                    	State data for MPLS label switched paths. This state data is specific to a single label switched path
-                    	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
+                    	Tunnel type, p2p or p2mp
+                    	**type**\: :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                     
                     
 
@@ -7612,24 +7612,24 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
-                        self.type = None
-                        self.signaling_protocol = None
-                        self.local_id = None
-                        self.description = None
                         self.admin_status = None
-                        self.preference = None
-                        self.metric = None
-                        self.protection_style_requested = None
-                        self.reoptimize_timer = None
-                        self.source = None
-                        self.soft_preemption = None
-                        self.setup_priority = None
-                        self.hold_priority = None
-                        self.oper_status = None
-                        self.role = None
                         self.counters = Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters()
                         self.counters.parent = self
+                        self.description = None
+                        self.hold_priority = None
+                        self.local_id = None
+                        self.metric = None
+                        self.name = None
+                        self.oper_status = None
+                        self.preference = None
+                        self.protection_style_requested = None
+                        self.reoptimize_timer = None
+                        self.role = None
+                        self.setup_priority = None
+                        self.signaling_protocol = None
+                        self.soft_preemption = None
+                        self.source = None
+                        self.type = None
 
 
                     class Counters(object):
@@ -7640,37 +7640,9 @@ class Mpls(object):
                         .. attribute:: bytes
                         
                         	Number of bytes that have been forwarded over the label switched path
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: packets
-                        
-                        	Number of pacets that have been forwarded over the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: path_changes
-                        
-                        	Number of path changes for the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: state_changes
-                        
-                        	Number of state changes for the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: online_time
-                        
-                        	Indication of the time the label switched path transitioned to an Oper Up or in\-service state
-                        	**type**\: str
-                        
-                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
                         .. attribute:: current_path_time
                         
@@ -7686,6 +7658,34 @@ class Mpls(object):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        .. attribute:: online_time
+                        
+                        	Indication of the time the label switched path transitioned to an Oper Up or in\-service state
+                        	**type**\: str
+                        
+                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                        
+                        .. attribute:: packets
+                        
+                        	Number of pacets that have been forwarded over the label switched path
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: path_changes
+                        
+                        	Number of path changes for the label switched path
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: state_changes
+                        
+                        	Number of state changes for the label switched path
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         
 
                         """
@@ -7696,17 +7696,17 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.bytes = None
+                            self.current_path_time = None
+                            self.next_reoptimization_time = None
+                            self.online_time = None
                             self.packets = None
                             self.path_changes = None
                             self.state_changes = None
-                            self.online_time = None
-                            self.current_path_time = None
-                            self.next_reoptimization_time = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:counters'
 
@@ -7720,6 +7720,15 @@ class Mpls(object):
                             if self.bytes is not None:
                                 return True
 
+                            if self.current_path_time is not None:
+                                return True
+
+                            if self.next_reoptimization_time is not None:
+                                return True
+
+                            if self.online_time is not None:
+                                return True
+
                             if self.packets is not None:
                                 return True
 
@@ -7727,15 +7736,6 @@ class Mpls(object):
                                 return True
 
                             if self.state_changes is not None:
-                                return True
-
-                            if self.online_time is not None:
-                                return True
-
-                            if self.current_path_time is not None:
-                                return True
-
-                            if self.next_reoptimization_time is not None:
                                 return True
 
                             return False
@@ -7748,7 +7748,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -7759,28 +7759,31 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
+                        if self.admin_status is not None:
                             return True
 
-                        if self.type is not None:
-                            return True
-
-                        if self.signaling_protocol is not None:
-                            return True
-
-                        if self.local_id is not None:
+                        if self.counters is not None and self.counters._has_data():
                             return True
 
                         if self.description is not None:
                             return True
 
-                        if self.admin_status is not None:
+                        if self.hold_priority is not None:
                             return True
 
-                        if self.preference is not None:
+                        if self.local_id is not None:
                             return True
 
                         if self.metric is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        if self.oper_status is not None:
+                            return True
+
+                        if self.preference is not None:
                             return True
 
                         if self.protection_style_requested is not None:
@@ -7789,25 +7792,22 @@ class Mpls(object):
                         if self.reoptimize_timer is not None:
                             return True
 
-                        if self.source is not None:
-                            return True
-
-                        if self.soft_preemption is not None:
+                        if self.role is not None:
                             return True
 
                         if self.setup_priority is not None:
                             return True
 
-                        if self.hold_priority is not None:
+                        if self.signaling_protocol is not None:
                             return True
 
-                        if self.oper_status is not None:
+                        if self.soft_preemption is not None:
                             return True
 
-                        if self.role is not None:
+                        if self.source is not None:
                             return True
 
-                        if self.counters is not None and self.counters._has_data():
+                        if self.type is not None:
                             return True
 
                         return False
@@ -7822,6 +7822,11 @@ class Mpls(object):
                     """
                     Bandwidth configuration for TE LSPs
                     
+                    .. attribute:: auto_bandwidth
+                    
+                    	Parameters related to auto\-bandwidth
+                    	**type**\: :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
+                    
                     .. attribute:: config
                     
                     	Configuration parameters related to bandwidth on TE tunnels\:
@@ -7832,11 +7837,6 @@ class Mpls(object):
                     	State parameters related to bandwidth configuration of TE tunnels
                     	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State>`
                     
-                    .. attribute:: auto_bandwidth
-                    
-                    	Parameters related to auto\-bandwidth
-                    	**type**\: :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
-                    
                     
 
                     """
@@ -7846,12 +7846,12 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.auto_bandwidth = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth()
+                        self.auto_bandwidth.parent = self
                         self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config()
                         self.config.parent = self
                         self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State()
                         self.state.parent = self
-                        self.auto_bandwidth = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth()
-                        self.auto_bandwidth.parent = self
 
 
                     class Config(object):
@@ -7859,17 +7859,17 @@ class Mpls(object):
                         Configuration parameters related to bandwidth on TE
                         tunnels\:
                         
-                        .. attribute:: specification_type
-                        
-                        	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\: :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
-                        
                         .. attribute:: set_bandwidth
                         
                         	set bandwidth explicitly, e.g., using offline calculation
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: specification_type
+                        
+                        	The method used for settign the bandwidth, either explicitly specified or configured
+                        	**type**\: :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
                         
                         
 
@@ -7880,13 +7880,13 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.specification_type = None
                             self.set_bandwidth = None
+                            self.specification_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -7897,10 +7897,10 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.specification_type is not None:
+                            if self.set_bandwidth is not None:
                                 return True
 
-                            if self.set_bandwidth is not None:
+                            if self.specification_type is not None:
                                 return True
 
                             return False
@@ -7916,17 +7916,17 @@ class Mpls(object):
                         State parameters related to bandwidth
                         configuration of TE tunnels
                         
-                        .. attribute:: specification_type
-                        
-                        	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\: :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
-                        
                         .. attribute:: set_bandwidth
                         
                         	set bandwidth explicitly, e.g., using offline calculation
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: specification_type
+                        
+                        	The method used for settign the bandwidth, either explicitly specified or configured
+                        	**type**\: :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
                         
                         
 
@@ -7937,13 +7937,13 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.specification_type = None
                             self.set_bandwidth = None
+                            self.specification_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -7954,10 +7954,10 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.specification_type is not None:
+                            if self.set_bandwidth is not None:
                                 return True
 
-                            if self.set_bandwidth is not None:
+                            if self.specification_type is not None:
                                 return True
 
                             return False
@@ -7977,15 +7977,15 @@ class Mpls(object):
                         	Configuration parameters relating to MPLS auto\-bandwidth on the tunnel
                         	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config>`
                         
-                        .. attribute:: state
-                        
-                        	State parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
-                        
                         .. attribute:: overflow
                         
                         	configuration of MPLS overflow bandwidth adjustement for the LSP
                         	**type**\: :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
+                        
+                        .. attribute:: state
+                        
+                        	State parameters relating to MPLS auto\-bandwidth on the tunnel
+                        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
                         
                         .. attribute:: underflow
                         
@@ -8003,10 +8003,10 @@ class Mpls(object):
                             self.parent = None
                             self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config()
                             self.config.parent = self
-                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State()
-                            self.state.parent = self
                             self.overflow = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow()
                             self.overflow.parent = self
+                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State()
+                            self.state.parent = self
                             self.underflow = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow()
                             self.underflow.parent = self
 
@@ -8015,25 +8015,6 @@ class Mpls(object):
                             """
                             Configuration parameters relating to MPLS
                             auto\-bandwidth on the tunnel.
-                            
-                            .. attribute:: enabled
-                            
-                            	enables mpls auto\-bandwidth on the lsp
-                            	**type**\: bool
-                            
-                            .. attribute:: min_bw
-                            
-                            	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: max_bw
-                            
-                            	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: adjust_interval
                             
@@ -8049,6 +8030,25 @@ class Mpls(object):
                             
                             	**range:** 0..100
                             
+                            .. attribute:: enabled
+                            
+                            	enables mpls auto\-bandwidth on the lsp
+                            	**type**\: bool
+                            
+                            .. attribute:: max_bw
+                            
+                            	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: min_bw
+                            
+                            	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -8058,16 +8058,16 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enabled = None
-                                self.min_bw = None
-                                self.max_bw = None
                                 self.adjust_interval = None
                                 self.adjust_threshold = None
+                                self.enabled = None
+                                self.max_bw = None
+                                self.min_bw = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -8078,19 +8078,19 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enabled is not None:
+                                if self.adjust_interval is not None:
                                     return True
 
-                                if self.min_bw is not None:
+                                if self.adjust_threshold is not None:
+                                    return True
+
+                                if self.enabled is not None:
                                     return True
 
                                 if self.max_bw is not None:
                                     return True
 
-                                if self.adjust_interval is not None:
-                                    return True
-
-                                if self.adjust_threshold is not None:
+                                if self.min_bw is not None:
                                     return True
 
                                 return False
@@ -8106,25 +8106,6 @@ class Mpls(object):
                             State parameters relating to MPLS
                             auto\-bandwidth on the tunnel.
                             
-                            .. attribute:: enabled
-                            
-                            	enables mpls auto\-bandwidth on the lsp
-                            	**type**\: bool
-                            
-                            .. attribute:: min_bw
-                            
-                            	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: max_bw
-                            
-                            	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: adjust_interval
                             
                             	time in seconds between adjustments to LSP bandwidth
@@ -8139,6 +8120,25 @@ class Mpls(object):
                             
                             	**range:** 0..100
                             
+                            .. attribute:: enabled
+                            
+                            	enables mpls auto\-bandwidth on the lsp
+                            	**type**\: bool
+                            
+                            .. attribute:: max_bw
+                            
+                            	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: min_bw
+                            
+                            	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -8148,16 +8148,16 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enabled = None
-                                self.min_bw = None
-                                self.max_bw = None
                                 self.adjust_interval = None
                                 self.adjust_threshold = None
+                                self.enabled = None
+                                self.max_bw = None
+                                self.min_bw = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -8168,19 +8168,19 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enabled is not None:
+                                if self.adjust_interval is not None:
                                     return True
 
-                                if self.min_bw is not None:
+                                if self.adjust_threshold is not None:
+                                    return True
+
+                                if self.enabled is not None:
                                     return True
 
                                 if self.max_bw is not None:
                                     return True
 
-                                if self.adjust_interval is not None:
-                                    return True
-
-                                if self.adjust_threshold is not None:
+                                if self.min_bw is not None:
                                     return True
 
                                 return False
@@ -8261,7 +8261,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -8329,7 +8329,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -8359,7 +8359,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:overflow'
 
@@ -8424,19 +8424,19 @@ class Mpls(object):
                                 	enables bandwidth underflow adjustment on the lsp
                                 	**type**\: bool
                                 
-                                .. attribute:: underflow_threshold
-                                
-                                	bandwidth percentage change to trigger and underflow event
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: trigger_event_count
                                 
                                 	number of consecutive underflow sample events needed to trigger an underflow adjustment
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                .. attribute:: underflow_threshold
+                                
+                                	bandwidth percentage change to trigger and underflow event
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -8448,13 +8448,13 @@ class Mpls(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.enabled = None
-                                    self.underflow_threshold = None
                                     self.trigger_event_count = None
+                                    self.underflow_threshold = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -8468,10 +8468,10 @@ class Mpls(object):
                                     if self.enabled is not None:
                                         return True
 
-                                    if self.underflow_threshold is not None:
+                                    if self.trigger_event_count is not None:
                                         return True
 
-                                    if self.trigger_event_count is not None:
+                                    if self.underflow_threshold is not None:
                                         return True
 
                                     return False
@@ -8492,19 +8492,19 @@ class Mpls(object):
                                 	enables bandwidth underflow adjustment on the lsp
                                 	**type**\: bool
                                 
-                                .. attribute:: underflow_threshold
-                                
-                                	bandwidth percentage change to trigger and underflow event
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: trigger_event_count
                                 
                                 	number of consecutive underflow sample events needed to trigger an underflow adjustment
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                .. attribute:: underflow_threshold
+                                
+                                	bandwidth percentage change to trigger and underflow event
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -8516,13 +8516,13 @@ class Mpls(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.enabled = None
-                                    self.underflow_threshold = None
                                     self.trigger_event_count = None
+                                    self.underflow_threshold = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -8536,10 +8536,10 @@ class Mpls(object):
                                     if self.enabled is not None:
                                         return True
 
-                                    if self.underflow_threshold is not None:
+                                    if self.trigger_event_count is not None:
                                         return True
 
-                                    if self.trigger_event_count is not None:
+                                    if self.underflow_threshold is not None:
                                         return True
 
                                     return False
@@ -8552,7 +8552,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:underflow'
 
@@ -8579,7 +8579,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:auto-bandwidth'
 
@@ -8593,10 +8593,10 @@ class Mpls(object):
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.state is not None and self.state._has_data():
+                            if self.overflow is not None and self.overflow._has_data():
                                 return True
 
-                            if self.overflow is not None and self.overflow._has_data():
+                            if self.state is not None and self.state._has_data():
                                 return True
 
                             if self.underflow is not None and self.underflow._has_data():
@@ -8612,7 +8612,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:bandwidth'
 
@@ -8623,13 +8623,13 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
+                            return True
+
                         if self.config is not None and self.config._has_data():
                             return True
 
                         if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
                             return True
 
                         return False
@@ -8649,11 +8649,6 @@ class Mpls(object):
                     	Configuration parameters for P2P LSPs
                     	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
                     
-                    .. attribute:: state
-                    
-                    	State parameters for P2P LSPs
-                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
-                    
                     .. attribute:: p2p_primary_paths
                     
                     	List of p2p primary paths for a tunnel
@@ -8663,6 +8658,11 @@ class Mpls(object):
                     
                     	List of p2p primary paths for a tunnel
                     	**type**\: list of :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
+                    
+                    .. attribute:: state
+                    
+                    	State parameters for P2P LSPs
+                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
                     
                     
 
@@ -8675,14 +8675,14 @@ class Mpls(object):
                         self.parent = None
                         self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config()
                         self.config.parent = self
-                        self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State()
-                        self.state.parent = self
                         self.p2p_primary_paths = YList()
                         self.p2p_primary_paths.parent = self
                         self.p2p_primary_paths.name = 'p2p_primary_paths'
                         self.p2p_secondary_paths = YList()
                         self.p2p_secondary_paths.parent = self
                         self.p2p_secondary_paths.name = 'p2p_secondary_paths'
+                        self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State()
+                        self.state.parent = self
 
 
                     class Config(object):
@@ -8720,7 +8720,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -8777,7 +8777,7 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -8808,6 +8808,16 @@ class Mpls(object):
                         	Path name
                         	**type**\: str
                         
+                        .. attribute:: admin_groups
+                        
+                        	Top\-level container for include/exclude constraints for link affinities
+                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
+                        
+                        .. attribute:: candidate_secondary_paths
+                        
+                        	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
+                        	**type**\: :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
+                        
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
@@ -8817,16 +8827,6 @@ class Mpls(object):
                         
                         	State parameters related to paths
                         	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
-                        
-                        .. attribute:: candidate_secondary_paths
-                        
-                        	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
-                        	**type**\: :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
-                        
-                        .. attribute:: admin_groups
-                        
-                        	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
                         
                         
 
@@ -8838,19 +8838,36 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
+                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups()
+                            self.admin_groups.parent = self
+                            self.candidate_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths()
+                            self.candidate_secondary_paths.parent = self
                             self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config()
                             self.config.parent = self
                             self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State()
                             self.state.parent = self
-                            self.candidate_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths()
-                            self.candidate_secondary_paths.parent = self
-                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups()
-                            self.admin_groups.parent = self
 
 
                         class Config(object):
                             """
                             Configuration parameters related to paths
+                            
+                            .. attribute:: cspf_tiebreaker
+                            
+                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            
+                            .. attribute:: explicit_path_name
+                            
+                            	reference to a defined path
+                            	**type**\: str
+                            
+                            .. attribute:: hold_priority
+                            
+                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                            	**type**\: int
+                            
+                            	**range:** 0..7
                             
                             .. attribute:: name
                             
@@ -8860,17 +8877,7 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\: :py:class:`PathComputationMethod_Identity <ydk.models.openconfig.openconfig_mpls.PathComputationMethod_Identity>`
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\: :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
                             
                             .. attribute:: path_computation_server
                             
@@ -8889,17 +8896,19 @@ class Mpls(object):
                             
                             
                             ----
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
                             	**type**\: int
                             
                             	**range:** 1..255
+                            
+                            .. attribute:: retry_timer
+                            
+                            	sets the time between attempts to establish the LSP
+                            	**type**\: int
+                            
+                            	**range:** 1..600
                             
                             .. attribute:: setup_priority
                             
@@ -8908,19 +8917,10 @@ class Mpls(object):
                             
                             	**range:** 0..7
                             
-                            .. attribute:: hold_priority
+                            .. attribute:: use_cspf
                             
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
+                            	Flag to enable CSPF for locally computed LSPs
+                            	**type**\: bool
                             
                             
 
@@ -8931,21 +8931,21 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.cspf_tiebreaker = None
+                                self.explicit_path_name = None
+                                self.hold_priority = None
                                 self.name = None
                                 self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
                                 self.path_computation_server = None
-                                self.explicit_path_name = None
                                 self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
                                 self.retry_timer = None
+                                self.setup_priority = None
+                                self.use_cspf = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -8956,34 +8956,34 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.cspf_tiebreaker is not None:
+                                    return True
+
+                                if self.explicit_path_name is not None:
+                                    return True
+
+                                if self.hold_priority is not None:
+                                    return True
+
                                 if self.name is not None:
                                     return True
 
                                 if self.path_computation_method is not None:
                                     return True
 
-                                if self.use_cspf is not None:
-                                    return True
-
-                                if self.cspf_tiebreaker is not None:
-                                    return True
-
                                 if self.path_computation_server is not None:
-                                    return True
-
-                                if self.explicit_path_name is not None:
                                     return True
 
                                 if self.preference is not None:
                                     return True
 
+                                if self.retry_timer is not None:
+                                    return True
+
                                 if self.setup_priority is not None:
                                     return True
 
-                                if self.hold_priority is not None:
-                                    return True
-
-                                if self.retry_timer is not None:
+                                if self.use_cspf is not None:
                                     return True
 
                                 return False
@@ -8998,6 +8998,23 @@ class Mpls(object):
                             """
                             State parameters related to paths
                             
+                            .. attribute:: cspf_tiebreaker
+                            
+                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            
+                            .. attribute:: explicit_path_name
+                            
+                            	reference to a defined path
+                            	**type**\: str
+                            
+                            .. attribute:: hold_priority
+                            
+                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
                             .. attribute:: name
                             
                             	Path name
@@ -9006,17 +9023,7 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\: :py:class:`PathComputationMethod_Identity <ydk.models.openconfig.openconfig_mpls.PathComputationMethod_Identity>`
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\: :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
                             
                             .. attribute:: path_computation_server
                             
@@ -9035,17 +9042,19 @@ class Mpls(object):
                             
                             
                             ----
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
                             	**type**\: int
                             
                             	**range:** 1..255
+                            
+                            .. attribute:: retry_timer
+                            
+                            	sets the time between attempts to establish the LSP
+                            	**type**\: int
+                            
+                            	**range:** 1..600
                             
                             .. attribute:: setup_priority
                             
@@ -9054,19 +9063,10 @@ class Mpls(object):
                             
                             	**range:** 0..7
                             
-                            .. attribute:: hold_priority
+                            .. attribute:: use_cspf
                             
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
+                            	Flag to enable CSPF for locally computed LSPs
+                            	**type**\: bool
                             
                             
 
@@ -9077,21 +9077,21 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.cspf_tiebreaker = None
+                                self.explicit_path_name = None
+                                self.hold_priority = None
                                 self.name = None
                                 self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
                                 self.path_computation_server = None
-                                self.explicit_path_name = None
                                 self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
                                 self.retry_timer = None
+                                self.setup_priority = None
+                                self.use_cspf = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -9102,34 +9102,34 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.cspf_tiebreaker is not None:
+                                    return True
+
+                                if self.explicit_path_name is not None:
+                                    return True
+
+                                if self.hold_priority is not None:
+                                    return True
+
                                 if self.name is not None:
                                     return True
 
                                 if self.path_computation_method is not None:
                                     return True
 
-                                if self.use_cspf is not None:
-                                    return True
-
-                                if self.cspf_tiebreaker is not None:
-                                    return True
-
                                 if self.path_computation_server is not None:
-                                    return True
-
-                                if self.explicit_path_name is not None:
                                     return True
 
                                 if self.preference is not None:
                                     return True
 
+                                if self.retry_timer is not None:
+                                    return True
+
                                 if self.setup_priority is not None:
                                     return True
 
-                                if self.hold_priority is not None:
-                                    return True
-
-                                if self.retry_timer is not None:
+                                if self.use_cspf is not None:
                                     return True
 
                                 return False
@@ -9213,17 +9213,17 @@ class Mpls(object):
                                     Configuration parameters relating to the candidate
                                     secondary path
                                     
-                                    .. attribute:: secondary_path
-                                    
-                                    	A reference to the secondary path that should be utilised when the containing primary path option is in use
-                                    	**type**\: str
-                                    
                                     .. attribute:: priority
                                     
                                     	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    .. attribute:: secondary_path
+                                    
+                                    	A reference to the secondary path that should be utilised when the containing primary path option is in use
+                                    	**type**\: str
                                     
                                     
 
@@ -9234,13 +9234,13 @@ class Mpls(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.secondary_path = None
                                         self.priority = None
+                                        self.secondary_path = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -9251,10 +9251,10 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.secondary_path is not None:
+                                        if self.priority is not None:
                                             return True
 
-                                        if self.priority is not None:
+                                        if self.secondary_path is not None:
                                             return True
 
                                         return False
@@ -9270,10 +9270,10 @@ class Mpls(object):
                                     Operational state parameters relating to the candidate
                                     secondary path
                                     
-                                    .. attribute:: secondary_path
+                                    .. attribute:: active
                                     
-                                    	A reference to the secondary path that should be utilised when the containing primary path option is in use
-                                    	**type**\: str
+                                    	Indicates the current active path option that has been selected of the candidate secondary paths
+                                    	**type**\: bool
                                     
                                     .. attribute:: priority
                                     
@@ -9282,10 +9282,10 @@ class Mpls(object):
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: active
+                                    .. attribute:: secondary_path
                                     
-                                    	Indicates the current active path option that has been selected of the candidate secondary paths
-                                    	**type**\: bool
+                                    	A reference to the secondary path that should be utilised when the containing primary path option is in use
+                                    	**type**\: str
                                     
                                     
 
@@ -9296,14 +9296,14 @@ class Mpls(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.secondary_path = None
-                                        self.priority = None
                                         self.active = None
+                                        self.priority = None
+                                        self.secondary_path = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -9314,13 +9314,13 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.secondary_path is not None:
+                                        if self.active is not None:
                                             return True
 
                                         if self.priority is not None:
                                             return True
 
-                                        if self.active is not None:
+                                        if self.secondary_path is not None:
                                             return True
 
                                         return False
@@ -9333,9 +9333,9 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.secondary_path is None:
-                                        raise YPYDataValidationError('Key property secondary_path is None')
+                                        raise YPYModelError('Key property secondary_path is None')
 
                                     return self.parent._common_path +'/openconfig-mpls:candidate-secondary-path[openconfig-mpls:secondary-path = ' + str(self.secondary_path) + ']'
 
@@ -9365,7 +9365,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:candidate-secondary-paths'
 
@@ -9460,7 +9460,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -9535,7 +9535,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -9571,7 +9571,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:admin-groups'
 
@@ -9598,9 +9598,9 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.name is None:
-                                raise YPYDataValidationError('Key property name is None')
+                                raise YPYModelError('Key property name is None')
 
                             return self.parent._common_path +'/openconfig-mpls:p2p-primary-paths[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -9614,16 +9614,16 @@ class Mpls(object):
                             if self.name is not None:
                                 return True
 
-                            if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.state is not None and self.state._has_data():
+                            if self.admin_groups is not None and self.admin_groups._has_data():
                                 return True
 
                             if self.candidate_secondary_paths is not None and self.candidate_secondary_paths._has_data():
                                 return True
 
-                            if self.admin_groups is not None and self.admin_groups._has_data():
+                            if self.config is not None and self.config._has_data():
+                                return True
+
+                            if self.state is not None and self.state._has_data():
                                 return True
 
                             return False
@@ -9643,6 +9643,11 @@ class Mpls(object):
                         	Path name
                         	**type**\: str
                         
+                        .. attribute:: admin_groups
+                        
+                        	Top\-level container for include/exclude constraints for link affinities
+                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
+                        
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
@@ -9652,11 +9657,6 @@ class Mpls(object):
                         
                         	State parameters related to paths
                         	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
-                        
-                        .. attribute:: admin_groups
-                        
-                        	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
                         
                         
 
@@ -9668,17 +9668,34 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
+                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups()
+                            self.admin_groups.parent = self
                             self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config()
                             self.config.parent = self
                             self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State()
                             self.state.parent = self
-                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups()
-                            self.admin_groups.parent = self
 
 
                         class Config(object):
                             """
                             Configuration parameters related to paths
+                            
+                            .. attribute:: cspf_tiebreaker
+                            
+                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            
+                            .. attribute:: explicit_path_name
+                            
+                            	reference to a defined path
+                            	**type**\: str
+                            
+                            .. attribute:: hold_priority
+                            
+                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                            	**type**\: int
+                            
+                            	**range:** 0..7
                             
                             .. attribute:: name
                             
@@ -9688,17 +9705,7 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\: :py:class:`PathComputationMethod_Identity <ydk.models.openconfig.openconfig_mpls.PathComputationMethod_Identity>`
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\: :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
                             
                             .. attribute:: path_computation_server
                             
@@ -9717,17 +9724,19 @@ class Mpls(object):
                             
                             
                             ----
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
                             	**type**\: int
                             
                             	**range:** 1..255
+                            
+                            .. attribute:: retry_timer
+                            
+                            	sets the time between attempts to establish the LSP
+                            	**type**\: int
+                            
+                            	**range:** 1..600
                             
                             .. attribute:: setup_priority
                             
@@ -9736,19 +9745,10 @@ class Mpls(object):
                             
                             	**range:** 0..7
                             
-                            .. attribute:: hold_priority
+                            .. attribute:: use_cspf
                             
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
+                            	Flag to enable CSPF for locally computed LSPs
+                            	**type**\: bool
                             
                             
 
@@ -9759,21 +9759,21 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.cspf_tiebreaker = None
+                                self.explicit_path_name = None
+                                self.hold_priority = None
                                 self.name = None
                                 self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
                                 self.path_computation_server = None
-                                self.explicit_path_name = None
                                 self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
                                 self.retry_timer = None
+                                self.setup_priority = None
+                                self.use_cspf = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -9784,34 +9784,34 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.cspf_tiebreaker is not None:
+                                    return True
+
+                                if self.explicit_path_name is not None:
+                                    return True
+
+                                if self.hold_priority is not None:
+                                    return True
+
                                 if self.name is not None:
                                     return True
 
                                 if self.path_computation_method is not None:
                                     return True
 
-                                if self.use_cspf is not None:
-                                    return True
-
-                                if self.cspf_tiebreaker is not None:
-                                    return True
-
                                 if self.path_computation_server is not None:
-                                    return True
-
-                                if self.explicit_path_name is not None:
                                     return True
 
                                 if self.preference is not None:
                                     return True
 
+                                if self.retry_timer is not None:
+                                    return True
+
                                 if self.setup_priority is not None:
                                     return True
 
-                                if self.hold_priority is not None:
-                                    return True
-
-                                if self.retry_timer is not None:
+                                if self.use_cspf is not None:
                                     return True
 
                                 return False
@@ -9826,6 +9826,23 @@ class Mpls(object):
                             """
                             State parameters related to paths
                             
+                            .. attribute:: cspf_tiebreaker
+                            
+                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            
+                            .. attribute:: explicit_path_name
+                            
+                            	reference to a defined path
+                            	**type**\: str
+                            
+                            .. attribute:: hold_priority
+                            
+                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
                             .. attribute:: name
                             
                             	Path name
@@ -9834,17 +9851,7 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\: :py:class:`PathComputationMethod_Identity <ydk.models.openconfig.openconfig_mpls.PathComputationMethod_Identity>`
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\: :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
                             
                             .. attribute:: path_computation_server
                             
@@ -9863,17 +9870,19 @@ class Mpls(object):
                             
                             
                             ----
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
                             	**type**\: int
                             
                             	**range:** 1..255
+                            
+                            .. attribute:: retry_timer
+                            
+                            	sets the time between attempts to establish the LSP
+                            	**type**\: int
+                            
+                            	**range:** 1..600
                             
                             .. attribute:: setup_priority
                             
@@ -9882,19 +9891,10 @@ class Mpls(object):
                             
                             	**range:** 0..7
                             
-                            .. attribute:: hold_priority
+                            .. attribute:: use_cspf
                             
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
+                            	Flag to enable CSPF for locally computed LSPs
+                            	**type**\: bool
                             
                             
 
@@ -9905,21 +9905,21 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.cspf_tiebreaker = None
+                                self.explicit_path_name = None
+                                self.hold_priority = None
                                 self.name = None
                                 self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
                                 self.path_computation_server = None
-                                self.explicit_path_name = None
                                 self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
                                 self.retry_timer = None
+                                self.setup_priority = None
+                                self.use_cspf = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -9930,34 +9930,34 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.cspf_tiebreaker is not None:
+                                    return True
+
+                                if self.explicit_path_name is not None:
+                                    return True
+
+                                if self.hold_priority is not None:
+                                    return True
+
                                 if self.name is not None:
                                     return True
 
                                 if self.path_computation_method is not None:
                                     return True
 
-                                if self.use_cspf is not None:
-                                    return True
-
-                                if self.cspf_tiebreaker is not None:
-                                    return True
-
                                 if self.path_computation_server is not None:
-                                    return True
-
-                                if self.explicit_path_name is not None:
                                     return True
 
                                 if self.preference is not None:
                                     return True
 
+                                if self.retry_timer is not None:
+                                    return True
+
                                 if self.setup_priority is not None:
                                     return True
 
-                                if self.hold_priority is not None:
-                                    return True
-
-                                if self.retry_timer is not None:
+                                if self.use_cspf is not None:
                                     return True
 
                                 return False
@@ -10039,7 +10039,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -10114,7 +10114,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -10150,7 +10150,7 @@ class Mpls(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-mpls:admin-groups'
 
@@ -10177,9 +10177,9 @@ class Mpls(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.name is None:
-                                raise YPYDataValidationError('Key property name is None')
+                                raise YPYModelError('Key property name is None')
 
                             return self.parent._common_path +'/openconfig-mpls:p2p-secondary-paths[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -10193,13 +10193,13 @@ class Mpls(object):
                             if self.name is not None:
                                 return True
 
+                            if self.admin_groups is not None and self.admin_groups._has_data():
+                                return True
+
                             if self.config is not None and self.config._has_data():
                                 return True
 
                             if self.state is not None and self.state._has_data():
-                                return True
-
-                            if self.admin_groups is not None and self.admin_groups._has_data():
                                 return True
 
                             return False
@@ -10212,7 +10212,7 @@ class Mpls(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:p2p-tunnel-attributes'
 
@@ -10226,9 +10226,6 @@ class Mpls(object):
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.state is not None and self.state._has_data():
-                            return True
-
                         if self.p2p_primary_paths is not None:
                             for child_ref in self.p2p_primary_paths:
                                 if child_ref._has_data():
@@ -10238,6 +10235,9 @@ class Mpls(object):
                             for child_ref in self.p2p_secondary_paths:
                                 if child_ref._has_data():
                                     return True
+
+                        if self.state is not None and self.state._has_data():
+                            return True
 
                         return False
 
@@ -10249,9 +10249,9 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
                     if self.type is None:
-                        raise YPYDataValidationError('Key property type is None')
+                        raise YPYModelError('Key property type is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:lsps/openconfig-mpls:constrained-path/openconfig-mpls:tunnel[openconfig-mpls:name = ' + str(self.name) + '][openconfig-mpls:type = ' + str(self.type) + ']'
 
@@ -10268,16 +10268,16 @@ class Mpls(object):
                     if self.type is not None:
                         return True
 
-                    if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.state is not None and self.state._has_data():
-                        return True
-
                     if self.bandwidth is not None and self.bandwidth._has_data():
                         return True
 
+                    if self.config is not None and self.config._has_data():
+                        return True
+
                     if self.p2p_tunnel_attributes is not None and self.p2p_tunnel_attributes._has_data():
+                        return True
+
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -10402,30 +10402,30 @@ class Mpls(object):
                         contains configuration stanzas for different LSP
                         tunnel types (P2P, P2MP, etc.)
                         
-                        .. attribute:: tunnel_type
-                        
-                        	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\: :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
-                        
                         .. attribute:: ldp_type
                         
                         	specify basic or targeted LDP LSP
                         	**type**\: :py:class:`LdpTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum>`
                         
-                        .. attribute:: p2p_lsp
+                        .. attribute:: mp2mp_lsp
                         
-                        	properties of point\-to\-point tunnels
-                        	**type**\: :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
+                        	properties of multipoint\-to\-multipoint tunnels
+                        	**type**\: :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
                         
                         .. attribute:: p2mp_lsp
                         
                         	properties of point\-to\-multipoint tunnels
                         	**type**\: :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
                         
-                        .. attribute:: mp2mp_lsp
+                        .. attribute:: p2p_lsp
                         
-                        	properties of multipoint\-to\-multipoint tunnels
-                        	**type**\: :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
+                        	properties of point\-to\-point tunnels
+                        	**type**\: :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
+                        
+                        .. attribute:: tunnel_type
+                        
+                        	specifies the type of LSP, e.g., P2P or P2MP
+                        	**type**\: :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
                         
                         
 
@@ -10436,14 +10436,14 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.tunnel_type = None
                             self.ldp_type = None
-                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp()
-                            self.p2p_lsp.parent = self
-                            self.p2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp()
-                            self.p2mp_lsp.parent = self
                             self.mp2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp()
                             self.mp2mp_lsp.parent = self
+                            self.p2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp()
+                            self.p2mp_lsp.parent = self
+                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp()
+                            self.p2p_lsp.parent = self
+                            self.tunnel_type = None
 
                         class LdpTypeEnum(Enum):
                             """
@@ -10611,19 +10611,19 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.tunnel_type is not None:
-                                return True
-
                             if self.ldp_type is not None:
                                 return True
 
-                            if self.p2p_lsp is not None and self.p2p_lsp._has_data():
+                            if self.mp2mp_lsp is not None and self.mp2mp_lsp._has_data():
                                 return True
 
                             if self.p2mp_lsp is not None and self.p2mp_lsp._has_data():
                                 return True
 
-                            if self.mp2mp_lsp is not None and self.mp2mp_lsp._has_data():
+                            if self.p2p_lsp is not None and self.p2p_lsp._has_data():
+                                return True
+
+                            if self.tunnel_type is not None:
                                 return True
 
                             return False
@@ -10691,15 +10691,15 @@ class Mpls(object):
                         contains configuration stanzas for different LSP
                         tunnel types (P2P, P2MP, etc.)
                         
-                        .. attribute:: tunnel_type
-                        
-                        	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\: :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
-                        
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
                         	**type**\: :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
+                        
+                        .. attribute:: tunnel_type
+                        
+                        	specifies the type of LSP, e.g., P2P or P2MP
+                        	**type**\: :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
                         
                         
 
@@ -10710,9 +10710,9 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.tunnel_type = None
                             self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp()
                             self.p2p_lsp.parent = self
+                            self.tunnel_type = None
 
 
                         class P2PLsp(object):
@@ -10764,15 +10764,15 @@ class Mpls(object):
                                 	Configuration parameters relating to the FEC to be advertised by SR
                                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
                                 
-                                .. attribute:: state
-                                
-                                	Operational state relating to a FEC advertised by SR
-                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
-                                
                                 .. attribute:: prefix_sid
                                 
                                 	Parameters relating to the Prefix\-SID used for the originated FEC
                                 	**type**\: :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
+                                
+                                .. attribute:: state
+                                
+                                	Operational state relating to a FEC advertised by SR
+                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
                                 
                                 
 
@@ -10786,10 +10786,10 @@ class Mpls(object):
                                     self.fec_address = None
                                     self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config()
                                     self.config.parent = self
-                                    self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State()
-                                    self.state.parent = self
                                     self.prefix_sid = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid()
                                     self.prefix_sid.parent = self
+                                    self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State()
+                                    self.state.parent = self
 
 
                                 class Config(object):
@@ -10828,7 +10828,7 @@ class Mpls(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -10885,7 +10885,7 @@ class Mpls(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -10942,20 +10942,20 @@ class Mpls(object):
                                         Configuration parameters relating to the Prefix\-SID
                                         used for the originated FEC
                                         
-                                        .. attribute:: type
+                                        .. attribute:: last_hop_behavior
                                         
-                                        	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum>`
+                                        	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
+                                        	**type**\: :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum>`
                                         
                                         .. attribute:: node_flag
                                         
                                         	Specifies that the Prefix\-SID is to be treated as a Node\-SID by setting the N\-flag in the advertised Prefix\-SID TLV in the IGP
                                         	**type**\: bool
                                         
-                                        .. attribute:: last_hop_behavior
+                                        .. attribute:: type
                                         
-                                        	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\: :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum>`
+                                        	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
+                                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum>`
                                         
                                         
 
@@ -10966,9 +10966,9 @@ class Mpls(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.type = None
-                                            self.node_flag = None
                                             self.last_hop_behavior = None
+                                            self.node_flag = None
+                                            self.type = None
 
                                         class LastHopBehaviorEnum(Enum):
                                             """
@@ -11059,7 +11059,7 @@ class Mpls(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/openconfig-mpls:config'
 
@@ -11070,13 +11070,13 @@ class Mpls(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.type is not None:
+                                            if self.last_hop_behavior is not None:
                                                 return True
 
                                             if self.node_flag is not None:
                                                 return True
 
-                                            if self.last_hop_behavior is not None:
+                                            if self.type is not None:
                                                 return True
 
                                             return False
@@ -11092,20 +11092,20 @@ class Mpls(object):
                                         Operational state parameters relating to the
                                         Prefix\-SID used for the originated FEC
                                         
-                                        .. attribute:: type
+                                        .. attribute:: last_hop_behavior
                                         
-                                        	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum>`
+                                        	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
+                                        	**type**\: :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum>`
                                         
                                         .. attribute:: node_flag
                                         
                                         	Specifies that the Prefix\-SID is to be treated as a Node\-SID by setting the N\-flag in the advertised Prefix\-SID TLV in the IGP
                                         	**type**\: bool
                                         
-                                        .. attribute:: last_hop_behavior
+                                        .. attribute:: type
                                         
-                                        	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\: :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum>`
+                                        	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
+                                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum>`
                                         
                                         
 
@@ -11116,9 +11116,9 @@ class Mpls(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.type = None
-                                            self.node_flag = None
                                             self.last_hop_behavior = None
+                                            self.node_flag = None
+                                            self.type = None
 
                                         class LastHopBehaviorEnum(Enum):
                                             """
@@ -11209,7 +11209,7 @@ class Mpls(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/openconfig-mpls:state'
 
@@ -11220,13 +11220,13 @@ class Mpls(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.type is not None:
+                                            if self.last_hop_behavior is not None:
                                                 return True
 
                                             if self.node_flag is not None:
                                                 return True
 
-                                            if self.last_hop_behavior is not None:
+                                            if self.type is not None:
                                                 return True
 
                                             return False
@@ -11239,7 +11239,7 @@ class Mpls(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-mpls:prefix-sid'
 
@@ -11266,7 +11266,7 @@ class Mpls(object):
                                 @property
                                 def _common_path(self):
                                     if self.fec_address is None:
-                                        raise YPYDataValidationError('Key property fec_address is None')
+                                        raise YPYModelError('Key property fec_address is None')
 
                                     return '/openconfig-mpls:mpls/openconfig-mpls:lsps/openconfig-mpls:unconstrained-path/openconfig-mpls:path-setup-protocol/openconfig-mpls:segment-routing/openconfig-mpls:tunnel/openconfig-mpls:p2p-lsp/openconfig-mpls:fec[openconfig-mpls:fec-address = ' + str(self.fec_address) + ']'
 
@@ -11283,10 +11283,10 @@ class Mpls(object):
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.state is not None and self.state._has_data():
+                                    if self.prefix_sid is not None and self.prefix_sid._has_data():
                                         return True
 
-                                    if self.prefix_sid is not None and self.prefix_sid._has_data():
+                                    if self.state is not None and self.state._has_data():
                                         return True
 
                                     return False
@@ -11332,10 +11332,10 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.tunnel_type is not None:
+                            if self.p2p_lsp is not None and self.p2p_lsp._has_data():
                                 return True
 
-                            if self.p2p_lsp is not None and self.p2p_lsp._has_data():
+                            if self.tunnel_type is not None:
                                 return True
 
                             return False
@@ -11448,6 +11448,11 @@ class Mpls(object):
                 	name to identify the LSP
                 	**type**\: str
                 
+                .. attribute:: egress
+                
+                	static LSPs for which the router is a egress  node
+                	**type**\: :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
+                
                 .. attribute:: ingress
                 
                 	Static LSPs for which the router is an ingress node
@@ -11457,11 +11462,6 @@ class Mpls(object):
                 
                 	static LSPs for which the router is a transit node
                 	**type**\: :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit>`
-                
-                .. attribute:: egress
-                
-                	static LSPs for which the router is a egress  node
-                	**type**\: :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
                 
                 
 
@@ -11473,12 +11473,12 @@ class Mpls(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
+                    self.egress = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress()
+                    self.egress.parent = self
                     self.ingress = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress()
                     self.ingress.parent = self
                     self.transit = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit()
                     self.transit.parent = self
-                    self.egress = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress()
-                    self.egress.parent = self
 
 
                 class Ingress(object):
@@ -11486,6 +11486,21 @@ class Mpls(object):
                     Static LSPs for which the router is an
                     ingress node
                     
+                    .. attribute:: incoming_label
+                    
+                    	label value on the incoming packet
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: int
+                    
+                    	**range:** 16..1048575
+                    
+                    
+                    ----
+                    	**type**\: :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    
+                    
+                    ----
                     .. attribute:: next_hop
                     
                     	next hop IP address for the LSP
@@ -11500,21 +11515,6 @@ class Mpls(object):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: incoming_label
-                    
-                    	label value on the incoming packet
-                    	**type**\: one of the below types:
-                    
-                    	**type**\: int
-                    
-                    	**range:** 16..1048575
-                    
-                    
-                    ----
-                    	**type**\: :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11542,14 +11542,14 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.next_hop = None
                         self.incoming_label = None
+                        self.next_hop = None
                         self.push_label = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:ingress'
 
@@ -11560,10 +11560,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.next_hop is not None:
+                        if self.incoming_label is not None:
                             return True
 
-                        if self.incoming_label is not None:
+                        if self.next_hop is not None:
                             return True
 
                         if self.push_label is not None:
@@ -11582,6 +11582,21 @@ class Mpls(object):
                     static LSPs for which the router is a
                     transit node
                     
+                    .. attribute:: incoming_label
+                    
+                    	label value on the incoming packet
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: int
+                    
+                    	**range:** 16..1048575
+                    
+                    
+                    ----
+                    	**type**\: :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    
+                    
+                    ----
                     .. attribute:: next_hop
                     
                     	next hop IP address for the LSP
@@ -11596,21 +11611,6 @@ class Mpls(object):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: incoming_label
-                    
-                    	label value on the incoming packet
-                    	**type**\: one of the below types:
-                    
-                    	**type**\: int
-                    
-                    	**range:** 16..1048575
-                    
-                    
-                    ----
-                    	**type**\: :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11638,14 +11638,14 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.next_hop = None
                         self.incoming_label = None
+                        self.next_hop = None
                         self.push_label = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:transit'
 
@@ -11656,10 +11656,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.next_hop is not None:
+                        if self.incoming_label is not None:
                             return True
 
-                        if self.incoming_label is not None:
+                        if self.next_hop is not None:
                             return True
 
                         if self.push_label is not None:
@@ -11678,6 +11678,21 @@ class Mpls(object):
                     static LSPs for which the router is a
                     egress  node
                     
+                    .. attribute:: incoming_label
+                    
+                    	label value on the incoming packet
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: int
+                    
+                    	**range:** 16..1048575
+                    
+                    
+                    ----
+                    	**type**\: :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    
+                    
+                    ----
                     .. attribute:: next_hop
                     
                     	next hop IP address for the LSP
@@ -11692,21 +11707,6 @@ class Mpls(object):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: incoming_label
-                    
-                    	label value on the incoming packet
-                    	**type**\: one of the below types:
-                    
-                    	**type**\: int
-                    
-                    	**range:** 16..1048575
-                    
-                    
-                    ----
-                    	**type**\: :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11734,14 +11734,14 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.next_hop = None
                         self.incoming_label = None
+                        self.next_hop = None
                         self.push_label = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-mpls:egress'
 
@@ -11752,10 +11752,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.next_hop is not None:
+                        if self.incoming_label is not None:
                             return True
 
-                        if self.incoming_label is not None:
+                        if self.next_hop is not None:
                             return True
 
                         if self.push_label is not None:
@@ -11771,7 +11771,7 @@ class Mpls(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/openconfig-mpls:mpls/openconfig-mpls:lsps/openconfig-mpls:static-lsps/openconfig-mpls:label-switched-path[openconfig-mpls:name = ' + str(self.name) + ']'
 
@@ -11785,13 +11785,13 @@ class Mpls(object):
                     if self.name is not None:
                         return True
 
+                    if self.egress is not None and self.egress._has_data():
+                        return True
+
                     if self.ingress is not None and self.ingress._has_data():
                         return True
 
                     if self.transit is not None and self.transit._has_data():
-                        return True
-
-                    if self.egress is not None and self.egress._has_data():
                         return True
 
                     return False
@@ -11840,10 +11840,10 @@ class Mpls(object):
             if self.constrained_path is not None and self.constrained_path._has_data():
                 return True
 
-            if self.unconstrained_path is not None and self.unconstrained_path._has_data():
+            if self.static_lsps is not None and self.static_lsps._has_data():
                 return True
 
-            if self.static_lsps is not None and self.static_lsps._has_data():
+            if self.unconstrained_path is not None and self.unconstrained_path._has_data():
                 return True
 
             return False
@@ -11868,16 +11868,16 @@ class Mpls(object):
         if self.global_ is not None and self.global_._has_data():
             return True
 
-        if self.te_global_attributes is not None and self.te_global_attributes._has_data():
-            return True
-
-        if self.te_interface_attributes is not None and self.te_interface_attributes._has_data():
+        if self.lsps is not None and self.lsps._has_data():
             return True
 
         if self.signaling_protocols is not None and self.signaling_protocols._has_data():
             return True
 
-        if self.lsps is not None and self.lsps._has_data():
+        if self.te_global_attributes is not None and self.te_global_attributes._has_data():
+            return True
+
+        if self.te_interface_attributes is not None and self.te_interface_attributes._has_data():
             return True
 
         return False
@@ -11888,28 +11888,7 @@ class Mpls(object):
         return meta._meta_table['Mpls']['meta_info']
 
 
-class ExternallyQueried_Identity(PathComputationMethod_Identity):
-    """
-    constrained\-path LSP in which the path is
-    obtained by querying an external source, such as a PCE server
-    
-    
-
-    """
-
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        PathComputationMethod_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['ExternallyQueried_Identity']['meta_info']
-
-
-class LocallyComputed_Identity(PathComputationMethod_Identity):
+class LocallyComputedIdentity(PathComputationMethodIdentity):
     """
     indicates a constrained\-path LSP in which the
     path is computed by the local LER
@@ -11922,15 +11901,15 @@ class LocallyComputed_Identity(PathComputationMethod_Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        PathComputationMethod_Identity.__init__(self)
+        PathComputationMethodIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['LocallyComputed_Identity']['meta_info']
+        return meta._meta_table['LocallyComputedIdentity']['meta_info']
 
 
-class ExplicitlyDefined_Identity(PathComputationMethod_Identity):
+class ExplicitlyDefinedIdentity(PathComputationMethodIdentity):
     """
     constrained\-path LSP in which the path is
     explicitly specified as a collection of strict or/and loose
@@ -11944,11 +11923,32 @@ class ExplicitlyDefined_Identity(PathComputationMethod_Identity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        PathComputationMethod_Identity.__init__(self)
+        PathComputationMethodIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['ExplicitlyDefined_Identity']['meta_info']
+        return meta._meta_table['ExplicitlyDefinedIdentity']['meta_info']
+
+
+class ExternallyQueriedIdentity(PathComputationMethodIdentity):
+    """
+    constrained\-path LSP in which the path is
+    obtained by querying an external source, such as a PCE server
+    
+    
+
+    """
+
+    _prefix = 'mpls'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        PathComputationMethodIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls as meta
+        return meta._meta_table['ExternallyQueriedIdentity']['meta_info']
 
 

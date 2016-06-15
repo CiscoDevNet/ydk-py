@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -209,15 +209,15 @@ class HardwareModule(object):
                 	Client Rate
                 	**type**\: :py:class:`ClientDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRateEnum>`
                 
-                .. attribute:: trunk_rate
-                
-                	TrunkRate
-                	**type**\: :py:class:`TrunkDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRateEnum>`
-                
                 .. attribute:: fec
                 
                 	FEC
                 	**type**\: :py:class:`FecEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.FecEnum>`
+                
+                .. attribute:: trunk_rate
+                
+                	TrunkRate
+                	**type**\: :py:class:`TrunkDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRateEnum>`
                 
                 
 
@@ -230,15 +230,15 @@ class HardwareModule(object):
                     self.parent = None
                     self.slice_id = None
                     self.client_rate = None
-                    self.trunk_rate = None
                     self.fec = None
+                    self.trunk_rate = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.slice_id is None:
-                        raise YPYDataValidationError('Key property slice_id is None')
+                        raise YPYModelError('Key property slice_id is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-cfg:value[Cisco-IOS-XR-ncs1k-mxp-cfg:slice-id = ' + str(self.slice_id) + ']'
 
@@ -255,10 +255,10 @@ class HardwareModule(object):
                     if self.client_rate is not None:
                         return True
 
-                    if self.trunk_rate is not None:
+                    if self.fec is not None:
                         return True
 
-                    if self.fec is not None:
+                    if self.trunk_rate is not None:
                         return True
 
                     return False
@@ -271,7 +271,7 @@ class HardwareModule(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-cfg:values'
 
@@ -297,7 +297,7 @@ class HardwareModule(object):
         @property
         def _common_path(self):
             if self.location is None:
-                raise YPYDataValidationError('Key property location is None')
+                raise YPYModelError('Key property location is None')
 
             return '/Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module/Cisco-IOS-XR-ncs1k-mxp-cfg:node[Cisco-IOS-XR-ncs1k-mxp-cfg:location = ' + str(self.location) + ']'
 

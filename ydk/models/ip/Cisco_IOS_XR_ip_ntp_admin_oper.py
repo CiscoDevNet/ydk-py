@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -443,11 +443,6 @@ class Ntp(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: status
-                            
-                            	Status of NTP peer(s)
-                            	**type**\: :py:class:`Status <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
-                            
                             .. attribute:: associations
                             
                             	NTP Associations information
@@ -457,6 +452,11 @@ class Ntp(object):
                             
                             	NTP Associations Detail information
                             	**type**\: :py:class:`AssociationsDetail <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail>`
+                            
+                            .. attribute:: status
+                            
+                            	Status of NTP peer(s)
+                            	**type**\: :py:class:`Status <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
                             
                             
 
@@ -468,42 +468,17 @@ class Ntp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.number = None
-                                self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
-                                self.status.parent = self
                                 self.associations = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations()
                                 self.associations.parent = self
                                 self.associations_detail = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail()
                                 self.associations_detail.parent = self
+                                self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
+                                self.status.parent = self
 
 
                             class Status(object):
                                 """
                                 Status of NTP peer(s)
-                                
-                                .. attribute:: sys_ref_time
-                                
-                                	Reference time
-                                	**type**\: :py:class:`SysRefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
-                                
-                                .. attribute:: sys_drift
-                                
-                                	System Drift
-                                	**type**\: :py:class:`SysDrift <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
-                                
-                                .. attribute:: is_ntp_enabled
-                                
-                                	Is NTP enabled
-                                	**type**\: bool
-                                
-                                .. attribute:: sys_dispersion
-                                
-                                	Peer dispersion
-                                	**type**\: str
-                                
-                                .. attribute:: sys_offset
-                                
-                                	Clock offset
-                                	**type**\: str
                                 
                                 .. attribute:: clock_period
                                 
@@ -512,53 +487,10 @@ class Ntp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: sys_leap
+                                .. attribute:: is_ntp_enabled
                                 
-                                	leap
-                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
-                                
-                                .. attribute:: sys_precision
-                                
-                                	Precision
-                                	**type**\: int
-                                
-                                	**range:** \-128..127
-                                
-                                .. attribute:: sys_stratum
-                                
-                                	Stratum
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: sys_ref_id
-                                
-                                	Reference clock ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: sys_root_delay
-                                
-                                	Root delay
-                                	**type**\: str
-                                
-                                .. attribute:: sys_root_dispersion
-                                
-                                	Root dispersion
-                                	**type**\: str
-                                
-                                .. attribute:: loop_filter_state
-                                
-                                	Loop Filter State
-                                	**type**\: :py:class:`NtpLoopFilterStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterStateEnum>`
-                                
-                                .. attribute:: poll_interval
-                                
-                                	Peer poll interval
-                                	**type**\: int
-                                
-                                	**range:** 0..255
+                                	Is NTP enabled
+                                	**type**\: bool
                                 
                                 .. attribute:: is_updated
                                 
@@ -572,6 +504,74 @@ class Ntp(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                .. attribute:: loop_filter_state
+                                
+                                	Loop Filter State
+                                	**type**\: :py:class:`NtpLoopFilterStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterStateEnum>`
+                                
+                                .. attribute:: poll_interval
+                                
+                                	Peer poll interval
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: sys_dispersion
+                                
+                                	Peer dispersion
+                                	**type**\: str
+                                
+                                .. attribute:: sys_drift
+                                
+                                	System Drift
+                                	**type**\: :py:class:`SysDrift <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
+                                
+                                .. attribute:: sys_leap
+                                
+                                	leap
+                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
+                                
+                                .. attribute:: sys_offset
+                                
+                                	Clock offset
+                                	**type**\: str
+                                
+                                .. attribute:: sys_precision
+                                
+                                	Precision
+                                	**type**\: int
+                                
+                                	**range:** \-128..127
+                                
+                                .. attribute:: sys_ref_id
+                                
+                                	Reference clock ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: sys_ref_time
+                                
+                                	Reference time
+                                	**type**\: :py:class:`SysRefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
+                                
+                                .. attribute:: sys_root_delay
+                                
+                                	Root delay
+                                	**type**\: str
+                                
+                                .. attribute:: sys_root_dispersion
+                                
+                                	Root dispersion
+                                	**type**\: str
+                                
+                                .. attribute:: sys_stratum
+                                
+                                	Stratum
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
                                 
 
                                 """
@@ -581,39 +581,39 @@ class Ntp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
-                                    self.sys_ref_time.parent = self
-                                    self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
-                                    self.sys_drift.parent = self
-                                    self.is_ntp_enabled = None
-                                    self.sys_dispersion = None
-                                    self.sys_offset = None
                                     self.clock_period = None
-                                    self.sys_leap = None
-                                    self.sys_precision = None
-                                    self.sys_stratum = None
-                                    self.sys_ref_id = None
-                                    self.sys_root_delay = None
-                                    self.sys_root_dispersion = None
-                                    self.loop_filter_state = None
-                                    self.poll_interval = None
+                                    self.is_ntp_enabled = None
                                     self.is_updated = None
                                     self.last_update = None
+                                    self.loop_filter_state = None
+                                    self.poll_interval = None
+                                    self.sys_dispersion = None
+                                    self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
+                                    self.sys_drift.parent = self
+                                    self.sys_leap = None
+                                    self.sys_offset = None
+                                    self.sys_precision = None
+                                    self.sys_ref_id = None
+                                    self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
+                                    self.sys_ref_time.parent = self
+                                    self.sys_root_delay = None
+                                    self.sys_root_dispersion = None
+                                    self.sys_stratum = None
 
 
                                 class SysRefTime(object):
                                     """
                                     Reference time
                                     
-                                    .. attribute:: sec
-                                    
-                                    	Second part in 64\-bit NTP timestamp
-                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
-                                    
                                     .. attribute:: frac_secs
                                     
                                     	Fractional part in 64\-bit NTP timestamp
                                     	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs>`
+                                    
+                                    .. attribute:: sec
+                                    
+                                    	Second part in 64\-bit NTP timestamp
+                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
                                     
                                     
 
@@ -624,10 +624,10 @@ class Ntp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
-                                        self.sec.parent = self
                                         self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs()
                                         self.frac_secs.parent = self
+                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
+                                        self.sec.parent = self
 
 
                                     class Sec(object):
@@ -655,7 +655,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
 
@@ -702,7 +702,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
 
@@ -726,7 +726,7 @@ class Ntp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sys-ref-time'
 
@@ -737,10 +737,10 @@ class Ntp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.sec is not None and self.sec._has_data():
+                                        if self.frac_secs is not None and self.frac_secs._has_data():
                                             return True
 
-                                        if self.frac_secs is not None and self.frac_secs._has_data():
+                                        if self.sec is not None and self.sec._has_data():
                                             return True
 
                                         return False
@@ -755,15 +755,15 @@ class Ntp(object):
                                     """
                                     System Drift
                                     
-                                    .. attribute:: sec
-                                    
-                                    	Second part in 64\-bit NTP timestamp
-                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
-                                    
                                     .. attribute:: frac_secs
                                     
                                     	Fractional part in 64\-bit NTP timestamp
                                     	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs>`
+                                    
+                                    .. attribute:: sec
+                                    
+                                    	Second part in 64\-bit NTP timestamp
+                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
                                     
                                     
 
@@ -774,10 +774,10 @@ class Ntp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
-                                        self.sec.parent = self
                                         self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs()
                                         self.frac_secs.parent = self
+                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
+                                        self.sec.parent = self
 
 
                                     class Sec(object):
@@ -805,7 +805,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
 
@@ -852,7 +852,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
 
@@ -876,7 +876,7 @@ class Ntp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sys-drift'
 
@@ -887,10 +887,10 @@ class Ntp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.sec is not None and self.sec._has_data():
+                                        if self.frac_secs is not None and self.frac_secs._has_data():
                                             return True
 
-                                        if self.frac_secs is not None and self.frac_secs._has_data():
+                                        if self.sec is not None and self.sec._has_data():
                                             return True
 
                                         return False
@@ -903,7 +903,7 @@ class Ntp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:status'
 
@@ -914,40 +914,16 @@ class Ntp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.sys_ref_time is not None and self.sys_ref_time._has_data():
-                                        return True
-
-                                    if self.sys_drift is not None and self.sys_drift._has_data():
+                                    if self.clock_period is not None:
                                         return True
 
                                     if self.is_ntp_enabled is not None:
                                         return True
 
-                                    if self.sys_dispersion is not None:
+                                    if self.is_updated is not None:
                                         return True
 
-                                    if self.sys_offset is not None:
-                                        return True
-
-                                    if self.clock_period is not None:
-                                        return True
-
-                                    if self.sys_leap is not None:
-                                        return True
-
-                                    if self.sys_precision is not None:
-                                        return True
-
-                                    if self.sys_stratum is not None:
-                                        return True
-
-                                    if self.sys_ref_id is not None:
-                                        return True
-
-                                    if self.sys_root_delay is not None:
-                                        return True
-
-                                    if self.sys_root_dispersion is not None:
+                                    if self.last_update is not None:
                                         return True
 
                                     if self.loop_filter_state is not None:
@@ -956,10 +932,34 @@ class Ntp(object):
                                     if self.poll_interval is not None:
                                         return True
 
-                                    if self.is_updated is not None:
+                                    if self.sys_dispersion is not None:
                                         return True
 
-                                    if self.last_update is not None:
+                                    if self.sys_drift is not None and self.sys_drift._has_data():
+                                        return True
+
+                                    if self.sys_leap is not None:
+                                        return True
+
+                                    if self.sys_offset is not None:
+                                        return True
+
+                                    if self.sys_precision is not None:
+                                        return True
+
+                                    if self.sys_ref_id is not None:
+                                        return True
+
+                                    if self.sys_ref_time is not None and self.sys_ref_time._has_data():
+                                        return True
+
+                                    if self.sys_root_delay is not None:
+                                        return True
+
+                                    if self.sys_root_dispersion is not None:
+                                        return True
+
+                                    if self.sys_stratum is not None:
                                         return True
 
                                     return False
@@ -979,15 +979,15 @@ class Ntp(object):
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
-                                .. attribute:: sys_leap
-                                
-                                	Leap
-                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
-                                
                                 .. attribute:: peer_summary_info
                                 
                                 	Peer info
                                 	**type**\: list of :py:class:`PeerSummaryInfo <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo>`
+                                
+                                .. attribute:: sys_leap
+                                
+                                	Leap
+                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
                                 
                                 
 
@@ -999,10 +999,10 @@ class Ntp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.is_ntp_enabled = None
-                                    self.sys_leap = None
                                     self.peer_summary_info = YList()
                                     self.peer_summary_info.parent = self
                                     self.peer_summary_info.name = 'peer_summary_info'
+                                    self.sys_leap = None
 
 
                                 class PeerSummaryInfo(object):
@@ -1039,27 +1039,25 @@ class Ntp(object):
                                         """
                                         Common peer info
                                         
-                                        .. attribute:: host_mode
-                                        
-                                        	Association mode with this peer
-                                        	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpModeEnum>`
-                                        
-                                        .. attribute:: is_configured
-                                        
-                                        	Is configured
-                                        	**type**\: bool
-                                        
                                         .. attribute:: address
                                         
                                         	Peer Address
                                         	**type**\: str
                                         
-                                        .. attribute:: reference_id
+                                        .. attribute:: delay
                                         
-                                        	Peer reference ID
+                                        	Peer delay
                                         	**type**\: str
                                         
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        .. attribute:: dispersion
+                                        
+                                        	Peer dispersion
+                                        	**type**\: str
+                                        
+                                        .. attribute:: host_mode
+                                        
+                                        	Association mode with this peer
+                                        	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpModeEnum>`
                                         
                                         .. attribute:: host_poll
                                         
@@ -1068,6 +1066,21 @@ class Ntp(object):
                                         
                                         	**range:** 0..255
                                         
+                                        .. attribute:: is_configured
+                                        
+                                        	Is configured
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: is_sys_peer
+                                        
+                                        	Indicates whether this is syspeer
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: offset
+                                        
+                                        	Peer offset
+                                        	**type**\: str
+                                        
                                         .. attribute:: reachability
                                         
                                         	Reachability
@@ -1075,37 +1088,24 @@ class Ntp(object):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: stratum
+                                        .. attribute:: reference_id
                                         
-                                        	Peer stratum
-                                        	**type**\: int
+                                        	Peer reference ID
+                                        	**type**\: str
                                         
-                                        	**range:** 0..255
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: status
                                         
                                         	Peer status
                                         	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatusEnum>`
                                         
-                                        .. attribute:: delay
+                                        .. attribute:: stratum
                                         
-                                        	Peer delay
-                                        	**type**\: str
+                                        	Peer stratum
+                                        	**type**\: int
                                         
-                                        .. attribute:: offset
-                                        
-                                        	Peer offset
-                                        	**type**\: str
-                                        
-                                        .. attribute:: dispersion
-                                        
-                                        	Peer dispersion
-                                        	**type**\: str
-                                        
-                                        .. attribute:: is_sys_peer
-                                        
-                                        	Indicates whether this is syspeer
-                                        	**type**\: bool
+                                        	**range:** 0..255
                                         
                                         
 
@@ -1116,23 +1116,23 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.host_mode = None
-                                            self.is_configured = None
                                             self.address = None
-                                            self.reference_id = None
-                                            self.host_poll = None
-                                            self.reachability = None
-                                            self.stratum = None
-                                            self.status = None
                                             self.delay = None
-                                            self.offset = None
                                             self.dispersion = None
+                                            self.host_mode = None
+                                            self.host_poll = None
+                                            self.is_configured = None
                                             self.is_sys_peer = None
+                                            self.offset = None
+                                            self.reachability = None
+                                            self.reference_id = None
+                                            self.status = None
+                                            self.stratum = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:peer-info-common'
 
@@ -1143,40 +1143,40 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.host_mode is not None:
-                                                return True
-
-                                            if self.is_configured is not None:
-                                                return True
-
                                             if self.address is not None:
-                                                return True
-
-                                            if self.reference_id is not None:
-                                                return True
-
-                                            if self.host_poll is not None:
-                                                return True
-
-                                            if self.reachability is not None:
-                                                return True
-
-                                            if self.stratum is not None:
-                                                return True
-
-                                            if self.status is not None:
                                                 return True
 
                                             if self.delay is not None:
                                                 return True
 
-                                            if self.offset is not None:
-                                                return True
-
                                             if self.dispersion is not None:
                                                 return True
 
+                                            if self.host_mode is not None:
+                                                return True
+
+                                            if self.host_poll is not None:
+                                                return True
+
+                                            if self.is_configured is not None:
+                                                return True
+
                                             if self.is_sys_peer is not None:
+                                                return True
+
+                                            if self.offset is not None:
+                                                return True
+
+                                            if self.reachability is not None:
+                                                return True
+
+                                            if self.reference_id is not None:
+                                                return True
+
+                                            if self.status is not None:
+                                                return True
+
+                                            if self.stratum is not None:
                                                 return True
 
                                             return False
@@ -1189,7 +1189,7 @@ class Ntp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:peer-summary-info'
 
@@ -1216,7 +1216,7 @@ class Ntp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:associations'
 
@@ -1230,13 +1230,13 @@ class Ntp(object):
                                     if self.is_ntp_enabled is not None:
                                         return True
 
-                                    if self.sys_leap is not None:
-                                        return True
-
                                     if self.peer_summary_info is not None:
                                         for child_ref in self.peer_summary_info:
                                             if child_ref._has_data():
                                                 return True
+
+                                    if self.sys_leap is not None:
+                                        return True
 
                                     return False
 
@@ -1255,15 +1255,15 @@ class Ntp(object):
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
-                                .. attribute:: sys_leap
-                                
-                                	Leap
-                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
-                                
                                 .. attribute:: peer_detail_info
                                 
                                 	Peer info
                                 	**type**\: list of :py:class:`PeerDetailInfo <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo>`
+                                
+                                .. attribute:: sys_leap
+                                
+                                	Leap
+                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
                                 
                                 
 
@@ -1275,45 +1275,52 @@ class Ntp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.is_ntp_enabled = None
-                                    self.sys_leap = None
                                     self.peer_detail_info = YList()
                                     self.peer_detail_info.parent = self
                                     self.peer_detail_info.name = 'peer_detail_info'
+                                    self.sys_leap = None
 
 
                                 class PeerDetailInfo(object):
                                     """
                                     Peer info
                                     
-                                    .. attribute:: peer_info_common
+                                    .. attribute:: filter_detail
                                     
-                                    	Common peer info
-                                    	**type**\: :py:class:`PeerInfoCommon <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
+                                    	Filter Details
+                                    	**type**\: list of :py:class:`FilterDetail <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
                                     
-                                    .. attribute:: ref_time
+                                    .. attribute:: filter_index
                                     
-                                    	Reference time
-                                    	**type**\: :py:class:`RefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
+                                    	Index into filter shift register
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: is_authenticated
+                                    
+                                    	Is authenticated
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: is_ref_clock
+                                    
+                                    	Is refclock
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: leap
+                                    
+                                    	Leap
+                                    	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
                                     
                                     .. attribute:: originate_time
                                     
                                     	Originate timestamp
                                     	**type**\: :py:class:`OriginateTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime>`
                                     
-                                    .. attribute:: receive_time
+                                    .. attribute:: peer_info_common
                                     
-                                    	Receive timestamp
-                                    	**type**\: :py:class:`ReceiveTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
-                                    
-                                    .. attribute:: transmit_time
-                                    
-                                    	Transmit timestamp
-                                    	**type**\: :py:class:`TransmitTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
-                                    
-                                    .. attribute:: leap
-                                    
-                                    	Leap
-                                    	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
+                                    	Common peer info
+                                    	**type**\: :py:class:`PeerInfoCommon <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
                                     
                                     .. attribute:: peer_mode
                                     
@@ -1327,15 +1334,22 @@ class Ntp(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: is_ref_clock
+                                    .. attribute:: precision
                                     
-                                    	Is refclock
-                                    	**type**\: bool
+                                    	Precision
+                                    	**type**\: int
                                     
-                                    .. attribute:: is_authenticated
+                                    	**range:** \-128..127
                                     
-                                    	Is authenticated
-                                    	**type**\: bool
+                                    .. attribute:: receive_time
+                                    
+                                    	Receive timestamp
+                                    	**type**\: :py:class:`ReceiveTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
+                                    
+                                    .. attribute:: ref_time
+                                    
+                                    	Reference time
+                                    	**type**\: :py:class:`RefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
                                     
                                     .. attribute:: root_delay
                                     
@@ -1352,12 +1366,10 @@ class Ntp(object):
                                     	Synch distance
                                     	**type**\: str
                                     
-                                    .. attribute:: precision
+                                    .. attribute:: transmit_time
                                     
-                                    	Precision
-                                    	**type**\: int
-                                    
-                                    	**range:** \-128..127
+                                    	Transmit timestamp
+                                    	**type**\: :py:class:`TransmitTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
                                     
                                     .. attribute:: version
                                     
@@ -1365,18 +1377,6 @@ class Ntp(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
-                                    
-                                    .. attribute:: filter_index
-                                    
-                                    	Index into filter shift register
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: filter_detail
-                                    
-                                    	Filter Details
-                                    	**type**\: list of :py:class:`FilterDetail <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
                                     
                                     
 
@@ -1387,57 +1387,55 @@ class Ntp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
-                                        self.peer_info_common.parent = self
-                                        self.ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime()
-                                        self.ref_time.parent = self
-                                        self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
-                                        self.originate_time.parent = self
-                                        self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
-                                        self.receive_time.parent = self
-                                        self.transmit_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime()
-                                        self.transmit_time.parent = self
-                                        self.leap = None
-                                        self.peer_mode = None
-                                        self.poll_interval = None
-                                        self.is_ref_clock = None
-                                        self.is_authenticated = None
-                                        self.root_delay = None
-                                        self.root_dispersion = None
-                                        self.synch_distance = None
-                                        self.precision = None
-                                        self.version = None
-                                        self.filter_index = None
                                         self.filter_detail = YList()
                                         self.filter_detail.parent = self
                                         self.filter_detail.name = 'filter_detail'
+                                        self.filter_index = None
+                                        self.is_authenticated = None
+                                        self.is_ref_clock = None
+                                        self.leap = None
+                                        self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
+                                        self.originate_time.parent = self
+                                        self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
+                                        self.peer_info_common.parent = self
+                                        self.peer_mode = None
+                                        self.poll_interval = None
+                                        self.precision = None
+                                        self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
+                                        self.receive_time.parent = self
+                                        self.ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime()
+                                        self.ref_time.parent = self
+                                        self.root_delay = None
+                                        self.root_dispersion = None
+                                        self.synch_distance = None
+                                        self.transmit_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime()
+                                        self.transmit_time.parent = self
+                                        self.version = None
 
 
                                     class PeerInfoCommon(object):
                                         """
                                         Common peer info
                                         
-                                        .. attribute:: host_mode
-                                        
-                                        	Association mode with this peer
-                                        	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpModeEnum>`
-                                        
-                                        .. attribute:: is_configured
-                                        
-                                        	Is configured
-                                        	**type**\: bool
-                                        
                                         .. attribute:: address
                                         
                                         	Peer Address
                                         	**type**\: str
                                         
-                                        .. attribute:: reference_id
+                                        .. attribute:: delay
                                         
-                                        	Peer reference ID
+                                        	Peer delay
                                         	**type**\: str
                                         
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        .. attribute:: dispersion
+                                        
+                                        	Peer dispersion
+                                        	**type**\: str
+                                        
+                                        .. attribute:: host_mode
+                                        
+                                        	Association mode with this peer
+                                        	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpModeEnum>`
                                         
                                         .. attribute:: host_poll
                                         
@@ -1446,6 +1444,21 @@ class Ntp(object):
                                         
                                         	**range:** 0..255
                                         
+                                        .. attribute:: is_configured
+                                        
+                                        	Is configured
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: is_sys_peer
+                                        
+                                        	Indicates whether this is syspeer
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: offset
+                                        
+                                        	Peer offset
+                                        	**type**\: str
+                                        
                                         .. attribute:: reachability
                                         
                                         	Reachability
@@ -1453,37 +1466,24 @@ class Ntp(object):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: stratum
+                                        .. attribute:: reference_id
                                         
-                                        	Peer stratum
-                                        	**type**\: int
+                                        	Peer reference ID
+                                        	**type**\: str
                                         
-                                        	**range:** 0..255
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: status
                                         
                                         	Peer status
                                         	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatusEnum>`
                                         
-                                        .. attribute:: delay
+                                        .. attribute:: stratum
                                         
-                                        	Peer delay
-                                        	**type**\: str
+                                        	Peer stratum
+                                        	**type**\: int
                                         
-                                        .. attribute:: offset
-                                        
-                                        	Peer offset
-                                        	**type**\: str
-                                        
-                                        .. attribute:: dispersion
-                                        
-                                        	Peer dispersion
-                                        	**type**\: str
-                                        
-                                        .. attribute:: is_sys_peer
-                                        
-                                        	Indicates whether this is syspeer
-                                        	**type**\: bool
+                                        	**range:** 0..255
                                         
                                         
 
@@ -1494,23 +1494,23 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.host_mode = None
-                                            self.is_configured = None
                                             self.address = None
-                                            self.reference_id = None
-                                            self.host_poll = None
-                                            self.reachability = None
-                                            self.stratum = None
-                                            self.status = None
                                             self.delay = None
-                                            self.offset = None
                                             self.dispersion = None
+                                            self.host_mode = None
+                                            self.host_poll = None
+                                            self.is_configured = None
                                             self.is_sys_peer = None
+                                            self.offset = None
+                                            self.reachability = None
+                                            self.reference_id = None
+                                            self.status = None
+                                            self.stratum = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:peer-info-common'
 
@@ -1521,40 +1521,40 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.host_mode is not None:
-                                                return True
-
-                                            if self.is_configured is not None:
-                                                return True
-
                                             if self.address is not None:
-                                                return True
-
-                                            if self.reference_id is not None:
-                                                return True
-
-                                            if self.host_poll is not None:
-                                                return True
-
-                                            if self.reachability is not None:
-                                                return True
-
-                                            if self.stratum is not None:
-                                                return True
-
-                                            if self.status is not None:
                                                 return True
 
                                             if self.delay is not None:
                                                 return True
 
-                                            if self.offset is not None:
-                                                return True
-
                                             if self.dispersion is not None:
                                                 return True
 
+                                            if self.host_mode is not None:
+                                                return True
+
+                                            if self.host_poll is not None:
+                                                return True
+
+                                            if self.is_configured is not None:
+                                                return True
+
                                             if self.is_sys_peer is not None:
+                                                return True
+
+                                            if self.offset is not None:
+                                                return True
+
+                                            if self.reachability is not None:
+                                                return True
+
+                                            if self.reference_id is not None:
+                                                return True
+
+                                            if self.status is not None:
+                                                return True
+
+                                            if self.stratum is not None:
                                                 return True
 
                                             return False
@@ -1569,15 +1569,15 @@ class Ntp(object):
                                         """
                                         Reference time
                                         
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
-                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
                                         
                                         
 
@@ -1588,10 +1588,10 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
-                                            self.sec.parent = self
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
                                             self.frac_secs.parent = self
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
+                                            self.sec.parent = self
 
 
                                         class Sec(object):
@@ -1619,7 +1619,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
 
@@ -1666,7 +1666,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
 
@@ -1690,7 +1690,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:ref-time'
 
@@ -1701,10 +1701,10 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.sec is not None and self.sec._has_data():
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                            if self.sec is not None and self.sec._has_data():
                                                 return True
 
                                             return False
@@ -1719,15 +1719,15 @@ class Ntp(object):
                                         """
                                         Originate timestamp
                                         
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
-                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
                                         
                                         
 
@@ -1738,10 +1738,10 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
-                                            self.sec.parent = self
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
                                             self.frac_secs.parent = self
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
+                                            self.sec.parent = self
 
 
                                         class Sec(object):
@@ -1769,7 +1769,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
 
@@ -1816,7 +1816,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
 
@@ -1840,7 +1840,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:originate-time'
 
@@ -1851,10 +1851,10 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.sec is not None and self.sec._has_data():
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                            if self.sec is not None and self.sec._has_data():
                                                 return True
 
                                             return False
@@ -1869,15 +1869,15 @@ class Ntp(object):
                                         """
                                         Receive timestamp
                                         
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
-                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
                                         
                                         
 
@@ -1888,10 +1888,10 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
-                                            self.sec.parent = self
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
                                             self.frac_secs.parent = self
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
+                                            self.sec.parent = self
 
 
                                         class Sec(object):
@@ -1919,7 +1919,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
 
@@ -1966,7 +1966,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
 
@@ -1990,7 +1990,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:receive-time'
 
@@ -2001,10 +2001,10 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.sec is not None and self.sec._has_data():
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                            if self.sec is not None and self.sec._has_data():
                                                 return True
 
                                             return False
@@ -2019,15 +2019,15 @@ class Ntp(object):
                                         """
                                         Transmit timestamp
                                         
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
-                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
                                         
                                         
 
@@ -2038,10 +2038,10 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
-                                            self.sec.parent = self
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
                                             self.frac_secs.parent = self
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
+                                            self.sec.parent = self
 
 
                                         class Sec(object):
@@ -2069,7 +2069,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
 
@@ -2116,7 +2116,7 @@ class Ntp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
 
@@ -2140,7 +2140,7 @@ class Ntp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:transmit-time'
 
@@ -2151,10 +2151,10 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.sec is not None and self.sec._has_data():
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                            if self.sec is not None and self.sec._has_data():
                                                 return True
 
                                             return False
@@ -2174,14 +2174,14 @@ class Ntp(object):
                                         	filter delay
                                         	**type**\: str
                                         
-                                        .. attribute:: filter_offset
-                                        
-                                        	filter offset
-                                        	**type**\: str
-                                        
                                         .. attribute:: filter_disp
                                         
                                         	filter disp
+                                        	**type**\: str
+                                        
+                                        .. attribute:: filter_offset
+                                        
+                                        	filter offset
                                         	**type**\: str
                                         
                                         
@@ -2194,13 +2194,13 @@ class Ntp(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.filter_delay = None
-                                            self.filter_offset = None
                                             self.filter_disp = None
+                                            self.filter_offset = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:filter-detail'
 
@@ -2214,10 +2214,10 @@ class Ntp(object):
                                             if self.filter_delay is not None:
                                                 return True
 
-                                            if self.filter_offset is not None:
+                                            if self.filter_disp is not None:
                                                 return True
 
-                                            if self.filter_disp is not None:
+                                            if self.filter_offset is not None:
                                                 return True
 
                                             return False
@@ -2230,7 +2230,7 @@ class Ntp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:peer-detail-info'
 
@@ -2241,22 +2241,27 @@ class Ntp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.peer_info_common is not None and self.peer_info_common._has_data():
+                                        if self.filter_detail is not None:
+                                            for child_ref in self.filter_detail:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        if self.filter_index is not None:
                                             return True
 
-                                        if self.ref_time is not None and self.ref_time._has_data():
+                                        if self.is_authenticated is not None:
+                                            return True
+
+                                        if self.is_ref_clock is not None:
+                                            return True
+
+                                        if self.leap is not None:
                                             return True
 
                                         if self.originate_time is not None and self.originate_time._has_data():
                                             return True
 
-                                        if self.receive_time is not None and self.receive_time._has_data():
-                                            return True
-
-                                        if self.transmit_time is not None and self.transmit_time._has_data():
-                                            return True
-
-                                        if self.leap is not None:
+                                        if self.peer_info_common is not None and self.peer_info_common._has_data():
                                             return True
 
                                         if self.peer_mode is not None:
@@ -2265,10 +2270,13 @@ class Ntp(object):
                                         if self.poll_interval is not None:
                                             return True
 
-                                        if self.is_ref_clock is not None:
+                                        if self.precision is not None:
                                             return True
 
-                                        if self.is_authenticated is not None:
+                                        if self.receive_time is not None and self.receive_time._has_data():
+                                            return True
+
+                                        if self.ref_time is not None and self.ref_time._has_data():
                                             return True
 
                                         if self.root_delay is not None:
@@ -2280,19 +2288,11 @@ class Ntp(object):
                                         if self.synch_distance is not None:
                                             return True
 
-                                        if self.precision is not None:
+                                        if self.transmit_time is not None and self.transmit_time._has_data():
                                             return True
 
                                         if self.version is not None:
                                             return True
-
-                                        if self.filter_index is not None:
-                                            return True
-
-                                        if self.filter_detail is not None:
-                                            for child_ref in self.filter_detail:
-                                                if child_ref._has_data():
-                                                    return True
 
                                         return False
 
@@ -2304,7 +2304,7 @@ class Ntp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:associations-detail'
 
@@ -2318,13 +2318,13 @@ class Ntp(object):
                                     if self.is_ntp_enabled is not None:
                                         return True
 
-                                    if self.sys_leap is not None:
-                                        return True
-
                                     if self.peer_detail_info is not None:
                                         for child_ref in self.peer_detail_info:
                                             if child_ref._has_data():
                                                 return True
+
+                                    if self.sys_leap is not None:
+                                        return True
 
                                     return False
 
@@ -2336,9 +2336,9 @@ class Ntp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.number is None:
-                                    raise YPYDataValidationError('Key property number is None')
+                                    raise YPYModelError('Key property number is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:instance[Cisco-IOS-XR-ip-ntp-admin-oper:number = ' + str(self.number) + ']'
 
@@ -2352,13 +2352,13 @@ class Ntp(object):
                                 if self.number is not None:
                                     return True
 
-                                if self.status is not None and self.status._has_data():
-                                    return True
-
                                 if self.associations is not None and self.associations._has_data():
                                     return True
 
                                 if self.associations_detail is not None and self.associations_detail._has_data():
+                                    return True
+
+                                if self.status is not None and self.status._has_data():
                                     return True
 
                                 return False
@@ -2371,7 +2371,7 @@ class Ntp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:instances'
 
@@ -2397,9 +2397,9 @@ class Ntp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.number is None:
-                            raise YPYDataValidationError('Key property number is None')
+                            raise YPYModelError('Key property number is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:slot[Cisco-IOS-XR-ip-ntp-admin-oper:number = ' + str(self.number) + ']'
 
@@ -2426,7 +2426,7 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:slots'
 
@@ -2452,7 +2452,7 @@ class Ntp(object):
             @property
             def _common_path(self):
                 if self.number is None:
-                    raise YPYDataValidationError('Key property number is None')
+                    raise YPYModelError('Key property number is None')
 
                 return '/Cisco-IOS-XR-ip-ntp-admin-oper:ntp/Cisco-IOS-XR-ip-ntp-admin-oper:racks/Cisco-IOS-XR-ip-ntp-admin-oper:rack[Cisco-IOS-XR-ip-ntp-admin-oper:number = ' + str(self.number) + ']'
 

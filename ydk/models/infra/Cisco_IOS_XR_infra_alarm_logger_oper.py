@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -131,15 +131,15 @@ class AlarmLogger(object):
     """
     Alarm Logger operational data
     
-    .. attribute:: buffer_status
-    
-    	Describes buffer utilization and parameters configured
-    	**type**\: :py:class:`BufferStatus <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
-    
     .. attribute:: alarms
     
     	Table that contains the database of logged alarms
     	**type**\: :py:class:`Alarms <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
+    
+    .. attribute:: buffer_status
+    
+    	Describes buffer utilization and parameters configured
+    	**type**\: :py:class:`BufferStatus <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
     
     
 
@@ -149,16 +149,23 @@ class AlarmLogger(object):
     _revision = '2015-01-07'
 
     def __init__(self):
-        self.buffer_status = AlarmLogger.BufferStatus()
-        self.buffer_status.parent = self
         self.alarms = AlarmLogger.Alarms()
         self.alarms.parent = self
+        self.buffer_status = AlarmLogger.BufferStatus()
+        self.buffer_status.parent = self
 
 
     class BufferStatus(object):
         """
         Describes buffer utilization and parameters
         configured
+        
+        .. attribute:: capacity_threshold
+        
+        	Percentage of the buffer utilization which, when exceeded, triggers the  generation of a notification for the clients of the XML agent
+        	**type**\: int
+        
+        	**range:** 0..4294967295
         
         .. attribute:: log_buffer_size
         
@@ -181,13 +188,6 @@ class AlarmLogger(object):
         
         	**range:** 0..4294967295
         
-        .. attribute:: capacity_threshold
-        
-        	Percentage of the buffer utilization which, when exceeded, triggers the  generation of a notification for the clients of the XML agent
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
         .. attribute:: severity_filter
         
         	Severity Filter
@@ -202,10 +202,10 @@ class AlarmLogger(object):
 
         def __init__(self):
             self.parent = None
+            self.capacity_threshold = None
             self.log_buffer_size = None
             self.max_log_buffer_size = None
             self.record_count = None
-            self.capacity_threshold = None
             self.severity_filter = None
 
         @property
@@ -220,6 +220,9 @@ class AlarmLogger(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.capacity_threshold is not None:
+                return True
+
             if self.log_buffer_size is not None:
                 return True
 
@@ -227,9 +230,6 @@ class AlarmLogger(object):
                 return True
 
             if self.record_count is not None:
-                return True
-
-            if self.capacity_threshold is not None:
                 return True
 
             if self.severity_filter is not None:
@@ -278,42 +278,20 @@ class AlarmLogger(object):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: source_id
+            .. attribute:: additional_text
             
-            	Source Identifier(Location).Indicates the node in which the alarm was generated
+            	Full text of the Alarm
             	**type**\: str
-            
-            .. attribute:: timestamp
-            
-            	Time when the alarm was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
             
             .. attribute:: category
             
             	Category of the alarm
             	**type**\: str
             
-            .. attribute:: group
-            
-            	Group of messages to which this alarm belongs to
-            	**type**\: str
-            
             .. attribute:: code
             
             	Alarm code which further qualifies the alarm within a message group
             	**type**\: str
-            
-            .. attribute:: severity
-            
-            	Severity of the alarm
-            	**type**\: :py:class:`AlAlarmSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
-            
-            .. attribute:: state
-            
-            	State of the alarm (bistate alarms only)
-            	**type**\: :py:class:`AlAlarmBistateEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistateEnum>`
             
             .. attribute:: correlation_id
             
@@ -322,15 +300,37 @@ class AlarmLogger(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: group
+            
+            	Group of messages to which this alarm belongs to
+            	**type**\: str
+            
             .. attribute:: is_admin
             
             	Indicates the event id admin\-level
             	**type**\: bool
             
-            .. attribute:: additional_text
+            .. attribute:: severity
             
-            	Full text of the Alarm
+            	Severity of the alarm
+            	**type**\: :py:class:`AlAlarmSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
+            
+            .. attribute:: source_id
+            
+            	Source Identifier(Location).Indicates the node in which the alarm was generated
             	**type**\: str
+            
+            .. attribute:: state
+            
+            	State of the alarm (bistate alarms only)
+            	**type**\: :py:class:`AlAlarmBistateEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistateEnum>`
+            
+            .. attribute:: timestamp
+            
+            	Time when the alarm was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
             
             
 
@@ -342,21 +342,21 @@ class AlarmLogger(object):
             def __init__(self):
                 self.parent = None
                 self.event_id = None
-                self.source_id = None
-                self.timestamp = None
-                self.category = None
-                self.group = None
-                self.code = None
-                self.severity = None
-                self.state = None
-                self.correlation_id = None
-                self.is_admin = None
                 self.additional_text = None
+                self.category = None
+                self.code = None
+                self.correlation_id = None
+                self.group = None
+                self.is_admin = None
+                self.severity = None
+                self.source_id = None
+                self.state = None
+                self.timestamp = None
 
             @property
             def _common_path(self):
                 if self.event_id is None:
-                    raise YPYDataValidationError('Key property event_id is None')
+                    raise YPYModelError('Key property event_id is None')
 
                 return '/Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/Cisco-IOS-XR-infra-alarm-logger-oper:alarms/Cisco-IOS-XR-infra-alarm-logger-oper:alarm[Cisco-IOS-XR-infra-alarm-logger-oper:event-id = ' + str(self.event_id) + ']'
 
@@ -370,34 +370,34 @@ class AlarmLogger(object):
                 if self.event_id is not None:
                     return True
 
-                if self.source_id is not None:
-                    return True
-
-                if self.timestamp is not None:
+                if self.additional_text is not None:
                     return True
 
                 if self.category is not None:
                     return True
 
-                if self.group is not None:
-                    return True
-
                 if self.code is not None:
-                    return True
-
-                if self.severity is not None:
-                    return True
-
-                if self.state is not None:
                     return True
 
                 if self.correlation_id is not None:
                     return True
 
+                if self.group is not None:
+                    return True
+
                 if self.is_admin is not None:
                     return True
 
-                if self.additional_text is not None:
+                if self.severity is not None:
+                    return True
+
+                if self.source_id is not None:
+                    return True
+
+                if self.state is not None:
+                    return True
+
+                if self.timestamp is not None:
                     return True
 
                 return False
@@ -443,10 +443,10 @@ class AlarmLogger(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.buffer_status is not None and self.buffer_status._has_data():
+        if self.alarms is not None and self.alarms._has_data():
             return True
 
-        if self.alarms is not None and self.alarms._has_data():
+        if self.buffer_status is not None and self.buffer_status._has_data():
             return True
 
         return False

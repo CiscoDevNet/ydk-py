@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -506,70 +506,70 @@ class SoftwareInstall(object):
     """
     Install operations info
     
-    .. attribute:: files
-    
-    	Show information about an installed file
-    	**type**\: :py:class:`Files <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files>`
-    
-    .. attribute:: last_n_operation_logs
-    
-    	Show log file for last n operations
-    	**type**\: :py:class:`LastNOperationLogs <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs>`
-    
-    .. attribute:: prepare
-    
-    	Show prepared packages ready for activation
-    	**type**\: :py:class:`Prepare <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare>`
-    
     .. attribute:: active
     
     	Show active packages installed
     	**type**\: :py:class:`Active <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active>`
-    
-    .. attribute:: version
-    
-    	Show install version
-    	**type**\: :py:class:`Version <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
-    
-    .. attribute:: inactive
-    
-    	Show XR inactive packages
-    	**type**\: :py:class:`Inactive <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
-    
-    .. attribute:: request
-    
-    	Show current request
-    	**type**\: :py:class:`Request <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
-    
-    .. attribute:: issu
-    
-    	ISSU operation
-    	**type**\: :py:class:`Issu <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
-    
-    .. attribute:: committed
-    
-    	Show Committed packages installed
-    	**type**\: :py:class:`Committed <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
     
     .. attribute:: all_operations_log
     
     	Show log file for all operations
     	**type**\: :py:class:`AllOperationsLog <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog>`
     
-    .. attribute:: packages
+    .. attribute:: committed
     
-    	Show the list of installed packages
-    	**type**\: :py:class:`Packages <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
+    	Show Committed packages installed
+    	**type**\: :py:class:`Committed <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
+    
+    .. attribute:: files
+    
+    	Show information about an installed file
+    	**type**\: :py:class:`Files <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files>`
+    
+    .. attribute:: inactive
+    
+    	Show XR inactive packages
+    	**type**\: :py:class:`Inactive <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
+    
+    .. attribute:: issu
+    
+    	ISSU operation
+    	**type**\: :py:class:`Issu <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
+    
+    .. attribute:: last_n_operation_logs
+    
+    	Show log file for last n operations
+    	**type**\: :py:class:`LastNOperationLogs <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs>`
     
     .. attribute:: operation_logs
     
     	Show log file
     	**type**\: :py:class:`OperationLogs <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs>`
     
+    .. attribute:: packages
+    
+    	Show the list of installed packages
+    	**type**\: :py:class:`Packages <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
+    
+    .. attribute:: prepare
+    
+    	Show prepared packages ready for activation
+    	**type**\: :py:class:`Prepare <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare>`
+    
     .. attribute:: repository
     
     	Show packages stored in install software repositories
     	**type**\: :py:class:`Repository <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository>`
+    
+    .. attribute:: request
+    
+    	Show current request
+    	**type**\: :py:class:`Request <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
+    
+    .. attribute:: version
+    
+    	Show install version
+    	**type**\: :py:class:`Version <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
     
     
 
@@ -579,32 +579,32 @@ class SoftwareInstall(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.files = SoftwareInstall.Files()
-        self.files.parent = self
-        self.last_n_operation_logs = SoftwareInstall.LastNOperationLogs()
-        self.last_n_operation_logs.parent = self
-        self.prepare = SoftwareInstall.Prepare()
-        self.prepare.parent = self
         self.active = SoftwareInstall.Active()
         self.active.parent = self
-        self.version = SoftwareInstall.Version()
-        self.version.parent = self
-        self.inactive = SoftwareInstall.Inactive()
-        self.inactive.parent = self
-        self.request = SoftwareInstall.Request()
-        self.request.parent = self
-        self.issu = SoftwareInstall.Issu()
-        self.issu.parent = self
-        self.committed = SoftwareInstall.Committed()
-        self.committed.parent = self
         self.all_operations_log = SoftwareInstall.AllOperationsLog()
         self.all_operations_log.parent = self
-        self.packages = SoftwareInstall.Packages()
-        self.packages.parent = self
+        self.committed = SoftwareInstall.Committed()
+        self.committed.parent = self
+        self.files = SoftwareInstall.Files()
+        self.files.parent = self
+        self.inactive = SoftwareInstall.Inactive()
+        self.inactive.parent = self
+        self.issu = SoftwareInstall.Issu()
+        self.issu.parent = self
+        self.last_n_operation_logs = SoftwareInstall.LastNOperationLogs()
+        self.last_n_operation_logs.parent = self
         self.operation_logs = SoftwareInstall.OperationLogs()
         self.operation_logs.parent = self
+        self.packages = SoftwareInstall.Packages()
+        self.packages.parent = self
+        self.prepare = SoftwareInstall.Prepare()
+        self.prepare.parent = self
         self.repository = SoftwareInstall.Repository()
         self.repository.parent = self
+        self.request = SoftwareInstall.Request()
+        self.request.parent = self
+        self.version = SoftwareInstall.Version()
+        self.version.parent = self
 
 
     class Files(object):
@@ -688,7 +688,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:brief'
 
@@ -734,7 +734,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
 
@@ -758,7 +758,7 @@ class SoftwareInstall(object):
             @property
             def _common_path(self):
                 if self.file_name is None:
-                    raise YPYDataValidationError('Key property file_name is None')
+                    raise YPYModelError('Key property file_name is None')
 
                 return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:files/Cisco-IOS-XR-spirit-install-instmgr-oper:file[Cisco-IOS-XR-spirit-install-instmgr-oper:file-name = ' + str(self.file_name) + ']'
 
@@ -844,15 +844,15 @@ class SoftwareInstall(object):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: summary
-            
-            	Show summary log file for last n operations
-            	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary>`
-            
             .. attribute:: detail
             
             	Show detailed log file for last n operations
             	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail>`
+            
+            .. attribute:: summary
+            
+            	Show summary log file for last n operations
+            	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary>`
             
             
 
@@ -864,10 +864,10 @@ class SoftwareInstall(object):
             def __init__(self):
                 self.parent = None
                 self.last_n_logs = None
-                self.summary = SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary()
-                self.summary.parent = self
                 self.detail = SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail()
                 self.detail.parent = self
+                self.summary = SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary()
+                self.summary.parent = self
 
 
             class Summary(object):
@@ -893,7 +893,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:summary'
 
@@ -938,7 +938,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
 
@@ -962,7 +962,7 @@ class SoftwareInstall(object):
             @property
             def _common_path(self):
                 if self.last_n_logs is None:
-                    raise YPYDataValidationError('Key property last_n_logs is None')
+                    raise YPYModelError('Key property last_n_logs is None')
 
                 return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-logs/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-log[Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-logs = ' + str(self.last_n_logs) + ']'
 
@@ -976,10 +976,10 @@ class SoftwareInstall(object):
                 if self.last_n_logs is not None:
                     return True
 
-                if self.summary is not None and self.summary._has_data():
+                if self.detail is not None and self.detail._has_data():
                     return True
 
-                if self.detail is not None and self.detail._has_data():
+                if self.summary is not None and self.summary._has_data():
                     return True
 
                 return False
@@ -1084,6 +1084,16 @@ class SoftwareInstall(object):
             """
             active package info
             
+            .. attribute:: active_packages
+            
+            	ActivePackages
+            	**type**\: str
+            
+            .. attribute:: boot_partition_name
+            
+            	BootPartitionName
+            	**type**\: str
+            
             .. attribute:: error_message
             
             	ErrorMessage
@@ -1099,22 +1109,12 @@ class SoftwareInstall(object):
             	NodeType
             	**type**\: str
             
-            .. attribute:: boot_partition_name
-            
-            	BootPartitionName
-            	**type**\: str
-            
             .. attribute:: number_of_active_packages
             
             	NumberOfActivePackages
             	**type**\: int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: active_packages
-            
-            	ActivePackages
-            	**type**\: str
             
             
 
@@ -1125,12 +1125,12 @@ class SoftwareInstall(object):
 
             def __init__(self):
                 self.parent = None
+                self.active_packages = None
+                self.boot_partition_name = None
                 self.error_message = None
                 self.location = None
                 self.node_type = None
-                self.boot_partition_name = None
                 self.number_of_active_packages = None
-                self.active_packages = None
 
             @property
             def _common_path(self):
@@ -1144,6 +1144,12 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.active_packages is not None:
+                    return True
+
+                if self.boot_partition_name is not None:
+                    return True
+
                 if self.error_message is not None:
                     return True
 
@@ -1153,13 +1159,7 @@ class SoftwareInstall(object):
                 if self.node_type is not None:
                     return True
 
-                if self.boot_partition_name is not None:
-                    return True
-
                 if self.number_of_active_packages is not None:
-                    return True
-
-                if self.active_packages is not None:
                     return True
 
                 return False
@@ -1327,15 +1327,15 @@ class SoftwareInstall(object):
         """
         ISSU operation
         
-        .. attribute:: stage
-        
-        	Show XR install issu stage
-        	**type**\: :py:class:`Stage <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
-        
         .. attribute:: inventory
         
         	Show XR install issu inventory
         	**type**\: :py:class:`Inventory <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory>`
+        
+        .. attribute:: stage
+        
+        	Show XR install issu stage
+        	**type**\: :py:class:`Stage <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
         
         
 
@@ -1346,20 +1346,20 @@ class SoftwareInstall(object):
 
         def __init__(self):
             self.parent = None
-            self.stage = SoftwareInstall.Issu.Stage()
-            self.stage.parent = self
             self.inventory = SoftwareInstall.Issu.Inventory()
             self.inventory.parent = self
+            self.stage = SoftwareInstall.Issu.Stage()
+            self.stage.parent = self
 
 
         class Stage(object):
             """
             Show XR install issu stage
             
-            .. attribute:: state
+            .. attribute:: issu_error
             
-            	State
-            	**type**\: :py:class:`IsdStateEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
+            	ISSU Error
+            	**type**\: :py:class:`IsdErrorEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
             
             .. attribute:: issu_node_cnt
             
@@ -1375,6 +1375,11 @@ class SoftwareInstall(object):
             
             	**range:** \-2147483648..2147483647
             
+            .. attribute:: issu_status
+            
+            	Abort Status
+            	**type**\: :py:class:`IsdIssuStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
+            
             .. attribute:: percentage
             
             	Percentage
@@ -1382,15 +1387,10 @@ class SoftwareInstall(object):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: issu_status
+            .. attribute:: state
             
-            	Abort Status
-            	**type**\: :py:class:`IsdIssuStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
-            
-            .. attribute:: issu_error
-            
-            	ISSU Error
-            	**type**\: :py:class:`IsdErrorEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
+            	State
+            	**type**\: :py:class:`IsdStateEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
             
             
 
@@ -1401,12 +1401,12 @@ class SoftwareInstall(object):
 
             def __init__(self):
                 self.parent = None
-                self.state = None
+                self.issu_error = None
                 self.issu_node_cnt = None
                 self.issu_ready_node_cnt = None
-                self.percentage = None
                 self.issu_status = None
-                self.issu_error = None
+                self.percentage = None
+                self.state = None
 
             @property
             def _common_path(self):
@@ -1420,7 +1420,7 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.state is not None:
+                if self.issu_error is not None:
                     return True
 
                 if self.issu_node_cnt is not None:
@@ -1429,13 +1429,13 @@ class SoftwareInstall(object):
                 if self.issu_ready_node_cnt is not None:
                     return True
 
-                if self.percentage is not None:
-                    return True
-
                 if self.issu_status is not None:
                     return True
 
-                if self.issu_error is not None:
+                if self.percentage is not None:
+                    return True
+
+                if self.state is not None:
                     return True
 
                 return False
@@ -1473,6 +1473,11 @@ class SoftwareInstall(object):
                 """
                 invinfo
                 
+                .. attribute:: issu_node_role
+                
+                	ISSU Node Role
+                	**type**\: :py:class:`IssuNodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
+                
                 .. attribute:: node_id
                 
                 	Node ID
@@ -1480,25 +1485,20 @@ class SoftwareInstall(object):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: node_type
+                .. attribute:: node_role
                 
-                	Node Type
-                	**type**\: :py:class:`CardTypeEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
-                
-                .. attribute:: issu_node_role
-                
-                	ISSU Node Role
-                	**type**\: :py:class:`IssuNodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
+                	Node role
+                	**type**\: :py:class:`NodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
                 
                 .. attribute:: node_state
                 
                 	Node State
                 	**type**\: :py:class:`IssudirNodeStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEtEnum>`
                 
-                .. attribute:: node_role
+                .. attribute:: node_type
                 
-                	Node role
-                	**type**\: :py:class:`NodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
+                	Node Type
+                	**type**\: :py:class:`CardTypeEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
                 
                 
 
@@ -1509,11 +1509,11 @@ class SoftwareInstall(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.node_id = None
-                    self.node_type = None
                     self.issu_node_role = None
-                    self.node_state = None
+                    self.node_id = None
                     self.node_role = None
+                    self.node_state = None
+                    self.node_type = None
 
                 @property
                 def _common_path(self):
@@ -1527,19 +1527,19 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.issu_node_role is not None:
+                        return True
+
                     if self.node_id is not None:
                         return True
 
-                    if self.node_type is not None:
-                        return True
-
-                    if self.issu_node_role is not None:
+                    if self.node_role is not None:
                         return True
 
                     if self.node_state is not None:
                         return True
 
-                    if self.node_role is not None:
+                    if self.node_type is not None:
                         return True
 
                     return False
@@ -1585,10 +1585,10 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.stage is not None and self.stage._has_data():
+            if self.inventory is not None and self.inventory._has_data():
                 return True
 
-            if self.inventory is not None and self.inventory._has_data():
+            if self.stage is not None and self.stage._has_data():
                 return True
 
             return False
@@ -1626,6 +1626,16 @@ class SoftwareInstall(object):
             """
             committed package info
             
+            .. attribute:: boot_partition_name
+            
+            	BootPartitionName
+            	**type**\: str
+            
+            .. attribute:: committed_packages
+            
+            	CommittedPackages
+            	**type**\: str
+            
             .. attribute:: error_message
             
             	ErrorMessage
@@ -1641,22 +1651,12 @@ class SoftwareInstall(object):
             	NodeType
             	**type**\: str
             
-            .. attribute:: boot_partition_name
-            
-            	BootPartitionName
-            	**type**\: str
-            
             .. attribute:: number_of_committed_packages
             
             	NumberOfCommittedPackages
             	**type**\: int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: committed_packages
-            
-            	CommittedPackages
-            	**type**\: str
             
             
 
@@ -1667,12 +1667,12 @@ class SoftwareInstall(object):
 
             def __init__(self):
                 self.parent = None
+                self.boot_partition_name = None
+                self.committed_packages = None
                 self.error_message = None
                 self.location = None
                 self.node_type = None
-                self.boot_partition_name = None
                 self.number_of_committed_packages = None
-                self.committed_packages = None
 
             @property
             def _common_path(self):
@@ -1686,6 +1686,12 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.boot_partition_name is not None:
+                    return True
+
+                if self.committed_packages is not None:
+                    return True
+
                 if self.error_message is not None:
                     return True
 
@@ -1695,13 +1701,7 @@ class SoftwareInstall(object):
                 if self.node_type is not None:
                     return True
 
-                if self.boot_partition_name is not None:
-                    return True
-
                 if self.number_of_committed_packages is not None:
-                    return True
-
-                if self.committed_packages is not None:
                     return True
 
                 return False
@@ -1740,15 +1740,15 @@ class SoftwareInstall(object):
         """
         Show log file for all operations
         
-        .. attribute:: summary
-        
-        	Show summary log file for all operations
-        	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
-        
         .. attribute:: detail
         
         	Show detailed log file for all operations
         	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Detail>`
+        
+        .. attribute:: summary
+        
+        	Show summary log file for all operations
+        	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
         
         
 
@@ -1759,10 +1759,10 @@ class SoftwareInstall(object):
 
         def __init__(self):
             self.parent = None
-            self.summary = SoftwareInstall.AllOperationsLog.Summary()
-            self.summary.parent = self
             self.detail = SoftwareInstall.AllOperationsLog.Detail()
             self.detail.parent = self
+            self.summary = SoftwareInstall.AllOperationsLog.Summary()
+            self.summary.parent = self
 
 
         class Summary(object):
@@ -1862,10 +1862,10 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.summary is not None and self.summary._has_data():
+            if self.detail is not None and self.detail._has_data():
                 return True
 
-            if self.detail is not None and self.detail._has_data():
+            if self.summary is not None and self.summary._has_data():
                 return True
 
             return False
@@ -1908,11 +1908,6 @@ class SoftwareInstall(object):
             	Package name
             	**type**\: str
             
-            .. attribute:: verbose
-            
-            	Show the verbose info for a installed package
-            	**type**\: :py:class:`Verbose <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
-            
             .. attribute:: brief
             
             	Show the info for a installed package
@@ -1922,6 +1917,11 @@ class SoftwareInstall(object):
             
             	Show the deatil info for a installed package
             	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Detail>`
+            
+            .. attribute:: verbose
+            
+            	Show the verbose info for a installed package
+            	**type**\: :py:class:`Verbose <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
             
             
 
@@ -1933,12 +1933,12 @@ class SoftwareInstall(object):
             def __init__(self):
                 self.parent = None
                 self.package_name = None
-                self.verbose = SoftwareInstall.Packages.Package.Verbose()
-                self.verbose.parent = self
                 self.brief = SoftwareInstall.Packages.Package.Brief()
                 self.brief.parent = self
                 self.detail = SoftwareInstall.Packages.Package.Detail()
                 self.detail.parent = self
+                self.verbose = SoftwareInstall.Packages.Package.Verbose()
+                self.verbose.parent = self
 
 
             class Verbose(object):
@@ -1964,7 +1964,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:verbose'
 
@@ -2009,7 +2009,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:brief'
 
@@ -2054,7 +2054,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
 
@@ -2078,7 +2078,7 @@ class SoftwareInstall(object):
             @property
             def _common_path(self):
                 if self.package_name is None:
-                    raise YPYDataValidationError('Key property package_name is None')
+                    raise YPYModelError('Key property package_name is None')
 
                 return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:packages/Cisco-IOS-XR-spirit-install-instmgr-oper:package[Cisco-IOS-XR-spirit-install-instmgr-oper:package-name = ' + str(self.package_name) + ']'
 
@@ -2092,13 +2092,13 @@ class SoftwareInstall(object):
                 if self.package_name is not None:
                     return True
 
-                if self.verbose is not None and self.verbose._has_data():
-                    return True
-
                 if self.brief is not None and self.brief._has_data():
                     return True
 
                 if self.detail is not None and self.detail._has_data():
+                    return True
+
+                if self.verbose is not None and self.verbose._has_data():
                     return True
 
                 return False
@@ -2167,15 +2167,15 @@ class SoftwareInstall(object):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: summary
-            
-            	Show summary log file for the specified install ID
-            	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
-            
             .. attribute:: detail
             
             	Show detailed log file for the specified install ID
             	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Detail>`
+            
+            .. attribute:: summary
+            
+            	Show summary log file for the specified install ID
+            	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
             
             
 
@@ -2187,10 +2187,10 @@ class SoftwareInstall(object):
             def __init__(self):
                 self.parent = None
                 self.log_id = None
-                self.summary = SoftwareInstall.OperationLogs.OperationLog.Summary()
-                self.summary.parent = self
                 self.detail = SoftwareInstall.OperationLogs.OperationLog.Detail()
                 self.detail.parent = self
+                self.summary = SoftwareInstall.OperationLogs.OperationLog.Summary()
+                self.summary.parent = self
 
 
             class Summary(object):
@@ -2217,7 +2217,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:summary'
 
@@ -2263,7 +2263,7 @@ class SoftwareInstall(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
 
@@ -2287,7 +2287,7 @@ class SoftwareInstall(object):
             @property
             def _common_path(self):
                 if self.log_id is None:
-                    raise YPYDataValidationError('Key property log_id is None')
+                    raise YPYModelError('Key property log_id is None')
 
                 return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-logs/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-log[Cisco-IOS-XR-spirit-install-instmgr-oper:log-id = ' + str(self.log_id) + ']'
 
@@ -2301,10 +2301,10 @@ class SoftwareInstall(object):
                 if self.log_id is not None:
                     return True
 
-                if self.summary is not None and self.summary._has_data():
+                if self.detail is not None and self.detail._has_data():
                     return True
 
-                if self.detail is not None and self.detail._has_data():
+                if self.summary is not None and self.summary._has_data():
                     return True
 
                 return False
@@ -2344,15 +2344,15 @@ class SoftwareInstall(object):
         Show packages stored in install software
         repositories
         
-        .. attribute:: xr
-        
-        	Show install software repository for XR
-        	**type**\: :py:class:`Xr <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.Xr>`
-        
         .. attribute:: all
         
         	Show contents of all install software repositories
         	**type**\: :py:class:`All <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.All>`
+        
+        .. attribute:: xr
+        
+        	Show install software repository for XR
+        	**type**\: :py:class:`Xr <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.Xr>`
         
         
 
@@ -2363,10 +2363,10 @@ class SoftwareInstall(object):
 
         def __init__(self):
             self.parent = None
-            self.xr = SoftwareInstall.Repository.Xr()
-            self.xr.parent = self
             self.all = SoftwareInstall.Repository.All()
             self.all.parent = self
+            self.xr = SoftwareInstall.Repository.Xr()
+            self.xr.parent = self
 
 
         class Xr(object):
@@ -2467,10 +2467,10 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.xr is not None and self.xr._has_data():
+            if self.all is not None and self.all._has_data():
                 return True
 
-            if self.all is not None and self.all._has_data():
+            if self.xr is not None and self.xr._has_data():
                 return True
 
             return False
@@ -2492,43 +2492,43 @@ class SoftwareInstall(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.files is not None and self.files._has_data():
-            return True
-
-        if self.last_n_operation_logs is not None and self.last_n_operation_logs._has_data():
-            return True
-
-        if self.prepare is not None and self.prepare._has_data():
-            return True
-
         if self.active is not None and self.active._has_data():
-            return True
-
-        if self.version is not None and self.version._has_data():
-            return True
-
-        if self.inactive is not None and self.inactive._has_data():
-            return True
-
-        if self.request is not None and self.request._has_data():
-            return True
-
-        if self.issu is not None and self.issu._has_data():
-            return True
-
-        if self.committed is not None and self.committed._has_data():
             return True
 
         if self.all_operations_log is not None and self.all_operations_log._has_data():
             return True
 
-        if self.packages is not None and self.packages._has_data():
+        if self.committed is not None and self.committed._has_data():
+            return True
+
+        if self.files is not None and self.files._has_data():
+            return True
+
+        if self.inactive is not None and self.inactive._has_data():
+            return True
+
+        if self.issu is not None and self.issu._has_data():
+            return True
+
+        if self.last_n_operation_logs is not None and self.last_n_operation_logs._has_data():
             return True
 
         if self.operation_logs is not None and self.operation_logs._has_data():
             return True
 
+        if self.packages is not None and self.packages._has_data():
+            return True
+
+        if self.prepare is not None and self.prepare._has_data():
+            return True
+
         if self.repository is not None and self.repository._has_data():
+            return True
+
+        if self.request is not None and self.request._has_data():
+            return True
+
+        if self.version is not None and self.version._has_data():
             return True
 
         return False

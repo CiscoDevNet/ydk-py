@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -72,17 +72,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy',
             False, 
             [
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -154,17 +154,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy',
             False, 
             [
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -254,17 +254,17 @@ _meta_table = {
                 ''',
                 'explicit_null_type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of prefix ACL
-                ''',
-                'prefix_acl_name',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of peer ACL
                 ''',
                 'peer_acl_name',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of prefix ACL
+                ''',
+                'prefix_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -312,19 +312,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise',
             False, 
             [
-            _MetaInfoClassMember('peer-advertise-policies', REFERENCE_CLASS, 'PeerAdvertisePolicies' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies', 
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Configure peer centric outbound label
-                advertisement using ACL
+                '''                Disable label advertisement
                 ''',
-                'peer_advertise_policies',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('prefix-advertise-policies', REFERENCE_CLASS, 'PrefixAdvertisePolicies' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies', 
-                [], [], 
-                '''                Configure prefix centric outbound label
-                advertisement using ACL
-                ''',
-                'prefix_advertise_policies',
+                'disable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('explicit-null', REFERENCE_CLASS, 'ExplicitNull' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull', 
                 [], [], 
@@ -340,11 +332,19 @@ _meta_table = {
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('peer-advertise-policies', REFERENCE_CLASS, 'PeerAdvertisePolicies' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies', 
                 [], [], 
-                '''                Disable label advertisement
+                '''                Configure peer centric outbound label
+                advertisement using ACL
                 ''',
-                'disable',
+                'peer_advertise_policies',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('prefix-advertise-policies', REFERENCE_CLASS, 'PrefixAdvertisePolicies' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies', 
+                [], [], 
+                '''                Configure prefix centric outbound label
+                advertisement using ACL
+                ''',
+                'prefix_advertise_policies',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -393,18 +393,18 @@ _meta_table = {
                 ''',
                 'allocate',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('default-route', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS forwarding for default route
+                ''',
+                'default_route',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('implicit-null-override', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Control use of implicit-null label for set
                 of prefix(es)
                 ''',
                 'implicit_null_override',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('default-route', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS forwarding for default route
-                ''',
-                'default_route',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -417,18 +417,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label',
             False, 
             [
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local', 
+                [], [], 
+                '''                Configure local label policies and control
+                ''',
+                'local',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('remote', REFERENCE_CLASS, 'Remote' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Remote', 
                 [], [], 
                 '''                Configure remote/peer label policies and
                 control
                 ''',
                 'remote',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label.Local', 
-                [], [], 
-                '''                Configure local label policies and control
-                ''',
-                'local',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -538,19 +538,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh',
             False, 
             [
-            _MetaInfoClassMember('group-ids', REFERENCE_CLASS, 'GroupIds' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds', 
-                [], [], 
-                '''                Enable interfaces in specific MPLS TE
-                auto-tunnel mesh-groups
-                ''',
-                'group_ids',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('group-all', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable all MPLS TE auto-tunnel mesh-group
                 interfaces
                 ''',
                 'group_all',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('group-ids', REFERENCE_CLASS, 'GroupIds' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds', 
+                [], [], 
+                '''                Enable interfaces in specific MPLS TE
+                auto-tunnel mesh-groups
+                ''',
+                'group_ids',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -681,17 +681,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpAdvertiseBgpaclEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpAdvertiseBgpaclEnum', 
-                [], [], 
-                '''                advertise to peer acl type
-                ''',
-                'type',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of peer ACL
                 ''',
                 'peer_acl_name',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpAdvertiseBgpaclEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpAdvertiseBgpaclEnum', 
+                [], [], 
+                '''                advertise to peer acl type
+                ''',
+                'type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -704,19 +704,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_CLASS, 'As' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As', 
-                [], [], 
-                '''                MPLS LDP configuration for protocol
-                redistribution
-                ''',
-                'as_',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('advertise-to', REFERENCE_CLASS, 'AdvertiseTo' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo', 
                 [], [], 
                 '''                ACL containing list of neighbors for BGP
                 route redistribution
                 ''',
                 'advertise_to',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('as', REFERENCE_CLASS, 'As' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As', 
+                [], [], 
+                '''                MPLS LDP configuration for protocol
+                redistribution
+                ''',
+                'as_',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -753,23 +753,23 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('label', REFERENCE_CLASS, 'Label' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label', 
-                [], [], 
-                '''                Configure Label policies and control
-                ''',
-                'label',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Discovery', 
                 [], [], 
                 '''                Configure Discovery parameters
                 ''',
                 'discovery',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('traffic-engineering', REFERENCE_CLASS, 'TrafficEngineering' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering', 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                MPLS Traffic Engingeering parameters for LDP
+                '''                Enable Address Family
                 ''',
-                'traffic_engineering',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('label', REFERENCE_CLASS, 'Label' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Label', 
+                [], [], 
+                '''                Configure Label policies and control
+                ''',
+                'label',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.Neighbor', 
                 [], [], 
@@ -784,11 +784,11 @@ _meta_table = {
                 ''',
                 'redistribution_protocol',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('traffic-engineering', REFERENCE_CLASS, 'TrafficEngineering' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering', 
                 [], [], 
-                '''                Enable Address Family
+                '''                MPLS Traffic Engingeering parameters for LDP
                 ''',
-                'enable',
+                'traffic_engineering',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -818,11 +818,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Session.Protection',
             False, 
             [
-            _MetaInfoClassMember('protection-type', REFERENCE_ENUM_CLASS, 'MplsLdpSessionProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpSessionProtectionEnum', 
-                [], [], 
-                '''                Session protection type
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
+                [(30, 2147483)], [], 
+                '''                Holdup duration
                 ''',
-                'protection_type',
+                'duration',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -830,11 +830,11 @@ _meta_table = {
                 ''',
                 'peer_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(30, 2147483)], [], 
-                '''                Holdup duration
+            _MetaInfoClassMember('protection-type', REFERENCE_ENUM_CLASS, 'MplsLdpSessionProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpSessionProtectionEnum', 
+                [], [], 
+                '''                Session protection type
                 ''',
-                'duration',
+                'protection_type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -847,17 +847,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemandEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemandEnum', 
-                [], [], 
-                '''                Downstream on demand type
-                ''',
-                'type',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of peer ACL
                 ''',
                 'peer_acl_name',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemandEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemandEnum', 
+                [], [], 
+                '''                Downstream on demand type
+                ''',
+                'type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -870,18 +870,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Session',
             False, 
             [
-            _MetaInfoClassMember('protection', REFERENCE_CLASS, 'Protection' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session.Protection', 
-                [], [], 
-                '''                Configure Session Protection parameters
-                ''',
-                'protection',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('downstream-on-demand', REFERENCE_CLASS, 'DownstreamOnDemand' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand', 
                 [], [], 
                 '''                ACL with the list of neighbors configured for
                 Downstream on Demand
                 ''',
                 'downstream_on_demand',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('protection', REFERENCE_CLASS, 'Protection' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session.Protection', 
+                [], [], 
+                '''                Configure Session Protection parameters
+                ''',
+                'protection',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -917,17 +917,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId',
             False, 
             [
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password', 
                 [], [], 
@@ -984,19 +984,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection',
             False, 
             [
-            _MetaInfoClassMember('prefer', REFERENCE_CLASS, 'Prefer' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer', 
-                [], [], 
-                '''                Configuration related to neighbor
-                dual-stack xport-connection preference
-                ''',
-                'prefer',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('max-wait', ATTRIBUTE, 'int' , None, None, 
                 [(0, 60)], [], 
                 '''                Configuration related to neighbor
                 dual-stack xport-connection max-wait
                 ''',
                 'max_wait',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('prefer', REFERENCE_CLASS, 'Prefer' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer', 
+                [], [], 
+                '''                Configuration related to neighbor
+                dual-stack xport-connection preference
+                ''',
+                'prefer',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1009,18 +1009,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.DualStack',
             False, 
             [
-            _MetaInfoClassMember('transport-connection', REFERENCE_CLASS, 'TransportConnection' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection', 
-                [], [], 
-                '''                Configuration related to neighbor transport
-                ''',
-                'transport_connection',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('tlv-compliance', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Configuration to enable neighbor dual-stack
                 tlv-compliance
                 ''',
                 'tlv_compliance',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('transport-connection', REFERENCE_CLASS, 'TransportConnection' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection', 
+                [], [], 
+                '''                Configuration related to neighbor transport
+                ''',
+                'transport_connection',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1033,18 +1033,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor',
             False, 
             [
+            _MetaInfoClassMember('dual-stack', REFERENCE_CLASS, 'DualStack' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack', 
+                [], [], 
+                '''                Configuration related to neighbor transport
+                ''',
+                'dual_stack',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('ldp-ids', REFERENCE_CLASS, 'LdpIds' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds', 
                 [], [], 
                 '''                Configuration related to Neighbors using LDP
                 Id
                 ''',
                 'ldp_ids',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('dual-stack', REFERENCE_CLASS, 'DualStack' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack', 
-                [], [], 
-                '''                Configuration related to neighbor transport
-                ''',
-                'dual_stack',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
                 [], ['(!.+)|([^!].+)'], 
@@ -1099,18 +1099,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global',
             False, 
             [
-            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session', 
-                [], [], 
-                '''                LDP Session parameters
-                ''',
-                'session',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor', 
-                [], [], 
-                '''                Configuration related to Neighbors
-                ''',
-                'neighbor',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.GracefulRestart', 
                 [], [], 
                 '''                Configuration for per-VRF LDP Graceful Restart
@@ -1118,11 +1106,23 @@ _meta_table = {
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor', 
+                [], [], 
+                '''                Configuration related to Neighbors
+                ''',
+                'neighbor',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configuration for LDP Router ID (LDP ID)
                 ''',
                 'router_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session', 
+                [], [], 
+                '''                LDP Session parameters
+                ''',
+                'session',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1135,12 +1135,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddressEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddressEnum', 
-                [], [], 
-                '''                Transport address option
-                ''',
-                'address_type',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                IP address
@@ -1160,6 +1154,12 @@ _meta_table = {
                         'address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                 ]),
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddressEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddressEnum', 
+                [], [], 
+                '''                Transport address option
+                ''',
+                'address_type',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
             'transport-address',
@@ -1235,6 +1235,12 @@ _meta_table = {
                 ''',
                 'discovery',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Address Family
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp', 
                 [], [], 
                 '''                LDP interface IGP configuration
@@ -1246,12 +1252,6 @@ _meta_table = {
                 '''                Interface configuration parameters for mLDP
                 ''',
                 'mldp',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Address Family
-                ''',
-                'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1281,12 +1281,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Link Hello interval
-                ''',
-                'interval',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('dual-stack', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Dual Stack Address Family Preference
@@ -1299,6 +1293,12 @@ _meta_table = {
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Link Hello interval
+                ''',
+                'interval',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
             'link-hello',
@@ -1310,17 +1310,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery',
             False, 
             [
-            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello', 
-                [], [], 
-                '''                LDP Link Hellos
-                ''',
-                'link_hello',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('disable-quick-start', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable discovery's quick start mode
                 ''',
                 'disable_quick_start',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello', 
+                [], [], 
+                '''                LDP Link Hellos
+                ''',
+                'link_hello',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1443,19 +1443,19 @@ _meta_table = {
                 ''',
                 'afs',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global', 
-                [], [], 
-                '''                Per VRF interface Global configuration for
-                MPLS LDP
-                ''',
-                'global_',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable Label Distribution Protocol (LDP) on
                 thisinterface
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global', 
+                [], [], 
+                '''                Per VRF interface Global configuration for
+                MPLS LDP
+                ''',
+                'global_',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1516,17 +1516,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemandEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemandEnum', 
-                [], [], 
-                '''                Downstream on demand type
-                ''',
-                'type',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of peer ACL
                 ''',
                 'peer_acl_name',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemandEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemandEnum', 
+                [], [], 
+                '''                Downstream on demand type
+                ''',
+                'type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1580,17 +1580,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId',
             False, 
             [
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password', 
                 [], [], 
@@ -1688,18 +1688,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global',
             False, 
             [
-            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Session', 
-                [], [], 
-                '''                LDP Session parameters
-                ''',
-                'session',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor', 
-                [], [], 
-                '''                Configuration related to Neighbors
-                ''',
-                'neighbor',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.GracefulRestart', 
                 [], [], 
                 '''                Configuration for per-VRF LDP Graceful
@@ -1707,11 +1695,23 @@ _meta_table = {
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor', 
+                [], [], 
+                '''                Configuration related to Neighbors
+                ''',
+                'neighbor',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configuration for LDP Router ID (LDP ID)
                 ''',
                 'router_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Session', 
+                [], [], 
+                '''                LDP Session parameters
+                ''',
+                'session',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1788,17 +1788,17 @@ _meta_table = {
                 ''',
                 'label_space_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('peer-accept-policy-data', REFERENCE_CLASS, 'PeerAcceptPolicyData' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData', 
-                [], [], 
-                '''                Data container.
-                ''',
-                'peer_accept_policy_data',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('lsr-id', REFERENCE_LIST, 'LsrId' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId', 
                 [], [], 
                 '''                keys: lsr-id
                 ''',
                 'lsr_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('peer-accept-policy-data', REFERENCE_CLASS, 'PeerAcceptPolicyData' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData', 
+                [], [], 
+                '''                Data container.
+                ''',
+                'peer_accept_policy_data',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1910,17 +1910,17 @@ _meta_table = {
                 ''',
                 'label_space_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('peer-advertise-policy-data', REFERENCE_CLASS, 'PeerAdvertisePolicyData' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData', 
-                [], [], 
-                '''                Data container.
-                ''',
-                'peer_advertise_policy_data',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('lsr-id', REFERENCE_LIST, 'LsrId' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId', 
                 [], [], 
                 '''                keys: lsr-id
                 ''',
                 'lsr_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('peer-advertise-policy-data', REFERENCE_CLASS, 'PeerAdvertisePolicyData' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData', 
+                [], [], 
+                '''                Data container.
+                ''',
+                'peer_advertise_policy_data',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -1992,17 +1992,17 @@ _meta_table = {
                 ''',
                 'explicit_null_type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of prefix ACL
-                ''',
-                'prefix_acl_name',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of peer ACL
                 ''',
                 'peer_acl_name',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of prefix ACL
+                ''',
+                'prefix_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2015,19 +2015,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise',
             False, 
             [
-            _MetaInfoClassMember('peer-advertise-policies', REFERENCE_CLASS, 'PeerAdvertisePolicies' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies', 
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Configure peer centric outbound label
-                advertisement using ACL
+                '''                Disable label advertisement
                 ''',
-                'peer_advertise_policies',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces', 
-                [], [], 
-                '''                Configure outbound label advertisement
-                for an interface
-                ''',
-                'interfaces',
+                'disable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('explicit-null', REFERENCE_CLASS, 'ExplicitNull' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull', 
                 [], [], 
@@ -2036,11 +2028,19 @@ _meta_table = {
                 ''',
                 'explicit_null',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces', 
                 [], [], 
-                '''                Disable label advertisement
+                '''                Configure outbound label advertisement
+                for an interface
                 ''',
-                'disable',
+                'interfaces',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('peer-advertise-policies', REFERENCE_CLASS, 'PeerAdvertisePolicies' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies', 
+                [], [], 
+                '''                Configure peer centric outbound label
+                advertisement using ACL
+                ''',
+                'peer_advertise_policies',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2089,18 +2089,18 @@ _meta_table = {
                 ''',
                 'allocate',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('default-route', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS forwarding for default route
+                ''',
+                'default_route',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('implicit-null-override', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Control use of implicit-null label for set
                 of prefix(es)
                 ''',
                 'implicit_null_override',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('default-route', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS forwarding for default route
-                ''',
-                'default_route',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2113,18 +2113,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Afs.Af.Label',
             False, 
             [
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local', 
+                [], [], 
+                '''                Configure local label policies and control
+                ''',
+                'local',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('remote', REFERENCE_CLASS, 'Remote' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote', 
                 [], [], 
                 '''                Configure remote/peer label policies and
                 control
                 ''',
                 'remote',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local', 
-                [], [], 
-                '''                Configure local label policies and control
-                ''',
-                'local',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2149,17 +2149,17 @@ _meta_table = {
                 ''',
                 'discovery',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('label', REFERENCE_CLASS, 'Label' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label', 
-                [], [], 
-                '''                Configure Label policies and control
-                ''',
-                'label',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable Address Family
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('label', REFERENCE_CLASS, 'Label' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs.Af.Label', 
+                [], [], 
+                '''                Configure Label policies and control
+                ''',
+                'label',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2189,12 +2189,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddressEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddressEnum', 
-                [], [], 
-                '''                Transport address option
-                ''',
-                'address_type',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                IP address
@@ -2214,6 +2208,12 @@ _meta_table = {
                         'address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                 ]),
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddressEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddressEnum', 
+                [], [], 
+                '''                Transport address option
+                ''',
+                'address_type',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
             'transport-address',
@@ -2344,12 +2344,6 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global', 
-                [], [], 
-                '''                Per VRF Global configuration for MPLS LDP
-                ''',
-                'global_',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Afs', 
                 [], [], 
                 '''                Address Family specific configuration for MPLS
@@ -2357,18 +2351,24 @@ _meta_table = {
                 ''',
                 'afs',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable VRF
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global', 
+                [], [], 
+                '''                Per VRF Global configuration for MPLS LDP
+                ''',
+                'global_',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Interfaces', 
                 [], [], 
                 '''                MPLS LDP configuration pertaining to
                 interfaces
                 ''',
                 'interfaces',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable VRF
-                ''',
-                'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2461,18 +2461,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Igp.Sync.Delay',
             False, 
             [
-            _MetaInfoClassMember('on-session-up', ATTRIBUTE, 'int' , None, None, 
-                [(5, 300)], [], 
-                '''                Interface sync up delay after session up
-                ''',
-                'on_session_up',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
                 [(60, 600)], [], 
                 '''                Global sync up delay to be used after
                 process restart
                 ''',
                 'on_proc_restart',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('on-session-up', ATTRIBUTE, 'int' , None, None, 
+                [(5, 300)], [], 
+                '''                Interface sync up delay after session up
+                ''',
+                'on_session_up',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2519,11 +2519,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.EnableLogging',
             False, 
             [
-            _MetaInfoClassMember('nsr', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('adjacency', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable logging of NSR events
+                '''                Enable logging of adjacency events
                 ''',
-                'nsr',
+                'adjacency',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('gr-session-changes', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable logging of Graceful Restart (GR) events
+                ''',
+                'gr_session_changes',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('neighbor-changes', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -2531,23 +2537,17 @@ _meta_table = {
                 ''',
                 'neighbor_changes',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('adjacency', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('nsr', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable logging of adjacency events
+                '''                Enable logging of NSR events
                 ''',
-                'adjacency',
+                'nsr',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('session-protection', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable logging of session protection events
                 ''',
                 'session_protection',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('gr-session-changes', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable logging of Graceful Restart (GR) events
-                ''',
-                'gr_session_changes',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2594,13 +2594,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('reconnect-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(60, 1800)], [], 
-                '''                Configure Graceful Restart Reconnect Timeout
-                value
-                ''',
-                'reconnect_timeout',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                none
@@ -2613,6 +2606,13 @@ _meta_table = {
                 ''',
                 'forwarding_hold_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('reconnect-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(60, 1800)], [], 
+                '''                Configure Graceful Restart Reconnect Timeout
+                value
+                ''',
+                'reconnect_timeout',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
             'graceful-restart',
@@ -2624,17 +2624,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Discovery.LinkHello',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Link Hello interval
-                ''',
-                'interval',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Time (seconds) - 65535 implies infinite
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Link Hello interval
+                ''',
+                'interval',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2647,17 +2647,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Discovery.TargetedHello',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Targeted Hello interval
-                ''',
-                'interval',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Time (seconds) - 65535 implies infinite
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Targeted Hello interval
+                ''',
+                'interval',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2670,18 +2670,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Discovery',
             False, 
             [
-            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery.LinkHello', 
-                [], [], 
-                '''                LDP Link Hellos
-                ''',
-                'link_hello',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('targeted-hello', REFERENCE_CLASS, 'TargetedHello' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery.TargetedHello', 
-                [], [], 
-                '''                LDP Targeted Hellos
-                ''',
-                'targeted_hello',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('disable-instance-tlv', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable transmit and receive processing for
@@ -2695,6 +2683,18 @@ _meta_table = {
                 '''                Disable discovery's quick start mode
                 ''',
                 'disable_quick_start',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery.LinkHello', 
+                [], [], 
+                '''                LDP Link Hellos
+                ''',
+                'link_hello',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('targeted-hello', REFERENCE_CLASS, 'TargetedHello' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery.TargetedHello', 
+                [], [], 
+                '''                LDP Targeted Hellos
+                ''',
+                'targeted_hello',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2741,17 +2741,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling',
             False, 
             [
-            _MetaInfoClassMember('forward-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600)], [], 
-                '''                Forwarding Delay in Seconds
-                ''',
-                'forward_delay',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('delete-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 60)], [], 
                 '''                Delete Delay in seconds
                 ''',
                 'delete_delay',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('forward-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 600)], [], 
+                '''                Forwarding Delay in Seconds
+                ''',
+                'forward_delay',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2804,24 +2804,6 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec', 
-                [], [], 
-                '''                MPLS mLDP Recursive FEC
-                ''',
-                'mldp_recursive_fec',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr', 
-                [], [], 
-                '''                MPLS mLDP MoFRR
-                ''',
-                'mo_frr',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak', 
-                [], [], 
-                '''                MPLS mLDP Make-Before-Break configuration
-                ''',
-                'make_before_break',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('csc', REFERENCE_CLASS, 'Csc' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc', 
                 [], [], 
                 '''                MPLS mLDP CSC
@@ -2835,12 +2817,30 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak', 
+                [], [], 
+                '''                MPLS mLDP Make-Before-Break configuration
+                ''',
+                'make_before_break',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec', 
+                [], [], 
+                '''                MPLS mLDP Recursive FEC
+                ''',
+                'mldp_recursive_fec',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('mldp-rib-unicast-always', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS MLDP RIB unicast-always
                 configuration
                 ''',
                 'mldp_rib_unicast_always',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr', 
+                [], [], 
+                '''                MPLS mLDP MoFRR
+                ''',
+                'mo_frr',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2944,17 +2944,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling',
             False, 
             [
-            _MetaInfoClassMember('forward-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600)], [], 
-                '''                Forwarding Delay in Seconds
-                ''',
-                'forward_delay',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('delete-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 60)], [], 
                 '''                Delete Delay in seconds
                 ''',
                 'delete_delay',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('forward-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 600)], [], 
+                '''                Forwarding Delay in Seconds
+                ''',
+                'forward_delay',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -3007,24 +3007,6 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec', 
-                [], [], 
-                '''                MPLS mLDP Recursive FEC
-                ''',
-                'mldp_recursive_fec',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr', 
-                [], [], 
-                '''                MPLS mLDP MoFRR
-                ''',
-                'mo_frr',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak', 
-                [], [], 
-                '''                MPLS mLDP Make-Before-Break configuration
-                ''',
-                'make_before_break',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('csc', REFERENCE_CLASS, 'Csc' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc', 
                 [], [], 
                 '''                MPLS mLDP CSC
@@ -3038,12 +3020,30 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak', 
+                [], [], 
+                '''                MPLS mLDP Make-Before-Break configuration
+                ''',
+                'make_before_break',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec', 
+                [], [], 
+                '''                MPLS mLDP Recursive FEC
+                ''',
+                'mldp_recursive_fec',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('mldp-rib-unicast-always', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS MLDP RIB unicast-always
                 configuration
                 ''',
                 'mldp_rib_unicast_always',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr', 
+                [], [], 
+                '''                MPLS mLDP MoFRR
+                ''',
+                'mo_frr',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -3124,23 +3124,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp',
             False, 
             [
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs', 
-                [], [], 
-                '''                VRF Table attribute configuration for MPLS LDP
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf', 
                 [], [], 
                 '''                Default VRF attribute configuration for mLDP
                 ''',
                 'default_vrf',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mldp-global', REFERENCE_CLASS, 'MldpGlobal' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.MldpGlobal', 
-                [], [], 
-                '''                Global configuration for mLDP
-                ''',
-                'mldp_global',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -3148,6 +3136,18 @@ _meta_table = {
                 (mLDP)
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('mldp-global', REFERENCE_CLASS, 'MldpGlobal' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.MldpGlobal', 
+                [], [], 
+                '''                Global configuration for mLDP
+                ''',
+                'mldp_global',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs', 
+                [], [], 
+                '''                VRF Table attribute configuration for MPLS LDP
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -3160,23 +3160,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global',
             False, 
             [
-            _MetaInfoClassMember('entropy-label', REFERENCE_CLASS, 'EntropyLabel' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.EntropyLabel', 
+            _MetaInfoClassMember('disable-implicit-ipv4', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Configure for LDP Entropy-Label
+                '''                Disable the implicit enabling for IPv4 address
+                family
                 ''',
-                'entropy_label',
+                'disable_implicit_ipv4',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Session', 
+            _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery', 
                 [], [], 
-                '''                LDP Session parameters
+                '''                Configure Discovery parameters
                 ''',
-                'session',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Igp', 
-                [], [], 
-                '''                LDP IGP configuration
-                ''',
-                'igp',
+                'discovery',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('enable-logging', REFERENCE_CLASS, 'EnableLogging' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.EnableLogging', 
                 [], [], 
@@ -3184,17 +3179,11 @@ _meta_table = {
                 ''',
                 'enable_logging',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('signalling', REFERENCE_CLASS, 'Signalling' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Signalling', 
+            _MetaInfoClassMember('entropy-label', REFERENCE_CLASS, 'EntropyLabel' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.EntropyLabel', 
                 [], [], 
-                '''                Configure LDP signalling parameters
+                '''                Configure for LDP Entropy-Label
                 ''',
-                'signalling',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('nsr', REFERENCE_CLASS, 'Nsr' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Nsr', 
-                [], [], 
-                '''                Configure LDP Non-Stop Routing
-                ''',
-                'nsr',
+                'entropy_label',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.GracefulRestart', 
                 [], [], 
@@ -3203,11 +3192,11 @@ _meta_table = {
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery', 
+            _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Igp', 
                 [], [], 
-                '''                Configure Discovery parameters
+                '''                LDP IGP configuration
                 ''',
-                'discovery',
+                'igp',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('mldp', REFERENCE_CLASS, 'Mldp' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp', 
                 [], [], 
@@ -3215,12 +3204,23 @@ _meta_table = {
                 ''',
                 'mldp',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('disable-implicit-ipv4', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('nsr', REFERENCE_CLASS, 'Nsr' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Nsr', 
                 [], [], 
-                '''                Disable the implicit enabling for IPv4 address
-                family
+                '''                Configure LDP Non-Stop Routing
                 ''',
-                'disable_implicit_ipv4',
+                'nsr',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Session', 
+                [], [], 
+                '''                LDP Session parameters
+                ''',
+                'session',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('signalling', REFERENCE_CLASS, 'Signalling' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Signalling', 
+                [], [], 
+                '''                Configure LDP signalling parameters
+                ''',
+                'signalling',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -3239,18 +3239,6 @@ _meta_table = {
                 ''',
                 'default_vrf',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs', 
-                [], [], 
-                '''                VRF Table attribute configuration for MPLS LDP
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global', 
-                [], [], 
-                '''                Global configuration for MPLS LDP
-                ''',
-                'global_',
-                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable Label Distribution Protocol (LDP)
@@ -3259,6 +3247,18 @@ _meta_table = {
                 object will stop the LDP feature.
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global', 
+                [], [], 
+                '''                Global configuration for MPLS LDP
+                ''',
+                'global_',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs', 
+                [], [], 
+                '''                VRF Table attribute configuration for MPLS LDP
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',

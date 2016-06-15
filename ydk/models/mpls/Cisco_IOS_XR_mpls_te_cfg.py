@@ -25,7 +25,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -1460,40 +1460,40 @@ class MplsTe(object):
     	Configure Diff\-Serv Traffic\-Engineering
     	**type**\: :py:class:`DiffServTrafficEngineering <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering>`
     
-    .. attribute:: gmpls_uni
+    .. attribute:: enable_traffic_engineering
     
-    	GMPLS\-UNI configuration
-    	**type**\: :py:class:`GmplsUni <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni>`
+    	Enable MPLS Traffic Engineering
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: global_attributes
     
     	Configure MPLS TE global attributes
     	**type**\: :py:class:`GlobalAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes>`
     
-    .. attribute:: transport_profile
+    .. attribute:: gmpls_nni
     
-    	MPLS transport profile configuration data
-    	**type**\: :py:class:`TransportProfile <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile>`
+    	GMPLS\-NNI configuration
+    	**type**\: :py:class:`GmplsNni <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni>`
+    
+    .. attribute:: gmpls_uni
+    
+    	GMPLS\-UNI configuration
+    	**type**\: :py:class:`GmplsUni <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni>`
     
     .. attribute:: interfaces
     
     	Configure MPLS TE interfaces
     	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces>`
     
-    .. attribute:: gmpls_nni
-    
-    	GMPLS\-NNI configuration
-    	**type**\: :py:class:`GmplsNni <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni>`
-    
     .. attribute:: lcac
     
     	LCAC specific MPLS global configuration
     	**type**\: :py:class:`Lcac <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac>`
     
-    .. attribute:: enable_traffic_engineering
+    .. attribute:: transport_profile
     
-    	Enable MPLS Traffic Engineering
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	MPLS transport profile configuration data
+    	**type**\: :py:class:`TransportProfile <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile>`
     
     
 
@@ -1505,34 +1505,34 @@ class MplsTe(object):
     def __init__(self):
         self.diff_serv_traffic_engineering = MplsTe.DiffServTrafficEngineering()
         self.diff_serv_traffic_engineering.parent = self
-        self.gmpls_uni = MplsTe.GmplsUni()
-        self.gmpls_uni.parent = self
+        self.enable_traffic_engineering = None
         self.global_attributes = MplsTe.GlobalAttributes()
         self.global_attributes.parent = self
-        self.transport_profile = MplsTe.TransportProfile()
-        self.transport_profile.parent = self
-        self.interfaces = MplsTe.Interfaces()
-        self.interfaces.parent = self
         self.gmpls_nni = MplsTe.GmplsNni()
         self.gmpls_nni.parent = self
+        self.gmpls_uni = MplsTe.GmplsUni()
+        self.gmpls_uni.parent = self
+        self.interfaces = MplsTe.Interfaces()
+        self.interfaces.parent = self
         self.lcac = MplsTe.Lcac()
         self.lcac.parent = self
-        self.enable_traffic_engineering = None
+        self.transport_profile = MplsTe.TransportProfile()
+        self.transport_profile.parent = self
 
 
     class DiffServTrafficEngineering(object):
         """
         Configure Diff\-Serv Traffic\-Engineering
         
-        .. attribute:: classes
-        
-        	Configure Diff\-Serv Traffic\-Engineering Classes
-        	**type**\: :py:class:`Classes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes>`
-        
         .. attribute:: bandwidth_constraint_model
         
         	Diff\-Serv Traffic\-Engineering Bandwidth Constraint Model
         	**type**\: :py:class:`BandwidthConstraintEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BandwidthConstraintEnum>`
+        
+        .. attribute:: classes
+        
+        	Configure Diff\-Serv Traffic\-Engineering Classes
+        	**type**\: :py:class:`Classes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes>`
         
         .. attribute:: mode_ietf
         
@@ -1548,9 +1548,9 @@ class MplsTe(object):
 
         def __init__(self):
             self.parent = None
+            self.bandwidth_constraint_model = None
             self.classes = MplsTe.DiffServTrafficEngineering.Classes()
             self.classes.parent = self
-            self.bandwidth_constraint_model = None
             self.mode_ietf = None
 
 
@@ -1588,19 +1588,19 @@ class MplsTe(object):
                 
                 	**range:** 0..7
                 
-                .. attribute:: class_type
-                
-                	Class type number
-                	**type**\: int
-                
-                	**range:** 0..1
-                
                 .. attribute:: class_priority
                 
                 	Class\-type priority
                 	**type**\: int
                 
                 	**range:** 0..7
+                
+                .. attribute:: class_type
+                
+                	Class type number
+                	**type**\: int
+                
+                	**range:** 0..1
                 
                 .. attribute:: unused
                 
@@ -1617,14 +1617,14 @@ class MplsTe(object):
                 def __init__(self):
                     self.parent = None
                     self.class_number = None
-                    self.class_type = None
                     self.class_priority = None
+                    self.class_type = None
                     self.unused = None
 
                 @property
                 def _common_path(self):
                     if self.class_number is None:
-                        raise YPYDataValidationError('Key property class_number is None')
+                        raise YPYModelError('Key property class_number is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:diff-serv-traffic-engineering/Cisco-IOS-XR-mpls-te-cfg:classes/Cisco-IOS-XR-mpls-te-cfg:class[Cisco-IOS-XR-mpls-te-cfg:class-number = ' + str(self.class_number) + ']'
 
@@ -1638,10 +1638,10 @@ class MplsTe(object):
                     if self.class_number is not None:
                         return True
 
-                    if self.class_type is not None:
+                    if self.class_priority is not None:
                         return True
 
-                    if self.class_priority is not None:
+                    if self.class_type is not None:
                         return True
 
                     if self.unused is not None:
@@ -1690,10 +1690,10 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.classes is not None and self.classes._has_data():
+            if self.bandwidth_constraint_model is not None:
                 return True
 
-            if self.bandwidth_constraint_model is not None:
+            if self.classes is not None and self.classes._has_data():
                 return True
 
             if self.mode_ietf is not None:
@@ -1711,15 +1711,15 @@ class MplsTe(object):
         """
         GMPLS\-UNI configuration
         
-        .. attribute:: timers
-        
-        	GMPLS\-UNI timer configuration
-        	**type**\: :py:class:`Timers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers>`
-        
         .. attribute:: controllers
         
         	GMPLS\-UNI controllers
         	**type**\: :py:class:`Controllers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers>`
+        
+        .. attribute:: timers
+        
+        	GMPLS\-UNI timer configuration
+        	**type**\: :py:class:`Timers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers>`
         
         
 
@@ -1730,10 +1730,10 @@ class MplsTe(object):
 
         def __init__(self):
             self.parent = None
-            self.timers = MplsTe.GmplsUni.Timers()
-            self.timers.parent = self
             self.controllers = MplsTe.GmplsUni.Controllers()
             self.controllers.parent = self
+            self.timers = MplsTe.GmplsUni.Timers()
+            self.timers.parent = self
 
 
         class Timers(object):
@@ -1785,16 +1785,16 @@ class MplsTe(object):
                     GMPLS\-UNI path\-option holddown timer
                     configuration
                     
-                    .. attribute:: minimum
+                    .. attribute:: maximum
                     
-                    	Minimum holddown (seconds)
+                    	Maximum holddown (seconds)
                     	**type**\: int
                     
                     	**range:** 5..3600
                     
-                    .. attribute:: maximum
+                    .. attribute:: minimum
                     
-                    	Maximum holddown (seconds)
+                    	Minimum holddown (seconds)
                     	**type**\: int
                     
                     	**range:** 5..3600
@@ -1808,8 +1808,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.minimum = None
                         self.maximum = None
+                        self.minimum = None
 
                     @property
                     def _common_path(self):
@@ -1823,10 +1823,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.minimum is not None:
+                        if self.maximum is not None:
                             return True
 
-                        if self.maximum is not None:
+                        if self.minimum is not None:
                             return True
 
                         return False
@@ -1925,15 +1925,15 @@ class MplsTe(object):
                 	Controller logging
                 	**type**\: :py:class:`ControllerLogging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.ControllerLogging>`
                 
-                .. attribute:: gmpls_unitunnel_head
-                
-                	GMPLS\-UNI tunnel\-head properties
-                	**type**\: :py:class:`GmplsUnitunnelHead <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead>`
-                
                 .. attribute:: enable
                 
                 	Enable GMPLS\-UNI on the link
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: gmpls_unitunnel_head
+                
+                	GMPLS\-UNI tunnel\-head properties
+                	**type**\: :py:class:`GmplsUnitunnelHead <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead>`
                 
                 
 
@@ -1949,9 +1949,9 @@ class MplsTe(object):
                     self.announce.parent = self
                     self.controller_logging = MplsTe.GmplsUni.Controllers.Controller.ControllerLogging()
                     self.controller_logging.parent = self
+                    self.enable = None
                     self.gmpls_unitunnel_head = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead()
                     self.gmpls_unitunnel_head.parent = self
-                    self.enable = None
 
 
                 class Announce(object):
@@ -1978,7 +1978,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:announce'
 
@@ -2023,7 +2023,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:controller-logging'
 
@@ -2049,39 +2049,27 @@ class MplsTe(object):
                     """
                     GMPLS\-UNI tunnel\-head properties
                     
-                    .. attribute:: path_options
-                    
-                    	Path\-option configuration
-                    	**type**\: :py:class:`PathOptions <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions>`
-                    
-                    .. attribute:: recording
-                    
-                    	Tunnel property recording
-                    	**type**\: :py:class:`Recording <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording>`
-                    
-                    .. attribute:: logging
-                    
-                    	Tunnel event logging
-                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging>`
-                    
-                    .. attribute:: tunnel_id
-                    
-                    	GMPLS\-UNI head tunnel\-id
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: enable
-                    
-                    	Set link as a GMPLS tunnel head
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: destination
                     
                     	Set the destination of the tunnel
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: enable
+                    
+                    	Set link as a GMPLS tunnel head
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: logging
+                    
+                    	Tunnel event logging
+                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging>`
+                    
+                    .. attribute:: path_options
+                    
+                    	Path\-option configuration
+                    	**type**\: :py:class:`PathOptions <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions>`
                     
                     .. attribute:: priority
                     
@@ -2093,12 +2081,24 @@ class MplsTe(object):
                     	Record the route used by the tunnel
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: recording
+                    
+                    	Tunnel property recording
+                    	**type**\: :py:class:`Recording <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording>`
+                    
                     .. attribute:: signalled_name
                     
                     	The name of the tunnel to be included in signalling messages
                     	**type**\: str
                     
                     	**range:** 0..254
+                    
+                    .. attribute:: tunnel_id
+                    
+                    	GMPLS\-UNI head tunnel\-id
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
                     
                     
 
@@ -2109,18 +2109,18 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.path_options = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions()
-                        self.path_options.parent = self
-                        self.recording = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording()
-                        self.recording.parent = self
+                        self.destination = None
+                        self.enable = None
                         self.logging = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging()
                         self.logging.parent = self
-                        self.tunnel_id = None
-                        self.enable = None
-                        self.destination = None
+                        self.path_options = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions()
+                        self.path_options.parent = self
                         self.priority = None
                         self.record_route = None
+                        self.recording = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording()
+                        self.recording.parent = self
                         self.signalled_name = None
+                        self.tunnel_id = None
 
 
                     class PathOptions(object):
@@ -2157,10 +2157,17 @@ class MplsTe(object):
                             
                             	**range:** 1..1000
                             
-                            .. attribute:: path_type
+                            .. attribute:: dwdm_channel
                             
-                            	The type of the path option
-                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                            	DWDM channel number
+                            	**type**\: int
+                            
+                            	**range:** 1..89
+                            
+                            .. attribute:: lockdown
+                            
+                            	Path option properties\: must be Lockdown
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: path_id
                             
@@ -2174,10 +2181,20 @@ class MplsTe(object):
                             	The name of the explicit path associated with this option
                             	**type**\: str
                             
-                            .. attribute:: xro_type
+                            .. attribute:: path_type
                             
-                            	The route\-exclusion type
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            	The type of the path option
+                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                            
+                            .. attribute:: signaled_label
+                            
+                            	Signaled label type
+                            	**type**\: :py:class:`MplsTeSignaledLabelEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSignaledLabelEnum>`
+                            
+                            .. attribute:: verbatim
+                            
+                            	Path option properties\: must be verbatim if set
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: xro_attribute_set_name
                             
@@ -2186,27 +2203,10 @@ class MplsTe(object):
                             
                             	**range:** 0..64
                             
-                            .. attribute:: lockdown
+                            .. attribute:: xro_type
                             
-                            	Path option properties\: must be Lockdown
-                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
-                            
-                            .. attribute:: verbatim
-                            
-                            	Path option properties\: must be verbatim if set
-                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
-                            
-                            .. attribute:: signaled_label
-                            
-                            	Signaled label type
-                            	**type**\: :py:class:`MplsTeSignaledLabelEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSignaledLabelEnum>`
-                            
-                            .. attribute:: dwdm_channel
-                            
-                            	DWDM channel number
-                            	**type**\: int
-                            
-                            	**range:** 1..89
+                            	The route\-exclusion type
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
 
@@ -2218,22 +2218,22 @@ class MplsTe(object):
                             def __init__(self):
                                 self.parent = None
                                 self.preference_level = None
-                                self.path_type = None
+                                self.dwdm_channel = None
+                                self.lockdown = None
                                 self.path_id = None
                                 self.path_name = None
-                                self.xro_type = None
-                                self.xro_attribute_set_name = None
-                                self.lockdown = None
-                                self.verbatim = None
+                                self.path_type = None
                                 self.signaled_label = None
-                                self.dwdm_channel = None
+                                self.verbatim = None
+                                self.xro_attribute_set_name = None
+                                self.xro_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.preference_level is None:
-                                    raise YPYDataValidationError('Key property preference_level is None')
+                                    raise YPYModelError('Key property preference_level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-option[Cisco-IOS-XR-mpls-te-cfg:preference-level = ' + str(self.preference_level) + ']'
 
@@ -2247,7 +2247,10 @@ class MplsTe(object):
                                 if self.preference_level is not None:
                                     return True
 
-                                if self.path_type is not None:
+                                if self.dwdm_channel is not None:
+                                    return True
+
+                                if self.lockdown is not None:
                                     return True
 
                                 if self.path_id is not None:
@@ -2256,22 +2259,19 @@ class MplsTe(object):
                                 if self.path_name is not None:
                                     return True
 
-                                if self.xro_type is not None:
-                                    return True
-
-                                if self.xro_attribute_set_name is not None:
-                                    return True
-
-                                if self.lockdown is not None:
-                                    return True
-
-                                if self.verbatim is not None:
+                                if self.path_type is not None:
                                     return True
 
                                 if self.signaled_label is not None:
                                     return True
 
-                                if self.dwdm_channel is not None:
+                                if self.verbatim is not None:
+                                    return True
+
+                                if self.xro_attribute_set_name is not None:
+                                    return True
+
+                                if self.xro_type is not None:
                                     return True
 
                                 return False
@@ -2284,7 +2284,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-options'
 
@@ -2331,7 +2331,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:recording'
 
@@ -2376,7 +2376,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
 
@@ -2402,9 +2402,9 @@ class MplsTe(object):
                         """
                         Tunnel Setup and Hold Priorities
                         
-                        .. attribute:: setup_priority
+                        .. attribute:: hold_priority
                         
-                        	Setup Priority
+                        	Hold Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -2414,9 +2414,9 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: hold_priority
+                        .. attribute:: setup_priority
                         
-                        	Hold Priority
+                        	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -2437,13 +2437,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.setup_priority = None
                             self.hold_priority = None
+                            self.setup_priority = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
 
@@ -2454,10 +2454,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.setup_priority is not None:
+                            if self.hold_priority is not None:
                                 return True
 
-                            if self.hold_priority is not None:
+                            if self.setup_priority is not None:
                                 return True
 
                             return False
@@ -2470,7 +2470,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:gmpls-unitunnel-head'
 
@@ -2481,22 +2481,16 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.path_options is not None and self.path_options._has_data():
-                            return True
-
-                        if self.recording is not None and self.recording._has_data():
-                            return True
-
-                        if self.logging is not None and self.logging._has_data():
-                            return True
-
-                        if self.tunnel_id is not None:
+                        if self.destination is not None:
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        if self.destination is not None:
+                        if self.logging is not None and self.logging._has_data():
+                            return True
+
+                        if self.path_options is not None and self.path_options._has_data():
                             return True
 
                         if self.priority is not None and self.priority._has_data():
@@ -2505,7 +2499,13 @@ class MplsTe(object):
                         if self.record_route is not None:
                             return True
 
+                        if self.recording is not None and self.recording._has_data():
+                            return True
+
                         if self.signalled_name is not None:
+                            return True
+
+                        if self.tunnel_id is not None:
                             return True
 
                         return False
@@ -2518,7 +2518,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.controller_name is None:
-                        raise YPYDataValidationError('Key property controller_name is None')
+                        raise YPYModelError('Key property controller_name is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:gmpls-uni/Cisco-IOS-XR-mpls-te-cfg:controllers/Cisco-IOS-XR-mpls-te-cfg:controller[Cisco-IOS-XR-mpls-te-cfg:controller-name = ' + str(self.controller_name) + ']'
 
@@ -2538,10 +2538,10 @@ class MplsTe(object):
                     if self.controller_logging is not None and self.controller_logging._has_data():
                         return True
 
-                    if self.gmpls_unitunnel_head is not None and self.gmpls_unitunnel_head._has_data():
+                    if self.enable is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.gmpls_unitunnel_head is not None and self.gmpls_unitunnel_head._has_data():
                         return True
 
                     return False
@@ -2587,10 +2587,10 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.timers is not None and self.timers._has_data():
+            if self.controllers is not None and self.controllers._has_data():
                 return True
 
-            if self.controllers is not None and self.controllers._has_data():
+            if self.timers is not None and self.timers._has_data():
                 return True
 
             return False
@@ -2605,153 +2605,20 @@ class MplsTe(object):
         """
         Configure MPLS TE global attributes
         
-        .. attribute:: path_selection_loose_affinities
+        .. attribute:: advertise_explicit_nulls
         
-        	Path selection Loose ERO Affinity Class configuration
-        	**type**\: :py:class:`PathSelectionLooseAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseAffinities>`
-        
-        .. attribute:: auto_tunnel
-        
-        	Configure auto\-tunnels feature
-        	**type**\: :py:class:`AutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel>`
-        
-        .. attribute:: secondary_router_ids
-        
-        	Configure MPLS TE Secondary Router ID
-        	**type**\: :py:class:`SecondaryRouterIds <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SecondaryRouterIds>`
-        
-        .. attribute:: srlg
-        
-        	Configure SRLG values and MPLS\-TE properties
-        	**type**\: :py:class:`Srlg <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg>`
-        
-        .. attribute:: queues
-        
-        	Configure MPLS TE route priority
-        	**type**\: :py:class:`Queues <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Queues>`
-        
-        .. attribute:: path_selection_loose_metrics
-        
-        	Path selection Loose ERO Metric Class configuration
-        	**type**\: :py:class:`PathSelectionLooseMetrics <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseMetrics>`
-        
-        .. attribute:: mib
-        
-        	MPLS\-TE MIB properties
-        	**type**\: :py:class:`Mib <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Mib>`
-        
-        .. attribute:: attribute_set
-        
-        	Attribute AttributeSets
-        	**type**\: :py:class:`AttributeSet <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet>`
-        
-        .. attribute:: bfd_over_lsp
-        
-        	BFD over MPLS TE Global Configurations
-        	**type**\: :py:class:`BfdOverLsp <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp>`
-        
-        .. attribute:: pce_attributes
-        
-        	Configuration MPLS TE PCE attributes
-        	**type**\: :py:class:`PceAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes>`
-        
-        .. attribute:: soft_preemption
-        
-        	Soft preemption configuration data
-        	**type**\: :py:class:`SoftPreemption <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SoftPreemption>`
-        
-        .. attribute:: path_invalidation
-        
-        	Path invalidation configuration for all tunnels
-        	**type**\: :py:class:`PathInvalidation <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathInvalidation>`
-        
-        .. attribute:: fast_reroute
-        
-        	Configure fast reroute attributes
-        	**type**\: :py:class:`FastReroute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.FastReroute>`
-        
-        .. attribute:: path_selection_ignore_overload_role
-        
-        	Path selection to ignore overload node during CSPF
-        	**type**\: :py:class:`PathSelectionIgnoreOverloadRole <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole>`
+        	Enable explicit\-null advertising to PHOP
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: affinity_mappings
         
         	Affinity Mapping Table configuration
         	**type**\: :py:class:`AffinityMappings <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AffinityMappings>`
         
-        .. attribute:: log_nsr_status
+        .. attribute:: attribute_set
         
-        	Log NSR status messages
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: path_selection_tiebreaker
-        
-        	CSPF tiebreaker to use in path calculation
-        	**type**\: :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
-        
-        .. attribute:: log_issu_status
-        
-        	Log ISSU status messages
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: reoptimize_link_up
-        
-        	Enable reoptimization based on link\-up events
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: reoptimize_delay_cleanup_timer
-        
-        	Reoptimization Delay Cleanup Value (seconds)
-        	**type**\: int
-        
-        	**range:** 0..300
-        
-        .. attribute:: disable_reoptimize_affinity_failure
-        
-        	Disable reoptimization after affinity failures
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: maximum_tunnels
-        
-        	The maximum number of tunnel heads that will be allowed
-        	**type**\: int
-        
-        	**range:** 1..65536
-        
-        .. attribute:: link_holddown_timer
-        
-        	Holddown time for links which had Path Errors in seconds
-        	**type**\: int
-        
-        	**range:** 0..300
-        
-        .. attribute:: path_selection_metric
-        
-        	Metric to use in path calculation
-        	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
-        
-        .. attribute:: fault_oam
-        
-        	Enable Fault\-OAM functionality for bidirectional tunnels
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: enable_unequal_load_balancing
-        
-        	Enable unequal load\-balancing over tunnels to the same destination
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: log_tail
-        
-        	Log all tail tunnel events
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: reoptimize_delay_after_frr_timer
-        
-        	Reoptimization Delay After FRR Value (seconds)
-        	**type**\: int
-        
-        	**range:** 0..120
+        	Attribute AttributeSets
+        	**type**\: :py:class:`AttributeSet <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet>`
         
         .. attribute:: auto_bandwidth_collect_frequency
         
@@ -2760,16 +2627,86 @@ class MplsTe(object):
         
         	**range:** 1..10080
         
-        .. attribute:: reopt_delay_path_protect_switchover_timer
+        .. attribute:: auto_tunnel
         
-        	Seconds between path protect switchover and tunnel re\-optimization. Set to 0 to disable
+        	Configure auto\-tunnels feature
+        	**type**\: :py:class:`AutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel>`
+        
+        .. attribute:: bfd_over_lsp
+        
+        	BFD over MPLS TE Global Configurations
+        	**type**\: :py:class:`BfdOverLsp <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp>`
+        
+        .. attribute:: disable_reoptimize_affinity_failure
+        
+        	Disable reoptimization after affinity failures
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: enable_unequal_load_balancing
+        
+        	Enable unequal load\-balancing over tunnels to the same destination
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: fast_reroute
+        
+        	Configure fast reroute attributes
+        	**type**\: :py:class:`FastReroute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.FastReroute>`
+        
+        .. attribute:: fault_oam
+        
+        	Enable Fault\-OAM functionality for bidirectional tunnels
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: graceful_preemption_on_bandwidth_reduction
+        
+        	Enable graceful preemption when there is a bandwidth reduction
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: link_holddown_timer
+        
+        	Holddown time for links which had Path Errors in seconds
         	**type**\: int
         
-        	**range:** 0..604800
+        	**range:** 0..300
         
         .. attribute:: log_all
         
         	Always set to true
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_frr_protection
+        
+        	Log FRR Protection messages
+        	**type**\: :py:class:`MplsTeLogFrrProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeLogFrrProtectionEnum>`
+        
+        .. attribute:: log_head
+        
+        	Log all head tunnel events
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_issu_status
+        
+        	Log ISSU status messages
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_mid
+        
+        	Log all mid tunnel events
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_nsr_status
+        
+        	Log NSR status messages
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_preemption
+        
+        	Log tunnel preemption messages
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_tail
+        
+        	Log all tail tunnel events
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: loose_path_retry_period
@@ -2779,37 +2716,76 @@ class MplsTe(object):
         
         	**range:** 30..600
         
-        .. attribute:: reoptimize_load_balancing
+        .. attribute:: maximum_tunnels
         
-        	Load balance bandwidth during reoptimization
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	The maximum number of tunnel heads that will be allowed
+        	**type**\: int
         
-        .. attribute:: log_head
+        	**range:** 1..65536
         
-        	Log all head tunnel events
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        .. attribute:: mib
+        
+        	MPLS\-TE MIB properties
+        	**type**\: :py:class:`Mib <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Mib>`
+        
+        .. attribute:: path_invalidation
+        
+        	Path invalidation configuration for all tunnels
+        	**type**\: :py:class:`PathInvalidation <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathInvalidation>`
+        
+        .. attribute:: path_selection_cost_limit
+        
+        	Path selection cost limit configuration for all tunnels
+        	**type**\: int
+        
+        	**range:** 1..4294967295
         
         .. attribute:: path_selection_ignore_overload
         
         	Deprecated \- do not use
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
-        .. attribute:: graceful_preemption_on_bandwidth_reduction
+        .. attribute:: path_selection_ignore_overload_role
         
-        	Enable graceful preemption when there is a bandwidth reduction
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Path selection to ignore overload node during CSPF
+        	**type**\: :py:class:`PathSelectionIgnoreOverloadRole <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole>`
         
-        .. attribute:: advertise_explicit_nulls
+        .. attribute:: path_selection_loose_affinities
         
-        	Enable explicit\-null advertising to PHOP
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Path selection Loose ERO Affinity Class configuration
+        	**type**\: :py:class:`PathSelectionLooseAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseAffinities>`
         
-        .. attribute:: reoptimize_delay_install_timer
+        .. attribute:: path_selection_loose_metrics
         
-        	Reoptimization Delay Install Value (seconds)
+        	Path selection Loose ERO Metric Class configuration
+        	**type**\: :py:class:`PathSelectionLooseMetrics <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseMetrics>`
+        
+        .. attribute:: path_selection_metric
+        
+        	Metric to use in path calculation
+        	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+        
+        .. attribute:: path_selection_tiebreaker
+        
+        	CSPF tiebreaker to use in path calculation
+        	**type**\: :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
+        
+        .. attribute:: pce_attributes
+        
+        	Configuration MPLS TE PCE attributes
+        	**type**\: :py:class:`PceAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes>`
+        
+        .. attribute:: queues
+        
+        	Configure MPLS TE route priority
+        	**type**\: :py:class:`Queues <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Queues>`
+        
+        .. attribute:: reopt_delay_path_protect_switchover_timer
+        
+        	Seconds between path protect switchover and tunnel re\-optimization. Set to 0 to disable
         	**type**\: int
         
-        	**range:** 0..3600
+        	**range:** 0..604800
         
         .. attribute:: reoptimize_delay_after_affinity_failure_timer
         
@@ -2818,10 +2794,36 @@ class MplsTe(object):
         
         	**range:** 1..604800
         
-        .. attribute:: log_frr_protection
+        .. attribute:: reoptimize_delay_after_frr_timer
         
-        	Log FRR Protection messages
-        	**type**\: :py:class:`MplsTeLogFrrProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeLogFrrProtectionEnum>`
+        	Reoptimization Delay After FRR Value (seconds)
+        	**type**\: int
+        
+        	**range:** 0..120
+        
+        .. attribute:: reoptimize_delay_cleanup_timer
+        
+        	Reoptimization Delay Cleanup Value (seconds)
+        	**type**\: int
+        
+        	**range:** 0..300
+        
+        .. attribute:: reoptimize_delay_install_timer
+        
+        	Reoptimization Delay Install Value (seconds)
+        	**type**\: int
+        
+        	**range:** 0..3600
+        
+        .. attribute:: reoptimize_link_up
+        
+        	Enable reoptimization based on link\-up events
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: reoptimize_load_balancing
+        
+        	Load balance bandwidth during reoptimization
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: reoptimize_timer_frequency
         
@@ -2830,22 +2832,20 @@ class MplsTe(object):
         
         	**range:** 0..604800
         
-        .. attribute:: log_mid
+        .. attribute:: secondary_router_ids
         
-        	Log all mid tunnel events
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Configure MPLS TE Secondary Router ID
+        	**type**\: :py:class:`SecondaryRouterIds <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SecondaryRouterIds>`
         
-        .. attribute:: log_preemption
+        .. attribute:: soft_preemption
         
-        	Log tunnel preemption messages
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Soft preemption configuration data
+        	**type**\: :py:class:`SoftPreemption <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SoftPreemption>`
         
-        .. attribute:: path_selection_cost_limit
+        .. attribute:: srlg
         
-        	Path selection cost limit configuration for all tunnels
-        	**type**\: int
-        
-        	**range:** 1..4294967295
+        	Configure SRLG values and MPLS\-TE properties
+        	**type**\: :py:class:`Srlg <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg>`
         
         
 
@@ -2856,65 +2856,65 @@ class MplsTe(object):
 
         def __init__(self):
             self.parent = None
-            self.path_selection_loose_affinities = MplsTe.GlobalAttributes.PathSelectionLooseAffinities()
-            self.path_selection_loose_affinities.parent = self
-            self.auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel()
-            self.auto_tunnel.parent = self
-            self.secondary_router_ids = MplsTe.GlobalAttributes.SecondaryRouterIds()
-            self.secondary_router_ids.parent = self
-            self.srlg = MplsTe.GlobalAttributes.Srlg()
-            self.srlg.parent = self
-            self.queues = MplsTe.GlobalAttributes.Queues()
-            self.queues.parent = self
-            self.path_selection_loose_metrics = MplsTe.GlobalAttributes.PathSelectionLooseMetrics()
-            self.path_selection_loose_metrics.parent = self
-            self.mib = MplsTe.GlobalAttributes.Mib()
-            self.mib.parent = self
-            self.attribute_set = MplsTe.GlobalAttributes.AttributeSet()
-            self.attribute_set.parent = self
-            self.bfd_over_lsp = MplsTe.GlobalAttributes.BfdOverLsp()
-            self.bfd_over_lsp.parent = self
-            self.pce_attributes = MplsTe.GlobalAttributes.PceAttributes()
-            self.pce_attributes.parent = self
-            self.soft_preemption = MplsTe.GlobalAttributes.SoftPreemption()
-            self.soft_preemption.parent = self
-            self.path_invalidation = MplsTe.GlobalAttributes.PathInvalidation()
-            self.path_invalidation.parent = self
-            self.fast_reroute = MplsTe.GlobalAttributes.FastReroute()
-            self.fast_reroute.parent = self
-            self.path_selection_ignore_overload_role = MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole()
-            self.path_selection_ignore_overload_role.parent = self
+            self.advertise_explicit_nulls = None
             self.affinity_mappings = MplsTe.GlobalAttributes.AffinityMappings()
             self.affinity_mappings.parent = self
-            self.log_nsr_status = None
-            self.path_selection_tiebreaker = None
-            self.log_issu_status = None
-            self.reoptimize_link_up = None
-            self.reoptimize_delay_cleanup_timer = None
-            self.disable_reoptimize_affinity_failure = None
-            self.maximum_tunnels = None
-            self.link_holddown_timer = None
-            self.path_selection_metric = None
-            self.fault_oam = None
-            self.enable_unequal_load_balancing = None
-            self.log_tail = None
-            self.reoptimize_delay_after_frr_timer = None
+            self.attribute_set = MplsTe.GlobalAttributes.AttributeSet()
+            self.attribute_set.parent = self
             self.auto_bandwidth_collect_frequency = None
-            self.reopt_delay_path_protect_switchover_timer = None
-            self.log_all = None
-            self.loose_path_retry_period = None
-            self.reoptimize_load_balancing = None
-            self.log_head = None
-            self.path_selection_ignore_overload = None
+            self.auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel()
+            self.auto_tunnel.parent = self
+            self.bfd_over_lsp = MplsTe.GlobalAttributes.BfdOverLsp()
+            self.bfd_over_lsp.parent = self
+            self.disable_reoptimize_affinity_failure = None
+            self.enable_unequal_load_balancing = None
+            self.fast_reroute = MplsTe.GlobalAttributes.FastReroute()
+            self.fast_reroute.parent = self
+            self.fault_oam = None
             self.graceful_preemption_on_bandwidth_reduction = None
-            self.advertise_explicit_nulls = None
-            self.reoptimize_delay_install_timer = None
-            self.reoptimize_delay_after_affinity_failure_timer = None
+            self.link_holddown_timer = None
+            self.log_all = None
             self.log_frr_protection = None
-            self.reoptimize_timer_frequency = None
+            self.log_head = None
+            self.log_issu_status = None
             self.log_mid = None
+            self.log_nsr_status = None
             self.log_preemption = None
+            self.log_tail = None
+            self.loose_path_retry_period = None
+            self.maximum_tunnels = None
+            self.mib = MplsTe.GlobalAttributes.Mib()
+            self.mib.parent = self
+            self.path_invalidation = MplsTe.GlobalAttributes.PathInvalidation()
+            self.path_invalidation.parent = self
             self.path_selection_cost_limit = None
+            self.path_selection_ignore_overload = None
+            self.path_selection_ignore_overload_role = MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole()
+            self.path_selection_ignore_overload_role.parent = self
+            self.path_selection_loose_affinities = MplsTe.GlobalAttributes.PathSelectionLooseAffinities()
+            self.path_selection_loose_affinities.parent = self
+            self.path_selection_loose_metrics = MplsTe.GlobalAttributes.PathSelectionLooseMetrics()
+            self.path_selection_loose_metrics.parent = self
+            self.path_selection_metric = None
+            self.path_selection_tiebreaker = None
+            self.pce_attributes = MplsTe.GlobalAttributes.PceAttributes()
+            self.pce_attributes.parent = self
+            self.queues = MplsTe.GlobalAttributes.Queues()
+            self.queues.parent = self
+            self.reopt_delay_path_protect_switchover_timer = None
+            self.reoptimize_delay_after_affinity_failure_timer = None
+            self.reoptimize_delay_after_frr_timer = None
+            self.reoptimize_delay_cleanup_timer = None
+            self.reoptimize_delay_install_timer = None
+            self.reoptimize_link_up = None
+            self.reoptimize_load_balancing = None
+            self.reoptimize_timer_frequency = None
+            self.secondary_router_ids = MplsTe.GlobalAttributes.SecondaryRouterIds()
+            self.secondary_router_ids.parent = self
+            self.soft_preemption = MplsTe.GlobalAttributes.SoftPreemption()
+            self.soft_preemption.parent = self
+            self.srlg = MplsTe.GlobalAttributes.Srlg()
+            self.srlg.parent = self
 
 
         class PathSelectionLooseAffinities(object):
@@ -2983,7 +2983,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.class_type is None:
-                        raise YPYDataValidationError('Key property class_type is None')
+                        raise YPYModelError('Key property class_type is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-affinities/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-affinity[Cisco-IOS-XR-mpls-te-cfg:class-type = ' + str(self.class_type) + ']'
 
@@ -3039,16 +3039,6 @@ class MplsTe(object):
             """
             Configure auto\-tunnels feature
             
-            .. attribute:: pcc
-            
-            	Configure auto\-tunnel PCC (Path Computation Client) feature
-            	**type**\: :py:class:`Pcc <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc>`
-            
-            .. attribute:: p2p_auto_tunnel
-            
-            	Configure P2P auto\-tunnel feature
-            	**type**\: :py:class:`P2PAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel>`
-            
             .. attribute:: backup
             
             	Configure auto\-tunnel backup feature
@@ -3064,6 +3054,16 @@ class MplsTe(object):
             	Configure P2MP auto\-tunnel feature
             	**type**\: :py:class:`P2MpAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel>`
             
+            .. attribute:: p2p_auto_tunnel
+            
+            	Configure P2P auto\-tunnel feature
+            	**type**\: :py:class:`P2PAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel>`
+            
+            .. attribute:: pcc
+            
+            	Configure auto\-tunnel PCC (Path Computation Client) feature
+            	**type**\: :py:class:`Pcc <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc>`
+            
             
 
             """
@@ -3073,16 +3073,16 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.pcc = MplsTe.GlobalAttributes.AutoTunnel.Pcc()
-                self.pcc.parent = self
-                self.p2p_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel()
-                self.p2p_auto_tunnel.parent = self
                 self.backup = MplsTe.GlobalAttributes.AutoTunnel.Backup()
                 self.backup.parent = self
                 self.mesh = MplsTe.GlobalAttributes.AutoTunnel.Mesh()
                 self.mesh.parent = self
                 self.p2mp_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel()
                 self.p2mp_auto_tunnel.parent = self
+                self.p2p_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel()
+                self.p2p_auto_tunnel.parent = self
+                self.pcc = MplsTe.GlobalAttributes.AutoTunnel.Pcc()
+                self.pcc.parent = self
 
 
             class Pcc(object):
@@ -3113,16 +3113,16 @@ class MplsTe(object):
                     Configure tunnel ID range for auto\-tunnel
                     features
                     
-                    .. attribute:: min_tunnel_id
+                    .. attribute:: max_tunnel_id
                     
-                    	Minimum tunnel ID for auto\-tunnels
+                    	Maximum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: max_tunnel_id
+                    .. attribute:: min_tunnel_id
                     
-                    	Maximum tunnel ID for auto\-tunnels
+                    	Minimum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
@@ -3136,8 +3136,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.min_tunnel_id = None
                         self.max_tunnel_id = None
+                        self.min_tunnel_id = None
 
                     @property
                     def _common_path(self):
@@ -3151,10 +3151,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.min_tunnel_id is not None:
+                        if self.max_tunnel_id is not None:
                             return True
 
-                        if self.max_tunnel_id is not None:
+                        if self.min_tunnel_id is not None:
                             return True
 
                         return False
@@ -3214,16 +3214,16 @@ class MplsTe(object):
                     Configure tunnel ID range for auto\-tunnel
                     features
                     
-                    .. attribute:: min_tunnel_id
+                    .. attribute:: max_tunnel_id
                     
-                    	Minimum tunnel ID for auto\-tunnels
+                    	Maximum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: max_tunnel_id
+                    .. attribute:: min_tunnel_id
                     
-                    	Maximum tunnel ID for auto\-tunnels
+                    	Minimum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
@@ -3237,8 +3237,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.min_tunnel_id = None
                         self.max_tunnel_id = None
+                        self.min_tunnel_id = None
 
                     @property
                     def _common_path(self):
@@ -3252,10 +3252,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.min_tunnel_id is not None:
+                        if self.max_tunnel_id is not None:
                             return True
 
-                        if self.max_tunnel_id is not None:
+                        if self.min_tunnel_id is not None:
                             return True
 
                         return False
@@ -3418,16 +3418,16 @@ class MplsTe(object):
                     Configure tunnel ID range for auto\-tunnel
                     features
                     
-                    .. attribute:: min_tunnel_id
+                    .. attribute:: max_tunnel_id
                     
-                    	Minimum tunnel ID for auto\-tunnels
+                    	Maximum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: max_tunnel_id
+                    .. attribute:: min_tunnel_id
                     
-                    	Maximum tunnel ID for auto\-tunnels
+                    	Minimum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
@@ -3441,8 +3441,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.min_tunnel_id = None
                         self.max_tunnel_id = None
+                        self.min_tunnel_id = None
 
                     @property
                     def _common_path(self):
@@ -3456,10 +3456,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.min_tunnel_id is not None:
+                        if self.max_tunnel_id is not None:
                             return True
 
-                        if self.max_tunnel_id is not None:
+                        if self.min_tunnel_id is not None:
                             return True
 
                         return False
@@ -3568,18 +3568,6 @@ class MplsTe(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: destination_list
-                        
-                        	The name of prefix\-list to be applied to this destination\-list
-                        	**type**\: str
-                        
-                        	**range:** 0..32
-                        
-                        .. attribute:: disable
-                        
-                        	Disables mesh group
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: attribute_set
                         
                         	The name of auto\-mesh attribute set to be applied to this group
@@ -3590,6 +3578,18 @@ class MplsTe(object):
                         .. attribute:: create
                         
                         	Auto\-mesh group enable object that controls whether this group is configured or not .This object must be set before other configuration supplied for this group
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: destination_list
+                        
+                        	The name of prefix\-list to be applied to this destination\-list
+                        	**type**\: str
+                        
+                        	**range:** 0..32
+                        
+                        .. attribute:: disable
+                        
+                        	Disables mesh group
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: one_hop
@@ -3607,16 +3607,16 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.mesh_group_id = None
-                            self.destination_list = None
-                            self.disable = None
                             self.attribute_set = None
                             self.create = None
+                            self.destination_list = None
+                            self.disable = None
                             self.one_hop = None
 
                         @property
                         def _common_path(self):
                             if self.mesh_group_id is None:
-                                raise YPYDataValidationError('Key property mesh_group_id is None')
+                                raise YPYModelError('Key property mesh_group_id is None')
 
                             return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:auto-tunnel/Cisco-IOS-XR-mpls-te-cfg:mesh/Cisco-IOS-XR-mpls-te-cfg:mesh-groups/Cisco-IOS-XR-mpls-te-cfg:mesh-group[Cisco-IOS-XR-mpls-te-cfg:mesh-group-id = ' + str(self.mesh_group_id) + ']'
 
@@ -3630,16 +3630,16 @@ class MplsTe(object):
                             if self.mesh_group_id is not None:
                                 return True
 
-                            if self.destination_list is not None:
-                                return True
-
-                            if self.disable is not None:
-                                return True
-
                             if self.attribute_set is not None:
                                 return True
 
                             if self.create is not None:
+                                return True
+
+                            if self.destination_list is not None:
+                                return True
+
+                            if self.disable is not None:
                                 return True
 
                             if self.one_hop is not None:
@@ -3772,16 +3772,16 @@ class MplsTe(object):
                     Configure tunnel ID range for auto\-tunnel
                     features
                     
-                    .. attribute:: min_tunnel_id
+                    .. attribute:: max_tunnel_id
                     
-                    	Minimum tunnel ID for auto\-tunnels
+                    	Maximum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: max_tunnel_id
+                    .. attribute:: min_tunnel_id
                     
-                    	Maximum tunnel ID for auto\-tunnels
+                    	Minimum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
@@ -3795,8 +3795,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.min_tunnel_id = None
                         self.max_tunnel_id = None
+                        self.min_tunnel_id = None
 
                     @property
                     def _common_path(self):
@@ -3810,10 +3810,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.min_tunnel_id is not None:
+                        if self.max_tunnel_id is not None:
                             return True
 
-                        if self.max_tunnel_id is not None:
+                        if self.min_tunnel_id is not None:
                             return True
 
                         return False
@@ -3879,16 +3879,16 @@ class MplsTe(object):
                     Configure tunnel ID range for auto\-tunnel
                     features
                     
-                    .. attribute:: min_tunnel_id
+                    .. attribute:: max_tunnel_id
                     
-                    	Minimum tunnel ID for auto\-tunnels
+                    	Maximum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: max_tunnel_id
+                    .. attribute:: min_tunnel_id
                     
-                    	Maximum tunnel ID for auto\-tunnels
+                    	Minimum tunnel ID for auto\-tunnels
                     	**type**\: int
                     
                     	**range:** 0..65535
@@ -3902,8 +3902,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.min_tunnel_id = None
                         self.max_tunnel_id = None
+                        self.min_tunnel_id = None
 
                     @property
                     def _common_path(self):
@@ -3917,10 +3917,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.min_tunnel_id is not None:
+                        if self.max_tunnel_id is not None:
                             return True
 
-                        if self.max_tunnel_id is not None:
+                        if self.min_tunnel_id is not None:
                             return True
 
                         return False
@@ -3964,12 +3964,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.pcc is not None and self.pcc._has_data():
-                    return True
-
-                if self.p2p_auto_tunnel is not None and self.p2p_auto_tunnel._has_data():
-                    return True
-
                 if self.backup is not None and self.backup._has_data():
                     return True
 
@@ -3977,6 +3971,12 @@ class MplsTe(object):
                     return True
 
                 if self.p2mp_auto_tunnel is not None and self.p2mp_auto_tunnel._has_data():
+                    return True
+
+                if self.p2p_auto_tunnel is not None and self.p2p_auto_tunnel._has_data():
+                    return True
+
+                if self.pcc is not None and self.pcc._has_data():
                     return True
 
                 return False
@@ -4035,7 +4035,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.secondary_router_id_value is None:
-                        raise YPYDataValidationError('Key property secondary_router_id_value is None')
+                        raise YPYModelError('Key property secondary_router_id_value is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:secondary-router-ids/Cisco-IOS-XR-mpls-te-cfg:secondary-router-id[Cisco-IOS-XR-mpls-te-cfg:secondary-router-id-value = ' + str(self.secondary_router_id_value) + ']'
 
@@ -4085,16 +4085,6 @@ class MplsTe(object):
             """
             Configure SRLG values and MPLS\-TE properties
             
-            .. attribute:: names
-            
-            	Configure SRLG identified by names
-            	**type**\: :py:class:`Names <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names>`
-            
-            .. attribute:: values
-            
-            	Configure SRLG values and MPLS\-TE properties
-            	**type**\: :py:class:`Values <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Values>`
-            
             .. attribute:: default_admin_weight
             
             	Default Admin weight any SRLG value that does not have one
@@ -4107,6 +4097,16 @@ class MplsTe(object):
             	Enter SRLG property configuration
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: names
+            
+            	Configure SRLG identified by names
+            	**type**\: :py:class:`Names <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names>`
+            
+            .. attribute:: values
+            
+            	Configure SRLG values and MPLS\-TE properties
+            	**type**\: :py:class:`Values <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Values>`
+            
             
 
             """
@@ -4116,12 +4116,12 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
+                self.default_admin_weight = None
+                self.enable = None
                 self.names = MplsTe.GlobalAttributes.Srlg.Names()
                 self.names.parent = self
                 self.values = MplsTe.GlobalAttributes.Srlg.Values()
                 self.values.parent = self
-                self.default_admin_weight = None
-                self.enable = None
 
 
             class Names(object):
@@ -4180,7 +4180,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.srlg_name is None:
-                            raise YPYDataValidationError('Key property srlg_name is None')
+                            raise YPYModelError('Key property srlg_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:srlg/Cisco-IOS-XR-mpls-te-cfg:names/Cisco-IOS-XR-mpls-te-cfg:name[Cisco-IOS-XR-mpls-te-cfg:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -4263,17 +4263,17 @@ class MplsTe(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: ipv4_address_maps
-                    
-                    	Configure outgoing and remote link addresses for a given SRLG value
-                    	**type**\: :py:class:`Ipv4AddressMaps <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Values.Value.Ipv4AddressMaps>`
-                    
                     .. attribute:: admin_weight
                     
                     	Administrative weight for the SRLG value
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: ipv4_address_maps
+                    
+                    	Configure outgoing and remote link addresses for a given SRLG value
+                    	**type**\: :py:class:`Ipv4AddressMaps <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Values.Value.Ipv4AddressMaps>`
                     
                     
 
@@ -4285,9 +4285,9 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.srlg_number = None
+                        self.admin_weight = None
                         self.ipv4_address_maps = MplsTe.GlobalAttributes.Srlg.Values.Value.Ipv4AddressMaps()
                         self.ipv4_address_maps.parent = self
-                        self.admin_weight = None
 
 
                     class Ipv4AddressMaps(object):
@@ -4348,11 +4348,11 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.outgoing_ipv4_address is None:
-                                    raise YPYDataValidationError('Key property outgoing_ipv4_address is None')
+                                    raise YPYModelError('Key property outgoing_ipv4_address is None')
                                 if self.remote_ipv4_address is None:
-                                    raise YPYDataValidationError('Key property remote_ipv4_address is None')
+                                    raise YPYModelError('Key property remote_ipv4_address is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:ipv4-address-map[Cisco-IOS-XR-mpls-te-cfg:outgoing-ipv4-address = ' + str(self.outgoing_ipv4_address) + '][Cisco-IOS-XR-mpls-te-cfg:remote-ipv4-address = ' + str(self.remote_ipv4_address) + ']'
 
@@ -4379,7 +4379,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:ipv4-address-maps'
 
@@ -4405,7 +4405,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.srlg_number is None:
-                            raise YPYDataValidationError('Key property srlg_number is None')
+                            raise YPYModelError('Key property srlg_number is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:srlg/Cisco-IOS-XR-mpls-te-cfg:values/Cisco-IOS-XR-mpls-te-cfg:value[Cisco-IOS-XR-mpls-te-cfg:srlg-number = ' + str(self.srlg_number) + ']'
 
@@ -4419,10 +4419,10 @@ class MplsTe(object):
                         if self.srlg_number is not None:
                             return True
 
-                        if self.ipv4_address_maps is not None and self.ipv4_address_maps._has_data():
+                        if self.admin_weight is not None:
                             return True
 
-                        if self.admin_weight is not None:
+                        if self.ipv4_address_maps is not None and self.ipv4_address_maps._has_data():
                             return True
 
                         return False
@@ -4468,16 +4468,16 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.names is not None and self.names._has_data():
-                    return True
-
-                if self.values is not None and self.values._has_data():
-                    return True
-
                 if self.default_admin_weight is not None:
                     return True
 
                 if self.enable is not None:
+                    return True
+
+                if self.names is not None and self.names._has_data():
+                    return True
+
+                if self.values is not None and self.values._has_data():
                     return True
 
                 return False
@@ -4542,7 +4542,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.role is None:
-                        raise YPYDataValidationError('Key property role is None')
+                        raise YPYModelError('Key property role is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:queues/Cisco-IOS-XR-mpls-te-cfg:queue[Cisco-IOS-XR-mpls-te-cfg:role = ' + str(self.role) + ']'
 
@@ -4646,7 +4646,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.class_type is None:
-                        raise YPYDataValidationError('Key property class_type is None')
+                        raise YPYModelError('Key property class_type is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-metrics/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-metric[Cisco-IOS-XR-mpls-te-cfg:class-type = ' + str(self.class_type) + ']'
 
@@ -4742,10 +4742,20 @@ class MplsTe(object):
             """
             Attribute AttributeSets
             
-            .. attribute:: path_option_attributes
+            .. attribute:: auto_backup_attributes
             
-            	Path Option Attribute\-Set Table
-            	**type**\: :py:class:`PathOptionAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes>`
+            	Auto\-backup Tunnel Attribute Table
+            	**type**\: :py:class:`AutoBackupAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes>`
+            
+            .. attribute:: auto_mesh_attributes
+            
+            	Auto\-mesh Tunnel AttributeSets Table
+            	**type**\: :py:class:`AutoMeshAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes>`
+            
+            .. attribute:: otn_pp_attributes
+            
+            	OTN Path Protection Attributes table
+            	**type**\: :py:class:`OtnPpAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes>`
             
             .. attribute:: p2mpte_attributes
             
@@ -4757,20 +4767,10 @@ class MplsTe(object):
             	P2P\-TE Tunnel AttributeSets Table
             	**type**\: :py:class:`P2PTeAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes>`
             
-            .. attribute:: auto_backup_attributes
+            .. attribute:: path_option_attributes
             
-            	Auto\-backup Tunnel Attribute Table
-            	**type**\: :py:class:`AutoBackupAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes>`
-            
-            .. attribute:: otn_pp_attributes
-            
-            	OTN Path Protection Attributes table
-            	**type**\: :py:class:`OtnPpAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes>`
-            
-            .. attribute:: auto_mesh_attributes
-            
-            	Auto\-mesh Tunnel AttributeSets Table
-            	**type**\: :py:class:`AutoMeshAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes>`
+            	Path Option Attribute\-Set Table
+            	**type**\: :py:class:`PathOptionAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes>`
             
             .. attribute:: xro_attributes
             
@@ -4786,18 +4786,18 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.path_option_attributes = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes()
-                self.path_option_attributes.parent = self
+                self.auto_backup_attributes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes()
+                self.auto_backup_attributes.parent = self
+                self.auto_mesh_attributes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes()
+                self.auto_mesh_attributes.parent = self
+                self.otn_pp_attributes = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes()
+                self.otn_pp_attributes.parent = self
                 self.p2mpte_attributes = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes()
                 self.p2mpte_attributes.parent = self
                 self.p2p_te_attributes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes()
                 self.p2p_te_attributes.parent = self
-                self.auto_backup_attributes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes()
-                self.auto_backup_attributes.parent = self
-                self.otn_pp_attributes = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes()
-                self.otn_pp_attributes.parent = self
-                self.auto_mesh_attributes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes()
-                self.auto_mesh_attributes.parent = self
+                self.path_option_attributes = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes()
+                self.path_option_attributes.parent = self
                 self.xro_attributes = MplsTe.GlobalAttributes.AttributeSet.XroAttributes()
                 self.xro_attributes.parent = self
 
@@ -4836,18 +4836,6 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: path_selection_exclude_list
-                    
-                    	Path selection exclude list name configuration
-                    	**type**\: str
-                    
-                    	**range:** 0..64
-                    
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
@@ -4858,12 +4846,10 @@ class MplsTe(object):
                     	Tunnel bandwidth requirement
                     	**type**\: :py:class:`Bandwidth <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth>`
                     
-                    .. attribute:: path_selection_cost_limit
+                    .. attribute:: enable
                     
-                    	Path selection cost limit configuration for this specific tunnel
-                    	**type**\: int
-                    
-                    	**range:** 1..4294967295
+                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: new_style_affinities
                     
@@ -4875,6 +4861,20 @@ class MplsTe(object):
                     	Path invalidation configuration for this specific tunnel
                     	**type**\: :py:class:`PathInvalidation <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation>`
                     
+                    .. attribute:: path_selection_cost_limit
+                    
+                    	Path selection cost limit configuration for this specific tunnel
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967295
+                    
+                    .. attribute:: path_selection_exclude_list
+                    
+                    	Path selection exclude list name configuration
+                    	**type**\: str
+                    
+                    	**range:** 0..64
+                    
                     
 
                     """
@@ -4885,15 +4885,15 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
-                        self.path_selection_exclude_list = None
-                        self.enable = None
                         self.affinity_mask = None
                         self.bandwidth = None
-                        self.path_selection_cost_limit = None
+                        self.enable = None
                         self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities()
                         self.new_style_affinities.parent = self
                         self.path_invalidation = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation()
                         self.path_invalidation.parent = self
+                        self.path_selection_cost_limit = None
+                        self.path_selection_exclude_list = None
 
 
                     class AffinityMask(object):
@@ -4941,7 +4941,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -4970,10 +4970,12 @@ class MplsTe(object):
                         """
                         Tunnel bandwidth requirement
                         
-                        .. attribute:: dste_type
+                        .. attribute:: bandwidth
                         
-                        	DSTE\-standard flag
-                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        	The value of the bandwidth reserved by this tunnel in kbps
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: _is_presence
                         
@@ -4992,12 +4994,10 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: bandwidth
+                        .. attribute:: dste_type
                         
-                        	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	DSTE\-standard flag
+                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                         
                         .. attribute:: _is_presence
                         
@@ -5015,14 +5015,14 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dste_type = None
-                            self.class_or_pool_type = None
                             self.bandwidth = None
+                            self.class_or_pool_type = None
+                            self.dste_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth'
 
@@ -5033,13 +5033,13 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.dste_type is not None:
+                            if self.bandwidth is not None:
                                 return True
 
                             if self.class_or_pool_type is not None:
                                 return True
 
-                            if self.bandwidth is not None:
+                            if self.dste_type is not None:
                                 return True
 
                             return False
@@ -5077,14 +5077,16 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity10  <key>
+                            
+                            	The name of the tenth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -5145,12 +5147,10 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity_type  <key>
                             
-                            	The name of the tenth affinity
-                            	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            	The type of the affinity entry
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -5161,8 +5161,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity_type = None
                                 self.affinity1 = None
+                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -5171,36 +5171,36 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity10 = None
+                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.affinity_type is None:
-                                    raise YPYDataValidationError('Key property affinity_type is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.affinity1 is None:
-                                    raise YPYDataValidationError('Key property affinity1 is None')
-                                if self.affinity2 is None:
-                                    raise YPYDataValidationError('Key property affinity2 is None')
-                                if self.affinity3 is None:
-                                    raise YPYDataValidationError('Key property affinity3 is None')
-                                if self.affinity4 is None:
-                                    raise YPYDataValidationError('Key property affinity4 is None')
-                                if self.affinity5 is None:
-                                    raise YPYDataValidationError('Key property affinity5 is None')
-                                if self.affinity6 is None:
-                                    raise YPYDataValidationError('Key property affinity6 is None')
-                                if self.affinity7 is None:
-                                    raise YPYDataValidationError('Key property affinity7 is None')
-                                if self.affinity8 is None:
-                                    raise YPYDataValidationError('Key property affinity8 is None')
-                                if self.affinity9 is None:
-                                    raise YPYDataValidationError('Key property affinity9 is None')
+                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity10 is None:
-                                    raise YPYDataValidationError('Key property affinity10 is None')
+                                    raise YPYModelError('Key property affinity10 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -5209,10 +5209,10 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
-                                if self.affinity1 is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -5239,7 +5239,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -5252,7 +5252,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -5281,17 +5281,17 @@ class MplsTe(object):
                         Path invalidation configuration for this
                         specific tunnel
                         
+                        .. attribute:: path_invalidation_action
+                        
+                        	Path Invalidation Action
+                        	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+                        
                         .. attribute:: path_invalidation_timeout
                         
                         	Path Invalidation Timeout
                         	**type**\: int
                         
                         	**range:** 0..60000
-                        
-                        .. attribute:: path_invalidation_action
-                        
-                        	Path Invalidation Action
-                        	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
                         
                         
 
@@ -5302,13 +5302,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.path_invalidation_timeout = None
                             self.path_invalidation_action = None
+                            self.path_invalidation_timeout = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-invalidation'
 
@@ -5319,10 +5319,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.path_invalidation_timeout is not None:
+                            if self.path_invalidation_action is not None:
                                 return True
 
-                            if self.path_invalidation_action is not None:
+                            if self.path_invalidation_timeout is not None:
                                 return True
 
                             return False
@@ -5335,7 +5335,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:path-option-attributes/Cisco-IOS-XR-mpls-te-cfg:path-option-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -5349,25 +5349,25 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
-                        if self.path_selection_exclude_list is not None:
-                            return True
-
-                        if self.enable is not None:
-                            return True
-
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
                         if self.bandwidth is not None and self.bandwidth._has_data():
                             return True
 
-                        if self.path_selection_cost_limit is not None:
+                        if self.enable is not None:
                             return True
 
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                             return True
 
                         if self.path_invalidation is not None and self.path_invalidation._has_data():
+                            return True
+
+                        if self.path_selection_cost_limit is not None:
+                            return True
+
+                        if self.path_selection_exclude_list is not None:
                             return True
 
                         return False
@@ -5436,28 +5436,6 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: interface_bandwidth
-                    
-                    	The bandwidth of the interface in kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: priority
-                    
-                    	Tunnel Setup and Hold Priorities
-                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority>`
-                    
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: record_route
-                    
-                    	Record the route used by the tunnel
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
@@ -5468,20 +5446,42 @@ class MplsTe(object):
                     	Tunnel bandwidth requirement
                     	**type**\: :py:class:`Bandwidth <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth>`
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: enable
                     
-                    	Tunnel new style affinity attributes table
-                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities>`
+                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: fast_reroute
                     
                     	Specify MPLS tunnel can be fast\-rerouted
                     	**type**\: :py:class:`FastReroute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute>`
                     
+                    .. attribute:: interface_bandwidth
+                    
+                    	The bandwidth of the interface in kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
                     	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging>`
+                    
+                    .. attribute:: new_style_affinities
+                    
+                    	Tunnel new style affinity attributes table
+                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities>`
+                    
+                    .. attribute:: priority
+                    
+                    	Tunnel Setup and Hold Priorities
+                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority>`
+                    
+                    .. attribute:: record_route
+                    
+                    	Record the route used by the tunnel
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -5493,26 +5493,26 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
-                        self.interface_bandwidth = None
-                        self.priority = None
-                        self.enable = None
-                        self.record_route = None
                         self.affinity_mask = None
                         self.bandwidth = None
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities()
-                        self.new_style_affinities.parent = self
+                        self.enable = None
                         self.fast_reroute = None
+                        self.interface_bandwidth = None
                         self.logging = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging()
                         self.logging.parent = self
+                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities()
+                        self.new_style_affinities.parent = self
+                        self.priority = None
+                        self.record_route = None
 
 
                     class Priority(object):
                         """
                         Tunnel Setup and Hold Priorities
                         
-                        .. attribute:: setup_priority
+                        .. attribute:: hold_priority
                         
-                        	Setup Priority
+                        	Hold Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -5522,9 +5522,9 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: hold_priority
+                        .. attribute:: setup_priority
                         
-                        	Hold Priority
+                        	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -5545,13 +5545,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.setup_priority = None
                             self.hold_priority = None
+                            self.setup_priority = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
 
@@ -5562,10 +5562,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.setup_priority is not None:
+                            if self.hold_priority is not None:
                                 return True
 
-                            if self.hold_priority is not None:
+                            if self.setup_priority is not None:
                                 return True
 
                             return False
@@ -5621,7 +5621,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -5650,10 +5650,12 @@ class MplsTe(object):
                         """
                         Tunnel bandwidth requirement
                         
-                        .. attribute:: dste_type
+                        .. attribute:: bandwidth
                         
-                        	DSTE\-standard flag
-                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        	The value of the bandwidth reserved by this tunnel in kbps
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: _is_presence
                         
@@ -5672,12 +5674,10 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: bandwidth
+                        .. attribute:: dste_type
                         
-                        	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	DSTE\-standard flag
+                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                         
                         .. attribute:: _is_presence
                         
@@ -5695,14 +5695,14 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dste_type = None
-                            self.class_or_pool_type = None
                             self.bandwidth = None
+                            self.class_or_pool_type = None
+                            self.dste_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth'
 
@@ -5713,13 +5713,13 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.dste_type is not None:
+                            if self.bandwidth is not None:
                                 return True
 
                             if self.class_or_pool_type is not None:
                                 return True
 
-                            if self.bandwidth is not None:
+                            if self.dste_type is not None:
                                 return True
 
                             return False
@@ -5757,14 +5757,16 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity10  <key>
+                            
+                            	The name of the tenth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -5825,12 +5827,10 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity_type  <key>
                             
-                            	The name of the tenth affinity
-                            	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            	The type of the affinity entry
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -5841,8 +5841,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity_type = None
                                 self.affinity1 = None
+                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -5851,36 +5851,36 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity10 = None
+                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.affinity_type is None:
-                                    raise YPYDataValidationError('Key property affinity_type is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.affinity1 is None:
-                                    raise YPYDataValidationError('Key property affinity1 is None')
-                                if self.affinity2 is None:
-                                    raise YPYDataValidationError('Key property affinity2 is None')
-                                if self.affinity3 is None:
-                                    raise YPYDataValidationError('Key property affinity3 is None')
-                                if self.affinity4 is None:
-                                    raise YPYDataValidationError('Key property affinity4 is None')
-                                if self.affinity5 is None:
-                                    raise YPYDataValidationError('Key property affinity5 is None')
-                                if self.affinity6 is None:
-                                    raise YPYDataValidationError('Key property affinity6 is None')
-                                if self.affinity7 is None:
-                                    raise YPYDataValidationError('Key property affinity7 is None')
-                                if self.affinity8 is None:
-                                    raise YPYDataValidationError('Key property affinity8 is None')
-                                if self.affinity9 is None:
-                                    raise YPYDataValidationError('Key property affinity9 is None')
+                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity10 is None:
-                                    raise YPYDataValidationError('Key property affinity10 is None')
+                                    raise YPYModelError('Key property affinity10 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -5889,10 +5889,10 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
-                                if self.affinity1 is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -5919,7 +5919,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -5932,7 +5932,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -6001,7 +6001,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fast-reroute'
 
@@ -6030,14 +6030,9 @@ class MplsTe(object):
                         """
                         Log tunnel LSP messages
                         
-                        .. attribute:: insufficient_bw_message
+                        .. attribute:: all
                         
-                        	Log tunnel messages for insufficient bandwidth
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: reoptimized_message
-                        
-                        	Log tunnel reoptimized messages
+                        	Log all events for a tunnel
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: bandwidth_change_message
@@ -6045,9 +6040,9 @@ class MplsTe(object):
                         	Log tunnel bandwidth change messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: all
+                        .. attribute:: insufficient_bw_message
                         
-                        	Log all events for a tunnel
+                        	Log tunnel messages for insufficient bandwidth
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: pcalc_failure_message
@@ -6055,24 +6050,29 @@ class MplsTe(object):
                         	Enable logging for path\-calculation failures
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: state_message
-                        
-                        	Log tunnel state messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: sub_lsp_state_message
+                        .. attribute:: reoptimized_message
                         
-                        	Log all tunnel sub\-LSP state messages
+                        	Log tunnel reoptimized messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
                         
                         	Log tunnel rereoute messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: state_message
+                        
+                        	Log tunnel state messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: sub_lsp_state_message
+                        
+                        	Log all tunnel sub\-LSP state messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
@@ -6084,20 +6084,20 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.insufficient_bw_message = None
-                            self.reoptimized_message = None
-                            self.bandwidth_change_message = None
                             self.all = None
+                            self.bandwidth_change_message = None
+                            self.insufficient_bw_message = None
                             self.pcalc_failure_message = None
-                            self.state_message = None
                             self.reoptimize_attempts_message = None
-                            self.sub_lsp_state_message = None
+                            self.reoptimized_message = None
                             self.reroute_messsage = None
+                            self.state_message = None
+                            self.sub_lsp_state_message = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
 
@@ -6108,31 +6108,31 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.insufficient_bw_message is not None:
-                                return True
-
-                            if self.reoptimized_message is not None:
+                            if self.all is not None:
                                 return True
 
                             if self.bandwidth_change_message is not None:
                                 return True
 
-                            if self.all is not None:
+                            if self.insufficient_bw_message is not None:
                                 return True
 
                             if self.pcalc_failure_message is not None:
                                 return True
 
-                            if self.state_message is not None:
-                                return True
-
                             if self.reoptimize_attempts_message is not None:
                                 return True
 
-                            if self.sub_lsp_state_message is not None:
+                            if self.reoptimized_message is not None:
                                 return True
 
                             if self.reroute_messsage is not None:
+                                return True
+
+                            if self.state_message is not None:
+                                return True
+
+                            if self.sub_lsp_state_message is not None:
                                 return True
 
                             return False
@@ -6145,7 +6145,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:p2mpte-attributes/Cisco-IOS-XR-mpls-te-cfg:p2mpte-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -6159,31 +6159,31 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
-                        if self.interface_bandwidth is not None:
-                            return True
-
-                        if self.priority is not None and self.priority._has_data():
-                            return True
-
-                        if self.enable is not None:
-                            return True
-
-                        if self.record_route is not None:
-                            return True
-
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
                         if self.bandwidth is not None and self.bandwidth._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.enable is not None:
                             return True
 
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
                             return True
 
+                        if self.interface_bandwidth is not None:
+                            return True
+
                         if self.logging is not None and self.logging._has_data():
+                            return True
+
+                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                            return True
+
+                        if self.priority is not None and self.priority._has_data():
+                            return True
+
+                        if self.record_route is not None:
                             return True
 
                         return False
@@ -6252,30 +6252,30 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: path_selection
+                    .. attribute:: affinity_mask
                     
-                    	Configure path selection properties
-                    	**type**\: :py:class:`PathSelection <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
-                    
-                    .. attribute:: logging
-                    
-                    	Log tunnel LSP messages
-                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
+                    	Set the affinity flags and mask
+                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask>`
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: affinity_mask
+                    .. attribute:: logging
                     
-                    	Set the affinity flags and mask
-                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask>`
+                    	Log tunnel LSP messages
+                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
                     
                     .. attribute:: new_style_affinities
                     
                     	Tunnel new style affinity attributes table
                     	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities>`
+                    
+                    .. attribute:: path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\: :py:class:`PathSelection <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
                     
                     
 
@@ -6287,34 +6287,29 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
-                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection()
-                        self.path_selection.parent = self
+                        self.affinity_mask = None
+                        self.enable = None
                         self.logging = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging()
                         self.logging.parent = self
-                        self.enable = None
-                        self.affinity_mask = None
                         self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities()
                         self.new_style_affinities.parent = self
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection()
+                        self.path_selection.parent = self
 
 
                     class PathSelection(object):
                         """
                         Configure path selection properties
                         
-                        .. attribute:: segment_routing_prepend
+                        .. attribute:: enable
                         
-                        	Path selection segment routing prepend configuration
-                        	**type**\: :py:class:`SegmentRoutingPrepend <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend>`
+                        	Enter path selection configuration
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: path_selection_invalidation
                         
                         	Path selection invalidation configuration
                         	**type**\: :py:class:`PathSelectionInvalidation <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation>`
-                        
-                        .. attribute:: enable
-                        
-                        	Enter path selection configuration
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: path_selection_metric
                         
@@ -6326,6 +6321,11 @@ class MplsTe(object):
                         	Segment routing adjacency protection type to use in path calculation
                         	**type**\: :py:class:`MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum>`
                         
+                        .. attribute:: segment_routing_prepend
+                        
+                        	Path selection segment routing prepend configuration
+                        	**type**\: :py:class:`SegmentRoutingPrepend <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend>`
+                        
                         
 
                         """
@@ -6335,13 +6335,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend()
-                            self.segment_routing_prepend.parent = self
+                            self.enable = None
                             self.path_selection_invalidation = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation()
                             self.path_selection_invalidation.parent = self
-                            self.enable = None
                             self.path_selection_metric = None
                             self.path_selection_segment_routing_adjacency_protection = None
+                            self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend()
+                            self.segment_routing_prepend.parent = self
 
 
                         class SegmentRoutingPrepend(object):
@@ -6349,15 +6349,15 @@ class MplsTe(object):
                             Path selection segment routing prepend
                             configuration
                             
-                            .. attribute:: indexes
-                            
-                            	Segment routing prepend index table
-                            	**type**\: :py:class:`Indexes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
-                            
                             .. attribute:: enable
                             
                             	Enter path selection segment routing prepend submode
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: indexes
+                            
+                            	Segment routing prepend index table
+                            	**type**\: :py:class:`Indexes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
                             
                             
 
@@ -6368,9 +6368,9 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.enable = None
                                 self.indexes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes()
                                 self.indexes.parent = self
-                                self.enable = None
 
 
                             class Indexes(object):
@@ -6407,17 +6407,17 @@ class MplsTe(object):
                                     
                                     	**range:** 1..10
                                     
-                                    .. attribute:: prepend_type
-                                    
-                                    	Prepend type
-                                    	**type**\: :py:class:`SrPrependEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.SrPrependEnum>`
-                                    
                                     .. attribute:: mpls_label
                                     
                                     	MPLS Label
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: prepend_type
+                                    
+                                    	Prepend type
+                                    	**type**\: :py:class:`SrPrependEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.SrPrependEnum>`
                                     
                                     
 
@@ -6429,15 +6429,15 @@ class MplsTe(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.index_number = None
-                                        self.prepend_type = None
                                         self.mpls_label = None
+                                        self.prepend_type = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.index_number is None:
-                                            raise YPYDataValidationError('Key property index_number is None')
+                                            raise YPYModelError('Key property index_number is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:index[Cisco-IOS-XR-mpls-te-cfg:index-number = ' + str(self.index_number) + ']'
 
@@ -6451,10 +6451,10 @@ class MplsTe(object):
                                         if self.index_number is not None:
                                             return True
 
-                                        if self.prepend_type is not None:
+                                        if self.mpls_label is not None:
                                             return True
 
-                                        if self.mpls_label is not None:
+                                        if self.prepend_type is not None:
                                             return True
 
                                         return False
@@ -6467,7 +6467,7 @@ class MplsTe(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:indexes'
 
@@ -6493,7 +6493,7 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:segment-routing-prepend'
 
@@ -6504,10 +6504,10 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.indexes is not None and self.indexes._has_data():
+                                if self.enable is not None:
                                     return True
 
-                                if self.enable is not None:
+                                if self.indexes is not None and self.indexes._has_data():
                                     return True
 
                                 return False
@@ -6549,7 +6549,7 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection-invalidation'
 
@@ -6576,7 +6576,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection'
 
@@ -6587,19 +6587,19 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.segment_routing_prepend is not None and self.segment_routing_prepend._has_data():
+                            if self.enable is not None:
                                 return True
 
                             if self.path_selection_invalidation is not None and self.path_selection_invalidation._has_data():
-                                return True
-
-                            if self.enable is not None:
                                 return True
 
                             if self.path_selection_metric is not None:
                                 return True
 
                             if self.path_selection_segment_routing_adjacency_protection is not None:
+                                return True
+
+                            if self.segment_routing_prepend is not None and self.segment_routing_prepend._has_data():
                                 return True
 
                             return False
@@ -6614,24 +6614,9 @@ class MplsTe(object):
                         """
                         Log tunnel LSP messages
                         
-                        .. attribute:: lsp_switch_over_change_message
-                        
-                        	Log tunnel messages for bandwidth change
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: all
                         
                         	Log all events for a tunnel
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: record_route_messsage
-                        
-                        	Log tunnel record\-route messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: bfd_state_message
-                        
-                        	Enable BFD session state change alarm
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: bandwidth_change_message
@@ -6639,9 +6624,39 @@ class MplsTe(object):
                         	Log tunnel messages for bandwidth change
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
+                        .. attribute:: bfd_state_message
+                        
+                        	Enable BFD session state change alarm
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: insufficient_bw_message
+                        
+                        	Log tunnel messages for insufficient bandwidth
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: lsp_switch_over_change_message
+                        
+                        	Log tunnel messages for bandwidth change
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: pcalc_failure_message
+                        
+                        	Enable logging for path\-calculation failures
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: record_route_messsage
+                        
+                        	Log tunnel record\-route messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: reoptimized_message
+                        
+                        	Log tunnel reoptimized messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
@@ -6654,21 +6669,6 @@ class MplsTe(object):
                         	Log tunnel state messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: insufficient_bw_message
-                        
-                        	Log tunnel messages for insufficient bandwidth
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: reoptimized_message
-                        
-                        	Log tunnel reoptimized messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: pcalc_failure_message
-                        
-                        	Enable logging for path\-calculation failures
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         
 
                         """
@@ -6678,22 +6678,22 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.lsp_switch_over_change_message = None
                             self.all = None
-                            self.record_route_messsage = None
-                            self.bfd_state_message = None
                             self.bandwidth_change_message = None
+                            self.bfd_state_message = None
+                            self.insufficient_bw_message = None
+                            self.lsp_switch_over_change_message = None
+                            self.pcalc_failure_message = None
+                            self.record_route_messsage = None
                             self.reoptimize_attempts_message = None
+                            self.reoptimized_message = None
                             self.reroute_messsage = None
                             self.state_message = None
-                            self.insufficient_bw_message = None
-                            self.reoptimized_message = None
-                            self.pcalc_failure_message = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
 
@@ -6704,37 +6704,37 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.lsp_switch_over_change_message is not None:
-                                return True
-
                             if self.all is not None:
-                                return True
-
-                            if self.record_route_messsage is not None:
-                                return True
-
-                            if self.bfd_state_message is not None:
                                 return True
 
                             if self.bandwidth_change_message is not None:
                                 return True
 
+                            if self.bfd_state_message is not None:
+                                return True
+
+                            if self.insufficient_bw_message is not None:
+                                return True
+
+                            if self.lsp_switch_over_change_message is not None:
+                                return True
+
+                            if self.pcalc_failure_message is not None:
+                                return True
+
+                            if self.record_route_messsage is not None:
+                                return True
+
                             if self.reoptimize_attempts_message is not None:
+                                return True
+
+                            if self.reoptimized_message is not None:
                                 return True
 
                             if self.reroute_messsage is not None:
                                 return True
 
                             if self.state_message is not None:
-                                return True
-
-                            if self.insufficient_bw_message is not None:
-                                return True
-
-                            if self.reoptimized_message is not None:
-                                return True
-
-                            if self.pcalc_failure_message is not None:
                                 return True
 
                             return False
@@ -6790,7 +6790,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -6842,14 +6842,16 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity10  <key>
+                            
+                            	The name of the tenth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -6910,12 +6912,10 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity_type  <key>
                             
-                            	The name of the tenth affinity
-                            	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            	The type of the affinity entry
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -6926,8 +6926,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity_type = None
                                 self.affinity1 = None
+                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -6936,36 +6936,36 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity10 = None
+                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.affinity_type is None:
-                                    raise YPYDataValidationError('Key property affinity_type is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.affinity1 is None:
-                                    raise YPYDataValidationError('Key property affinity1 is None')
-                                if self.affinity2 is None:
-                                    raise YPYDataValidationError('Key property affinity2 is None')
-                                if self.affinity3 is None:
-                                    raise YPYDataValidationError('Key property affinity3 is None')
-                                if self.affinity4 is None:
-                                    raise YPYDataValidationError('Key property affinity4 is None')
-                                if self.affinity5 is None:
-                                    raise YPYDataValidationError('Key property affinity5 is None')
-                                if self.affinity6 is None:
-                                    raise YPYDataValidationError('Key property affinity6 is None')
-                                if self.affinity7 is None:
-                                    raise YPYDataValidationError('Key property affinity7 is None')
-                                if self.affinity8 is None:
-                                    raise YPYDataValidationError('Key property affinity8 is None')
-                                if self.affinity9 is None:
-                                    raise YPYDataValidationError('Key property affinity9 is None')
+                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity10 is None:
-                                    raise YPYDataValidationError('Key property affinity10 is None')
+                                    raise YPYModelError('Key property affinity10 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -6974,10 +6974,10 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
-                                if self.affinity1 is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -7004,7 +7004,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -7017,7 +7017,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -7043,7 +7043,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:p2p-te-attributes/Cisco-IOS-XR-mpls-te-cfg:p2p-te-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -7057,19 +7057,19 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
-                        if self.path_selection is not None and self.path_selection._has_data():
-                            return True
-
-                        if self.logging is not None and self.logging._has_data():
+                        if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        if self.affinity_mask is not None and self.affinity_mask._has_data():
+                        if self.logging is not None and self.logging._has_data():
                             return True
 
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                            return True
+
+                        if self.path_selection is not None and self.path_selection._has_data():
                             return True
 
                         return False
@@ -7138,45 +7138,45 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: signalled_name
+                    .. attribute:: affinity_mask
                     
-                    	Signalled name
-                    	**type**\: :py:class:`SignalledName <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName>`
+                    	Set the affinity flags and mask
+                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask>`
                     
                     .. attribute:: auto_backup_logging
                     
                     	Log tunnel LSP messages
                     	**type**\: :py:class:`AutoBackupLogging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging>`
                     
-                    .. attribute:: priority
-                    
-                    	Tunnel Setup and Hold Priorities
-                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority>`
-                    
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: record_route
+                    .. attribute:: new_style_affinities
                     
-                    	Record the route used by the tunnel
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: affinity_mask
-                    
-                    	Set the affinity flags and mask
-                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask>`
+                    	Tunnel new style affinity attributes table
+                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities>`
                     
                     .. attribute:: policy_classes
                     
                     	Policy classes for PBTS
                     	**type**\: :py:class:`PolicyClasses <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses>`
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: priority
                     
-                    	Tunnel new style affinity attributes table
-                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities>`
+                    	Tunnel Setup and Hold Priorities
+                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority>`
+                    
+                    .. attribute:: record_route
+                    
+                    	Record the route used by the tunnel
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: signalled_name
+                    
+                    	Signalled name
+                    	**type**\: :py:class:`SignalledName <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName>`
                     
                     
 
@@ -7188,43 +7188,43 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
-                        self.signalled_name = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName()
-                        self.signalled_name.parent = self
+                        self.affinity_mask = None
                         self.auto_backup_logging = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging()
                         self.auto_backup_logging.parent = self
-                        self.priority = None
                         self.enable = None
-                        self.record_route = None
-                        self.affinity_mask = None
-                        self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses()
-                        self.policy_classes.parent = self
                         self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities()
                         self.new_style_affinities.parent = self
+                        self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses()
+                        self.policy_classes.parent = self
+                        self.priority = None
+                        self.record_route = None
+                        self.signalled_name = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName()
+                        self.signalled_name.parent = self
 
 
                     class SignalledName(object):
                         """
                         Signalled name
                         
+                        .. attribute:: mp_address
+                        
+                        	Set if merge\-point address is to be appended
+                        	**type**\: bool
+                        
                         .. attribute:: name
                         
                         	Signalled name
                         	**type**\: str
-                        
-                        .. attribute:: source_type
-                        
-                        	Source address or name
-                        	**type**\: :py:class:`MplsTeSigNameOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOptionEnum>`
                         
                         .. attribute:: protected_interface_type
                         
                         	Protected\-interface address or name
                         	**type**\: :py:class:`MplsTeSigNameOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOptionEnum>`
                         
-                        .. attribute:: mp_address
+                        .. attribute:: source_type
                         
-                        	Set if merge\-point address is to be appended
-                        	**type**\: bool
+                        	Source address or name
+                        	**type**\: :py:class:`MplsTeSigNameOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOptionEnum>`
                         
                         
 
@@ -7235,15 +7235,15 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.name = None
-                            self.source_type = None
-                            self.protected_interface_type = None
                             self.mp_address = None
+                            self.name = None
+                            self.protected_interface_type = None
+                            self.source_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:signalled-name'
 
@@ -7254,16 +7254,16 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.name is not None:
+                            if self.mp_address is not None:
                                 return True
 
-                            if self.source_type is not None:
+                            if self.name is not None:
                                 return True
 
                             if self.protected_interface_type is not None:
                                 return True
 
-                            if self.mp_address is not None:
+                            if self.source_type is not None:
                                 return True
 
                             return False
@@ -7288,14 +7288,14 @@ class MplsTe(object):
                         	Log tunnel reoptimization attempts messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: state_message
-                        
-                        	Log tunnel state messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: reoptimized_message
                         
                         	Log tunnel reoptimized messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: state_message
+                        
+                        	Log tunnel state messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
@@ -7309,13 +7309,13 @@ class MplsTe(object):
                             self.parent = None
                             self.bandwidth_change_message = None
                             self.reoptimize_attempts_message = None
-                            self.state_message = None
                             self.reoptimized_message = None
+                            self.state_message = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:auto-backup-logging'
 
@@ -7332,10 +7332,10 @@ class MplsTe(object):
                             if self.reoptimize_attempts_message is not None:
                                 return True
 
-                            if self.state_message is not None:
+                            if self.reoptimized_message is not None:
                                 return True
 
-                            if self.reoptimized_message is not None:
+                            if self.state_message is not None:
                                 return True
 
                             return False
@@ -7350,9 +7350,9 @@ class MplsTe(object):
                         """
                         Tunnel Setup and Hold Priorities
                         
-                        .. attribute:: setup_priority
+                        .. attribute:: hold_priority
                         
-                        	Setup Priority
+                        	Hold Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -7362,9 +7362,9 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: hold_priority
+                        .. attribute:: setup_priority
                         
-                        	Hold Priority
+                        	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -7385,13 +7385,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.setup_priority = None
                             self.hold_priority = None
+                            self.setup_priority = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
 
@@ -7402,10 +7402,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.setup_priority is not None:
+                            if self.hold_priority is not None:
                                 return True
 
-                            if self.hold_priority is not None:
+                            if self.setup_priority is not None:
                                 return True
 
                             return False
@@ -7461,7 +7461,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -7513,7 +7513,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:policy-classes'
 
@@ -7564,14 +7564,16 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity10  <key>
+                            
+                            	The name of the tenth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -7632,12 +7634,10 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity_type  <key>
                             
-                            	The name of the tenth affinity
-                            	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            	The type of the affinity entry
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -7648,8 +7648,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity_type = None
                                 self.affinity1 = None
+                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -7658,36 +7658,36 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity10 = None
+                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.affinity_type is None:
-                                    raise YPYDataValidationError('Key property affinity_type is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.affinity1 is None:
-                                    raise YPYDataValidationError('Key property affinity1 is None')
-                                if self.affinity2 is None:
-                                    raise YPYDataValidationError('Key property affinity2 is None')
-                                if self.affinity3 is None:
-                                    raise YPYDataValidationError('Key property affinity3 is None')
-                                if self.affinity4 is None:
-                                    raise YPYDataValidationError('Key property affinity4 is None')
-                                if self.affinity5 is None:
-                                    raise YPYDataValidationError('Key property affinity5 is None')
-                                if self.affinity6 is None:
-                                    raise YPYDataValidationError('Key property affinity6 is None')
-                                if self.affinity7 is None:
-                                    raise YPYDataValidationError('Key property affinity7 is None')
-                                if self.affinity8 is None:
-                                    raise YPYDataValidationError('Key property affinity8 is None')
-                                if self.affinity9 is None:
-                                    raise YPYDataValidationError('Key property affinity9 is None')
+                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity10 is None:
-                                    raise YPYDataValidationError('Key property affinity10 is None')
+                                    raise YPYModelError('Key property affinity10 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -7696,10 +7696,10 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
-                                if self.affinity1 is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -7726,7 +7726,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -7739,7 +7739,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -7765,7 +7765,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:auto-backup-attributes/Cisco-IOS-XR-mpls-te-cfg:auto-backup-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -7779,28 +7779,28 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
-                        if self.signalled_name is not None and self.signalled_name._has_data():
+                        if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
                         if self.auto_backup_logging is not None and self.auto_backup_logging._has_data():
                             return True
 
-                        if self.priority is not None and self.priority._has_data():
-                            return True
-
                         if self.enable is not None:
                             return True
 
-                        if self.record_route is not None:
-                            return True
-
-                        if self.affinity_mask is not None and self.affinity_mask._has_data():
+                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                             return True
 
                         if self.policy_classes is not None and self.policy_classes._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.priority is not None and self.priority._has_data():
+                            return True
+
+                        if self.record_route is not None:
+                            return True
+
+                        if self.signalled_name is not None and self.signalled_name._has_data():
                             return True
 
                         return False
@@ -7869,16 +7869,6 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: sub_network_connection_mode
-                    
-                    	Sub\-network connection mode
-                    	**type**\: :py:class:`SubNetworkConnectionMode <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode>`
-                    
-                    .. attribute:: timers
-                    
-                    	Timers
-                    	**type**\: :py:class:`Timers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers>`
-                    
                     .. attribute:: aps_protection_mode
                     
                     	The APS protecion mode
@@ -7894,6 +7884,16 @@ class MplsTe(object):
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: sub_network_connection_mode
+                    
+                    	Sub\-network connection mode
+                    	**type**\: :py:class:`SubNetworkConnectionMode <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode>`
+                    
+                    .. attribute:: timers
+                    
+                    	Timers
+                    	**type**\: :py:class:`Timers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers>`
+                    
                     
 
                     """
@@ -7904,13 +7904,13 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
+                        self.aps_protection_mode = None
+                        self.aps_protection_type = None
+                        self.enable = None
                         self.sub_network_connection_mode = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode()
                         self.sub_network_connection_mode.parent = self
                         self.timers = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers()
                         self.timers.parent = self
-                        self.aps_protection_mode = None
-                        self.aps_protection_type = None
-                        self.enable = None
 
 
                     class SubNetworkConnectionMode(object):
@@ -7944,7 +7944,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:sub-network-connection-mode'
 
@@ -7973,19 +7973,19 @@ class MplsTe(object):
                         """
                         Timers
                         
-                        .. attribute:: aps_wait_to_restore
-                        
-                        	G.709 OTN path protection wait to restore timer in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..720
-                        
                         .. attribute:: aps_hold_off
                         
                         	G.709 OTN path protection hold\-off timer in milliseconds
                         	**type**\: int
                         
                         	**range:** 100..10000
+                        
+                        .. attribute:: aps_wait_to_restore
+                        
+                        	G.709 OTN path protection wait to restore timer in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..720
                         
                         
 
@@ -7996,13 +7996,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.aps_wait_to_restore = None
                             self.aps_hold_off = None
+                            self.aps_wait_to_restore = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:timers'
 
@@ -8013,10 +8013,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.aps_wait_to_restore is not None:
+                            if self.aps_hold_off is not None:
                                 return True
 
-                            if self.aps_hold_off is not None:
+                            if self.aps_wait_to_restore is not None:
                                 return True
 
                             return False
@@ -8029,7 +8029,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:otn-pp-attributes/Cisco-IOS-XR-mpls-te-cfg:otn-pp-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -8043,12 +8043,6 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
-                        if self.sub_network_connection_mode is not None and self.sub_network_connection_mode._has_data():
-                            return True
-
-                        if self.timers is not None and self.timers._has_data():
-                            return True
-
                         if self.aps_protection_mode is not None:
                             return True
 
@@ -8056,6 +8050,12 @@ class MplsTe(object):
                             return True
 
                         if self.enable is not None:
+                            return True
+
+                        if self.sub_network_connection_mode is not None and self.sub_network_connection_mode._has_data():
+                            return True
+
+                        if self.timers is not None and self.timers._has_data():
                             return True
 
                         return False
@@ -8124,6 +8124,11 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
+                    .. attribute:: affinity_mask
+                    
+                    	Set the affinity flags and mask
+                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask>`
+                    
                     .. attribute:: auto_mesh_logging
                     
                     	Log tunnel LSP messages
@@ -8133,40 +8138,6 @@ class MplsTe(object):
                     
                     	Enable autoroute announce
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: interface_bandwidth
-                    
-                    	The bandwidth of the interface in kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: forward_class
-                    
-                    	Forward class value
-                    	**type**\: int
-                    
-                    	**range:** 1..7
-                    
-                    .. attribute:: priority
-                    
-                    	Tunnel Setup and Hold Priorities
-                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority>`
-                    
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: record_route
-                    
-                    	Record the route used by the tunnel
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: affinity_mask
-                    
-                    	Set the affinity flags and mask
-                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask>`
                     
                     .. attribute:: bandwidth
                     
@@ -8178,19 +8149,9 @@ class MplsTe(object):
                     	Enable bandwidth collection only, no auto\-bw adjustment
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: policy_classes
+                    .. attribute:: enable
                     
-                    	Policy classes for PBTS
-                    	**type**\: :py:class:`PolicyClasses <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses>`
-                    
-                    .. attribute:: new_style_affinities
-                    
-                    	Tunnel new style affinity attributes table
-                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities>`
-                    
-                    .. attribute:: soft_preemption
-                    
-                    	Enable the soft\-preemption feature on the tunnel
+                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: fast_reroute
@@ -8198,12 +8159,51 @@ class MplsTe(object):
                     	Specify MPLS tunnel can be fast\-rerouted
                     	**type**\: :py:class:`FastReroute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute>`
                     
+                    .. attribute:: forward_class
+                    
+                    	Forward class value
+                    	**type**\: int
+                    
+                    	**range:** 1..7
+                    
+                    .. attribute:: interface_bandwidth
+                    
+                    	The bandwidth of the interface in kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: load_share
                     
                     	Tunnel loadsharing metric
                     	**type**\: int
                     
                     	**range:** 1..4294967295
+                    
+                    .. attribute:: new_style_affinities
+                    
+                    	Tunnel new style affinity attributes table
+                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities>`
+                    
+                    .. attribute:: policy_classes
+                    
+                    	Policy classes for PBTS
+                    	**type**\: :py:class:`PolicyClasses <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses>`
+                    
+                    .. attribute:: priority
+                    
+                    	Tunnel Setup and Hold Priorities
+                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority>`
+                    
+                    .. attribute:: record_route
+                    
+                    	Record the route used by the tunnel
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: soft_preemption
+                    
+                    	Enable the soft\-preemption feature on the tunnel
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -8215,24 +8215,24 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
+                        self.affinity_mask = None
                         self.auto_mesh_logging = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging()
                         self.auto_mesh_logging.parent = self
                         self.autoroute_announce = None
-                        self.interface_bandwidth = None
-                        self.forward_class = None
-                        self.priority = None
-                        self.enable = None
-                        self.record_route = None
-                        self.affinity_mask = None
                         self.bandwidth = None
                         self.collection_only = None
-                        self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses()
-                        self.policy_classes.parent = self
+                        self.enable = None
+                        self.fast_reroute = None
+                        self.forward_class = None
+                        self.interface_bandwidth = None
+                        self.load_share = None
                         self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities()
                         self.new_style_affinities.parent = self
+                        self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses()
+                        self.policy_classes.parent = self
+                        self.priority = None
+                        self.record_route = None
                         self.soft_preemption = None
-                        self.fast_reroute = None
-                        self.load_share = None
 
 
                     class AutoMeshLogging(object):
@@ -8244,9 +8244,24 @@ class MplsTe(object):
                         	Log tunnel messages for bandwidth change
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
+                        .. attribute:: insufficient_bw_message
+                        
+                        	Log tunnel messages for insufficient bandwidth
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: pcalc_failure_message
+                        
+                        	Enable logging for path\-calculation failures
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: reoptimized_message
+                        
+                        	Log tunnel reoptimized messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
@@ -8259,21 +8274,6 @@ class MplsTe(object):
                         	Log tunnel state messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: insufficient_bw_message
-                        
-                        	Log tunnel messages for insufficient bandwidth
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: reoptimized_message
-                        
-                        	Log tunnel reoptimized messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: pcalc_failure_message
-                        
-                        	Enable logging for path\-calculation failures
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         
 
                         """
@@ -8284,17 +8284,17 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.bandwidth_change_message = None
+                            self.insufficient_bw_message = None
+                            self.pcalc_failure_message = None
                             self.reoptimize_attempts_message = None
+                            self.reoptimized_message = None
                             self.reroute_messsage = None
                             self.state_message = None
-                            self.insufficient_bw_message = None
-                            self.reoptimized_message = None
-                            self.pcalc_failure_message = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:auto-mesh-logging'
 
@@ -8308,22 +8308,22 @@ class MplsTe(object):
                             if self.bandwidth_change_message is not None:
                                 return True
 
+                            if self.insufficient_bw_message is not None:
+                                return True
+
+                            if self.pcalc_failure_message is not None:
+                                return True
+
                             if self.reoptimize_attempts_message is not None:
+                                return True
+
+                            if self.reoptimized_message is not None:
                                 return True
 
                             if self.reroute_messsage is not None:
                                 return True
 
                             if self.state_message is not None:
-                                return True
-
-                            if self.insufficient_bw_message is not None:
-                                return True
-
-                            if self.reoptimized_message is not None:
-                                return True
-
-                            if self.pcalc_failure_message is not None:
                                 return True
 
                             return False
@@ -8338,9 +8338,9 @@ class MplsTe(object):
                         """
                         Tunnel Setup and Hold Priorities
                         
-                        .. attribute:: setup_priority
+                        .. attribute:: hold_priority
                         
-                        	Setup Priority
+                        	Hold Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -8350,9 +8350,9 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: hold_priority
+                        .. attribute:: setup_priority
                         
-                        	Hold Priority
+                        	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
@@ -8373,13 +8373,13 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.setup_priority = None
                             self.hold_priority = None
+                            self.setup_priority = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
 
@@ -8390,10 +8390,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.setup_priority is not None:
+                            if self.hold_priority is not None:
                                 return True
 
-                            if self.hold_priority is not None:
+                            if self.setup_priority is not None:
                                 return True
 
                             return False
@@ -8449,7 +8449,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -8478,10 +8478,12 @@ class MplsTe(object):
                         """
                         Tunnel bandwidth requirement
                         
-                        .. attribute:: dste_type
+                        .. attribute:: bandwidth
                         
-                        	DSTE\-standard flag
-                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        	The value of the bandwidth reserved by this tunnel in kbps
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: _is_presence
                         
@@ -8500,12 +8502,10 @@ class MplsTe(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: bandwidth
+                        .. attribute:: dste_type
                         
-                        	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	DSTE\-standard flag
+                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                         
                         .. attribute:: _is_presence
                         
@@ -8523,14 +8523,14 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dste_type = None
-                            self.class_or_pool_type = None
                             self.bandwidth = None
+                            self.class_or_pool_type = None
+                            self.dste_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth'
 
@@ -8541,13 +8541,13 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.dste_type is not None:
+                            if self.bandwidth is not None:
                                 return True
 
                             if self.class_or_pool_type is not None:
                                 return True
 
-                            if self.bandwidth is not None:
+                            if self.dste_type is not None:
                                 return True
 
                             return False
@@ -8585,7 +8585,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:policy-classes'
 
@@ -8636,14 +8636,16 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity10  <key>
+                            
+                            	The name of the tenth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -8704,12 +8706,10 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity_type  <key>
                             
-                            	The name of the tenth affinity
-                            	**type**\: str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            	The type of the affinity entry
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -8720,8 +8720,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity_type = None
                                 self.affinity1 = None
+                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -8730,36 +8730,36 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity10 = None
+                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.affinity_type is None:
-                                    raise YPYDataValidationError('Key property affinity_type is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.affinity1 is None:
-                                    raise YPYDataValidationError('Key property affinity1 is None')
-                                if self.affinity2 is None:
-                                    raise YPYDataValidationError('Key property affinity2 is None')
-                                if self.affinity3 is None:
-                                    raise YPYDataValidationError('Key property affinity3 is None')
-                                if self.affinity4 is None:
-                                    raise YPYDataValidationError('Key property affinity4 is None')
-                                if self.affinity5 is None:
-                                    raise YPYDataValidationError('Key property affinity5 is None')
-                                if self.affinity6 is None:
-                                    raise YPYDataValidationError('Key property affinity6 is None')
-                                if self.affinity7 is None:
-                                    raise YPYDataValidationError('Key property affinity7 is None')
-                                if self.affinity8 is None:
-                                    raise YPYDataValidationError('Key property affinity8 is None')
-                                if self.affinity9 is None:
-                                    raise YPYDataValidationError('Key property affinity9 is None')
+                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity10 is None:
-                                    raise YPYDataValidationError('Key property affinity10 is None')
+                                    raise YPYModelError('Key property affinity10 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -8768,10 +8768,10 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
-                                if self.affinity1 is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -8798,7 +8798,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -8811,7 +8811,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -8880,7 +8880,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fast-reroute'
 
@@ -8907,7 +8907,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:auto-mesh-attributes/Cisco-IOS-XR-mpls-te-cfg:auto-mesh-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -8921,28 +8921,13 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
+                        if self.affinity_mask is not None and self.affinity_mask._has_data():
+                            return True
+
                         if self.auto_mesh_logging is not None and self.auto_mesh_logging._has_data():
                             return True
 
                         if self.autoroute_announce is not None:
-                            return True
-
-                        if self.interface_bandwidth is not None:
-                            return True
-
-                        if self.forward_class is not None:
-                            return True
-
-                        if self.priority is not None and self.priority._has_data():
-                            return True
-
-                        if self.enable is not None:
-                            return True
-
-                        if self.record_route is not None:
-                            return True
-
-                        if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
                         if self.bandwidth is not None and self.bandwidth._has_data():
@@ -8951,19 +8936,34 @@ class MplsTe(object):
                         if self.collection_only is not None:
                             return True
 
-                        if self.policy_classes is not None and self.policy_classes._has_data():
-                            return True
-
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
-                            return True
-
-                        if self.soft_preemption is not None:
+                        if self.enable is not None:
                             return True
 
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
                             return True
 
+                        if self.forward_class is not None:
+                            return True
+
+                        if self.interface_bandwidth is not None:
+                            return True
+
                         if self.load_share is not None:
+                            return True
+
+                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                            return True
+
+                        if self.policy_classes is not None and self.policy_classes._has_data():
+                            return True
+
+                        if self.priority is not None and self.priority._has_data():
+                            return True
+
+                        if self.record_route is not None:
+                            return True
+
+                        if self.soft_preemption is not None:
                             return True
 
                         return False
@@ -9032,15 +9032,15 @@ class MplsTe(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: path_diversity
-                    
-                    	Path diversity
-                    	**type**\: :py:class:`PathDiversity <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity>`
-                    
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: path_diversity
+                    
+                    	Path diversity
+                    	**type**\: :py:class:`PathDiversity <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity>`
                     
                     
 
@@ -9052,24 +9052,24 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.attribute_set_name = None
+                        self.enable = None
                         self.path_diversity = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity()
                         self.path_diversity.parent = self
-                        self.enable = None
 
 
                     class PathDiversity(object):
                         """
                         Path diversity
                         
-                        .. attribute:: srlgs
-                        
-                        	SRLG\-based path diversity
-                        	**type**\: :py:class:`Srlgs <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs>`
-                        
                         .. attribute:: lsp
                         
                         	LSP\-based path diversity
                         	**type**\: :py:class:`Lsp <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp>`
+                        
+                        .. attribute:: srlgs
+                        
+                        	SRLG\-based path diversity
+                        	**type**\: :py:class:`Srlgs <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs>`
                         
                         
 
@@ -9080,10 +9080,10 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.srlgs = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs()
-                            self.srlgs.parent = self
                             self.lsp = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp()
                             self.lsp.parent = self
+                            self.srlgs = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs()
+                            self.srlgs.parent = self
 
 
                         class Srlgs(object):
@@ -9140,9 +9140,9 @@ class MplsTe(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.srlg is None:
-                                        raise YPYDataValidationError('Key property srlg is None')
+                                        raise YPYModelError('Key property srlg is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:srlg[Cisco-IOS-XR-mpls-te-cfg:srlg = ' + str(self.srlg) + ']'
 
@@ -9169,7 +9169,7 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:srlgs'
 
@@ -9243,26 +9243,12 @@ class MplsTe(object):
                                     LSP\-based path\-diversity, referenced by
                                     FEC
                                     
-                                    .. attribute:: source  <key>
-                                    
-                                    	Source address
-                                    	**type**\: str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     .. attribute:: destination  <key>
                                     
                                     	Destination address
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: tunnel_id  <key>
-                                    
-                                    	Tunnel id
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
                                     
                                     .. attribute:: extended_tunnel_id  <key>
                                     
@@ -9274,6 +9260,20 @@ class MplsTe(object):
                                     .. attribute:: lsp_id  <key>
                                     
                                     	LSP id
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: source  <key>
+                                    
+                                    	Source address
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: tunnel_id  <key>
+                                    
+                                    	Tunnel id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
@@ -9292,29 +9292,29 @@ class MplsTe(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.source = None
                                         self.destination = None
-                                        self.tunnel_id = None
                                         self.extended_tunnel_id = None
                                         self.lsp_id = None
+                                        self.source = None
+                                        self.tunnel_id = None
                                         self.conformance = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.source is None:
-                                            raise YPYDataValidationError('Key property source is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.destination is None:
-                                            raise YPYDataValidationError('Key property destination is None')
-                                        if self.tunnel_id is None:
-                                            raise YPYDataValidationError('Key property tunnel_id is None')
+                                            raise YPYModelError('Key property destination is None')
                                         if self.extended_tunnel_id is None:
-                                            raise YPYDataValidationError('Key property extended_tunnel_id is None')
+                                            raise YPYModelError('Key property extended_tunnel_id is None')
                                         if self.lsp_id is None:
-                                            raise YPYDataValidationError('Key property lsp_id is None')
+                                            raise YPYModelError('Key property lsp_id is None')
+                                        if self.source is None:
+                                            raise YPYModelError('Key property source is None')
+                                        if self.tunnel_id is None:
+                                            raise YPYModelError('Key property tunnel_id is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fec[Cisco-IOS-XR-mpls-te-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-mpls-te-cfg:destination = ' + str(self.destination) + '][Cisco-IOS-XR-mpls-te-cfg:tunnel-id = ' + str(self.tunnel_id) + '][Cisco-IOS-XR-mpls-te-cfg:extended-tunnel-id = ' + str(self.extended_tunnel_id) + '][Cisco-IOS-XR-mpls-te-cfg:lsp-id = ' + str(self.lsp_id) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fec[Cisco-IOS-XR-mpls-te-cfg:destination = ' + str(self.destination) + '][Cisco-IOS-XR-mpls-te-cfg:extended-tunnel-id = ' + str(self.extended_tunnel_id) + '][Cisco-IOS-XR-mpls-te-cfg:lsp-id = ' + str(self.lsp_id) + '][Cisco-IOS-XR-mpls-te-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-mpls-te-cfg:tunnel-id = ' + str(self.tunnel_id) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -9323,19 +9323,19 @@ class MplsTe(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.source is not None:
-                                            return True
-
                                         if self.destination is not None:
-                                            return True
-
-                                        if self.tunnel_id is not None:
                                             return True
 
                                         if self.extended_tunnel_id is not None:
                                             return True
 
                                         if self.lsp_id is not None:
+                                            return True
+
+                                        if self.source is not None:
+                                            return True
+
+                                        if self.tunnel_id is not None:
                                             return True
 
                                         if self.conformance is not None:
@@ -9351,7 +9351,7 @@ class MplsTe(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fecs'
 
@@ -9377,7 +9377,7 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:lsp'
 
@@ -9401,7 +9401,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-diversity'
 
@@ -9412,10 +9412,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.srlgs is not None and self.srlgs._has_data():
+                            if self.lsp is not None and self.lsp._has_data():
                                 return True
 
-                            if self.lsp is not None and self.lsp._has_data():
+                            if self.srlgs is not None and self.srlgs._has_data():
                                 return True
 
                             return False
@@ -9428,7 +9428,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
-                            raise YPYDataValidationError('Key property attribute_set_name is None')
+                            raise YPYModelError('Key property attribute_set_name is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:attribute-set/Cisco-IOS-XR-mpls-te-cfg:xro-attributes/Cisco-IOS-XR-mpls-te-cfg:xro-attribute[Cisco-IOS-XR-mpls-te-cfg:attribute-set-name = ' + str(self.attribute_set_name) + ']'
 
@@ -9442,10 +9442,10 @@ class MplsTe(object):
                         if self.attribute_set_name is not None:
                             return True
 
-                        if self.path_diversity is not None and self.path_diversity._has_data():
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.path_diversity is not None and self.path_diversity._has_data():
                             return True
 
                         return False
@@ -9491,7 +9491,13 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.path_option_attributes is not None and self.path_option_attributes._has_data():
+                if self.auto_backup_attributes is not None and self.auto_backup_attributes._has_data():
+                    return True
+
+                if self.auto_mesh_attributes is not None and self.auto_mesh_attributes._has_data():
+                    return True
+
+                if self.otn_pp_attributes is not None and self.otn_pp_attributes._has_data():
                     return True
 
                 if self.p2mpte_attributes is not None and self.p2mpte_attributes._has_data():
@@ -9500,13 +9506,7 @@ class MplsTe(object):
                 if self.p2p_te_attributes is not None and self.p2p_te_attributes._has_data():
                     return True
 
-                if self.auto_backup_attributes is not None and self.auto_backup_attributes._has_data():
-                    return True
-
-                if self.otn_pp_attributes is not None and self.otn_pp_attributes._has_data():
-                    return True
-
-                if self.auto_mesh_attributes is not None and self.auto_mesh_attributes._has_data():
+                if self.path_option_attributes is not None and self.path_option_attributes._has_data():
                     return True
 
                 if self.xro_attributes is not None and self.xro_attributes._has_data():
@@ -9524,15 +9524,15 @@ class MplsTe(object):
             """
             BFD over MPLS TE Global Configurations
             
-            .. attribute:: tail
-            
-            	BFD over LSP Tail Global Configurations
-            	**type**\: :py:class:`Tail <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Tail>`
-            
             .. attribute:: head
             
             	BFD over LSP Head Global Configurations
             	**type**\: :py:class:`Head <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Head>`
+            
+            .. attribute:: tail
+            
+            	BFD over LSP Tail Global Configurations
+            	**type**\: :py:class:`Tail <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Tail>`
             
             
 
@@ -9543,22 +9543,15 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.tail = MplsTe.GlobalAttributes.BfdOverLsp.Tail()
-                self.tail.parent = self
                 self.head = MplsTe.GlobalAttributes.BfdOverLsp.Head()
                 self.head.parent = self
+                self.tail = MplsTe.GlobalAttributes.BfdOverLsp.Tail()
+                self.tail.parent = self
 
 
             class Tail(object):
                 """
                 BFD over LSP Tail Global Configurations
-                
-                .. attribute:: multiplier
-                
-                	Specify BFD over LSP tail multiplier
-                	**type**\: int
-                
-                	**range:** 3..10
                 
                 .. attribute:: minimum_interval
                 
@@ -9566,6 +9559,13 @@ class MplsTe(object):
                 	**type**\: int
                 
                 	**range:** 100..30000
+                
+                .. attribute:: multiplier
+                
+                	Specify BFD over LSP tail multiplier
+                	**type**\: int
+                
+                	**range:** 3..10
                 
                 
 
@@ -9576,8 +9576,8 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.multiplier = None
                     self.minimum_interval = None
+                    self.multiplier = None
 
                 @property
                 def _common_path(self):
@@ -9591,10 +9591,10 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.multiplier is not None:
+                    if self.minimum_interval is not None:
                         return True
 
-                    if self.minimum_interval is not None:
+                    if self.multiplier is not None:
                         return True
 
                     return False
@@ -9609,17 +9609,17 @@ class MplsTe(object):
                 """
                 BFD over LSP Head Global Configurations
                 
+                .. attribute:: down_action
+                
+                	Specify BFD session down action
+                	**type**\: :py:class:`MplsTeBfdSessionDownActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBfdSessionDownActionEnum>`
+                
                 .. attribute:: reopt_timeout
                 
                 	BFD session down reopt timeout
                 	**type**\: int
                 
                 	**range:** 120..4294967295
-                
-                .. attribute:: down_action
-                
-                	Specify BFD session down action
-                	**type**\: :py:class:`MplsTeBfdSessionDownActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBfdSessionDownActionEnum>`
                 
                 
 
@@ -9630,8 +9630,8 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.reopt_timeout = None
                     self.down_action = None
+                    self.reopt_timeout = None
 
                 @property
                 def _common_path(self):
@@ -9645,10 +9645,10 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.reopt_timeout is not None:
+                    if self.down_action is not None:
                         return True
 
-                    if self.down_action is not None:
+                    if self.reopt_timeout is not None:
                         return True
 
                     return False
@@ -9670,10 +9670,10 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.tail is not None and self.tail._has_data():
+                if self.head is not None and self.head._has_data():
                     return True
 
-                if self.head is not None and self.head._has_data():
+                if self.tail is not None and self.tail._has_data():
                     return True
 
                 return False
@@ -9687,40 +9687,6 @@ class MplsTe(object):
         class PceAttributes(object):
             """
             Configuration MPLS TE PCE attributes
-            
-            .. attribute:: pce_stateful
-            
-            	PCE Stateful
-            	**type**\: :py:class:`PceStateful <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful>`
-            
-            .. attribute:: timer
-            
-            	Configure PCE (Path Computation Element) timers
-            	**type**\: :py:class:`Timer <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Timer>`
-            
-            .. attribute:: peers
-            
-            	Configure PCE peers
-            	**type**\: :py:class:`Peers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Peers>`
-            
-            .. attribute:: logging
-            
-            	Configure PCE (Path Computation Element) logging feature
-            	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Logging>`
-            
-            .. attribute:: request_timeout
-            
-            	Request timeout value in seconds
-            	**type**\: int
-            
-            	**range:** 5..100
-            
-            .. attribute:: reoptimize_period
-            
-            	PCE reoptimization period for PCE\-based paths
-            	**type**\: int
-            
-            	**range:** 60..604800
             
             .. attribute:: address
             
@@ -9750,19 +9716,17 @@ class MplsTe(object):
             
             	**range:** 0..255
             
-            .. attribute:: peer_source_addr
+            .. attribute:: keychain
             
-            	PCE Peer Source Address
+            	Keychain based authentication
             	**type**\: str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            	**range:** 0..32
             
-            .. attribute:: speaker_entity_id
+            .. attribute:: logging
             
-            	PCE speaker entity identifier
-            	**type**\: str
-            
-            	**range:** 0..256
+            	Configure PCE (Path Computation Element) logging feature
+            	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Logging>`
             
             .. attribute:: password
             
@@ -9771,12 +9735,22 @@ class MplsTe(object):
             
             	**pattern:** (!.+)\|([^!].+)
             
-            .. attribute:: keychain
+            .. attribute:: pce_stateful
             
-            	Keychain based authentication
+            	PCE Stateful
+            	**type**\: :py:class:`PceStateful <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful>`
+            
+            .. attribute:: peer_source_addr
+            
+            	PCE Peer Source Address
             	**type**\: str
             
-            	**range:** 0..32
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            .. attribute:: peers
+            
+            	Configure PCE peers
+            	**type**\: :py:class:`Peers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Peers>`
             
             .. attribute:: precedence
             
@@ -9784,6 +9758,32 @@ class MplsTe(object):
             	**type**\: int
             
             	**range:** 0..255
+            
+            .. attribute:: reoptimize_period
+            
+            	PCE reoptimization period for PCE\-based paths
+            	**type**\: int
+            
+            	**range:** 60..604800
+            
+            .. attribute:: request_timeout
+            
+            	Request timeout value in seconds
+            	**type**\: int
+            
+            	**range:** 5..100
+            
+            .. attribute:: speaker_entity_id
+            
+            	PCE speaker entity identifier
+            	**type**\: str
+            
+            	**range:** 0..256
+            
+            .. attribute:: timer
+            
+            	Configure PCE (Path Computation Element) timers
+            	**type**\: :py:class:`Timer <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Timer>`
             
             
 
@@ -9794,45 +9794,30 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.pce_stateful = MplsTe.GlobalAttributes.PceAttributes.PceStateful()
-                self.pce_stateful.parent = self
-                self.timer = MplsTe.GlobalAttributes.PceAttributes.Timer()
-                self.timer.parent = self
-                self.peers = MplsTe.GlobalAttributes.PceAttributes.Peers()
-                self.peers.parent = self
-                self.logging = MplsTe.GlobalAttributes.PceAttributes.Logging()
-                self.logging.parent = self
-                self.request_timeout = None
-                self.reoptimize_period = None
                 self.address = None
                 self.deadtimer = None
                 self.keepalive = None
                 self.keepalive_tolerance = None
-                self.peer_source_addr = None
-                self.speaker_entity_id = None
-                self.password = None
                 self.keychain = None
+                self.logging = MplsTe.GlobalAttributes.PceAttributes.Logging()
+                self.logging.parent = self
+                self.password = None
+                self.pce_stateful = MplsTe.GlobalAttributes.PceAttributes.PceStateful()
+                self.pce_stateful.parent = self
+                self.peer_source_addr = None
+                self.peers = MplsTe.GlobalAttributes.PceAttributes.Peers()
+                self.peers.parent = self
                 self.precedence = None
+                self.reoptimize_period = None
+                self.request_timeout = None
+                self.speaker_entity_id = None
+                self.timer = MplsTe.GlobalAttributes.PceAttributes.Timer()
+                self.timer.parent = self
 
 
             class PceStateful(object):
                 """
                 PCE Stateful
-                
-                .. attribute:: stateful_timers
-                
-                	Configure Stateful PCE (Path Computation Element) timers
-                	**type**\: :py:class:`StatefulTimers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers>`
-                
-                .. attribute:: fast_repair
-                
-                	Enable reoptimization by PCC after path failures
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: instantiation
-                
-                	PCE stateful instantiation capability
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: cisco_extension
                 
@@ -9844,15 +9829,30 @@ class MplsTe(object):
                 	Delegate all statically configured tunnels
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
+                .. attribute:: enable
+                
+                	PCE stateful capability
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: fast_repair
+                
+                	Enable reoptimization by PCC after path failures
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: instantiation
+                
+                	PCE stateful instantiation capability
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
                 .. attribute:: report
                 
                 	Report all statically configured tunnels
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: enable
+                .. attribute:: stateful_timers
                 
-                	PCE stateful capability
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Configure Stateful PCE (Path Computation Element) timers
+                	**type**\: :py:class:`StatefulTimers <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers>`
                 
                 
 
@@ -9863,14 +9863,14 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.stateful_timers = MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers()
-                    self.stateful_timers.parent = self
-                    self.fast_repair = None
-                    self.instantiation = None
                     self.cisco_extension = None
                     self.delegation = None
-                    self.report = None
                     self.enable = None
+                    self.fast_repair = None
+                    self.instantiation = None
+                    self.report = None
+                    self.stateful_timers = MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers()
+                    self.stateful_timers.parent = self
 
 
                 class StatefulTimers(object):
@@ -9941,7 +9941,13 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.stateful_timers is not None and self.stateful_timers._has_data():
+                    if self.cisco_extension is not None:
+                        return True
+
+                    if self.delegation is not None:
+                        return True
+
+                    if self.enable is not None:
                         return True
 
                     if self.fast_repair is not None:
@@ -9950,16 +9956,10 @@ class MplsTe(object):
                     if self.instantiation is not None:
                         return True
 
-                    if self.cisco_extension is not None:
-                        return True
-
-                    if self.delegation is not None:
-                        return True
-
                     if self.report is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.stateful_timers is not None and self.stateful_timers._has_data():
                         return True
 
                     return False
@@ -10044,19 +10044,19 @@ class MplsTe(object):
                     	Enabled PCE peer (default source address uses local)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: password
-                    
-                    	MD5 password
-                    	**type**\: str
-                    
-                    	**pattern:** (!.+)\|([^!].+)
-                    
                     .. attribute:: keychain
                     
                     	Keychain based authentication
                     	**type**\: str
                     
                     	**range:** 0..32
+                    
+                    .. attribute:: password
+                    
+                    	MD5 password
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     .. attribute:: precedence
                     
@@ -10076,14 +10076,14 @@ class MplsTe(object):
                         self.parent = None
                         self.pce_peer_address = None
                         self.enable = None
-                        self.password = None
                         self.keychain = None
+                        self.password = None
                         self.precedence = None
 
                     @property
                     def _common_path(self):
                         if self.pce_peer_address is None:
-                            raise YPYDataValidationError('Key property pce_peer_address is None')
+                            raise YPYModelError('Key property pce_peer_address is None')
 
                         return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:pce-attributes/Cisco-IOS-XR-mpls-te-cfg:peers/Cisco-IOS-XR-mpls-te-cfg:peer[Cisco-IOS-XR-mpls-te-cfg:pce-peer-address = ' + str(self.pce_peer_address) + ']'
 
@@ -10100,10 +10100,10 @@ class MplsTe(object):
                         if self.enable is not None:
                             return True
 
-                        if self.password is not None:
+                        if self.keychain is not None:
                             return True
 
-                        if self.keychain is not None:
+                        if self.password is not None:
                             return True
 
                         if self.precedence is not None:
@@ -10240,24 +10240,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.pce_stateful is not None and self.pce_stateful._has_data():
-                    return True
-
-                if self.timer is not None and self.timer._has_data():
-                    return True
-
-                if self.peers is not None and self.peers._has_data():
-                    return True
-
-                if self.logging is not None and self.logging._has_data():
-                    return True
-
-                if self.request_timeout is not None:
-                    return True
-
-                if self.reoptimize_period is not None:
-                    return True
-
                 if self.address is not None:
                     return True
 
@@ -10270,19 +10252,37 @@ class MplsTe(object):
                 if self.keepalive_tolerance is not None:
                     return True
 
-                if self.peer_source_addr is not None:
+                if self.keychain is not None:
                     return True
 
-                if self.speaker_entity_id is not None:
+                if self.logging is not None and self.logging._has_data():
                     return True
 
                 if self.password is not None:
                     return True
 
-                if self.keychain is not None:
+                if self.pce_stateful is not None and self.pce_stateful._has_data():
+                    return True
+
+                if self.peer_source_addr is not None:
+                    return True
+
+                if self.peers is not None and self.peers._has_data():
                     return True
 
                 if self.precedence is not None:
+                    return True
+
+                if self.reoptimize_period is not None:
+                    return True
+
+                if self.request_timeout is not None:
+                    return True
+
+                if self.speaker_entity_id is not None:
+                    return True
+
+                if self.timer is not None and self.timer._has_data():
                     return True
 
                 return False
@@ -10297,22 +10297,22 @@ class MplsTe(object):
             """
             Soft preemption configuration data
             
-            .. attribute:: timeout
+            .. attribute:: enable
             
-            	This object sets the timeout in seconds before hard preemption is triggered
-            	**type**\: int
-            
-            	**range:** 1..300
+            	This object controls whether soft preemption is enabled. This object must be set before setting any other objects under the SoftPreemption class
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: frr_rewrite
             
             	This object controls whether FRR rewrite during soft preemption is enabled
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: enable
+            .. attribute:: timeout
             
-            	This object controls whether soft preemption is enabled. This object must be set before setting any other objects under the SoftPreemption class
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	This object sets the timeout in seconds before hard preemption is triggered
+            	**type**\: int
+            
+            	**range:** 1..300
             
             
 
@@ -10323,9 +10323,9 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.timeout = None
-                self.frr_rewrite = None
                 self.enable = None
+                self.frr_rewrite = None
+                self.timeout = None
 
             @property
             def _common_path(self):
@@ -10339,13 +10339,13 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.timeout is not None:
+                if self.enable is not None:
                     return True
 
                 if self.frr_rewrite is not None:
                     return True
 
-                if self.enable is not None:
+                if self.timeout is not None:
                     return True
 
                 return False
@@ -10360,17 +10360,17 @@ class MplsTe(object):
             """
             Path invalidation configuration for all tunnels
             
+            .. attribute:: path_invalidation_action
+            
+            	Path Invalidation Action
+            	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+            
             .. attribute:: path_invalidation_timeout
             
             	Path Invalidation Timeout
             	**type**\: int
             
             	**range:** 0..60000
-            
-            .. attribute:: path_invalidation_action
-            
-            	Path Invalidation Action
-            	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
             
             
 
@@ -10381,8 +10381,8 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.path_invalidation_timeout = None
                 self.path_invalidation_action = None
+                self.path_invalidation_timeout = None
 
             @property
             def _common_path(self):
@@ -10396,10 +10396,10 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.path_invalidation_timeout is not None:
+                if self.path_invalidation_action is not None:
                     return True
 
-                if self.path_invalidation_action is not None:
+                if self.path_invalidation_timeout is not None:
                     return True
 
                 return False
@@ -10606,17 +10606,17 @@ class MplsTe(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: value_type
-                
-                	Affinity value type
-                	**type**\: :py:class:`MplsTeAffinityValueEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAffinityValueEnum>`
-                
                 .. attribute:: value
                 
                 	Affinity Value in Hex number or by Bit position
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: value_type
+                
+                	Affinity value type
+                	**type**\: :py:class:`MplsTeAffinityValueEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAffinityValueEnum>`
                 
                 
 
@@ -10628,13 +10628,13 @@ class MplsTe(object):
                 def __init__(self):
                     self.parent = None
                     self.affinity_name = None
-                    self.value_type = None
                     self.value = None
+                    self.value_type = None
 
                 @property
                 def _common_path(self):
                     if self.affinity_name is None:
-                        raise YPYDataValidationError('Key property affinity_name is None')
+                        raise YPYModelError('Key property affinity_name is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:affinity-mappings/Cisco-IOS-XR-mpls-te-cfg:affinity-mapping[Cisco-IOS-XR-mpls-te-cfg:affinity-name = ' + str(self.affinity_name) + ']'
 
@@ -10648,10 +10648,10 @@ class MplsTe(object):
                     if self.affinity_name is not None:
                         return True
 
-                    if self.value_type is not None:
+                    if self.value is not None:
                         return True
 
-                    if self.value is not None:
+                    if self.value_type is not None:
                         return True
 
                     return False
@@ -10697,136 +10697,136 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.path_selection_loose_affinities is not None and self.path_selection_loose_affinities._has_data():
-                return True
-
-            if self.auto_tunnel is not None and self.auto_tunnel._has_data():
-                return True
-
-            if self.secondary_router_ids is not None and self.secondary_router_ids._has_data():
-                return True
-
-            if self.srlg is not None and self.srlg._has_data():
-                return True
-
-            if self.queues is not None and self.queues._has_data():
-                return True
-
-            if self.path_selection_loose_metrics is not None and self.path_selection_loose_metrics._has_data():
-                return True
-
-            if self.mib is not None and self.mib._has_data():
-                return True
-
-            if self.attribute_set is not None and self.attribute_set._has_data():
-                return True
-
-            if self.bfd_over_lsp is not None and self.bfd_over_lsp._has_data():
-                return True
-
-            if self.pce_attributes is not None and self.pce_attributes._has_data():
-                return True
-
-            if self.soft_preemption is not None and self.soft_preemption._has_data():
-                return True
-
-            if self.path_invalidation is not None and self.path_invalidation._has_data():
-                return True
-
-            if self.fast_reroute is not None and self.fast_reroute._has_data():
-                return True
-
-            if self.path_selection_ignore_overload_role is not None and self.path_selection_ignore_overload_role._has_data():
+            if self.advertise_explicit_nulls is not None:
                 return True
 
             if self.affinity_mappings is not None and self.affinity_mappings._has_data():
                 return True
 
-            if self.log_nsr_status is not None:
-                return True
-
-            if self.path_selection_tiebreaker is not None:
-                return True
-
-            if self.log_issu_status is not None:
-                return True
-
-            if self.reoptimize_link_up is not None:
-                return True
-
-            if self.reoptimize_delay_cleanup_timer is not None:
-                return True
-
-            if self.disable_reoptimize_affinity_failure is not None:
-                return True
-
-            if self.maximum_tunnels is not None:
-                return True
-
-            if self.link_holddown_timer is not None:
-                return True
-
-            if self.path_selection_metric is not None:
-                return True
-
-            if self.fault_oam is not None:
-                return True
-
-            if self.enable_unequal_load_balancing is not None:
-                return True
-
-            if self.log_tail is not None:
-                return True
-
-            if self.reoptimize_delay_after_frr_timer is not None:
+            if self.attribute_set is not None and self.attribute_set._has_data():
                 return True
 
             if self.auto_bandwidth_collect_frequency is not None:
                 return True
 
-            if self.reopt_delay_path_protect_switchover_timer is not None:
+            if self.auto_tunnel is not None and self.auto_tunnel._has_data():
                 return True
 
-            if self.log_all is not None:
+            if self.bfd_over_lsp is not None and self.bfd_over_lsp._has_data():
                 return True
 
-            if self.loose_path_retry_period is not None:
+            if self.disable_reoptimize_affinity_failure is not None:
                 return True
 
-            if self.reoptimize_load_balancing is not None:
+            if self.enable_unequal_load_balancing is not None:
                 return True
 
-            if self.log_head is not None:
+            if self.fast_reroute is not None and self.fast_reroute._has_data():
                 return True
 
-            if self.path_selection_ignore_overload is not None:
+            if self.fault_oam is not None:
                 return True
 
             if self.graceful_preemption_on_bandwidth_reduction is not None:
                 return True
 
-            if self.advertise_explicit_nulls is not None:
+            if self.link_holddown_timer is not None:
                 return True
 
-            if self.reoptimize_delay_install_timer is not None:
-                return True
-
-            if self.reoptimize_delay_after_affinity_failure_timer is not None:
+            if self.log_all is not None:
                 return True
 
             if self.log_frr_protection is not None:
                 return True
 
-            if self.reoptimize_timer_frequency is not None:
+            if self.log_head is not None:
+                return True
+
+            if self.log_issu_status is not None:
                 return True
 
             if self.log_mid is not None:
                 return True
 
+            if self.log_nsr_status is not None:
+                return True
+
             if self.log_preemption is not None:
                 return True
 
+            if self.log_tail is not None:
+                return True
+
+            if self.loose_path_retry_period is not None:
+                return True
+
+            if self.maximum_tunnels is not None:
+                return True
+
+            if self.mib is not None and self.mib._has_data():
+                return True
+
+            if self.path_invalidation is not None and self.path_invalidation._has_data():
+                return True
+
             if self.path_selection_cost_limit is not None:
+                return True
+
+            if self.path_selection_ignore_overload is not None:
+                return True
+
+            if self.path_selection_ignore_overload_role is not None and self.path_selection_ignore_overload_role._has_data():
+                return True
+
+            if self.path_selection_loose_affinities is not None and self.path_selection_loose_affinities._has_data():
+                return True
+
+            if self.path_selection_loose_metrics is not None and self.path_selection_loose_metrics._has_data():
+                return True
+
+            if self.path_selection_metric is not None:
+                return True
+
+            if self.path_selection_tiebreaker is not None:
+                return True
+
+            if self.pce_attributes is not None and self.pce_attributes._has_data():
+                return True
+
+            if self.queues is not None and self.queues._has_data():
+                return True
+
+            if self.reopt_delay_path_protect_switchover_timer is not None:
+                return True
+
+            if self.reoptimize_delay_after_affinity_failure_timer is not None:
+                return True
+
+            if self.reoptimize_delay_after_frr_timer is not None:
+                return True
+
+            if self.reoptimize_delay_cleanup_timer is not None:
+                return True
+
+            if self.reoptimize_delay_install_timer is not None:
+                return True
+
+            if self.reoptimize_link_up is not None:
+                return True
+
+            if self.reoptimize_load_balancing is not None:
+                return True
+
+            if self.reoptimize_timer_frequency is not None:
+                return True
+
+            if self.secondary_router_ids is not None and self.secondary_router_ids._has_data():
+                return True
+
+            if self.soft_preemption is not None and self.soft_preemption._has_data():
+                return True
+
+            if self.srlg is not None and self.srlg._has_data():
                 return True
 
             return False
@@ -10841,11 +10841,6 @@ class MplsTe(object):
         """
         MPLS transport profile configuration data
         
-        .. attribute:: fault
-        
-        	Fault management
-        	**type**\: :py:class:`Fault <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault>`
-        
         .. attribute:: alarm
         
         	Alarm management
@@ -10856,10 +10851,10 @@ class MplsTe(object):
         	Configure BFD parameters
         	**type**\: :py:class:`Bfd <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd>`
         
-        .. attribute:: midpoints
+        .. attribute:: fault
         
-        	MPLS\-TP tunnel mid\-point table
-        	**type**\: :py:class:`Midpoints <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints>`
+        	Fault management
+        	**type**\: :py:class:`Fault <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault>`
         
         .. attribute:: global_id
         
@@ -10867,6 +10862,11 @@ class MplsTe(object):
         	**type**\: int
         
         	**range:** 1..65535
+        
+        .. attribute:: midpoints
+        
+        	MPLS\-TP tunnel mid\-point table
+        	**type**\: :py:class:`Midpoints <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints>`
         
         .. attribute:: node_id
         
@@ -10884,15 +10884,15 @@ class MplsTe(object):
 
         def __init__(self):
             self.parent = None
-            self.fault = MplsTe.TransportProfile.Fault()
-            self.fault.parent = self
             self.alarm = MplsTe.TransportProfile.Alarm()
             self.alarm.parent = self
             self.bfd = MplsTe.TransportProfile.Bfd()
             self.bfd.parent = self
+            self.fault = MplsTe.TransportProfile.Fault()
+            self.fault.parent = self
+            self.global_id = None
             self.midpoints = MplsTe.TransportProfile.Midpoints()
             self.midpoints.parent = self
-            self.global_id = None
             self.node_id = None
 
 
@@ -10905,19 +10905,19 @@ class MplsTe(object):
             	OAM events that trigger protection switching
             	**type**\: :py:class:`ProtectionTrigger <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger>`
             
-            .. attribute:: wait_to_restore_interval
-            
-            	Waiting time before restoring working LSP
-            	**type**\: int
-            
-            	**range:** 0..2147483647
-            
             .. attribute:: refresh_interval
             
             	Periodic refresh interval for fault OAM messages
             	**type**\: int
             
             	**range:** 1..20
+            
+            .. attribute:: wait_to_restore_interval
+            
+            	Waiting time before restoring working LSP
+            	**type**\: int
+            
+            	**range:** 0..2147483647
             
             
 
@@ -10930,13 +10930,18 @@ class MplsTe(object):
                 self.parent = None
                 self.protection_trigger = MplsTe.TransportProfile.Fault.ProtectionTrigger()
                 self.protection_trigger.parent = self
-                self.wait_to_restore_interval = None
                 self.refresh_interval = None
+                self.wait_to_restore_interval = None
 
 
             class ProtectionTrigger(object):
                 """
                 OAM events that trigger protection switching
+                
+                .. attribute:: ais
+                
+                	Enable protection switching due to AIS event
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: ldi
                 
@@ -10948,11 +10953,6 @@ class MplsTe(object):
                 	Protection switching due to LKR event
                 	**type**\: :py:class:`Lkr <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr>`
                 
-                .. attribute:: ais
-                
-                	Enable protection switching due to AIS event
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 
 
                 """
@@ -10962,11 +10962,11 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.ais = None
                     self.ldi = MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi()
                     self.ldi.parent = self
                     self.lkr = MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr()
                     self.lkr.parent = self
-                    self.ais = None
 
 
                 class Ldi(object):
@@ -11066,13 +11066,13 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.ais is not None:
+                        return True
+
                     if self.ldi is not None and self.ldi._has_data():
                         return True
 
                     if self.lkr is not None and self.lkr._has_data():
-                        return True
-
-                    if self.ais is not None:
                         return True
 
                     return False
@@ -11097,10 +11097,10 @@ class MplsTe(object):
                 if self.protection_trigger is not None and self.protection_trigger._has_data():
                     return True
 
-                if self.wait_to_restore_interval is not None:
+                if self.refresh_interval is not None:
                     return True
 
-                if self.refresh_interval is not None:
+                if self.wait_to_restore_interval is not None:
                     return True
 
                 return False
@@ -11115,10 +11115,10 @@ class MplsTe(object):
             """
             Alarm management
             
-            .. attribute:: suppress_event
+            .. attribute:: enable_alarm
             
-            	Suppress all tunnel/LSP alarms
-            	**type**\: :py:class:`SuppressEvent <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Alarm.SuppressEvent>`
+            	Enable Transport Profile Alarm
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: soak_time
             
@@ -11127,10 +11127,10 @@ class MplsTe(object):
             
             	**range:** 0..10
             
-            .. attribute:: enable_alarm
+            .. attribute:: suppress_event
             
-            	Enable Transport Profile Alarm
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	Suppress all tunnel/LSP alarms
+            	**type**\: :py:class:`SuppressEvent <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Alarm.SuppressEvent>`
             
             
 
@@ -11141,10 +11141,10 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
+                self.enable_alarm = None
+                self.soak_time = None
                 self.suppress_event = MplsTe.TransportProfile.Alarm.SuppressEvent()
                 self.suppress_event.parent = self
-                self.soak_time = None
-                self.enable_alarm = None
 
 
             class SuppressEvent(object):
@@ -11201,13 +11201,13 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.suppress_event is not None and self.suppress_event._has_data():
+                if self.enable_alarm is not None:
                     return True
 
                 if self.soak_time is not None:
                     return True
 
-                if self.enable_alarm is not None:
+                if self.suppress_event is not None and self.suppress_event._has_data():
                     return True
 
                 return False
@@ -11222,15 +11222,12 @@ class MplsTe(object):
             """
             Configure BFD parameters
             
-            .. attribute:: min_interval_standby
+            .. attribute:: detection_multiplier
             
-            	Hello interval for standby transport profile LSPs, either in milli\-seconds or in micro\-seconds
-            	**type**\: :py:class:`MinIntervalStandby <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinIntervalStandby>`
+            	Detect multiplier
+            	**type**\: int
             
-            .. attribute:: min_interval
-            
-            	Hello interval, either in milli\-seconds or in micro\-seconds
-            	**type**\: :py:class:`MinInterval <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinInterval>`
+            	**range:** 2..10
             
             .. attribute:: detection_multiplier_standby
             
@@ -11239,12 +11236,15 @@ class MplsTe(object):
             
             	**range:** 2..10
             
-            .. attribute:: detection_multiplier
+            .. attribute:: min_interval
             
-            	Detect multiplier
-            	**type**\: int
+            	Hello interval, either in milli\-seconds or in micro\-seconds
+            	**type**\: :py:class:`MinInterval <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinInterval>`
             
-            	**range:** 2..10
+            .. attribute:: min_interval_standby
+            
+            	Hello interval for standby transport profile LSPs, either in milli\-seconds or in micro\-seconds
+            	**type**\: :py:class:`MinIntervalStandby <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinIntervalStandby>`
             
             
 
@@ -11255,12 +11255,12 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.min_interval_standby = MplsTe.TransportProfile.Bfd.MinIntervalStandby()
-                self.min_interval_standby.parent = self
+                self.detection_multiplier = None
+                self.detection_multiplier_standby = None
                 self.min_interval = MplsTe.TransportProfile.Bfd.MinInterval()
                 self.min_interval.parent = self
-                self.detection_multiplier_standby = None
-                self.detection_multiplier = None
+                self.min_interval_standby = MplsTe.TransportProfile.Bfd.MinIntervalStandby()
+                self.min_interval_standby.parent = self
 
 
             class MinIntervalStandby(object):
@@ -11389,16 +11389,16 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.min_interval_standby is not None and self.min_interval_standby._has_data():
-                    return True
-
-                if self.min_interval is not None and self.min_interval._has_data():
+                if self.detection_multiplier is not None:
                     return True
 
                 if self.detection_multiplier_standby is not None:
                     return True
 
-                if self.detection_multiplier is not None:
+                if self.min_interval is not None and self.min_interval._has_data():
+                    return True
+
+                if self.min_interval_standby is not None and self.min_interval_standby._has_data():
                     return True
 
                 return False
@@ -11443,11 +11443,6 @@ class MplsTe(object):
                 
                 	**range:** 0..64
                 
-                .. attribute:: source
-                
-                	Node identifier, tunnel identifier and optional global identifier of the source of the LSP
-                	**type**\: :py:class:`Source <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.Source>`
-                
                 .. attribute:: destination
                 
                 	Node identifier, tunnel identifier and optional global identifier of the destination of the LSP
@@ -11458,27 +11453,32 @@ class MplsTe(object):
                 	Forward transport profile LSP
                 	**type**\: :py:class:`ForwardLsp <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp>`
                 
-                .. attribute:: reverse_lsp
-                
-                	none
-                	**type**\: :py:class:`ReverseLsp <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp>`
-                
-                .. attribute:: tunnel_name
-                
-                	Tunnel Name
-                	**type**\: str
-                
-                .. attribute:: lsp_protect
-                
-                	Enable LSP protection
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: lsp_id
                 
                 	Numeric identifier
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                .. attribute:: lsp_protect
+                
+                	Enable LSP protection
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: reverse_lsp
+                
+                	none
+                	**type**\: :py:class:`ReverseLsp <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp>`
+                
+                .. attribute:: source
+                
+                	Node identifier, tunnel identifier and optional global identifier of the source of the LSP
+                	**type**\: :py:class:`Source <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.Source>`
+                
+                .. attribute:: tunnel_name
+                
+                	Tunnel Name
+                	**type**\: str
                 
                 
 
@@ -11490,15 +11490,15 @@ class MplsTe(object):
                 def __init__(self):
                     self.parent = None
                     self.midpoint_name = None
-                    self.source = None
                     self.destination = None
                     self.forward_lsp = MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp()
                     self.forward_lsp.parent = self
+                    self.lsp_id = None
+                    self.lsp_protect = None
                     self.reverse_lsp = MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp()
                     self.reverse_lsp.parent = self
+                    self.source = None
                     self.tunnel_name = None
-                    self.lsp_protect = None
-                    self.lsp_id = None
 
 
                 class Source(object):
@@ -11506,6 +11506,18 @@ class MplsTe(object):
                     Node identifier, tunnel identifier and
                     optional global identifier of the source of
                     the LSP
+                    
+                    .. attribute:: global_id
+                    
+                    	Global identifier in numeric value
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: node_id
                     
@@ -11531,18 +11543,6 @@ class MplsTe(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: global_id
-                    
-                    	Global identifier in numeric value
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -11554,14 +11554,14 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.global_id = None
                         self.node_id = None
                         self.tunnel_id = None
-                        self.global_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:source'
 
@@ -11572,13 +11572,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.global_id is not None:
+                            return True
+
                         if self.node_id is not None:
                             return True
 
                         if self.tunnel_id is not None:
-                            return True
-
-                        if self.global_id is not None:
                             return True
 
                         return False
@@ -11595,6 +11595,18 @@ class MplsTe(object):
                     optional global identifier of the destination
                     of the LSP
                     
+                    .. attribute:: global_id
+                    
+                    	Global identifier in numeric value
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: node_id
                     
                     	Node identifier in IPv4 address format
@@ -11619,18 +11631,6 @@ class MplsTe(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: global_id
-                    
-                    	Global identifier in numeric value
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -11642,14 +11642,14 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.global_id = None
                         self.node_id = None
                         self.tunnel_id = None
-                        self.global_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination'
 
@@ -11660,13 +11660,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.global_id is not None:
+                            return True
+
                         if self.node_id is not None:
                             return True
 
                         if self.tunnel_id is not None:
-                            return True
-
-                        if self.global_id is not None:
                             return True
 
                         return False
@@ -11681,17 +11681,17 @@ class MplsTe(object):
                     """
                     Forward transport profile LSP
                     
-                    .. attribute:: forward_io_map
-                    
-                    	Label cross\-connect of forward transport profile LSP
-                    	**type**\: :py:class:`ForwardIoMap <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap>`
-                    
                     .. attribute:: forward_bandwidth
                     
                     	Bandwidth of forward transport profile LSP
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: forward_io_map
+                    
+                    	Label cross\-connect of forward transport profile LSP
+                    	**type**\: :py:class:`ForwardIoMap <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap>`
                     
                     
 
@@ -11702,8 +11702,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.forward_io_map = None
                         self.forward_bandwidth = None
+                        self.forward_io_map = None
 
 
                     class ForwardIoMap(object):
@@ -11765,7 +11765,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:forward-io-map'
 
@@ -11795,7 +11795,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:forward-lsp'
 
@@ -11806,10 +11806,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.forward_io_map is not None and self.forward_io_map._has_data():
+                        if self.forward_bandwidth is not None:
                             return True
 
-                        if self.forward_bandwidth is not None:
+                        if self.forward_io_map is not None and self.forward_io_map._has_data():
                             return True
 
                         return False
@@ -11824,17 +11824,17 @@ class MplsTe(object):
                     """
                     none
                     
-                    .. attribute:: reverse_io_map
-                    
-                    	Label cross\-connect of reverse transport profile LSP
-                    	**type**\: :py:class:`ReverseIoMap <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap>`
-                    
                     .. attribute:: reverse_bandwidth
                     
                     	Bandwidth of reverse transport profile LSP
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: reverse_io_map
+                    
+                    	Label cross\-connect of reverse transport profile LSP
+                    	**type**\: :py:class:`ReverseIoMap <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap>`
                     
                     
 
@@ -11845,8 +11845,8 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.reverse_io_map = None
                         self.reverse_bandwidth = None
+                        self.reverse_io_map = None
 
 
                     class ReverseIoMap(object):
@@ -11908,7 +11908,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:reverse-io-map'
 
@@ -11938,7 +11938,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:reverse-lsp'
 
@@ -11949,10 +11949,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.reverse_io_map is not None and self.reverse_io_map._has_data():
+                        if self.reverse_bandwidth is not None:
                             return True
 
-                        if self.reverse_bandwidth is not None:
+                        if self.reverse_io_map is not None and self.reverse_io_map._has_data():
                             return True
 
                         return False
@@ -11965,7 +11965,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.midpoint_name is None:
-                        raise YPYDataValidationError('Key property midpoint_name is None')
+                        raise YPYModelError('Key property midpoint_name is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:transport-profile/Cisco-IOS-XR-mpls-te-cfg:midpoints/Cisco-IOS-XR-mpls-te-cfg:midpoint[Cisco-IOS-XR-mpls-te-cfg:midpoint-name = ' + str(self.midpoint_name) + ']'
 
@@ -11979,25 +11979,25 @@ class MplsTe(object):
                     if self.midpoint_name is not None:
                         return True
 
-                    if self.source is not None and self.source._has_data():
-                        return True
-
                     if self.destination is not None and self.destination._has_data():
                         return True
 
                     if self.forward_lsp is not None and self.forward_lsp._has_data():
                         return True
 
-                    if self.reverse_lsp is not None and self.reverse_lsp._has_data():
-                        return True
-
-                    if self.tunnel_name is not None:
+                    if self.lsp_id is not None:
                         return True
 
                     if self.lsp_protect is not None:
                         return True
 
-                    if self.lsp_id is not None:
+                    if self.reverse_lsp is not None and self.reverse_lsp._has_data():
+                        return True
+
+                    if self.source is not None and self.source._has_data():
+                        return True
+
+                    if self.tunnel_name is not None:
                         return True
 
                     return False
@@ -12043,19 +12043,19 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.fault is not None and self.fault._has_data():
-                return True
-
             if self.alarm is not None and self.alarm._has_data():
                 return True
 
             if self.bfd is not None and self.bfd._has_data():
                 return True
 
-            if self.midpoints is not None and self.midpoints._has_data():
+            if self.fault is not None and self.fault._has_data():
                 return True
 
             if self.global_id is not None:
+                return True
+
+            if self.midpoints is not None and self.midpoints._has_data():
                 return True
 
             if self.node_id is not None:
@@ -12103,20 +12103,20 @@ class MplsTe(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: transport_profile_link
+            .. attribute:: global_attributes
             
-            	MPLS transport profile capable link
-            	**type**\: :py:class:`TransportProfileLink <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink>`
+            	MPLS TE global interface configuration
+            	**type**\: :py:class:`GlobalAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes>`
             
             .. attribute:: lcac
             
             	LCAC specific MPLS interface configuration
             	**type**\: :py:class:`Lcac <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac>`
             
-            .. attribute:: global_attributes
+            .. attribute:: transport_profile_link
             
-            	MPLS TE global interface configuration
-            	**type**\: :py:class:`GlobalAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes>`
+            	MPLS transport profile capable link
+            	**type**\: :py:class:`TransportProfileLink <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink>`
             
             
 
@@ -12128,12 +12128,12 @@ class MplsTe(object):
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
-                self.transport_profile_link = MplsTe.Interfaces.Interface.TransportProfileLink()
-                self.transport_profile_link.parent = self
-                self.lcac = MplsTe.Interfaces.Interface.Lcac()
-                self.lcac.parent = self
                 self.global_attributes = MplsTe.Interfaces.Interface.GlobalAttributes()
                 self.global_attributes.parent = self
+                self.lcac = MplsTe.Interfaces.Interface.Lcac()
+                self.lcac.parent = self
+                self.transport_profile_link = MplsTe.Interfaces.Interface.TransportProfileLink()
+                self.transport_profile_link.parent = self
 
 
             class TransportProfileLink(object):
@@ -12192,17 +12192,17 @@ class MplsTe(object):
                         
                         	**range:** 1..65535
                         
-                        .. attribute:: next_hop_type
-                        
-                        	Next hop type
-                        	**type**\: :py:class:`LinkNextHopEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.LinkNextHopEnum>`
-                        
                         .. attribute:: next_hop_address
                         
                         	Next\-hop address in IPv4 format
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: next_hop_type
+                        
+                        	Next hop type
+                        	**type**\: :py:class:`LinkNextHopEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.LinkNextHopEnum>`
                         
                         
 
@@ -12214,15 +12214,15 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.link_id = None
-                            self.next_hop_type = None
                             self.next_hop_address = None
+                            self.next_hop_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.link_id is None:
-                                raise YPYDataValidationError('Key property link_id is None')
+                                raise YPYModelError('Key property link_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:link[Cisco-IOS-XR-mpls-te-cfg:link-id = ' + str(self.link_id) + ']'
 
@@ -12236,10 +12236,10 @@ class MplsTe(object):
                             if self.link_id is not None:
                                 return True
 
-                            if self.next_hop_type is not None:
+                            if self.next_hop_address is not None:
                                 return True
 
-                            if self.next_hop_address is not None:
+                            if self.next_hop_type is not None:
                                 return True
 
                             return False
@@ -12252,7 +12252,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:links'
 
@@ -12278,7 +12278,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:transport-profile-link'
 
@@ -12304,15 +12304,19 @@ class MplsTe(object):
                 """
                 LCAC specific MPLS interface configuration
                 
-                .. attribute:: switchings
+                .. attribute:: admin_weight
                 
-                	Set the te\-link switching attributes
-                	**type**\: :py:class:`Switchings <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Switchings>`
+                	Set administrative weight for the interface
+                	**type**\: int
                 
-                .. attribute:: flood_area
+                	**range:** \-2147483648..2147483647
                 
-                	Set the IGP instance into which this interface is to be flooded (GMPLS only)
-                	**type**\: :py:class:`FloodArea <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.FloodArea>`
+                .. attribute:: attribute_flags
+                
+                	Set user defined interface attribute flags
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: attribute_name_xr
                 
@@ -12324,24 +12328,19 @@ class MplsTe(object):
                 	Attribute name table
                 	**type**\: :py:class:`AttributeNames <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNames>`
                 
-                .. attribute:: srlgs
+                .. attribute:: bfd
                 
-                	Configure SRLG membership for the interface
-                	**type**\: :py:class:`Srlgs <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Srlgs>`
-                
-                .. attribute:: up_thresholds
-                
-                	Set thresholds for increased resource availability in %
-                	**type**\: :py:class:`UpThresholds <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.UpThresholds>`
+                	Enable use of Bidirectional Forwarding Detection
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: down_thresholds
                 
                 	Set thresholds for decreased resource availability in %
                 	**type**\: :py:class:`DownThresholds <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.DownThresholds>`
                 
-                .. attribute:: bfd
+                .. attribute:: enable
                 
-                	Enable use of Bidirectional Forwarding Detection
+                	Enable MPLS\-TE on the link
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: fault_oam_lockout
@@ -12349,24 +12348,25 @@ class MplsTe(object):
                 	Lockout protection on the interface for Flex LSP
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: attribute_flags
+                .. attribute:: flood_area
                 
-                	Set user defined interface attribute flags
-                	**type**\: str
+                	Set the IGP instance into which this interface is to be flooded (GMPLS only)
+                	**type**\: :py:class:`FloodArea <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.FloodArea>`
                 
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                .. attribute:: srlgs
                 
-                .. attribute:: enable
+                	Configure SRLG membership for the interface
+                	**type**\: :py:class:`Srlgs <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Srlgs>`
                 
-                	Enable MPLS\-TE on the link
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                .. attribute:: switchings
                 
-                .. attribute:: admin_weight
+                	Set the te\-link switching attributes
+                	**type**\: :py:class:`Switchings <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Switchings>`
                 
-                	Set administrative weight for the interface
-                	**type**\: int
+                .. attribute:: up_thresholds
                 
-                	**range:** \-2147483648..2147483647
+                	Set thresholds for increased resource availability in %
+                	**type**\: :py:class:`UpThresholds <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.UpThresholds>`
                 
                 
 
@@ -12377,25 +12377,25 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.switchings = MplsTe.Interfaces.Interface.Lcac.Switchings()
-                    self.switchings.parent = self
-                    self.flood_area = MplsTe.Interfaces.Interface.Lcac.FloodArea()
-                    self.flood_area.parent = self
+                    self.admin_weight = None
+                    self.attribute_flags = None
                     self.attribute_name_xr = MplsTe.Interfaces.Interface.Lcac.AttributeNameXr()
                     self.attribute_name_xr.parent = self
                     self.attribute_names = MplsTe.Interfaces.Interface.Lcac.AttributeNames()
                     self.attribute_names.parent = self
-                    self.srlgs = MplsTe.Interfaces.Interface.Lcac.Srlgs()
-                    self.srlgs.parent = self
-                    self.up_thresholds = MplsTe.Interfaces.Interface.Lcac.UpThresholds()
-                    self.up_thresholds.parent = self
+                    self.bfd = None
                     self.down_thresholds = MplsTe.Interfaces.Interface.Lcac.DownThresholds()
                     self.down_thresholds.parent = self
-                    self.bfd = None
-                    self.fault_oam_lockout = None
-                    self.attribute_flags = None
                     self.enable = None
-                    self.admin_weight = None
+                    self.fault_oam_lockout = None
+                    self.flood_area = MplsTe.Interfaces.Interface.Lcac.FloodArea()
+                    self.flood_area.parent = self
+                    self.srlgs = MplsTe.Interfaces.Interface.Lcac.Srlgs()
+                    self.srlgs.parent = self
+                    self.switchings = MplsTe.Interfaces.Interface.Lcac.Switchings()
+                    self.switchings.parent = self
+                    self.up_thresholds = MplsTe.Interfaces.Interface.Lcac.UpThresholds()
+                    self.up_thresholds.parent = self
 
 
                 class Switchings(object):
@@ -12440,15 +12440,15 @@ class MplsTe(object):
                         
                         
                         ----
-                        .. attribute:: encoding
-                        
-                        	Set the local encoding type
-                        	**type**\: :py:class:`MplsTeSwitchingEncodingEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodingEnum>`
-                        
                         .. attribute:: capability
                         
                         	Set the local switching capability
                         	**type**\: :py:class:`MplsTeSwitchingCapEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
+                        
+                        .. attribute:: encoding
+                        
+                        	Set the local encoding type
+                        	**type**\: :py:class:`MplsTeSwitchingEncodingEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodingEnum>`
                         
                         
 
@@ -12460,15 +12460,15 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.switching_id = None
-                            self.encoding = None
                             self.capability = None
+                            self.encoding = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.switching_id is None:
-                                raise YPYDataValidationError('Key property switching_id is None')
+                                raise YPYModelError('Key property switching_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:switching[Cisco-IOS-XR-mpls-te-cfg:switching-id = ' + str(self.switching_id) + ']'
 
@@ -12482,10 +12482,10 @@ class MplsTe(object):
                             if self.switching_id is not None:
                                 return True
 
-                            if self.encoding is not None:
+                            if self.capability is not None:
                                 return True
 
-                            if self.capability is not None:
+                            if self.encoding is not None:
                                 return True
 
                             return False
@@ -12498,7 +12498,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:switchings'
 
@@ -12527,6 +12527,13 @@ class MplsTe(object):
                     Set the IGP instance into which this
                     interface is to be flooded (GMPLS only)
                     
+                    .. attribute:: area_id
+                    
+                    	Area ID
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     .. attribute:: igp_type
                     
                     	IGP type
@@ -12539,13 +12546,6 @@ class MplsTe(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: area_id
-                    
-                    	Area ID
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
                     
 
                     """
@@ -12555,14 +12555,14 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.area_id = None
                         self.igp_type = None
                         self.process_name = None
-                        self.area_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:flood-area'
 
@@ -12573,13 +12573,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.area_id is not None:
+                            return True
+
                         if self.igp_type is not None:
                             return True
 
                         if self.process_name is not None:
-                            return True
-
-                        if self.area_id is not None:
                             return True
 
                         return False
@@ -12615,7 +12615,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:attribute-name-xr'
 
@@ -12695,9 +12695,9 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.affinity_index is None:
-                                raise YPYDataValidationError('Key property affinity_index is None')
+                                raise YPYModelError('Key property affinity_index is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:attribute-name[Cisco-IOS-XR-mpls-te-cfg:affinity-index = ' + str(self.affinity_index) + ']'
 
@@ -12726,7 +12726,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:attribute-names'
 
@@ -12798,9 +12798,9 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.srlg_number is None:
-                                raise YPYDataValidationError('Key property srlg_number is None')
+                                raise YPYModelError('Key property srlg_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:srlg[Cisco-IOS-XR-mpls-te-cfg:srlg-number = ' + str(self.srlg_number) + ']'
 
@@ -12824,7 +12824,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:srlgs'
 
@@ -12876,7 +12876,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:up-thresholds'
 
@@ -12928,7 +12928,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:down-thresholds'
 
@@ -12954,7 +12954,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:lcac'
 
@@ -12965,10 +12965,10 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.switchings is not None and self.switchings._has_data():
+                    if self.admin_weight is not None:
                         return True
 
-                    if self.flood_area is not None and self.flood_area._has_data():
+                    if self.attribute_flags is not None:
                         return True
 
                     if self.attribute_name_xr is not None and self.attribute_name_xr._has_data():
@@ -12977,28 +12977,28 @@ class MplsTe(object):
                     if self.attribute_names is not None and self.attribute_names._has_data():
                         return True
 
-                    if self.srlgs is not None and self.srlgs._has_data():
-                        return True
-
-                    if self.up_thresholds is not None and self.up_thresholds._has_data():
+                    if self.bfd is not None:
                         return True
 
                     if self.down_thresholds is not None and self.down_thresholds._has_data():
                         return True
 
-                    if self.bfd is not None:
+                    if self.enable is not None:
                         return True
 
                     if self.fault_oam_lockout is not None:
                         return True
 
-                    if self.attribute_flags is not None:
+                    if self.flood_area is not None and self.flood_area._has_data():
                         return True
 
-                    if self.enable is not None:
+                    if self.srlgs is not None and self.srlgs._has_data():
                         return True
 
-                    if self.admin_weight is not None:
+                    if self.switchings is not None and self.switchings._has_data():
+                        return True
+
+                    if self.up_thresholds is not None and self.up_thresholds._has_data():
                         return True
 
                     return False
@@ -13064,22 +13064,22 @@ class MplsTe(object):
                         """
                         Auto tunnel backup configuration
                         
-                        .. attribute:: exclude
-                        
-                        	Auto\-tunnel backup exclusion criteria
-                        	**type**\: :py:class:`Exclude <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude>`
-                        
-                        .. attribute:: enable
-                        
-                        	Enable auto\-tunnel backup on this TE link
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: attribute_set
                         
                         	The name of attribute set to be applied to this auto backup lsp
                         	**type**\: str
                         
                         	**range:** 0..64
+                        
+                        .. attribute:: enable
+                        
+                        	Enable auto\-tunnel backup on this TE link
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: exclude
+                        
+                        	Auto\-tunnel backup exclusion criteria
+                        	**type**\: :py:class:`Exclude <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude>`
                         
                         .. attribute:: next_hop_only
                         
@@ -13095,10 +13095,10 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.attribute_set = None
+                            self.enable = None
                             self.exclude = MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude()
                             self.exclude.parent = self
-                            self.enable = None
-                            self.attribute_set = None
                             self.next_hop_only = None
 
 
@@ -13125,7 +13125,7 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:exclude'
 
@@ -13149,7 +13149,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:backup'
 
@@ -13160,13 +13160,13 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.exclude is not None and self.exclude._has_data():
+                            if self.attribute_set is not None:
                                 return True
 
                             if self.enable is not None:
                                 return True
 
-                            if self.attribute_set is not None:
+                            if self.exclude is not None and self.exclude._has_data():
                                 return True
 
                             if self.next_hop_only is not None:
@@ -13182,7 +13182,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:auto-tunnel'
 
@@ -13253,9 +13253,9 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.tunnel_number is None:
-                                raise YPYDataValidationError('Key property tunnel_number is None')
+                                raise YPYModelError('Key property tunnel_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:backup-path[Cisco-IOS-XR-mpls-te-cfg:tunnel-number = ' + str(self.tunnel_number) + ']'
 
@@ -13279,7 +13279,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:backup-paths'
 
@@ -13305,7 +13305,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:global-attributes'
 
@@ -13332,7 +13332,7 @@ class MplsTe(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:interfaces/Cisco-IOS-XR-mpls-te-cfg:interface[Cisco-IOS-XR-mpls-te-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -13346,13 +13346,13 @@ class MplsTe(object):
                 if self.interface_name is not None:
                     return True
 
-                if self.transport_profile_link is not None and self.transport_profile_link._has_data():
+                if self.global_attributes is not None and self.global_attributes._has_data():
                     return True
 
                 if self.lcac is not None and self.lcac._has_data():
                     return True
 
-                if self.global_attributes is not None and self.global_attributes._has_data():
+                if self.transport_profile_link is not None and self.transport_profile_link._has_data():
                     return True
 
                 return False
@@ -13391,6 +13391,11 @@ class MplsTe(object):
         """
         GMPLS\-NNI configuration
         
+        .. attribute:: enable_gmpls_nni
+        
+        	Enable MPLS Traffic Engineering GMPLS\-NNI
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
         .. attribute:: topology_instances
         
         	GMPLS\-NNI topology instance table
@@ -13401,11 +13406,6 @@ class MplsTe(object):
         	GMPLS\-NNI tunnel\-head table
         	**type**\: :py:class:`TunnelHeads <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads>`
         
-        .. attribute:: enable_gmpls_nni
-        
-        	Enable MPLS Traffic Engineering GMPLS\-NNI
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
         
 
         """
@@ -13415,11 +13415,11 @@ class MplsTe(object):
 
         def __init__(self):
             self.parent = None
+            self.enable_gmpls_nni = None
             self.topology_instances = MplsTe.GmplsNni.TopologyInstances()
             self.topology_instances.parent = self
             self.tunnel_heads = MplsTe.GmplsNni.TunnelHeads()
             self.tunnel_heads.parent = self
-            self.enable_gmpls_nni = None
 
 
         class TopologyInstances(object):
@@ -13449,17 +13449,17 @@ class MplsTe(object):
                 """
                 GMPLS\-NNI topology instance configuration
                 
-                .. attribute:: igp_type  <key>
-                
-                	IGP type
-                	**type**\: :py:class:`MplsTeIgpProtocolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
-                
                 .. attribute:: igp_instance_name  <key>
                 
                 	Name of IGP instance
                 	**type**\: str
                 
                 	**range:** 0..40
+                
+                .. attribute:: igp_type  <key>
+                
+                	IGP type
+                	**type**\: :py:class:`MplsTeIgpProtocolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
                 
                 .. attribute:: ospf_area_type  <key>
                 
@@ -13485,8 +13485,8 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.igp_type = None
                     self.igp_instance_name = None
+                    self.igp_type = None
                     self.ospf_area_type = None
                     self.ospf_int = YList()
                     self.ospf_int.parent = self
@@ -13560,11 +13560,6 @@ class MplsTe(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: tti_mode
-                            
-                            	Set tandem connection monitoring for the interface
-                            	**type**\: :py:class:`TtiMode <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode>`
-                            
                             .. attribute:: admin_weight
                             
                             	Set administrative weight for the interface
@@ -13577,6 +13572,11 @@ class MplsTe(object):
                             	Enable GMPLS\-NNI on the link
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: tti_mode
+                            
+                            	Set tandem connection monitoring for the interface
+                            	**type**\: :py:class:`TtiMode <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode>`
+                            
                             
 
                             """
@@ -13587,10 +13587,10 @@ class MplsTe(object):
                             def __init__(self):
                                 self.parent = None
                                 self.controller_name = None
-                                self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode()
-                                self.tti_mode.parent = self
                                 self.admin_weight = None
                                 self.enable = None
+                                self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode()
+                                self.tti_mode.parent = self
 
 
                             class TtiMode(object):
@@ -13598,17 +13598,17 @@ class MplsTe(object):
                                 Set tandem connection monitoring for the
                                 interface
                                 
-                                .. attribute:: tti_mode_type
-                                
-                                	Type of Trail Trace Identifier
-                                	**type**\: :py:class:`GmplsttiModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiModeEnum>`
-                                
                                 .. attribute:: tcmid
                                 
                                 	Tandem Connection Monitoring ID for the interface
                                 	**type**\: int
                                 
                                 	**range:** 1..6
+                                
+                                .. attribute:: tti_mode_type
+                                
+                                	Type of Trail Trace Identifier
+                                	**type**\: :py:class:`GmplsttiModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiModeEnum>`
                                 
                                 
 
@@ -13619,13 +13619,13 @@ class MplsTe(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.tti_mode_type = None
                                     self.tcmid = None
+                                    self.tti_mode_type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:tti-mode'
 
@@ -13636,10 +13636,10 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.tti_mode_type is not None:
+                                    if self.tcmid is not None:
                                         return True
 
-                                    if self.tcmid is not None:
+                                    if self.tti_mode_type is not None:
                                         return True
 
                                     return False
@@ -13652,9 +13652,9 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.controller_name is None:
-                                    raise YPYDataValidationError('Key property controller_name is None')
+                                    raise YPYModelError('Key property controller_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:controller[Cisco-IOS-XR-mpls-te-cfg:controller-name = ' + str(self.controller_name) + ']'
 
@@ -13668,13 +13668,13 @@ class MplsTe(object):
                                 if self.controller_name is not None:
                                     return True
 
-                                if self.tti_mode is not None and self.tti_mode._has_data():
-                                    return True
-
                                 if self.admin_weight is not None:
                                     return True
 
                                 if self.enable is not None:
+                                    return True
+
+                                if self.tti_mode is not None and self.tti_mode._has_data():
                                     return True
 
                                 return False
@@ -13687,7 +13687,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:controllers'
 
@@ -13713,9 +13713,9 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.igp_area is None:
-                            raise YPYDataValidationError('Key property igp_area is None')
+                            raise YPYModelError('Key property igp_area is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:ospf-int[Cisco-IOS-XR-mpls-te-cfg:igp-area = ' + str(self.igp_area) + ']'
 
@@ -13804,11 +13804,6 @@ class MplsTe(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: tti_mode
-                            
-                            	Set tandem connection monitoring for the interface
-                            	**type**\: :py:class:`TtiMode <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode>`
-                            
                             .. attribute:: admin_weight
                             
                             	Set administrative weight for the interface
@@ -13821,6 +13816,11 @@ class MplsTe(object):
                             	Enable GMPLS\-NNI on the link
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: tti_mode
+                            
+                            	Set tandem connection monitoring for the interface
+                            	**type**\: :py:class:`TtiMode <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode>`
+                            
                             
 
                             """
@@ -13831,10 +13831,10 @@ class MplsTe(object):
                             def __init__(self):
                                 self.parent = None
                                 self.controller_name = None
-                                self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode()
-                                self.tti_mode.parent = self
                                 self.admin_weight = None
                                 self.enable = None
+                                self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode()
+                                self.tti_mode.parent = self
 
 
                             class TtiMode(object):
@@ -13842,17 +13842,17 @@ class MplsTe(object):
                                 Set tandem connection monitoring for the
                                 interface
                                 
-                                .. attribute:: tti_mode_type
-                                
-                                	Type of Trail Trace Identifier
-                                	**type**\: :py:class:`GmplsttiModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiModeEnum>`
-                                
                                 .. attribute:: tcmid
                                 
                                 	Tandem Connection Monitoring ID for the interface
                                 	**type**\: int
                                 
                                 	**range:** 1..6
+                                
+                                .. attribute:: tti_mode_type
+                                
+                                	Type of Trail Trace Identifier
+                                	**type**\: :py:class:`GmplsttiModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiModeEnum>`
                                 
                                 
 
@@ -13863,13 +13863,13 @@ class MplsTe(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.tti_mode_type = None
                                     self.tcmid = None
+                                    self.tti_mode_type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:tti-mode'
 
@@ -13880,10 +13880,10 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.tti_mode_type is not None:
+                                    if self.tcmid is not None:
                                         return True
 
-                                    if self.tcmid is not None:
+                                    if self.tti_mode_type is not None:
                                         return True
 
                                     return False
@@ -13896,9 +13896,9 @@ class MplsTe(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.controller_name is None:
-                                    raise YPYDataValidationError('Key property controller_name is None')
+                                    raise YPYModelError('Key property controller_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:controller[Cisco-IOS-XR-mpls-te-cfg:controller-name = ' + str(self.controller_name) + ']'
 
@@ -13912,13 +13912,13 @@ class MplsTe(object):
                                 if self.controller_name is not None:
                                     return True
 
-                                if self.tti_mode is not None and self.tti_mode._has_data():
-                                    return True
-
                                 if self.admin_weight is not None:
                                     return True
 
                                 if self.enable is not None:
+                                    return True
+
+                                if self.tti_mode is not None and self.tti_mode._has_data():
                                     return True
 
                                 return False
@@ -13931,7 +13931,7 @@ class MplsTe(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:controllers'
 
@@ -13957,9 +13957,9 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:ospfip-addr[Cisco-IOS-XR-mpls-te-cfg:address = ' + str(self.address) + ']'
 
@@ -13985,14 +13985,14 @@ class MplsTe(object):
 
                 @property
                 def _common_path(self):
-                    if self.igp_type is None:
-                        raise YPYDataValidationError('Key property igp_type is None')
                     if self.igp_instance_name is None:
-                        raise YPYDataValidationError('Key property igp_instance_name is None')
+                        raise YPYModelError('Key property igp_instance_name is None')
+                    if self.igp_type is None:
+                        raise YPYModelError('Key property igp_type is None')
                     if self.ospf_area_type is None:
-                        raise YPYDataValidationError('Key property ospf_area_type is None')
+                        raise YPYModelError('Key property ospf_area_type is None')
 
-                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:gmpls-nni/Cisco-IOS-XR-mpls-te-cfg:topology-instances/Cisco-IOS-XR-mpls-te-cfg:topology-instance[Cisco-IOS-XR-mpls-te-cfg:igp-type = ' + str(self.igp_type) + '][Cisco-IOS-XR-mpls-te-cfg:igp-instance-name = ' + str(self.igp_instance_name) + '][Cisco-IOS-XR-mpls-te-cfg:ospf-area-type = ' + str(self.ospf_area_type) + ']'
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:gmpls-nni/Cisco-IOS-XR-mpls-te-cfg:topology-instances/Cisco-IOS-XR-mpls-te-cfg:topology-instance[Cisco-IOS-XR-mpls-te-cfg:igp-instance-name = ' + str(self.igp_instance_name) + '][Cisco-IOS-XR-mpls-te-cfg:igp-type = ' + str(self.igp_type) + '][Cisco-IOS-XR-mpls-te-cfg:ospf-area-type = ' + str(self.ospf_area_type) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -14001,10 +14001,10 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.igp_type is not None:
+                    if self.igp_instance_name is not None:
                         return True
 
-                    if self.igp_instance_name is not None:
+                    if self.igp_type is not None:
                         return True
 
                     if self.ospf_area_type is not None:
@@ -14087,15 +14087,20 @@ class MplsTe(object):
                 
                 	**range:** 0..65535
                 
-                .. attribute:: signalled_bandwidth
+                .. attribute:: current_lsp_shutdown
                 
-                	The existence of this configuration indicates the signalled bandwidth has been set for the tunnel
-                	**type**\: :py:class:`SignalledBandwidth <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth>`
+                	The existence of this configuration indicates the current/working LSP of tunnel is shutdown
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: destination
                 
                 	The existence of this configuration indicates the destination has been set for the tunnel
                 	**type**\: :py:class:`Destination <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination>`
+                
+                .. attribute:: enable
+                
+                	The existence of this configuration indicates the a new GMPLS NNI tunnel has been enabled
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: logging
                 
@@ -14107,41 +14112,6 @@ class MplsTe(object):
                 	GMPLS NNI path options
                 	**type**\: :py:class:`PathOptions <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions>`
                 
-                .. attribute:: static_uni
-                
-                	The existence of this configuration indicates the static UNI endpoints have been set for the tunnel
-                	**type**\: :py:class:`StaticUni <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni>`
-                
-                .. attribute:: enable
-                
-                	The existence of this configuration indicates the a new GMPLS NNI tunnel has been enabled
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: restore_lsp_shutdown
-                
-                	The existence of this configuration indicates the restore LSP of tunnel is shutdown
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: current_lsp_shutdown
-                
-                	The existence of this configuration indicates the current/working LSP of tunnel is shutdown
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: payload
-                
-                	The existence of this configuration indicates the Payload type have been set for the tunnel
-                	**type**\: :py:class:`OtnPayloadEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnPayloadEnum>`
-                
-                .. attribute:: standby_lsp_shutdown
-                
-                	The existence of this configuration indicates the standby/protect LSP of tunnel is shutdown
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: shutdown
-                
-                	The existence of this configuration indicates the tunnel is shutdown
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: path_protection_attribute_set_profile
                 
                 	The name of the path\-protection profile to be included in signalling messages
@@ -14149,10 +14119,30 @@ class MplsTe(object):
                 
                 	**range:** 0..64
                 
+                .. attribute:: payload
+                
+                	The existence of this configuration indicates the Payload type have been set for the tunnel
+                	**type**\: :py:class:`OtnPayloadEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnPayloadEnum>`
+                
                 .. attribute:: record_route
                 
                 	Record the route used by the tunnel
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: restore_lsp_shutdown
+                
+                	The existence of this configuration indicates the restore LSP of tunnel is shutdown
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: shutdown
+                
+                	The existence of this configuration indicates the tunnel is shutdown
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: signalled_bandwidth
+                
+                	The existence of this configuration indicates the signalled bandwidth has been set for the tunnel
+                	**type**\: :py:class:`SignalledBandwidth <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth>`
                 
                 .. attribute:: signalled_name
                 
@@ -14160,6 +14150,16 @@ class MplsTe(object):
                 	**type**\: str
                 
                 	**range:** 0..254
+                
+                .. attribute:: standby_lsp_shutdown
+                
+                	The existence of this configuration indicates the standby/protect LSP of tunnel is shutdown
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: static_uni
+                
+                	The existence of this configuration indicates the static UNI endpoints have been set for the tunnel
+                	**type**\: :py:class:`StaticUni <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni>`
                 
                 
 
@@ -14171,25 +14171,25 @@ class MplsTe(object):
                 def __init__(self):
                     self.parent = None
                     self.tunnel_id = None
-                    self.signalled_bandwidth = MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth()
-                    self.signalled_bandwidth.parent = self
+                    self.current_lsp_shutdown = None
                     self.destination = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination()
                     self.destination.parent = self
+                    self.enable = None
                     self.logging = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging()
                     self.logging.parent = self
                     self.path_options = MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions()
                     self.path_options.parent = self
+                    self.path_protection_attribute_set_profile = None
+                    self.payload = None
+                    self.record_route = None
+                    self.restore_lsp_shutdown = None
+                    self.shutdown = None
+                    self.signalled_bandwidth = MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth()
+                    self.signalled_bandwidth.parent = self
+                    self.signalled_name = None
+                    self.standby_lsp_shutdown = None
                     self.static_uni = MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni()
                     self.static_uni.parent = self
-                    self.enable = None
-                    self.restore_lsp_shutdown = None
-                    self.current_lsp_shutdown = None
-                    self.payload = None
-                    self.standby_lsp_shutdown = None
-                    self.shutdown = None
-                    self.path_protection_attribute_set_profile = None
-                    self.record_route = None
-                    self.signalled_name = None
 
 
                 class SignalledBandwidth(object):
@@ -14197,11 +14197,6 @@ class MplsTe(object):
                     The existence of this configuration indicates
                     the signalled bandwidth has been set for the
                     tunnel
-                    
-                    .. attribute:: signalled_bandwidth_type
-                    
-                    	The g.709 signal type requested
-                    	**type**\: :py:class:`OtnSignaledBandwidthEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthEnum>`
                     
                     .. attribute:: bitrate
                     
@@ -14215,6 +14210,11 @@ class MplsTe(object):
                     	Framing type in case of ODUflex signal type
                     	**type**\: :py:class:`OtnSignaledBandwidthFlexFramingEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthFlexFramingEnum>`
                     
+                    .. attribute:: signalled_bandwidth_type
+                    
+                    	The g.709 signal type requested
+                    	**type**\: :py:class:`OtnSignaledBandwidthEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthEnum>`
+                    
                     
 
                     """
@@ -14224,14 +14224,14 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.signalled_bandwidth_type = None
                         self.bitrate = None
                         self.od_uflex_framing_type = None
+                        self.signalled_bandwidth_type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:signalled-bandwidth'
 
@@ -14242,13 +14242,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.signalled_bandwidth_type is not None:
-                            return True
-
                         if self.bitrate is not None:
                             return True
 
                         if self.od_uflex_framing_type is not None:
+                            return True
+
+                        if self.signalled_bandwidth_type is not None:
                             return True
 
                         return False
@@ -14299,7 +14299,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination'
 
@@ -14336,6 +14336,11 @@ class MplsTe(object):
                     	Log all tunnel messages for changes in Active LSP
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: insufficient_bw_message
+                    
+                    	Log tunnel messages for insufficient bandwidth
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: signalling_state_message
                     
                     	Log all tunnel sub\-LSP state messages
@@ -14344,11 +14349,6 @@ class MplsTe(object):
                     .. attribute:: static_cross_connect_message
                     
                     	Log all tunnel messages for static cross\-connect messages
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: insufficient_bw_message
-                    
-                    	Log tunnel messages for insufficient bandwidth
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
@@ -14361,14 +14361,14 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.active_lsp_message = None
+                        self.insufficient_bw_message = None
                         self.signalling_state_message = None
                         self.static_cross_connect_message = None
-                        self.insufficient_bw_message = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
 
@@ -14382,13 +14382,13 @@ class MplsTe(object):
                         if self.active_lsp_message is not None:
                             return True
 
+                        if self.insufficient_bw_message is not None:
+                            return True
+
                         if self.signalling_state_message is not None:
                             return True
 
                         if self.static_cross_connect_message is not None:
-                            return True
-
-                        if self.insufficient_bw_message is not None:
                             return True
 
                         return False
@@ -14435,10 +14435,10 @@ class MplsTe(object):
                         
                         	**range:** 1..1000
                         
-                        .. attribute:: path_type
+                        .. attribute:: lockdown
                         
-                        	The type of the path option
-                        	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                        	Lockdown properties
+                        	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                         
                         .. attribute:: path_id
                         
@@ -14451,6 +14451,11 @@ class MplsTe(object):
                         
                         	The name of the IP explicit path associated with this option
                         	**type**\: str
+                        
+                        .. attribute:: path_type
+                        
+                        	The type of the path option
+                        	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                         
                         .. attribute:: protected_by_preference_level
                         
@@ -14466,11 +14471,6 @@ class MplsTe(object):
                         
                         	**range:** 1..1000
                         
-                        .. attribute:: lockdown
-                        
-                        	Lockdown properties
-                        	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
-                        
                         
 
                         """
@@ -14481,19 +14481,19 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.preference_level = None
-                            self.path_type = None
+                            self.lockdown = None
                             self.path_id = None
                             self.path_name = None
+                            self.path_type = None
                             self.protected_by_preference_level = None
                             self.restore_by_preference_level = None
-                            self.lockdown = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.preference_level is None:
-                                raise YPYDataValidationError('Key property preference_level is None')
+                                raise YPYModelError('Key property preference_level is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-option[Cisco-IOS-XR-mpls-te-cfg:preference-level = ' + str(self.preference_level) + ']'
 
@@ -14507,7 +14507,7 @@ class MplsTe(object):
                             if self.preference_level is not None:
                                 return True
 
-                            if self.path_type is not None:
+                            if self.lockdown is not None:
                                 return True
 
                             if self.path_id is not None:
@@ -14516,13 +14516,13 @@ class MplsTe(object):
                             if self.path_name is not None:
                                 return True
 
+                            if self.path_type is not None:
+                                return True
+
                             if self.protected_by_preference_level is not None:
                                 return True
 
                             if self.restore_by_preference_level is not None:
-                                return True
-
-                            if self.lockdown is not None:
                                 return True
 
                             return False
@@ -14535,7 +14535,7 @@ class MplsTe(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-options'
 
@@ -14565,13 +14565,6 @@ class MplsTe(object):
                     the static UNI endpoints have been set for
                     the tunnel
                     
-                    .. attribute:: ingress_controller_name
-                    
-                    	Name of  ingress controller
-                    	**type**\: str
-                    
-                    	**range:** 0..255
-                    
                     .. attribute:: egress_controller_if_index
                     
                     	Interface index of Egress controller
@@ -14579,14 +14572,21 @@ class MplsTe(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: ingress_type
-                    
-                    	Ingress type whether it is xconnect or terminated
-                    	**type**\: :py:class:`OtnStaticUniEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
-                    
                     .. attribute:: egress_type
                     
                     	Egress type whether it is xconnect or terminated
+                    	**type**\: :py:class:`OtnStaticUniEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
+                    
+                    .. attribute:: ingress_controller_name
+                    
+                    	Name of  ingress controller
+                    	**type**\: str
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: ingress_type
+                    
+                    	Ingress type whether it is xconnect or terminated
                     	**type**\: :py:class:`OtnStaticUniEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
                     
                     
@@ -14598,15 +14598,15 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ingress_controller_name = None
                         self.egress_controller_if_index = None
-                        self.ingress_type = None
                         self.egress_type = None
+                        self.ingress_controller_name = None
+                        self.ingress_type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:static-uni'
 
@@ -14617,16 +14617,16 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ingress_controller_name is not None:
-                            return True
-
                         if self.egress_controller_if_index is not None:
                             return True
 
-                        if self.ingress_type is not None:
+                        if self.egress_type is not None:
                             return True
 
-                        if self.egress_type is not None:
+                        if self.ingress_controller_name is not None:
+                            return True
+
+                        if self.ingress_type is not None:
                             return True
 
                         return False
@@ -14639,7 +14639,7 @@ class MplsTe(object):
                 @property
                 def _common_path(self):
                     if self.tunnel_id is None:
-                        raise YPYDataValidationError('Key property tunnel_id is None')
+                        raise YPYModelError('Key property tunnel_id is None')
 
                     return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:gmpls-nni/Cisco-IOS-XR-mpls-te-cfg:tunnel-heads/Cisco-IOS-XR-mpls-te-cfg:tunnel-head[Cisco-IOS-XR-mpls-te-cfg:tunnel-id = ' + str(self.tunnel_id) + ']'
 
@@ -14653,10 +14653,13 @@ class MplsTe(object):
                     if self.tunnel_id is not None:
                         return True
 
-                    if self.signalled_bandwidth is not None and self.signalled_bandwidth._has_data():
+                    if self.current_lsp_shutdown is not None:
                         return True
 
                     if self.destination is not None and self.destination._has_data():
+                        return True
+
+                    if self.enable is not None:
                         return True
 
                     if self.logging is not None and self.logging._has_data():
@@ -14665,34 +14668,31 @@ class MplsTe(object):
                     if self.path_options is not None and self.path_options._has_data():
                         return True
 
-                    if self.static_uni is not None and self.static_uni._has_data():
-                        return True
-
-                    if self.enable is not None:
-                        return True
-
-                    if self.restore_lsp_shutdown is not None:
-                        return True
-
-                    if self.current_lsp_shutdown is not None:
+                    if self.path_protection_attribute_set_profile is not None:
                         return True
 
                     if self.payload is not None:
                         return True
 
-                    if self.standby_lsp_shutdown is not None:
+                    if self.record_route is not None:
+                        return True
+
+                    if self.restore_lsp_shutdown is not None:
                         return True
 
                     if self.shutdown is not None:
                         return True
 
-                    if self.path_protection_attribute_set_profile is not None:
-                        return True
-
-                    if self.record_route is not None:
+                    if self.signalled_bandwidth is not None and self.signalled_bandwidth._has_data():
                         return True
 
                     if self.signalled_name is not None:
+                        return True
+
+                    if self.standby_lsp_shutdown is not None:
+                        return True
+
+                    if self.static_uni is not None and self.static_uni._has_data():
                         return True
 
                     return False
@@ -14738,13 +14738,13 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.enable_gmpls_nni is not None:
+                return True
+
             if self.topology_instances is not None and self.topology_instances._has_data():
                 return True
 
             if self.tunnel_heads is not None and self.tunnel_heads._has_data():
-                return True
-
-            if self.enable_gmpls_nni is not None:
                 return True
 
             return False
@@ -14759,16 +14759,6 @@ class MplsTe(object):
         """
         LCAC specific MPLS global configuration
         
-        .. attribute:: bfd
-        
-        	BFD configuration
-        	**type**\: :py:class:`Bfd <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.Bfd>`
-        
-        .. attribute:: flooding_threshold
-        
-        	Configure flooding threshold as percentage of total link bandwidth
-        	**type**\: :py:class:`FloodingThreshold <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.FloodingThreshold>`
-        
         .. attribute:: bandwidth_hold_timer
         
         	Bandwidth hold timer value (seconds)
@@ -14776,12 +14766,22 @@ class MplsTe(object):
         
         	**range:** 1..300
         
+        .. attribute:: bfd
+        
+        	BFD configuration
+        	**type**\: :py:class:`Bfd <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.Bfd>`
+        
         .. attribute:: delay_preempt_bundle_capacity_timer
         
         	Bundle capacity preemption timer value (seconds)
         	**type**\: int
         
         	**range:** 0..300
+        
+        .. attribute:: flooding_threshold
+        
+        	Configure flooding threshold as percentage of total link bandwidth
+        	**type**\: :py:class:`FloodingThreshold <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.FloodingThreshold>`
         
         .. attribute:: periodic_flooding_timer
         
@@ -14799,12 +14799,12 @@ class MplsTe(object):
 
         def __init__(self):
             self.parent = None
+            self.bandwidth_hold_timer = None
             self.bfd = MplsTe.Lcac.Bfd()
             self.bfd.parent = self
+            self.delay_preempt_bundle_capacity_timer = None
             self.flooding_threshold = MplsTe.Lcac.FloodingThreshold()
             self.flooding_threshold.parent = self
-            self.bandwidth_hold_timer = None
-            self.delay_preempt_bundle_capacity_timer = None
             self.periodic_flooding_timer = None
 
 
@@ -14812,19 +14812,19 @@ class MplsTe(object):
             """
             BFD configuration
             
-            .. attribute:: interval
-            
-            	Hello interval for BFD sessions created by TE
-            	**type**\: int
-            
-            	**range:** 15..200
-            
             .. attribute:: detection_multiplier
             
             	Detection multiplier for BFD sessions created by TE
             	**type**\: int
             
             	**range:** 2..10
+            
+            .. attribute:: interval
+            
+            	Hello interval for BFD sessions created by TE
+            	**type**\: int
+            
+            	**range:** 15..200
             
             
 
@@ -14835,8 +14835,8 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.interval = None
                 self.detection_multiplier = None
+                self.interval = None
 
             @property
             def _common_path(self):
@@ -14850,10 +14850,10 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.interval is not None:
+                if self.detection_multiplier is not None:
                     return True
 
-                if self.detection_multiplier is not None:
+                if self.interval is not None:
                     return True
 
                 return False
@@ -14869,16 +14869,16 @@ class MplsTe(object):
             Configure flooding threshold as percentage of
             total link bandwidth.
             
-            .. attribute:: up_stream
+            .. attribute:: down_stream
             
-            	Upward flooding Threshold in percentages of total bandwidth
+            	Downward flooding Threshold in percentages of total bandwidth
             	**type**\: int
             
             	**range:** 0..100
             
-            .. attribute:: down_stream
+            .. attribute:: up_stream
             
-            	Downward flooding Threshold in percentages of total bandwidth
+            	Upward flooding Threshold in percentages of total bandwidth
             	**type**\: int
             
             	**range:** 0..100
@@ -14892,8 +14892,8 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.up_stream = None
                 self.down_stream = None
+                self.up_stream = None
 
             @property
             def _common_path(self):
@@ -14907,10 +14907,10 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.up_stream is not None:
+                if self.down_stream is not None:
                     return True
 
-                if self.down_stream is not None:
+                if self.up_stream is not None:
                     return True
 
                 return False
@@ -14932,16 +14932,16 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.bfd is not None and self.bfd._has_data():
-                return True
-
-            if self.flooding_threshold is not None and self.flooding_threshold._has_data():
-                return True
-
             if self.bandwidth_hold_timer is not None:
                 return True
 
+            if self.bfd is not None and self.bfd._has_data():
+                return True
+
             if self.delay_preempt_bundle_capacity_timer is not None:
+                return True
+
+            if self.flooding_threshold is not None and self.flooding_threshold._has_data():
                 return True
 
             if self.periodic_flooding_timer is not None:
@@ -14969,25 +14969,25 @@ class MplsTe(object):
         if self.diff_serv_traffic_engineering is not None and self.diff_serv_traffic_engineering._has_data():
             return True
 
-        if self.gmpls_uni is not None and self.gmpls_uni._has_data():
+        if self.enable_traffic_engineering is not None:
             return True
 
         if self.global_attributes is not None and self.global_attributes._has_data():
             return True
 
-        if self.transport_profile is not None and self.transport_profile._has_data():
+        if self.gmpls_nni is not None and self.gmpls_nni._has_data():
+            return True
+
+        if self.gmpls_uni is not None and self.gmpls_uni._has_data():
             return True
 
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.gmpls_nni is not None and self.gmpls_nni._has_data():
-            return True
-
         if self.lcac is not None and self.lcac._has_data():
             return True
 
-        if self.enable_traffic_engineering is not None:
+        if self.transport_profile is not None and self.transport_profile._has_data():
             return True
 
         return False

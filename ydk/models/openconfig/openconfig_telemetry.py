@@ -13,7 +13,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -52,15 +52,15 @@ class TelemetrySystem(object):
     Top level configuration and state for the
     device's telemetry system.
     
-    .. attribute:: sensor_groups
-    
-    	Top level container for sensor\-groups
-    	**type**\: :py:class:`SensorGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups>`
-    
     .. attribute:: destination_groups
     
     	Top level container for destination group configuration and state
     	**type**\: :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups>`
+    
+    .. attribute:: sensor_groups
+    
+    	Top level container for sensor\-groups
+    	**type**\: :py:class:`SensorGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups>`
     
     .. attribute:: subscriptions
     
@@ -75,10 +75,10 @@ class TelemetrySystem(object):
     _revision = '2016-02-04'
 
     def __init__(self):
-        self.sensor_groups = TelemetrySystem.SensorGroups()
-        self.sensor_groups.parent = self
         self.destination_groups = TelemetrySystem.DestinationGroups()
         self.destination_groups.parent = self
+        self.sensor_groups = TelemetrySystem.SensorGroups()
+        self.sensor_groups.parent = self
         self.subscriptions = TelemetrySystem.Subscriptions()
         self.subscriptions.parent = self
 
@@ -122,15 +122,15 @@ class TelemetrySystem(object):
             	Configuration parameters relating to the telemetry sensor grouping
             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
             
-            .. attribute:: state
-            
-            	State information relating to the telemetry sensor group
-            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.State>`
-            
             .. attribute:: sensor_paths
             
             	Top level container to hold a set of sensor paths grouped together
             	**type**\: :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths>`
+            
+            .. attribute:: state
+            
+            	State information relating to the telemetry sensor group
+            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.State>`
             
             
 
@@ -144,10 +144,10 @@ class TelemetrySystem(object):
                 self.sensor_group_id = None
                 self.config = TelemetrySystem.SensorGroups.SensorGroup.Config()
                 self.config.parent = self
-                self.state = TelemetrySystem.SensorGroups.SensorGroup.State()
-                self.state.parent = self
                 self.sensor_paths = TelemetrySystem.SensorGroups.SensorGroup.SensorPaths()
                 self.sensor_paths.parent = self
+                self.state = TelemetrySystem.SensorGroups.SensorGroup.State()
+                self.state.parent = self
 
 
             class Config(object):
@@ -174,7 +174,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -220,7 +220,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -308,14 +308,14 @@ class TelemetrySystem(object):
                         Configuration parameters to configure a set
                         of data model paths as a sensor grouping
                         
-                        .. attribute:: path
-                        
-                        	Path to a section of operational state of interest (the sensor)
-                        	**type**\: str
-                        
                         .. attribute:: exclude_filter
                         
                         	Filter to exclude certain values out of the state values
+                        	**type**\: str
+                        
+                        .. attribute:: path
+                        
+                        	Path to a section of operational state of interest (the sensor)
                         	**type**\: str
                         
                         
@@ -327,13 +327,13 @@ class TelemetrySystem(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.path = None
                             self.exclude_filter = None
+                            self.path = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -344,10 +344,10 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.path is not None:
+                            if self.exclude_filter is not None:
                                 return True
 
-                            if self.exclude_filter is not None:
+                            if self.path is not None:
                                 return True
 
                             return False
@@ -363,14 +363,14 @@ class TelemetrySystem(object):
                         Configuration parameters to configure a set
                         of data model paths as a sensor grouping
                         
-                        .. attribute:: path
-                        
-                        	Path to a section of operational state of interest (the sensor)
-                        	**type**\: str
-                        
                         .. attribute:: exclude_filter
                         
                         	Filter to exclude certain values out of the state values
+                        	**type**\: str
+                        
+                        .. attribute:: path
+                        
+                        	Path to a section of operational state of interest (the sensor)
                         	**type**\: str
                         
                         
@@ -382,13 +382,13 @@ class TelemetrySystem(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.path = None
                             self.exclude_filter = None
+                            self.path = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -399,10 +399,10 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.path is not None:
+                            if self.exclude_filter is not None:
                                 return True
 
-                            if self.exclude_filter is not None:
+                            if self.path is not None:
                                 return True
 
                             return False
@@ -415,9 +415,9 @@ class TelemetrySystem(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.path is None:
-                            raise YPYDataValidationError('Key property path is None')
+                            raise YPYModelError('Key property path is None')
 
                         return self.parent._common_path +'/openconfig-telemetry:sensor-path[openconfig-telemetry:path = ' + str(self.path) + ']'
 
@@ -447,7 +447,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-telemetry:sensor-paths'
 
@@ -473,7 +473,7 @@ class TelemetrySystem(object):
             @property
             def _common_path(self):
                 if self.sensor_group_id is None:
-                    raise YPYDataValidationError('Key property sensor_group_id is None')
+                    raise YPYModelError('Key property sensor_group_id is None')
 
                 return '/openconfig-telemetry:telemetry-system/openconfig-telemetry:sensor-groups/openconfig-telemetry:sensor-group[openconfig-telemetry:sensor-group-id = ' + str(self.sensor_group_id) + ']'
 
@@ -490,10 +490,10 @@ class TelemetrySystem(object):
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.state is not None and self.state._has_data():
+                if self.sensor_paths is not None and self.sensor_paths._has_data():
                     return True
 
-                if self.sensor_paths is not None and self.sensor_paths._has_data():
+                if self.state is not None and self.state._has_data():
                     return True
 
                 return False
@@ -573,15 +573,15 @@ class TelemetrySystem(object):
             	Top level config container for destination groups
             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Config>`
             
-            .. attribute:: state
-            
-            	Top level state container for destination groups
-            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.State>`
-            
             .. attribute:: destinations
             
             	The destination container lists the destination information such as IP address and port of the telemetry messages from the network element
             	**type**\: :py:class:`Destinations <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations>`
+            
+            .. attribute:: state
+            
+            	Top level state container for destination groups
+            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.State>`
             
             
 
@@ -595,10 +595,10 @@ class TelemetrySystem(object):
                 self.group_id = None
                 self.config = TelemetrySystem.DestinationGroups.DestinationGroup.Config()
                 self.config.parent = self
-                self.state = TelemetrySystem.DestinationGroups.DestinationGroup.State()
-                self.state.parent = self
                 self.destinations = TelemetrySystem.DestinationGroups.DestinationGroup.Destinations()
                 self.destinations.parent = self
+                self.state = TelemetrySystem.DestinationGroups.DestinationGroup.State()
+                self.state.parent = self
 
 
             class Config(object):
@@ -624,7 +624,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -669,7 +669,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -821,7 +821,7 @@ class TelemetrySystem(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -899,7 +899,7 @@ class TelemetrySystem(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -929,11 +929,11 @@ class TelemetrySystem(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.destination_address is None:
-                            raise YPYDataValidationError('Key property destination_address is None')
+                            raise YPYModelError('Key property destination_address is None')
                         if self.destination_port is None:
-                            raise YPYDataValidationError('Key property destination_port is None')
+                            raise YPYModelError('Key property destination_port is None')
 
                         return self.parent._common_path +'/openconfig-telemetry:destination[openconfig-telemetry:destination-address = ' + str(self.destination_address) + '][openconfig-telemetry:destination-port = ' + str(self.destination_port) + ']'
 
@@ -966,7 +966,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-telemetry:destinations'
 
@@ -992,7 +992,7 @@ class TelemetrySystem(object):
             @property
             def _common_path(self):
                 if self.group_id is None:
-                    raise YPYDataValidationError('Key property group_id is None')
+                    raise YPYModelError('Key property group_id is None')
 
                 return '/openconfig-telemetry:telemetry-system/openconfig-telemetry:destination-groups/openconfig-telemetry:destination-group[openconfig-telemetry:group-id = ' + str(self.group_id) + ']'
 
@@ -1009,10 +1009,10 @@ class TelemetrySystem(object):
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.state is not None and self.state._has_data():
+                if self.destinations is not None and self.destinations._has_data():
                     return True
 
-                if self.destinations is not None and self.destinations._has_data():
+                if self.state is not None and self.state._has_data():
                     return True
 
                 return False
@@ -1052,15 +1052,15 @@ class TelemetrySystem(object):
         This container holds information for both persistent
         and dynamic telemetry subscriptions.
         
-        .. attribute:: persistent
-        
-        	This container holds information relating to persistent telemetry subscriptions. A persistent telemetry subscription is configued locally on the device through configuration, and is persistent across device restarts or other redundancy changes
-        	**type**\: :py:class:`Persistent <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent>`
-        
         .. attribute:: dynamic
         
         	This container holds information relating to dynamic telemetry subscriptions. A dynamic subscription is typically configured through an RPC channel, and does not persist across device restarts, or if the RPC channel is reset or otherwise torn down
         	**type**\: :py:class:`Dynamic <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic>`
+        
+        .. attribute:: persistent
+        
+        	This container holds information relating to persistent telemetry subscriptions. A persistent telemetry subscription is configued locally on the device through configuration, and is persistent across device restarts or other redundancy changes
+        	**type**\: :py:class:`Persistent <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent>`
         
         
 
@@ -1071,10 +1071,10 @@ class TelemetrySystem(object):
 
         def __init__(self):
             self.parent = None
-            self.persistent = TelemetrySystem.Subscriptions.Persistent()
-            self.persistent.parent = self
             self.dynamic = TelemetrySystem.Subscriptions.Dynamic()
             self.dynamic.parent = self
+            self.persistent = TelemetrySystem.Subscriptions.Persistent()
+            self.persistent.parent = self
 
 
         class Persistent(object):
@@ -1114,7 +1114,7 @@ class TelemetrySystem(object):
                 .. attribute:: subscription_id  <key>
                 
                 	Reference to the identifier of the subscription itself. The id will be the handle to refer to the subscription once created
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1123,20 +1123,20 @@ class TelemetrySystem(object):
                 	Config parameters relating to the telemetry subscriptions on the local device
                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.Config>`
                 
-                .. attribute:: state
+                .. attribute:: destination_groups
                 
-                	State parameters relating to the telemetry subscriptions on the local device
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.State>`
+                	A subscription may specify destination addresses. If the subscription supplies destination addresses, the network element will be the initiator of the telemetry streaming, sending it to the destination(s) specified.  If the destination set is omitted, the subscription preconfigures certain elements such as paths and sample intervals under a specified subscription ID. In this case, the network element will NOT initiate an outbound connection for telemetry, but will wait for an inbound connection from a network management system.  It is expected that the network management system connecting to the network element will reference the preconfigured subscription ID when initiating a subscription
+                	**type**\: :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups>`
                 
                 .. attribute:: sensor_profiles
                 
                 	A sensor profile is a set of sensor groups or individual sensor paths which are associated with a telemetry subscription. This is the source of the telemetry data for the subscription to send to the defined collectors
                 	**type**\: :py:class:`SensorProfiles <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles>`
                 
-                .. attribute:: destination_groups
+                .. attribute:: state
                 
-                	A subscription may specify destination addresses. If the subscription supplies destination addresses, the network element will be the initiator of the telemetry streaming, sending it to the destination(s) specified.  If the destination set is omitted, the subscription preconfigures certain elements such as paths and sample intervals under a specified subscription ID. In this case, the network element will NOT initiate an outbound connection for telemetry, but will wait for an inbound connection from a network management system.  It is expected that the network management system connecting to the network element will reference the preconfigured subscription ID when initiating a subscription
-                	**type**\: :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups>`
+                	State parameters relating to the telemetry subscriptions on the local device
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.State>`
                 
                 
 
@@ -1150,25 +1150,18 @@ class TelemetrySystem(object):
                     self.subscription_id = None
                     self.config = TelemetrySystem.Subscriptions.Persistent.Subscription.Config()
                     self.config.parent = self
-                    self.state = TelemetrySystem.Subscriptions.Persistent.Subscription.State()
-                    self.state.parent = self
-                    self.sensor_profiles = TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles()
-                    self.sensor_profiles.parent = self
                     self.destination_groups = TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups()
                     self.destination_groups.parent = self
+                    self.sensor_profiles = TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles()
+                    self.sensor_profiles.parent = self
+                    self.state = TelemetrySystem.Subscriptions.Persistent.Subscription.State()
+                    self.state.parent = self
 
 
                 class Config(object):
                     """
                     Config parameters relating to the telemetry
                     subscriptions on the local device
-                    
-                    .. attribute:: subscription_id
-                    
-                    	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: local_source_address
                     
@@ -1194,6 +1187,13 @@ class TelemetrySystem(object):
                     
                     	**range:** 0..63
                     
+                    .. attribute:: subscription_id
+                    
+                    	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     
 
                     """
@@ -1203,14 +1203,14 @@ class TelemetrySystem(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.subscription_id = None
                         self.local_source_address = None
                         self.originated_qos_marking = None
+                        self.subscription_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -1221,13 +1221,13 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.subscription_id is not None:
-                            return True
-
                         if self.local_source_address is not None:
                             return True
 
                         if self.originated_qos_marking is not None:
+                            return True
+
+                        if self.subscription_id is not None:
                             return True
 
                         return False
@@ -1243,13 +1243,6 @@ class TelemetrySystem(object):
                     State parameters relating to the telemetry
                     subscriptions on the local device
                     
-                    .. attribute:: subscription_id
-                    
-                    	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: local_source_address
                     
                     	The IP address which will be the source of packets from the device to a telemetry collector destination
@@ -1274,6 +1267,13 @@ class TelemetrySystem(object):
                     
                     	**range:** 0..63
                     
+                    .. attribute:: subscription_id
+                    
+                    	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     
 
                     """
@@ -1283,14 +1283,14 @@ class TelemetrySystem(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.subscription_id = None
                         self.local_source_address = None
                         self.originated_qos_marking = None
+                        self.subscription_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -1301,13 +1301,13 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.subscription_id is not None:
-                            return True
-
                         if self.local_source_address is not None:
                             return True
 
                         if self.originated_qos_marking is not None:
+                            return True
+
+                        if self.subscription_id is not None:
                             return True
 
                         return False
@@ -1386,24 +1386,24 @@ class TelemetrySystem(object):
                             Configuration parameters related to the sensor
                             profile for a subscription
                             
-                            .. attribute:: sensor_group
+                            .. attribute:: heartbeat_interval
                             
-                            	Reference to the sensor group which is used in the profile
-                            	**type**\: str
+                            	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: sample_interval
                             
                             	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
-                            .. attribute:: heartbeat_interval
+                            .. attribute:: sensor_group
                             
-                            	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
+                            	Reference to the sensor group which is used in the profile
+                            	**type**\: str
                             
                             .. attribute:: suppress_redundant
                             
@@ -1419,15 +1419,15 @@ class TelemetrySystem(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.sensor_group = None
-                                self.sample_interval = None
                                 self.heartbeat_interval = None
+                                self.sample_interval = None
+                                self.sensor_group = None
                                 self.suppress_redundant = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -1438,13 +1438,13 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.sensor_group is not None:
+                                if self.heartbeat_interval is not None:
                                     return True
 
                                 if self.sample_interval is not None:
                                     return True
 
-                                if self.heartbeat_interval is not None:
+                                if self.sensor_group is not None:
                                     return True
 
                                 if self.suppress_redundant is not None:
@@ -1463,24 +1463,24 @@ class TelemetrySystem(object):
                             State information relating to the sensor profile
                             for a subscription
                             
-                            .. attribute:: sensor_group
+                            .. attribute:: heartbeat_interval
                             
-                            	Reference to the sensor group which is used in the profile
-                            	**type**\: str
+                            	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: sample_interval
                             
                             	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
-                            .. attribute:: heartbeat_interval
+                            .. attribute:: sensor_group
                             
-                            	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
+                            	Reference to the sensor group which is used in the profile
+                            	**type**\: str
                             
                             .. attribute:: suppress_redundant
                             
@@ -1496,15 +1496,15 @@ class TelemetrySystem(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.sensor_group = None
-                                self.sample_interval = None
                                 self.heartbeat_interval = None
+                                self.sample_interval = None
+                                self.sensor_group = None
                                 self.suppress_redundant = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -1515,13 +1515,13 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.sensor_group is not None:
+                                if self.heartbeat_interval is not None:
                                     return True
 
                                 if self.sample_interval is not None:
                                     return True
 
-                                if self.heartbeat_interval is not None:
+                                if self.sensor_group is not None:
                                     return True
 
                                 if self.suppress_redundant is not None:
@@ -1537,9 +1537,9 @@ class TelemetrySystem(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.sensor_group is None:
-                                raise YPYDataValidationError('Key property sensor_group is None')
+                                raise YPYModelError('Key property sensor_group is None')
 
                             return self.parent._common_path +'/openconfig-telemetry:sensor-profile[openconfig-telemetry:sensor-group = ' + str(self.sensor_group) + ']'
 
@@ -1569,7 +1569,7 @@ class TelemetrySystem(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-telemetry:sensor-profiles'
 
@@ -1693,7 +1693,7 @@ class TelemetrySystem(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-telemetry:config'
 
@@ -1739,7 +1739,7 @@ class TelemetrySystem(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -1763,9 +1763,9 @@ class TelemetrySystem(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.group_id is None:
-                                raise YPYDataValidationError('Key property group_id is None')
+                                raise YPYModelError('Key property group_id is None')
 
                             return self.parent._common_path +'/openconfig-telemetry:destination-group[openconfig-telemetry:group-id = ' + str(self.group_id) + ']'
 
@@ -1795,7 +1795,7 @@ class TelemetrySystem(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-telemetry:destination-groups'
 
@@ -1821,7 +1821,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.subscription_id is None:
-                        raise YPYDataValidationError('Key property subscription_id is None')
+                        raise YPYModelError('Key property subscription_id is None')
 
                     return '/openconfig-telemetry:telemetry-system/openconfig-telemetry:subscriptions/openconfig-telemetry:persistent/openconfig-telemetry:subscription[openconfig-telemetry:subscription-id = ' + str(self.subscription_id) + ']'
 
@@ -1838,13 +1838,13 @@ class TelemetrySystem(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
+                    if self.destination_groups is not None and self.destination_groups._has_data():
                         return True
 
                     if self.sensor_profiles is not None and self.sensor_profiles._has_data():
                         return True
 
-                    if self.destination_groups is not None and self.destination_groups._has_data():
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -1915,19 +1915,19 @@ class TelemetrySystem(object):
                 .. attribute:: subscription_id  <key>
                 
                 	Reference to the identifier of the subscription itself. The id will be the handle to refer to the subscription once created
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
-                
-                .. attribute:: state
-                
-                	State information relating to dynamic telemetry subscriptions
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
                 
                 .. attribute:: sensor_paths
                 
                 	Top level container to hold a set of sensor paths grouped together
                 	**type**\: :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths>`
+                
+                .. attribute:: state
+                
+                	State information relating to dynamic telemetry subscriptions
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
                 
                 
 
@@ -1939,23 +1939,16 @@ class TelemetrySystem(object):
                 def __init__(self):
                     self.parent = None
                     self.subscription_id = None
-                    self.state = TelemetrySystem.Subscriptions.Dynamic.Subscription.State()
-                    self.state.parent = self
                     self.sensor_paths = TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths()
                     self.sensor_paths.parent = self
+                    self.state = TelemetrySystem.Subscriptions.Dynamic.Subscription.State()
+                    self.state.parent = self
 
 
                 class State(object):
                     """
                     State information relating to dynamic telemetry
                     subscriptions.
-                    
-                    .. attribute:: subscription_id
-                    
-                    	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: destination_address
                     
@@ -1986,24 +1979,12 @@ class TelemetrySystem(object):
                     	Protocol used to transmit telemetry data to the collector
                     	**type**\: :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                     
-                    .. attribute:: sample_interval
-                    
-                    	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: heartbeat_interval
                     
                     	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: suppress_redundant
-                    
-                    	Boolean flag to control suppression of redundant telemetry updates to the collector platform. If this flag is set to TRUE, then the collector will only send an update at the configured interval if a subscribed data value has changed. Otherwise, the device will not send an update to the collector until expiration of the heartbeat interval
-                    	**type**\: bool
                     
                     .. attribute:: originated_qos_marking
                     
@@ -2011,6 +1992,25 @@ class TelemetrySystem(object):
                     	**type**\: int
                     
                     	**range:** 0..63
+                    
+                    .. attribute:: sample_interval
+                    
+                    	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: subscription_id
+                    
+                    	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: suppress_redundant
+                    
+                    	Boolean flag to control suppression of redundant telemetry updates to the collector platform. If this flag is set to TRUE, then the collector will only send an update at the configured interval if a subscribed data value has changed. Otherwise, the device will not send an update to the collector until expiration of the heartbeat interval
+                    	**type**\: bool
                     
                     
 
@@ -2021,19 +2021,19 @@ class TelemetrySystem(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.subscription_id = None
                         self.destination_address = None
                         self.destination_port = None
                         self.destination_protocol = None
-                        self.sample_interval = None
                         self.heartbeat_interval = None
-                        self.suppress_redundant = None
                         self.originated_qos_marking = None
+                        self.sample_interval = None
+                        self.subscription_id = None
+                        self.suppress_redundant = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -2044,9 +2044,6 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.subscription_id is not None:
-                            return True
-
                         if self.destination_address is not None:
                             return True
 
@@ -2056,16 +2053,19 @@ class TelemetrySystem(object):
                         if self.destination_protocol is not None:
                             return True
 
-                        if self.sample_interval is not None:
-                            return True
-
                         if self.heartbeat_interval is not None:
                             return True
 
-                        if self.suppress_redundant is not None:
+                        if self.originated_qos_marking is not None:
                             return True
 
-                        if self.originated_qos_marking is not None:
+                        if self.sample_interval is not None:
+                            return True
+
+                        if self.subscription_id is not None:
+                            return True
+
+                        if self.suppress_redundant is not None:
                             return True
 
                         return False
@@ -2135,14 +2135,14 @@ class TelemetrySystem(object):
                             State information for a dynamic subscription's
                             paths of interest
                             
-                            .. attribute:: path
-                            
-                            	Path to a section of operational state of interest (the sensor)
-                            	**type**\: str
-                            
                             .. attribute:: exclude_filter
                             
                             	Filter to exclude certain values out of the state values
+                            	**type**\: str
+                            
+                            .. attribute:: path
+                            
+                            	Path to a section of operational state of interest (the sensor)
                             	**type**\: str
                             
                             
@@ -2154,13 +2154,13 @@ class TelemetrySystem(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.path = None
                                 self.exclude_filter = None
+                                self.path = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-telemetry:state'
 
@@ -2171,10 +2171,10 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.path is not None:
+                                if self.exclude_filter is not None:
                                     return True
 
-                                if self.exclude_filter is not None:
+                                if self.path is not None:
                                     return True
 
                                 return False
@@ -2187,9 +2187,9 @@ class TelemetrySystem(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.path is None:
-                                raise YPYDataValidationError('Key property path is None')
+                                raise YPYModelError('Key property path is None')
 
                             return self.parent._common_path +'/openconfig-telemetry:sensor-path[openconfig-telemetry:path = ' + str(self.path) + ']'
 
@@ -2216,7 +2216,7 @@ class TelemetrySystem(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-telemetry:sensor-paths'
 
@@ -2242,7 +2242,7 @@ class TelemetrySystem(object):
                 @property
                 def _common_path(self):
                     if self.subscription_id is None:
-                        raise YPYDataValidationError('Key property subscription_id is None')
+                        raise YPYModelError('Key property subscription_id is None')
 
                     return '/openconfig-telemetry:telemetry-system/openconfig-telemetry:subscriptions/openconfig-telemetry:dynamic/openconfig-telemetry:subscription[openconfig-telemetry:subscription-id = ' + str(self.subscription_id) + ']'
 
@@ -2256,10 +2256,10 @@ class TelemetrySystem(object):
                     if self.subscription_id is not None:
                         return True
 
-                    if self.state is not None and self.state._has_data():
+                    if self.sensor_paths is not None and self.sensor_paths._has_data():
                         return True
 
-                    if self.sensor_paths is not None and self.sensor_paths._has_data():
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -2305,10 +2305,10 @@ class TelemetrySystem(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.persistent is not None and self.persistent._has_data():
+            if self.dynamic is not None and self.dynamic._has_data():
                 return True
 
-            if self.dynamic is not None and self.dynamic._has_data():
+            if self.persistent is not None and self.persistent._has_data():
                 return True
 
             return False
@@ -2330,10 +2330,10 @@ class TelemetrySystem(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.sensor_groups is not None and self.sensor_groups._has_data():
+        if self.destination_groups is not None and self.destination_groups._has_data():
             return True
 
-        if self.destination_groups is not None and self.destination_groups._has_data():
+        if self.sensor_groups is not None and self.sensor_groups._has_data():
             return True
 
         if self.subscriptions is not None and self.subscriptions._has_data():

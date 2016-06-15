@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -469,12 +469,10 @@ class Ssh(object):
                     """
                     session brief info
                     
-                    .. attribute:: session_id
+                    .. attribute:: authentication_type
                     
-                    	Session ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Authentication method
+                    	**type**\: :py:class:`AuthenEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
                     
                     .. attribute:: channel_id
                     
@@ -482,6 +480,45 @@ class Ssh(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: connection_type
+                    
+                    	Channel Connection Type
+                    	**type**\: :py:class:`ConnectionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
+                    
+                    .. attribute:: host_address
+                    
+                    	Host address
+                    	**type**\: str
+                    
+                    .. attribute:: node_name
+                    
+                    	Node name
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: session_state
+                    
+                    	SSH session state
+                    	**type**\: :py:class:`StatesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
+                    
+                    .. attribute:: user_id
+                    
+                    	User ID
+                    	**type**\: str
+                    
+                    .. attribute:: version
+                    
+                    	SSH state version
+                    	**type**\: :py:class:`VersionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
                     
                     .. attribute:: vty_assigned
                     
@@ -495,43 +532,6 @@ class Ssh(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: node_name
-                    
-                    	Node name
-                    	**type**\: str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: session_state
-                    
-                    	SSH session state
-                    	**type**\: :py:class:`StatesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
-                    
-                    .. attribute:: user_id
-                    
-                    	User ID
-                    	**type**\: str
-                    
-                    .. attribute:: host_address
-                    
-                    	Host address
-                    	**type**\: str
-                    
-                    .. attribute:: version
-                    
-                    	SSH state version
-                    	**type**\: :py:class:`VersionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
-                    
-                    .. attribute:: authentication_type
-                    
-                    	Authentication method
-                    	**type**\: :py:class:`AuthenEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
-                    
-                    .. attribute:: connection_type
-                    
-                    	Channel Connection Type
-                    	**type**\: :py:class:`ConnectionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
-                    
                     
 
                     """
@@ -541,17 +541,17 @@ class Ssh(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.session_id = None
+                        self.authentication_type = None
                         self.channel_id = None
-                        self.vty_assigned = None
-                        self.vty_line_number = None
+                        self.connection_type = None
+                        self.host_address = None
                         self.node_name = None
+                        self.session_id = None
                         self.session_state = None
                         self.user_id = None
-                        self.host_address = None
                         self.version = None
-                        self.authentication_type = None
-                        self.connection_type = None
+                        self.vty_assigned = None
+                        self.vty_line_number = None
 
                     @property
                     def _common_path(self):
@@ -565,19 +565,22 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.session_id is not None:
+                        if self.authentication_type is not None:
                             return True
 
                         if self.channel_id is not None:
                             return True
 
-                        if self.vty_assigned is not None:
+                        if self.connection_type is not None:
                             return True
 
-                        if self.vty_line_number is not None:
+                        if self.host_address is not None:
                             return True
 
                         if self.node_name is not None:
+                            return True
+
+                        if self.session_id is not None:
                             return True
 
                         if self.session_state is not None:
@@ -586,16 +589,13 @@ class Ssh(object):
                         if self.user_id is not None:
                             return True
 
-                        if self.host_address is not None:
-                            return True
-
                         if self.version is not None:
                             return True
 
-                        if self.authentication_type is not None:
+                        if self.vty_assigned is not None:
                             return True
 
-                        if self.connection_type is not None:
+                        if self.vty_line_number is not None:
                             return True
 
                         return False
@@ -657,12 +657,10 @@ class Ssh(object):
                     """
                     session brief info
                     
-                    .. attribute:: session_id
+                    .. attribute:: authentication_type
                     
-                    	Session ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Authentication method
+                    	**type**\: :py:class:`AuthenEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
                     
                     .. attribute:: channel_id
                     
@@ -670,6 +668,45 @@ class Ssh(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: connection_type
+                    
+                    	Channel Connection Type
+                    	**type**\: :py:class:`ConnectionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
+                    
+                    .. attribute:: host_address
+                    
+                    	Host address
+                    	**type**\: str
+                    
+                    .. attribute:: node_name
+                    
+                    	Node name
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: session_state
+                    
+                    	SSH session state
+                    	**type**\: :py:class:`StatesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
+                    
+                    .. attribute:: user_id
+                    
+                    	User ID
+                    	**type**\: str
+                    
+                    .. attribute:: version
+                    
+                    	SSH state version
+                    	**type**\: :py:class:`VersionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
                     
                     .. attribute:: vty_assigned
                     
@@ -683,43 +720,6 @@ class Ssh(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: node_name
-                    
-                    	Node name
-                    	**type**\: str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: session_state
-                    
-                    	SSH session state
-                    	**type**\: :py:class:`StatesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
-                    
-                    .. attribute:: user_id
-                    
-                    	User ID
-                    	**type**\: str
-                    
-                    .. attribute:: host_address
-                    
-                    	Host address
-                    	**type**\: str
-                    
-                    .. attribute:: version
-                    
-                    	SSH state version
-                    	**type**\: :py:class:`VersionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
-                    
-                    .. attribute:: authentication_type
-                    
-                    	Authentication method
-                    	**type**\: :py:class:`AuthenEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
-                    
-                    .. attribute:: connection_type
-                    
-                    	Channel Connection Type
-                    	**type**\: :py:class:`ConnectionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
-                    
                     
 
                     """
@@ -729,17 +729,17 @@ class Ssh(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.session_id = None
+                        self.authentication_type = None
                         self.channel_id = None
-                        self.vty_assigned = None
-                        self.vty_line_number = None
+                        self.connection_type = None
+                        self.host_address = None
                         self.node_name = None
+                        self.session_id = None
                         self.session_state = None
                         self.user_id = None
-                        self.host_address = None
                         self.version = None
-                        self.authentication_type = None
-                        self.connection_type = None
+                        self.vty_assigned = None
+                        self.vty_line_number = None
 
                     @property
                     def _common_path(self):
@@ -753,19 +753,22 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.session_id is not None:
+                        if self.authentication_type is not None:
                             return True
 
                         if self.channel_id is not None:
                             return True
 
-                        if self.vty_assigned is not None:
+                        if self.connection_type is not None:
                             return True
 
-                        if self.vty_line_number is not None:
+                        if self.host_address is not None:
                             return True
 
                         if self.node_name is not None:
+                            return True
+
+                        if self.session_id is not None:
                             return True
 
                         if self.session_state is not None:
@@ -774,16 +777,13 @@ class Ssh(object):
                         if self.user_id is not None:
                             return True
 
-                        if self.host_address is not None:
-                            return True
-
                         if self.version is not None:
                             return True
 
-                        if self.authentication_type is not None:
+                        if self.vty_assigned is not None:
                             return True
 
-                        if self.connection_type is not None:
+                        if self.vty_line_number is not None:
                             return True
 
                         return False
@@ -899,31 +899,9 @@ class Ssh(object):
                     """
                     session detail info
                     
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: key_exchange
-                    
-                    	Key exchange name
-                    	**type**\: :py:class:`KexNameEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
-                    
-                    .. attribute:: public_key
-                    
-                    	Host key algorithm
-                    	**type**\: :py:class:`HostkeyEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
-                    
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
-                    
-                    .. attribute:: out_cipher
-                    
-                    	Out cipher algorithm
                     	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: in_mac
@@ -931,10 +909,32 @@ class Ssh(object):
                     	In MAC
                     	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
+                    .. attribute:: key_exchange
+                    
+                    	Key exchange name
+                    	**type**\: :py:class:`KexNameEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                    
+                    .. attribute:: out_cipher
+                    
+                    	Out cipher algorithm
+                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    
                     .. attribute:: out_mac
                     
                     	Out MAC
                     	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    
+                    .. attribute:: public_key
+                    
+                    	Host key algorithm
+                    	**type**\: :py:class:`HostkeyEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -945,13 +945,13 @@ class Ssh(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.session_id = None
-                        self.key_exchange = None
-                        self.public_key = None
                         self.in_cipher = None
-                        self.out_cipher = None
                         self.in_mac = None
+                        self.key_exchange = None
+                        self.out_cipher = None
                         self.out_mac = None
+                        self.public_key = None
+                        self.session_id = None
 
                     @property
                     def _common_path(self):
@@ -965,25 +965,25 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.session_id is not None:
-                            return True
-
-                        if self.key_exchange is not None:
-                            return True
-
-                        if self.public_key is not None:
-                            return True
-
                         if self.in_cipher is not None:
-                            return True
-
-                        if self.out_cipher is not None:
                             return True
 
                         if self.in_mac is not None:
                             return True
 
+                        if self.key_exchange is not None:
+                            return True
+
+                        if self.out_cipher is not None:
+                            return True
+
                         if self.out_mac is not None:
+                            return True
+
+                        if self.public_key is not None:
+                            return True
+
+                        if self.session_id is not None:
                             return True
 
                         return False
@@ -1045,31 +1045,9 @@ class Ssh(object):
                     """
                     session detail info
                     
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: key_exchange
-                    
-                    	Key exchange name
-                    	**type**\: :py:class:`KexNameEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
-                    
-                    .. attribute:: public_key
-                    
-                    	Host key algorithm
-                    	**type**\: :py:class:`HostkeyEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
-                    
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
-                    
-                    .. attribute:: out_cipher
-                    
-                    	Out cipher algorithm
                     	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: in_mac
@@ -1077,10 +1055,32 @@ class Ssh(object):
                     	In MAC
                     	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
+                    .. attribute:: key_exchange
+                    
+                    	Key exchange name
+                    	**type**\: :py:class:`KexNameEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                    
+                    .. attribute:: out_cipher
+                    
+                    	Out cipher algorithm
+                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    
                     .. attribute:: out_mac
                     
                     	Out MAC
                     	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    
+                    .. attribute:: public_key
+                    
+                    	Host key algorithm
+                    	**type**\: :py:class:`HostkeyEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -1091,13 +1091,13 @@ class Ssh(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.session_id = None
-                        self.key_exchange = None
-                        self.public_key = None
                         self.in_cipher = None
-                        self.out_cipher = None
                         self.in_mac = None
+                        self.key_exchange = None
+                        self.out_cipher = None
                         self.out_mac = None
+                        self.public_key = None
+                        self.session_id = None
 
                     @property
                     def _common_path(self):
@@ -1111,25 +1111,25 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.session_id is not None:
-                            return True
-
-                        if self.key_exchange is not None:
-                            return True
-
-                        if self.public_key is not None:
-                            return True
-
                         if self.in_cipher is not None:
-                            return True
-
-                        if self.out_cipher is not None:
                             return True
 
                         if self.in_mac is not None:
                             return True
 
+                        if self.key_exchange is not None:
+                            return True
+
+                        if self.out_cipher is not None:
+                            return True
+
                         if self.out_mac is not None:
+                            return True
+
+                        if self.public_key is not None:
+                            return True
+
+                        if self.session_id is not None:
                             return True
 
                         return False

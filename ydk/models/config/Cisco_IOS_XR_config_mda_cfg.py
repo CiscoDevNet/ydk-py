@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlowEnum
@@ -60,11 +60,6 @@ class ActiveNodes(object):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
-        .. attribute:: lpts_local
-        
-        	lpts node specific configuration commands
-        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
-        
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
@@ -74,6 +69,11 @@ class ActiveNodes(object):
         
         	Watchdog threshold configuration
         	**type**\: :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
+        
+        .. attribute:: lpts_local
+        
+        	lpts node specific configuration commands
+        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
         
         
 
@@ -85,27 +85,27 @@ class ActiveNodes(object):
         def __init__(self):
             self.parent = None
             self.node_name = None
-            self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
-            self.lpts_local.parent = self
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
+            self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
+            self.lpts_local.parent = self
 
 
         class LptsLocal(object):
             """
             lpts node specific configuration commands
             
-            .. attribute:: ipolicer_local_tables
-            
-            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\: :py:class:`IpolicerLocalTables <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
-            
             .. attribute:: ipolicer_local
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
             	**type**\: :py:class:`IpolicerLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
+            
+            .. attribute:: ipolicer_local_tables
+            
+            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
+            	**type**\: :py:class:`IpolicerLocalTables <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
             
             
 
@@ -116,9 +116,9 @@ class ActiveNodes(object):
 
             def __init__(self):
                 self.parent = None
+                self.ipolicer_local = None
                 self.ipolicer_local_tables = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables()
                 self.ipolicer_local_tables.parent = self
-                self.ipolicer_local = None
 
 
             class IpolicerLocalTables(object):
@@ -232,9 +232,9 @@ class ActiveNodes(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.id1 is None:
-                                    raise YPYDataValidationError('Key property id1 is None')
+                                    raise YPYModelError('Key property id1 is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:np[Cisco-IOS-XR-lpts-pre-ifib-cfg:id1 = ' + str(self.id1) + ']'
 
@@ -261,7 +261,7 @@ class ActiveNodes(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:nps'
 
@@ -287,9 +287,9 @@ class ActiveNodes(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.id1 is None:
-                            raise YPYDataValidationError('Key property id1 is None')
+                            raise YPYModelError('Key property id1 is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local-table[Cisco-IOS-XR-lpts-pre-ifib-cfg:id1 = ' + str(self.id1) + ']'
 
@@ -316,7 +316,7 @@ class ActiveNodes(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local-tables'
 
@@ -475,7 +475,7 @@ class ActiveNodes(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
 
@@ -501,9 +501,9 @@ class ActiveNodes(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.flow_type is None:
-                                raise YPYDataValidationError('Key property flow_type is None')
+                                raise YPYModelError('Key property flow_type is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
 
@@ -533,7 +533,7 @@ class ActiveNodes(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows'
 
@@ -559,7 +559,7 @@ class ActiveNodes(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local'
 
@@ -586,7 +586,7 @@ class ActiveNodes(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local'
 
@@ -597,10 +597,10 @@ class ActiveNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
+                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
                     return True
 
-                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
+                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
                     return True
 
                 return False
@@ -637,6 +637,13 @@ class ActiveNodes(object):
                 """
                 Memory thresholds
                 
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
@@ -651,13 +658,6 @@ class ActiveNodes(object):
                 
                 	**range:** 4..40
                 
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
                 
 
                 """
@@ -667,14 +667,14 @@ class ActiveNodes(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.critical = None
                     self.minor = None
                     self.severe = None
-                    self.critical = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:memory-threshold'
 
@@ -685,13 +685,13 @@ class ActiveNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.critical is not None:
+                        return True
+
                     if self.minor is not None:
                         return True
 
                     if self.severe is not None:
-                        return True
-
-                    if self.critical is not None:
                         return True
 
                     return False
@@ -704,7 +704,7 @@ class ActiveNodes(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold'
 
@@ -752,6 +752,13 @@ class ActiveNodes(object):
                 """
                 Memory thresholds
                 
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
@@ -766,13 +773,6 @@ class ActiveNodes(object):
                 
                 	**range:** 4..40
                 
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
                 
 
                 """
@@ -782,14 +782,14 @@ class ActiveNodes(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.critical = None
                     self.minor = None
                     self.severe = None
-                    self.critical = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
 
@@ -800,13 +800,13 @@ class ActiveNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.critical is not None:
+                        return True
+
                     if self.minor is not None:
                         return True
 
                     if self.severe is not None:
-                        return True
-
-                    if self.critical is not None:
                         return True
 
                     return False
@@ -819,7 +819,7 @@ class ActiveNodes(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
 
@@ -843,7 +843,7 @@ class ActiveNodes(object):
         @property
         def _common_path(self):
             if self.node_name is None:
-                raise YPYDataValidationError('Key property node_name is None')
+                raise YPYModelError('Key property node_name is None')
 
             return '/Cisco-IOS-XR-config-mda-cfg:active-nodes/Cisco-IOS-XR-config-mda-cfg:active-node[Cisco-IOS-XR-config-mda-cfg:node-name = ' + str(self.node_name) + ']'
 
@@ -857,13 +857,13 @@ class ActiveNodes(object):
             if self.node_name is not None:
                 return True
 
-            if self.lpts_local is not None and self.lpts_local._has_data():
-                return True
-
             if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold._has_data():
                 return True
 
             if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold._has_data():
+                return True
+
+            if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
             return False
@@ -931,11 +931,6 @@ class PreconfiguredNodes(object):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
-        .. attribute:: lpts_local
-        
-        	lpts node specific configuration commands
-        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
-        
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
@@ -945,6 +940,11 @@ class PreconfiguredNodes(object):
         
         	Watchdog threshold configuration
         	**type**\: :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
+        
+        .. attribute:: lpts_local
+        
+        	lpts node specific configuration commands
+        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
         
         
 
@@ -956,27 +956,27 @@ class PreconfiguredNodes(object):
         def __init__(self):
             self.parent = None
             self.node_name = None
-            self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
-            self.lpts_local.parent = self
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
+            self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
+            self.lpts_local.parent = self
 
 
         class LptsLocal(object):
             """
             lpts node specific configuration commands
             
-            .. attribute:: ipolicer_local_tables
-            
-            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\: :py:class:`IpolicerLocalTables <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
-            
             .. attribute:: ipolicer_local
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
             	**type**\: :py:class:`IpolicerLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
+            
+            .. attribute:: ipolicer_local_tables
+            
+            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
+            	**type**\: :py:class:`IpolicerLocalTables <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
             
             
 
@@ -987,9 +987,9 @@ class PreconfiguredNodes(object):
 
             def __init__(self):
                 self.parent = None
+                self.ipolicer_local = None
                 self.ipolicer_local_tables = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables()
                 self.ipolicer_local_tables.parent = self
-                self.ipolicer_local = None
 
 
             class IpolicerLocalTables(object):
@@ -1103,9 +1103,9 @@ class PreconfiguredNodes(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.id1 is None:
-                                    raise YPYDataValidationError('Key property id1 is None')
+                                    raise YPYModelError('Key property id1 is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:np[Cisco-IOS-XR-lpts-pre-ifib-cfg:id1 = ' + str(self.id1) + ']'
 
@@ -1132,7 +1132,7 @@ class PreconfiguredNodes(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:nps'
 
@@ -1158,9 +1158,9 @@ class PreconfiguredNodes(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.id1 is None:
-                            raise YPYDataValidationError('Key property id1 is None')
+                            raise YPYModelError('Key property id1 is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local-table[Cisco-IOS-XR-lpts-pre-ifib-cfg:id1 = ' + str(self.id1) + ']'
 
@@ -1187,7 +1187,7 @@ class PreconfiguredNodes(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local-tables'
 
@@ -1346,7 +1346,7 @@ class PreconfiguredNodes(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
 
@@ -1372,9 +1372,9 @@ class PreconfiguredNodes(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.flow_type is None:
-                                raise YPYDataValidationError('Key property flow_type is None')
+                                raise YPYModelError('Key property flow_type is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
 
@@ -1404,7 +1404,7 @@ class PreconfiguredNodes(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows'
 
@@ -1430,7 +1430,7 @@ class PreconfiguredNodes(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local'
 
@@ -1457,7 +1457,7 @@ class PreconfiguredNodes(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local'
 
@@ -1468,10 +1468,10 @@ class PreconfiguredNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
+                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
                     return True
 
-                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
+                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
                     return True
 
                 return False
@@ -1508,6 +1508,13 @@ class PreconfiguredNodes(object):
                 """
                 Memory thresholds
                 
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
@@ -1522,13 +1529,6 @@ class PreconfiguredNodes(object):
                 
                 	**range:** 4..40
                 
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
                 
 
                 """
@@ -1538,14 +1538,14 @@ class PreconfiguredNodes(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.critical = None
                     self.minor = None
                     self.severe = None
-                    self.critical = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:memory-threshold'
 
@@ -1556,13 +1556,13 @@ class PreconfiguredNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.critical is not None:
+                        return True
+
                     if self.minor is not None:
                         return True
 
                     if self.severe is not None:
-                        return True
-
-                    if self.critical is not None:
                         return True
 
                     return False
@@ -1575,7 +1575,7 @@ class PreconfiguredNodes(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold'
 
@@ -1623,6 +1623,13 @@ class PreconfiguredNodes(object):
                 """
                 Memory thresholds
                 
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
@@ -1637,13 +1644,6 @@ class PreconfiguredNodes(object):
                 
                 	**range:** 4..40
                 
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
                 
 
                 """
@@ -1653,14 +1653,14 @@ class PreconfiguredNodes(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.critical = None
                     self.minor = None
                     self.severe = None
-                    self.critical = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
 
@@ -1671,13 +1671,13 @@ class PreconfiguredNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.critical is not None:
+                        return True
+
                     if self.minor is not None:
                         return True
 
                     if self.severe is not None:
-                        return True
-
-                    if self.critical is not None:
                         return True
 
                     return False
@@ -1690,7 +1690,7 @@ class PreconfiguredNodes(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
 
@@ -1714,7 +1714,7 @@ class PreconfiguredNodes(object):
         @property
         def _common_path(self):
             if self.node_name is None:
-                raise YPYDataValidationError('Key property node_name is None')
+                raise YPYModelError('Key property node_name is None')
 
             return '/Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/Cisco-IOS-XR-config-mda-cfg:preconfigured-node[Cisco-IOS-XR-config-mda-cfg:node-name = ' + str(self.node_name) + ']'
 
@@ -1728,13 +1728,13 @@ class PreconfiguredNodes(object):
             if self.node_name is not None:
                 return True
 
-            if self.lpts_local is not None and self.lpts_local._has_data():
-                return True
-
             if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold._has_data():
                 return True
 
             if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold._has_data():
+                return True
+
+            if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
             return False

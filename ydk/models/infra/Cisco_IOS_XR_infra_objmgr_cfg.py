@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -733,15 +733,15 @@ class ObjectGroup(object):
     """
     Object\-group configuration
     
-    .. attribute:: port
-    
-    	Port object group
-    	**type**\: :py:class:`Port <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
-    
     .. attribute:: network
     
     	Network object group
     	**type**\: :py:class:`Network <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
+    
+    .. attribute:: port
+    
+    	Port object group
+    	**type**\: :py:class:`Port <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
     
     
 
@@ -751,10 +751,10 @@ class ObjectGroup(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.port = ObjectGroup.Port()
-        self.port.parent = self
         self.network = ObjectGroup.Network()
         self.network.parent = self
+        self.port = ObjectGroup.Port()
+        self.port.parent = self
 
 
     class Port(object):
@@ -813,27 +813,27 @@ class ObjectGroup(object):
                 
                 	**range:** 0..64
                 
-                .. attribute:: operators
-                
-                	Table of port operators
-                	**type**\: :py:class:`Operators <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators>`
-                
-                .. attribute:: nested_groups
-                
-                	Table of nested port object groups
-                	**type**\: :py:class:`NestedGroups <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups>`
-                
-                .. attribute:: port_ranges
-                
-                	Table of port range addresses
-                	**type**\: :py:class:`PortRanges <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges>`
-                
                 .. attribute:: description
                 
                 	Up to 100 characters describing this object
                 	**type**\: str
                 
                 	**range:** 0..100
+                
+                .. attribute:: nested_groups
+                
+                	Table of nested port object groups
+                	**type**\: :py:class:`NestedGroups <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups>`
+                
+                .. attribute:: operators
+                
+                	Table of port operators
+                	**type**\: :py:class:`Operators <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators>`
+                
+                .. attribute:: port_ranges
+                
+                	Table of port range addresses
+                	**type**\: :py:class:`PortRanges <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges>`
                 
                 
 
@@ -845,13 +845,13 @@ class ObjectGroup(object):
                 def __init__(self):
                     self.parent = None
                     self.object_name = None
-                    self.operators = ObjectGroup.Port.Objects.Object.Operators()
-                    self.operators.parent = self
+                    self.description = None
                     self.nested_groups = ObjectGroup.Port.Objects.Object.NestedGroups()
                     self.nested_groups.parent = self
+                    self.operators = ObjectGroup.Port.Objects.Object.Operators()
+                    self.operators.parent = self
                     self.port_ranges = ObjectGroup.Port.Objects.Object.PortRanges()
                     self.port_ranges.parent = self
-                    self.description = None
 
 
                 class Operators(object):
@@ -916,11 +916,11 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.operator_type is None:
-                                raise YPYDataValidationError('Key property operator_type is None')
+                                raise YPYModelError('Key property operator_type is None')
                             if self.port is None:
-                                raise YPYDataValidationError('Key property port is None')
+                                raise YPYModelError('Key property port is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:operator[Cisco-IOS-XR-infra-objmgr-cfg:operator-type = ' + str(self.operator_type) + '][Cisco-IOS-XR-infra-objmgr-cfg:port = ' + str(self.port) + ']'
 
@@ -947,7 +947,7 @@ class ObjectGroup(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:operators'
 
@@ -1019,9 +1019,9 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.nested_group_name is None:
-                                raise YPYDataValidationError('Key property nested_group_name is None')
+                                raise YPYModelError('Key property nested_group_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:nested-group[Cisco-IOS-XR-infra-objmgr-cfg:nested-group-name = ' + str(self.nested_group_name) + ']'
 
@@ -1045,7 +1045,7 @@ class ObjectGroup(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:nested-groups'
 
@@ -1096,12 +1096,12 @@ class ObjectGroup(object):
                         """
                         Match only packets on a given port range
                         
-                        .. attribute:: start_port  <key>
+                        .. attribute:: end_port  <key>
                         
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\: :py:class:`StartPortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>`
+                        	**type**\: :py:class:`EndPortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>`
                         
                         
                         ----
@@ -1111,12 +1111,12 @@ class ObjectGroup(object):
                         
                         
                         ----
-                        .. attribute:: end_port  <key>
+                        .. attribute:: start_port  <key>
                         
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\: :py:class:`EndPortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>`
+                        	**type**\: :py:class:`StartPortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>`
                         
                         
                         ----
@@ -1135,19 +1135,19 @@ class ObjectGroup(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.start_port = None
                             self.end_port = None
+                            self.start_port = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.start_port is None:
-                                raise YPYDataValidationError('Key property start_port is None')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.end_port is None:
-                                raise YPYDataValidationError('Key property end_port is None')
+                                raise YPYModelError('Key property end_port is None')
+                            if self.start_port is None:
+                                raise YPYModelError('Key property start_port is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:port-range[Cisco-IOS-XR-infra-objmgr-cfg:start-port = ' + str(self.start_port) + '][Cisco-IOS-XR-infra-objmgr-cfg:end-port = ' + str(self.end_port) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:port-range[Cisco-IOS-XR-infra-objmgr-cfg:end-port = ' + str(self.end_port) + '][Cisco-IOS-XR-infra-objmgr-cfg:start-port = ' + str(self.start_port) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -1156,10 +1156,10 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.start_port is not None:
+                            if self.end_port is not None:
                                 return True
 
-                            if self.end_port is not None:
+                            if self.start_port is not None:
                                 return True
 
                             return False
@@ -1172,7 +1172,7 @@ class ObjectGroup(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:port-ranges'
 
@@ -1198,7 +1198,7 @@ class ObjectGroup(object):
                 @property
                 def _common_path(self):
                     if self.object_name is None:
-                        raise YPYDataValidationError('Key property object_name is None')
+                        raise YPYModelError('Key property object_name is None')
 
                     return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:port/Cisco-IOS-XR-infra-objmgr-cfg:objects/Cisco-IOS-XR-infra-objmgr-cfg:object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
 
@@ -1212,16 +1212,16 @@ class ObjectGroup(object):
                     if self.object_name is not None:
                         return True
 
-                    if self.operators is not None and self.operators._has_data():
+                    if self.description is not None:
                         return True
 
                     if self.nested_groups is not None and self.nested_groups._has_data():
                         return True
 
-                    if self.port_ranges is not None and self.port_ranges._has_data():
+                    if self.operators is not None and self.operators._has_data():
                         return True
 
-                    if self.description is not None:
+                    if self.port_ranges is not None and self.port_ranges._has_data():
                         return True
 
                     return False
@@ -1282,15 +1282,15 @@ class ObjectGroup(object):
         """
         Network object group
         
-        .. attribute:: ipv6
-        
-        	IPv6 object group
-        	**type**\: :py:class:`Ipv6 <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
-        
         .. attribute:: ipv4
         
         	IPv4 object group
         	**type**\: :py:class:`Ipv4 <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
+        
+        .. attribute:: ipv6
+        
+        	IPv6 object group
+        	**type**\: :py:class:`Ipv6 <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
         
         
 
@@ -1301,10 +1301,10 @@ class ObjectGroup(object):
 
         def __init__(self):
             self.parent = None
-            self.ipv6 = ObjectGroup.Network.Ipv6()
-            self.ipv6.parent = self
             self.ipv4 = ObjectGroup.Network.Ipv4()
             self.ipv4.parent = self
+            self.ipv6 = ObjectGroup.Network.Ipv6()
+            self.ipv6.parent = self
 
 
         class Ipv6(object):
@@ -1363,11 +1363,6 @@ class ObjectGroup(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: nested_groups
-                    
-                    	Table of nested ipv6 object groups
-                    	**type**\: :py:class:`NestedGroups <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups>`
-                    
                     .. attribute:: address_ranges
                     
                     	Table of ipv6 address ranges
@@ -1378,17 +1373,22 @@ class ObjectGroup(object):
                     	Table of ipv6 addresses
                     	**type**\: :py:class:`Addresses <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses>`
                     
-                    .. attribute:: hosts
-                    
-                    	Table of ipv6 host addresses
-                    	**type**\: :py:class:`Hosts <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts>`
-                    
                     .. attribute:: description
                     
                     	Up to 100 characters describing this object
                     	**type**\: str
                     
                     	**range:** 0..100
+                    
+                    .. attribute:: hosts
+                    
+                    	Table of ipv6 host addresses
+                    	**type**\: :py:class:`Hosts <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts>`
+                    
+                    .. attribute:: nested_groups
+                    
+                    	Table of nested ipv6 object groups
+                    	**type**\: :py:class:`NestedGroups <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups>`
                     
                     
 
@@ -1400,15 +1400,15 @@ class ObjectGroup(object):
                     def __init__(self):
                         self.parent = None
                         self.object_name = None
-                        self.nested_groups = ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups()
-                        self.nested_groups.parent = self
                         self.address_ranges = ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges()
                         self.address_ranges.parent = self
                         self.addresses = ObjectGroup.Network.Ipv6.Objects.Object.Addresses()
                         self.addresses.parent = self
+                        self.description = None
                         self.hosts = ObjectGroup.Network.Ipv6.Objects.Object.Hosts()
                         self.hosts.parent = self
-                        self.description = None
+                        self.nested_groups = ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups()
+                        self.nested_groups.parent = self
 
 
                     class NestedGroups(object):
@@ -1459,9 +1459,9 @@ class ObjectGroup(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.nested_group_name is None:
-                                    raise YPYDataValidationError('Key property nested_group_name is None')
+                                    raise YPYModelError('Key property nested_group_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:nested-group[Cisco-IOS-XR-infra-objmgr-cfg:nested-group-name = ' + str(self.nested_group_name) + ']'
 
@@ -1485,7 +1485,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:nested-groups'
 
@@ -1536,7 +1536,7 @@ class ObjectGroup(object):
                             """
                             Range of host addresses
                             
-                            .. attribute:: start_address  <key>
+                            .. attribute:: end_address  <key>
                             
                             	IPv6 address
                             	**type**\: one of the below types:
@@ -1553,7 +1553,7 @@ class ObjectGroup(object):
                             
                             
                             ----
-                            .. attribute:: end_address  <key>
+                            .. attribute:: start_address  <key>
                             
                             	IPv6 address
                             	**type**\: one of the below types:
@@ -1579,19 +1579,19 @@ class ObjectGroup(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.start_address = None
                                 self.end_address = None
+                                self.start_address = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.start_address is None:
-                                    raise YPYDataValidationError('Key property start_address is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.end_address is None:
-                                    raise YPYDataValidationError('Key property end_address is None')
+                                    raise YPYModelError('Key property end_address is None')
+                                if self.start_address is None:
+                                    raise YPYModelError('Key property start_address is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -1600,10 +1600,10 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.start_address is not None:
+                                if self.end_address is not None:
                                     return True
 
-                                if self.end_address is not None:
+                                if self.start_address is not None:
                                     return True
 
                                 return False
@@ -1616,7 +1616,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-ranges'
 
@@ -1706,11 +1706,11 @@ class ObjectGroup(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.prefix is None:
-                                    raise YPYDataValidationError('Key property prefix is None')
+                                    raise YPYModelError('Key property prefix is None')
                                 if self.prefix_length is None:
-                                    raise YPYDataValidationError('Key property prefix_length is None')
+                                    raise YPYModelError('Key property prefix_length is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address[Cisco-IOS-XR-infra-objmgr-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-infra-objmgr-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
@@ -1737,7 +1737,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:addresses'
 
@@ -1819,9 +1819,9 @@ class ObjectGroup(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.host_address is None:
-                                    raise YPYDataValidationError('Key property host_address is None')
+                                    raise YPYModelError('Key property host_address is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:host[Cisco-IOS-XR-infra-objmgr-cfg:host-address = ' + str(self.host_address) + ']'
 
@@ -1845,7 +1845,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:hosts'
 
@@ -1871,7 +1871,7 @@ class ObjectGroup(object):
                     @property
                     def _common_path(self):
                         if self.object_name is None:
-                            raise YPYDataValidationError('Key property object_name is None')
+                            raise YPYModelError('Key property object_name is None')
 
                         return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv6/Cisco-IOS-XR-infra-objmgr-cfg:objects/Cisco-IOS-XR-infra-objmgr-cfg:object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
 
@@ -1885,19 +1885,19 @@ class ObjectGroup(object):
                         if self.object_name is not None:
                             return True
 
-                        if self.nested_groups is not None and self.nested_groups._has_data():
-                            return True
-
                         if self.address_ranges is not None and self.address_ranges._has_data():
                             return True
 
                         if self.addresses is not None and self.addresses._has_data():
                             return True
 
+                        if self.description is not None:
+                            return True
+
                         if self.hosts is not None and self.hosts._has_data():
                             return True
 
-                        if self.description is not None:
+                        if self.nested_groups is not None and self.nested_groups._has_data():
                             return True
 
                         return False
@@ -2010,11 +2010,6 @@ class ObjectGroup(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: nested_groups
-                    
-                    	Table of nested ipv4 object groups
-                    	**type**\: :py:class:`NestedGroups <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups>`
-                    
                     .. attribute:: address_ranges
                     
                     	Table of ipv4 host address ranges
@@ -2025,17 +2020,22 @@ class ObjectGroup(object):
                     	Table of addresses
                     	**type**\: :py:class:`Addresses <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses>`
                     
-                    .. attribute:: hosts
-                    
-                    	Table of host addresses
-                    	**type**\: :py:class:`Hosts <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts>`
-                    
                     .. attribute:: description
                     
                     	Up to 100 characters describing this object
                     	**type**\: str
                     
                     	**range:** 0..100
+                    
+                    .. attribute:: hosts
+                    
+                    	Table of host addresses
+                    	**type**\: :py:class:`Hosts <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts>`
+                    
+                    .. attribute:: nested_groups
+                    
+                    	Table of nested ipv4 object groups
+                    	**type**\: :py:class:`NestedGroups <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups>`
                     
                     
 
@@ -2047,15 +2047,15 @@ class ObjectGroup(object):
                     def __init__(self):
                         self.parent = None
                         self.object_name = None
-                        self.nested_groups = ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups()
-                        self.nested_groups.parent = self
                         self.address_ranges = ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges()
                         self.address_ranges.parent = self
                         self.addresses = ObjectGroup.Network.Ipv4.Objects.Object.Addresses()
                         self.addresses.parent = self
+                        self.description = None
                         self.hosts = ObjectGroup.Network.Ipv4.Objects.Object.Hosts()
                         self.hosts.parent = self
-                        self.description = None
+                        self.nested_groups = ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups()
+                        self.nested_groups.parent = self
 
 
                     class NestedGroups(object):
@@ -2106,9 +2106,9 @@ class ObjectGroup(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.nested_group_name is None:
-                                    raise YPYDataValidationError('Key property nested_group_name is None')
+                                    raise YPYModelError('Key property nested_group_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:nested-group[Cisco-IOS-XR-infra-objmgr-cfg:nested-group-name = ' + str(self.nested_group_name) + ']'
 
@@ -2132,7 +2132,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:nested-groups'
 
@@ -2183,7 +2183,7 @@ class ObjectGroup(object):
                             """
                             Range of host addresses
                             
-                            .. attribute:: start_address  <key>
+                            .. attribute:: end_address  <key>
                             
                             	IPv4 address
                             	**type**\: one of the below types:
@@ -2200,7 +2200,7 @@ class ObjectGroup(object):
                             
                             
                             ----
-                            .. attribute:: end_address  <key>
+                            .. attribute:: start_address  <key>
                             
                             	IPv4 address
                             	**type**\: one of the below types:
@@ -2226,19 +2226,19 @@ class ObjectGroup(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.start_address = None
                                 self.end_address = None
+                                self.start_address = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.start_address is None:
-                                    raise YPYDataValidationError('Key property start_address is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.end_address is None:
-                                    raise YPYDataValidationError('Key property end_address is None')
+                                    raise YPYModelError('Key property end_address is None')
+                                if self.start_address is None:
+                                    raise YPYModelError('Key property start_address is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -2247,10 +2247,10 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.start_address is not None:
+                                if self.end_address is not None:
                                     return True
 
-                                if self.end_address is not None:
+                                if self.start_address is not None:
                                     return True
 
                                 return False
@@ -2263,7 +2263,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-ranges'
 
@@ -2353,11 +2353,11 @@ class ObjectGroup(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.prefix is None:
-                                    raise YPYDataValidationError('Key property prefix is None')
+                                    raise YPYModelError('Key property prefix is None')
                                 if self.prefix_length is None:
-                                    raise YPYDataValidationError('Key property prefix_length is None')
+                                    raise YPYModelError('Key property prefix_length is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address[Cisco-IOS-XR-infra-objmgr-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-infra-objmgr-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
@@ -2384,7 +2384,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:addresses'
 
@@ -2466,9 +2466,9 @@ class ObjectGroup(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.host_address is None:
-                                    raise YPYDataValidationError('Key property host_address is None')
+                                    raise YPYModelError('Key property host_address is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:host[Cisco-IOS-XR-infra-objmgr-cfg:host-address = ' + str(self.host_address) + ']'
 
@@ -2492,7 +2492,7 @@ class ObjectGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:hosts'
 
@@ -2518,7 +2518,7 @@ class ObjectGroup(object):
                     @property
                     def _common_path(self):
                         if self.object_name is None:
-                            raise YPYDataValidationError('Key property object_name is None')
+                            raise YPYModelError('Key property object_name is None')
 
                         return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv4/Cisco-IOS-XR-infra-objmgr-cfg:objects/Cisco-IOS-XR-infra-objmgr-cfg:object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
 
@@ -2532,19 +2532,19 @@ class ObjectGroup(object):
                         if self.object_name is not None:
                             return True
 
-                        if self.nested_groups is not None and self.nested_groups._has_data():
-                            return True
-
                         if self.address_ranges is not None and self.address_ranges._has_data():
                             return True
 
                         if self.addresses is not None and self.addresses._has_data():
                             return True
 
+                        if self.description is not None:
+                            return True
+
                         if self.hosts is not None and self.hosts._has_data():
                             return True
 
-                        if self.description is not None:
+                        if self.nested_groups is not None and self.nested_groups._has_data():
                             return True
 
                         return False
@@ -2612,10 +2612,10 @@ class ObjectGroup(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.ipv6 is not None and self.ipv6._has_data():
+            if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
-            if self.ipv4 is not None and self.ipv4._has_data():
+            if self.ipv6 is not None and self.ipv6._has_data():
                 return True
 
             return False
@@ -2637,10 +2637,10 @@ class ObjectGroup(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.port is not None and self.port._has_data():
+        if self.network is not None and self.network._has_data():
             return True
 
-        if self.network is not None and self.network._has_data():
+        if self.port is not None and self.port._has_data():
             return True
 
         return False

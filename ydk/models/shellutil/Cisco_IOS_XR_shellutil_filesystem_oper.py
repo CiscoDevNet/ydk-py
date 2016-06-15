@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -82,9 +82,9 @@ class FileSystem(object):
             """
             Available file systems
             
-            .. attribute:: size
+            .. attribute:: flags
             
-            	Size of the file system in bytes
+            	Flags of file system
             	**type**\: str
             
             .. attribute:: free
@@ -92,19 +92,19 @@ class FileSystem(object):
             	Free space in the file system in bytes
             	**type**\: str
             
-            .. attribute:: type
-            
-            	Type of file system
-            	**type**\: str
-            
-            .. attribute:: flags
-            
-            	Flags of file system
-            	**type**\: str
-            
             .. attribute:: prefixes
             
             	Prefixes of file system
+            	**type**\: str
+            
+            .. attribute:: size
+            
+            	Size of the file system in bytes
+            	**type**\: str
+            
+            .. attribute:: type
+            
+            	Type of file system
             	**type**\: str
             
             
@@ -116,16 +116,16 @@ class FileSystem(object):
 
             def __init__(self):
                 self.parent = None
-                self.size = None
-                self.free = None
-                self.type = None
                 self.flags = None
+                self.free = None
                 self.prefixes = None
+                self.size = None
+                self.type = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-shellutil-filesystem-oper:file-system'
 
@@ -136,19 +136,19 @@ class FileSystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.size is not None:
+                if self.flags is not None:
                     return True
 
                 if self.free is not None:
                     return True
 
-                if self.type is not None:
-                    return True
-
-                if self.flags is not None:
-                    return True
-
                 if self.prefixes is not None:
+                    return True
+
+                if self.size is not None:
+                    return True
+
+                if self.type is not None:
                     return True
 
                 return False
@@ -161,7 +161,7 @@ class FileSystem(object):
         @property
         def _common_path(self):
             if self.node_name is None:
-                raise YPYDataValidationError('Key property node_name is None')
+                raise YPYModelError('Key property node_name is None')
 
             return '/Cisco-IOS-XR-shellutil-filesystem-oper:file-system/Cisco-IOS-XR-shellutil-filesystem-oper:node[Cisco-IOS-XR-shellutil-filesystem-oper:node-name = ' + str(self.node_name) + ']'
 

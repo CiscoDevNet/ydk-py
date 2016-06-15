@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -77,13 +77,6 @@ _meta_table = {
                 ''',
                 'statistic_name',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', True),
-            _MetaInfoClassMember('buckets-size', REFERENCE_CLASS, 'BucketsSize' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize', 
-                [], [], 
-                '''                Size of the buckets into which statistics
-                are collected
-                ''',
-                'buckets_size',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('aggregation', REFERENCE_CLASS, 'Aggregation' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation', 
                 [], [], 
                 '''                Aggregation to apply to results for the
@@ -91,17 +84,24 @@ _meta_table = {
                 ''',
                 'aggregation',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable statistic gathering of the metric
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
                 [(1, 100)], [], 
                 '''                Number of buckets to archive in memory
                 ''',
                 'buckets_archive',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('buckets-size', REFERENCE_CLASS, 'BucketsSize' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize', 
+                [], [], 
+                '''                Size of the buckets into which statistics
+                are collected
+                ''',
+                'buckets_size',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable statistic gathering of the metric
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-cfg',
@@ -131,6 +131,21 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Profiles.Profile.Schedule',
             False, 
             [
+            _MetaInfoClassMember('probe-duration', ATTRIBUTE, 'int' , None, None, 
+                [(1, 3600)], [], 
+                '''                Duration of each probe.  This must be
+                specified if, and only if, ProbeDurationUnit
+                is specified.
+                ''',
+                'probe_duration',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('probe-duration-unit', REFERENCE_ENUM_CLASS, 'SlaProbeDurationUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeDurationUnitsEnumEnum', 
+                [], [], 
+                '''                Time unit associated with the ProbeDuration.
+                The value must not be 'Once'.
+                ''',
+                'probe_duration_unit',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('probe-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 90)], [], 
                 '''                Interval between probes.  This must be
@@ -182,21 +197,6 @@ _meta_table = {
                 ''',
                 'start_time_second',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('probe-duration', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600)], [], 
-                '''                Duration of each probe.  This must be
-                specified if, and only if, ProbeDurationUnit
-                is specified.
-                ''',
-                'probe_duration',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('probe-duration-unit', REFERENCE_ENUM_CLASS, 'SlaProbeDurationUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeDurationUnitsEnumEnum', 
-                [], [], 
-                '''                Time unit associated with the ProbeDuration.
-                The value must not be 'Once'.
-                ''',
-                'probe_duration_unit',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-cfg',
             'schedule',
@@ -225,6 +225,14 @@ _meta_table = {
                 ''',
                 'burst_interval_unit',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('packet-count', ATTRIBUTE, 'int' , None, None, 
+                [(2, 1200)], [], 
+                '''                The number of packets in each burst.  This
+                must be specified if, and only if, the
+                SendType is 'Burst'.
+                ''',
+                'packet_count',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('packet-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 10000)], [], 
                 '''                Interval between packets.
@@ -237,14 +245,6 @@ _meta_table = {
                 PacketInterval, must not be 'Once'.
                 ''',
                 'packet_interval_unit',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('packet-count', ATTRIBUTE, 'int' , None, None, 
-                [(2, 1200)], [], 
-                '''                The number of packets in each burst.  This
-                must be specified if, and only if, the
-                SendType is 'Burst'.
-                ''',
-                'packet_count',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('send-type', REFERENCE_ENUM_CLASS, 'SlaSendEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaSendEnum', 
                 [], [], 
@@ -266,12 +266,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding',
             False, 
             [
-            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 9000)], [], 
-                '''                Minimum size to pad outgoing packet to
-                ''',
-                'size',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('padding-type', REFERENCE_ENUM_CLASS, 'SlaPaddingPatternEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPaddingPatternEnum', 
                 [], [], 
                 '''                Type of padding to be used for the packet
@@ -286,6 +280,12 @@ _meta_table = {
                 ''',
                 'padding_value',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
+                [(1, 9000)], [], 
+                '''                Minimum size to pad outgoing packet to
+                ''',
+                'size',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-cfg',
             'packet-size-and-padding',
@@ -297,14 +297,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Profiles.Profile.Probe',
             False, 
             [
-            _MetaInfoClassMember('send', REFERENCE_CLASS, 'Send' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send', 
-                [], [], 
-                '''                Schedule to use for packets within a burst. 
-                The default value is to send a single packet
-                once.
-                ''',
-                'send',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('packet-size-and-padding', REFERENCE_CLASS, 'PacketSizeAndPadding' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding', 
                 [], [], 
                 '''                Minimum size to pad outgoing packet to
@@ -317,6 +309,14 @@ _meta_table = {
                 packets
                 ''',
                 'priority',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('send', REFERENCE_CLASS, 'Send' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send', 
+                [], [], 
+                '''                Schedule to use for packets within a burst. 
+                The default value is to send a single packet
+                once.
+                ''',
+                'send',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('synthetic-loss-calculation-packets', ATTRIBUTE, 'int' , None, None, 
                 [(10, 12096000)], [], 
@@ -342,25 +342,6 @@ _meta_table = {
                 ''',
                 'profile_name',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', True),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Statistics', 
-                [], [], 
-                '''                Statistics configuration for the SLA profile
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('schedule', REFERENCE_CLASS, 'Schedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Schedule', 
-                [], [], 
-                '''                Schedule to use for probes within an
-                operation
-                ''',
-                'schedule',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('probe', REFERENCE_CLASS, 'Probe' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Probe', 
-                [], [], 
-                '''                Probe configuration for the SLA profile
-                ''',
-                'probe',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('packet-type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                The possible packet types are cfm-loopback,
@@ -369,6 +350,25 @@ _meta_table = {
                 cfm-synthetic-loss-measurement
                 ''',
                 'packet_type',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('probe', REFERENCE_CLASS, 'Probe' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Probe', 
+                [], [], 
+                '''                Probe configuration for the SLA profile
+                ''',
+                'probe',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('schedule', REFERENCE_CLASS, 'Schedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Schedule', 
+                [], [], 
+                '''                Schedule to use for probes within an
+                operation
+                ''',
+                'schedule',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg', 'Sla.Protocols.Ethernet.Profiles.Profile.Statistics', 
+                [], [], 
+                '''                Statistics configuration for the SLA profile
+                ''',
+                'statistics',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-cfg',

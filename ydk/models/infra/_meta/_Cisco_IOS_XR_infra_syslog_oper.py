@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -30,17 +30,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Logging.History',
             False, 
             [
-            _MetaInfoClassMember('properties', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Syslog Properties
-                ''',
-                'properties',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Syslog Message
                 ''',
                 'message',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('properties', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Syslog Properties
+                ''',
+                'properties',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -76,6 +76,12 @@ _meta_table = {
                 ''',
                 'ip_address',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('rh-discriminator', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Remote-Host Discriminator
+                ''',
+                'rh_discriminator',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                VRF Name
@@ -87,12 +93,6 @@ _meta_table = {
                 '''                VRF Severity
                 ''',
                 'vrf_severity',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('rh-discriminator', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Remote-Host Discriminator
-                ''',
-                'rh_discriminator',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -135,39 +135,6 @@ _meta_table = {
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
-                '''                Message source location
-                ''',
-                'node_name',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in milliseconds since 00:00:00 UTC, January
-                11970 of when message was generated
-                ''',
-                'time_stamp',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('time-of-day', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Time of day of event in DDD MMM DD  YYYY HH:MM
-                :SS format, e.g Wed Apr 01 2009  15:50:26
-                ''',
-                'time_of_day',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('time-zone', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Time Zone in UTC+/-HH:MM format,  e.g UTC+5:30,
-                UTC-6
-                ''',
-                'time_zone',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Process name
-                ''',
-                'process_name',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('category', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Message category
@@ -186,6 +153,18 @@ _meta_table = {
                 ''',
                 'message_name',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                '''                Message source location
+                ''',
+                'node_name',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Process name
+                ''',
+                'process_name',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
                 [], [], 
                 '''                Message severity
@@ -197,6 +176,27 @@ _meta_table = {
                 '''                Additional message text
                 ''',
                 'text',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('time-of-day', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Time of day of event in DDD MMM DD  YYYY HH:MM
+                :SS format, e.g Wed Apr 01 2009  15:50:26
+                ''',
+                'time_of_day',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in milliseconds since 00:00:00 UTC, January
+                11970 of when message was generated
+                ''',
+                'time_stamp',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('time-zone', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Time Zone in UTC+/-HH:MM format,  e.g UTC+5:30,
+                UTC-6
+                ''',
+                'time_zone',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -226,12 +226,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.LoggingStats',
             False, 
             [
-            _MetaInfoClassMember('is-log-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is log enabled
-                ''',
-                'is_log_enabled',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('drop-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of messages dropped
@@ -243,6 +237,12 @@ _meta_table = {
                 '''                Number of messages flushed
                 ''',
                 'flush_count',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('is-log-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is log enabled
+                ''',
+                'is_log_enabled',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('overrun-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -261,17 +261,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.ConsoleLoggingStats',
             False, 
             [
+            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Buffer size in bytes if logging buffer isenabled
+                ''',
+                'buffer_size',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('is-log-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Is log enabled
                 ''',
                 'is_log_enabled',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
-                [], [], 
-                '''                Configured severity
-                ''',
-                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -279,11 +279,11 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Buffer size in bytes if logging buffer isenabled
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
+                [], [], 
+                '''                Configured severity
                 ''',
-                'buffer_size',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -296,17 +296,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.MonitorLoggingStats',
             False, 
             [
+            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Buffer size in bytes if logging buffer isenabled
+                ''',
+                'buffer_size',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('is-log-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Is log enabled
                 ''',
                 'is_log_enabled',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
-                [], [], 
-                '''                Configured severity
-                ''',
-                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -314,11 +314,11 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Buffer size in bytes if logging buffer isenabled
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
+                [], [], 
+                '''                Configured severity
                 ''',
-                'buffer_size',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -331,17 +331,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.TrapLoggingStats',
             False, 
             [
+            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Buffer size in bytes if logging buffer isenabled
+                ''',
+                'buffer_size',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('is-log-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Is log enabled
                 ''',
                 'is_log_enabled',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
-                [], [], 
-                '''                Configured severity
-                ''',
-                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -349,11 +349,11 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Buffer size in bytes if logging buffer isenabled
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
+                [], [], 
+                '''                Configured severity
                 ''',
-                'buffer_size',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -366,17 +366,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.BufferLoggingStats',
             False, 
             [
+            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Buffer size in bytes if logging buffer isenabled
+                ''',
+                'buffer_size',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('is-log-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Is log enabled
                 ''',
                 'is_log_enabled',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
-                [], [], 
-                '''                Configured severity
-                ''',
-                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -384,11 +384,11 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Buffer size in bytes if logging buffer isenabled
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
+                [], [], 
+                '''                Configured severity
                 ''',
-                'buffer_size',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -401,17 +401,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.RemoteLoggingStat',
             False, 
             [
-            _MetaInfoClassMember('remote-host-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Remote hostname
-                ''',
-                'remote_host_name',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Message count
                 ''',
                 'message_count',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('remote-host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Remote hostname
+                ''',
+                'remote_host_name',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -447,11 +447,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics',
             False, 
             [
-            _MetaInfoClassMember('logging-stats', REFERENCE_CLASS, 'LoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.LoggingStats', 
+            _MetaInfoClassMember('buffer-logging-stats', REFERENCE_CLASS, 'BufferLoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.BufferLoggingStats', 
                 [], [], 
-                '''                Logging statistics
+                '''                Buffer logging statistics
                 ''',
-                'logging_stats',
+                'buffer_logging_stats',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('console-logging-stats', REFERENCE_CLASS, 'ConsoleLoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.ConsoleLoggingStats', 
                 [], [], 
@@ -459,23 +459,23 @@ _meta_table = {
                 ''',
                 'console_logging_stats',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('file-logging-stat', REFERENCE_LIST, 'FileLoggingStat' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.FileLoggingStat', 
+                [], [], 
+                '''                File logging statistics
+                ''',
+                'file_logging_stat',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('logging-stats', REFERENCE_CLASS, 'LoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.LoggingStats', 
+                [], [], 
+                '''                Logging statistics
+                ''',
+                'logging_stats',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('monitor-logging-stats', REFERENCE_CLASS, 'MonitorLoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.MonitorLoggingStats', 
                 [], [], 
                 '''                Monitor loggingstatistics
                 ''',
                 'monitor_logging_stats',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('trap-logging-stats', REFERENCE_CLASS, 'TrapLoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.TrapLoggingStats', 
-                [], [], 
-                '''                Trap logging statistics
-                ''',
-                'trap_logging_stats',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('buffer-logging-stats', REFERENCE_CLASS, 'BufferLoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.BufferLoggingStats', 
-                [], [], 
-                '''                Buffer logging statistics
-                ''',
-                'buffer_logging_stats',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('remote-logging-stat', REFERENCE_LIST, 'RemoteLoggingStat' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.RemoteLoggingStat', 
                 [], [], 
@@ -483,11 +483,11 @@ _meta_table = {
                 ''',
                 'remote_logging_stat',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('file-logging-stat', REFERENCE_LIST, 'FileLoggingStat' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.FileLoggingStat', 
+            _MetaInfoClassMember('trap-logging-stats', REFERENCE_CLASS, 'TrapLoggingStats' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.TrapLoggingStats', 
                 [], [], 
-                '''                File logging statistics
+                '''                Trap logging statistics
                 ''',
-                'file_logging_stat',
+                'trap_logging_stats',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',
@@ -506,17 +506,17 @@ _meta_table = {
                 ''',
                 'an_remote_servers',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('messages', REFERENCE_CLASS, 'Messages' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.Messages', 
-                [], [], 
-                '''                Message table information
-                ''',
-                'messages',
-                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('logging-statistics', REFERENCE_CLASS, 'LoggingStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics', 
                 [], [], 
                 '''                Logging statistics information
                 ''',
                 'logging_statistics',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('messages', REFERENCE_CLASS, 'Messages' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.Messages', 
+                [], [], 
+                '''                Message table information
+                ''',
+                'messages',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             ],
             'Cisco-IOS-XR-infra-syslog-oper',

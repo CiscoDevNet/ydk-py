@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -133,10 +133,12 @@ class ProcessesMemory(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: name
+                    .. attribute:: data_seg_size
                     
-                    	Process name
-                    	**type**\: str
+                    	Data Segment Size
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: jid
                     
@@ -145,19 +147,17 @@ class ProcessesMemory(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: text_seg_size
+                    .. attribute:: malloc_size
                     
-                    	Text Segment Size
+                    	Malloced Memory Size
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: data_seg_size
+                    .. attribute:: name
                     
-                    	Data Segment Size
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Process name
+                    	**type**\: str
                     
                     .. attribute:: stack_seg_size
                     
@@ -166,9 +166,9 @@ class ProcessesMemory(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: malloc_size
+                    .. attribute:: text_seg_size
                     
-                    	Malloced Memory Size
+                    	Text Segment Size
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -183,19 +183,19 @@ class ProcessesMemory(object):
                     def __init__(self):
                         self.parent = None
                         self.job_id = None
-                        self.name = None
-                        self.jid = None
-                        self.text_seg_size = None
                         self.data_seg_size = None
-                        self.stack_seg_size = None
+                        self.jid = None
                         self.malloc_size = None
+                        self.name = None
+                        self.stack_seg_size = None
+                        self.text_seg_size = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.job_id is None:
-                            raise YPYDataValidationError('Key property job_id is None')
+                            raise YPYModelError('Key property job_id is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-procmem-oper:job-id[Cisco-IOS-XR-procmem-oper:job-id = ' + str(self.job_id) + ']'
 
@@ -209,22 +209,22 @@ class ProcessesMemory(object):
                         if self.job_id is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.data_seg_size is not None:
                             return True
 
                         if self.jid is not None:
                             return True
 
-                        if self.text_seg_size is not None:
+                        if self.malloc_size is not None:
                             return True
 
-                        if self.data_seg_size is not None:
+                        if self.name is not None:
                             return True
 
                         if self.stack_seg_size is not None:
                             return True
 
-                        if self.malloc_size is not None:
+                        if self.text_seg_size is not None:
                             return True
 
                         return False
@@ -237,7 +237,7 @@ class ProcessesMemory(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-procmem-oper:job-ids'
 
@@ -263,7 +263,7 @@ class ProcessesMemory(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-procmem-oper:processes-memory/Cisco-IOS-XR-procmem-oper:nodes/Cisco-IOS-XR-procmem-oper:node[Cisco-IOS-XR-procmem-oper:node-name = ' + str(self.node_name) + ']'
 

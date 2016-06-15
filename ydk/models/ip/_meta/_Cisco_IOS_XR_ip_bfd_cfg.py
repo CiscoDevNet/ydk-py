@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -45,6 +45,13 @@ _meta_table = {
                 ''',
                 'initial_delay',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('l3-only-mode', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Apply immediate dampening and only when
+                failure is L3 specific
+                ''',
+                'l3_only_mode',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 518400000)], [], 
                 '''                Maximum delay before bringing up session
@@ -56,13 +63,6 @@ _meta_table = {
                 '''                Secondary delay before bringing up session
                 ''',
                 'secondary_delay',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('l3-only-mode', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Apply immediate dampening and only when
-                failure is L3 specific
-                ''',
-                'l3_only_mode',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             ],
             'Cisco-IOS-XR-ip-bfd-cfg',
@@ -104,12 +104,6 @@ _meta_table = {
                 ''',
                 'extensions',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(60000, 3600000)], [], 
-                '''                Stability threshold to enable dampening
-                ''',
-                'threshold',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 3600000)], [], 
                 '''                Initial delay before bringing up session
@@ -128,6 +122,12 @@ _meta_table = {
                 ''',
                 'secondary_delay',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
+                [(60000, 3600000)], [], 
+                '''                Stability threshold to enable dampening
+                ''',
+                'threshold',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
             ],
             'Cisco-IOS-XR-ip-bfd-cfg',
             'flap-damp',
@@ -139,6 +139,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bfd.EchoLatency.Detect',
             False, 
             [
+            _MetaInfoClassMember('latency-detect-count', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10)], [], 
+                '''                Echo latency detect count
+                ''',
+                'latency_detect_count',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('latency-detect-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                If set, echo latency detect is enabled
@@ -150,12 +156,6 @@ _meta_table = {
                 '''                Echo latency detect percentage
                 ''',
                 'latency_detect_percentage',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('latency-detect-count', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Echo latency detect count
-                ''',
-                'latency_detect_count',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             ],
             'Cisco-IOS-XR-ip-bfd-cfg',
@@ -214,14 +214,6 @@ _meta_table = {
                 ''',
                 'interface_echo_usage',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('ipv6-checksum', REFERENCE_ENUM_CLASS, 'BfdIfIpv6ChecksumUsageEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdIfIpv6ChecksumUsageEnum', 
-                [], [], 
-                '''                IPv6 checksum usage for this interface -
-                Interface config will always take precedence
-                over global config
-                ''',
-                'ipv6_checksum',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('interface-ipv4-echo-source', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Interface IPv4 echo source address
@@ -244,6 +236,14 @@ _meta_table = {
                         'interface_ipv4_echo_source',
                         'Cisco-IOS-XR-ip-bfd-cfg', False),
                 ]),
+            _MetaInfoClassMember('ipv6-checksum', REFERENCE_ENUM_CLASS, 'BfdIfIpv6ChecksumUsageEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdIfIpv6ChecksumUsageEnum', 
+                [], [], 
+                '''                IPv6 checksum usage for this interface -
+                Interface config will always take precedence
+                over global config
+                ''',
+                'ipv6_checksum',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
             ],
             'Cisco-IOS-XR-ip-bfd-cfg',
             'interface',
@@ -340,11 +340,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bfd',
             False, 
             [
-            _MetaInfoClassMember('flap-damp', REFERENCE_CLASS, 'FlapDamp' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.FlapDamp', 
+            _MetaInfoClassMember('bundle', REFERENCE_CLASS, 'Bundle' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.Bundle', 
                 [], [], 
-                '''                Flapping class container
+                '''                Configuration related to BFD over Bundle
                 ''',
-                'flap_damp',
+                'bundle',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('echo-latency', REFERENCE_CLASS, 'EchoLatency' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.EchoLatency', 
                 [], [], 
@@ -358,35 +358,11 @@ _meta_table = {
                 ''',
                 'echo_startup',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.Interfaces', 
+            _MetaInfoClassMember('flap-damp', REFERENCE_CLASS, 'FlapDamp' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.FlapDamp', 
                 [], [], 
-                '''                Interface configuration
+                '''                Flapping class container
                 ''',
-                'interfaces',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('multi-path-includes', REFERENCE_CLASS, 'MultiPathIncludes' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.MultiPathIncludes', 
-                [], [], 
-                '''                Multipath Include configuration
-                ''',
-                'multi_path_includes',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('bundle', REFERENCE_CLASS, 'Bundle' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.Bundle', 
-                [], [], 
-                '''                Configuration related to BFD over Bundle
-                ''',
-                'bundle',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('global-echo-usage', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Echo configuration
-                ''',
-                'global_echo_usage',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('ipv6-checksum-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                To disable IPv6 checksum configuration
-                ''',
-                'ipv6_checksum_disable',
+                'flap_damp',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('global-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
                 [(15, 2000)], [], 
@@ -394,17 +370,11 @@ _meta_table = {
                 ''',
                 'global_echo_min_interval',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('ttl-drop-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Multihop TTL Drop Threshold
-                ''',
-                'ttl_drop_threshold',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            _MetaInfoClassMember('single-hop-trap', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('global-echo-usage', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Single hop trap configuration
+                '''                Echo configuration
                 ''',
-                'single_hop_trap',
+                'global_echo_usage',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('global-ipv4-echo-source', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -425,6 +395,36 @@ _meta_table = {
                         'global_ipv4_echo_source',
                         'Cisco-IOS-XR-ip-bfd-cfg', False),
                 ]),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.Interfaces', 
+                [], [], 
+                '''                Interface configuration
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('ipv6-checksum-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                To disable IPv6 checksum configuration
+                ''',
+                'ipv6_checksum_disable',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('multi-path-includes', REFERENCE_CLASS, 'MultiPathIncludes' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.MultiPathIncludes', 
+                [], [], 
+                '''                Multipath Include configuration
+                ''',
+                'multi_path_includes',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('single-hop-trap', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Single hop trap configuration
+                ''',
+                'single_hop_trap',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('ttl-drop-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Multihop TTL Drop Threshold
+                ''',
+                'ttl_drop_threshold',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
             ],
             'Cisco-IOS-XR-ip-bfd-cfg',
             'bfd',

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -152,15 +152,15 @@ class Ipv6Network(object):
     """
     IPv6 network operational data
     
-    .. attribute:: nodes
-    
-    	Node\-specific IPv6 network operational data
-    	**type**\: :py:class:`Nodes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
-    
     .. attribute:: interface_global_data
     
     	IPv6 network global operational interface data
     	**type**\: :py:class:`InterfaceGlobalData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData>`
+    
+    .. attribute:: nodes
+    
+    	Node\-specific IPv6 network operational data
+    	**type**\: :py:class:`Nodes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
     
     
 
@@ -170,10 +170,10 @@ class Ipv6Network(object):
     _revision = '2015-10-20'
 
     def __init__(self):
-        self.nodes = Ipv6Network.Nodes()
-        self.nodes.parent = self
         self.interface_global_data = Ipv6Network.InterfaceGlobalData()
         self.interface_global_data.parent = self
+        self.nodes = Ipv6Network.Nodes()
+        self.nodes.parent = self
 
 
     class Nodes(object):
@@ -234,15 +234,15 @@ class Ipv6Network(object):
                 """
                 IPv6 network operational interface data
                 
-                .. attribute:: vrfs
-                
-                	VRF specific IPv6 network operational interface data
-                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
-                
                 .. attribute:: summary
                 
                 	Summary of IPv6 network operational interface data on a node
                 	**type**\: :py:class:`Summary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
+                
+                .. attribute:: vrfs
+                
+                	VRF specific IPv6 network operational interface data
+                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
                 
                 
 
@@ -253,10 +253,10 @@ class Ipv6Network(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.vrfs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs()
-                    self.vrfs.parent = self
                     self.summary = Ipv6Network.Nodes.Node.InterfaceData.Summary()
                     self.summary.parent = self
+                    self.vrfs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs()
+                    self.vrfs.parent = self
 
 
                 class Vrfs(object):
@@ -299,20 +299,20 @@ class Ipv6Network(object):
                         	Brief interface IPv6 network operational data for a node
                         	**type**\: :py:class:`Briefs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
                         
-                        .. attribute:: global_details
+                        .. attribute:: details
                         
-                        	Detail interface IPv4 network operational data for global data
-                        	**type**\: :py:class:`GlobalDetails <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
+                        	Detail interface IPv4 network operational data for a node
+                        	**type**\: :py:class:`Details <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
                         
                         .. attribute:: global_briefs
                         
                         	Brief interface IPv6 network operational data from global data
                         	**type**\: :py:class:`GlobalBriefs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
                         
-                        .. attribute:: details
+                        .. attribute:: global_details
                         
-                        	Detail interface IPv4 network operational data for a node
-                        	**type**\: :py:class:`Details <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        	Detail interface IPv4 network operational data for global data
+                        	**type**\: :py:class:`GlobalDetails <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
                         
                         
 
@@ -326,12 +326,12 @@ class Ipv6Network(object):
                             self.vrf_name = None
                             self.briefs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs()
                             self.briefs.parent = self
-                            self.global_details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails()
-                            self.global_details.parent = self
-                            self.global_briefs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs()
-                            self.global_briefs.parent = self
                             self.details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details()
                             self.details.parent = self
+                            self.global_briefs = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs()
+                            self.global_briefs.parent = self
+                            self.global_details = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails()
+                            self.global_details.parent = self
 
 
                         class Briefs(object):
@@ -370,20 +370,20 @@ class Ipv6Network(object):
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
-                                .. attribute:: link_local_address
+                                .. attribute:: address
                                 
-                                	Link Local Address
-                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
+                                	Address List
+                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
-                                .. attribute:: address
+                                .. attribute:: link_local_address
                                 
-                                	Address List
-                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
+                                	Link Local Address
+                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
                                 
                                 
 
@@ -395,12 +395,12 @@ class Ipv6Network(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.interface_name = None
-                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress()
-                                    self.link_local_address.parent = self
-                                    self.line_state = None
                                     self.address = YList()
                                     self.address.parent = self
                                     self.address.name = 'address'
+                                    self.line_state = None
+                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress()
+                                    self.link_local_address.parent = self
 
 
                                 class LinkLocalAddress(object):
@@ -414,13 +414,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -430,6 +423,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -448,15 +448,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:link-local-address'
 
@@ -470,13 +470,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -501,13 +501,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -517,6 +510,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -535,15 +535,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:address'
 
@@ -557,13 +557,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -579,9 +579,9 @@ class Ipv6Network(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:brief[Cisco-IOS-XR-ipv6-ma-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -595,16 +595,16 @@ class Ipv6Network(object):
                                     if self.interface_name is not None:
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address._has_data():
-                                        return True
-
-                                    if self.line_state is not None:
-                                        return True
-
                                     if self.address is not None:
                                         for child_ref in self.address:
                                             if child_ref._has_data():
                                                 return True
+
+                                    if self.line_state is not None:
+                                        return True
+
+                                    if self.link_local_address is not None and self.link_local_address._has_data():
+                                        return True
 
                                     return False
 
@@ -616,7 +616,7 @@ class Ipv6Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:briefs'
 
@@ -676,60 +676,70 @@ class Ipv6Network(object):
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
-                                .. attribute:: link_local_address
-                                
-                                	Link Local Address
-                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
-                                
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
                                 	**type**\: :py:class:`AccessControlList <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
                                 
-                                .. attribute:: multi_access_control_list
+                                .. attribute:: address
                                 
-                                	Multi IPv6 Access Control List
-                                	**type**\: :py:class:`MultiAccessControlList <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
-                                
-                                .. attribute:: rpf
-                                
-                                	RPF config on the interface
-                                	**type**\: :py:class:`Rpf <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
+                                	Address List
+                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\: :py:class:`BgpPa <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
                                 
-                                .. attribute:: utime
-                                
-                                	Address Publish Time
-                                	**type**\: :py:class:`Utime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\: :py:class:`IdbUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
-                                
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
                                 	**type**\: :py:class:`CapsUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
                                 
-                                .. attribute:: fwd_en_utime
+                                .. attribute:: flow_tag_dst
                                 
-                                	FWD ENABLE Time
-                                	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                	Is BGP Flow Tag Destination is enable
+                                	**type**\: bool
+                                
+                                .. attribute:: flow_tag_src
+                                
+                                	Is BGP Flow Tag Source is enable
+                                	**type**\: bool
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
                                 	**type**\: :py:class:`FwdDisUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
                                 
+                                .. attribute:: fwd_en_utime
+                                
+                                	FWD ENABLE Time
+                                	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                
+                                .. attribute:: idb_utime
+                                
+                                	IDB Create Time
+                                	**type**\: :py:class:`IdbUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
+                                
+                                .. attribute:: is_icmp_unreach_enabled
+                                
+                                	ICMP unreach Enable
+                                	**type**\: bool
+                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
+                                
+                                .. attribute:: link_local_address
+                                
+                                	Link Local Address
+                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
+                                
+                                .. attribute:: mlacp_active
+                                
+                                	Is mLACP state Active (valid if RG ID exists)
+                                	**type**\: bool
                                 
                                 .. attribute:: mtu
                                 
@@ -738,45 +748,35 @@ class Ipv6Network(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: operation_state
+                                .. attribute:: multi_access_control_list
                                 
-                                	IPv6 Operation State
-                                	**type**\: :py:class:`Ipv6MaOperStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
-                                
-                                .. attribute:: is_icmp_unreach_enabled
-                                
-                                	ICMP unreach Enable
-                                	**type**\: bool
-                                
-                                .. attribute:: rg_id_exists
-                                
-                                	Does ICCP RG ID exist on the interface?
-                                	**type**\: bool
-                                
-                                .. attribute:: mlacp_active
-                                
-                                	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\: bool
-                                
-                                .. attribute:: flow_tag_src
-                                
-                                	Is BGP Flow Tag Source is enable
-                                	**type**\: bool
-                                
-                                .. attribute:: flow_tag_dst
-                                
-                                	Is BGP Flow Tag Destination is enable
-                                	**type**\: bool
+                                	Multi IPv6 Access Control List
+                                	**type**\: :py:class:`MultiAccessControlList <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
                                 	**type**\: list of :py:class:`MulticastGroup <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
                                 
-                                .. attribute:: address
+                                .. attribute:: operation_state
                                 
-                                	Address List
-                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
+                                	IPv6 Operation State
+                                	**type**\: :py:class:`Ipv6MaOperStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
+                                
+                                .. attribute:: rg_id_exists
+                                
+                                	Does ICCP RG ID exist on the interface?
+                                	**type**\: bool
+                                
+                                .. attribute:: rpf
+                                
+                                	RPF config on the interface
+                                	**type**\: :py:class:`Rpf <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
+                                
+                                .. attribute:: utime
+                                
+                                	Address Publish Time
+                                	**type**\: :py:class:`Utime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
                                 
                                 
 
@@ -788,40 +788,40 @@ class Ipv6Network(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.interface_name = None
-                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress()
-                                    self.link_local_address.parent = self
                                     self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList()
                                     self.access_control_list.parent = self
-                                    self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList()
-                                    self.multi_access_control_list.parent = self
-                                    self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf()
-                                    self.rpf.parent = self
-                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa()
-                                    self.bgp_pa.parent = self
-                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime()
-                                    self.utime.parent = self
-                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self.line_state = None
-                                    self.mtu = None
-                                    self.operation_state = None
-                                    self.is_icmp_unreach_enabled = None
-                                    self.rg_id_exists = None
-                                    self.mlacp_active = None
-                                    self.flow_tag_src = None
-                                    self.flow_tag_dst = None
-                                    self.multicast_group = YList()
-                                    self.multicast_group.parent = self
-                                    self.multicast_group.name = 'multicast_group'
                                     self.address = YList()
                                     self.address.parent = self
                                     self.address.name = 'address'
+                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa()
+                                    self.bgp_pa.parent = self
+                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
+                                    self.caps_utime.parent = self
+                                    self.flow_tag_dst = None
+                                    self.flow_tag_src = None
+                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
+                                    self.fwd_dis_utime.parent = self
+                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime()
+                                    self.fwd_en_utime.parent = self
+                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime()
+                                    self.idb_utime.parent = self
+                                    self.is_icmp_unreach_enabled = None
+                                    self.line_state = None
+                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress()
+                                    self.link_local_address.parent = self
+                                    self.mlacp_active = None
+                                    self.mtu = None
+                                    self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList()
+                                    self.multi_access_control_list.parent = self
+                                    self.multicast_group = YList()
+                                    self.multicast_group.parent = self
+                                    self.multicast_group.name = 'multicast_group'
+                                    self.operation_state = None
+                                    self.rg_id_exists = None
+                                    self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf()
+                                    self.rpf.parent = self
+                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime()
+                                    self.utime.parent = self
 
 
                                 class LinkLocalAddress(object):
@@ -835,13 +835,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -851,6 +844,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -869,15 +869,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:link-local-address'
 
@@ -891,13 +891,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -915,16 +915,6 @@ class Ipv6Network(object):
                                     """
                                     IPv6 Access Control List
                                     
-                                    .. attribute:: in_bound
-                                    
-                                    	ACL applied to incoming packets
-                                    	**type**\: str
-                                    
-                                    .. attribute:: out_bound
-                                    
-                                    	ACL applied to outgoing packets
-                                    	**type**\: str
-                                    
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
@@ -933,6 +923,16 @@ class Ipv6Network(object):
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
+                                    	**type**\: str
+                                    
+                                    .. attribute:: in_bound
+                                    
+                                    	ACL applied to incoming packets
+                                    	**type**\: str
+                                    
+                                    .. attribute:: out_bound
+                                    
+                                    	ACL applied to outgoing packets
                                     	**type**\: str
                                     
                                     
@@ -944,15 +944,15 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.in_bound = None
-                                        self.out_bound = None
                                         self.common_in_bound = None
                                         self.common_out_bound = None
+                                        self.in_bound = None
+                                        self.out_bound = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:access-control-list'
 
@@ -963,16 +963,16 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.in_bound is not None:
-                                            return True
-
-                                        if self.out_bound is not None:
-                                            return True
-
                                         if self.common_in_bound is not None:
                                             return True
 
                                         if self.common_out_bound is not None:
+                                            return True
+
+                                        if self.in_bound is not None:
+                                            return True
+
+                                        if self.out_bound is not None:
                                             return True
 
                                         return False
@@ -987,6 +987,11 @@ class Ipv6Network(object):
                                     """
                                     Multi IPv6 Access Control List
                                     
+                                    .. attribute:: common
+                                    
+                                    	Common ACLs
+                                    	**type**\: list of str
+                                    
                                     .. attribute:: inbound
                                     
                                     	Inbound ACLs
@@ -995,11 +1000,6 @@ class Ipv6Network(object):
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
-                                    	**type**\: list of str
-                                    
-                                    .. attribute:: common
-                                    
-                                    	Common ACLs
                                     	**type**\: list of str
                                     
                                     
@@ -1011,20 +1011,20 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.common = YLeafList()
+                                        self.common.parent = self
+                                        self.common.name = 'common'
                                         self.inbound = YLeafList()
                                         self.inbound.parent = self
                                         self.inbound.name = 'inbound'
                                         self.outbound = YLeafList()
                                         self.outbound.parent = self
                                         self.outbound.name = 'outbound'
-                                        self.common = YLeafList()
-                                        self.common.parent = self
-                                        self.common.name = 'common'
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:multi-access-control-list'
 
@@ -1035,6 +1035,11 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
+                                        if self.common is not None:
+                                            for child in self.common:
+                                                if child is not None:
+                                                    return True
+
                                         if self.inbound is not None:
                                             for child in self.inbound:
                                                 if child is not None:
@@ -1042,11 +1047,6 @@ class Ipv6Network(object):
 
                                         if self.outbound is not None:
                                             for child in self.outbound:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.common is not None:
-                                            for child in self.common:
                                                 if child is not None:
                                                     return True
 
@@ -1062,11 +1062,6 @@ class Ipv6Network(object):
                                     """
                                     RPF config on the interface
                                     
-                                    .. attribute:: enable
-                                    
-                                    	Enable RPF config
-                                    	**type**\: bool
-                                    
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
@@ -1075,6 +1070,11 @@ class Ipv6Network(object):
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable RPF config
                                     	**type**\: bool
                                     
                                     .. attribute:: mode
@@ -1093,15 +1093,15 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.enable = None
                                         self.allow_default_route = None
                                         self.allow_self_ping = None
+                                        self.enable = None
                                         self.mode = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:rpf'
 
@@ -1112,13 +1112,13 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.enable is not None:
-                                            return True
-
                                         if self.allow_default_route is not None:
                                             return True
 
                                         if self.allow_self_ping is not None:
+                                            return True
+
+                                        if self.enable is not None:
                                             return True
 
                                         if self.mode is not None:
@@ -1165,6 +1165,11 @@ class Ipv6Network(object):
                                         """
                                         BGP PA input config
                                         
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\: bool
+                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -1177,11 +1182,6 @@ class Ipv6Network(object):
                                         	Enable source accouting
                                         	**type**\: bool
                                         
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\: bool
-                                        
                                         
 
                                         """
@@ -1191,14 +1191,14 @@ class Ipv6Network(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.destination = None
                                             self.enable = None
                                             self.source = None
-                                            self.destination = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:input'
 
@@ -1209,13 +1209,13 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.destination is not None:
+                                                return True
+
                                             if self.enable is not None:
                                                 return True
 
                                             if self.source is not None:
-                                                return True
-
-                                            if self.destination is not None:
                                                 return True
 
                                             return False
@@ -1230,6 +1230,11 @@ class Ipv6Network(object):
                                         """
                                         BGP PA output config
                                         
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\: bool
+                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -1242,11 +1247,6 @@ class Ipv6Network(object):
                                         	Enable source accouting
                                         	**type**\: bool
                                         
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\: bool
-                                        
                                         
 
                                         """
@@ -1256,14 +1256,14 @@ class Ipv6Network(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.destination = None
                                             self.enable = None
                                             self.source = None
-                                            self.destination = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:output'
 
@@ -1274,13 +1274,13 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.destination is not None:
+                                                return True
+
                                             if self.enable is not None:
                                                 return True
 
                                             if self.source is not None:
-                                                return True
-
-                                            if self.destination is not None:
                                                 return True
 
                                             return False
@@ -1293,7 +1293,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:bgp-pa'
 
@@ -1335,7 +1335,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:utime'
 
@@ -1371,7 +1371,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:idb-utime'
 
@@ -1407,7 +1407,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:caps-utime'
 
@@ -1443,7 +1443,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:fwd-en-utime'
 
@@ -1479,7 +1479,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:fwd-dis-utime'
 
@@ -1523,7 +1523,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:multicast-group'
 
@@ -1556,13 +1556,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -1572,6 +1565,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -1590,15 +1590,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:address'
 
@@ -1612,13 +1612,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -1634,9 +1634,9 @@ class Ipv6Network(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:global-detail[Cisco-IOS-XR-ipv6-ma-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1650,58 +1650,51 @@ class Ipv6Network(object):
                                     if self.interface_name is not None:
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address._has_data():
-                                        return True
-
                                     if self.access_control_list is not None and self.access_control_list._has_data():
                                         return True
 
-                                    if self.multi_access_control_list is not None and self.multi_access_control_list._has_data():
-                                        return True
-
-                                    if self.rpf is not None and self.rpf._has_data():
-                                        return True
+                                    if self.address is not None:
+                                        for child_ref in self.address:
+                                            if child_ref._has_data():
+                                                return True
 
                                     if self.bgp_pa is not None and self.bgp_pa._has_data():
-                                        return True
-
-                                    if self.utime is not None and self.utime._has_data():
-                                        return True
-
-                                    if self.idb_utime is not None and self.idb_utime._has_data():
                                         return True
 
                                     if self.caps_utime is not None and self.caps_utime._has_data():
                                         return True
 
-                                    if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
-                                        return True
-
-                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
-                                        return True
-
-                                    if self.line_state is not None:
-                                        return True
-
-                                    if self.mtu is not None:
-                                        return True
-
-                                    if self.operation_state is not None:
-                                        return True
-
-                                    if self.is_icmp_unreach_enabled is not None:
-                                        return True
-
-                                    if self.rg_id_exists is not None:
-                                        return True
-
-                                    if self.mlacp_active is not None:
+                                    if self.flow_tag_dst is not None:
                                         return True
 
                                     if self.flow_tag_src is not None:
                                         return True
 
-                                    if self.flow_tag_dst is not None:
+                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
+                                        return True
+
+                                    if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
+                                        return True
+
+                                    if self.idb_utime is not None and self.idb_utime._has_data():
+                                        return True
+
+                                    if self.is_icmp_unreach_enabled is not None:
+                                        return True
+
+                                    if self.line_state is not None:
+                                        return True
+
+                                    if self.link_local_address is not None and self.link_local_address._has_data():
+                                        return True
+
+                                    if self.mlacp_active is not None:
+                                        return True
+
+                                    if self.mtu is not None:
+                                        return True
+
+                                    if self.multi_access_control_list is not None and self.multi_access_control_list._has_data():
                                         return True
 
                                     if self.multicast_group is not None:
@@ -1709,10 +1702,17 @@ class Ipv6Network(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    if self.address is not None:
-                                        for child_ref in self.address:
-                                            if child_ref._has_data():
-                                                return True
+                                    if self.operation_state is not None:
+                                        return True
+
+                                    if self.rg_id_exists is not None:
+                                        return True
+
+                                    if self.rpf is not None and self.rpf._has_data():
+                                        return True
+
+                                    if self.utime is not None and self.utime._has_data():
+                                        return True
 
                                     return False
 
@@ -1724,7 +1724,7 @@ class Ipv6Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:global-details'
 
@@ -1784,20 +1784,20 @@ class Ipv6Network(object):
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
-                                .. attribute:: link_local_address
+                                .. attribute:: address
                                 
-                                	Link Local Address
-                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
+                                	Address List
+                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
-                                .. attribute:: address
+                                .. attribute:: link_local_address
                                 
-                                	Address List
-                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
+                                	Link Local Address
+                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
                                 
                                 
 
@@ -1809,12 +1809,12 @@ class Ipv6Network(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.interface_name = None
-                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress()
-                                    self.link_local_address.parent = self
-                                    self.line_state = None
                                     self.address = YList()
                                     self.address.parent = self
                                     self.address.name = 'address'
+                                    self.line_state = None
+                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress()
+                                    self.link_local_address.parent = self
 
 
                                 class LinkLocalAddress(object):
@@ -1828,13 +1828,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -1844,6 +1837,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -1862,15 +1862,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:link-local-address'
 
@@ -1884,13 +1884,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -1915,13 +1915,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -1931,6 +1924,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -1949,15 +1949,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:address'
 
@@ -1971,13 +1971,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -1993,9 +1993,9 @@ class Ipv6Network(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:global-brief[Cisco-IOS-XR-ipv6-ma-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2009,16 +2009,16 @@ class Ipv6Network(object):
                                     if self.interface_name is not None:
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address._has_data():
-                                        return True
-
-                                    if self.line_state is not None:
-                                        return True
-
                                     if self.address is not None:
                                         for child_ref in self.address:
                                             if child_ref._has_data():
                                                 return True
+
+                                    if self.line_state is not None:
+                                        return True
+
+                                    if self.link_local_address is not None and self.link_local_address._has_data():
+                                        return True
 
                                     return False
 
@@ -2030,7 +2030,7 @@ class Ipv6Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:global-briefs'
 
@@ -2090,60 +2090,70 @@ class Ipv6Network(object):
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
-                                .. attribute:: link_local_address
-                                
-                                	Link Local Address
-                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
-                                
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
                                 	**type**\: :py:class:`AccessControlList <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
                                 
-                                .. attribute:: multi_access_control_list
+                                .. attribute:: address
                                 
-                                	Multi IPv6 Access Control List
-                                	**type**\: :py:class:`MultiAccessControlList <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
-                                
-                                .. attribute:: rpf
-                                
-                                	RPF config on the interface
-                                	**type**\: :py:class:`Rpf <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                	Address List
+                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\: :py:class:`BgpPa <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
                                 
-                                .. attribute:: utime
-                                
-                                	Address Publish Time
-                                	**type**\: :py:class:`Utime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\: :py:class:`IdbUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
-                                
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
                                 	**type**\: :py:class:`CapsUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
-                                .. attribute:: fwd_en_utime
+                                .. attribute:: flow_tag_dst
                                 
-                                	FWD ENABLE Time
-                                	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                	Is BGP Flow Tag Destination is enable
+                                	**type**\: bool
+                                
+                                .. attribute:: flow_tag_src
+                                
+                                	Is BGP Flow Tag Source is enable
+                                	**type**\: bool
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
                                 	**type**\: :py:class:`FwdDisUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
+                                .. attribute:: fwd_en_utime
+                                
+                                	FWD ENABLE Time
+                                	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                
+                                .. attribute:: idb_utime
+                                
+                                	IDB Create Time
+                                	**type**\: :py:class:`IdbUtime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                
+                                .. attribute:: is_icmp_unreach_enabled
+                                
+                                	ICMP unreach Enable
+                                	**type**\: bool
+                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
+                                
+                                .. attribute:: link_local_address
+                                
+                                	Link Local Address
+                                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
+                                
+                                .. attribute:: mlacp_active
+                                
+                                	Is mLACP state Active (valid if RG ID exists)
+                                	**type**\: bool
                                 
                                 .. attribute:: mtu
                                 
@@ -2152,45 +2162,35 @@ class Ipv6Network(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: operation_state
+                                .. attribute:: multi_access_control_list
                                 
-                                	IPv6 Operation State
-                                	**type**\: :py:class:`Ipv6MaOperStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
-                                
-                                .. attribute:: is_icmp_unreach_enabled
-                                
-                                	ICMP unreach Enable
-                                	**type**\: bool
-                                
-                                .. attribute:: rg_id_exists
-                                
-                                	Does ICCP RG ID exist on the interface?
-                                	**type**\: bool
-                                
-                                .. attribute:: mlacp_active
-                                
-                                	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\: bool
-                                
-                                .. attribute:: flow_tag_src
-                                
-                                	Is BGP Flow Tag Source is enable
-                                	**type**\: bool
-                                
-                                .. attribute:: flow_tag_dst
-                                
-                                	Is BGP Flow Tag Destination is enable
-                                	**type**\: bool
+                                	Multi IPv6 Access Control List
+                                	**type**\: :py:class:`MultiAccessControlList <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
                                 	**type**\: list of :py:class:`MulticastGroup <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
                                 
-                                .. attribute:: address
+                                .. attribute:: operation_state
                                 
-                                	Address List
-                                	**type**\: list of :py:class:`Address <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
+                                	IPv6 Operation State
+                                	**type**\: :py:class:`Ipv6MaOperStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
+                                
+                                .. attribute:: rg_id_exists
+                                
+                                	Does ICCP RG ID exist on the interface?
+                                	**type**\: bool
+                                
+                                .. attribute:: rpf
+                                
+                                	RPF config on the interface
+                                	**type**\: :py:class:`Rpf <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                
+                                .. attribute:: utime
+                                
+                                	Address Publish Time
+                                	**type**\: :py:class:`Utime <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
                                 
                                 
 
@@ -2202,40 +2202,40 @@ class Ipv6Network(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.interface_name = None
-                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress()
-                                    self.link_local_address.parent = self
                                     self.access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList()
                                     self.access_control_list.parent = self
-                                    self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList()
-                                    self.multi_access_control_list.parent = self
-                                    self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
-                                    self.rpf.parent = self
-                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
-                                    self.bgp_pa.parent = self
-                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime()
-                                    self.utime.parent = self
-                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
-                                    self.idb_utime.parent = self
-                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
-                                    self.caps_utime.parent = self
-                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
-                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
-                                    self.fwd_dis_utime.parent = self
-                                    self.line_state = None
-                                    self.mtu = None
-                                    self.operation_state = None
-                                    self.is_icmp_unreach_enabled = None
-                                    self.rg_id_exists = None
-                                    self.mlacp_active = None
-                                    self.flow_tag_src = None
-                                    self.flow_tag_dst = None
-                                    self.multicast_group = YList()
-                                    self.multicast_group.parent = self
-                                    self.multicast_group.name = 'multicast_group'
                                     self.address = YList()
                                     self.address.parent = self
                                     self.address.name = 'address'
+                                    self.bgp_pa = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
+                                    self.bgp_pa.parent = self
+                                    self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
+                                    self.caps_utime.parent = self
+                                    self.flow_tag_dst = None
+                                    self.flow_tag_src = None
+                                    self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
+                                    self.fwd_dis_utime.parent = self
+                                    self.fwd_en_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
+                                    self.fwd_en_utime.parent = self
+                                    self.idb_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
+                                    self.idb_utime.parent = self
+                                    self.is_icmp_unreach_enabled = None
+                                    self.line_state = None
+                                    self.link_local_address = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress()
+                                    self.link_local_address.parent = self
+                                    self.mlacp_active = None
+                                    self.mtu = None
+                                    self.multi_access_control_list = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList()
+                                    self.multi_access_control_list.parent = self
+                                    self.multicast_group = YList()
+                                    self.multicast_group.parent = self
+                                    self.multicast_group.name = 'multicast_group'
+                                    self.operation_state = None
+                                    self.rg_id_exists = None
+                                    self.rpf = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
+                                    self.rpf.parent = self
+                                    self.utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime()
+                                    self.utime.parent = self
 
 
                                 class LinkLocalAddress(object):
@@ -2249,13 +2249,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -2265,6 +2258,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -2283,15 +2283,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:link-local-address'
 
@@ -2305,13 +2305,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -2329,16 +2329,6 @@ class Ipv6Network(object):
                                     """
                                     IPv6 Access Control List
                                     
-                                    .. attribute:: in_bound
-                                    
-                                    	ACL applied to incoming packets
-                                    	**type**\: str
-                                    
-                                    .. attribute:: out_bound
-                                    
-                                    	ACL applied to outgoing packets
-                                    	**type**\: str
-                                    
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
@@ -2347,6 +2337,16 @@ class Ipv6Network(object):
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
+                                    	**type**\: str
+                                    
+                                    .. attribute:: in_bound
+                                    
+                                    	ACL applied to incoming packets
+                                    	**type**\: str
+                                    
+                                    .. attribute:: out_bound
+                                    
+                                    	ACL applied to outgoing packets
                                     	**type**\: str
                                     
                                     
@@ -2358,15 +2358,15 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.in_bound = None
-                                        self.out_bound = None
                                         self.common_in_bound = None
                                         self.common_out_bound = None
+                                        self.in_bound = None
+                                        self.out_bound = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:access-control-list'
 
@@ -2377,16 +2377,16 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.in_bound is not None:
-                                            return True
-
-                                        if self.out_bound is not None:
-                                            return True
-
                                         if self.common_in_bound is not None:
                                             return True
 
                                         if self.common_out_bound is not None:
+                                            return True
+
+                                        if self.in_bound is not None:
+                                            return True
+
+                                        if self.out_bound is not None:
                                             return True
 
                                         return False
@@ -2401,6 +2401,11 @@ class Ipv6Network(object):
                                     """
                                     Multi IPv6 Access Control List
                                     
+                                    .. attribute:: common
+                                    
+                                    	Common ACLs
+                                    	**type**\: list of str
+                                    
                                     .. attribute:: inbound
                                     
                                     	Inbound ACLs
@@ -2409,11 +2414,6 @@ class Ipv6Network(object):
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
-                                    	**type**\: list of str
-                                    
-                                    .. attribute:: common
-                                    
-                                    	Common ACLs
                                     	**type**\: list of str
                                     
                                     
@@ -2425,20 +2425,20 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.common = YLeafList()
+                                        self.common.parent = self
+                                        self.common.name = 'common'
                                         self.inbound = YLeafList()
                                         self.inbound.parent = self
                                         self.inbound.name = 'inbound'
                                         self.outbound = YLeafList()
                                         self.outbound.parent = self
                                         self.outbound.name = 'outbound'
-                                        self.common = YLeafList()
-                                        self.common.parent = self
-                                        self.common.name = 'common'
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:multi-access-control-list'
 
@@ -2449,6 +2449,11 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
+                                        if self.common is not None:
+                                            for child in self.common:
+                                                if child is not None:
+                                                    return True
+
                                         if self.inbound is not None:
                                             for child in self.inbound:
                                                 if child is not None:
@@ -2456,11 +2461,6 @@ class Ipv6Network(object):
 
                                         if self.outbound is not None:
                                             for child in self.outbound:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.common is not None:
-                                            for child in self.common:
                                                 if child is not None:
                                                     return True
 
@@ -2476,11 +2476,6 @@ class Ipv6Network(object):
                                     """
                                     RPF config on the interface
                                     
-                                    .. attribute:: enable
-                                    
-                                    	Enable RPF config
-                                    	**type**\: bool
-                                    
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
@@ -2489,6 +2484,11 @@ class Ipv6Network(object):
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable RPF config
                                     	**type**\: bool
                                     
                                     .. attribute:: mode
@@ -2507,15 +2507,15 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.enable = None
                                         self.allow_default_route = None
                                         self.allow_self_ping = None
+                                        self.enable = None
                                         self.mode = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:rpf'
 
@@ -2526,13 +2526,13 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.enable is not None:
-                                            return True
-
                                         if self.allow_default_route is not None:
                                             return True
 
                                         if self.allow_self_ping is not None:
+                                            return True
+
+                                        if self.enable is not None:
                                             return True
 
                                         if self.mode is not None:
@@ -2579,6 +2579,11 @@ class Ipv6Network(object):
                                         """
                                         BGP PA input config
                                         
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\: bool
+                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -2591,11 +2596,6 @@ class Ipv6Network(object):
                                         	Enable source accouting
                                         	**type**\: bool
                                         
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\: bool
-                                        
                                         
 
                                         """
@@ -2605,14 +2605,14 @@ class Ipv6Network(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.destination = None
                                             self.enable = None
                                             self.source = None
-                                            self.destination = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:input'
 
@@ -2623,13 +2623,13 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.destination is not None:
+                                                return True
+
                                             if self.enable is not None:
                                                 return True
 
                                             if self.source is not None:
-                                                return True
-
-                                            if self.destination is not None:
                                                 return True
 
                                             return False
@@ -2644,6 +2644,11 @@ class Ipv6Network(object):
                                         """
                                         BGP PA output config
                                         
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\: bool
+                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -2656,11 +2661,6 @@ class Ipv6Network(object):
                                         	Enable source accouting
                                         	**type**\: bool
                                         
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
-                                        	**type**\: bool
-                                        
                                         
 
                                         """
@@ -2670,14 +2670,14 @@ class Ipv6Network(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.destination = None
                                             self.enable = None
                                             self.source = None
-                                            self.destination = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:output'
 
@@ -2688,13 +2688,13 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.destination is not None:
+                                                return True
+
                                             if self.enable is not None:
                                                 return True
 
                                             if self.source is not None:
-                                                return True
-
-                                            if self.destination is not None:
                                                 return True
 
                                             return False
@@ -2707,7 +2707,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:bgp-pa'
 
@@ -2749,7 +2749,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:utime'
 
@@ -2785,7 +2785,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:idb-utime'
 
@@ -2821,7 +2821,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:caps-utime'
 
@@ -2857,7 +2857,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:fwd-en-utime'
 
@@ -2893,7 +2893,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:fwd-dis-utime'
 
@@ -2937,7 +2937,7 @@ class Ipv6Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:multicast-group'
 
@@ -2970,13 +2970,6 @@ class Ipv6Network(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length
-                                    
-                                    	Prefix Length of IPv6 Address
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
@@ -2986,6 +2979,13 @@ class Ipv6Network(object):
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    .. attribute:: prefix_length
+                                    
+                                    	Prefix Length of IPv6 Address
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
@@ -3004,15 +3004,15 @@ class Ipv6Network(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.address = None
-                                        self.prefix_length = None
                                         self.address_state = None
                                         self.is_anycast = None
+                                        self.prefix_length = None
                                         self.route_tag = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:address'
 
@@ -3026,13 +3026,13 @@ class Ipv6Network(object):
                                         if self.address is not None:
                                             return True
 
-                                        if self.prefix_length is not None:
-                                            return True
-
                                         if self.address_state is not None:
                                             return True
 
                                         if self.is_anycast is not None:
+                                            return True
+
+                                        if self.prefix_length is not None:
                                             return True
 
                                         if self.route_tag is not None:
@@ -3048,9 +3048,9 @@ class Ipv6Network(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:detail[Cisco-IOS-XR-ipv6-ma-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -3064,58 +3064,51 @@ class Ipv6Network(object):
                                     if self.interface_name is not None:
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address._has_data():
-                                        return True
-
                                     if self.access_control_list is not None and self.access_control_list._has_data():
                                         return True
 
-                                    if self.multi_access_control_list is not None and self.multi_access_control_list._has_data():
-                                        return True
-
-                                    if self.rpf is not None and self.rpf._has_data():
-                                        return True
+                                    if self.address is not None:
+                                        for child_ref in self.address:
+                                            if child_ref._has_data():
+                                                return True
 
                                     if self.bgp_pa is not None and self.bgp_pa._has_data():
-                                        return True
-
-                                    if self.utime is not None and self.utime._has_data():
-                                        return True
-
-                                    if self.idb_utime is not None and self.idb_utime._has_data():
                                         return True
 
                                     if self.caps_utime is not None and self.caps_utime._has_data():
                                         return True
 
-                                    if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
-                                        return True
-
-                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
-                                        return True
-
-                                    if self.line_state is not None:
-                                        return True
-
-                                    if self.mtu is not None:
-                                        return True
-
-                                    if self.operation_state is not None:
-                                        return True
-
-                                    if self.is_icmp_unreach_enabled is not None:
-                                        return True
-
-                                    if self.rg_id_exists is not None:
-                                        return True
-
-                                    if self.mlacp_active is not None:
+                                    if self.flow_tag_dst is not None:
                                         return True
 
                                     if self.flow_tag_src is not None:
                                         return True
 
-                                    if self.flow_tag_dst is not None:
+                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
+                                        return True
+
+                                    if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
+                                        return True
+
+                                    if self.idb_utime is not None and self.idb_utime._has_data():
+                                        return True
+
+                                    if self.is_icmp_unreach_enabled is not None:
+                                        return True
+
+                                    if self.line_state is not None:
+                                        return True
+
+                                    if self.link_local_address is not None and self.link_local_address._has_data():
+                                        return True
+
+                                    if self.mlacp_active is not None:
+                                        return True
+
+                                    if self.mtu is not None:
+                                        return True
+
+                                    if self.multi_access_control_list is not None and self.multi_access_control_list._has_data():
                                         return True
 
                                     if self.multicast_group is not None:
@@ -3123,10 +3116,17 @@ class Ipv6Network(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    if self.address is not None:
-                                        for child_ref in self.address:
-                                            if child_ref._has_data():
-                                                return True
+                                    if self.operation_state is not None:
+                                        return True
+
+                                    if self.rg_id_exists is not None:
+                                        return True
+
+                                    if self.rpf is not None and self.rpf._has_data():
+                                        return True
+
+                                    if self.utime is not None and self.utime._has_data():
+                                        return True
 
                                     return False
 
@@ -3138,7 +3138,7 @@ class Ipv6Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:details'
 
@@ -3164,9 +3164,9 @@ class Ipv6Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:vrf[Cisco-IOS-XR-ipv6-ma-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -3183,13 +3183,13 @@ class Ipv6Network(object):
                             if self.briefs is not None and self.briefs._has_data():
                                 return True
 
-                            if self.global_details is not None and self.global_details._has_data():
+                            if self.details is not None and self.details._has_data():
                                 return True
 
                             if self.global_briefs is not None and self.global_briefs._has_data():
                                 return True
 
-                            if self.details is not None and self.details._has_data():
+                            if self.global_details is not None and self.global_details._has_data():
                                 return True
 
                             return False
@@ -3202,7 +3202,7 @@ class Ipv6Network(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:vrfs'
 
@@ -3231,16 +3231,6 @@ class Ipv6Network(object):
                     Summary of IPv6 network operational interface
                     data on a node
                     
-                    .. attribute:: if_up_up
-                    
-                    	Number of interfaces (up,up)
-                    	**type**\: :py:class:`IfUpUp <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
-                    
-                    .. attribute:: if_up_down
-                    
-                    	Number of interfaces (up,down)
-                    	**type**\: :py:class:`IfUpDown <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
-                    
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
@@ -3251,12 +3241,22 @@ class Ipv6Network(object):
                     	Number of interfaces (shutdown,down)
                     	**type**\: :py:class:`IfShutdownDown <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
                     
+                    .. attribute:: if_up_down
+                    
+                    	Number of interfaces (up,down)
+                    	**type**\: :py:class:`IfUpDown <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    
                     .. attribute:: if_up_down_basecaps_up
                     
                     	Number of interfaces (up,down) with basecaps up
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: if_up_up
+                    
+                    	Number of interfaces (up,up)
+                    	**type**\: :py:class:`IfUpUp <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
                     
 
@@ -3267,15 +3267,15 @@ class Ipv6Network(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.if_up_up = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
-                        self.if_up_up.parent = self
-                        self.if_up_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
-                        self.if_up_down.parent = self
                         self.if_down_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown()
                         self.if_down_down.parent = self
                         self.if_shutdown_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown()
                         self.if_shutdown_down.parent = self
+                        self.if_up_down = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
+                        self.if_up_down.parent = self
                         self.if_up_down_basecaps_up = None
+                        self.if_up_up = Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
+                        self.if_up_up.parent = self
 
 
                     class IfUpUp(object):
@@ -3311,7 +3311,7 @@ class Ipv6Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:if-up-up'
 
@@ -3369,7 +3369,7 @@ class Ipv6Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:if-up-down'
 
@@ -3427,7 +3427,7 @@ class Ipv6Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:if-down-down'
 
@@ -3485,7 +3485,7 @@ class Ipv6Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:if-shutdown-down'
 
@@ -3512,7 +3512,7 @@ class Ipv6Network(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:summary'
 
@@ -3523,19 +3523,19 @@ class Ipv6Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.if_up_up is not None and self.if_up_up._has_data():
-                            return True
-
-                        if self.if_up_down is not None and self.if_up_down._has_data():
-                            return True
-
                         if self.if_down_down is not None and self.if_down_down._has_data():
                             return True
 
                         if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
                             return True
 
+                        if self.if_up_down is not None and self.if_up_down._has_data():
+                            return True
+
                         if self.if_up_down_basecaps_up is not None:
+                            return True
+
+                        if self.if_up_up is not None and self.if_up_up._has_data():
                             return True
 
                         return False
@@ -3548,7 +3548,7 @@ class Ipv6Network(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:interface-data'
 
@@ -3559,10 +3559,10 @@ class Ipv6Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.vrfs is not None and self.vrfs._has_data():
+                    if self.summary is not None and self.summary._has_data():
                         return True
 
-                    if self.summary is not None and self.summary._has_data():
+                    if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
                     return False
@@ -3575,7 +3575,7 @@ class Ipv6Network(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:nodes/Cisco-IOS-XR-ipv6-ma-oper:node[Cisco-IOS-XR-ipv6-ma-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -3651,16 +3651,6 @@ class Ipv6Network(object):
             Summary of IPv6 network operational interface
             data on a node
             
-            .. attribute:: if_up_up
-            
-            	Number of interfaces (up,up)
-            	**type**\: :py:class:`IfUpUp <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfUpUp>`
-            
-            .. attribute:: if_up_down
-            
-            	Number of interfaces (up,down)
-            	**type**\: :py:class:`IfUpDown <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfUpDown>`
-            
             .. attribute:: if_down_down
             
             	Number of interfaces (down,down)
@@ -3671,12 +3661,22 @@ class Ipv6Network(object):
             	Number of interfaces (shutdown,down)
             	**type**\: :py:class:`IfShutdownDown <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown>`
             
+            .. attribute:: if_up_down
+            
+            	Number of interfaces (up,down)
+            	**type**\: :py:class:`IfUpDown <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfUpDown>`
+            
             .. attribute:: if_up_down_basecaps_up
             
             	Number of interfaces (up,down) with basecaps up
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: if_up_up
+            
+            	Number of interfaces (up,up)
+            	**type**\: :py:class:`IfUpUp <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfUpUp>`
             
             
 
@@ -3687,15 +3687,15 @@ class Ipv6Network(object):
 
             def __init__(self):
                 self.parent = None
-                self.if_up_up = Ipv6Network.InterfaceGlobalData.Summary.IfUpUp()
-                self.if_up_up.parent = self
-                self.if_up_down = Ipv6Network.InterfaceGlobalData.Summary.IfUpDown()
-                self.if_up_down.parent = self
                 self.if_down_down = Ipv6Network.InterfaceGlobalData.Summary.IfDownDown()
                 self.if_down_down.parent = self
                 self.if_shutdown_down = Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown()
                 self.if_shutdown_down.parent = self
+                self.if_up_down = Ipv6Network.InterfaceGlobalData.Summary.IfUpDown()
+                self.if_up_down.parent = self
                 self.if_up_down_basecaps_up = None
+                self.if_up_up = Ipv6Network.InterfaceGlobalData.Summary.IfUpUp()
+                self.if_up_up.parent = self
 
 
             class IfUpUp(object):
@@ -3933,19 +3933,19 @@ class Ipv6Network(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.if_up_up is not None and self.if_up_up._has_data():
-                    return True
-
-                if self.if_up_down is not None and self.if_up_down._has_data():
-                    return True
-
                 if self.if_down_down is not None and self.if_down_down._has_data():
                     return True
 
                 if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
                     return True
 
+                if self.if_up_down is not None and self.if_up_down._has_data():
+                    return True
+
                 if self.if_up_down_basecaps_up is not None:
+                    return True
+
+                if self.if_up_up is not None and self.if_up_up._has_data():
                     return True
 
                 return False
@@ -3989,10 +3989,10 @@ class Ipv6Network(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.nodes is not None and self.nodes._has_data():
+        if self.interface_global_data is not None and self.interface_global_data._has_data():
             return True
 
-        if self.interface_global_data is not None and self.interface_global_data._has_data():
+        if self.nodes is not None and self.nodes._has_data():
             return True
 
         return False

@@ -10,12 +10,12 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'OpenconfigRpcResponseTypes_Identity' : {
-        'meta_info' : _MetaInfoClass('OpenconfigRpcResponseTypes_Identity',
+    'OpenconfigRpcResponseTypesIdentity' : {
+        'meta_info' : _MetaInfoClass('OpenconfigRpcResponseTypesIdentity',
             False, 
             [
             ],
@@ -25,8 +25,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'OpenconfigDataEncodingTypes_Identity' : {
-        'meta_info' : _MetaInfoClass('OpenconfigDataEncodingTypes_Identity',
+    'OpenconfigDataEncodingTypesIdentity' : {
+        'meta_info' : _MetaInfoClass('OpenconfigDataEncodingTypesIdentity',
             False, 
             [
             ],
@@ -36,8 +36,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'EditConfigCommands_Identity' : {
-        'meta_info' : _MetaInfoClass('EditConfigCommands_Identity',
+    'EditConfigCommandsIdentity' : {
+        'meta_info' : _MetaInfoClass('EditConfigCommandsIdentity',
             False, 
             [
             ],
@@ -47,8 +47,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'OpenconfigSchemaFormatTypes_Identity' : {
-        'meta_info' : _MetaInfoClass('OpenconfigSchemaFormatTypes_Identity',
+    'OpenconfigSchemaFormatTypesIdentity' : {
+        'meta_info' : _MetaInfoClass('OpenconfigSchemaFormatTypesIdentity',
             False, 
             [
             ],
@@ -58,8 +58,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'OpenconfigSchemaModeTypes_Identity' : {
-        'meta_info' : _MetaInfoClass('OpenconfigSchemaModeTypes_Identity',
+    'OpenconfigSchemaModeTypesIdentity' : {
+        'meta_info' : _MetaInfoClass('OpenconfigSchemaModeTypesIdentity',
             False, 
             [
             ],
@@ -73,14 +73,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GetmodelsRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('schema-format', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaFormatTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaFormatTypes_Identity', 
+            _MetaInfoClassMember('schema-format', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaFormatTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaFormatTypesIdentity', 
                 [], [], 
                 '''                Schema format requested, e.g., JSON-Schema, XSD, Proto,
                 YANG
                 ''',
                 'schema_format',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('request-mode', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaModeTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaModeTypes_Identity', 
+            _MetaInfoClassMember('request-mode', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaModeTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaModeTypesIdentity', 
                 [], [], 
                 '''                Mode for delivering the schema data
                 ''',
@@ -174,7 +174,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SetdataencodingRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('encoding', REFERENCE_IDENTITY_CLASS, 'OpenconfigDataEncodingTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigDataEncodingTypes_Identity', 
+            _MetaInfoClassMember('encoding', REFERENCE_IDENTITY_CLASS, 'OpenconfigDataEncodingTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigDataEncodingTypesIdentity', 
                 [], [], 
                 '''                Identifier for the encoding scheme
                 ''',
@@ -207,7 +207,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GetdataencodingsRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('encoding', REFERENCE_LIST, 'OpenconfigDataEncodingTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigDataEncodingTypes_Identity', 
+            _MetaInfoClassMember('encoding', REFERENCE_LIST, 'OpenconfigDataEncodingTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigDataEncodingTypesIdentity', 
                 [], [], 
                 '''                List of identifiers indicating the supported encoding
                 schemes
@@ -257,7 +257,7 @@ _meta_table = {
                 ''',
                 'values',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('command', REFERENCE_IDENTITY_CLASS, 'EditConfigCommands_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditConfigCommands_Identity', 
+            _MetaInfoClassMember('command', REFERENCE_IDENTITY_CLASS, 'EditConfigCommandsIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditConfigCommandsIdentity', 
                 [], [], 
                 '''                The type of configuration modification requested for the
                 corresponding path.  Note that some commands, such as
@@ -277,7 +277,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EditconfigRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Identifier sent in request messages
                 ''',
@@ -302,13 +302,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EditconfigRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The request id corresponding to the request
                 ''',
                 'request_id',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('response-code', REFERENCE_IDENTITY_CLASS, 'OpenconfigRpcResponseTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigRpcResponseTypes_Identity', 
+            _MetaInfoClassMember('response-code', REFERENCE_IDENTITY_CLASS, 'OpenconfigRpcResponseTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigRpcResponseTypesIdentity', 
                 [], [], 
                 '''                Numerical code corresponding to the returned message.
                 ''',
@@ -820,7 +820,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GetconfigRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Identifier sent in request messages
                 ''',
@@ -870,13 +870,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GetconfigRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The request id corresponding to the request
                 ''',
                 'request_id',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('response-code', REFERENCE_IDENTITY_CLASS, 'OpenconfigRpcResponseTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigRpcResponseTypes_Identity', 
+            _MetaInfoClassMember('response-code', REFERENCE_IDENTITY_CLASS, 'OpenconfigRpcResponseTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigRpcResponseTypesIdentity', 
                 [], [], 
                 '''                Numerical code corresponding to the returned message.
                 ''',
@@ -929,7 +929,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GetoperationalRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Identifier sent in request messages
                 ''',
@@ -988,13 +988,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GetoperationalRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The request id corresponding to the request
                 ''',
                 'request_id',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('response-code', REFERENCE_IDENTITY_CLASS, 'OpenconfigRpcResponseTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigRpcResponseTypes_Identity', 
+            _MetaInfoClassMember('response-code', REFERENCE_IDENTITY_CLASS, 'OpenconfigRpcResponseTypesIdentity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigRpcResponseTypesIdentity', 
                 [], [], 
                 '''                Numerical code corresponding to the returned message.
                 ''',
@@ -1043,96 +1043,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'JsonSchema_Identity' : {
-        'meta_info' : _MetaInfoClass('JsonSchema_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'json-schema',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'UpdateConfig_Identity' : {
-        'meta_info' : _MetaInfoClass('UpdateConfig_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'update-config',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'EncodingJsonIetf_Identity' : {
-        'meta_info' : _MetaInfoClass('EncodingJsonIetf_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'encoding-json-ietf',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'FileMode_Identity' : {
-        'meta_info' : _MetaInfoClass('FileMode_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'file-mode',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'DeleteConfig_Identity' : {
-        'meta_info' : _MetaInfoClass('DeleteConfig_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'delete-config',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'UriMode_Identity' : {
-        'meta_info' : _MetaInfoClass('UriMode_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'uri-mode',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'XsdSchema_Identity' : {
-        'meta_info' : _MetaInfoClass('XsdSchema_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'xsd-schema',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'YangSchema_Identity' : {
-        'meta_info' : _MetaInfoClass('YangSchema_Identity',
-            False, 
-            [
-            ],
-            'openconfig-rpc-api',
-            'yang-schema',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'ReplaceConfig_Identity' : {
-        'meta_info' : _MetaInfoClass('ReplaceConfig_Identity',
+    'ReplaceConfigIdentity' : {
+        'meta_info' : _MetaInfoClass('ReplaceConfigIdentity',
             False, 
             [
             ],
@@ -1142,8 +1054,85 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'EncodingProto3_Identity' : {
-        'meta_info' : _MetaInfoClass('EncodingProto3_Identity',
+    'XsdSchemaIdentity' : {
+        'meta_info' : _MetaInfoClass('XsdSchemaIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'xsd-schema',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'YangSchemaIdentity' : {
+        'meta_info' : _MetaInfoClass('YangSchemaIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'yang-schema',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'EncodingXmlIdentity' : {
+        'meta_info' : _MetaInfoClass('EncodingXmlIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'encoding-xml',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'JsonSchemaIdentity' : {
+        'meta_info' : _MetaInfoClass('JsonSchemaIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'json-schema',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'FileModeIdentity' : {
+        'meta_info' : _MetaInfoClass('FileModeIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'file-mode',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'DeleteConfigIdentity' : {
+        'meta_info' : _MetaInfoClass('DeleteConfigIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'delete-config',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'EncodingJsonIetfIdentity' : {
+        'meta_info' : _MetaInfoClass('EncodingJsonIetfIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'encoding-json-ietf',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'EncodingProto3Identity' : {
+        'meta_info' : _MetaInfoClass('EncodingProto3Identity',
             False, 
             [
             ],
@@ -1153,13 +1142,24 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'EncodingXml_Identity' : {
-        'meta_info' : _MetaInfoClass('EncodingXml_Identity',
+    'UpdateConfigIdentity' : {
+        'meta_info' : _MetaInfoClass('UpdateConfigIdentity',
             False, 
             [
             ],
             'openconfig-rpc-api',
-            'encoding-xml',
+            'update-config',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'UriModeIdentity' : {
+        'meta_info' : _MetaInfoClass('UriModeIdentity',
+            False, 
+            [
+            ],
+            'openconfig-rpc-api',
+            'uri-mode',
             _yang_ns._namespaces['openconfig-rpc-api'],
         'ydk.models.openconfig.openconfig_rpc_api'
         ),

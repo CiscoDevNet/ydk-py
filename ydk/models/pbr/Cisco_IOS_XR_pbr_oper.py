@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -227,6 +227,11 @@ class Pbr(object):
                                 """
                                 PBR policy statistics
                                 
+                                .. attribute:: class_stat
+                                
+                                	Array of classes contained in policy
+                                	**type**\: list of :py:class:`ClassStat <ydk.models.pbr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
+                                
                                 .. attribute:: node_name
                                 
                                 	NodeName
@@ -253,11 +258,6 @@ class Pbr(object):
                                 
                                 	**range:** 0..128
                                 
-                                .. attribute:: class_stat
-                                
-                                	Array of classes contained in policy
-                                	**type**\: list of :py:class:`ClassStat <ydk.models.pbr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
-                                
                                 
 
                                 """
@@ -267,18 +267,39 @@ class Pbr(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.class_stat = YList()
+                                    self.class_stat.parent = self
+                                    self.class_stat.name = 'class_stat'
                                     self.node_name = None
                                     self.policy_name = None
                                     self.state = None
                                     self.state_description = None
-                                    self.class_stat = YList()
-                                    self.class_stat.parent = self
-                                    self.class_stat.name = 'class_stat'
 
 
                                 class ClassStat(object):
                                     """
                                     Array of classes contained in policy
+                                    
+                                    .. attribute:: class_id
+                                    
+                                    	ClassId
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: class_name
+                                    
+                                    	ClassName
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..65
+                                    
+                                    .. attribute:: counter_validity_bitmask
+                                    
+                                    	 Bitmask to indicate which counter or counters are undetermined. Counters will be marked undetermined when one or more classes share queues with class\-default because in such cases the value of counters for each class is invalid. Based on the flag(s) set, the following counters will be marked undetermined. For example, if value of this object returned is 0x00000101, counters TransmitPackets/TransmitBytes/TotalTransmitRate and DropPackets/DropBytes are undetermined .0x00000001 \- Transmit (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 \- Drop (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 \- Httpr (HttprTransmitPackets/HttprTransmitBytes), 
+                                    	**type**\: long
+                                    
+                                    	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: general_stats
                                     
@@ -290,27 +311,6 @@ class Pbr(object):
                                     	HTTPR stats
                                     	**type**\: :py:class:`HttprStats <ydk.models.pbr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
                                     
-                                    .. attribute:: counter_validity_bitmask
-                                    
-                                    	 Bitmask to indicate which counter or counters are undetermined. Counters will be marked undetermined when one or more classes share queues with class\-default because in such cases the value of counters for each class is invalid. Based on the flag(s) set, the following counters will be marked undetermined. For example, if value of this object returned is 0x00000101, counters TransmitPackets/TransmitBytes/TotalTransmitRate and DropPackets/DropBytes are undetermined .0x00000001 \- Transmit (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 \- Drop (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 \- Httpr (HttprTransmitPackets/HttprTransmitBytes), 
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: class_name
-                                    
-                                    	ClassName
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..65
-                                    
-                                    .. attribute:: class_id
-                                    
-                                    	ClassId
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     
 
                                     """
@@ -320,57 +320,57 @@ class Pbr(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.class_id = None
+                                        self.class_name = None
+                                        self.counter_validity_bitmask = None
                                         self.general_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats()
                                         self.general_stats.parent = self
                                         self.httpr_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats()
                                         self.httpr_stats.parent = self
-                                        self.counter_validity_bitmask = None
-                                        self.class_name = None
-                                        self.class_id = None
 
 
                                     class GeneralStats(object):
                                         """
                                         general stats
                                         
-                                        .. attribute:: transmit_packets
+                                        .. attribute:: match_data_rate
                                         
-                                        	Transmitted packets (packets/bytes)
+                                        	Incoming matched data rate in kbps
                                         	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: pre_policy_matched_bytes
+                                        
+                                        	Matched bytes before applying policy
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: transmit_bytes
+                                        .. attribute:: pre_policy_matched_packets
                                         
-                                        	Transmitted bytes (packets/bytes)
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: total_drop_packets
-                                        
-                                        	Dropped packets (packets/bytes)
-                                        	**type**\: int
+                                        	Matched pkts before applying policy
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: total_drop_bytes
                                         
                                         	Dropped bytes (packets/bytes)
-                                        	**type**\: int
+                                        	**type**\: long
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: total_drop_packets
+                                        
+                                        	Dropped packets (packets/bytes)
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: total_drop_rate
                                         
                                         	Total drop rate (packets/bytes)
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: match_data_rate
-                                        
-                                        	Incoming matched data rate in kbps
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
@@ -382,17 +382,17 @@ class Pbr(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: pre_policy_matched_packets
+                                        .. attribute:: transmit_bytes
                                         
-                                        	Matched pkts before applying policy
-                                        	**type**\: int
+                                        	Transmitted bytes (packets/bytes)
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: pre_policy_matched_bytes
+                                        .. attribute:: transmit_packets
                                         
-                                        	Matched bytes before applying policy
-                                        	**type**\: int
+                                        	Transmitted packets (packets/bytes)
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -405,20 +405,20 @@ class Pbr(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.transmit_packets = None
-                                            self.transmit_bytes = None
-                                            self.total_drop_packets = None
-                                            self.total_drop_bytes = None
-                                            self.total_drop_rate = None
                                             self.match_data_rate = None
-                                            self.total_transmit_rate = None
-                                            self.pre_policy_matched_packets = None
                                             self.pre_policy_matched_bytes = None
+                                            self.pre_policy_matched_packets = None
+                                            self.total_drop_bytes = None
+                                            self.total_drop_packets = None
+                                            self.total_drop_rate = None
+                                            self.total_transmit_rate = None
+                                            self.transmit_bytes = None
+                                            self.transmit_packets = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:general-stats'
 
@@ -429,31 +429,31 @@ class Pbr(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.transmit_packets is not None:
-                                                return True
-
-                                            if self.transmit_bytes is not None:
-                                                return True
-
-                                            if self.total_drop_packets is not None:
-                                                return True
-
-                                            if self.total_drop_bytes is not None:
-                                                return True
-
-                                            if self.total_drop_rate is not None:
-                                                return True
-
                                             if self.match_data_rate is not None:
                                                 return True
 
-                                            if self.total_transmit_rate is not None:
+                                            if self.pre_policy_matched_bytes is not None:
                                                 return True
 
                                             if self.pre_policy_matched_packets is not None:
                                                 return True
 
-                                            if self.pre_policy_matched_bytes is not None:
+                                            if self.total_drop_bytes is not None:
+                                                return True
+
+                                            if self.total_drop_packets is not None:
+                                                return True
+
+                                            if self.total_drop_rate is not None:
+                                                return True
+
+                                            if self.total_transmit_rate is not None:
+                                                return True
+
+                                            if self.transmit_bytes is not None:
+                                                return True
+
+                                            if self.transmit_packets is not None:
                                                 return True
 
                                             return False
@@ -468,45 +468,45 @@ class Pbr(object):
                                         """
                                         HTTPR stats
                                         
-                                        .. attribute:: rqst_rcvd_packets
+                                        .. attribute:: drop_bytes
                                         
-                                        	TotalNum of pkts HTTP request received
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: rqst_rcvd_bytes
-                                        
-                                        	TotalNum of Bytes HTTP request received
-                                        	**type**\: int
+                                        	Dropped bytes
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: drop_packets
                                         
                                         	Dropped  packets
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: drop_bytes
-                                        
-                                        	Dropped bytes
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: resp_sent_packets
-                                        
-                                        	TotalNum of pkts HTTPR response sent
-                                        	**type**\: int
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: resp_sent_bytes
                                         
                                         	TotalNum of Bytes HTTPR response sent
-                                        	**type**\: int
+                                        	**type**\: long
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: resp_sent_packets
+                                        
+                                        	TotalNum of pkts HTTPR response sent
+                                        	**type**\: long
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: rqst_rcvd_bytes
+                                        
+                                        	TotalNum of Bytes HTTP request received
+                                        	**type**\: long
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: rqst_rcvd_packets
+                                        
+                                        	TotalNum of pkts HTTP request received
+                                        	**type**\: long
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -519,17 +519,17 @@ class Pbr(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.rqst_rcvd_packets = None
-                                            self.rqst_rcvd_bytes = None
-                                            self.drop_packets = None
                                             self.drop_bytes = None
-                                            self.resp_sent_packets = None
+                                            self.drop_packets = None
                                             self.resp_sent_bytes = None
+                                            self.resp_sent_packets = None
+                                            self.rqst_rcvd_bytes = None
+                                            self.rqst_rcvd_packets = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:httpr-stats'
 
@@ -540,22 +540,22 @@ class Pbr(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.rqst_rcvd_packets is not None:
-                                                return True
-
-                                            if self.rqst_rcvd_bytes is not None:
+                                            if self.drop_bytes is not None:
                                                 return True
 
                                             if self.drop_packets is not None:
                                                 return True
 
-                                            if self.drop_bytes is not None:
+                                            if self.resp_sent_bytes is not None:
                                                 return True
 
                                             if self.resp_sent_packets is not None:
                                                 return True
 
-                                            if self.resp_sent_bytes is not None:
+                                            if self.rqst_rcvd_bytes is not None:
+                                                return True
+
+                                            if self.rqst_rcvd_packets is not None:
                                                 return True
 
                                             return False
@@ -568,7 +568,7 @@ class Pbr(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:class-stat'
 
@@ -579,19 +579,19 @@ class Pbr(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.general_stats is not None and self.general_stats._has_data():
-                                            return True
-
-                                        if self.httpr_stats is not None and self.httpr_stats._has_data():
-                                            return True
-
-                                        if self.counter_validity_bitmask is not None:
+                                        if self.class_id is not None:
                                             return True
 
                                         if self.class_name is not None:
                                             return True
 
-                                        if self.class_id is not None:
+                                        if self.counter_validity_bitmask is not None:
+                                            return True
+
+                                        if self.general_stats is not None and self.general_stats._has_data():
+                                            return True
+
+                                        if self.httpr_stats is not None and self.httpr_stats._has_data():
                                             return True
 
                                         return False
@@ -604,7 +604,7 @@ class Pbr(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:input'
 
@@ -615,6 +615,11 @@ class Pbr(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.class_stat is not None:
+                                        for child_ref in self.class_stat:
+                                            if child_ref._has_data():
+                                                return True
+
                                     if self.node_name is not None:
                                         return True
 
@@ -627,11 +632,6 @@ class Pbr(object):
                                     if self.state_description is not None:
                                         return True
 
-                                    if self.class_stat is not None:
-                                        for child_ref in self.class_stat:
-                                            if child_ref._has_data():
-                                                return True
-
                                     return False
 
                                 @staticmethod
@@ -642,7 +642,7 @@ class Pbr(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:direction'
 
@@ -666,9 +666,9 @@ class Pbr(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface_name is None:
-                                raise YPYDataValidationError('Key property interface_name is None')
+                                raise YPYModelError('Key property interface_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:interface[Cisco-IOS-XR-pbr-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -695,7 +695,7 @@ class Pbr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:interfaces'
 
@@ -721,7 +721,7 @@ class Pbr(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pbr-oper:policy-map'
 
@@ -745,7 +745,7 @@ class Pbr(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-pbr-oper:pbr/Cisco-IOS-XR-pbr-oper:nodes/Cisco-IOS-XR-pbr-oper:node[Cisco-IOS-XR-pbr-oper:node-name = ' + str(self.node_name) + ']'
 

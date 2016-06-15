@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -24,11 +24,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsd.LabelDatabases.LabelDatabase.LabelRange',
             False, 
             [
-            _MetaInfoClassMember('minvalue', ATTRIBUTE, 'int' , None, None, 
-                [(16000, 1048575)], [], 
-                '''                Minimum label value
+            _MetaInfoClassMember('max-static-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1048575)], [], 
+                '''                Maximum static label value
                 ''',
-                'minvalue',
+                'max_static_value',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('max-value', ATTRIBUTE, 'int' , None, None, 
                 [(16000, 1048575)], [], 
@@ -42,11 +42,11 @@ _meta_table = {
                 ''',
                 'min_static_value',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
-            _MetaInfoClassMember('max-static-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
-                '''                Maximum static label value
+            _MetaInfoClassMember('minvalue', ATTRIBUTE, 'int' , None, None, 
+                [(16000, 1048575)], [], 
+                '''                Minimum label value
                 ''',
-                'max_static_value',
+                'minvalue',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-lsd-cfg',
@@ -99,29 +99,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsd',
             False, 
             [
-            _MetaInfoClassMember('label-databases', REFERENCE_CLASS, 'LabelDatabases' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsLsd.LabelDatabases', 
-                [], [], 
-                '''                Table of label databases
-                ''',
-                'label_databases',
-                'Cisco-IOS-XR-mpls-lsd-cfg', False),
-            _MetaInfoClassMember('mpls-ip-ttl-expiration-pop', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Number of labels to pop upon MPLS TTL expiry
-                ''',
-                'mpls_ip_ttl_expiration_pop',
-                'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('app-reg-delay-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable LSD application reg delay
                 ''',
                 'app_reg_delay_disable',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
+            _MetaInfoClassMember('label-databases', REFERENCE_CLASS, 'LabelDatabases' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsLsd.LabelDatabases', 
+                [], [], 
+                '''                Table of label databases
+                ''',
+                'label_databases',
+                'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('mpls-entropy-label', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS Entropy Label
                 ''',
                 'mpls_entropy_label',
+                'Cisco-IOS-XR-mpls-lsd-cfg', False),
+            _MetaInfoClassMember('mpls-ip-ttl-expiration-pop', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10)], [], 
+                '''                Number of labels to pop upon MPLS TTL expiry
+                ''',
+                'mpls_ip_ttl_expiration_pop',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('mpls-ip-ttl-propagate-disable', REFERENCE_ENUM_CLASS, 'MplsIpTtlPropagateDisableEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsIpTtlPropagateDisableEnum', 
                 [], [], 

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -71,17 +71,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NvSatellites.NvSatellite.ConnectionInfo',
             False, 
             [
-            _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Satellite Username
-                ''',
-                'username',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
                 [], ['(!.+)|([^!].+)'], 
                 '''                Encrypted password for the user
                 ''',
                 'password',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Satellite Username
+                ''',
+                'username',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             ],
             'Cisco-IOS-XR-icpe-infra-cfg',
@@ -130,23 +130,11 @@ _meta_table = {
                 ''',
                 'connection_info',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_cfg', 'NvSatellites.NvSatellite.Redundancy', 
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Redundancy submode
+                '''                Satellite Description
                 ''',
-                'redundancy',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF for Satellite IP Address
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('upgrade-on-connect', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Satellite Upgrade on Connection
-                ''',
-                'upgrade_on_connect',
+                'description',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('device-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -154,41 +142,17 @@ _meta_table = {
                 ''',
                 'device_name',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Satellite Description
-                ''',
-                'description',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Satellite Type
-                ''',
-                'type',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable
-                ''',
-                'enable',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('disc-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Discovery timeout for the satellite
                 ''',
                 'disc_timeout',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Satellite Serial Number
+                '''                Enable
                 ''',
-                'serial_number',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
-            _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Encrypted password for the Satellite
-                ''',
-                'secret',
+                'enable',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -209,6 +173,42 @@ _meta_table = {
                         'ip_address',
                         'Cisco-IOS-XR-icpe-infra-cfg', False),
                 ]),
+            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_cfg', 'NvSatellites.NvSatellite.Redundancy', 
+                [], [], 
+                '''                Redundancy submode
+                ''',
+                'redundancy',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Encrypted password for the Satellite
+                ''',
+                'secret',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Satellite Serial Number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Satellite Type
+                ''',
+                'type',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('upgrade-on-connect', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Satellite Upgrade on Connection
+                ''',
+                'upgrade_on_connect',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF for Satellite IP Address
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
             ],
             'Cisco-IOS-XR-icpe-infra-cfg',
             'nv-satellite',

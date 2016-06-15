@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlowEnum
@@ -50,16 +50,6 @@ class Lpts(object):
         """
         Pre IFiB Configuration 
         
-        .. attribute:: ipv4acls
-        
-        	Table for ACLs
-        	**type**\: :py:class:`Ipv4Acls <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: enable
         
         	Enabled
@@ -80,6 +70,16 @@ class Lpts(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: ipv4acls
+        
+        	Table for ACLs
+        	**type**\: :py:class:`Ipv4Acls <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -91,11 +91,11 @@ class Lpts(object):
 
         def __init__(self):
             self.parent = None
-            self.ipv4acls = Lpts.Ipolicer.Ipv4Acls()
-            self.ipv4acls.parent = self
             self.enable = None
             self.flows = Lpts.Ipolicer.Flows()
             self.flows.parent = self
+            self.ipv4acls = Lpts.Ipolicer.Ipv4Acls()
+            self.ipv4acls.parent = self
 
 
         class Ipv4Acls(object):
@@ -154,7 +154,7 @@ class Lpts(object):
                 @property
                 def _common_path(self):
                     if self.acl_name is None:
-                        raise YPYDataValidationError('Key property acl_name is None')
+                        raise YPYModelError('Key property acl_name is None')
 
                     return '/Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipv4acls/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipv4acl[Cisco-IOS-XR-lpts-pre-ifib-cfg:acl-name = ' + str(self.acl_name) + ']'
 
@@ -297,7 +297,7 @@ class Lpts(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
 
@@ -323,7 +323,7 @@ class Lpts(object):
                 @property
                 def _common_path(self):
                     if self.flow_type is None:
-                        raise YPYDataValidationError('Key property flow_type is None')
+                        raise YPYModelError('Key property flow_type is None')
 
                     return '/Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
 
@@ -386,13 +386,13 @@ class Lpts(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.ipv4acls is not None and self.ipv4acls._has_data():
-                return True
-
             if self.enable is not None:
                 return True
 
             if self.flows is not None and self.flows._has_data():
+                return True
+
+            if self.ipv4acls is not None and self.ipv4acls._has_data():
                 return True
 
             return False

@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -62,30 +62,20 @@ class Dhcpv6(object):
     """
     None
     
+    .. attribute:: allow_duid_change
+    
+    	For BNG session, allow duid change for a client MAC
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
     .. attribute:: database
     
     	Enable DHCP binding database storage to file system
     	**type**\: :py:class:`Database <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Database>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
-    .. attribute:: profiles
-    
-    	Table of Profile
-    	**type**\: :py:class:`Profiles <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
-    .. attribute:: interfaces
-    
-    	Table of Interface
-    	**type**\: :py:class:`Interfaces <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces>`
     
     .. attribute:: _is_presence
     
@@ -102,10 +92,20 @@ class Dhcpv6(object):
     	Is present if this instance represents presence container else not
     	**type**\: bool
     
-    .. attribute:: allow_duid_change
+    .. attribute:: interfaces
     
-    	For BNG session, allow duid change for a client MAC
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	Table of Interface
+    	**type**\: :py:class:`Interfaces <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: profiles
+    
+    	Table of Profile
+    	**type**\: :py:class:`Profiles <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles>`
     
     .. attribute:: _is_presence
     
@@ -122,35 +122,20 @@ class Dhcpv6(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        self.allow_duid_change = None
         self.database = Dhcpv6.Database()
         self.database.parent = self
-        self.profiles = Dhcpv6.Profiles()
-        self.profiles.parent = self
+        self.enable = None
         self.interfaces = Dhcpv6.Interfaces()
         self.interfaces.parent = self
-        self.enable = None
-        self.allow_duid_change = None
+        self.profiles = Dhcpv6.Profiles()
+        self.profiles.parent = self
 
 
     class Database(object):
         """
         Enable DHCP binding database storage to file
         system
-        
-        .. attribute:: proxy
-        
-        	Enable DHCP proxy binding database storage to file system
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: server
-        
-        	Enable DHCP server binding database storage to file system
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: relay
-        
-        	Enable DHCP relay binding database storage to file system
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: full_write_interval
         
@@ -166,6 +151,21 @@ class Dhcpv6(object):
         
         	**range:** 1..1440
         
+        .. attribute:: proxy
+        
+        	Enable DHCP proxy binding database storage to file system
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: relay
+        
+        	Enable DHCP relay binding database storage to file system
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: server
+        
+        	Enable DHCP server binding database storage to file system
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
         
 
         """
@@ -175,11 +175,11 @@ class Dhcpv6(object):
 
         def __init__(self):
             self.parent = None
-            self.proxy = None
-            self.server = None
-            self.relay = None
             self.full_write_interval = None
             self.incremental_write_interval = None
+            self.proxy = None
+            self.relay = None
+            self.server = None
 
         @property
         def _common_path(self):
@@ -193,19 +193,19 @@ class Dhcpv6(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.proxy is not None:
+            if self.full_write_interval is not None:
                 return True
 
-            if self.server is not None:
+            if self.incremental_write_interval is not None:
+                return True
+
+            if self.proxy is not None:
                 return True
 
             if self.relay is not None:
                 return True
 
-            if self.full_write_interval is not None:
-                return True
-
-            if self.incremental_write_interval is not None:
+            if self.server is not None:
                 return True
 
             return False
@@ -250,15 +250,15 @@ class Dhcpv6(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: relay
-            
-            	None
-            	**type**\: :py:class:`Relay <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay>`
-            
             .. attribute:: proxy
             
             	None
             	**type**\: :py:class:`Proxy <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy>`
+            
+            .. attribute:: relay
+            
+            	None
+            	**type**\: :py:class:`Relay <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay>`
             
             .. attribute:: server
             
@@ -275,8 +275,8 @@ class Dhcpv6(object):
             def __init__(self):
                 self.parent = None
                 self.profile_name = None
-                self.relay = None
                 self.proxy = None
+                self.relay = None
                 self.server = None
 
 
@@ -284,20 +284,20 @@ class Dhcpv6(object):
                 """
                 None
                 
-                .. attribute:: helper_addresses
+                .. attribute:: enable
                 
-                	Table of HelperAddress
-                	**type**\: :py:class:`HelperAddresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses>`
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Relay
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: _is_presence
                 
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: enable
+                .. attribute:: helper_addresses
                 
-                	Enable None. Deletion of this object also causes deletion of all associated objects under Relay
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Table of HelperAddress
+                	**type**\: :py:class:`HelperAddresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses>`
                 
                 .. attribute:: _is_presence
                 
@@ -325,9 +325,9 @@ class Dhcpv6(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.enable = None
                     self.helper_addresses = Dhcpv6.Profiles.Profile.Relay.HelperAddresses()
                     self.helper_addresses.parent = self
-                    self.enable = None
                     self.iana_route_add = None
 
 
@@ -358,19 +358,19 @@ class Dhcpv6(object):
                         """
                         Specify the server helper address
                         
-                        .. attribute:: vrf_name  <key>
-                        
-                        	VRF name
-                        	**type**\: str
-                        
-                        	**range:** 0..32
-                        
                         .. attribute:: helper_address  <key>
                         
                         	Server Global unicast address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: vrf_name  <key>
+                        
+                        	VRF name
+                        	**type**\: str
+                        
+                        	**range:** 0..32
                         
                         
 
@@ -381,19 +381,19 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.vrf_name = None
                             self.helper_address = None
+                            self.vrf_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.helper_address is None:
-                                raise YPYDataValidationError('Key property helper_address is None')
+                                raise YPYModelError('Key property helper_address is None')
+                            if self.vrf_name is None:
+                                raise YPYModelError('Key property vrf_name is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -402,10 +402,10 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.vrf_name is not None:
+                            if self.helper_address is not None:
                                 return True
 
-                            if self.helper_address is not None:
+                            if self.vrf_name is not None:
                                 return True
 
                             return False
@@ -418,7 +418,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-addresses'
 
@@ -444,7 +444,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:relay'
 
@@ -455,10 +455,10 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.helper_addresses is not None and self.helper_addresses._has_data():
+                    if self.enable is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.helper_addresses is not None and self.helper_addresses._has_data():
                         return True
 
                     if self.iana_route_add is not None:
@@ -476,36 +476,6 @@ class Dhcpv6(object):
                 """
                 None
                 
-                .. attribute:: interfaces
-                
-                	Table of Interface
-                	**type**\: :py:class:`Interfaces <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: relay
-                
-                	Specify relay configuration
-                	**type**\: :py:class:`Relay <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: vrfs
-                
-                	VRF related configuration
-                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 .. attribute:: classes
                 
                 	Table of Class
@@ -516,10 +486,20 @@ class Dhcpv6(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: sessions
+                .. attribute:: enable
                 
-                	Change sessions configuration
-                	**type**\: :py:class:`Sessions <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions>`
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Proxy
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: interfaces
+                
+                	Table of Interface
+                	**type**\: :py:class:`Interfaces <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces>`
                 
                 .. attribute:: _is_presence
                 
@@ -548,6 +528,26 @@ class Dhcpv6(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
+                .. attribute:: relay
+                
+                	Specify relay configuration
+                	**type**\: :py:class:`Relay <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: sessions
+                
+                	Change sessions configuration
+                	**type**\: :py:class:`Sessions <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: src_intf_name
                 
                 	Create or enter proxy profile Source Interface Name
@@ -560,10 +560,10 @@ class Dhcpv6(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: enable
+                .. attribute:: vrfs
                 
-                	Enable None. Deletion of this object also causes deletion of all associated objects under Proxy
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	VRF related configuration
+                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs>`
                 
                 .. attribute:: _is_presence
                 
@@ -581,19 +581,19 @@ class Dhcpv6(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interfaces = Dhcpv6.Profiles.Profile.Proxy.Interfaces()
-                    self.interfaces.parent = self
-                    self.relay = Dhcpv6.Profiles.Profile.Proxy.Relay()
-                    self.relay.parent = self
-                    self.vrfs = Dhcpv6.Profiles.Profile.Proxy.Vrfs()
-                    self.vrfs.parent = self
                     self.classes = Dhcpv6.Profiles.Profile.Proxy.Classes()
                     self.classes.parent = self
+                    self.enable = None
+                    self.interfaces = Dhcpv6.Profiles.Profile.Proxy.Interfaces()
+                    self.interfaces.parent = self
+                    self.link_address = None
+                    self.relay = Dhcpv6.Profiles.Profile.Proxy.Relay()
+                    self.relay.parent = self
                     self.sessions = Dhcpv6.Profiles.Profile.Proxy.Sessions()
                     self.sessions.parent = self
-                    self.link_address = None
                     self.src_intf_name = None
-                    self.enable = None
+                    self.vrfs = Dhcpv6.Profiles.Profile.Proxy.Vrfs()
+                    self.vrfs.parent = self
 
 
                 class Interfaces(object):
@@ -650,9 +650,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface_name is None:
-                                raise YPYDataValidationError('Key property interface_name is None')
+                                raise YPYModelError('Key property interface_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interface[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -679,7 +679,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interfaces'
 
@@ -778,7 +778,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interface-id'
 
@@ -802,7 +802,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:option'
 
@@ -829,7 +829,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:relay'
 
@@ -938,17 +938,17 @@ class Dhcpv6(object):
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                .. attribute:: any_out_interface
+                                
+                                	DHCPv6 HelperAddress Output Interface
+                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                
                                 .. attribute:: out_interface
                                 
                                 	DHCPv6 HelperAddress Specific Output Interface
                                 	**type**\: str
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: any_out_interface
-                                
-                                	DHCPv6 HelperAddress Output Interface
-                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                 
                                 
 
@@ -960,15 +960,15 @@ class Dhcpv6(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.helper_address = None
-                                    self.out_interface = None
                                     self.any_out_interface = None
+                                    self.out_interface = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.helper_address is None:
-                                        raise YPYDataValidationError('Key property helper_address is None')
+                                        raise YPYModelError('Key property helper_address is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + ']'
 
@@ -982,10 +982,10 @@ class Dhcpv6(object):
                                     if self.helper_address is not None:
                                         return True
 
-                                    if self.out_interface is not None:
+                                    if self.any_out_interface is not None:
                                         return True
 
-                                    if self.any_out_interface is not None:
+                                    if self.out_interface is not None:
                                         return True
 
                                     return False
@@ -998,7 +998,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-addresses'
 
@@ -1024,9 +1024,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1053,7 +1053,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrfs'
 
@@ -1175,19 +1175,19 @@ class Dhcpv6(object):
                                 """
                                 Specify the server helper address
                                 
-                                .. attribute:: vrf_name  <key>
-                                
-                                	VRF name
-                                	**type**\: str
-                                
-                                	**range:** 0..32
-                                
                                 .. attribute:: helper_address  <key>
                                 
                                 	Server address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: vrf_name  <key>
+                                
+                                	VRF name
+                                	**type**\: str
+                                
+                                	**range:** 0..32
                                 
                                 
 
@@ -1198,19 +1198,19 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.vrf_name = None
                                     self.helper_address = None
+                                    self.vrf_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                    if self.vrf_name is None:
-                                        raise YPYDataValidationError('Key property vrf_name is None')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.helper_address is None:
-                                        raise YPYDataValidationError('Key property helper_address is None')
+                                        raise YPYModelError('Key property helper_address is None')
+                                    if self.vrf_name is None:
+                                        raise YPYModelError('Key property vrf_name is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
@@ -1219,10 +1219,10 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.vrf_name is not None:
+                                    if self.helper_address is not None:
                                         return True
 
-                                    if self.helper_address is not None:
+                                    if self.vrf_name is not None:
                                         return True
 
                                     return False
@@ -1235,7 +1235,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-addresses'
 
@@ -1261,9 +1261,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.class_name is None:
-                                raise YPYDataValidationError('Key property class_name is None')
+                                raise YPYModelError('Key property class_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:class[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:class-name = ' + str(self.class_name) + ']'
 
@@ -1293,7 +1293,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:classes'
 
@@ -1366,6 +1366,13 @@ class Dhcpv6(object):
                             Throttle DHCP sessions from any one MAC
                             address
                             
+                            .. attribute:: block
+                            
+                            	Throttle blocking period (in secs)
+                            	**type**\: int
+                            
+                            	**range:** 1..100
+                            
                             .. attribute:: limit
                             
                             	Number of solicits at which to throttle
@@ -1380,13 +1387,6 @@ class Dhcpv6(object):
                             
                             	**range:** 1..100
                             
-                            .. attribute:: block
-                            
-                            	Throttle blocking period (in secs)
-                            	**type**\: int
-                            
-                            	**range:** 1..100
-                            
                             
 
                             """
@@ -1396,14 +1396,14 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.block = None
                                 self.limit = None
                                 self.request = None
-                                self.block = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:throttle'
 
@@ -1414,13 +1414,13 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.block is not None:
+                                    return True
+
                                 if self.limit is not None:
                                     return True
 
                                 if self.request is not None:
-                                    return True
-
-                                if self.block is not None:
                                     return True
 
                                 return False
@@ -1433,7 +1433,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:mac'
 
@@ -1457,7 +1457,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:sessions'
 
@@ -1481,7 +1481,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:proxy'
 
@@ -1492,28 +1492,28 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.interfaces is not None and self.interfaces._has_data():
-                        return True
-
-                    if self.relay is not None and self.relay._has_data():
-                        return True
-
-                    if self.vrfs is not None and self.vrfs._has_data():
-                        return True
-
                     if self.classes is not None and self.classes._has_data():
                         return True
 
-                    if self.sessions is not None and self.sessions._has_data():
+                    if self.enable is not None:
+                        return True
+
+                    if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
                     if self.link_address is not None:
                         return True
 
+                    if self.relay is not None and self.relay._has_data():
+                        return True
+
+                    if self.sessions is not None and self.sessions._has_data():
+                        return True
+
                     if self.src_intf_name is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
                     return False
@@ -1527,46 +1527,6 @@ class Dhcpv6(object):
             class Server(object):
                 """
                 None
-                
-                .. attribute:: sessions
-                
-                	Change sessions configuration
-                	**type**\: :py:class:`Sessions <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: dns_servers
-                
-                	DNS servers
-                	**type**\: :py:class:`DnsServers <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.DnsServers>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: classes
-                
-                	Table of Class
-                	**type**\: :py:class:`Classes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: lease
-                
-                	lease
-                	**type**\: :py:class:`Lease <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Lease>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
                 
                 .. attribute:: address_pool
                 
@@ -1592,12 +1552,52 @@ class Dhcpv6(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
+                .. attribute:: classes
+                
+                	Table of Class
+                	**type**\: :py:class:`Classes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: dns_servers
+                
+                	DNS servers
+                	**type**\: :py:class:`DnsServers <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.DnsServers>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: domain_name
                 
                 	Domain name
                 	**type**\: str
                 
                 	**range:** 0..64
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: enable
+                
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Server
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: lease
+                
+                	lease
+                	**type**\: :py:class:`Lease <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Lease>`
                 
                 .. attribute:: _is_presence
                 
@@ -1616,6 +1616,18 @@ class Dhcpv6(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
+                .. attribute:: prefix_pool
+                
+                	Prefix pool name
+                	**type**\: str
+                
+                	**range:** 0..64
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: rapid_commit
                 
                 	Allow RAPID Commit
@@ -1626,22 +1638,10 @@ class Dhcpv6(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: enable
+                .. attribute:: sessions
                 
-                	Enable None. Deletion of this object also causes deletion of all associated objects under Server
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: prefix_pool
-                
-                	Prefix pool name
-                	**type**\: str
-                
-                	**range:** 0..64
+                	Change sessions configuration
+                	**type**\: :py:class:`Sessions <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions>`
                 
                 .. attribute:: _is_presence
                 
@@ -1659,21 +1659,21 @@ class Dhcpv6(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.sessions = Dhcpv6.Profiles.Profile.Server.Sessions()
-                    self.sessions.parent = self
-                    self.dns_servers = Dhcpv6.Profiles.Profile.Server.DnsServers()
-                    self.dns_servers.parent = self
-                    self.classes = Dhcpv6.Profiles.Profile.Server.Classes()
-                    self.classes.parent = self
-                    self.lease = Dhcpv6.Profiles.Profile.Server.Lease()
-                    self.lease.parent = self
                     self.address_pool = None
                     self.aftr_name = None
+                    self.classes = Dhcpv6.Profiles.Profile.Server.Classes()
+                    self.classes.parent = self
+                    self.dns_servers = Dhcpv6.Profiles.Profile.Server.DnsServers()
+                    self.dns_servers.parent = self
                     self.domain_name = None
-                    self.preference = None
-                    self.rapid_commit = None
                     self.enable = None
+                    self.lease = Dhcpv6.Profiles.Profile.Server.Lease()
+                    self.lease.parent = self
+                    self.preference = None
                     self.prefix_pool = None
+                    self.rapid_commit = None
+                    self.sessions = Dhcpv6.Profiles.Profile.Server.Sessions()
+                    self.sessions.parent = self
 
 
                 class Sessions(object):
@@ -1725,6 +1725,13 @@ class Dhcpv6(object):
                             Throttle DHCP sessions from any one MAC
                             address
                             
+                            .. attribute:: block
+                            
+                            	Throttle blocking period (in secs)
+                            	**type**\: int
+                            
+                            	**range:** 1..100
+                            
                             .. attribute:: limit
                             
                             	Number of solicits at which to throttle
@@ -1739,13 +1746,6 @@ class Dhcpv6(object):
                             
                             	**range:** 1..100
                             
-                            .. attribute:: block
-                            
-                            	Throttle blocking period (in secs)
-                            	**type**\: int
-                            
-                            	**range:** 1..100
-                            
                             
 
                             """
@@ -1755,14 +1755,14 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.block = None
                                 self.limit = None
                                 self.request = None
-                                self.block = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:throttle'
 
@@ -1773,13 +1773,13 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.block is not None:
+                                    return True
+
                                 if self.limit is not None:
                                     return True
 
                                 if self.request is not None:
-                                    return True
-
-                                if self.block is not None:
                                     return True
 
                                 return False
@@ -1792,7 +1792,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:mac'
 
@@ -1816,7 +1816,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:sessions'
 
@@ -1875,7 +1875,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dns-servers'
 
@@ -1933,17 +1933,17 @@ class Dhcpv6(object):
                         
                         	**range:** 0..128
                         
-                        .. attribute:: dns_servers
-                        
-                        	DNS servers
-                        	**type**\: :py:class:`DnsServers <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers>`
-                        
                         .. attribute:: address_pool
                         
                         	Address pool name
                         	**type**\: str
                         
                         	**range:** 0..64
+                        
+                        .. attribute:: dns_servers
+                        
+                        	DNS servers
+                        	**type**\: :py:class:`DnsServers <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers>`
                         
                         .. attribute:: domain_name
                         
@@ -1976,9 +1976,9 @@ class Dhcpv6(object):
                         def __init__(self):
                             self.parent = None
                             self.class_name = None
+                            self.address_pool = None
                             self.dns_servers = Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers()
                             self.dns_servers.parent = self
-                            self.address_pool = None
                             self.domain_name = None
                             self.preference = None
                             self.prefix_pool = None
@@ -2021,7 +2021,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dns-servers'
 
@@ -2047,9 +2047,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.class_name is None:
-                                raise YPYDataValidationError('Key property class_name is None')
+                                raise YPYModelError('Key property class_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:class[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:class-name = ' + str(self.class_name) + ']'
 
@@ -2063,10 +2063,10 @@ class Dhcpv6(object):
                             if self.class_name is not None:
                                 return True
 
-                            if self.dns_servers is not None and self.dns_servers._has_data():
+                            if self.address_pool is not None:
                                 return True
 
-                            if self.address_pool is not None:
+                            if self.dns_servers is not None and self.dns_servers._has_data():
                                 return True
 
                             if self.domain_name is not None:
@@ -2088,7 +2088,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:classes'
 
@@ -2130,17 +2130,17 @@ class Dhcpv6(object):
                     
                     	**range:** 0..23
                     
+                    .. attribute:: infinite
+                    
+                    	Set string
+                    	**type**\: str
+                    
                     .. attribute:: minutes
                     
                     	Minutes
                     	**type**\: int
                     
                     	**range:** 1..59
-                    
-                    .. attribute:: infinite
-                    
-                    	Set string
-                    	**type**\: str
                     
                     
 
@@ -2153,13 +2153,13 @@ class Dhcpv6(object):
                         self.parent = None
                         self.days = None
                         self.hours = None
-                        self.minutes = None
                         self.infinite = None
+                        self.minutes = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:lease'
 
@@ -2176,10 +2176,10 @@ class Dhcpv6(object):
                         if self.hours is not None:
                             return True
 
-                        if self.minutes is not None:
+                        if self.infinite is not None:
                             return True
 
-                        if self.infinite is not None:
+                        if self.minutes is not None:
                             return True
 
                         return False
@@ -2192,7 +2192,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:server'
 
@@ -2203,37 +2203,37 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.sessions is not None and self.sessions._has_data():
-                        return True
-
-                    if self.dns_servers is not None and self.dns_servers._has_data():
-                        return True
-
-                    if self.classes is not None and self.classes._has_data():
-                        return True
-
-                    if self.lease is not None and self.lease._has_data():
-                        return True
-
                     if self.address_pool is not None:
                         return True
 
                     if self.aftr_name is not None:
                         return True
 
+                    if self.classes is not None and self.classes._has_data():
+                        return True
+
+                    if self.dns_servers is not None and self.dns_servers._has_data():
+                        return True
+
                     if self.domain_name is not None:
-                        return True
-
-                    if self.preference is not None:
-                        return True
-
-                    if self.rapid_commit is not None:
                         return True
 
                     if self.enable is not None:
                         return True
 
+                    if self.lease is not None and self.lease._has_data():
+                        return True
+
+                    if self.preference is not None:
+                        return True
+
                     if self.prefix_pool is not None:
+                        return True
+
+                    if self.rapid_commit is not None:
+                        return True
+
+                    if self.sessions is not None and self.sessions._has_data():
                         return True
 
                     return False
@@ -2246,7 +2246,7 @@ class Dhcpv6(object):
             @property
             def _common_path(self):
                 if self.profile_name is None:
-                    raise YPYDataValidationError('Key property profile_name is None')
+                    raise YPYModelError('Key property profile_name is None')
 
                 return '/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profiles/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profile[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profile-name = ' + str(self.profile_name) + ']'
 
@@ -2260,10 +2260,10 @@ class Dhcpv6(object):
                 if self.profile_name is not None:
                     return True
 
-                if self.relay is not None and self.relay._has_data():
+                if self.proxy is not None and self.proxy._has_data():
                     return True
 
-                if self.proxy is not None and self.proxy._has_data():
+                if self.relay is not None and self.relay._has_data():
                     return True
 
                 if self.server is not None and self.server._has_data():
@@ -2345,15 +2345,15 @@ class Dhcpv6(object):
             	Assign a proxy profile to interface
             	**type**\: :py:class:`Proxy <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Proxy>`
             
-            .. attribute:: server
-            
-            	Assign a server profile to interface
-            	**type**\: :py:class:`Server <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Server>`
-            
             .. attribute:: relay
             
             	Assign a relay profile to interface
             	**type**\: :py:class:`Relay <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Relay>`
+            
+            .. attribute:: server
+            
+            	Assign a server profile to interface
+            	**type**\: :py:class:`Server <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Server>`
             
             
 
@@ -2369,10 +2369,10 @@ class Dhcpv6(object):
                 self.pppoe.parent = self
                 self.proxy = Dhcpv6.Interfaces.Interface.Proxy()
                 self.proxy.parent = self
-                self.server = Dhcpv6.Interfaces.Interface.Server()
-                self.server.parent = self
                 self.relay = Dhcpv6.Interfaces.Interface.Relay()
                 self.relay.parent = self
+                self.server = Dhcpv6.Interfaces.Interface.Server()
+                self.server.parent = self
 
 
             class Pppoe(object):
@@ -2400,7 +2400,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:pppoe'
 
@@ -2447,7 +2447,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:proxy'
 
@@ -2494,7 +2494,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:server'
 
@@ -2541,7 +2541,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:relay'
 
@@ -2565,7 +2565,7 @@ class Dhcpv6(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interfaces/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interface[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2585,10 +2585,10 @@ class Dhcpv6(object):
                 if self.proxy is not None and self.proxy._has_data():
                     return True
 
-                if self.server is not None and self.server._has_data():
+                if self.relay is not None and self.relay._has_data():
                     return True
 
-                if self.relay is not None and self.relay._has_data():
+                if self.server is not None and self.server._has_data():
                     return True
 
                 return False
@@ -2634,19 +2634,19 @@ class Dhcpv6(object):
     def _has_data(self):
         if not self.is_config():
             return False
+        if self.allow_duid_change is not None:
+            return True
+
         if self.database is not None and self.database._has_data():
-            return True
-
-        if self.profiles is not None and self.profiles._has_data():
-            return True
-
-        if self.interfaces is not None and self.interfaces._has_data():
             return True
 
         if self.enable is not None:
             return True
 
-        if self.allow_duid_change is not None:
+        if self.interfaces is not None and self.interfaces._has_data():
+            return True
+
+        if self.profiles is not None and self.profiles._has_data():
             return True
 
         return False

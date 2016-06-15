@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -236,11 +236,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Udp.Nodes.Node.Statistics.Ipv4Traffic',
             False, 
             [
-            _MetaInfoClassMember('udp-input-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('udp-bad-length-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                UDP Received
+                '''                UDP bad length
                 ''',
-                'udp_input_packets',
+                'udp_bad_length_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('udp-checksum-error-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -248,29 +248,29 @@ _meta_table = {
                 ''',
                 'udp_checksum_error_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('udp-dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                UDP drop for other reason
+                ''',
+                'udp_dropped_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('udp-input-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                UDP Received
+                ''',
+                'udp_input_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('udp-no-port-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                UDP No Port
                 ''',
                 'udp_no_port_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('udp-bad-length-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                UDP bad length
-                ''',
-                'udp_bad_length_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('udp-output-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                UDP Transmitted
                 ''',
                 'udp_output_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('udp-dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                UDP drop for other reason
-                ''',
-                'udp_dropped_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -283,11 +283,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Udp.Nodes.Node.Statistics.Ipv6Traffic',
             False, 
             [
-            _MetaInfoClassMember('udp-input-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('udp-bad-length-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                UDP Received
+                '''                UDP bad length
                 ''',
-                'udp_input_packets',
+                'udp_bad_length_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('udp-checksum-error-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -295,29 +295,29 @@ _meta_table = {
                 ''',
                 'udp_checksum_error_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('udp-dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                UDP drop for other reason
+                ''',
+                'udp_dropped_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('udp-input-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                UDP Received
+                ''',
+                'udp_input_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('udp-no-port-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                UDP No Port
                 ''',
                 'udp_no_port_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('udp-bad-length-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                UDP bad length
-                ''',
-                'udp_bad_length_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('udp-output-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                UDP Transmitted
                 ''',
                 'udp_output_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('udp-dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                UDP drop for other reason
-                ''',
-                'udp_dropped_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -480,54 +480,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Statistics.Summary',
             False, 
             [
-            _MetaInfoClassMember('received-total-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total packets received
-                ''',
-                'received_total_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('received-no-port-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets received when no wild listener
-                ''',
-                'received_no_port_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('received-bad-checksum-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets received has bad checksum
-                ''',
-                'received_bad_checksum_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('received-too-short-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets received is too short
-                ''',
-                'received_too_short_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('received-drop-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets dropped for other reasons
-                ''',
-                'received_drop_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('sent-total-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total packets sent
-                ''',
-                'sent_total_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('sent-error-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total send erorr packets
-                ''',
-                'sent_error_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('forward-broadcast-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total forwarding broadcast packets
-                ''',
-                'forward_broadcast_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('cloned-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total cloned packets
@@ -540,6 +492,54 @@ _meta_table = {
                 ''',
                 'failed_clone_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('forward-broadcast-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total forwarding broadcast packets
+                ''',
+                'forward_broadcast_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-bad-checksum-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets received has bad checksum
+                ''',
+                'received_bad_checksum_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-drop-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets dropped for other reasons
+                ''',
+                'received_drop_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-no-port-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets received when no wild listener
+                ''',
+                'received_no_port_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-too-short-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets received is too short
+                ''',
+                'received_too_short_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-total-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total packets received
+                ''',
+                'received_total_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('sent-error-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total send erorr packets
+                ''',
+                'sent_error_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('sent-total-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total packets sent
+                ''',
+                'sent_total_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
             'summary',
@@ -551,29 +551,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send',
             False, 
             [
-            _MetaInfoClassMember('received-application-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Bytes received from application
+            _MetaInfoClassMember('failed-queued-net-io-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets failed getting queued to network (NetIO)
                 ''',
-                'received_application_bytes',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('received-xipc-pulses', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                XIPC pulses received from application
-                ''',
-                'received_xipc_pulses',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('sent-network-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Packets sent to network (v4/v6 IO)
-                ''',
-                'sent_network_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('sent-net-io-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Packets sent to network (NetIO)
-                ''',
-                'sent_net_io_packets',
+                'failed_queued_net_io_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('failed-queued-network-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -582,11 +564,29 @@ _meta_table = {
                 ''',
                 'failed_queued_network_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('failed-queued-net-io-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets failed getting queued to network (NetIO)
+            _MetaInfoClassMember('received-application-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Bytes received from application
                 ''',
-                'failed_queued_net_io_packets',
+                'received_application_bytes',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-xipc-pulses', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                XIPC pulses received from application
+                ''',
+                'received_xipc_pulses',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('sent-net-io-packets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Packets sent to network (NetIO)
+                ''',
+                'sent_net_io_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('sent-network-packets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Packets sent to network (v4/v6 IO)
+                ''',
+                'sent_network_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -599,23 +599,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive',
             False, 
             [
-            _MetaInfoClassMember('received-network-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Packets received from network
-                ''',
-                'received_network_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('failed-queued-application-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Packets failed queued to application
                 ''',
                 'failed_queued_application_packets',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('queued-application-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Packets queued to application
-                ''',
-                'queued_application_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('failed-queued-application-socket-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -624,11 +612,23 @@ _meta_table = {
                 ''',
                 'failed_queued_application_socket_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('queued-application-socket-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('queued-application-packets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Packets queued to application
+                ''',
+                'queued_application_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('queued-application-socket-packets', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Packets queued to application on socket
                 ''',
                 'queued_application_socket_packets',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('received-network-packets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Packets received from network
+                ''',
+                'received_network_packets',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -647,11 +647,11 @@ _meta_table = {
                 ''',
                 'pcb_address',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('send', REFERENCE_CLASS, 'Send' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send', 
+            _MetaInfoClassMember('is-paw-socket', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                UDP send statistics
+                '''                True if paw socket
                 ''',
-                'send',
+                'is_paw_socket',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('receive', REFERENCE_CLASS, 'Receive' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive', 
                 [], [], 
@@ -659,11 +659,11 @@ _meta_table = {
                 ''',
                 'receive',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('is-paw-socket', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('send', REFERENCE_CLASS, 'Send' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send', 
                 [], [], 
-                '''                True if paw socket
+                '''                UDP send statistics
                 ''',
-                'is_paw_socket',
+                'send',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -699,18 +699,18 @@ _meta_table = {
                 ''',
                 'clients',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics.Summary', 
-                [], [], 
-                '''                Summary statistics across all UDP connections
-                ''',
-                'summary',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('pcb-statistics', REFERENCE_CLASS, 'PcbStatistics' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics.PcbStatistics', 
                 [], [], 
                 '''                Table listing the UDP connections for which
                 statistics are provided
                 ''',
                 'pcb_statistics',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics.Summary', 
+                [], [], 
+                '''                Summary statistics across all UDP connections
+                ''',
+                'summary',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -781,17 +781,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options',
             False, 
             [
-            _MetaInfoClassMember('is-receive-filter', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Receive filter enabled
-                ''',
-                'is_receive_filter',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('is-ip-sla', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                IP SLA
                 ''',
                 'is_ip_sla',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('is-receive-filter', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Receive filter enabled
+                ''',
+                'is_receive_filter',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -804,11 +804,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags',
             False, 
             [
-            _MetaInfoClassMember('is-pcb-bound', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-ignore-vrf-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                PCB bound
+                '''                Ignore VRF Filter
                 ''',
-                'is_pcb_bound',
+                'is_ignore_vrf_filter',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('is-local-address-ignore', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -816,11 +816,11 @@ _meta_table = {
                 ''',
                 'is_local_address_ignore',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('is-ignore-vrf-filter', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-pcb-bound', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore VRF Filter
+                '''                PCB bound
                 ''',
-                'is_ignore_vrf_filter',
+                'is_pcb_bound',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -838,6 +838,18 @@ _meta_table = {
                 '''                Set interface
                 ''',
                 'is_interface',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('is-local-address', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Set Local Address
+                ''',
+                'is_local_address',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Set Local Port
+                ''',
+                'is_local_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('is-packet-type', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -857,18 +869,6 @@ _meta_table = {
                 ''',
                 'is_remote_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('is-local-address', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Set Local Address
-                ''',
-                'is_local_address',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Set Local Port
-                ''',
-                'is_local_port',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
             'accept-mask',
@@ -880,23 +880,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PacketEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'PacketEnum', 
+            _MetaInfoClassMember('icm-pv6-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpv6Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmpv6Enum', 
                 [], [], 
-                '''                Type
+                '''                ICMPv6 message type
                 ''',
-                'type',
+                'icm_pv6_message_type',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('icmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmpEnum', 
                 [], [], 
                 '''                ICMP message type
                 ''',
                 'icmp_message_type',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('icm-pv6-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpv6Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmpv6Enum', 
-                [], [], 
-                '''                ICMPv6 message type
-                ''',
-                'icm_pv6_message_type',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIgmpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIgmpEnum', 
                 [], [], 
@@ -909,6 +903,12 @@ _meta_table = {
                 '''                Message type in number
                 ''',
                 'message_id',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PacketEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'PacketEnum', 
+                [], [], 
+                '''                Type
+                ''',
+                'type',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -979,23 +979,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter',
             False, 
             [
-            _MetaInfoClassMember('packet-type', REFERENCE_CLASS, 'PacketType' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType', 
-                [], [], 
-                '''                Protocol-specific packet type
+            _MetaInfoClassMember('flow-types-info', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flow information
                 ''',
-                'packet_type',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('remote-address', REFERENCE_CLASS, 'RemoteAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress', 
-                [], [], 
-                '''                Remote address
-                ''',
-                'remote_address',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress', 
-                [], [], 
-                '''                Local address
-                ''',
-                'local_address',
+                'flow_types_info',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -1003,11 +991,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('remote-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Remote address length
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress', 
+                [], [], 
+                '''                Local address
                 ''',
-                'remote_length',
+                'local_address',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('local-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1015,17 +1003,11 @@ _meta_table = {
                 ''',
                 'local_length',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('receive-remote-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Receive Remote port
+            _MetaInfoClassMember('packet-type', REFERENCE_CLASS, 'PacketType' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType', 
+                [], [], 
+                '''                Protocol-specific packet type
                 ''',
-                'receive_remote_port',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('receive-local-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Receive Local port
-                ''',
-                'receive_local_port',
+                'packet_type',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -1033,17 +1015,35 @@ _meta_table = {
                 ''',
                 'priority',
                 'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('receive-local-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Receive Local port
+                ''',
+                'receive_local_port',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('receive-remote-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Receive Remote port
+                ''',
+                'receive_remote_port',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('remote-address', REFERENCE_CLASS, 'RemoteAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress', 
+                [], [], 
+                '''                Remote address
+                ''',
+                'remote_address',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('remote-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Remote address length
+                ''',
+                'remote_length',
+                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Minimum TTL
                 ''',
                 'ttl',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('flow-types-info', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flow information
-                ''',
-                'flow_types_info',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -1056,29 +1056,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb',
             False, 
             [
-            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options', 
-                [], [], 
-                '''                Receive options
-                ''',
-                'options',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('lpts-flags', REFERENCE_CLASS, 'LptsFlags' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags', 
-                [], [], 
-                '''                LPTS flags
-                ''',
-                'lpts_flags',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('accept-mask', REFERENCE_CLASS, 'AcceptMask' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask', 
                 [], [], 
                 '''                AcceptMask
                 ''',
                 'accept_mask',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum TTL
+            _MetaInfoClassMember('filter', REFERENCE_LIST, 'Filter' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter', 
+                [], [], 
+                '''                Interface Filters
                 ''',
-                'ttl',
+                'filter',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('flow-types-info', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1086,11 +1074,23 @@ _meta_table = {
                 ''',
                 'flow_types_info',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('filter', REFERENCE_LIST, 'Filter' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter', 
+            _MetaInfoClassMember('lpts-flags', REFERENCE_CLASS, 'LptsFlags' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags', 
                 [], [], 
-                '''                Interface Filters
+                '''                LPTS flags
                 ''',
-                'filter',
+                'lpts_flags',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options', 
+                [], [], 
+                '''                Receive options
+                ''',
+                'options',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum TTL
+                ''',
+                'ttl',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -1103,17 +1103,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common',
             False, 
             [
-            _MetaInfoClassMember('lpts-pcb', REFERENCE_CLASS, 'LptsPcb' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb', 
-                [], [], 
-                '''                LPTS PCB information
-                ''',
-                'lpts_pcb',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
                 'af_name',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('lpts-pcb', REFERENCE_CLASS, 'LptsPcb' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb', 
+                [], [], 
+                '''                LPTS PCB information
+                ''',
+                'lpts_pcb',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -1132,11 +1132,11 @@ _meta_table = {
                 ''',
                 'pcb_address',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress', 
+            _MetaInfoClassMember('common', REFERENCE_CLASS, 'Common' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common', 
                 [], [], 
-                '''                Local IP address
+                '''                Common PCB information
                 ''',
-                'local_address',
+                'common',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('foreign-address', REFERENCE_CLASS, 'ForeignAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress', 
                 [], [], 
@@ -1144,11 +1144,11 @@ _meta_table = {
                 ''',
                 'foreign_address',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('common', REFERENCE_CLASS, 'Common' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common', 
-                [], [], 
-                '''                Common PCB information
+            _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Remote port
                 ''',
-                'common',
+                'foreign_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('l4-protocol', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1156,17 +1156,17 @@ _meta_table = {
                 ''',
                 'l4_protocol',
                 'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress', 
+                [], [], 
+                '''                Local IP address
+                ''',
+                'local_address',
+                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('local-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Local port
                 ''',
                 'local_port',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Remote port
-                ''',
-                'foreign_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',
@@ -1317,11 +1317,11 @@ _meta_table = {
                 ''',
                 'pcb_address',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
-                '''                Local address
+                '''                Address family
                 ''',
-                'local_address',
+                'af_name',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('foreign-address', REFERENCE_CLASS, 'ForeignAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress', 
                 [], [], 
@@ -1329,17 +1329,17 @@ _meta_table = {
                 ''',
                 'foreign_address',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
-                [], [], 
-                '''                Address family
+            _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Foreign port
                 ''',
-                'af_name',
+                'foreign_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('local-process-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ID of local process
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress', 
+                [], [], 
+                '''                Local address
                 ''',
-                'local_process_id',
+                'local_address',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('local-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1347,11 +1347,11 @@ _meta_table = {
                 ''',
                 'local_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Foreign port
+            _MetaInfoClassMember('local-process-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ID of local process
                 ''',
-                'foreign_port',
+                'local_process_id',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('receive-queue', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1457,11 +1457,11 @@ _meta_table = {
                 ''',
                 'pcb_address',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
-                '''                Local address
+                '''                Address family
                 ''',
-                'local_address',
+                'af_name',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('foreign-address', REFERENCE_CLASS, 'ForeignAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress', 
                 [], [], 
@@ -1469,23 +1469,23 @@ _meta_table = {
                 ''',
                 'foreign_address',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
-                [], [], 
-                '''                Address family
+            _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Foreign port
                 ''',
-                'af_name',
+                'foreign_port',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress', 
+                [], [], 
+                '''                Local address
+                ''',
+                'local_address',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('local-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Local port
                 ''',
                 'local_port',
-                'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Foreign port
-                ''',
-                'foreign_port',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('receive-queue', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1533,17 +1533,17 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics', 
-                [], [], 
-                '''                Statistics of UDP connections
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('lpts', REFERENCE_CLASS, 'Lpts' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Lpts', 
                 [], [], 
                 '''                LPTS statistical data
                 ''',
                 'lpts',
+                'Cisco-IOS-XR-ip-udp-oper', False),
+            _MetaInfoClassMember('pcb-briefs', REFERENCE_CLASS, 'PcbBriefs' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbBriefs', 
+                [], [], 
+                '''                Brief information for list of UDP connections.
+                ''',
+                'pcb_briefs',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             _MetaInfoClassMember('pcb-details', REFERENCE_CLASS, 'PcbDetails' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbDetails', 
                 [], [], 
@@ -1552,11 +1552,11 @@ _meta_table = {
                 ''',
                 'pcb_details',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('pcb-briefs', REFERENCE_CLASS, 'PcbBriefs' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.PcbBriefs', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpConnection.Nodes.Node.Statistics', 
                 [], [], 
-                '''                Brief information for list of UDP connections.
+                '''                Statistics of UDP connections
                 ''',
-                'pcb_briefs',
+                'statistics',
                 'Cisco-IOS-XR-ip-udp-oper', False),
             ],
             'Cisco-IOS-XR-ip-udp-oper',

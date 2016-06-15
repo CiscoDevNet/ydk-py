@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -25,20 +25,6 @@ _meta_table = {
                 ''',
                 'compress',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4)], [], 
-                '''                Lower limit.  This is required if Filename is
-                specified.
-                ''',
-                'lower_limit',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
-                [(5, 64)], [], 
-                '''                Higher limit.  This is required if Filename is
-                specified.
-                ''',
-                'higher_limit',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('file-path', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Protocol and directory
@@ -50,6 +36,20 @@ _meta_table = {
                 '''                Dump filename
                 ''',
                 'filename',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
+                [(5, 64)], [], 
+                '''                Higher limit.  This is required if Filename is
+                specified.
+                ''',
+                'higher_limit',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4)], [], 
+                '''                Lower limit.  This is required if Filename is
+                specified.
+                ''',
+                'lower_limit',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             ],
             'Cisco-IOS-XR-spirit-corehelper-cfg',
@@ -69,20 +69,6 @@ _meta_table = {
                 ''',
                 'compress',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4)], [], 
-                '''                Lower limit.  This is required if Filename is
-                specified.
-                ''',
-                'lower_limit',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
-                [(5, 64)], [], 
-                '''                Higher limit.  This is required if Filename is
-                specified.
-                ''',
-                'higher_limit',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('file-path', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Protocol and directory
@@ -94,6 +80,20 @@ _meta_table = {
                 '''                Dump filename
                 ''',
                 'filename',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
+                [(5, 64)], [], 
+                '''                Higher limit.  This is required if Filename is
+                specified.
+                ''',
+                'higher_limit',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4)], [], 
+                '''                Lower limit.  This is required if Filename is
+                specified.
+                ''',
+                'lower_limit',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             ],
             'Cisco-IOS-XR-spirit-corehelper-cfg',
@@ -113,20 +113,6 @@ _meta_table = {
                 ''',
                 'compress',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4)], [], 
-                '''                Lower limit.  This is required if Filename is
-                specified.
-                ''',
-                'lower_limit',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
-                [(5, 64)], [], 
-                '''                Higher limit.  This is required if Filename is
-                specified.
-                ''',
-                'higher_limit',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('file-path', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Protocol and directory
@@ -139,6 +125,20 @@ _meta_table = {
                 ''',
                 'filename',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
+                [(5, 64)], [], 
+                '''                Higher limit.  This is required if Filename is
+                specified.
+                ''',
+                'higher_limit',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4)], [], 
+                '''                Lower limit.  This is required if Filename is
+                specified.
+                ''',
+                'lower_limit',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             ],
             'Cisco-IOS-XR-spirit-corehelper-cfg',
             'choice3',
@@ -150,17 +150,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Exception',
             False, 
             [
-            _MetaInfoClassMember('choice2', REFERENCE_CLASS, 'Choice2' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_corehelper_cfg', 'Exception.Choice2', 
-                [], [], 
-                '''                Preference of the dump location
-                ''',
-                'choice2',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('choice1', REFERENCE_CLASS, 'Choice1' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_corehelper_cfg', 'Exception.Choice1', 
                 [], [], 
                 '''                Preference of the dump location
                 ''',
                 'choice1',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('choice2', REFERENCE_CLASS, 'Choice2' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_corehelper_cfg', 'Exception.Choice2', 
+                [], [], 
+                '''                Preference of the dump location
+                ''',
+                'choice2',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('choice3', REFERENCE_CLASS, 'Choice3' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_corehelper_cfg', 'Exception.Choice3', 
                 [], [], 
@@ -168,12 +168,11 @@ _meta_table = {
                 ''',
                 'choice3',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('sparse', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('kernel-debugger', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Specify 'true' to enable sparse core dump,
-                'false' to disable sparse core dump
+                '''                Enable kernel debugger
                 ''',
-                'sparse',
+                'kernel_debugger',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('packet-memory', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -183,17 +182,18 @@ _meta_table = {
                 ''',
                 'packet_memory',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
+            _MetaInfoClassMember('sparse', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Specify 'true' to enable sparse core dump,
+                'false' to disable sparse core dump
+                ''',
+                'sparse',
+                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             _MetaInfoClassMember('sparse-size', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4095)], [], 
                 '''                Switch to sparse core dump at this size
                 ''',
                 'sparse_size',
-                'Cisco-IOS-XR-spirit-corehelper-cfg', False),
-            _MetaInfoClassMember('kernel-debugger', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable kernel debugger
-                ''',
-                'kernel_debugger',
                 'Cisco-IOS-XR-spirit-corehelper-cfg', False),
             ],
             'Cisco-IOS-XR-spirit-corehelper-cfg',

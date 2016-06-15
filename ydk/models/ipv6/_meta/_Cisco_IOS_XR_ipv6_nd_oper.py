@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -84,35 +84,11 @@ _meta_table = {
                 ''',
                 'host_address',
                 'Cisco-IOS-XR-ipv6-nd-oper', True),
-            _MetaInfoClassMember('last-reached-time', REFERENCE_CLASS, 'LastReachedTime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime', 
-                [], [], 
-                '''                Last time of reachability
-                ''',
-                'last_reached_time',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('reachability-state', REFERENCE_ENUM_CLASS, 'Ipv6NdShStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShStateEnum', 
-                [], [], 
-                '''                Current state
-                ''',
-                'reachability_state',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Link-Layer Address
-                ''',
-                'link_layer_address',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncapEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncapEnum', 
                 [], [], 
                 '''                Preferred media encap type
                 ''',
                 'encapsulation',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('selected-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncapEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncapEnum', 
-                [], [], 
-                '''                Selected media encap
-                ''',
-                'selected_encapsulation',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -120,11 +96,35 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('last-reached-time', REFERENCE_CLASS, 'LastReachedTime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime', 
+                [], [], 
+                '''                Last time of reachability
+                ''',
+                'last_reached_time',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Link-Layer Address
+                ''',
+                'link_layer_address',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
                 [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Location where the neighbor entry exists
                 ''',
                 'location',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('reachability-state', REFERENCE_ENUM_CLASS, 'Ipv6NdShStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShStateEnum', 
+                [], [], 
+                '''                Current state
+                ''',
+                'reachability_state',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('selected-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncapEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncapEnum', 
+                [], [], 
+                '''                Selected media encap
+                ''',
+                'selected_encapsulation',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
@@ -195,11 +195,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast',
             False, 
             [
+            _MetaInfoClassMember('delayed-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total delayed entries
+                ''',
+                'delayed_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('deleted-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total deleted entries
+                ''',
+                'deleted_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('incomplete-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total incomplete entries
                 ''',
                 'incomplete_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('probe-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total probe entries
+                ''',
+                'probe_entries',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('reachable-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -212,24 +230,6 @@ _meta_table = {
                 '''                Total stale entries
                 ''',
                 'stale_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('delayed-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total delayed entries
-                ''',
-                'delayed_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('probe-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total probe entries
-                ''',
-                'probe_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('deleted-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total deleted entries
-                ''',
-                'deleted_entries',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('subtotal-neighbor-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -248,11 +248,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static',
             False, 
             [
+            _MetaInfoClassMember('delayed-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total delayed entries
+                ''',
+                'delayed_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('deleted-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total deleted entries
+                ''',
+                'deleted_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('incomplete-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total incomplete entries
                 ''',
                 'incomplete_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('probe-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total probe entries
+                ''',
+                'probe_entries',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('reachable-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -265,24 +283,6 @@ _meta_table = {
                 '''                Total stale entries
                 ''',
                 'stale_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('delayed-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total delayed entries
-                ''',
-                'delayed_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('probe-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total probe entries
-                ''',
-                'probe_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('deleted-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total deleted entries
-                ''',
-                'deleted_entries',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('subtotal-neighbor-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -301,11 +301,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic',
             False, 
             [
+            _MetaInfoClassMember('delayed-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total delayed entries
+                ''',
+                'delayed_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('deleted-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total deleted entries
+                ''',
+                'deleted_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('incomplete-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total incomplete entries
                 ''',
                 'incomplete_entries',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('probe-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total probe entries
+                ''',
+                'probe_entries',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('reachable-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -318,24 +336,6 @@ _meta_table = {
                 '''                Total stale entries
                 ''',
                 'stale_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('delayed-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total delayed entries
-                ''',
-                'delayed_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('probe-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total probe entries
-                ''',
-                'probe_entries',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('deleted-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total deleted entries
-                ''',
-                'deleted_entries',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('subtotal-neighbor-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -354,6 +354,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6NodeDiscovery.Nodes.Node.NeighborSummary',
             False, 
             [
+            _MetaInfoClassMember('dynamic', REFERENCE_CLASS, 'Dynamic' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic', 
+                [], [], 
+                '''                Dynamic neighbor summary
+                ''',
+                'dynamic',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('multicast', REFERENCE_CLASS, 'Multicast' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast', 
                 [], [], 
                 '''                Multicast neighbor summary
@@ -365,12 +371,6 @@ _meta_table = {
                 '''                Static neighbor summary
                 ''',
                 'static',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('dynamic', REFERENCE_CLASS, 'Dynamic' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic', 
-                [], [], 
-                '''                Dynamic neighbor summary
-                ''',
-                'dynamic',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('total-neighbor-entries', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -430,17 +430,29 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('sent-sequence-number', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Sent sequence num
+                '''                Total packet receives
                 ''',
-                'sent_sequence_number',
+                'received_packets',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('received-sequence-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Received sequence num
                 ''',
                 'received_sequence_number',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total packet sends
+                ''',
+                'sent_packets',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('sent-sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sent sequence num
+                ''',
+                'sent_sequence_number',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'Ipv6NdBndlStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdBndlStateEnum', 
                 [], [], 
@@ -453,18 +465,6 @@ _meta_table = {
                 '''                State changes
                 ''',
                 'state_changes',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('sent-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total packet sends
-                ''',
-                'sent_packets',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total packet receives
-                ''',
-                'received_packets',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
@@ -495,12 +495,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters',
             False, 
             [
-            _MetaInfoClassMember('is-dad-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                If true, DAD (D.. A.. D..) is enabled otherwise
-                it is disabled
+            _MetaInfoClassMember('complete-glean-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Completed GLEAN entry count
                 ''',
-                'is_dad_enabled',
+                'complete_glean_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('complete-protocol-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Completed PROTO entry Count
+                ''',
+                'complete_protocol_count',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('dad-attempts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -508,17 +513,48 @@ _meta_table = {
                 ''',
                 'dad_attempts',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('is-icm-pv6-redirect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                ICMP redirect flag
+            _MetaInfoClassMember('dropped-glean-req-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Dropped GLEAN entry lequest count
                 ''',
-                'is_icm_pv6_redirect',
+                'dropped_glean_req_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('dropped-protocol-req-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Dropped PROTO entry request count
+                ''',
+                'dropped_protocol_req_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('incomplete-glean-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incomplete GLEAN entry count
+                ''',
+                'incomplete_glean_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('incomplete-protocol-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incomplete PROTO entry count
+                ''',
+                'incomplete_protocol_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('is-dad-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If true, DAD (D.. A.. D..) is enabled otherwise
+                it is disabled
+                ''',
+                'is_dad_enabled',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('is-dhcp-managed', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Flag used for utilising DHCP
                 ''',
                 'is_dhcp_managed',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('is-icm-pv6-redirect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                ICMP redirect flag
+                ''',
+                'is_icm_pv6_redirect',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('is-route-address-managed', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -532,18 +568,17 @@ _meta_table = {
                 ''',
                 'is_suppressed',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-retransmit-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-advertisement-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ND retransmit interval in msec
+                '''                ND router advertisement life time in sec
                 ''',
-                'nd_retransmit_interval',
+                'nd_advertisement_lifetime',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-min-transmit-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-cache-limit', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ND router advertisement minimum transmit
-                interval in sec
+                '''                Completed adjacency limit per interface
                 ''',
-                'nd_min_transmit_interval',
+                'nd_cache_limit',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('nd-max-transmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -552,11 +587,12 @@ _meta_table = {
                 ''',
                 'nd_max_transmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-advertisement-lifetime', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-min-transmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ND router advertisement life time in sec
+                '''                ND router advertisement minimum transmit
+                interval in sec
                 ''',
-                'nd_advertisement_lifetime',
+                'nd_min_transmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('nd-reachable-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -564,47 +600,11 @@ _meta_table = {
                 ''',
                 'nd_reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-cache-limit', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Completed adjacency limit per interface
+                '''                ND retransmit interval in msec
                 ''',
-                'nd_cache_limit',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('complete-protocol-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Completed PROTO entry Count
-                ''',
-                'complete_protocol_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('complete-glean-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Completed GLEAN entry count
-                ''',
-                'complete_glean_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('incomplete-protocol-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incomplete PROTO entry count
-                ''',
-                'incomplete_protocol_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('incomplete-glean-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incomplete GLEAN entry count
-                ''',
-                'incomplete_glean_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('dropped-protocol-req-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dropped PROTO entry request count
-                ''',
-                'dropped_protocol_req_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('dropped-glean-req-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dropped GLEAN entry lequest count
-                ''',
-                'dropped_glean_req_count',
+                'nd_retransmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
@@ -680,59 +680,23 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-nd-oper', True),
-            _MetaInfoClassMember('nd-parameters', REFERENCE_CLASS, 'NdParameters' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters', 
-                [], [], 
-                '''                ND interface parameters
-                ''',
-                'nd_parameters',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress', 
-                [], [], 
-                '''                Link local address
-                ''',
-                'local_address',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Parent interface name
-                ''',
-                'parent_interface_name',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('iftype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface type
-                ''',
-                'iftype',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MTU
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('etype', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                etype
                 ''',
                 'etype',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('vlan-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                vlan tag/id/ucv
+            _MetaInfoClassMember('global-address', REFERENCE_LIST, 'GlobalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress', 
+                [], [], 
+                '''                List of ND global addresses
                 ''',
-                'vlan_tag',
+                'global_address',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('mac-addr-size', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iftype', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                mac address size
+                '''                Interface type
                 ''',
-                'mac_addr_size',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('mac-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                mac address
-                ''',
-                'mac_addr',
+                'iftype',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('is-interface-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -752,23 +716,59 @@ _meta_table = {
                 ''',
                 'is_mpls_enabled',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress', 
+                [], [], 
+                '''                Link local address
+                ''',
+                'local_address',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('mac-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                mac address
+                ''',
+                'mac_addr',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('mac-addr-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                mac address size
+                ''',
+                'mac_addr_size',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('member-link', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                List of member links
                 ''',
                 'member_link',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('global-address', REFERENCE_LIST, 'GlobalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress', 
-                [], [], 
-                '''                List of ND global addresses
-                ''',
-                'global_address',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('member-node', REFERENCE_LIST, 'MemberNode' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode', 
                 [], [], 
                 '''                List of member nodes
                 ''',
                 'member_node',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                MTU
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('nd-parameters', REFERENCE_CLASS, 'NdParameters' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters', 
+                [], [], 
+                '''                ND interface parameters
+                ''',
+                'nd_parameters',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('parent-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Parent interface name
+                ''',
+                'parent_interface_name',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('vlan-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                vlan tag/id/ucv
+                ''',
+                'vlan_tag',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
@@ -805,12 +805,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-nd-oper', True),
-            _MetaInfoClassMember('is-dad-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                If true, DAD (D.. A.. D..) is enabled otherwise
-                it is disabled
+            _MetaInfoClassMember('complete-glean-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Completed GLEAN entry count
                 ''',
-                'is_dad_enabled',
+                'complete_glean_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('complete-protocol-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Completed PROTO entry Count
+                ''',
+                'complete_protocol_count',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('dad-attempts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -818,17 +823,48 @@ _meta_table = {
                 ''',
                 'dad_attempts',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('is-icm-pv6-redirect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                ICMP redirect flag
+            _MetaInfoClassMember('dropped-glean-req-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Dropped GLEAN entry lequest count
                 ''',
-                'is_icm_pv6_redirect',
+                'dropped_glean_req_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('dropped-protocol-req-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Dropped PROTO entry request count
+                ''',
+                'dropped_protocol_req_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('incomplete-glean-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incomplete GLEAN entry count
+                ''',
+                'incomplete_glean_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('incomplete-protocol-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incomplete PROTO entry count
+                ''',
+                'incomplete_protocol_count',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('is-dad-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If true, DAD (D.. A.. D..) is enabled otherwise
+                it is disabled
+                ''',
+                'is_dad_enabled',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('is-dhcp-managed', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Flag used for utilising DHCP
                 ''',
                 'is_dhcp_managed',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('is-icm-pv6-redirect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                ICMP redirect flag
+                ''',
+                'is_icm_pv6_redirect',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('is-route-address-managed', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -842,18 +878,17 @@ _meta_table = {
                 ''',
                 'is_suppressed',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-retransmit-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-advertisement-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ND retransmit interval in msec
+                '''                ND router advertisement life time in sec
                 ''',
-                'nd_retransmit_interval',
+                'nd_advertisement_lifetime',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-min-transmit-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-cache-limit', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ND router advertisement minimum transmit
-                interval in sec
+                '''                Completed adjacency limit per interface
                 ''',
-                'nd_min_transmit_interval',
+                'nd_cache_limit',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('nd-max-transmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -862,11 +897,12 @@ _meta_table = {
                 ''',
                 'nd_max_transmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-advertisement-lifetime', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-min-transmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ND router advertisement life time in sec
+                '''                ND router advertisement minimum transmit
+                interval in sec
                 ''',
-                'nd_advertisement_lifetime',
+                'nd_min_transmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('nd-reachable-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -874,47 +910,11 @@ _meta_table = {
                 ''',
                 'nd_reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('nd-cache-limit', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('nd-retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Completed adjacency limit per interface
+                '''                ND retransmit interval in msec
                 ''',
-                'nd_cache_limit',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('complete-protocol-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Completed PROTO entry Count
-                ''',
-                'complete_protocol_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('complete-glean-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Completed GLEAN entry count
-                ''',
-                'complete_glean_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('incomplete-protocol-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incomplete PROTO entry count
-                ''',
-                'incomplete_protocol_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('incomplete-glean-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incomplete GLEAN entry count
-                ''',
-                'incomplete_glean_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('dropped-protocol-req-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dropped PROTO entry request count
-                ''',
-                'dropped_protocol_req_count',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('dropped-glean-req-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dropped GLEAN entry lequest count
-                ''',
-                'dropped_glean_req_count',
+                'nd_retransmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
@@ -985,11 +985,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-nd-oper', True),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress', 
-                [], [], 
-                '''                Link local address
+            _MetaInfoClassMember('context', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Virtual Router ID
                 ''',
-                'local_address',
+                'context',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('flags', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrFlagsEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrFlagsEnum', 
+                [], [], 
+                '''                VR Flags
+                ''',
+                'flags',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -997,23 +1003,17 @@ _meta_table = {
                 ''',
                 'link_layer_address',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('context', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Virtual Router ID
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress', 
+                [], [], 
+                '''                Link local address
                 ''',
-                'context',
+                'local_address',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrStateEnum', 
                 [], [], 
                 '''                VR state
                 ''',
                 'state',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('flags', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrFlagsEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrFlagsEnum', 
-                [], [], 
-                '''                VR Flags
-                ''',
-                'flags',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('vr-gl-addr-ct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1062,18 +1062,12 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-ipv6-nd-oper', True),
-            _MetaInfoClassMember('neighbor-interfaces', REFERENCE_CLASS, 'NeighborInterfaces' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces', 
+            _MetaInfoClassMember('bundle-interfaces', REFERENCE_CLASS, 'BundleInterfaces' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces', 
                 [], [], 
-                '''                IPv6 node discovery list of neighbor
-                interfaces
+                '''                IPv6 ND list of bundle interfaces for a
+                specific node
                 ''',
-                'neighbor_interfaces',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('neighbor-summary', REFERENCE_CLASS, 'NeighborSummary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborSummary', 
-                [], [], 
-                '''                IPv6 Neighbor summary
-                ''',
-                'neighbor_summary',
+                'bundle_interfaces',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('bundle-nodes', REFERENCE_CLASS, 'BundleNodes' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleNodes', 
                 [], [], 
@@ -1081,13 +1075,6 @@ _meta_table = {
                 node
                 ''',
                 'bundle_nodes',
-                'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('bundle-interfaces', REFERENCE_CLASS, 'BundleInterfaces' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces', 
-                [], [], 
-                '''                IPv6 ND list of bundle interfaces for a
-                specific node
-                ''',
-                'bundle_interfaces',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.Interfaces', 
                 [], [], 
@@ -1102,6 +1089,19 @@ _meta_table = {
                 specific interface
                 ''',
                 'nd_virtual_routers',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('neighbor-interfaces', REFERENCE_CLASS, 'NeighborInterfaces' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces', 
+                [], [], 
+                '''                IPv6 node discovery list of neighbor
+                interfaces
+                ''',
+                'neighbor_interfaces',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('neighbor-summary', REFERENCE_CLASS, 'NeighborSummary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NodeDiscovery.Nodes.Node.NeighborSummary', 
+                [], [], 
+                '''                IPv6 Neighbor summary
+                ''',
+                'neighbor_summary',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',

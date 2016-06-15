@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -34,17 +34,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.TrapServers.TrapServer',
             False, 
             [
-            _MetaInfoClassMember('trap-host', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Trap Host
+            _MetaInfoClassMember('max-q-length-of-trap-q', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Maximum Queue length of trapQ
                 ''',
-                'trap_host',
+                'max_q_length_of_trap_q',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Trap port
+            _MetaInfoClassMember('number-of-pkts-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of trap packets dropped
                 ''',
-                'port',
+                'number_of_pkts_dropped',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('number-of-pkts-in-trap-q', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -52,23 +52,23 @@ _meta_table = {
                 ''',
                 'number_of_pkts_in_trap_q',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('max-q-length-of-trap-q', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Maximum Queue length of trapQ
-                ''',
-                'max_q_length_of_trap_q',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('number-of-pkts-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                No. of trap packets sent
                 ''',
                 'number_of_pkts_sent',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('number-of-pkts-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of trap packets dropped
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Trap port
                 ''',
-                'number_of_pkts_dropped',
+                'port',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-host', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trap Host
+                ''',
+                'trap_host',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -105,23 +105,29 @@ _meta_table = {
                 ''',
                 'user',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('snmp-target-address-t-host', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Transport type of address
-                ''',
-                'snmp_target_address_t_host',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('snmp-target-address-port', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Target UDP port
                 ''',
                 'snmp_target_address_port',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('snmp-target-address-t-host', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Transport type of address
+                ''',
+                'snmp_target_address_t_host',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('snmp-target-addresstype', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Target host type (Inform or Trap)
                 ''',
                 'snmp_target_addresstype',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('snmp-target-params-security-level', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Security level
+                ''',
+                'snmp_target_params_security_level',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('snmp-target-params-security-model', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -134,12 +140,6 @@ _meta_table = {
                 '''                Security name
                 ''',
                 'snmp_target_params_security_name',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('snmp-target-params-security-level', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Security level
-                ''',
-                'snmp_target_params_security_level',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -216,17 +216,17 @@ _meta_table = {
                 ''',
                 'nms_addr',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('nms-address', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                NMS address of server
-                ''',
-                'nms_address',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('get-request-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Get Request Count
                 ''',
                 'get_request_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('getbulk-request-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Getbulk Request Count
+                ''',
+                'getbulk_request_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('getnext-request-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -234,11 +234,11 @@ _meta_table = {
                 ''',
                 'getnext_request_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('getbulk-request-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Getbulk Request Count
+            _MetaInfoClassMember('nms-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                NMS address of server
                 ''',
-                'getbulk_request_count',
+                'nms_address',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('set-request-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -297,18 +297,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.RxQueue',
             False, 
             [
-            _MetaInfoClassMember('qlen', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                qlen
-                ''',
-                'qlen',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('in-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                in min
-                ''',
-                'in_min',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('in-avg', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                in avg
@@ -321,11 +309,17 @@ _meta_table = {
                 ''',
                 'in_max',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('pend-min', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-min', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                pend min
+                '''                in min
                 ''',
-                'pend_min',
+                'in_min',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('incoming-q', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                incomingQ
+                ''',
+                'incoming_q',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('pend-avg', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -339,17 +333,23 @@ _meta_table = {
                 ''',
                 'pend_max',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('incoming-q', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                incomingQ
+            _MetaInfoClassMember('pend-min', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                pend min
                 ''',
-                'incoming_q',
+                'pend_min',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('pending-q', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                pendingQ
                 ''',
                 'pending_q',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('qlen', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                qlen
+                ''',
+                'qlen',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -385,26 +385,12 @@ _meta_table = {
                 ''',
                 'nms_addr',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total request count for each managment station
-                or client
-                ''',
-                'total_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('agent-request-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Processing agent request count for each client
                 for particluar managment station
                 ''',
                 'agent_request_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('interface-request-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Processing interfce request count for each
-                client for particluar managment station
-                ''',
-                'interface_request_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('entity-request-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -413,6 +399,20 @@ _meta_table = {
                 ''',
                 'entity_request_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('infra-request-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Processing infra request count for each client
+                for particluar Managment station
+                ''',
+                'infra_request_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('interface-request-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Processing interfce request count for each
+                client for particluar managment station
+                ''',
+                'interface_request_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('route-request-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Processing route request count for each client
@@ -420,12 +420,12 @@ _meta_table = {
                 ''',
                 'route_request_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('infra-request-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Processing infra request count for each client
-                for particluar Managment station
+                '''                Total request count for each managment station
+                or client
                 ''',
-                'infra_request_count',
+                'total_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -472,24 +472,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.DuplicateDrop',
             False, 
             [
-            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatusEnum', 
-                [], [], 
-                '''                Duplicate requests drop feature status.
-                ''',
-                'duplicate_request_status',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('last-status-change-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duplicate request drop feature last enable
-                disable time (Day Mon Date HH:MM:SS)
-                ''',
-                'last_status_change_time',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('duplicate-drop-configured-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Configured Duplicate Drop feature Timeout.
                 ''',
                 'duplicate_drop_configured_timeout',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-drop-disable-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 Number of times duplicate request drop feature
+                is disabled.
+                ''',
+                'duplicate_drop_disable_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-drop-enable-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 Number of times duplicate request drop feature
+                is enabled.
+                ''',
+                'duplicate_drop_enable_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('duplicate-dropped-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -497,11 +498,18 @@ _meta_table = {
                 ''',
                 'duplicate_dropped_requests',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('retry-processed-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of Retry SNMP requests are Processed.
+            _MetaInfoClassMember('duplicate-request-latest-enable-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duplicate request drop feature last enable
+                time(Day Mon Date HH:MM:SS)
                 ''',
-                'retry_processed_requests',
+                'duplicate_request_latest_enable_time',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatusEnum', 
+                [], [], 
+                '''                Duplicate requests drop feature status.
+                ''',
+                'duplicate_request_status',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('first-enable-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -509,6 +517,13 @@ _meta_table = {
                 time (Day Mon Date HH:MM:SS)
                 ''',
                 'first_enable_time',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('last-status-change-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duplicate request drop feature last enable
+                disable time (Day Mon Date HH:MM:SS)
+                ''',
+                'last_status_change_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('latest-duplicate-dropped-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -524,26 +539,11 @@ _meta_table = {
                 ''',
                 'latest_retry_processed_requests',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-request-latest-enable-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duplicate request drop feature last enable
-                time(Day Mon Date HH:MM:SS)
-                ''',
-                'duplicate_request_latest_enable_time',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-drop-enable-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('retry-processed-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                 Number of times duplicate request drop feature
-                is enabled.
+                '''                Number of Retry SNMP requests are Processed.
                 ''',
-                'duplicate_drop_enable_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-drop-disable-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                 Number of times duplicate request drop feature
-                is disabled.
-                ''',
-                'duplicate_drop_disable_count',
+                'retry_processed_requests',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -562,6 +562,24 @@ _meta_table = {
                 ''',
                 'transfer_name',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
+            _MetaInfoClassMember('retained-file', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Bulkstats transfer retained file name
+                ''',
+                'retained_file',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('retry-left', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Bulkstats transfer retry attempt left
+                ''',
+                'retry_left',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('time-left', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Bulkstats transfer retry time left in seconds
+                ''',
+                'time_left',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('transfer-name-xr', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the bulkstats transfer session
@@ -579,24 +597,6 @@ _meta_table = {
                 '''                Bulkstats transfer secondary URL
                 ''',
                 'url_secondary',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('retained-file', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Bulkstats transfer retained file name
-                ''',
-                'retained_file',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('time-left', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Bulkstats transfer retry time left in seconds
-                ''',
-                'time_left',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('retry-left', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Bulkstats transfer retry attempt left
-                ''',
-                'retry_left',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -626,12 +626,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo',
             False, 
             [
-            _MetaInfoClassMember('trap-oid', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                TRAP OID
-                ''',
-                'trap_oid',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of traps sent
@@ -644,11 +638,11 @@ _meta_table = {
                 ''',
                 'drop_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Num of times retry
+            _MetaInfoClassMember('lasrdrop-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Timestamp of latest droped
                 ''',
-                'retry_count',
+                'lasrdrop_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('lastsent-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -656,11 +650,17 @@ _meta_table = {
                 ''',
                 'lastsent_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('lasrdrop-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Timestamp of latest droped
+            _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Num of times retry
                 ''',
-                'lasrdrop_time',
+                'retry_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-oid', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                TRAP OID
+                ''',
+                'trap_oid',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -673,11 +673,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.TrapInfos.TrapInfo',
             False, 
             [
-            _MetaInfoClassMember('trap-host', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('host', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Trap Host
+                '''                NMS/Host address
                 ''',
-                'trap_host',
+                'host',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -685,29 +685,29 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('host', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                NMS/Host address
-                ''',
-                'host',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('port-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                udp port number
                 ''',
                 'port_xr',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('trap-oid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total number of OID's sent
+            _MetaInfoClassMember('trap-host', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trap Host
                 ''',
-                'trap_oid_count',
+                'trap_host',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('trap-oi-dinfo', REFERENCE_LIST, 'TrapOiDinfo' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo', 
                 [], [], 
                 '''                Per trap OID statistics
                 ''',
                 'trap_oi_dinfo',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-oid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total number of OID's sent
+                ''',
+                'trap_oid_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -744,18 +744,18 @@ _meta_table = {
                 ''',
                 'object_id',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('nms-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                 Managment station count
-                ''',
-                'nms_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('nms', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Network Managment station ipadress
                 ''',
                 'nms',
                 'Cisco-IOS-XR-snmp-agent-oper', False, max_elements=15),
+            _MetaInfoClassMember('nms-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 Managment station count
+                ''',
+                'nms_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('request-count', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                OID request count for each Managment station 
@@ -790,12 +790,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo',
             False, 
             [
-            _MetaInfoClassMember('trap-oid', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                TRAP OID
-                ''',
-                'trap_oid',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of traps sent
@@ -808,11 +802,11 @@ _meta_table = {
                 ''',
                 'drop_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Num of times retry
+            _MetaInfoClassMember('lasrdrop-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Timestamp of latest droped
                 ''',
-                'retry_count',
+                'lasrdrop_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('lastsent-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -820,11 +814,17 @@ _meta_table = {
                 ''',
                 'lastsent_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('lasrdrop-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Timestamp of latest droped
+            _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Num of times retry
                 ''',
-                'lasrdrop_time',
+                'retry_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-oid', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                TRAP OID
+                ''',
+                'trap_oid',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -837,11 +837,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.InfomDetails.InfomDetail',
             False, 
             [
-            _MetaInfoClassMember('trap-host', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('host', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Trap Host
+                '''                NMS/Host address
                 ''',
-                'trap_host',
+                'host',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -849,29 +849,29 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('host', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                NMS/Host address
-                ''',
-                'host',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('port-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                udp port number
                 ''',
                 'port_xr',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('trap-oid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total number of OID's sent
+            _MetaInfoClassMember('trap-host', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trap Host
                 ''',
-                'trap_oid_count',
+                'trap_host',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('trap-oi-dinfo', REFERENCE_LIST, 'TrapOiDinfo' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo', 
                 [], [], 
                 '''                Per trap OID statistics
                 ''',
                 'trap_oi_dinfo',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-oid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total number of OID's sent
+                ''',
+                'trap_oid_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -902,17 +902,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.Statistics',
             False, 
             [
-            _MetaInfoClassMember('packets-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('asn-parse-errors-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                snmpInPkts
+                '''                snmpInASNParseErrs
                 ''',
-                'packets_received',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('bad-versions-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpInBadVersions
-                ''',
-                'bad_versions_received',
+                'asn_parse_errors_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('bad-community-names-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -926,29 +920,65 @@ _meta_table = {
                 ''',
                 'bad_community_uses_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('asn-parse-errors-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('bad-values-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                snmpInASNParseErrs
+                '''                snmpInBadValues
                 ''',
-                'asn_parse_errors_received',
+                'bad_values_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('silent-drop-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('bad-values-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                snmpSilentDrops
+                '''                snmpOutBadValues
                 ''',
-                'silent_drop_count',
+                'bad_values_sent',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('proxy-drop-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('bad-versions-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                snmpProxyDrops
+                '''                snmpInBadVersions
                 ''',
-                'proxy_drop_count',
+                'bad_versions_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('too-big-packet-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('general-errors-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                snmpInTooBigs
+                '''                snmpOutGenErrs
                 ''',
-                'too_big_packet_received',
+                'general_errors_sent',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('get-next-request-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpOutGetNexts
+                ''',
+                'get_next_request_sent',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('get-next-requests-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpInGetNexts
+                ''',
+                'get_next_requests_received',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('get-requests-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpInGetRequests
+                ''',
+                'get_requests_received',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('get-requests-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpOutGetRequests
+                ''',
+                'get_requests_sent',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('get-responses-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpInGetResponses
+                ''',
+                'get_responses_received',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('get-responses-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpOutGetResponses
+                ''',
+                'get_responses_sent',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('max-packet-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -962,11 +992,23 @@ _meta_table = {
                 ''',
                 'no_such_names_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('bad-values-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('no-such-names-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                snmpInBadValues
+                '''                snmpOutNoSuchNames
                 ''',
-                'bad_values_received',
+                'no_such_names_sent',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('packets-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpInPkts
+                ''',
+                'packets_received',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('proxy-drop-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpProxyDrops
+                ''',
+                'proxy_drop_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('read-only-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -974,11 +1016,47 @@ _meta_table = {
                 ''',
                 'read_only_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('set-requests-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpInSetRequests
+                ''',
+                'set_requests_received',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('set-requests-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpOutSetRequests
+                ''',
+                'set_requests_sent',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('silent-drop-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpSilentDrops
+                ''',
+                'silent_drop_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('too-big-packet-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpInTooBigs
+                ''',
+                'too_big_packet_received',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('too-big-packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpOutTooBigs
+                ''',
+                'too_big_packets_sent',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('total-general-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                snmpInGenErrs
                 ''',
                 'total_general_errors',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('total-packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                snmpOutPkts
+                ''',
+                'total_packets_sent',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('total-requested-variables', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -992,89 +1070,11 @@ _meta_table = {
                 ''',
                 'total_set_variables_received',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('get-requests-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpInGetRequests
-                ''',
-                'get_requests_received',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('get-next-requests-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpInGetNexts
-                ''',
-                'get_next_requests_received',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('set-requests-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpInSetRequests
-                ''',
-                'set_requests_received',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('get-responses-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpInGetResponses
-                ''',
-                'get_responses_received',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('traps-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                snmpInTraps
                 ''',
                 'traps_received',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('total-packets-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutPkts
-                ''',
-                'total_packets_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('too-big-packets-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutTooBigs
-                ''',
-                'too_big_packets_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('no-such-names-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutNoSuchNames
-                ''',
-                'no_such_names_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('bad-values-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutBadValues
-                ''',
-                'bad_values_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('general-errors-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutGenErrs
-                ''',
-                'general_errors_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('get-requests-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutGetRequests
-                ''',
-                'get_requests_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('get-next-request-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutGetNexts
-                ''',
-                'get_next_request_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('set-requests-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutSetRequests
-                ''',
-                'set_requests_sent',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('get-responses-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                snmpOutGetResponses
-                ''',
-                'get_responses_sent',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('traps-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1099,18 +1099,6 @@ _meta_table = {
                 ''',
                 'address_of_queue',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('request-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Request Count of Each Queue.
-                ''',
-                'request_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('processed-request-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Processed request Count.
-                ''',
-                'processed_request_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('last-access-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Access time of Each Queue.
@@ -1123,6 +1111,18 @@ _meta_table = {
                 ''',
                 'priority',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('processed-request-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Processed request Count.
+                ''',
+                'processed_request_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('request-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Request Count of Each Queue.
+                ''',
+                'request_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
             'inq-entry',
@@ -1134,18 +1134,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.IncomingQueue',
             False, 
             [
-            _MetaInfoClassMember('queue-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NMS Queues Exist.
-                ''',
-                'queue_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('inq-entry', REFERENCE_LIST, 'InqEntry' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.IncomingQueue.InqEntry', 
                 [], [], 
                 '''                Each Entry Details.
                 ''',
                 'inq_entry',
                 'Cisco-IOS-XR-snmp-agent-oper', False, max_elements=16),
+            _MetaInfoClassMember('queue-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of NMS Queues Exist.
+                ''',
+                'queue_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
             'incoming-queue',
@@ -1162,6 +1162,12 @@ _meta_table = {
                 '''                Context name
                 ''',
                 'context',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('feature', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Feature
+                ''',
+                'feature',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('feature-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1180,12 +1186,6 @@ _meta_table = {
                 '''                Topology name
                 ''',
                 'topology',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('feature', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Feature
-                ''',
-                'feature',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1280,17 +1280,17 @@ _meta_table = {
                 ''',
                 'number_of_pkts_dropped',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('overload-start-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Time of overload contol begin
-                ''',
-                'overload_start_time',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('overload-end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Time of overload contol End
                 ''',
                 'overload_end_time',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('overload-start-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Time of overload contol begin
+                ''',
+                'overload_start_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1360,11 +1360,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.Mibs.Mib.MibInformation',
             False, 
             [
-            _MetaInfoClassMember('mib-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the MIB module
+            _MetaInfoClassMember('dll-capabilities', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DLL capabilities
                 ''',
-                'mib_name',
+                'dll_capabilities',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('dll-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1373,13 +1373,6 @@ _meta_table = {
                 ''',
                 'dll_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('mib-config-filename', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                MIB config filename, non-DLL MIBs will have no
-                value
-                ''',
-                'mib_config_filename',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('is-mib-loaded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE if MIB DLL is currently loaded, will always
@@ -1387,17 +1380,24 @@ _meta_table = {
                 ''',
                 'is_mib_loaded',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('dll-capabilities', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('load-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                DLL capabilities
+                '''                Load time
                 ''',
-                'dll_capabilities',
+                'load_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('trap-strings', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('mib-config-filename', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of trapstring configured
+                '''                MIB config filename, non-DLL MIBs will have no
+                value
                 ''',
-                'trap_strings',
+                'mib_config_filename',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('mib-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the MIB module
+                ''',
+                'mib_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1405,11 +1405,11 @@ _meta_table = {
                 ''',
                 'timeout',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('load-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Load time
+            _MetaInfoClassMember('trap-strings', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                List of trapstring configured
                 ''',
-                'load_time',
+                'trap_strings',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1428,17 +1428,17 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('oids', REFERENCE_CLASS, 'Oids' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Mibs.Mib.Oids', 
-                [], [], 
-                '''                List of OIDs per MIB
-                ''',
-                'oids',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('mib-information', REFERENCE_CLASS, 'MibInformation' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Mibs.Mib.MibInformation', 
                 [], [], 
                 '''                MIB state and information
                 ''',
                 'mib_information',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('oids', REFERENCE_CLASS, 'Oids' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Mibs.Mib.Oids', 
+                [], [], 
+                '''                List of OIDs per MIB
+                ''',
+                'oids',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1468,24 +1468,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.StatisticsExtension',
             False, 
             [
-            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatusEnum', 
-                [], [], 
-                '''                Duplicate requests drop feature status.
-                ''',
-                'duplicate_request_status',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('last-status-change-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duplicate request drop feature last enable
-                disable time (Day Mon Date HH:MM:SS)
-                ''',
-                'last_status_change_time',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('duplicate-drop-configured-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Configured Duplicate Drop feature Timeout.
                 ''',
                 'duplicate_drop_configured_timeout',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-drop-disable-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 Number of times duplicate request drop feature
+                is disabled.
+                ''',
+                'duplicate_drop_disable_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-drop-enable-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 Number of times duplicate request drop feature
+                is enabled.
+                ''',
+                'duplicate_drop_enable_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('duplicate-dropped-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1493,11 +1494,18 @@ _meta_table = {
                 ''',
                 'duplicate_dropped_requests',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('retry-processed-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of Retry SNMP requests are Processed.
+            _MetaInfoClassMember('duplicate-request-latest-enable-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duplicate request drop feature last enable
+                time(Day Mon Date HH:MM:SS)
                 ''',
-                'retry_processed_requests',
+                'duplicate_request_latest_enable_time',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatusEnum', 
+                [], [], 
+                '''                Duplicate requests drop feature status.
+                ''',
+                'duplicate_request_status',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('first-enable-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1505,6 +1513,13 @@ _meta_table = {
                 time (Day Mon Date HH:MM:SS)
                 ''',
                 'first_enable_time',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('last-status-change-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duplicate request drop feature last enable
+                disable time (Day Mon Date HH:MM:SS)
+                ''',
+                'last_status_change_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('latest-duplicate-dropped-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1520,26 +1535,11 @@ _meta_table = {
                 ''',
                 'latest_retry_processed_requests',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-request-latest-enable-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duplicate request drop feature last enable
-                time(Day Mon Date HH:MM:SS)
-                ''',
-                'duplicate_request_latest_enable_time',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-drop-enable-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('retry-processed-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                 Number of times duplicate request drop feature
-                is enabled.
+                '''                Number of Retry SNMP requests are Processed.
                 ''',
-                'duplicate_drop_enable_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-drop-disable-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                 Number of times duplicate request drop feature
-                is disabled.
-                ''',
-                'duplicate_drop_disable_count',
+                'retry_processed_requests',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1552,59 +1552,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.SerialNumbers.SerialNumber',
             False, 
             [
-            _MetaInfoClassMember('number', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Serial number
-                ''',
-                'number',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('req-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Request ID
-                ''',
-                'req_id',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Port
-                ''',
-                'port',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('nms', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                 NMS address Rx PDU
-                ''',
-                'nms',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                 SNMP request id per PDU
-                ''',
-                'request_id',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('port-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                NMS port number
-                ''',
-                'port_xr',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('pdu-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                 PDU type
-                ''',
-                'pdu_type',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('error-status', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Is reques dropped due to error
                 ''',
                 'error_status',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('serial-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Serial number per PDU processing
-                ''',
-                'serial_num',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('input-q', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1612,11 +1564,29 @@ _meta_table = {
                 ''',
                 'input_q',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('nms', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                 NMS address Rx PDU
+                ''',
+                'nms',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('number', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Serial number
+                ''',
+                'number',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('output-q', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                De-queue the request from the input queue
                 ''',
                 'output_q',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('pdu-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                 PDU type
+                ''',
+                'pdu_type',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('pending-q', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1624,11 +1594,41 @@ _meta_table = {
                 ''',
                 'pending_q',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Port
+                ''',
+                'port',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('port-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                NMS port number
+                ''',
+                'port_xr',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('req-id', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Request ID
+                ''',
+                'req_id',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 SNMP request id per PDU
+                ''',
+                'request_id',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('response-out', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Response sent
                 ''',
                 'response_out',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('serial-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Serial number per PDU processing
+                ''',
+                'serial_num',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1664,23 +1664,11 @@ _meta_table = {
                 ''',
                 'nms_addr',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('nms-address', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                NMS address of server
-                ''',
-                'nms_address',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('incoming-q-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('aipc-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Drop Count at Incoming Q
+                '''                drop count with AIPC Buffer Full
                 ''',
-                'incoming_q_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('encode-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Drop Count with Encode errors
-                ''',
-                'encode_count',
+                'aipc_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('duplicate-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1688,17 +1676,29 @@ _meta_table = {
                 ''',
                 'duplicate_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('stack-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('encode-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Drop Count at snmp Stack
+                '''                Drop Count with Encode errors
                 ''',
-                'stack_count',
+                'encode_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('aipc-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('incoming-q-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                drop count with AIPC Buffer Full
+                '''                Drop Count at Incoming Q
                 ''',
-                'aipc_count',
+                'incoming_q_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('internal-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                 drop with Internal Errors
+                ''',
+                'internal_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('nms-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                NMS address of server
+                ''',
+                'nms_address',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('overload-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1706,17 +1706,17 @@ _meta_table = {
                 ''',
                 'overload_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('stack-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Drop Count at snmp Stack
+                ''',
+                'stack_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('timeout-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Drop count with timeout
                 ''',
                 'timeout_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('internal-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                 drop with Internal Errors
-                ''',
-                'internal_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1752,11 +1752,11 @@ _meta_table = {
                 ''',
                 'object_id',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('snmp-view-family-type', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('snmp-view-family-status', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Include or exclude
+                '''                Status of this entry
                 ''',
-                'snmp_view_family_type',
+                'snmp_view_family_status',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('snmp-view-family-storage-type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1764,11 +1764,11 @@ _meta_table = {
                 ''',
                 'snmp_view_family_storage_type',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('snmp-view-family-status', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('snmp-view-family-type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Status of this entry
+                '''                Include or exclude
                 ''',
-                'snmp_view_family_status',
+                'snmp_view_family_type',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1838,29 +1838,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation',
             False, 
             [
-            _MetaInfoClassMember('modelnumber', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Model number
-                ''',
-                'modelnumber',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('level', ATTRIBUTE, 'str' , None, None, 
                 [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Level
                 ''',
                 'level',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('vacm-access-read-view-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Read view name
+            _MetaInfoClassMember('modelnumber', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Model number
                 ''',
-                'vacm_access_read_view_name',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('vacm-access-write-view-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Write view name
-                ''',
-                'vacm_access_write_view_name',
+                'modelnumber',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('vacm-access-notify-view-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1868,11 +1856,23 @@ _meta_table = {
                 ''',
                 'vacm_access_notify_view_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('vacm-access-read-view-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Read view name
+                ''',
+                'vacm_access_read_view_name',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('vacm-access-status', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Status of this view configuration
                 ''',
                 'vacm_access_status',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('vacm-access-write-view-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Write view name
+                ''',
+                'vacm_access_write_view_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -1948,17 +1948,17 @@ _meta_table = {
                 ''',
                 'user_name',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('usm-user-storage-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Storage type
-                ''',
-                'usm_user_storage_type',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('usm-user-status', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Status of this user
                 ''',
                 'usm_user_status',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('usm-user-storage-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Storage type
+                ''',
+                'usm_user_storage_type',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -2051,12 +2051,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.TrapQueue',
             False, 
             [
-            _MetaInfoClassMember('trap-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                trap min
-                ''',
-                'trap_min',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('trap-avg', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                trap avg
@@ -2068,6 +2062,12 @@ _meta_table = {
                 '''                trap max
                 ''',
                 'trap_max',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-min', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                trap min
+                ''',
+                'trap_min',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('trap-q', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
@@ -2086,89 +2086,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information',
             False, 
             [
-            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Hosts', 
-                [], [], 
-                '''                SNMP host information
-                ''',
-                'hosts',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('system-up-time', REFERENCE_CLASS, 'SystemUpTime' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SystemUpTime', 
-                [], [], 
-                '''                System up time
-                ''',
-                'system_up_time',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('nms-addresses', REFERENCE_CLASS, 'NmsAddresses' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.NmsAddresses', 
-                [], [], 
-                '''                SNMP request type summary 
-                ''',
-                'nms_addresses',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('engine-id', REFERENCE_CLASS, 'EngineId' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.EngineId', 
-                [], [], 
-                '''                SNMP engine ID
-                ''',
-                'engine_id',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('rx-queue', REFERENCE_CLASS, 'RxQueue' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.RxQueue', 
-                [], [], 
-                '''                SNMP rx queue statistics
-                ''',
-                'rx_queue',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('system-name', REFERENCE_CLASS, 'SystemName' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SystemName', 
-                [], [], 
-                '''                System name
-                ''',
-                'system_name',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('request-type-detail', REFERENCE_CLASS, 'RequestTypeDetail' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.RequestTypeDetail', 
-                [], [], 
-                '''                SNMP request type details 
-                ''',
-                'request_type_detail',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-drop', REFERENCE_CLASS, 'DuplicateDrop' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.DuplicateDrop', 
-                [], [], 
-                '''                Duplicate request status, count, time 
-                ''',
-                'duplicate_drop',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('bulk-stats-transfers', REFERENCE_CLASS, 'BulkStatsTransfers' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.BulkStatsTransfers', 
                 [], [], 
                 '''                List of bulkstats transfer on the system
                 ''',
                 'bulk_stats_transfers',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('trap-infos', REFERENCE_CLASS, 'TrapInfos' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.TrapInfos', 
-                [], [], 
-                '''                SNMP trap OID
-                ''',
-                'trap_infos',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('poll-oids', REFERENCE_CLASS, 'PollOids' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.PollOids', 
-                [], [], 
-                '''                OID list for poll PDU
-                ''',
-                'poll_oids',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('infom-details', REFERENCE_CLASS, 'InfomDetails' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.InfomDetails', 
-                [], [], 
-                '''                SNMP trap OID
-                ''',
-                'infom_details',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Statistics', 
-                [], [], 
-                '''                SNMP statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('incoming-queue', REFERENCE_CLASS, 'IncomingQueue' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.IncomingQueue', 
-                [], [], 
-                '''                Incoming queue details 
-                ''',
-                'incoming_queue',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('context-mapping', REFERENCE_CLASS, 'ContextMapping' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.ContextMapping', 
                 [], [], 
@@ -2177,17 +2099,41 @@ _meta_table = {
                 ''',
                 'context_mapping',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('trap-oids', REFERENCE_CLASS, 'TrapOids' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.TrapOids', 
+            _MetaInfoClassMember('drop-nms-addresses', REFERENCE_CLASS, 'DropNmsAddresses' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.DropNmsAddresses', 
+                [], [], 
+                '''                NMS list for drop PDU
+                ''',
+                'drop_nms_addresses',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('duplicate-drop', REFERENCE_CLASS, 'DuplicateDrop' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.DuplicateDrop', 
+                [], [], 
+                '''                Duplicate request status, count, time 
+                ''',
+                'duplicate_drop',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('engine-id', REFERENCE_CLASS, 'EngineId' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.EngineId', 
+                [], [], 
+                '''                SNMP engine ID
+                ''',
+                'engine_id',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Hosts', 
+                [], [], 
+                '''                SNMP host information
+                ''',
+                'hosts',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('incoming-queue', REFERENCE_CLASS, 'IncomingQueue' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.IncomingQueue', 
+                [], [], 
+                '''                Incoming queue details 
+                ''',
+                'incoming_queue',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('infom-details', REFERENCE_CLASS, 'InfomDetails' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.InfomDetails', 
                 [], [], 
                 '''                SNMP trap OID
                 ''',
-                'trap_oids',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('nm-spackets', REFERENCE_CLASS, 'NmSpackets' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.NmSpackets', 
-                [], [], 
-                '''                SNMP overload statistics 
-                ''',
-                'nm_spackets',
+                'infom_details',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('mibs', REFERENCE_CLASS, 'Mibs' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Mibs', 
                 [], [], 
@@ -2195,11 +2141,35 @@ _meta_table = {
                 ''',
                 'mibs',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('statistics-extension', REFERENCE_CLASS, 'StatisticsExtension' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.StatisticsExtension', 
+            _MetaInfoClassMember('nm-spackets', REFERENCE_CLASS, 'NmSpackets' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.NmSpackets', 
                 [], [], 
-                '''                SNMP Statistics Extension
+                '''                SNMP overload statistics 
                 ''',
-                'statistics_extension',
+                'nm_spackets',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('nms-addresses', REFERENCE_CLASS, 'NmsAddresses' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.NmsAddresses', 
+                [], [], 
+                '''                SNMP request type summary 
+                ''',
+                'nms_addresses',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('poll-oids', REFERENCE_CLASS, 'PollOids' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.PollOids', 
+                [], [], 
+                '''                OID list for poll PDU
+                ''',
+                'poll_oids',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('request-type-detail', REFERENCE_CLASS, 'RequestTypeDetail' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.RequestTypeDetail', 
+                [], [], 
+                '''                SNMP request type details 
+                ''',
+                'request_type_detail',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('rx-queue', REFERENCE_CLASS, 'RxQueue' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.RxQueue', 
+                [], [], 
+                '''                SNMP rx queue statistics
+                ''',
+                'rx_queue',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('serial-numbers', REFERENCE_CLASS, 'SerialNumbers' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SerialNumbers', 
                 [], [], 
@@ -2207,17 +2177,17 @@ _meta_table = {
                 ''',
                 'serial_numbers',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('drop-nms-addresses', REFERENCE_CLASS, 'DropNmsAddresses' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.DropNmsAddresses', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Statistics', 
                 [], [], 
-                '''                NMS list for drop PDU
+                '''                SNMP statistics
                 ''',
-                'drop_nms_addresses',
+                'statistics',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('views', REFERENCE_CLASS, 'Views' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Views', 
+            _MetaInfoClassMember('statistics-extension', REFERENCE_CLASS, 'StatisticsExtension' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.StatisticsExtension', 
                 [], [], 
-                '''                SNMP view information
+                '''                SNMP Statistics Extension
                 ''',
-                'views',
+                'statistics_extension',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('system-descr', REFERENCE_CLASS, 'SystemDescr' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SystemDescr', 
                 [], [], 
@@ -2225,11 +2195,11 @@ _meta_table = {
                 ''',
                 'system_descr',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('tables', REFERENCE_CLASS, 'Tables' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Tables', 
+            _MetaInfoClassMember('system-name', REFERENCE_CLASS, 'SystemName' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SystemName', 
                 [], [], 
-                '''                List of table
+                '''                System name
                 ''',
-                'tables',
+                'system_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('system-oid', REFERENCE_CLASS, 'SystemOid' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SystemOid', 
                 [], [], 
@@ -2237,11 +2207,41 @@ _meta_table = {
                 ''',
                 'system_oid',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('system-up-time', REFERENCE_CLASS, 'SystemUpTime' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.SystemUpTime', 
+                [], [], 
+                '''                System up time
+                ''',
+                'system_up_time',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('tables', REFERENCE_CLASS, 'Tables' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Tables', 
+                [], [], 
+                '''                List of table
+                ''',
+                'tables',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-infos', REFERENCE_CLASS, 'TrapInfos' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.TrapInfos', 
+                [], [], 
+                '''                SNMP trap OID
+                ''',
+                'trap_infos',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-oids', REFERENCE_CLASS, 'TrapOids' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.TrapOids', 
+                [], [], 
+                '''                SNMP trap OID
+                ''',
+                'trap_oids',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('trap-queue', REFERENCE_CLASS, 'TrapQueue' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.TrapQueue', 
                 [], [], 
                 '''                SNMP trap queue statistics
                 ''',
                 'trap_queue',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('views', REFERENCE_CLASS, 'Views' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information.Views', 
+                [], [], 
+                '''                SNMP view information
+                ''',
+                'views',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -2294,6 +2294,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary',
             False, 
             [
+            _MetaInfoClassMember('buffered-traps-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of buffered traps correlated to this rule
+                ''',
+                'buffered_traps_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('rule-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Correlation Rule Name
@@ -2307,12 +2313,6 @@ _meta_table = {
                 ''',
                 'rule_state',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('buffered-traps-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of buffered traps correlated to this rule
-                ''',
-                'buffered_traps_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
             'rule-summary',
@@ -2324,17 +2324,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind',
             False, 
             [
-            _MetaInfoClassMember('oid', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                OID of the varbind
-                ''',
-                'oid',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('match-type', REFERENCE_ENUM_CLASS, 'SnmpCorrVbindMatchEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatchEnum', 
                 [], [], 
                 '''                Varbind match type
                 ''',
                 'match_type',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('oid', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OID of the varbind
+                ''',
+                'oid',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('reg-exp', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2376,17 +2376,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind',
             False, 
             [
-            _MetaInfoClassMember('oid', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                OID of the varbind
-                ''',
-                'oid',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('match-type', REFERENCE_ENUM_CLASS, 'SnmpCorrVbindMatchEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatchEnum', 
                 [], [], 
                 '''                Varbind match type
                 ''',
                 'match_type',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('oid', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OID of the varbind
+                ''',
+                'oid',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('reg-exp', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2457,26 +2457,11 @@ _meta_table = {
                 ''',
                 'rule_name',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('rule-summary', REFERENCE_CLASS, 'RuleSummary' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary', 
+            _MetaInfoClassMember('apply-host', REFERENCE_LIST, 'ApplyHost' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost', 
                 [], [], 
-                '''                Rule summary, name, etc
+                '''                Hosts (IP/port) to which the rule is applied
                 ''',
-                'rule_summary',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('root-cause', REFERENCE_CLASS, 'RootCause' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.RootCause', 
-                [], [], 
-                '''                OID/VarBinds defining the rootcause match
-                conditions.
-                ''',
-                'root_cause',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time window (in ms) for which root/all messages
-                are kept in correlater before sending them to
-                hosts
-                ''',
-                'timeout',
+                'apply_host',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('non-rootcaus', REFERENCE_LIST, 'NonRootcaus' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus', 
                 [], [], 
@@ -2485,11 +2470,26 @@ _meta_table = {
                 ''',
                 'non_rootcaus',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('apply-host', REFERENCE_LIST, 'ApplyHost' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost', 
+            _MetaInfoClassMember('root-cause', REFERENCE_CLASS, 'RootCause' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.RootCause', 
                 [], [], 
-                '''                Hosts (IP/port) to which the rule is applied
+                '''                OID/VarBinds defining the rootcause match
+                conditions.
                 ''',
-                'apply_host',
+                'root_cause',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('rule-summary', REFERENCE_CLASS, 'RuleSummary' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary', 
+                [], [], 
+                '''                Rule summary, name, etc
+                ''',
+                'rule_summary',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time window (in ms) for which root/all messages
+                are kept in correlater before sending them to
+                hosts
+                ''',
+                'timeout',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -2519,17 +2519,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.BufferStatus',
             False, 
             [
-            _MetaInfoClassMember('current-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current buffer usage
-                ''',
-                'current_size',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('configured-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Configured buffer size
                 ''',
                 'configured_size',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('current-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Current buffer usage
+                ''',
+                'current_size',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -2542,6 +2542,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules',
             False, 
             [
+            _MetaInfoClassMember('buffered-traps-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of buffered traps correlated to this rule
+                ''',
+                'buffered_traps_count',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('rule-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Correlation Rule Name
@@ -2554,12 +2560,6 @@ _meta_table = {
                 applied, applied or applied to all
                 ''',
                 'rule_state',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('buffered-traps-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of buffered traps correlated to this rule
-                ''',
-                'buffered_traps_count',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -2653,7 +2653,7 @@ _meta_table = {
                 ''',
                 'relative_timestamp',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('timestamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('timestamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time when the trap was generated. It is
                 expressed in number of milliseconds since 00:00
@@ -2684,12 +2684,6 @@ _meta_table = {
                 ''',
                 'entry_id',
                 'Cisco-IOS-XR-snmp-agent-oper', True),
-            _MetaInfoClassMember('trap-info', REFERENCE_CLASS, 'TrapInfo' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.Traps.Trap.TrapInfo', 
-                [], [], 
-                '''                Correlated trap information
-                ''',
-                'trap_info',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('correlation-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Correlation ID
@@ -2707,6 +2701,12 @@ _meta_table = {
                 '''                Correlation rule name
                 ''',
                 'rule_name',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-info', REFERENCE_CLASS, 'TrapInfo' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.Traps.Trap.TrapInfo', 
+                [], [], 
+                '''                Correlated trap information
+                ''',
+                'trap_info',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
@@ -2736,19 +2736,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator',
             False, 
             [
-            _MetaInfoClassMember('rule-details', REFERENCE_CLASS, 'RuleDetails' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails', 
-                [], [], 
-                '''                Table that contains the database of correlation
-                rule details
-                ''',
-                'rule_details',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('buffer-status', REFERENCE_CLASS, 'BufferStatus' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.BufferStatus', 
                 [], [], 
                 '''                Describes buffer utilization and parameters
                 configured
                 ''',
                 'buffer_status',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('rule-details', REFERENCE_CLASS, 'RuleDetails' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleDetails', 
+                [], [], 
+                '''                Table that contains the database of correlation
+                rule details
+                ''',
+                'rule_details',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('rule-set-details', REFERENCE_CLASS, 'RuleSetDetails' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator.RuleSetDetails', 
                 [], [], 
@@ -3026,11 +3026,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.InterfaceMib',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.Interfaces', 
+            _MetaInfoClassMember('interface-aliases', REFERENCE_CLASS, 'InterfaceAliases' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.InterfaceAliases', 
                 [], [], 
-                '''                Interfaces ifIndex information
+                '''                Interfaces ifAlias information
                 ''',
-                'interfaces',
+                'interface_aliases',
                 'Cisco-IOS-XR-snmp-ifmib-oper', False),
             _MetaInfoClassMember('interface-connectors', REFERENCE_CLASS, 'InterfaceConnectors' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.InterfaceConnectors', 
                 [], [], 
@@ -3038,23 +3038,23 @@ _meta_table = {
                 ''',
                 'interface_connectors',
                 'Cisco-IOS-XR-snmp-ifmib-oper', False),
-            _MetaInfoClassMember('interface-aliases', REFERENCE_CLASS, 'InterfaceAliases' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.InterfaceAliases', 
+            _MetaInfoClassMember('interface-stack-statuses', REFERENCE_CLASS, 'InterfaceStackStatuses' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.InterfaceStackStatuses', 
                 [], [], 
-                '''                Interfaces ifAlias information
+                '''                Interfaces ifstackstatus information
                 ''',
-                'interface_aliases',
+                'interface_stack_statuses',
+                'Cisco-IOS-XR-snmp-ifmib-oper', False),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.Interfaces', 
+                [], [], 
+                '''                Interfaces ifIndex information
+                ''',
+                'interfaces',
                 'Cisco-IOS-XR-snmp-ifmib-oper', False),
             _MetaInfoClassMember('notification-interfaces', REFERENCE_CLASS, 'NotificationInterfaces' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.NotificationInterfaces', 
                 [], [], 
                 '''                Interfaces Notification information
                 ''',
                 'notification_interfaces',
-                'Cisco-IOS-XR-snmp-ifmib-oper', False),
-            _MetaInfoClassMember('interface-stack-statuses', REFERENCE_CLASS, 'InterfaceStackStatuses' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceMib.InterfaceStackStatuses', 
-                [], [], 
-                '''                Interfaces ifstackstatus information
-                ''',
-                'interface_stack_statuses',
                 'Cisco-IOS-XR-snmp-ifmib-oper', False),
             ],
             'Cisco-IOS-XR-snmp-ifmib-oper',
@@ -3067,29 +3067,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp',
             False, 
             [
-            _MetaInfoClassMember('trap-servers', REFERENCE_CLASS, 'TrapServers' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.TrapServers', 
+            _MetaInfoClassMember('correlator', REFERENCE_CLASS, 'Correlator' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator', 
                 [], [], 
-                '''                List of trap hosts
+                '''                Trap Correlator operational data
                 ''',
-                'trap_servers',
+                'correlator',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Information', 
                 [], [], 
                 '''                SNMP operational information
                 ''',
                 'information',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Interfaces', 
-                [], [], 
-                '''                List of interfaces
-                ''',
-                'interfaces',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('correlator', REFERENCE_CLASS, 'Correlator' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Correlator', 
-                [], [], 
-                '''                Trap Correlator operational data
-                ''',
-                'correlator',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('interface-indexes', REFERENCE_CLASS, 'InterfaceIndexes' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.InterfaceIndexes', 
                 [], [], 
@@ -3103,6 +3091,18 @@ _meta_table = {
                 ''',
                 'interface_mib',
                 'Cisco-IOS-XR-snmp-ifmib-oper', False),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.Interfaces', 
+                [], [], 
+                '''                List of interfaces
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
+            _MetaInfoClassMember('trap-servers', REFERENCE_CLASS, 'TrapServers' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'Snmp.TrapServers', 
+                [], [], 
+                '''                List of trap hosts
+                ''',
+                'trap_servers',
+                'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
             'snmp',

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -107,15 +107,15 @@ class Lldp(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: neighbors
-            
-            	The LLDP neighbor tables on this node
-            	**type**\: :py:class:`Neighbors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors>`
-            
             .. attribute:: interfaces
             
             	The table of interfaces on which LLDP is running on this node
             	**type**\: :py:class:`Interfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces>`
+            
+            .. attribute:: neighbors
+            
+            	The LLDP neighbor tables on this node
+            	**type**\: :py:class:`Neighbors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors>`
             
             .. attribute:: statistics
             
@@ -132,10 +132,10 @@ class Lldp(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.neighbors = Lldp.Nodes.Node.Neighbors()
-                self.neighbors.parent = self
                 self.interfaces = Lldp.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
+                self.neighbors = Lldp.Nodes.Node.Neighbors()
+                self.neighbors.parent = self
                 self.statistics = Lldp.Nodes.Node.Statistics()
                 self.statistics.parent = self
 
@@ -144,15 +144,15 @@ class Lldp(object):
                 """
                 The LLDP neighbor tables on this node
                 
-                .. attribute:: devices
-                
-                	The detailed LLDP neighbor table on this device
-                	**type**\: :py:class:`Devices <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices>`
-                
                 .. attribute:: details
                 
                 	The detailed LLDP neighbor table
                 	**type**\: :py:class:`Details <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details>`
+                
+                .. attribute:: devices
+                
+                	The detailed LLDP neighbor table on this device
+                	**type**\: :py:class:`Devices <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices>`
                 
                 .. attribute:: summaries
                 
@@ -168,10 +168,10 @@ class Lldp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.devices = Lldp.Nodes.Node.Neighbors.Devices()
-                    self.devices.parent = self
                     self.details = Lldp.Nodes.Node.Neighbors.Details()
                     self.details.parent = self
+                    self.devices = Lldp.Nodes.Node.Neighbors.Devices()
+                    self.devices.parent = self
                     self.summaries = Lldp.Nodes.Node.Neighbors.Summaries()
                     self.summaries.parent = self
 
@@ -234,43 +234,24 @@ class Lldp(object):
                             """
                             lldp neighbor
                             
+                            .. attribute:: chassis_id
+                            
+                            	Chassis id
+                            	**type**\: str
+                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail>`
-                            
-                            .. attribute:: mib
-                            
-                            	MIB nieghbor info
-                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: receiving_parent_interface_name
-                            
-                            	Parent Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
-                            .. attribute:: chassis_id
+                            .. attribute:: enabled_capabilities
                             
-                            	Chassis id
-                            	**type**\: str
-                            
-                            .. attribute:: port_id_detail
-                            
-                            	Outgoing port identifier
+                            	Enabled Capabilities
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -287,15 +268,34 @@ class Lldp(object):
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: enabled_capabilities
+                            .. attribute:: mib
                             
-                            	Enabled Capabilities
-                            	**type**\: str
+                            	MIB nieghbor info
+                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
                             
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            .. attribute:: port_id_detail
+                            
+                            	Outgoing port identifier
+                            	**type**\: str
+                            
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: receiving_parent_interface_name
+                            
+                            	Parent Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -306,70 +306,33 @@ class Lldp(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.chassis_id = None
                                 self.detail = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail()
                                 self.detail.parent = self
-                                self.mib = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib()
-                                self.mib.parent = self
-                                self.receiving_interface_name = None
-                                self.receiving_parent_interface_name = None
                                 self.device_id = None
-                                self.chassis_id = None
-                                self.port_id_detail = None
+                                self.enabled_capabilities = None
                                 self.header_version = None
                                 self.hold_time = None
-                                self.enabled_capabilities = None
+                                self.mib = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib()
+                                self.mib.parent = self
                                 self.platform = None
+                                self.port_id_detail = None
+                                self.receiving_interface_name = None
+                                self.receiving_parent_interface_name = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
                                 
-                                .. attribute:: network_addresses
-                                
-                                	Management Addresses
-                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses>`
-                                
-                                .. attribute:: port_description
-                                
-                                	Port Description
-                                	**type**\: str
-                                
-                                .. attribute:: system_name
-                                
-                                	System Name
-                                	**type**\: str
-                                
-                                .. attribute:: system_description
-                                
-                                	System Description
-                                	**type**\: str
-                                
-                                .. attribute:: time_remaining
-                                
-                                	Time remaining
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: system_capabilities
-                                
-                                	System Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: enabled_capabilities
-                                
-                                	Enabled Capabilities
-                                	**type**\: str
-                                
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
                                 	**type**\: str
                                 
-                                .. attribute:: physical_media_capabilities
+                                .. attribute:: enabled_capabilities
                                 
-                                	Physical media capabilities
+                                	Enabled Capabilities
                                 	**type**\: str
                                 
                                 .. attribute:: media_attachment_unit_type
@@ -379,9 +342,46 @@ class Lldp(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: network_addresses
+                                
+                                	Management Addresses
+                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses>`
+                                
+                                .. attribute:: physical_media_capabilities
+                                
+                                	Physical media capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: port_description
+                                
+                                	Port Description
+                                	**type**\: str
+                                
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: system_capabilities
+                                
+                                	System Capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: system_description
+                                
+                                	System Description
+                                	**type**\: str
+                                
+                                .. attribute:: system_name
+                                
+                                	System Name
+                                	**type**\: str
+                                
+                                .. attribute:: time_remaining
+                                
+                                	Time remaining
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -395,18 +395,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.auto_negotiation = None
+                                    self.enabled_capabilities = None
+                                    self.media_attachment_unit_type = None
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
-                                    self.port_description = None
-                                    self.system_name = None
-                                    self.system_description = None
-                                    self.time_remaining = None
-                                    self.system_capabilities = None
-                                    self.enabled_capabilities = None
-                                    self.auto_negotiation = None
                                     self.physical_media_capabilities = None
-                                    self.media_attachment_unit_type = None
+                                    self.port_description = None
                                     self.port_vlan_id = None
+                                    self.system_capabilities = None
+                                    self.system_description = None
+                                    self.system_name = None
+                                    self.time_remaining = None
 
 
                                 class NetworkAddresses(object):
@@ -441,19 +441,19 @@ class Lldp(object):
                                         	Network layer address
                                         	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
-                                        .. attribute:: ma_subtype
-                                        
-                                        	MA sub type
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
                                         .. attribute:: if_num
                                         
                                         	Interface num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: ma_subtype
+                                        
+                                        	MA sub type
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         
 
@@ -466,8 +466,8 @@ class Lldp(object):
                                             self.parent = None
                                             self.address = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
-                                            self.ma_subtype = None
                                             self.if_num = None
+                                            self.ma_subtype = None
 
 
                                         class Address(object):
@@ -509,7 +509,7 @@ class Lldp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
 
@@ -539,7 +539,7 @@ class Lldp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
 
@@ -553,10 +553,10 @@ class Lldp(object):
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.ma_subtype is not None:
+                                            if self.if_num is not None:
                                                 return True
 
-                                            if self.if_num is not None:
+                                            if self.ma_subtype is not None:
                                                 return True
 
                                             return False
@@ -569,7 +569,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:network-addresses'
 
@@ -595,7 +595,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
 
@@ -606,37 +606,37 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.port_description is not None:
-                                        return True
-
-                                    if self.system_name is not None:
-                                        return True
-
-                                    if self.system_description is not None:
-                                        return True
-
-                                    if self.time_remaining is not None:
-                                        return True
-
-                                    if self.system_capabilities is not None:
+                                    if self.auto_negotiation is not None:
                                         return True
 
                                     if self.enabled_capabilities is not None:
                                         return True
 
-                                    if self.auto_negotiation is not None:
+                                    if self.media_attachment_unit_type is not None:
+                                        return True
+
+                                    if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
                                     if self.physical_media_capabilities is not None:
                                         return True
 
-                                    if self.media_attachment_unit_type is not None:
+                                    if self.port_description is not None:
                                         return True
 
                                     if self.port_vlan_id is not None:
+                                        return True
+
+                                    if self.system_capabilities is not None:
+                                        return True
+
+                                    if self.system_description is not None:
+                                        return True
+
+                                    if self.system_name is not None:
+                                        return True
+
+                                    if self.time_remaining is not None:
                                         return True
 
                                     return False
@@ -651,36 +651,12 @@ class Lldp(object):
                                 """
                                 MIB nieghbor info
                                 
-                                .. attribute:: unknown_tlv_list
+                                .. attribute:: chassis_id_len
                                 
-                                	Unknown TLV list
-                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
-                                
-                                .. attribute:: org_def_tlv_list
-                                
-                                	Org Def TLV list
-                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList>`
-                                
-                                .. attribute:: rem_time_mark
-                                
-                                	TimeFilter
+                                	Chassis ID length
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_local_port_num
-                                
-                                	LldpPortNumber
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_index
-                                
-                                	lldpRemIndex
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	**range:** 0..65535
                                 
                                 .. attribute:: chassis_id_sub_type
                                 
@@ -689,9 +665,21 @@ class Lldp(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: chassis_id_len
+                                .. attribute:: combined_capabilities
                                 
-                                	Chassis ID length
+                                	Supported and combined cpabilities
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: org_def_tlv_list
+                                
+                                	Org Def TLV list
+                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                .. attribute:: port_id_len
+                                
+                                	Port ID length
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -703,19 +691,31 @@ class Lldp(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: port_id_len
+                                .. attribute:: rem_index
                                 
-                                	Port ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: combined_capabilities
-                                
-                                	Supported and combined cpabilities
+                                	lldpRemIndex
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_local_port_num
+                                
+                                	LldpPortNumber
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_time_mark
+                                
+                                	TimeFilter
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: unknown_tlv_list
+                                
+                                	Unknown TLV list
+                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 
 
@@ -726,18 +726,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList()
-                                    self.unknown_tlv_list.parent = self
+                                    self.chassis_id_len = None
+                                    self.chassis_id_sub_type = None
+                                    self.combined_capabilities = None
                                     self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList()
                                     self.org_def_tlv_list.parent = self
-                                    self.rem_time_mark = None
-                                    self.rem_local_port_num = None
-                                    self.rem_index = None
-                                    self.chassis_id_sub_type = None
-                                    self.chassis_id_len = None
-                                    self.port_id_sub_type = None
                                     self.port_id_len = None
-                                    self.combined_capabilities = None
+                                    self.port_id_sub_type = None
+                                    self.rem_index = None
+                                    self.rem_local_port_num = None
+                                    self.rem_time_mark = None
+                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList()
+                                    self.unknown_tlv_list.parent = self
 
 
                                 class UnknownTlvList(object):
@@ -796,7 +796,7 @@ class Lldp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-unknown-tlv-entry'
 
@@ -823,7 +823,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:unknown-tlv-list'
 
@@ -881,19 +881,19 @@ class Lldp(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: tlv_subtype
-                                        
-                                        	Org Def TLV subtype
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
                                         .. attribute:: tlv_info_indes
                                         
                                         	lldpRemOrgDefInfoIndex
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_subtype
+                                        
+                                        	Org Def TLV subtype
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         .. attribute:: tlv_value
                                         
@@ -912,14 +912,14 @@ class Lldp(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.oui = None
-                                            self.tlv_subtype = None
                                             self.tlv_info_indes = None
+                                            self.tlv_subtype = None
                                             self.tlv_value = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
 
@@ -933,10 +933,10 @@ class Lldp(object):
                                             if self.oui is not None:
                                                 return True
 
-                                            if self.tlv_subtype is not None:
+                                            if self.tlv_info_indes is not None:
                                                 return True
 
-                                            if self.tlv_info_indes is not None:
+                                            if self.tlv_subtype is not None:
                                                 return True
 
                                             if self.tlv_value is not None:
@@ -952,7 +952,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
 
@@ -978,7 +978,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:mib'
 
@@ -989,34 +989,34 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.rem_time_mark is not None:
-                                        return True
-
-                                    if self.rem_local_port_num is not None:
-                                        return True
-
-                                    if self.rem_index is not None:
+                                    if self.chassis_id_len is not None:
                                         return True
 
                                     if self.chassis_id_sub_type is not None:
                                         return True
 
-                                    if self.chassis_id_len is not None:
+                                    if self.combined_capabilities is not None:
                                         return True
 
-                                    if self.port_id_sub_type is not None:
+                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
                                         return True
 
                                     if self.port_id_len is not None:
                                         return True
 
-                                    if self.combined_capabilities is not None:
+                                    if self.port_id_sub_type is not None:
+                                        return True
+
+                                    if self.rem_index is not None:
+                                        return True
+
+                                    if self.rem_local_port_num is not None:
+                                        return True
+
+                                    if self.rem_time_mark is not None:
+                                        return True
+
+                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
                                     return False
@@ -1029,7 +1029,7 @@ class Lldp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-neighbor'
 
@@ -1040,25 +1040,16 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.chassis_id is not None:
+                                    return True
+
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.mib is not None and self.mib._has_data():
-                                    return True
-
-                                if self.receiving_interface_name is not None:
-                                    return True
-
-                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 if self.device_id is not None:
                                     return True
 
-                                if self.chassis_id is not None:
-                                    return True
-
-                                if self.port_id_detail is not None:
+                                if self.enabled_capabilities is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -1067,10 +1058,19 @@ class Lldp(object):
                                 if self.hold_time is not None:
                                     return True
 
-                                if self.enabled_capabilities is not None:
+                                if self.mib is not None and self.mib._has_data():
                                     return True
 
                                 if self.platform is not None:
+                                    return True
+
+                                if self.port_id_detail is not None:
+                                    return True
+
+                                if self.receiving_interface_name is not None:
+                                    return True
+
+                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 return False
@@ -1083,9 +1083,9 @@ class Lldp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.device_id is None:
-                                raise YPYDataValidationError('Key property device_id is None')
+                                raise YPYModelError('Key property device_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:device[Cisco-IOS-XR-ethernet-lldp-oper:device-id = ' + str(self.device_id) + ']'
 
@@ -1114,7 +1114,7 @@ class Lldp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:devices'
 
@@ -1166,17 +1166,17 @@ class Lldp(object):
                         Detailed information about a LLDP neighbor
                         entry
                         
+                        .. attribute:: device_id
+                        
+                        	The neighboring device identifier
+                        	**type**\: str
+                        
                         .. attribute:: interface_name
                         
                         	The interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: device_id
-                        
-                        	The neighboring device identifier
-                        	**type**\: str
                         
                         .. attribute:: lldp_neighbor
                         
@@ -1192,8 +1192,8 @@ class Lldp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.interface_name = None
                             self.device_id = None
+                            self.interface_name = None
                             self.lldp_neighbor = YList()
                             self.lldp_neighbor.parent = self
                             self.lldp_neighbor.name = 'lldp_neighbor'
@@ -1203,43 +1203,24 @@ class Lldp(object):
                             """
                             lldp neighbor
                             
+                            .. attribute:: chassis_id
+                            
+                            	Chassis id
+                            	**type**\: str
+                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail>`
-                            
-                            .. attribute:: mib
-                            
-                            	MIB nieghbor info
-                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: receiving_parent_interface_name
-                            
-                            	Parent Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
-                            .. attribute:: chassis_id
+                            .. attribute:: enabled_capabilities
                             
-                            	Chassis id
-                            	**type**\: str
-                            
-                            .. attribute:: port_id_detail
-                            
-                            	Outgoing port identifier
+                            	Enabled Capabilities
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -1256,15 +1237,34 @@ class Lldp(object):
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: enabled_capabilities
+                            .. attribute:: mib
                             
-                            	Enabled Capabilities
-                            	**type**\: str
+                            	MIB nieghbor info
+                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
                             
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            .. attribute:: port_id_detail
+                            
+                            	Outgoing port identifier
+                            	**type**\: str
+                            
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: receiving_parent_interface_name
+                            
+                            	Parent Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -1275,70 +1275,33 @@ class Lldp(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.chassis_id = None
                                 self.detail = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail()
                                 self.detail.parent = self
-                                self.mib = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib()
-                                self.mib.parent = self
-                                self.receiving_interface_name = None
-                                self.receiving_parent_interface_name = None
                                 self.device_id = None
-                                self.chassis_id = None
-                                self.port_id_detail = None
+                                self.enabled_capabilities = None
                                 self.header_version = None
                                 self.hold_time = None
-                                self.enabled_capabilities = None
+                                self.mib = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib()
+                                self.mib.parent = self
                                 self.platform = None
+                                self.port_id_detail = None
+                                self.receiving_interface_name = None
+                                self.receiving_parent_interface_name = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
                                 
-                                .. attribute:: network_addresses
-                                
-                                	Management Addresses
-                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses>`
-                                
-                                .. attribute:: port_description
-                                
-                                	Port Description
-                                	**type**\: str
-                                
-                                .. attribute:: system_name
-                                
-                                	System Name
-                                	**type**\: str
-                                
-                                .. attribute:: system_description
-                                
-                                	System Description
-                                	**type**\: str
-                                
-                                .. attribute:: time_remaining
-                                
-                                	Time remaining
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: system_capabilities
-                                
-                                	System Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: enabled_capabilities
-                                
-                                	Enabled Capabilities
-                                	**type**\: str
-                                
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
                                 	**type**\: str
                                 
-                                .. attribute:: physical_media_capabilities
+                                .. attribute:: enabled_capabilities
                                 
-                                	Physical media capabilities
+                                	Enabled Capabilities
                                 	**type**\: str
                                 
                                 .. attribute:: media_attachment_unit_type
@@ -1348,9 +1311,46 @@ class Lldp(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: network_addresses
+                                
+                                	Management Addresses
+                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses>`
+                                
+                                .. attribute:: physical_media_capabilities
+                                
+                                	Physical media capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: port_description
+                                
+                                	Port Description
+                                	**type**\: str
+                                
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: system_capabilities
+                                
+                                	System Capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: system_description
+                                
+                                	System Description
+                                	**type**\: str
+                                
+                                .. attribute:: system_name
+                                
+                                	System Name
+                                	**type**\: str
+                                
+                                .. attribute:: time_remaining
+                                
+                                	Time remaining
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -1364,18 +1364,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.auto_negotiation = None
+                                    self.enabled_capabilities = None
+                                    self.media_attachment_unit_type = None
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
-                                    self.port_description = None
-                                    self.system_name = None
-                                    self.system_description = None
-                                    self.time_remaining = None
-                                    self.system_capabilities = None
-                                    self.enabled_capabilities = None
-                                    self.auto_negotiation = None
                                     self.physical_media_capabilities = None
-                                    self.media_attachment_unit_type = None
+                                    self.port_description = None
                                     self.port_vlan_id = None
+                                    self.system_capabilities = None
+                                    self.system_description = None
+                                    self.system_name = None
+                                    self.time_remaining = None
 
 
                                 class NetworkAddresses(object):
@@ -1410,19 +1410,19 @@ class Lldp(object):
                                         	Network layer address
                                         	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
-                                        .. attribute:: ma_subtype
-                                        
-                                        	MA sub type
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
                                         .. attribute:: if_num
                                         
                                         	Interface num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: ma_subtype
+                                        
+                                        	MA sub type
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         
 
@@ -1435,8 +1435,8 @@ class Lldp(object):
                                             self.parent = None
                                             self.address = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
-                                            self.ma_subtype = None
                                             self.if_num = None
+                                            self.ma_subtype = None
 
 
                                         class Address(object):
@@ -1478,7 +1478,7 @@ class Lldp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
 
@@ -1508,7 +1508,7 @@ class Lldp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
 
@@ -1522,10 +1522,10 @@ class Lldp(object):
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.ma_subtype is not None:
+                                            if self.if_num is not None:
                                                 return True
 
-                                            if self.if_num is not None:
+                                            if self.ma_subtype is not None:
                                                 return True
 
                                             return False
@@ -1538,7 +1538,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:network-addresses'
 
@@ -1564,7 +1564,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
 
@@ -1575,37 +1575,37 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.port_description is not None:
-                                        return True
-
-                                    if self.system_name is not None:
-                                        return True
-
-                                    if self.system_description is not None:
-                                        return True
-
-                                    if self.time_remaining is not None:
-                                        return True
-
-                                    if self.system_capabilities is not None:
+                                    if self.auto_negotiation is not None:
                                         return True
 
                                     if self.enabled_capabilities is not None:
                                         return True
 
-                                    if self.auto_negotiation is not None:
+                                    if self.media_attachment_unit_type is not None:
+                                        return True
+
+                                    if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
                                     if self.physical_media_capabilities is not None:
                                         return True
 
-                                    if self.media_attachment_unit_type is not None:
+                                    if self.port_description is not None:
                                         return True
 
                                     if self.port_vlan_id is not None:
+                                        return True
+
+                                    if self.system_capabilities is not None:
+                                        return True
+
+                                    if self.system_description is not None:
+                                        return True
+
+                                    if self.system_name is not None:
+                                        return True
+
+                                    if self.time_remaining is not None:
                                         return True
 
                                     return False
@@ -1620,36 +1620,12 @@ class Lldp(object):
                                 """
                                 MIB nieghbor info
                                 
-                                .. attribute:: unknown_tlv_list
+                                .. attribute:: chassis_id_len
                                 
-                                	Unknown TLV list
-                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
-                                
-                                .. attribute:: org_def_tlv_list
-                                
-                                	Org Def TLV list
-                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
-                                
-                                .. attribute:: rem_time_mark
-                                
-                                	TimeFilter
+                                	Chassis ID length
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_local_port_num
-                                
-                                	LldpPortNumber
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_index
-                                
-                                	lldpRemIndex
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	**range:** 0..65535
                                 
                                 .. attribute:: chassis_id_sub_type
                                 
@@ -1658,9 +1634,21 @@ class Lldp(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: chassis_id_len
+                                .. attribute:: combined_capabilities
                                 
-                                	Chassis ID length
+                                	Supported and combined cpabilities
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: org_def_tlv_list
+                                
+                                	Org Def TLV list
+                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                .. attribute:: port_id_len
+                                
+                                	Port ID length
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -1672,19 +1660,31 @@ class Lldp(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: port_id_len
+                                .. attribute:: rem_index
                                 
-                                	Port ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: combined_capabilities
-                                
-                                	Supported and combined cpabilities
+                                	lldpRemIndex
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_local_port_num
+                                
+                                	LldpPortNumber
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_time_mark
+                                
+                                	TimeFilter
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: unknown_tlv_list
+                                
+                                	Unknown TLV list
+                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 
 
@@ -1695,18 +1695,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList()
-                                    self.unknown_tlv_list.parent = self
+                                    self.chassis_id_len = None
+                                    self.chassis_id_sub_type = None
+                                    self.combined_capabilities = None
                                     self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList()
                                     self.org_def_tlv_list.parent = self
-                                    self.rem_time_mark = None
-                                    self.rem_local_port_num = None
-                                    self.rem_index = None
-                                    self.chassis_id_sub_type = None
-                                    self.chassis_id_len = None
-                                    self.port_id_sub_type = None
                                     self.port_id_len = None
-                                    self.combined_capabilities = None
+                                    self.port_id_sub_type = None
+                                    self.rem_index = None
+                                    self.rem_local_port_num = None
+                                    self.rem_time_mark = None
+                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList()
+                                    self.unknown_tlv_list.parent = self
 
 
                                 class UnknownTlvList(object):
@@ -1765,7 +1765,7 @@ class Lldp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-unknown-tlv-entry'
 
@@ -1792,7 +1792,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:unknown-tlv-list'
 
@@ -1850,19 +1850,19 @@ class Lldp(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: tlv_subtype
-                                        
-                                        	Org Def TLV subtype
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
                                         .. attribute:: tlv_info_indes
                                         
                                         	lldpRemOrgDefInfoIndex
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_subtype
+                                        
+                                        	Org Def TLV subtype
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         .. attribute:: tlv_value
                                         
@@ -1881,14 +1881,14 @@ class Lldp(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.oui = None
-                                            self.tlv_subtype = None
                                             self.tlv_info_indes = None
+                                            self.tlv_subtype = None
                                             self.tlv_value = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
 
@@ -1902,10 +1902,10 @@ class Lldp(object):
                                             if self.oui is not None:
                                                 return True
 
-                                            if self.tlv_subtype is not None:
+                                            if self.tlv_info_indes is not None:
                                                 return True
 
-                                            if self.tlv_info_indes is not None:
+                                            if self.tlv_subtype is not None:
                                                 return True
 
                                             if self.tlv_value is not None:
@@ -1921,7 +1921,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
 
@@ -1947,7 +1947,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:mib'
 
@@ -1958,34 +1958,34 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.rem_time_mark is not None:
-                                        return True
-
-                                    if self.rem_local_port_num is not None:
-                                        return True
-
-                                    if self.rem_index is not None:
+                                    if self.chassis_id_len is not None:
                                         return True
 
                                     if self.chassis_id_sub_type is not None:
                                         return True
 
-                                    if self.chassis_id_len is not None:
+                                    if self.combined_capabilities is not None:
                                         return True
 
-                                    if self.port_id_sub_type is not None:
+                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
                                         return True
 
                                     if self.port_id_len is not None:
                                         return True
 
-                                    if self.combined_capabilities is not None:
+                                    if self.port_id_sub_type is not None:
+                                        return True
+
+                                    if self.rem_index is not None:
+                                        return True
+
+                                    if self.rem_local_port_num is not None:
+                                        return True
+
+                                    if self.rem_time_mark is not None:
+                                        return True
+
+                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
                                     return False
@@ -1998,7 +1998,7 @@ class Lldp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-neighbor'
 
@@ -2009,25 +2009,16 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.chassis_id is not None:
+                                    return True
+
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.mib is not None and self.mib._has_data():
-                                    return True
-
-                                if self.receiving_interface_name is not None:
-                                    return True
-
-                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 if self.device_id is not None:
                                     return True
 
-                                if self.chassis_id is not None:
-                                    return True
-
-                                if self.port_id_detail is not None:
+                                if self.enabled_capabilities is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -2036,10 +2027,19 @@ class Lldp(object):
                                 if self.hold_time is not None:
                                     return True
 
-                                if self.enabled_capabilities is not None:
+                                if self.mib is not None and self.mib._has_data():
                                     return True
 
                                 if self.platform is not None:
+                                    return True
+
+                                if self.port_id_detail is not None:
+                                    return True
+
+                                if self.receiving_interface_name is not None:
+                                    return True
+
+                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 return False
@@ -2052,7 +2052,7 @@ class Lldp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
 
@@ -2063,10 +2063,10 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.interface_name is not None:
+                            if self.device_id is not None:
                                 return True
 
-                            if self.device_id is not None:
+                            if self.interface_name is not None:
                                 return True
 
                             if self.lldp_neighbor is not None:
@@ -2084,7 +2084,7 @@ class Lldp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:details'
 
@@ -2136,17 +2136,17 @@ class Lldp(object):
                         Brief information about a LLDP neighbor
                         entry
                         
+                        .. attribute:: device_id
+                        
+                        	The neighboring device identifier
+                        	**type**\: str
+                        
                         .. attribute:: interface_name
                         
                         	The interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: device_id
-                        
-                        	The neighboring device identifier
-                        	**type**\: str
                         
                         .. attribute:: lldp_neighbor
                         
@@ -2162,8 +2162,8 @@ class Lldp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.interface_name = None
                             self.device_id = None
+                            self.interface_name = None
                             self.lldp_neighbor = YList()
                             self.lldp_neighbor.parent = self
                             self.lldp_neighbor.name = 'lldp_neighbor'
@@ -2173,43 +2173,24 @@ class Lldp(object):
                             """
                             lldp neighbor
                             
+                            .. attribute:: chassis_id
+                            
+                            	Chassis id
+                            	**type**\: str
+                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail>`
-                            
-                            .. attribute:: mib
-                            
-                            	MIB nieghbor info
-                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: receiving_parent_interface_name
-                            
-                            	Parent Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
-                            .. attribute:: chassis_id
+                            .. attribute:: enabled_capabilities
                             
-                            	Chassis id
-                            	**type**\: str
-                            
-                            .. attribute:: port_id_detail
-                            
-                            	Outgoing port identifier
+                            	Enabled Capabilities
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -2226,15 +2207,34 @@ class Lldp(object):
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: enabled_capabilities
+                            .. attribute:: mib
                             
-                            	Enabled Capabilities
-                            	**type**\: str
+                            	MIB nieghbor info
+                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
                             
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            .. attribute:: port_id_detail
+                            
+                            	Outgoing port identifier
+                            	**type**\: str
+                            
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: receiving_parent_interface_name
+                            
+                            	Parent Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -2245,70 +2245,33 @@ class Lldp(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.chassis_id = None
                                 self.detail = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail()
                                 self.detail.parent = self
-                                self.mib = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib()
-                                self.mib.parent = self
-                                self.receiving_interface_name = None
-                                self.receiving_parent_interface_name = None
                                 self.device_id = None
-                                self.chassis_id = None
-                                self.port_id_detail = None
+                                self.enabled_capabilities = None
                                 self.header_version = None
                                 self.hold_time = None
-                                self.enabled_capabilities = None
+                                self.mib = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib()
+                                self.mib.parent = self
                                 self.platform = None
+                                self.port_id_detail = None
+                                self.receiving_interface_name = None
+                                self.receiving_parent_interface_name = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
                                 
-                                .. attribute:: network_addresses
-                                
-                                	Management Addresses
-                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses>`
-                                
-                                .. attribute:: port_description
-                                
-                                	Port Description
-                                	**type**\: str
-                                
-                                .. attribute:: system_name
-                                
-                                	System Name
-                                	**type**\: str
-                                
-                                .. attribute:: system_description
-                                
-                                	System Description
-                                	**type**\: str
-                                
-                                .. attribute:: time_remaining
-                                
-                                	Time remaining
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: system_capabilities
-                                
-                                	System Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: enabled_capabilities
-                                
-                                	Enabled Capabilities
-                                	**type**\: str
-                                
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
                                 	**type**\: str
                                 
-                                .. attribute:: physical_media_capabilities
+                                .. attribute:: enabled_capabilities
                                 
-                                	Physical media capabilities
+                                	Enabled Capabilities
                                 	**type**\: str
                                 
                                 .. attribute:: media_attachment_unit_type
@@ -2318,9 +2281,46 @@ class Lldp(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: network_addresses
+                                
+                                	Management Addresses
+                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses>`
+                                
+                                .. attribute:: physical_media_capabilities
+                                
+                                	Physical media capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: port_description
+                                
+                                	Port Description
+                                	**type**\: str
+                                
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: system_capabilities
+                                
+                                	System Capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: system_description
+                                
+                                	System Description
+                                	**type**\: str
+                                
+                                .. attribute:: system_name
+                                
+                                	System Name
+                                	**type**\: str
+                                
+                                .. attribute:: time_remaining
+                                
+                                	Time remaining
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2334,18 +2334,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.auto_negotiation = None
+                                    self.enabled_capabilities = None
+                                    self.media_attachment_unit_type = None
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
-                                    self.port_description = None
-                                    self.system_name = None
-                                    self.system_description = None
-                                    self.time_remaining = None
-                                    self.system_capabilities = None
-                                    self.enabled_capabilities = None
-                                    self.auto_negotiation = None
                                     self.physical_media_capabilities = None
-                                    self.media_attachment_unit_type = None
+                                    self.port_description = None
                                     self.port_vlan_id = None
+                                    self.system_capabilities = None
+                                    self.system_description = None
+                                    self.system_name = None
+                                    self.time_remaining = None
 
 
                                 class NetworkAddresses(object):
@@ -2380,19 +2380,19 @@ class Lldp(object):
                                         	Network layer address
                                         	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
-                                        .. attribute:: ma_subtype
-                                        
-                                        	MA sub type
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
                                         .. attribute:: if_num
                                         
                                         	Interface num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: ma_subtype
+                                        
+                                        	MA sub type
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         
 
@@ -2405,8 +2405,8 @@ class Lldp(object):
                                             self.parent = None
                                             self.address = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
-                                            self.ma_subtype = None
                                             self.if_num = None
+                                            self.ma_subtype = None
 
 
                                         class Address(object):
@@ -2448,7 +2448,7 @@ class Lldp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
 
@@ -2478,7 +2478,7 @@ class Lldp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
 
@@ -2492,10 +2492,10 @@ class Lldp(object):
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.ma_subtype is not None:
+                                            if self.if_num is not None:
                                                 return True
 
-                                            if self.if_num is not None:
+                                            if self.ma_subtype is not None:
                                                 return True
 
                                             return False
@@ -2508,7 +2508,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:network-addresses'
 
@@ -2534,7 +2534,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
 
@@ -2545,37 +2545,37 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.port_description is not None:
-                                        return True
-
-                                    if self.system_name is not None:
-                                        return True
-
-                                    if self.system_description is not None:
-                                        return True
-
-                                    if self.time_remaining is not None:
-                                        return True
-
-                                    if self.system_capabilities is not None:
+                                    if self.auto_negotiation is not None:
                                         return True
 
                                     if self.enabled_capabilities is not None:
                                         return True
 
-                                    if self.auto_negotiation is not None:
+                                    if self.media_attachment_unit_type is not None:
+                                        return True
+
+                                    if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
                                     if self.physical_media_capabilities is not None:
                                         return True
 
-                                    if self.media_attachment_unit_type is not None:
+                                    if self.port_description is not None:
                                         return True
 
                                     if self.port_vlan_id is not None:
+                                        return True
+
+                                    if self.system_capabilities is not None:
+                                        return True
+
+                                    if self.system_description is not None:
+                                        return True
+
+                                    if self.system_name is not None:
+                                        return True
+
+                                    if self.time_remaining is not None:
                                         return True
 
                                     return False
@@ -2590,36 +2590,12 @@ class Lldp(object):
                                 """
                                 MIB nieghbor info
                                 
-                                .. attribute:: unknown_tlv_list
+                                .. attribute:: chassis_id_len
                                 
-                                	Unknown TLV list
-                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
-                                
-                                .. attribute:: org_def_tlv_list
-                                
-                                	Org Def TLV list
-                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList>`
-                                
-                                .. attribute:: rem_time_mark
-                                
-                                	TimeFilter
+                                	Chassis ID length
                                 	**type**\: int
                                 
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_local_port_num
-                                
-                                	LldpPortNumber
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_index
-                                
-                                	lldpRemIndex
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	**range:** 0..65535
                                 
                                 .. attribute:: chassis_id_sub_type
                                 
@@ -2628,9 +2604,21 @@ class Lldp(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: chassis_id_len
+                                .. attribute:: combined_capabilities
                                 
-                                	Chassis ID length
+                                	Supported and combined cpabilities
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: org_def_tlv_list
+                                
+                                	Org Def TLV list
+                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                .. attribute:: port_id_len
+                                
+                                	Port ID length
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -2642,19 +2630,31 @@ class Lldp(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: port_id_len
+                                .. attribute:: rem_index
                                 
-                                	Port ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: combined_capabilities
-                                
-                                	Supported and combined cpabilities
+                                	lldpRemIndex
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_local_port_num
+                                
+                                	LldpPortNumber
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_time_mark
+                                
+                                	TimeFilter
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: unknown_tlv_list
+                                
+                                	Unknown TLV list
+                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 
 
@@ -2665,18 +2665,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList()
-                                    self.unknown_tlv_list.parent = self
+                                    self.chassis_id_len = None
+                                    self.chassis_id_sub_type = None
+                                    self.combined_capabilities = None
                                     self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList()
                                     self.org_def_tlv_list.parent = self
-                                    self.rem_time_mark = None
-                                    self.rem_local_port_num = None
-                                    self.rem_index = None
-                                    self.chassis_id_sub_type = None
-                                    self.chassis_id_len = None
-                                    self.port_id_sub_type = None
                                     self.port_id_len = None
-                                    self.combined_capabilities = None
+                                    self.port_id_sub_type = None
+                                    self.rem_index = None
+                                    self.rem_local_port_num = None
+                                    self.rem_time_mark = None
+                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList()
+                                    self.unknown_tlv_list.parent = self
 
 
                                 class UnknownTlvList(object):
@@ -2735,7 +2735,7 @@ class Lldp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-unknown-tlv-entry'
 
@@ -2762,7 +2762,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:unknown-tlv-list'
 
@@ -2820,19 +2820,19 @@ class Lldp(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: tlv_subtype
-                                        
-                                        	Org Def TLV subtype
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
                                         .. attribute:: tlv_info_indes
                                         
                                         	lldpRemOrgDefInfoIndex
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_subtype
+                                        
+                                        	Org Def TLV subtype
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         .. attribute:: tlv_value
                                         
@@ -2851,14 +2851,14 @@ class Lldp(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.oui = None
-                                            self.tlv_subtype = None
                                             self.tlv_info_indes = None
+                                            self.tlv_subtype = None
                                             self.tlv_value = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
 
@@ -2872,10 +2872,10 @@ class Lldp(object):
                                             if self.oui is not None:
                                                 return True
 
-                                            if self.tlv_subtype is not None:
+                                            if self.tlv_info_indes is not None:
                                                 return True
 
-                                            if self.tlv_info_indes is not None:
+                                            if self.tlv_subtype is not None:
                                                 return True
 
                                             if self.tlv_value is not None:
@@ -2891,7 +2891,7 @@ class Lldp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
 
@@ -2917,7 +2917,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:mib'
 
@@ -2928,34 +2928,34 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.rem_time_mark is not None:
-                                        return True
-
-                                    if self.rem_local_port_num is not None:
-                                        return True
-
-                                    if self.rem_index is not None:
+                                    if self.chassis_id_len is not None:
                                         return True
 
                                     if self.chassis_id_sub_type is not None:
                                         return True
 
-                                    if self.chassis_id_len is not None:
+                                    if self.combined_capabilities is not None:
                                         return True
 
-                                    if self.port_id_sub_type is not None:
+                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
                                         return True
 
                                     if self.port_id_len is not None:
                                         return True
 
-                                    if self.combined_capabilities is not None:
+                                    if self.port_id_sub_type is not None:
+                                        return True
+
+                                    if self.rem_index is not None:
+                                        return True
+
+                                    if self.rem_local_port_num is not None:
+                                        return True
+
+                                    if self.rem_time_mark is not None:
+                                        return True
+
+                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
                                     return False
@@ -2968,7 +2968,7 @@ class Lldp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-neighbor'
 
@@ -2979,25 +2979,16 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.chassis_id is not None:
+                                    return True
+
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.mib is not None and self.mib._has_data():
-                                    return True
-
-                                if self.receiving_interface_name is not None:
-                                    return True
-
-                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 if self.device_id is not None:
                                     return True
 
-                                if self.chassis_id is not None:
-                                    return True
-
-                                if self.port_id_detail is not None:
+                                if self.enabled_capabilities is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -3006,10 +2997,19 @@ class Lldp(object):
                                 if self.hold_time is not None:
                                     return True
 
-                                if self.enabled_capabilities is not None:
+                                if self.mib is not None and self.mib._has_data():
                                     return True
 
                                 if self.platform is not None:
+                                    return True
+
+                                if self.port_id_detail is not None:
+                                    return True
+
+                                if self.receiving_interface_name is not None:
+                                    return True
+
+                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 return False
@@ -3022,7 +3022,7 @@ class Lldp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:summary'
 
@@ -3033,10 +3033,10 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.interface_name is not None:
+                            if self.device_id is not None:
                                 return True
 
-                            if self.device_id is not None:
+                            if self.interface_name is not None:
                                 return True
 
                             if self.lldp_neighbor is not None:
@@ -3054,7 +3054,7 @@ class Lldp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:summaries'
 
@@ -3080,7 +3080,7 @@ class Lldp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:neighbors'
 
@@ -3091,10 +3091,10 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.devices is not None and self.devices._has_data():
+                    if self.details is not None and self.details._has_data():
                         return True
 
-                    if self.details is not None and self.details._has_data():
+                    if self.devices is not None and self.devices._has_data():
                         return True
 
                     if self.summaries is not None and self.summaries._has_data():
@@ -3144,10 +3144,12 @@ class Lldp(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: local_network_addresses
+                    .. attribute:: if_index
                     
-                    	Local Management Addresses
-                    	**type**\: :py:class:`LocalNetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
+                    	ifIndex
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: interface_name_xr
                     
@@ -3156,36 +3158,15 @@ class Lldp(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: tx_enabled
+                    .. attribute:: local_network_addresses
                     
-                    	TX Enabled
-                    	**type**\: int
+                    	Local Management Addresses
+                    	**type**\: :py:class:`LocalNetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
                     
-                    	**range:** 0..255
+                    .. attribute:: port_description
                     
-                    .. attribute:: rx_enabled
-                    
-                    	RX Enabled
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: tx_state
-                    
-                    	TX State
+                    	Port Description
                     	**type**\: str
-                    
-                    .. attribute:: rx_state
-                    
-                    	RX State
-                    	**type**\: str
-                    
-                    .. attribute:: if_index
-                    
-                    	ifIndex
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: port_id
                     
@@ -3199,9 +3180,28 @@ class Lldp(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: port_description
+                    .. attribute:: rx_enabled
                     
-                    	Port Description
+                    	RX Enabled
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: rx_state
+                    
+                    	RX State
+                    	**type**\: str
+                    
+                    .. attribute:: tx_enabled
+                    
+                    	TX Enabled
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: tx_state
+                    
+                    	TX State
                     	**type**\: str
                     
                     
@@ -3214,17 +3214,17 @@ class Lldp(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
+                        self.if_index = None
+                        self.interface_name_xr = None
                         self.local_network_addresses = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses()
                         self.local_network_addresses.parent = self
-                        self.interface_name_xr = None
-                        self.tx_enabled = None
-                        self.rx_enabled = None
-                        self.tx_state = None
-                        self.rx_state = None
-                        self.if_index = None
+                        self.port_description = None
                         self.port_id = None
                         self.port_id_sub_type = None
-                        self.port_description = None
+                        self.rx_enabled = None
+                        self.rx_state = None
+                        self.tx_enabled = None
+                        self.tx_state = None
 
 
                     class LocalNetworkAddresses(object):
@@ -3259,19 +3259,19 @@ class Lldp(object):
                             	Network layer address
                             	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address>`
                             
-                            .. attribute:: ma_subtype
-                            
-                            	MA sub type
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
                             .. attribute:: if_num
                             
                             	Interface num
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: ma_subtype
+                            
+                            	MA sub type
+                            	**type**\: int
+                            
+                            	**range:** 0..255
                             
                             
 
@@ -3284,8 +3284,8 @@ class Lldp(object):
                                 self.parent = None
                                 self.address = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address()
                                 self.address.parent = self
-                                self.ma_subtype = None
                                 self.if_num = None
+                                self.ma_subtype = None
 
 
                             class Address(object):
@@ -3327,7 +3327,7 @@ class Lldp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
 
@@ -3357,7 +3357,7 @@ class Lldp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
 
@@ -3371,10 +3371,10 @@ class Lldp(object):
                                 if self.address is not None and self.address._has_data():
                                     return True
 
-                                if self.ma_subtype is not None:
+                                if self.if_num is not None:
                                     return True
 
-                                if self.if_num is not None:
+                                if self.ma_subtype is not None:
                                     return True
 
                                 return False
@@ -3387,7 +3387,7 @@ class Lldp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:local-network-addresses'
 
@@ -3413,9 +3413,9 @@ class Lldp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:interface[Cisco-IOS-XR-ethernet-lldp-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -3429,25 +3429,16 @@ class Lldp(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.local_network_addresses is not None and self.local_network_addresses._has_data():
+                        if self.if_index is not None:
                             return True
 
                         if self.interface_name_xr is not None:
                             return True
 
-                        if self.tx_enabled is not None:
+                        if self.local_network_addresses is not None and self.local_network_addresses._has_data():
                             return True
 
-                        if self.rx_enabled is not None:
-                            return True
-
-                        if self.tx_state is not None:
-                            return True
-
-                        if self.rx_state is not None:
-                            return True
-
-                        if self.if_index is not None:
+                        if self.port_description is not None:
                             return True
 
                         if self.port_id is not None:
@@ -3456,7 +3447,16 @@ class Lldp(object):
                         if self.port_id_sub_type is not None:
                             return True
 
-                        if self.port_description is not None:
+                        if self.rx_enabled is not None:
+                            return True
+
+                        if self.rx_state is not None:
+                            return True
+
+                        if self.tx_enabled is not None:
+                            return True
+
+                        if self.tx_state is not None:
                             return True
 
                         return False
@@ -3469,7 +3469,7 @@ class Lldp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:interfaces'
 
@@ -3497,23 +3497,9 @@ class Lldp(object):
                 """
                 The LLDP traffic statistics for this node
                 
-                .. attribute:: transmitted_packets
-                
-                	Transmitted packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: aged_out_entries
                 
                 	Aged out entries
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: discarded_packets
-                
-                	Discarded packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3525,9 +3511,9 @@ class Lldp(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: received_packets
+                .. attribute:: discarded_packets
                 
-                	Received packets
+                	Discarded packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3539,9 +3525,9 @@ class Lldp(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: unrecognized_tl_vs
+                .. attribute:: encapsulation_errors
                 
-                	Unrecognized TLVs
+                	Transmission errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3553,13 +3539,6 @@ class Lldp(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: encapsulation_errors
-                
-                	Transmission errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: queue_overflow_errors
                 
                 	Queue overflows
@@ -3567,9 +3546,30 @@ class Lldp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: received_packets
+                
+                	Received packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: table_overflow_errors
                 
                 	Table overflows
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: transmitted_packets
+                
+                	Transmitted packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: unrecognized_tl_vs
+                
+                	Unrecognized TLVs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3583,22 +3583,22 @@ class Lldp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.transmitted_packets = None
                     self.aged_out_entries = None
-                    self.discarded_packets = None
                     self.bad_packets = None
-                    self.received_packets = None
+                    self.discarded_packets = None
                     self.discarded_tl_vs = None
-                    self.unrecognized_tl_vs = None
-                    self.out_of_memory_errors = None
                     self.encapsulation_errors = None
+                    self.out_of_memory_errors = None
                     self.queue_overflow_errors = None
+                    self.received_packets = None
                     self.table_overflow_errors = None
+                    self.transmitted_packets = None
+                    self.unrecognized_tl_vs = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:statistics'
 
@@ -3609,37 +3609,37 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.transmitted_packets is not None:
-                        return True
-
                     if self.aged_out_entries is not None:
-                        return True
-
-                    if self.discarded_packets is not None:
                         return True
 
                     if self.bad_packets is not None:
                         return True
 
-                    if self.received_packets is not None:
+                    if self.discarded_packets is not None:
                         return True
 
                     if self.discarded_tl_vs is not None:
                         return True
 
-                    if self.unrecognized_tl_vs is not None:
+                    if self.encapsulation_errors is not None:
                         return True
 
                     if self.out_of_memory_errors is not None:
                         return True
 
-                    if self.encapsulation_errors is not None:
-                        return True
-
                     if self.queue_overflow_errors is not None:
                         return True
 
+                    if self.received_packets is not None:
+                        return True
+
                     if self.table_overflow_errors is not None:
+                        return True
+
+                    if self.transmitted_packets is not None:
+                        return True
+
+                    if self.unrecognized_tl_vs is not None:
                         return True
 
                     return False
@@ -3652,7 +3652,7 @@ class Lldp(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ethernet-lldp-oper:lldp/Cisco-IOS-XR-ethernet-lldp-oper:nodes/Cisco-IOS-XR-ethernet-lldp-oper:node[Cisco-IOS-XR-ethernet-lldp-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -3666,10 +3666,10 @@ class Lldp(object):
                 if self.node_name is not None:
                     return True
 
-                if self.neighbors is not None and self.neighbors._has_data():
+                if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces._has_data():
+                if self.neighbors is not None and self.neighbors._has_data():
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():

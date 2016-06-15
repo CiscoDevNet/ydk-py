@@ -52,7 +52,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -93,15 +93,15 @@ class Components(object):
         	Configuration data for each component
         	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_inventory.Components.Component.Config>`
         
-        .. attribute:: state
-        
-        	Operational state data for each component
-        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_inventory.Components.Component.State>`
-        
         .. attribute:: properties
         
         	Enclosing container 
         	**type**\: :py:class:`Properties <ydk.models.openconfig.openconfig_inventory.Components.Component.Properties>`
+        
+        .. attribute:: state
+        
+        	Operational state data for each component
+        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_inventory.Components.Component.State>`
         
         .. attribute:: subcomponents
         
@@ -120,10 +120,10 @@ class Components(object):
             self.name = None
             self.config = Components.Component.Config()
             self.config.parent = self
-            self.state = Components.Component.State()
-            self.state.parent = self
             self.properties = Components.Component.Properties()
             self.properties.parent = self
+            self.state = Components.Component.State()
+            self.state.parent = self
             self.subcomponents = Components.Component.Subcomponents()
             self.subcomponents.parent = self
 
@@ -151,7 +151,7 @@ class Components(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-inventory:config'
 
@@ -177,37 +177,19 @@ class Components(object):
             """
             Operational state data for each component
             
-            .. attribute:: name
-            
-            	Device name for the component \-\- this may not be a configurable parameter on many implementations
-            	**type**\: str
-            
-            .. attribute:: type
-            
-            	Type of component as identified by the system
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`OpenconfigHardwareComponent_Identity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigHardwareComponent_Identity>`
-            
-            
-            ----
-            	**type**\: :py:class:`OpenconfigSoftwareComponent_Identity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigSoftwareComponent_Identity>`
-            
-            
-            ----
-            .. attribute:: id
-            
-            	Unique identifier assigned by the system for the component
-            	**type**\: str
-            
             .. attribute:: description
             
             	System\-supplied description of the component
             	**type**\: str
             
-            .. attribute:: serial_no
+            .. attribute:: id
             
-            	System\-assigned serial number of the component
+            	Unique identifier assigned by the system for the component
+            	**type**\: str
+            
+            .. attribute:: name
+            
+            	Device name for the component \-\- this may not be a configurable parameter on many implementations
             	**type**\: str
             
             .. attribute:: part_no
@@ -215,6 +197,24 @@ class Components(object):
             	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
             	**type**\: str
             
+            .. attribute:: serial_no
+            
+            	System\-assigned serial number of the component
+            	**type**\: str
+            
+            .. attribute:: type
+            
+            	Type of component as identified by the system
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`OpenconfigHardwareComponentIdentity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigHardwareComponentIdentity>`
+            
+            
+            ----
+            	**type**\: :py:class:`OpenconfigSoftwareComponentIdentity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigSoftwareComponentIdentity>`
+            
+            
+            ----
             
 
             """
@@ -224,17 +224,17 @@ class Components(object):
 
             def __init__(self):
                 self.parent = None
-                self.name = None
-                self.type = None
-                self.id = None
                 self.description = None
-                self.serial_no = None
+                self.id = None
+                self.name = None
                 self.part_no = None
+                self.serial_no = None
+                self.type = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-inventory:state'
 
@@ -245,22 +245,22 @@ class Components(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.name is not None:
-                    return True
-
-                if self.type is not None:
+                if self.description is not None:
                     return True
 
                 if self.id is not None:
                     return True
 
-                if self.description is not None:
+                if self.name is not None:
+                    return True
+
+                if self.part_no is not None:
                     return True
 
                 if self.serial_no is not None:
                     return True
 
-                if self.part_no is not None:
+                if self.type is not None:
                     return True
 
                 return False
@@ -357,7 +357,7 @@ class Components(object):
                     
                     
                     ----
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
@@ -384,7 +384,7 @@ class Components(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-inventory:config'
 
@@ -413,6 +413,11 @@ class Components(object):
                     """
                     Operational state data for each property
                     
+                    .. attribute:: configurable
+                    
+                    	Indication whether the property is user\-configurable
+                    	**type**\: bool
+                    
                     .. attribute:: name
                     
                     	System\-supplied name of the property \-\- this is typically non\-configurable
@@ -437,7 +442,7 @@ class Components(object):
                     
                     
                     ----
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
@@ -449,11 +454,6 @@ class Components(object):
                     
                     
                     ----
-                    .. attribute:: configurable
-                    
-                    	Indication whether the property is user\-configurable
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -463,14 +463,14 @@ class Components(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.configurable = None
                         self.name = None
                         self.value = None
-                        self.configurable = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-inventory:state'
 
@@ -481,13 +481,13 @@ class Components(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.configurable is not None:
+                            return True
+
                         if self.name is not None:
                             return True
 
                         if self.value is not None:
-                            return True
-
-                        if self.configurable is not None:
                             return True
 
                         return False
@@ -500,9 +500,9 @@ class Components(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return self.parent._common_path +'/openconfig-inventory:property[openconfig-inventory:name = ' + str(self.name) + ']'
 
@@ -532,7 +532,7 @@ class Components(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-inventory:properties'
 
@@ -637,7 +637,7 @@ class Components(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-inventory:config'
 
@@ -688,7 +688,7 @@ class Components(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-inventory:state'
 
@@ -715,9 +715,9 @@ class Components(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return self.parent._common_path +'/openconfig-inventory:subcomponent[openconfig-inventory:name = ' + str(self.name) + ']'
 
@@ -747,7 +747,7 @@ class Components(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-inventory:subcomponents'
 
@@ -773,7 +773,7 @@ class Components(object):
         @property
         def _common_path(self):
             if self.name is None:
-                raise YPYDataValidationError('Key property name is None')
+                raise YPYModelError('Key property name is None')
 
             return '/openconfig-inventory:components/openconfig-inventory:component[openconfig-inventory:name = ' + str(self.name) + ']'
 
@@ -790,10 +790,10 @@ class Components(object):
             if self.config is not None and self.config._has_data():
                 return True
 
-            if self.state is not None and self.state._has_data():
+            if self.properties is not None and self.properties._has_data():
                 return True
 
-            if self.properties is not None and self.properties._has_data():
+            if self.state is not None and self.state._has_data():
                 return True
 
             if self.subcomponents is not None and self.subcomponents._has_data():

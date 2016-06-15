@@ -1,6 +1,3 @@
-.. image::  https://travis-ci.org/CiscoDevNet/ydk-py.svg?branch=master
-    :target: https://travis-ci.org/CiscoDevNet/ydk-py
-
 Getting Started
 ===============
 
@@ -10,7 +7,7 @@ Overview:
 YDK or YANG Development Kit is a Software Development Kit that provides API's that are modeled
 in YANG. The main goal of YDK is to reduce the learning curve by expressing the model semantics
 in API and abstracting protocol/encoding details. The API's are generated from YANG models found
-in this profile file `https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/ydk/ydk_0_4_1.json` using the ydk-gen tool `https://github.com/CiscoDevNet/ydk-gen` .
+in this profile file `https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/ydk/ydk_0_4_2.json` using the ydk-gen tool `https://github.com/CiscoDevNet/ydk-gen` .
 
 System Requirements:
 --------------------
@@ -41,13 +38,9 @@ Create a new virtual environment::
     $ virtualenv -p python2.7 ydk-py
     $ source ydk-py/bin/activate
 
-Install requirements::
-
-    (ydk-py)$ pip install -r requirements.txt
-
 Install YDK-Py::
 
-    (ydk-py)$ pip install dist/ydk-0.4.1.tar.gz
+    (ydk-py)$ pip install dist/ydk-0.4.2.tar.gz
 
 Notes:
 ------
@@ -155,7 +148,7 @@ Uses common Python logging.  All modules are based off "ydk" log::
 
 Release Notes
 --------------
-The current release version is 0.4.1 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current release version is 0.4.2 (beta). YDK-Py is licensed under the Apache 2.0 License.
 
 Documentation and Support
 --------------------------

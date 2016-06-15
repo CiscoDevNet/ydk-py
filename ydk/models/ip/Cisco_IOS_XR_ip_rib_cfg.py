@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -115,17 +115,17 @@ class Rib(object):
                 """
                 Redistribution history related configs
                 
-                .. attribute:: keep
-                
-                	Retain redistribution history after disconnect
-                	**type**\: :py:class:`Keep <ydk.models.ip.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory.Keep>`
-                
                 .. attribute:: bcdl_client
                 
                 	Maximum BCDL redistribution history size
                 	**type**\: int
                 
                 	**range:** 10..2000000
+                
+                .. attribute:: keep
+                
+                	Retain redistribution history after disconnect
+                	**type**\: :py:class:`Keep <ydk.models.ip.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory.Keep>`
                 
                 .. attribute:: protocol_client
                 
@@ -143,9 +143,9 @@ class Rib(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.bcdl_client = None
                     self.keep = Rib.Af.Ipv4.RedistributionHistory.Keep()
                     self.keep.parent = self
-                    self.bcdl_client = None
                     self.protocol_client = None
 
 
@@ -203,10 +203,10 @@ class Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.keep is not None and self.keep._has_data():
+                    if self.bcdl_client is not None:
                         return True
 
-                    if self.bcdl_client is not None:
+                    if self.keep is not None and self.keep._has_data():
                         return True
 
                     if self.protocol_client is not None:
@@ -277,17 +277,17 @@ class Rib(object):
                 """
                 Redistribution history related configs
                 
-                .. attribute:: keep
-                
-                	Retain redistribution history after disconnect
-                	**type**\: :py:class:`Keep <ydk.models.ip.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory.Keep>`
-                
                 .. attribute:: bcdl_client
                 
                 	Maximum BCDL redistribution history size
                 	**type**\: int
                 
                 	**range:** 10..2000000
+                
+                .. attribute:: keep
+                
+                	Retain redistribution history after disconnect
+                	**type**\: :py:class:`Keep <ydk.models.ip.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory.Keep>`
                 
                 .. attribute:: protocol_client
                 
@@ -305,9 +305,9 @@ class Rib(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.bcdl_client = None
                     self.keep = Rib.Af.Ipv6.RedistributionHistory.Keep()
                     self.keep.parent = self
-                    self.bcdl_client = None
                     self.protocol_client = None
 
 
@@ -365,10 +365,10 @@ class Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.keep is not None and self.keep._has_data():
+                    if self.bcdl_client is not None:
                         return True
 
-                    if self.bcdl_client is not None:
+                    if self.keep is not None and self.keep._has_data():
                         return True
 
                     if self.protocol_client is not None:

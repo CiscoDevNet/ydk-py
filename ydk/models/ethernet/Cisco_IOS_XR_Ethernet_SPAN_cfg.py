@@ -25,7 +25,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClassEnum
@@ -203,15 +203,15 @@ class SpanMonitorSession(object):
             
             	**range:** 0..79
             
-            .. attribute:: destination
-            
-            	Specify a destination
-            	**type**\: :py:class:`Destination <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
-            
             .. attribute:: class_
             
             	Enable a Monitor Session.  Setting this item causes the Monitor Session to be created
             	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+            
+            .. attribute:: destination
+            
+            	Specify a destination
+            	**type**\: :py:class:`Destination <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
             
             
 
@@ -223,19 +223,14 @@ class SpanMonitorSession(object):
             def __init__(self):
                 self.parent = None
                 self.session = None
+                self.class_ = None
                 self.destination = SpanMonitorSession.Sessions.Session.Destination()
                 self.destination.parent = self
-                self.class_ = None
 
 
             class Destination(object):
                 """
                 Specify a destination
-                
-                .. attribute:: destination_type
-                
-                	Specify the type of destination
-                	**type**\: :py:class:`SpanDestinationEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestinationEnum>`
                 
                 .. attribute:: destination_interface_name
                 
@@ -258,6 +253,11 @@ class SpanMonitorSession(object):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                .. attribute:: destination_type
+                
+                	Specify the type of destination
+                	**type**\: :py:class:`SpanDestinationEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestinationEnum>`
+                
                 
 
                 """
@@ -267,15 +267,15 @@ class SpanMonitorSession(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.destination_type = None
                     self.destination_interface_name = None
                     self.destination_ipv4_address = None
                     self.destination_ipv6_address = None
+                    self.destination_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:destination'
 
@@ -286,9 +286,6 @@ class SpanMonitorSession(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.destination_type is not None:
-                        return True
-
                     if self.destination_interface_name is not None:
                         return True
 
@@ -296,6 +293,9 @@ class SpanMonitorSession(object):
                         return True
 
                     if self.destination_ipv6_address is not None:
+                        return True
+
+                    if self.destination_type is not None:
                         return True
 
                     return False
@@ -308,7 +308,7 @@ class SpanMonitorSession(object):
             @property
             def _common_path(self):
                 if self.session is None:
-                    raise YPYDataValidationError('Key property session is None')
+                    raise YPYModelError('Key property session is None')
 
                 return '/Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-cfg:sessions/Cisco-IOS-XR-Ethernet-SPAN-cfg:session[Cisco-IOS-XR-Ethernet-SPAN-cfg:session = ' + str(self.session) + ']'
 
@@ -322,10 +322,10 @@ class SpanMonitorSession(object):
                 if self.session is not None:
                     return True
 
-                if self.destination is not None and self.destination._has_data():
+                if self.class_ is not None:
                     return True
 
-                if self.class_ is not None:
+                if self.destination is not None and self.destination._has_data():
                     return True
 
                 return False

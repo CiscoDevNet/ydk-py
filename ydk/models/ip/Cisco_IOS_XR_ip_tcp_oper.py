@@ -22,7 +22,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -1497,25 +1497,25 @@ class TcpConnection(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: statistics
+            .. attribute:: brief_informations
             
-            	Statistics of all TCP connections
-            	**type**\: :py:class:`Statistics <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics>`
-            
-            .. attribute:: extended_information
-            
-            	Extended Filter related Information
-            	**type**\: :py:class:`ExtendedInformation <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation>`
+            	Table listing connections for which brief information is provided.Note that not all connections are listed in the brief table
+            	**type**\: :py:class:`BriefInformations <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations>`
             
             .. attribute:: detail_informations
             
             	Table listing TCP connections for which detailed information is provided
             	**type**\: :py:class:`DetailInformations <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations>`
             
-            .. attribute:: brief_informations
+            .. attribute:: extended_information
             
-            	Table listing connections for which brief information is provided.Note that not all connections are listed in the brief table
-            	**type**\: :py:class:`BriefInformations <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations>`
+            	Extended Filter related Information
+            	**type**\: :py:class:`ExtendedInformation <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation>`
+            
+            .. attribute:: statistics
+            
+            	Statistics of all TCP connections
+            	**type**\: :py:class:`Statistics <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics>`
             
             
 
@@ -1527,14 +1527,14 @@ class TcpConnection(object):
             def __init__(self):
                 self.parent = None
                 self.id = None
-                self.statistics = TcpConnection.Nodes.Node.Statistics()
-                self.statistics.parent = self
-                self.extended_information = TcpConnection.Nodes.Node.ExtendedInformation()
-                self.extended_information.parent = self
-                self.detail_informations = TcpConnection.Nodes.Node.DetailInformations()
-                self.detail_informations.parent = self
                 self.brief_informations = TcpConnection.Nodes.Node.BriefInformations()
                 self.brief_informations.parent = self
+                self.detail_informations = TcpConnection.Nodes.Node.DetailInformations()
+                self.detail_informations.parent = self
+                self.extended_information = TcpConnection.Nodes.Node.ExtendedInformation()
+                self.extended_information.parent = self
+                self.statistics = TcpConnection.Nodes.Node.Statistics()
+                self.statistics.parent = self
 
 
             class Statistics(object):
@@ -1669,9 +1669,9 @@ class TcpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.client_id is None:
-                                raise YPYDataValidationError('Key property client_id is None')
+                                raise YPYModelError('Key property client_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:client[Cisco-IOS-XR-ip-tcp-oper:client-id = ' + str(self.client_id) + ']'
 
@@ -1713,7 +1713,7 @@ class TcpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:clients'
 
@@ -1772,46 +1772,60 @@ class TcpConnection(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: read_io_counts
-                        
-                        	Read  I/O counts
-                        	**type**\: :py:class:`ReadIoCounts <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts>`
-                        
-                        .. attribute:: write_io_counts
-                        
-                        	Write I/O counts
-                        	**type**\: :py:class:`WriteIoCounts <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts>`
-                        
                         .. attribute:: async_session_stats
                         
                         	Statistics of Async TCP Sessions
                         	**type**\: :py:class:`AsyncSessionStats <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats>`
                         
-                        .. attribute:: pcb
+                        .. attribute:: is_paw_socket
                         
-                        	PCB Address
-                        	**type**\: int
+                        	PAW or non\-PAW socket?
+                        	**type**\: bool
+                        
+                        .. attribute:: packets_received
+                        
+                        	Packets received from network
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: vrf_id
-                        
-                        	VRF Id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: packets_sent
                         
                         	Packets received from application
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: xipc_pulse_received
+                        .. attribute:: pcb
                         
-                        	XIPC pulses received from application
+                        	PCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: read_io_counts
+                        
+                        	Read  I/O counts
+                        	**type**\: :py:class:`ReadIoCounts <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts>`
+                        
+                        .. attribute:: read_io_time
+                        
+                        	Time at which receive buffer was last read from
                         	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: receive_queue_failed
+                        
+                        	Received packets failed to be queued to application
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: received_packets_queued
+                        
+                        	Received packets queued to application
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1825,14 +1839,14 @@ class TcpConnection(object):
                         .. attribute:: send_packets_queued
                         
                         	Packets queued to v4/v6 IO
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: send_packets_queued_net_io
                         
                         	Packets queued to NetIO
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1850,27 +1864,6 @@ class TcpConnection(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: packets_received
-                        
-                        	Packets received from network
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: receive_queue_failed
-                        
-                        	Received packets failed to be queued to application
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: received_packets_queued
-                        
-                        	Received packets queued to application
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: send_window_shrink_ignored
                         
                         	No. of times send window shrinkage by peer was ignored
@@ -1878,17 +1871,17 @@ class TcpConnection(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_paw_socket
+                        .. attribute:: vrf_id
                         
-                        	PAW or non\-PAW socket?
-                        	**type**\: bool
-                        
-                        .. attribute:: read_io_time
-                        
-                        	Time at which receive buffer was last read from
+                        	VRF Id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: write_io_counts
+                        
+                        	Write I/O counts
+                        	**type**\: :py:class:`WriteIoCounts <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts>`
                         
                         .. attribute:: write_io_time
                         
@@ -1896,6 +1889,13 @@ class TcpConnection(object):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: xipc_pulse_received
+                        
+                        	XIPC pulses received from application
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1907,40 +1907,33 @@ class TcpConnection(object):
                         def __init__(self):
                             self.parent = None
                             self.id = None
-                            self.read_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts()
-                            self.read_io_counts.parent = self
-                            self.write_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts()
-                            self.write_io_counts.parent = self
                             self.async_session_stats = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats()
                             self.async_session_stats.parent = self
-                            self.pcb = None
-                            self.vrf_id = None
+                            self.is_paw_socket = None
+                            self.packets_received = None
                             self.packets_sent = None
-                            self.xipc_pulse_received = None
+                            self.pcb = None
+                            self.read_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts()
+                            self.read_io_counts.parent = self
+                            self.read_io_time = None
+                            self.receive_queue_failed = None
+                            self.received_packets_queued = None
                             self.segment_instruction_received = None
                             self.send_packets_queued = None
                             self.send_packets_queued_net_io = None
                             self.send_queue_failed = None
                             self.send_queue_net_io_failed = None
-                            self.packets_received = None
-                            self.receive_queue_failed = None
-                            self.received_packets_queued = None
                             self.send_window_shrink_ignored = None
-                            self.is_paw_socket = None
-                            self.read_io_time = None
+                            self.vrf_id = None
+                            self.write_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts()
+                            self.write_io_counts.parent = self
                             self.write_io_time = None
+                            self.xipc_pulse_received = None
 
 
                         class ReadIoCounts(object):
                             """
                             Read  I/O counts
-                            
-                            .. attribute:: io_count
-                            
-                            	Number of I/O operations done by application
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: arm_count
                             
@@ -1949,16 +1942,23 @@ class TcpConnection(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: unarm_count
+                            .. attribute:: autoarm_count
                             
-                            	How many times socket was unarmed by application
+                            	How many times socket was auto\-armed by TCP
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: autoarm_count
+                            .. attribute:: io_count
                             
-                            	How many times socket was auto\-armed by TCP
+                            	Number of I/O operations done by application
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: unarm_count
+                            
+                            	How many times socket was unarmed by application
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1972,15 +1972,15 @@ class TcpConnection(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.io_count = None
                                 self.arm_count = None
-                                self.unarm_count = None
                                 self.autoarm_count = None
+                                self.io_count = None
+                                self.unarm_count = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:read-io-counts'
 
@@ -1991,16 +1991,16 @@ class TcpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.io_count is not None:
-                                    return True
-
                                 if self.arm_count is not None:
                                     return True
 
-                                if self.unarm_count is not None:
+                                if self.autoarm_count is not None:
                                     return True
 
-                                if self.autoarm_count is not None:
+                                if self.io_count is not None:
+                                    return True
+
+                                if self.unarm_count is not None:
                                     return True
 
                                 return False
@@ -2015,13 +2015,6 @@ class TcpConnection(object):
                             """
                             Write I/O counts
                             
-                            .. attribute:: io_count
-                            
-                            	Number of I/O operations done by application
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: arm_count
                             
                             	How many times socket was armed by application
@@ -2029,16 +2022,23 @@ class TcpConnection(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: unarm_count
+                            .. attribute:: autoarm_count
                             
-                            	How many times socket was unarmed by application
+                            	How many times socket was auto\-armed by TCP
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: autoarm_count
+                            .. attribute:: io_count
                             
-                            	How many times socket was auto\-armed by TCP
+                            	Number of I/O operations done by application
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: unarm_count
+                            
+                            	How many times socket was unarmed by application
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2052,15 +2052,15 @@ class TcpConnection(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.io_count = None
                                 self.arm_count = None
-                                self.unarm_count = None
                                 self.autoarm_count = None
+                                self.io_count = None
+                                self.unarm_count = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:write-io-counts'
 
@@ -2071,16 +2071,16 @@ class TcpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.io_count is not None:
-                                    return True
-
                                 if self.arm_count is not None:
                                     return True
 
-                                if self.unarm_count is not None:
+                                if self.autoarm_count is not None:
                                     return True
 
-                                if self.autoarm_count is not None:
+                                if self.io_count is not None:
+                                    return True
+
+                                if self.unarm_count is not None:
                                     return True
 
                                 return False
@@ -2100,37 +2100,9 @@ class TcpConnection(object):
                             	Flag of async session
                             	**type**\: bool
                             
-                            .. attribute:: data_write_success_num
+                            .. attribute:: control_read_error_num
                             
-                            	Number of successful data write to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_read_success_num
-                            
-                            	Number of successful data read from XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_write_error_num
-                            
-                            	Number of failed data write to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_read_error_num
-                            
-                            	Number of failed data read from XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: control_write_success_num
-                            
-                            	Number of successful control write to XIPC
+                            	Number of failed control read from XIPC
                             	**type**\: list of int
                             
                             	**range:** 0..4294967295
@@ -2149,9 +2121,30 @@ class TcpConnection(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: control_read_error_num
+                            .. attribute:: control_write_success_num
                             
-                            	Number of failed control read from XIPC
+                            	Number of successful control write to XIPC
+                            	**type**\: list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_read_byte
+                            
+                            	Number of bytes data has been read
+                            	**type**\: list of long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: data_read_error_num
+                            
+                            	Number of failed data read from XIPC
+                            	**type**\: list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_read_success_num
+                            
+                            	Number of successful data read from XIPC
                             	**type**\: list of int
                             
                             	**range:** 0..4294967295
@@ -2159,16 +2152,23 @@ class TcpConnection(object):
                             .. attribute:: data_write_byte
                             
                             	Number of bytes data has been written
-                            	**type**\: list of int
+                            	**type**\: list of long
                             
                             	**range:** 0..18446744073709551615
                             
-                            .. attribute:: data_read_byte
+                            .. attribute:: data_write_error_num
                             
-                            	Number of bytes data has been read
+                            	Number of failed data write to XIPC
                             	**type**\: list of int
                             
-                            	**range:** 0..18446744073709551615
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_write_success_num
+                            
+                            	Number of successful data write to XIPC
+                            	**type**\: list of int
+                            
+                            	**range:** 0..4294967295
                             
                             
 
@@ -2180,41 +2180,41 @@ class TcpConnection(object):
                             def __init__(self):
                                 self.parent = None
                                 self.async_session = None
-                                self.data_write_success_num = YLeafList()
-                                self.data_write_success_num.parent = self
-                                self.data_write_success_num.name = 'data_write_success_num'
-                                self.data_read_success_num = YLeafList()
-                                self.data_read_success_num.parent = self
-                                self.data_read_success_num.name = 'data_read_success_num'
-                                self.data_write_error_num = YLeafList()
-                                self.data_write_error_num.parent = self
-                                self.data_write_error_num.name = 'data_write_error_num'
-                                self.data_read_error_num = YLeafList()
-                                self.data_read_error_num.parent = self
-                                self.data_read_error_num.name = 'data_read_error_num'
-                                self.control_write_success_num = YLeafList()
-                                self.control_write_success_num.parent = self
-                                self.control_write_success_num.name = 'control_write_success_num'
+                                self.control_read_error_num = YLeafList()
+                                self.control_read_error_num.parent = self
+                                self.control_read_error_num.name = 'control_read_error_num'
                                 self.control_read_success_num = YLeafList()
                                 self.control_read_success_num.parent = self
                                 self.control_read_success_num.name = 'control_read_success_num'
                                 self.control_write_error_num = YLeafList()
                                 self.control_write_error_num.parent = self
                                 self.control_write_error_num.name = 'control_write_error_num'
-                                self.control_read_error_num = YLeafList()
-                                self.control_read_error_num.parent = self
-                                self.control_read_error_num.name = 'control_read_error_num'
-                                self.data_write_byte = YLeafList()
-                                self.data_write_byte.parent = self
-                                self.data_write_byte.name = 'data_write_byte'
+                                self.control_write_success_num = YLeafList()
+                                self.control_write_success_num.parent = self
+                                self.control_write_success_num.name = 'control_write_success_num'
                                 self.data_read_byte = YLeafList()
                                 self.data_read_byte.parent = self
                                 self.data_read_byte.name = 'data_read_byte'
+                                self.data_read_error_num = YLeafList()
+                                self.data_read_error_num.parent = self
+                                self.data_read_error_num.name = 'data_read_error_num'
+                                self.data_read_success_num = YLeafList()
+                                self.data_read_success_num.parent = self
+                                self.data_read_success_num.name = 'data_read_success_num'
+                                self.data_write_byte = YLeafList()
+                                self.data_write_byte.parent = self
+                                self.data_write_byte.name = 'data_write_byte'
+                                self.data_write_error_num = YLeafList()
+                                self.data_write_error_num.parent = self
+                                self.data_write_error_num.name = 'data_write_error_num'
+                                self.data_write_success_num = YLeafList()
+                                self.data_write_success_num.parent = self
+                                self.data_write_success_num.name = 'data_write_success_num'
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:async-session-stats'
 
@@ -2228,28 +2228,8 @@ class TcpConnection(object):
                                 if self.async_session is not None:
                                     return True
 
-                                if self.data_write_success_num is not None:
-                                    for child in self.data_write_success_num:
-                                        if child is not None:
-                                            return True
-
-                                if self.data_read_success_num is not None:
-                                    for child in self.data_read_success_num:
-                                        if child is not None:
-                                            return True
-
-                                if self.data_write_error_num is not None:
-                                    for child in self.data_write_error_num:
-                                        if child is not None:
-                                            return True
-
-                                if self.data_read_error_num is not None:
-                                    for child in self.data_read_error_num:
-                                        if child is not None:
-                                            return True
-
-                                if self.control_write_success_num is not None:
-                                    for child in self.control_write_success_num:
+                                if self.control_read_error_num is not None:
+                                    for child in self.control_read_error_num:
                                         if child is not None:
                                             return True
 
@@ -2263,8 +2243,23 @@ class TcpConnection(object):
                                         if child is not None:
                                             return True
 
-                                if self.control_read_error_num is not None:
-                                    for child in self.control_read_error_num:
+                                if self.control_write_success_num is not None:
+                                    for child in self.control_write_success_num:
+                                        if child is not None:
+                                            return True
+
+                                if self.data_read_byte is not None:
+                                    for child in self.data_read_byte:
+                                        if child is not None:
+                                            return True
+
+                                if self.data_read_error_num is not None:
+                                    for child in self.data_read_error_num:
+                                        if child is not None:
+                                            return True
+
+                                if self.data_read_success_num is not None:
+                                    for child in self.data_read_success_num:
                                         if child is not None:
                                             return True
 
@@ -2273,8 +2268,13 @@ class TcpConnection(object):
                                         if child is not None:
                                             return True
 
-                                if self.data_read_byte is not None:
-                                    for child in self.data_read_byte:
+                                if self.data_write_error_num is not None:
+                                    for child in self.data_write_error_num:
+                                        if child is not None:
+                                            return True
+
+                                if self.data_write_success_num is not None:
+                                    for child in self.data_write_success_num:
                                         if child is not None:
                                             return True
 
@@ -2288,9 +2288,9 @@ class TcpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:pcb[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -2304,25 +2304,31 @@ class TcpConnection(object):
                             if self.id is not None:
                                 return True
 
-                            if self.read_io_counts is not None and self.read_io_counts._has_data():
-                                return True
-
-                            if self.write_io_counts is not None and self.write_io_counts._has_data():
-                                return True
-
                             if self.async_session_stats is not None and self.async_session_stats._has_data():
                                 return True
 
-                            if self.pcb is not None:
+                            if self.is_paw_socket is not None:
                                 return True
 
-                            if self.vrf_id is not None:
+                            if self.packets_received is not None:
                                 return True
 
                             if self.packets_sent is not None:
                                 return True
 
-                            if self.xipc_pulse_received is not None:
+                            if self.pcb is not None:
+                                return True
+
+                            if self.read_io_counts is not None and self.read_io_counts._has_data():
+                                return True
+
+                            if self.read_io_time is not None:
+                                return True
+
+                            if self.receive_queue_failed is not None:
+                                return True
+
+                            if self.received_packets_queued is not None:
                                 return True
 
                             if self.segment_instruction_received is not None:
@@ -2340,25 +2346,19 @@ class TcpConnection(object):
                             if self.send_queue_net_io_failed is not None:
                                 return True
 
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.receive_queue_failed is not None:
-                                return True
-
-                            if self.received_packets_queued is not None:
-                                return True
-
                             if self.send_window_shrink_ignored is not None:
                                 return True
 
-                            if self.is_paw_socket is not None:
+                            if self.vrf_id is not None:
                                 return True
 
-                            if self.read_io_time is not None:
+                            if self.write_io_counts is not None and self.write_io_counts._has_data():
                                 return True
 
                             if self.write_io_time is not None:
+                                return True
+
+                            if self.xipc_pulse_received is not None:
                                 return True
 
                             return False
@@ -2371,7 +2371,7 @@ class TcpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:pcbs'
 
@@ -2399,69 +2399,6 @@ class TcpConnection(object):
                     """
                     Summary statistics across all TCP connections
                     
-                    .. attribute:: syn_cache_count
-                    
-                    	Current number of SYN cache entries
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_open_sockets
-                    
-                    	Number of Open sockets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: total_pakets_sent
-                    
-                    	Total packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_packets_dropped
-                    
-                    	Total transmit packets dropped due to general failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_auth_packets_dropped
-                    
-                    	Total transmit packets dropped due to authentication failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: data_pakets_sent
-                    
-                    	Data packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: data_bytes_sent
-                    
-                    	Data bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_retransmitted
-                    
-                    	Data packets retransmitted
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_retransmitted
-                    
-                    	Data bytes retransmitted
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: ack_only_packets_sent
                     
                     	Ack only packets sent (incl. delay)
@@ -2469,79 +2406,9 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: delay_ack_packets_sent
+                    .. attribute:: ack_packets_for_unsent_received
                     
-                    	Delay ack packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: urgent_only_packets_sent
-                    
-                    	Urgent only packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: window_probe_packets_sent
-                    
-                    	Window probe packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: window_update_packets_sent
-                    
-                    	Window update packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: control_packets_sent
-                    
-                    	Control (SYN\|FIN\|RST) packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: rst_packets_sent
-                    
-                    	RST packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: total_packets_received
-                    
-                    	Total packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_packets_dropped
-                    
-                    	Received packets dropped due to general failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: synacl_match_pkts_dropped
-                    
-                    	Received packets dropped     due to ACL DENY on SYN pkts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_packets_dropped_stale_c_hdr
-                    
-                    	Received packets dropped due to stale cached header
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_auth_packets_dropped
-                    
-                    	Received packets dropped due to authentication failures
+                    	Ack packets for unsent data
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2560,72 +2427,9 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: duplicated_ack_packets_received
+                    .. attribute:: after_window_bytes_received
                     
-                    	Duplicate ack packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: ack_packets_for_unsent_received
-                    
-                    	Ack packets for unsent data
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: data_packets_received_in_sequence
-                    
-                    	Data packets received in sequence
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: data_bytes_received_in_sequence
-                    
-                    	Data bytes received in sequence
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: duplicate_packets_received
-                    
-                    	Duplicate packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: duplicate_bytes_received
-                    
-                    	Duplicate bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: partial_duplicate_ack_received
-                    
-                    	Packets with partial dup data
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: partial_duplicate_bytes_received
-                    
-                    	Bytes with partial dup data
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: out_of_order_packets_received
-                    
-                    	Out\-of\-order packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: out_of_order_bytes_received
-                    
-                    	Out\-of\-order bytes received
+                    	After\-window bytes received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2637,34 +2441,6 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: after_window_bytes_received
-                    
-                    	After\-window bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: window_probe_packets_received
-                    
-                    	Window probe packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: window_update_packets_received
-                    
-                    	Window update packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received_after_close_packet
-                    
-                    	Packets received after close
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: bad_checksum_packets_received
                     
                     	Packets received with bad checksum
@@ -2672,30 +2448,16 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: too_short_packets_received
+                    .. attribute:: bytes_retransmitted
                     
-                    	Packets received with too short size
+                    	Data bytes retransmitted
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: malformed_packets_received
+                    .. attribute:: connection_rate_limited
                     
-                    	Packets received with malformed header
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: no_port_packets_received
-                    
-                    	Packets rcceived with no wild listener
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: connections_requested
-                    
-                    	Connection requests sent
+                    	Connections rate\-limited
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2703,20 +2465,6 @@ class TcpConnection(object):
                     .. attribute:: connections_accepted
                     
                     	Connection requests accepted
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: connections_established
-                    
-                    	Connections established
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: connections_forcibly_closed
-                    
-                    	Connections forcibly closed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2735,9 +2483,9 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: embryonic_connection_dropped
+                    .. attribute:: connections_established
                     
-                    	Embryonic connections dropped
+                    	Connections established
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2749,6 +2497,90 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: connections_forcibly_closed
+                    
+                    	Connections forcibly closed
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: connections_requested
+                    
+                    	Connection requests sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: control_packets_sent
+                    
+                    	Control (SYN\|FIN\|RST) packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: data_bytes_received_in_sequence
+                    
+                    	Data bytes received in sequence
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: data_bytes_sent
+                    
+                    	Data bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: data_packets_received_in_sequence
+                    
+                    	Data packets received in sequence
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: data_pakets_sent
+                    
+                    	Data packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: delay_ack_packets_sent
+                    
+                    	Delay ack packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: duplicate_bytes_received
+                    
+                    	Duplicate bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: duplicate_packets_received
+                    
+                    	Duplicate packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: duplicated_ack_packets_received
+                    
+                    	Duplicate ack packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: embryonic_connection_dropped
+                    
+                    	Embryonic connections dropped
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: established_connections_reset
                     
                     	Established connections reset
@@ -2756,23 +2588,30 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: retransmit_timeouts
+                    .. attribute:: high_water_mark_throttle
                     
-                    	Retransmit timeouts (incl. data packets)
+                    	Number of times high water mark throttle was on
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: retransmit_dropped
+                    .. attribute:: iq_sock_aborts
                     
-                    	Connection drops during retransmit timeouts
+                    	Number of aborted socket\-lib writes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: keep_alive_timeouts
+                    .. attribute:: iq_sock_retries
                     
-                    	Keepalive timeouts
+                    	Number of retried write attempts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: iq_sock_writes
+                    
+                    	Number of write attempts from socket\-lib into an IQ
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2791,6 +2630,111 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: keep_alive_timeouts
+                    
+                    	Keepalive timeouts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: low_water_mark_throttle
+                    
+                    	Number of times low water mark throttle was on
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: malformed_packets_received
+                    
+                    	Packets received with malformed header
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: mss_down
+                    
+                    	Number of times MSS was decreased
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: mss_up
+                    
+                    	Number of times MSS was increased
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: no_port_packets_received
+                    
+                    	Packets rcceived with no wild listener
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: no_throttle
+                    
+                    	Number of times throttle mode was off
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_open_sockets
+                    
+                    	Number of Open sockets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: out_of_order_bytes_received
+                    
+                    	Out\-of\-order bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: out_of_order_packets_received
+                    
+                    	Out\-of\-order packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: packet_failures
+                    
+                    	Packet allocation errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: packets_received_after_close_packet
+                    
+                    	Packets received after close
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: packets_retransmitted
+                    
+                    	Data packets retransmitted
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: partial_duplicate_ack_received
+                    
+                    	Packets with partial dup data
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: partial_duplicate_bytes_received
+                    
+                    	Bytes with partial dup data
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: paws_dropped
                     
                     	Segments dropped due to PAWS
@@ -2805,100 +2749,9 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: try_lock_dropped
-                    
-                    	Segments dropped due to trylock fail
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: connection_rate_limited
-                    
-                    	Connections rate\-limited
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_added
-                    
-                    	SYN Cache entries added
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_completed
-                    
-                    	SYN Cache connections completed
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_timed_out
-                    
-                    	SYN Cache entries timed out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_overflow
-                    
-                    	SYN Cache entries dropped due to overflow
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_reset
-                    
-                    	SYN Cache entries dropped due to RST
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_unreach
-                    
-                    	SYN Cache entries dropped due to ICMP unreach
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_bucket_oflow
-                    
-                    	SYN Cache entries dropped due to bucket overflow
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_aborted
-                    
-                    	SYN Cache entries aborted (no mem)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_duplicate_sy_ns
-                    
-                    	SYN Cache duplicate SYNs received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_cache_dropped
-                    
-                    	SYN Cache entries dropped (no route/mem)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: pulse_errors
                     
                     	Punt (down to ip) failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: socket_layer_packets
-                    
-                    	Packets owned by the socket layer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2910,6 +2763,27 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: received_auth_packets_dropped
+                    
+                    	Received packets dropped due to authentication failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_packets_dropped
+                    
+                    	Received packets dropped due to general failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_packets_dropped_stale_c_hdr
+                    
+                    	Received packets dropped due to stale cached header
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: recovered_packets
                     
                     	Packets freed after starvation
@@ -2917,51 +2791,44 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: packet_failures
+                    .. attribute:: retransmit_dropped
                     
-                    	Packet allocation errors
+                    	Connection drops during retransmit timeouts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: mss_up
+                    .. attribute:: retransmit_timeouts
                     
-                    	Number of times MSS was increased
+                    	Retransmit timeouts (incl. data packets)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: mss_down
+                    .. attribute:: rst_packets_sent
                     
-                    	Number of times MSS was decreased
+                    	RST packets sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: truncated_write_iov
+                    .. attribute:: send_auth_packets_dropped
                     
-                    	Segments truncated due to insufficient Write I/O vectors
+                    	Total transmit packets dropped due to authentication failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: no_throttle
+                    .. attribute:: send_packets_dropped
                     
-                    	Number of times throttle mode was off
+                    	Total transmit packets dropped due to general failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: low_water_mark_throttle
+                    .. attribute:: socket_layer_packets
                     
-                    	Number of times low water mark throttle was on
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: high_water_mark_throttle
-                    
-                    	Number of times high water mark throttle was on
+                    	Packets owned by the socket layer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2980,23 +2847,156 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: iq_sock_writes
+                    .. attribute:: syn_cache_aborted
                     
-                    	Number of write attempts from socket\-lib into an IQ
+                    	SYN Cache entries aborted (no mem)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: iq_sock_retries
+                    .. attribute:: syn_cache_added
                     
-                    	Number of retried write attempts
+                    	SYN Cache entries added
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: iq_sock_aborts
+                    .. attribute:: syn_cache_bucket_oflow
                     
-                    	Number of aborted socket\-lib writes
+                    	SYN Cache entries dropped due to bucket overflow
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_completed
+                    
+                    	SYN Cache connections completed
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_count
+                    
+                    	Current number of SYN cache entries
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_dropped
+                    
+                    	SYN Cache entries dropped (no route/mem)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_duplicate_sy_ns
+                    
+                    	SYN Cache duplicate SYNs received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_overflow
+                    
+                    	SYN Cache entries dropped due to overflow
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_reset
+                    
+                    	SYN Cache entries dropped due to RST
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_timed_out
+                    
+                    	SYN Cache entries timed out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: syn_cache_unreach
+                    
+                    	SYN Cache entries dropped due to ICMP unreach
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: synacl_match_pkts_dropped
+                    
+                    	Received packets dropped     due to ACL DENY on SYN pkts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: too_short_packets_received
+                    
+                    	Packets received with too short size
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: total_packets_received
+                    
+                    	Total packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: total_pakets_sent
+                    
+                    	Total packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: truncated_write_iov
+                    
+                    	Segments truncated due to insufficient Write I/O vectors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: try_lock_dropped
+                    
+                    	Segments dropped due to trylock fail
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: urgent_only_packets_sent
+                    
+                    	Urgent only packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: window_probe_packets_received
+                    
+                    	Window probe packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: window_probe_packets_sent
+                    
+                    	Window probe packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: window_update_packets_received
+                    
+                    	Window update packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: window_update_packets_sent
+                    
+                    	Window update packets sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -3010,97 +3010,97 @@ class TcpConnection(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.syn_cache_count = None
-                        self.num_open_sockets = None
-                        self.total_pakets_sent = None
-                        self.send_packets_dropped = None
-                        self.send_auth_packets_dropped = None
-                        self.data_pakets_sent = None
-                        self.data_bytes_sent = None
-                        self.packets_retransmitted = None
-                        self.bytes_retransmitted = None
                         self.ack_only_packets_sent = None
-                        self.delay_ack_packets_sent = None
-                        self.urgent_only_packets_sent = None
-                        self.window_probe_packets_sent = None
-                        self.window_update_packets_sent = None
-                        self.control_packets_sent = None
-                        self.rst_packets_sent = None
-                        self.total_packets_received = None
-                        self.received_packets_dropped = None
-                        self.synacl_match_pkts_dropped = None
-                        self.received_packets_dropped_stale_c_hdr = None
-                        self.received_auth_packets_dropped = None
+                        self.ack_packets_for_unsent_received = None
                         self.ack_packets_received = None
                         self.ackbytes_received = None
-                        self.duplicated_ack_packets_received = None
-                        self.ack_packets_for_unsent_received = None
-                        self.data_packets_received_in_sequence = None
-                        self.data_bytes_received_in_sequence = None
-                        self.duplicate_packets_received = None
-                        self.duplicate_bytes_received = None
-                        self.partial_duplicate_ack_received = None
-                        self.partial_duplicate_bytes_received = None
-                        self.out_of_order_packets_received = None
-                        self.out_of_order_bytes_received = None
-                        self.after_window_packets_received = None
                         self.after_window_bytes_received = None
-                        self.window_probe_packets_received = None
-                        self.window_update_packets_received = None
-                        self.packets_received_after_close_packet = None
+                        self.after_window_packets_received = None
                         self.bad_checksum_packets_received = None
-                        self.too_short_packets_received = None
-                        self.malformed_packets_received = None
-                        self.no_port_packets_received = None
-                        self.connections_requested = None
+                        self.bytes_retransmitted = None
+                        self.connection_rate_limited = None
                         self.connections_accepted = None
-                        self.connections_established = None
-                        self.connections_forcibly_closed = None
                         self.connections_closed = None
                         self.connections_dropped = None
-                        self.embryonic_connection_dropped = None
+                        self.connections_established = None
                         self.connections_failed = None
+                        self.connections_forcibly_closed = None
+                        self.connections_requested = None
+                        self.control_packets_sent = None
+                        self.data_bytes_received_in_sequence = None
+                        self.data_bytes_sent = None
+                        self.data_packets_received_in_sequence = None
+                        self.data_pakets_sent = None
+                        self.delay_ack_packets_sent = None
+                        self.duplicate_bytes_received = None
+                        self.duplicate_packets_received = None
+                        self.duplicated_ack_packets_received = None
+                        self.embryonic_connection_dropped = None
                         self.established_connections_reset = None
-                        self.retransmit_timeouts = None
-                        self.retransmit_dropped = None
-                        self.keep_alive_timeouts = None
+                        self.high_water_mark_throttle = None
+                        self.iq_sock_aborts = None
+                        self.iq_sock_retries = None
+                        self.iq_sock_writes = None
                         self.keep_alive_dropped = None
                         self.keep_alive_probes = None
+                        self.keep_alive_timeouts = None
+                        self.low_water_mark_throttle = None
+                        self.malformed_packets_received = None
+                        self.mss_down = None
+                        self.mss_up = None
+                        self.no_port_packets_received = None
+                        self.no_throttle = None
+                        self.num_open_sockets = None
+                        self.out_of_order_bytes_received = None
+                        self.out_of_order_packets_received = None
+                        self.packet_failures = None
+                        self.packets_received_after_close_packet = None
+                        self.packets_retransmitted = None
+                        self.partial_duplicate_ack_received = None
+                        self.partial_duplicate_bytes_received = None
                         self.paws_dropped = None
                         self.persist_dropped = None
-                        self.try_lock_dropped = None
-                        self.connection_rate_limited = None
-                        self.syn_cache_added = None
-                        self.syn_cache_completed = None
-                        self.syn_cache_timed_out = None
-                        self.syn_cache_overflow = None
-                        self.syn_cache_reset = None
-                        self.syn_cache_unreach = None
-                        self.syn_cache_bucket_oflow = None
-                        self.syn_cache_aborted = None
-                        self.syn_cache_duplicate_sy_ns = None
-                        self.syn_cache_dropped = None
                         self.pulse_errors = None
-                        self.socket_layer_packets = None
                         self.reassembly_packets = None
+                        self.received_auth_packets_dropped = None
+                        self.received_packets_dropped = None
+                        self.received_packets_dropped_stale_c_hdr = None
                         self.recovered_packets = None
-                        self.packet_failures = None
-                        self.mss_up = None
-                        self.mss_down = None
-                        self.truncated_write_iov = None
-                        self.no_throttle = None
-                        self.low_water_mark_throttle = None
-                        self.high_water_mark_throttle = None
+                        self.retransmit_dropped = None
+                        self.retransmit_timeouts = None
+                        self.rst_packets_sent = None
+                        self.send_auth_packets_dropped = None
+                        self.send_packets_dropped = None
+                        self.socket_layer_packets = None
                         self.stalled_timer_tickle_count = None
                         self.stalled_timer_tickle_time = None
-                        self.iq_sock_writes = None
-                        self.iq_sock_retries = None
-                        self.iq_sock_aborts = None
+                        self.syn_cache_aborted = None
+                        self.syn_cache_added = None
+                        self.syn_cache_bucket_oflow = None
+                        self.syn_cache_completed = None
+                        self.syn_cache_count = None
+                        self.syn_cache_dropped = None
+                        self.syn_cache_duplicate_sy_ns = None
+                        self.syn_cache_overflow = None
+                        self.syn_cache_reset = None
+                        self.syn_cache_timed_out = None
+                        self.syn_cache_unreach = None
+                        self.synacl_match_pkts_dropped = None
+                        self.too_short_packets_received = None
+                        self.total_packets_received = None
+                        self.total_pakets_sent = None
+                        self.truncated_write_iov = None
+                        self.try_lock_dropped = None
+                        self.urgent_only_packets_sent = None
+                        self.window_probe_packets_received = None
+                        self.window_probe_packets_sent = None
+                        self.window_update_packets_received = None
+                        self.window_update_packets_sent = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:summary'
 
@@ -3111,67 +3111,10 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.syn_cache_count is not None:
-                            return True
-
-                        if self.num_open_sockets is not None:
-                            return True
-
-                        if self.total_pakets_sent is not None:
-                            return True
-
-                        if self.send_packets_dropped is not None:
-                            return True
-
-                        if self.send_auth_packets_dropped is not None:
-                            return True
-
-                        if self.data_pakets_sent is not None:
-                            return True
-
-                        if self.data_bytes_sent is not None:
-                            return True
-
-                        if self.packets_retransmitted is not None:
-                            return True
-
-                        if self.bytes_retransmitted is not None:
-                            return True
-
                         if self.ack_only_packets_sent is not None:
                             return True
 
-                        if self.delay_ack_packets_sent is not None:
-                            return True
-
-                        if self.urgent_only_packets_sent is not None:
-                            return True
-
-                        if self.window_probe_packets_sent is not None:
-                            return True
-
-                        if self.window_update_packets_sent is not None:
-                            return True
-
-                        if self.control_packets_sent is not None:
-                            return True
-
-                        if self.rst_packets_sent is not None:
-                            return True
-
-                        if self.total_packets_received is not None:
-                            return True
-
-                        if self.received_packets_dropped is not None:
-                            return True
-
-                        if self.synacl_match_pkts_dropped is not None:
-                            return True
-
-                        if self.received_packets_dropped_stale_c_hdr is not None:
-                            return True
-
-                        if self.received_auth_packets_dropped is not None:
+                        if self.ack_packets_for_unsent_received is not None:
                             return True
 
                         if self.ack_packets_received is not None:
@@ -3180,73 +3123,22 @@ class TcpConnection(object):
                         if self.ackbytes_received is not None:
                             return True
 
-                        if self.duplicated_ack_packets_received is not None:
-                            return True
-
-                        if self.ack_packets_for_unsent_received is not None:
-                            return True
-
-                        if self.data_packets_received_in_sequence is not None:
-                            return True
-
-                        if self.data_bytes_received_in_sequence is not None:
-                            return True
-
-                        if self.duplicate_packets_received is not None:
-                            return True
-
-                        if self.duplicate_bytes_received is not None:
-                            return True
-
-                        if self.partial_duplicate_ack_received is not None:
-                            return True
-
-                        if self.partial_duplicate_bytes_received is not None:
-                            return True
-
-                        if self.out_of_order_packets_received is not None:
-                            return True
-
-                        if self.out_of_order_bytes_received is not None:
+                        if self.after_window_bytes_received is not None:
                             return True
 
                         if self.after_window_packets_received is not None:
                             return True
 
-                        if self.after_window_bytes_received is not None:
-                            return True
-
-                        if self.window_probe_packets_received is not None:
-                            return True
-
-                        if self.window_update_packets_received is not None:
-                            return True
-
-                        if self.packets_received_after_close_packet is not None:
-                            return True
-
                         if self.bad_checksum_packets_received is not None:
                             return True
 
-                        if self.too_short_packets_received is not None:
+                        if self.bytes_retransmitted is not None:
                             return True
 
-                        if self.malformed_packets_received is not None:
-                            return True
-
-                        if self.no_port_packets_received is not None:
-                            return True
-
-                        if self.connections_requested is not None:
+                        if self.connection_rate_limited is not None:
                             return True
 
                         if self.connections_accepted is not None:
-                            return True
-
-                        if self.connections_established is not None:
-                            return True
-
-                        if self.connections_forcibly_closed is not None:
                             return True
 
                         if self.connections_closed is not None:
@@ -3255,22 +3147,61 @@ class TcpConnection(object):
                         if self.connections_dropped is not None:
                             return True
 
-                        if self.embryonic_connection_dropped is not None:
+                        if self.connections_established is not None:
                             return True
 
                         if self.connections_failed is not None:
                             return True
 
+                        if self.connections_forcibly_closed is not None:
+                            return True
+
+                        if self.connections_requested is not None:
+                            return True
+
+                        if self.control_packets_sent is not None:
+                            return True
+
+                        if self.data_bytes_received_in_sequence is not None:
+                            return True
+
+                        if self.data_bytes_sent is not None:
+                            return True
+
+                        if self.data_packets_received_in_sequence is not None:
+                            return True
+
+                        if self.data_pakets_sent is not None:
+                            return True
+
+                        if self.delay_ack_packets_sent is not None:
+                            return True
+
+                        if self.duplicate_bytes_received is not None:
+                            return True
+
+                        if self.duplicate_packets_received is not None:
+                            return True
+
+                        if self.duplicated_ack_packets_received is not None:
+                            return True
+
+                        if self.embryonic_connection_dropped is not None:
+                            return True
+
                         if self.established_connections_reset is not None:
                             return True
 
-                        if self.retransmit_timeouts is not None:
+                        if self.high_water_mark_throttle is not None:
                             return True
 
-                        if self.retransmit_dropped is not None:
+                        if self.iq_sock_aborts is not None:
                             return True
 
-                        if self.keep_alive_timeouts is not None:
+                        if self.iq_sock_retries is not None:
+                            return True
+
+                        if self.iq_sock_writes is not None:
                             return True
 
                         if self.keep_alive_dropped is not None:
@@ -3279,79 +3210,91 @@ class TcpConnection(object):
                         if self.keep_alive_probes is not None:
                             return True
 
+                        if self.keep_alive_timeouts is not None:
+                            return True
+
+                        if self.low_water_mark_throttle is not None:
+                            return True
+
+                        if self.malformed_packets_received is not None:
+                            return True
+
+                        if self.mss_down is not None:
+                            return True
+
+                        if self.mss_up is not None:
+                            return True
+
+                        if self.no_port_packets_received is not None:
+                            return True
+
+                        if self.no_throttle is not None:
+                            return True
+
+                        if self.num_open_sockets is not None:
+                            return True
+
+                        if self.out_of_order_bytes_received is not None:
+                            return True
+
+                        if self.out_of_order_packets_received is not None:
+                            return True
+
+                        if self.packet_failures is not None:
+                            return True
+
+                        if self.packets_received_after_close_packet is not None:
+                            return True
+
+                        if self.packets_retransmitted is not None:
+                            return True
+
+                        if self.partial_duplicate_ack_received is not None:
+                            return True
+
+                        if self.partial_duplicate_bytes_received is not None:
+                            return True
+
                         if self.paws_dropped is not None:
                             return True
 
                         if self.persist_dropped is not None:
                             return True
 
-                        if self.try_lock_dropped is not None:
-                            return True
-
-                        if self.connection_rate_limited is not None:
-                            return True
-
-                        if self.syn_cache_added is not None:
-                            return True
-
-                        if self.syn_cache_completed is not None:
-                            return True
-
-                        if self.syn_cache_timed_out is not None:
-                            return True
-
-                        if self.syn_cache_overflow is not None:
-                            return True
-
-                        if self.syn_cache_reset is not None:
-                            return True
-
-                        if self.syn_cache_unreach is not None:
-                            return True
-
-                        if self.syn_cache_bucket_oflow is not None:
-                            return True
-
-                        if self.syn_cache_aborted is not None:
-                            return True
-
-                        if self.syn_cache_duplicate_sy_ns is not None:
-                            return True
-
-                        if self.syn_cache_dropped is not None:
-                            return True
-
                         if self.pulse_errors is not None:
-                            return True
-
-                        if self.socket_layer_packets is not None:
                             return True
 
                         if self.reassembly_packets is not None:
                             return True
 
+                        if self.received_auth_packets_dropped is not None:
+                            return True
+
+                        if self.received_packets_dropped is not None:
+                            return True
+
+                        if self.received_packets_dropped_stale_c_hdr is not None:
+                            return True
+
                         if self.recovered_packets is not None:
                             return True
 
-                        if self.packet_failures is not None:
+                        if self.retransmit_dropped is not None:
                             return True
 
-                        if self.mss_up is not None:
+                        if self.retransmit_timeouts is not None:
                             return True
 
-                        if self.mss_down is not None:
+                        if self.rst_packets_sent is not None:
                             return True
 
-                        if self.truncated_write_iov is not None:
+                        if self.send_auth_packets_dropped is not None:
                             return True
 
-                        if self.no_throttle is not None:
+                        if self.send_packets_dropped is not None:
                             return True
 
-                        if self.low_water_mark_throttle is not None:
-                            return True
-
-                        if self.high_water_mark_throttle is not None:
+                        if self.socket_layer_packets is not None:
                             return True
 
                         if self.stalled_timer_tickle_count is not None:
@@ -3360,13 +3303,70 @@ class TcpConnection(object):
                         if self.stalled_timer_tickle_time is not None:
                             return True
 
-                        if self.iq_sock_writes is not None:
+                        if self.syn_cache_aborted is not None:
                             return True
 
-                        if self.iq_sock_retries is not None:
+                        if self.syn_cache_added is not None:
                             return True
 
-                        if self.iq_sock_aborts is not None:
+                        if self.syn_cache_bucket_oflow is not None:
+                            return True
+
+                        if self.syn_cache_completed is not None:
+                            return True
+
+                        if self.syn_cache_count is not None:
+                            return True
+
+                        if self.syn_cache_dropped is not None:
+                            return True
+
+                        if self.syn_cache_duplicate_sy_ns is not None:
+                            return True
+
+                        if self.syn_cache_overflow is not None:
+                            return True
+
+                        if self.syn_cache_reset is not None:
+                            return True
+
+                        if self.syn_cache_timed_out is not None:
+                            return True
+
+                        if self.syn_cache_unreach is not None:
+                            return True
+
+                        if self.synacl_match_pkts_dropped is not None:
+                            return True
+
+                        if self.too_short_packets_received is not None:
+                            return True
+
+                        if self.total_packets_received is not None:
+                            return True
+
+                        if self.total_pakets_sent is not None:
+                            return True
+
+                        if self.truncated_write_iov is not None:
+                            return True
+
+                        if self.try_lock_dropped is not None:
+                            return True
+
+                        if self.urgent_only_packets_sent is not None:
+                            return True
+
+                        if self.window_probe_packets_received is not None:
+                            return True
+
+                        if self.window_probe_packets_sent is not None:
+                            return True
+
+                        if self.window_update_packets_received is not None:
+                            return True
+
+                        if self.window_update_packets_sent is not None:
                             return True
 
                         return False
@@ -3379,7 +3379,7 @@ class TcpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistics'
 
@@ -3492,20 +3492,22 @@ class TcpConnection(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: local_address
+                            .. attribute:: common
                             
-                            	Local IP address
-                            	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress>`
+                            	Common PCB information
+                            	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common>`
                             
                             .. attribute:: foreign_address
                             
                             	Remote IP address
                             	**type**\: :py:class:`ForeignAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress>`
                             
-                            .. attribute:: common
+                            .. attribute:: foreign_port
                             
-                            	Common PCB information
-                            	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common>`
+                            	Remote port
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             .. attribute:: l4_protocol
                             
@@ -3514,16 +3516,14 @@ class TcpConnection(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: local_address
+                            
+                            	Local IP address
+                            	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress>`
+                            
                             .. attribute:: local_port
                             
                             	Local port
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: foreign_port
-                            
-                            	Remote port
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -3538,15 +3538,15 @@ class TcpConnection(object):
                             def __init__(self):
                                 self.parent = None
                                 self.pcb_id = None
-                                self.local_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress()
-                                self.local_address.parent = self
-                                self.foreign_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress()
-                                self.foreign_address.parent = self
                                 self.common = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common()
                                 self.common.parent = self
-                                self.l4_protocol = None
-                                self.local_port = None
+                                self.foreign_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress()
+                                self.foreign_address.parent = self
                                 self.foreign_port = None
+                                self.l4_protocol = None
+                                self.local_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress()
+                                self.local_address.parent = self
+                                self.local_port = None
 
 
                             class LocalAddress(object):
@@ -3588,7 +3588,7 @@ class TcpConnection(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:local-address'
 
@@ -3655,7 +3655,7 @@ class TcpConnection(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:foreign-address'
 
@@ -3687,15 +3687,15 @@ class TcpConnection(object):
                                 """
                                 Common PCB information
                                 
-                                .. attribute:: lpts_pcb
-                                
-                                	LPTS PCB information
-                                	**type**\: :py:class:`LptsPcb <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb>`
-                                
                                 .. attribute:: af_name
                                 
                                 	Address Family
                                 	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                                
+                                .. attribute:: lpts_pcb
+                                
+                                	LPTS PCB information
+                                	**type**\: :py:class:`LptsPcb <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb>`
                                 
                                 
 
@@ -3706,36 +3706,24 @@ class TcpConnection(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.af_name = None
                                     self.lpts_pcb = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb()
                                     self.lpts_pcb.parent = self
-                                    self.af_name = None
 
 
                                 class LptsPcb(object):
                                     """
                                     LPTS PCB information
                                     
-                                    .. attribute:: options
-                                    
-                                    	Receive options
-                                    	**type**\: :py:class:`Options <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options>`
-                                    
-                                    .. attribute:: lpts_flags
-                                    
-                                    	LPTS flags
-                                    	**type**\: :py:class:`LptsFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags>`
-                                    
                                     .. attribute:: accept_mask
                                     
                                     	AcceptMask
                                     	**type**\: :py:class:`AcceptMask <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask>`
                                     
-                                    .. attribute:: ttl
+                                    .. attribute:: filter
                                     
-                                    	Minimum TTL
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..255
+                                    	Interface Filters
+                                    	**type**\: list of :py:class:`Filter <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter>`
                                     
                                     .. attribute:: flow_types_info
                                     
@@ -3744,10 +3732,22 @@ class TcpConnection(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: filter
+                                    .. attribute:: lpts_flags
                                     
-                                    	Interface Filters
-                                    	**type**\: list of :py:class:`Filter <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter>`
+                                    	LPTS flags
+                                    	**type**\: :py:class:`LptsFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags>`
+                                    
+                                    .. attribute:: options
+                                    
+                                    	Receive options
+                                    	**type**\: :py:class:`Options <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options>`
+                                    
+                                    .. attribute:: ttl
+                                    
+                                    	Minimum TTL
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
                                     
                                     
 
@@ -3758,31 +3758,31 @@ class TcpConnection(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.options = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options()
-                                        self.options.parent = self
-                                        self.lpts_flags = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags()
-                                        self.lpts_flags.parent = self
                                         self.accept_mask = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask()
                                         self.accept_mask.parent = self
-                                        self.ttl = None
-                                        self.flow_types_info = None
                                         self.filter = YList()
                                         self.filter.parent = self
                                         self.filter.name = 'filter'
+                                        self.flow_types_info = None
+                                        self.lpts_flags = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags()
+                                        self.lpts_flags.parent = self
+                                        self.options = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options()
+                                        self.options.parent = self
+                                        self.ttl = None
 
 
                                     class Options(object):
                                         """
                                         Receive options
                                         
-                                        .. attribute:: is_receive_filter
-                                        
-                                        	Receive filter enabled
-                                        	**type**\: bool
-                                        
                                         .. attribute:: is_ip_sla
                                         
                                         	IP SLA
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: is_receive_filter
+                                        
+                                        	Receive filter enabled
                                         	**type**\: bool
                                         
                                         
@@ -3794,13 +3794,13 @@ class TcpConnection(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.is_receive_filter = None
                                             self.is_ip_sla = None
+                                            self.is_receive_filter = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:options'
 
@@ -3811,10 +3811,10 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_receive_filter is not None:
+                                            if self.is_ip_sla is not None:
                                                 return True
 
-                                            if self.is_ip_sla is not None:
+                                            if self.is_receive_filter is not None:
                                                 return True
 
                                             return False
@@ -3829,9 +3829,9 @@ class TcpConnection(object):
                                         """
                                         LPTS flags
                                         
-                                        .. attribute:: is_pcb_bound
+                                        .. attribute:: is_ignore_vrf_filter
                                         
-                                        	PCB bound
+                                        	Ignore VRF Filter
                                         	**type**\: bool
                                         
                                         .. attribute:: is_local_address_ignore
@@ -3839,9 +3839,9 @@ class TcpConnection(object):
                                         	Sent drop packets
                                         	**type**\: bool
                                         
-                                        .. attribute:: is_ignore_vrf_filter
+                                        .. attribute:: is_pcb_bound
                                         
-                                        	Ignore VRF Filter
+                                        	PCB bound
                                         	**type**\: bool
                                         
                                         
@@ -3853,14 +3853,14 @@ class TcpConnection(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.is_pcb_bound = None
-                                            self.is_local_address_ignore = None
                                             self.is_ignore_vrf_filter = None
+                                            self.is_local_address_ignore = None
+                                            self.is_pcb_bound = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:lpts-flags'
 
@@ -3871,13 +3871,13 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_pcb_bound is not None:
+                                            if self.is_ignore_vrf_filter is not None:
                                                 return True
 
                                             if self.is_local_address_ignore is not None:
                                                 return True
 
-                                            if self.is_ignore_vrf_filter is not None:
+                                            if self.is_pcb_bound is not None:
                                                 return True
 
                                             return False
@@ -3897,6 +3897,16 @@ class TcpConnection(object):
                                         	Set interface
                                         	**type**\: bool
                                         
+                                        .. attribute:: is_local_address
+                                        
+                                        	Set Local Address
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: is_local_port
+                                        
+                                        	Set Local Port
+                                        	**type**\: bool
+                                        
                                         .. attribute:: is_packet_type
                                         
                                         	Set packet type
@@ -3912,16 +3922,6 @@ class TcpConnection(object):
                                         	Set Remote Port
                                         	**type**\: bool
                                         
-                                        .. attribute:: is_local_address
-                                        
-                                        	Set Local Address
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: is_local_port
-                                        
-                                        	Set Local Port
-                                        	**type**\: bool
-                                        
                                         
 
                                         """
@@ -3932,16 +3932,16 @@ class TcpConnection(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.is_interface = None
+                                            self.is_local_address = None
+                                            self.is_local_port = None
                                             self.is_packet_type = None
                                             self.is_remote_address = None
                                             self.is_remote_port = None
-                                            self.is_local_address = None
-                                            self.is_local_port = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:accept-mask'
 
@@ -3955,6 +3955,12 @@ class TcpConnection(object):
                                             if self.is_interface is not None:
                                                 return True
 
+                                            if self.is_local_address is not None:
+                                                return True
+
+                                            if self.is_local_port is not None:
+                                                return True
+
                                             if self.is_packet_type is not None:
                                                 return True
 
@@ -3962,12 +3968,6 @@ class TcpConnection(object):
                                                 return True
 
                                             if self.is_remote_port is not None:
-                                                return True
-
-                                            if self.is_local_address is not None:
-                                                return True
-
-                                            if self.is_local_port is not None:
                                                 return True
 
                                             return False
@@ -3982,20 +3982,12 @@ class TcpConnection(object):
                                         """
                                         Interface Filters
                                         
-                                        .. attribute:: packet_type
+                                        .. attribute:: flow_types_info
                                         
-                                        	Protocol\-specific packet type
-                                        	**type**\: :py:class:`PacketType <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType>`
+                                        	flow information
+                                        	**type**\: int
                                         
-                                        .. attribute:: remote_address
-                                        
-                                        	Remote address
-                                        	**type**\: :py:class:`RemoteAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress>`
-                                        
-                                        .. attribute:: local_address
-                                        
-                                        	Local address
-                                        	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress>`
+                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: interface_name
                                         
@@ -4004,16 +3996,33 @@ class TcpConnection(object):
                                         
                                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                         
-                                        .. attribute:: remote_length
+                                        .. attribute:: local_address
                                         
-                                        	Remote address length
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..65535
+                                        	Local address
+                                        	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress>`
                                         
                                         .. attribute:: local_length
                                         
                                         	Local address length
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: packet_type
+                                        
+                                        	Protocol\-specific packet type
+                                        	**type**\: :py:class:`PacketType <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType>`
+                                        
+                                        .. attribute:: priority
+                                        
+                                        	Priority
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: receive_local_port
+                                        
+                                        	Receive Local port
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
@@ -4025,19 +4034,17 @@ class TcpConnection(object):
                                         
                                         	**range:** 0..65535
                                         
-                                        .. attribute:: receive_local_port
+                                        .. attribute:: remote_address
                                         
-                                        	Receive Local port
+                                        	Remote address
+                                        	**type**\: :py:class:`RemoteAddress <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress>`
+                                        
+                                        .. attribute:: remote_length
+                                        
+                                        	Remote address length
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
-                                        
-                                        .. attribute:: priority
-                                        
-                                        	Priority
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
                                         
                                         .. attribute:: ttl
                                         
@@ -4045,13 +4052,6 @@ class TcpConnection(object):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
-                                        
-                                        .. attribute:: flow_types_info
-                                        
-                                        	flow information
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -4062,40 +4062,35 @@ class TcpConnection(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.packet_type = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType()
-                                            self.packet_type.parent = self
-                                            self.remote_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress()
-                                            self.remote_address.parent = self
+                                            self.flow_types_info = None
+                                            self.interface_name = None
                                             self.local_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress()
                                             self.local_address.parent = self
-                                            self.interface_name = None
-                                            self.remote_length = None
                                             self.local_length = None
-                                            self.receive_remote_port = None
-                                            self.receive_local_port = None
+                                            self.packet_type = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType()
+                                            self.packet_type.parent = self
                                             self.priority = None
+                                            self.receive_local_port = None
+                                            self.receive_remote_port = None
+                                            self.remote_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress()
+                                            self.remote_address.parent = self
+                                            self.remote_length = None
                                             self.ttl = None
-                                            self.flow_types_info = None
 
 
                                         class PacketType(object):
                                             """
                                             Protocol\-specific packet type
                                             
-                                            .. attribute:: type
+                                            .. attribute:: icm_pv6_message_type
                                             
-                                            	Type
-                                            	**type**\: :py:class:`PacketEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.PacketEnum>`
+                                            	ICMPv6 message type
+                                            	**type**\: :py:class:`MessageTypeIcmpv6Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6Enum>`
                                             
                                             .. attribute:: icmp_message_type
                                             
                                             	ICMP message type
                                             	**type**\: :py:class:`MessageTypeIcmpEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpEnum>`
-                                            
-                                            .. attribute:: icm_pv6_message_type
-                                            
-                                            	ICMPv6 message type
-                                            	**type**\: :py:class:`MessageTypeIcmpv6Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6Enum>`
                                             
                                             .. attribute:: igmp_message_type
                                             
@@ -4109,6 +4104,11 @@ class TcpConnection(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: type
+                                            
+                                            	Type
+                                            	**type**\: :py:class:`PacketEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.PacketEnum>`
+                                            
                                             
 
                                             """
@@ -4118,16 +4118,16 @@ class TcpConnection(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.type = None
-                                                self.icmp_message_type = None
                                                 self.icm_pv6_message_type = None
+                                                self.icmp_message_type = None
                                                 self.igmp_message_type = None
                                                 self.message_id = None
+                                                self.type = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:packet-type'
 
@@ -4138,19 +4138,19 @@ class TcpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.type is not None:
+                                                if self.icm_pv6_message_type is not None:
                                                     return True
 
                                                 if self.icmp_message_type is not None:
-                                                    return True
-
-                                                if self.icm_pv6_message_type is not None:
                                                     return True
 
                                                 if self.igmp_message_type is not None:
                                                     return True
 
                                                 if self.message_id is not None:
+                                                    return True
+
+                                                if self.type is not None:
                                                     return True
 
                                                 return False
@@ -4200,7 +4200,7 @@ class TcpConnection(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:remote-address'
 
@@ -4267,7 +4267,7 @@ class TcpConnection(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:local-address'
 
@@ -4297,7 +4297,7 @@ class TcpConnection(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:filter'
 
@@ -4308,37 +4308,37 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.packet_type is not None and self.packet_type._has_data():
-                                                return True
-
-                                            if self.remote_address is not None and self.remote_address._has_data():
-                                                return True
-
-                                            if self.local_address is not None and self.local_address._has_data():
+                                            if self.flow_types_info is not None:
                                                 return True
 
                                             if self.interface_name is not None:
                                                 return True
 
-                                            if self.remote_length is not None:
+                                            if self.local_address is not None and self.local_address._has_data():
                                                 return True
 
                                             if self.local_length is not None:
                                                 return True
 
-                                            if self.receive_remote_port is not None:
-                                                return True
-
-                                            if self.receive_local_port is not None:
+                                            if self.packet_type is not None and self.packet_type._has_data():
                                                 return True
 
                                             if self.priority is not None:
                                                 return True
 
-                                            if self.ttl is not None:
+                                            if self.receive_local_port is not None:
                                                 return True
 
-                                            if self.flow_types_info is not None:
+                                            if self.receive_remote_port is not None:
+                                                return True
+
+                                            if self.remote_address is not None and self.remote_address._has_data():
+                                                return True
+
+                                            if self.remote_length is not None:
+                                                return True
+
+                                            if self.ttl is not None:
                                                 return True
 
                                             return False
@@ -4351,7 +4351,7 @@ class TcpConnection(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:lpts-pcb'
 
@@ -4362,25 +4362,25 @@ class TcpConnection(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.options is not None and self.options._has_data():
-                                            return True
-
-                                        if self.lpts_flags is not None and self.lpts_flags._has_data():
-                                            return True
-
                                         if self.accept_mask is not None and self.accept_mask._has_data():
-                                            return True
-
-                                        if self.ttl is not None:
-                                            return True
-
-                                        if self.flow_types_info is not None:
                                             return True
 
                                         if self.filter is not None:
                                             for child_ref in self.filter:
                                                 if child_ref._has_data():
                                                     return True
+
+                                        if self.flow_types_info is not None:
+                                            return True
+
+                                        if self.lpts_flags is not None and self.lpts_flags._has_data():
+                                            return True
+
+                                        if self.options is not None and self.options._has_data():
+                                            return True
+
+                                        if self.ttl is not None:
+                                            return True
 
                                         return False
 
@@ -4392,7 +4392,7 @@ class TcpConnection(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:common'
 
@@ -4403,10 +4403,10 @@ class TcpConnection(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.lpts_pcb is not None and self.lpts_pcb._has_data():
+                                    if self.af_name is not None:
                                         return True
 
-                                    if self.af_name is not None:
+                                    if self.lpts_pcb is not None and self.lpts_pcb._has_data():
                                         return True
 
                                     return False
@@ -4419,9 +4419,9 @@ class TcpConnection(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.pcb_id is None:
-                                    raise YPYDataValidationError('Key property pcb_id is None')
+                                    raise YPYModelError('Key property pcb_id is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:connection-id[Cisco-IOS-XR-ip-tcp-oper:pcb-id = ' + str(self.pcb_id) + ']'
 
@@ -4435,22 +4435,22 @@ class TcpConnection(object):
                                 if self.pcb_id is not None:
                                     return True
 
-                                if self.local_address is not None and self.local_address._has_data():
+                                if self.common is not None and self.common._has_data():
                                     return True
 
                                 if self.foreign_address is not None and self.foreign_address._has_data():
                                     return True
 
-                                if self.common is not None and self.common._has_data():
+                                if self.foreign_port is not None:
                                     return True
 
                                 if self.l4_protocol is not None:
                                     return True
 
-                                if self.local_port is not None:
+                                if self.local_address is not None and self.local_address._has_data():
                                     return True
 
-                                if self.foreign_port is not None:
+                                if self.local_port is not None:
                                     return True
 
                                 return False
@@ -4463,9 +4463,9 @@ class TcpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.disp_type is None:
-                                raise YPYDataValidationError('Key property disp_type is None')
+                                raise YPYModelError('Key property disp_type is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:display-type[Cisco-IOS-XR-ip-tcp-oper:disp-type = ' + str(self.disp_type) + ']'
 
@@ -4494,7 +4494,7 @@ class TcpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:display-types'
 
@@ -4520,7 +4520,7 @@ class TcpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:extended-information'
 
@@ -4577,78 +4577,57 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: socket_option_flags
+                    .. attribute:: ack_hold_time
                     
-                    	Socket option flags
-                    	**type**\: :py:class:`SocketOptionFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags>`
+                    	ACK hold time (msec)
+                    	**type**\: int
                     
-                    .. attribute:: socket_state_flags
-                    
-                    	Socket state flags
-                    	**type**\: :py:class:`SocketStateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags>`
-                    
-                    .. attribute:: feature_flags
-                    
-                    	Connection feature flags
-                    	**type**\: :py:class:`FeatureFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags>`
-                    
-                    .. attribute:: state_flags
-                    
-                    	Connection state flags
-                    	**type**\: :py:class:`StateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags>`
-                    
-                    .. attribute:: request_flags
-                    
-                    	Connection request flags
-                    	**type**\: :py:class:`RequestFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags>`
-                    
-                    .. attribute:: receive_buf_state_flags
-                    
-                    	Receive buffer state flags
-                    	**type**\: :py:class:`ReceiveBufStateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags>`
-                    
-                    .. attribute:: send_buf_state_flags
-                    
-                    	Send buffer state flags
-                    	**type**\: :py:class:`SendBufStateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags>`
+                    	**range:** 0..4294967295
                     
                     .. attribute:: address_family
                     
                     	Address Family
                     	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                     
-                    .. attribute:: pcb
+                    .. attribute:: connect_retries
                     
-                    	PCB Address
+                    	Number of times connect will be retried?
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..65535
                     
-                    .. attribute:: so
+                    .. attribute:: connect_retry_interval
                     
-                    	Socket Address
+                    	Connect retry interval in seconds
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: tcpcb
-                    
-                    	TCPCB Address
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: vrf_id
-                    
-                    	VRF Id
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	**range:** 0..65535
                     
                     .. attribute:: connection_state
                     
                     	Connection state
                     	**type**\: :py:class:`TcpConnStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
+                    
+                    .. attribute:: current_receive_queue_packet_size
+                    
+                    	Current receive queue size in packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: current_receive_queue_size
+                    
+                    	Current receive queue size in bytes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: current_send_queue_size
+                    
+                    	Current send queue size in bytes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: established_time
                     
@@ -4656,6 +4635,93 @@ class TcpConnection(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: feature_flags
+                    
+                    	Connection feature flags
+                    	**type**\: :py:class:`FeatureFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags>`
+                    
+                    .. attribute:: fib_label_output
+                    
+                    	Cached Label stack
+                    	**type**\: list of int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: fib_pd_ctx
+                    
+                    	Cached fib pd context
+                    	**type**\: list of int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: fib_pd_ctx_size
+                    
+                    	Cached fib pd context size
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: foreign_address
+                    
+                    	Foreign address
+                    	**type**\: list of str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: foreign_port
+                    
+                    	Foreign port
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: giveup_time
+                    
+                    	Giveup time (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: hash_index
+                    
+                    	Index of the Hash Bucket
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_retrans_forever
+                    
+                    	Retransimit forever?
+                    	**type**\: bool
+                    
+                    .. attribute:: keep_alive_time
+                    
+                    	Keepalive time (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: krtt
+                    
+                    	Round trip time (karn algorithm) (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_ack_sent
+                    
+                    	ACK number of a sent segment
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: local_address
+                    
+                    	Local address
+                    	**type**\: list of str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: local_pid
                     
@@ -4671,12 +4737,75 @@ class TcpConnection(object):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: foreign_port
+                    .. attribute:: max_mss
                     
-                    	Foreign port
+                    	Highest MSS ever used
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max_receive_queue_packet_size
+                    
+                    	Max receive queue size in packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max_receive_queue_size
+                    
+                    	Max receive queue size in bytes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max_rtt
+                    
+                    	Max RTT (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max_send_queue_size
+                    
+                    	Max send queue size in bytes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: min_mss
+                    
+                    	Lowest MSS ever used
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: min_rtt
+                    
+                    	Min RTT (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: mss
+                    
+                    	Max segment size calculated in bytes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_labels
+                    
+                    	Number of labels returned by fib lookup
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_ifhandle
+                    
+                    	Cached Outgoing interface  handle
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: packet_priority
                     
@@ -4697,103 +4826,31 @@ class TcpConnection(object):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: hash_index
+                    .. attribute:: pcb
                     
-                    	Index of the Hash Bucket
+                    	PCB Address
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peer_mss
+                    
+                    	Max segment size offered by the peer in bytes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: current_receive_queue_size
+                    .. attribute:: receive_adv_window_size
                     
-                    	Current receive queue size in bytes
+                    	Receive advertised window size in bytes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: max_receive_queue_size
+                    .. attribute:: receive_buf_state_flags
                     
-                    	Max receive queue size in bytes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: current_send_queue_size
-                    
-                    	Current send queue size in bytes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_send_queue_size
-                    
-                    	Max send queue size in bytes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: current_receive_queue_packet_size
-                    
-                    	Current receive queue size in packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_receive_queue_packet_size
-                    
-                    	Max receive queue size in packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: save_queue_size
-                    
-                    	Save queue (out\-of seq data) size in bytes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_initial_sequence_num
-                    
-                    	Initial send sequence number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_unack_sequence_num
-                    
-                    	Sequence number of unacked data
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_next_sequence_num
-                    
-                    	Sequence number of next data to be sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_max_sequence_num
-                    
-                    	Highest sequence number sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_window_size
-                    
-                    	Send window size in bytes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_congestion_window_size
-                    
-                    	Send congestion window size in bytes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Receive buffer state flags
+                    	**type**\: :py:class:`ReceiveBufStateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags>`
                     
                     .. attribute:: receive_initial_sequence_num
                     
@@ -4809,9 +4866,9 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: receive_adv_window_size
+                    .. attribute:: receive_window_scale
                     
-                    	Receive advertised window size in bytes
+                    	Window scaling for receive window
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -4823,58 +4880,28 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: mss
+                    .. attribute:: recvbuf_hiwat
                     
-                    	Max segment size calculated in bytes
+                    	Receive buffer's high water mark
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: peer_mss
+                    .. attribute:: recvbuf_lowwat
                     
-                    	Max segment size offered by the peer in bytes
+                    	Receive buffer's low water mark
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: srtt
+                    .. attribute:: request_flags
                     
-                    	Smoothed round trip time \* 8 (msec)
-                    	**type**\: int
+                    	Connection request flags
+                    	**type**\: :py:class:`RequestFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags>`
                     
-                    	**range:** 0..4294967295
+                    .. attribute:: request_receive_window_scale
                     
-                    .. attribute:: rtto
-                    
-                    	Round trip timeout (msec)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: krtt
-                    
-                    	Round trip time (karn algorithm) (msec)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: srtv
-                    
-                    	Smoothed round trip time variance \* 4 (msec)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: min_rtt
-                    
-                    	Min RTT (msec)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_rtt
-                    
-                    	Max RTT (msec)
+                    	Requested receive window scale
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -4886,30 +4913,16 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: ack_hold_time
+                    .. attribute:: rqst_send_wnd_scale
                     
-                    	ACK hold time (msec)
+                    	Requested send window scale
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: giveup_time
+                    .. attribute:: rtto
                     
-                    	Giveup time (msec)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: keep_alive_time
-                    
-                    	Keepalive time (msec)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: syn_wait_time
-                    
-                    	SYN wait time (msec)
+                    	Round trip timeout (msec)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -4921,56 +4934,66 @@ class TcpConnection(object):
                     
                     	**range:** 0..64
                     
-                    .. attribute:: soft_error
+                    .. attribute:: sack_blk
                     
-                    	Error code from ICMP Notify
-                    	**type**\: int
+                    	Seq nos. of sack blocks
+                    	**type**\: list of :py:class:`SackBlk <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk>`
                     
-                    	**range:** \-2147483648..2147483647
+                    .. attribute:: save_queue_size
                     
-                    .. attribute:: sock_error
-                    
-                    	Socket error code
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: is_retrans_forever
-                    
-                    	Retransimit forever?
-                    	**type**\: bool
-                    
-                    .. attribute:: min_mss
-                    
-                    	Lowest MSS ever used
+                    	Save queue (out\-of seq data) size in bytes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: max_mss
+                    .. attribute:: send_buf_state_flags
                     
-                    	Highest MSS ever used
+                    	Send buffer state flags
+                    	**type**\: :py:class:`SendBufStateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags>`
+                    
+                    .. attribute:: send_congestion_window_size
+                    
+                    	Send congestion window size in bytes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: connect_retries
+                    .. attribute:: send_initial_sequence_num
                     
-                    	Number of times connect will be retried?
+                    	Initial send sequence number
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: connect_retry_interval
+                    .. attribute:: send_max_sequence_num
                     
-                    	Connect retry interval in seconds
+                    	Highest sequence number sent
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: receive_window_scale
+                    .. attribute:: send_next_sequence_num
                     
-                    	Window scaling for receive window
+                    	Sequence number of next data to be sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: send_pdu_count
+                    
+                    	# of PDU's in Send Buffer
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: send_sack_hole
+                    
+                    	Sorted list of sack holes
+                    	**type**\: list of :py:class:`SendSackHole <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole>`
+                    
+                    .. attribute:: send_unack_sequence_num
+                    
+                    	Sequence number of unacked data
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -4982,19 +5005,97 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: request_receive_window_scale
+                    .. attribute:: send_window_size
                     
-                    	Requested receive window scale
+                    	Send window size in bytes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: rqst_send_wnd_scale
+                    .. attribute:: sendbuf_hiwat
                     
-                    	Requested send window scale
+                    	Send buffer's high water mark
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: sendbuf_lowwat
+                    
+                    	Send buffer's low water mark
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sendbuf_notify_thresh
+                    
+                    	Send buffer's notify threshold
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: so
+                    
+                    	Socket Address
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sock_error
+                    
+                    	Socket error code
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: socket_option_flags
+                    
+                    	Socket option flags
+                    	**type**\: :py:class:`SocketOptionFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags>`
+                    
+                    .. attribute:: socket_state_flags
+                    
+                    	Socket state flags
+                    	**type**\: :py:class:`SocketStateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags>`
+                    
+                    .. attribute:: soft_error
+                    
+                    	Error code from ICMP Notify
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: srtt
+                    
+                    	Smoothed round trip time \* 8 (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srtv
+                    
+                    	Smoothed round trip time variance \* 4 (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: state_flags
+                    
+                    	Connection state flags
+                    	**type**\: :py:class:`StateFlags <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags>`
+                    
+                    .. attribute:: syn_wait_time
+                    
+                    	SYN wait time (msec)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tcpcb
+                    
+                    	TCPCB Address
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: time_stamp_recent
                     
@@ -5010,118 +5111,17 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: last_ack_sent
-                    
-                    	ACK number of a sent segment
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sendbuf_lowwat
-                    
-                    	Send buffer's low water mark
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: recvbuf_lowwat
-                    
-                    	Receive buffer's low water mark
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sendbuf_hiwat
-                    
-                    	Send buffer's high water mark
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: recvbuf_hiwat
-                    
-                    	Receive buffer's high water mark
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sendbuf_notify_thresh
-                    
-                    	Send buffer's notify threshold
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: send_pdu_count
-                    
-                    	# of PDU's in Send Buffer
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_ifhandle
-                    
-                    	Cached Outgoing interface  handle
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: fib_pd_ctx_size
-                    
-                    	Cached fib pd context size
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_labels
-                    
-                    	Number of labels returned by fib lookup
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: local_address
-                    
-                    	Local address
-                    	**type**\: list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: foreign_address
-                    
-                    	Foreign address
-                    	**type**\: list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: fib_pd_ctx
-                    
-                    	Cached fib pd context
-                    	**type**\: list of int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: fib_label_output
-                    
-                    	Cached Label stack
-                    	**type**\: list of int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: timer
                     
                     	Timers
                     	**type**\: list of :py:class:`Timer <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer>`
                     
-                    .. attribute:: sack_blk
+                    .. attribute:: vrf_id
                     
-                    	Seq nos. of sack blocks
-                    	**type**\: list of :py:class:`SackBlk <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk>`
+                    	VRF Id
+                    	**type**\: int
                     
-                    .. attribute:: send_sack_hole
-                    
-                    	Sorted list of sack holes
-                    	**type**\: list of :py:class:`SendSackHole <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole>`
+                    	**range:** 0..4294967295
                     
                     
 
@@ -5133,138 +5133,118 @@ class TcpConnection(object):
                     def __init__(self):
                         self.parent = None
                         self.pcb_id = None
+                        self.ack_hold_time = None
+                        self.address_family = None
+                        self.connect_retries = None
+                        self.connect_retry_interval = None
+                        self.connection_state = None
+                        self.current_receive_queue_packet_size = None
+                        self.current_receive_queue_size = None
+                        self.current_send_queue_size = None
+                        self.established_time = None
+                        self.feature_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags()
+                        self.feature_flags.parent = self
+                        self.fib_label_output = YLeafList()
+                        self.fib_label_output.parent = self
+                        self.fib_label_output.name = 'fib_label_output'
+                        self.fib_pd_ctx = YLeafList()
+                        self.fib_pd_ctx.parent = self
+                        self.fib_pd_ctx.name = 'fib_pd_ctx'
+                        self.fib_pd_ctx_size = None
+                        self.foreign_address = YLeafList()
+                        self.foreign_address.parent = self
+                        self.foreign_address.name = 'foreign_address'
+                        self.foreign_port = None
+                        self.giveup_time = None
+                        self.hash_index = None
+                        self.is_retrans_forever = None
+                        self.keep_alive_time = None
+                        self.krtt = None
+                        self.last_ack_sent = None
+                        self.local_address = YLeafList()
+                        self.local_address.parent = self
+                        self.local_address.name = 'local_address'
+                        self.local_pid = None
+                        self.local_port = None
+                        self.max_mss = None
+                        self.max_receive_queue_packet_size = None
+                        self.max_receive_queue_size = None
+                        self.max_rtt = None
+                        self.max_send_queue_size = None
+                        self.min_mss = None
+                        self.min_rtt = None
+                        self.mss = None
+                        self.num_labels = None
+                        self.output_ifhandle = None
+                        self.packet_priority = None
+                        self.packet_tos = None
+                        self.packet_ttl = None
+                        self.pcb = None
+                        self.peer_mss = None
+                        self.receive_adv_window_size = None
+                        self.receive_buf_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags()
+                        self.receive_buf_state_flags.parent = self
+                        self.receive_initial_sequence_num = None
+                        self.receive_next_sequence_num = None
+                        self.receive_window_scale = None
+                        self.receive_window_size = None
+                        self.recvbuf_hiwat = None
+                        self.recvbuf_lowwat = None
+                        self.request_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags()
+                        self.request_flags.parent = self
+                        self.request_receive_window_scale = None
+                        self.retries = None
+                        self.rqst_send_wnd_scale = None
+                        self.rtto = None
+                        self.rxsy_naclname = None
+                        self.sack_blk = YList()
+                        self.sack_blk.parent = self
+                        self.sack_blk.name = 'sack_blk'
+                        self.save_queue_size = None
+                        self.send_buf_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags()
+                        self.send_buf_state_flags.parent = self
+                        self.send_congestion_window_size = None
+                        self.send_initial_sequence_num = None
+                        self.send_max_sequence_num = None
+                        self.send_next_sequence_num = None
+                        self.send_pdu_count = None
+                        self.send_sack_hole = YList()
+                        self.send_sack_hole.parent = self
+                        self.send_sack_hole.name = 'send_sack_hole'
+                        self.send_unack_sequence_num = None
+                        self.send_window_scale = None
+                        self.send_window_size = None
+                        self.sendbuf_hiwat = None
+                        self.sendbuf_lowwat = None
+                        self.sendbuf_notify_thresh = None
+                        self.so = None
+                        self.sock_error = None
                         self.socket_option_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags()
                         self.socket_option_flags.parent = self
                         self.socket_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags()
                         self.socket_state_flags.parent = self
-                        self.feature_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags()
-                        self.feature_flags.parent = self
+                        self.soft_error = None
+                        self.srtt = None
+                        self.srtv = None
                         self.state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags()
                         self.state_flags.parent = self
-                        self.request_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags()
-                        self.request_flags.parent = self
-                        self.receive_buf_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags()
-                        self.receive_buf_state_flags.parent = self
-                        self.send_buf_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags()
-                        self.send_buf_state_flags.parent = self
-                        self.address_family = None
-                        self.pcb = None
-                        self.so = None
-                        self.tcpcb = None
-                        self.vrf_id = None
-                        self.connection_state = None
-                        self.established_time = None
-                        self.local_pid = None
-                        self.local_port = None
-                        self.foreign_port = None
-                        self.packet_priority = None
-                        self.packet_tos = None
-                        self.packet_ttl = None
-                        self.hash_index = None
-                        self.current_receive_queue_size = None
-                        self.max_receive_queue_size = None
-                        self.current_send_queue_size = None
-                        self.max_send_queue_size = None
-                        self.current_receive_queue_packet_size = None
-                        self.max_receive_queue_packet_size = None
-                        self.save_queue_size = None
-                        self.send_initial_sequence_num = None
-                        self.send_unack_sequence_num = None
-                        self.send_next_sequence_num = None
-                        self.send_max_sequence_num = None
-                        self.send_window_size = None
-                        self.send_congestion_window_size = None
-                        self.receive_initial_sequence_num = None
-                        self.receive_next_sequence_num = None
-                        self.receive_adv_window_size = None
-                        self.receive_window_size = None
-                        self.mss = None
-                        self.peer_mss = None
-                        self.srtt = None
-                        self.rtto = None
-                        self.krtt = None
-                        self.srtv = None
-                        self.min_rtt = None
-                        self.max_rtt = None
-                        self.retries = None
-                        self.ack_hold_time = None
-                        self.giveup_time = None
-                        self.keep_alive_time = None
                         self.syn_wait_time = None
-                        self.rxsy_naclname = None
-                        self.soft_error = None
-                        self.sock_error = None
-                        self.is_retrans_forever = None
-                        self.min_mss = None
-                        self.max_mss = None
-                        self.connect_retries = None
-                        self.connect_retry_interval = None
-                        self.receive_window_scale = None
-                        self.send_window_scale = None
-                        self.request_receive_window_scale = None
-                        self.rqst_send_wnd_scale = None
+                        self.tcpcb = None
                         self.time_stamp_recent = None
                         self.time_stamp_recent_age = None
-                        self.last_ack_sent = None
-                        self.sendbuf_lowwat = None
-                        self.recvbuf_lowwat = None
-                        self.sendbuf_hiwat = None
-                        self.recvbuf_hiwat = None
-                        self.sendbuf_notify_thresh = None
-                        self.send_pdu_count = None
-                        self.output_ifhandle = None
-                        self.fib_pd_ctx_size = None
-                        self.num_labels = None
-                        self.local_address = YLeafList()
-                        self.local_address.parent = self
-                        self.local_address.name = 'local_address'
-                        self.foreign_address = YLeafList()
-                        self.foreign_address.parent = self
-                        self.foreign_address.name = 'foreign_address'
-                        self.fib_pd_ctx = YLeafList()
-                        self.fib_pd_ctx.parent = self
-                        self.fib_pd_ctx.name = 'fib_pd_ctx'
-                        self.fib_label_output = YLeafList()
-                        self.fib_label_output.parent = self
-                        self.fib_label_output.name = 'fib_label_output'
                         self.timer = YList()
                         self.timer.parent = self
                         self.timer.name = 'timer'
-                        self.sack_blk = YList()
-                        self.sack_blk.parent = self
-                        self.sack_blk.name = 'sack_blk'
-                        self.send_sack_hole = YList()
-                        self.send_sack_hole.parent = self
-                        self.send_sack_hole.name = 'send_sack_hole'
+                        self.vrf_id = None
 
 
                     class SocketOptionFlags(object):
                         """
                         Socket option flags
                         
-                        .. attribute:: debug
-                        
-                        	Turn on debugging info recording
-                        	**type**\: bool
-                        
                         .. attribute:: accept_connection
                         
                         	Socket has had listen()
-                        	**type**\: bool
-                        
-                        .. attribute:: reuse_address
-                        
-                        	Allow local address reuse
-                        	**type**\: bool
-                        
-                        .. attribute:: keep_alive
-                        
-                        	Keep connections alive
-                        	**type**\: bool
-                        
-                        .. attribute:: dont_route
-                        
-                        	Just use interface addresses
                         	**type**\: bool
                         
                         .. attribute:: broadcast
@@ -5272,9 +5252,19 @@ class TcpConnection(object):
                         	Permit sending of broadcast msgs
                         	**type**\: bool
                         
-                        .. attribute:: use_loopback
+                        .. attribute:: debug
                         
-                        	Bypass hardware when possible
+                        	Turn on debugging info recording
+                        	**type**\: bool
+                        
+                        .. attribute:: dont_route
+                        
+                        	Just use interface addresses
+                        	**type**\: bool
+                        
+                        .. attribute:: keep_alive
+                        
+                        	Keep connections alive
                         	**type**\: bool
                         
                         .. attribute:: linger
@@ -5282,9 +5272,19 @@ class TcpConnection(object):
                         	Linger on close if data present
                         	**type**\: bool
                         
+                        .. attribute:: nonblocking_io
+                        
+                        	Nonblocking socket I/O operation
+                        	**type**\: bool
+                        
                         .. attribute:: out_of_band_inline
                         
                         	Leave received Out\-of\-band data inline
+                        	**type**\: bool
+                        
+                        .. attribute:: reuse_address
+                        
+                        	Allow local address reuse
                         	**type**\: bool
                         
                         .. attribute:: reuse_port
@@ -5292,9 +5292,9 @@ class TcpConnection(object):
                         	Allow local address & port reuse
                         	**type**\: bool
                         
-                        .. attribute:: nonblocking_io
+                        .. attribute:: use_loopback
                         
-                        	Nonblocking socket I/O operation
+                        	Bypass hardware when possible
                         	**type**\: bool
                         
                         
@@ -5306,22 +5306,22 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.debug = None
                             self.accept_connection = None
-                            self.reuse_address = None
-                            self.keep_alive = None
-                            self.dont_route = None
                             self.broadcast = None
-                            self.use_loopback = None
+                            self.debug = None
+                            self.dont_route = None
+                            self.keep_alive = None
                             self.linger = None
-                            self.out_of_band_inline = None
-                            self.reuse_port = None
                             self.nonblocking_io = None
+                            self.out_of_band_inline = None
+                            self.reuse_address = None
+                            self.reuse_port = None
+                            self.use_loopback = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:socket-option-flags'
 
@@ -5332,37 +5332,37 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.debug is not None:
-                                return True
-
                             if self.accept_connection is not None:
-                                return True
-
-                            if self.reuse_address is not None:
-                                return True
-
-                            if self.keep_alive is not None:
-                                return True
-
-                            if self.dont_route is not None:
                                 return True
 
                             if self.broadcast is not None:
                                 return True
 
-                            if self.use_loopback is not None:
+                            if self.debug is not None:
+                                return True
+
+                            if self.dont_route is not None:
+                                return True
+
+                            if self.keep_alive is not None:
                                 return True
 
                             if self.linger is not None:
                                 return True
 
+                            if self.nonblocking_io is not None:
+                                return True
+
                             if self.out_of_band_inline is not None:
+                                return True
+
+                            if self.reuse_address is not None:
                                 return True
 
                             if self.reuse_port is not None:
                                 return True
 
-                            if self.nonblocking_io is not None:
+                            if self.use_loopback is not None:
                                 return True
 
                             return False
@@ -5377,69 +5377,14 @@ class TcpConnection(object):
                         """
                         Socket state flags
                         
-                        .. attribute:: no_file_descriptor_reference
-                        
-                        	No file descriptor ref
-                        	**type**\: bool
-                        
-                        .. attribute:: is_connected
-                        
-                        	Socket is connected to peer
-                        	**type**\: bool
-                        
-                        .. attribute:: is_connecting
-                        
-                        	Connecting in progress
-                        	**type**\: bool
-                        
-                        .. attribute:: is_disconnecting
-                        
-                        	Disconnecting in progress
-                        	**type**\: bool
-                        
-                        .. attribute:: cant_send_more
-                        
-                        	Can't send more data to peer
-                        	**type**\: bool
-                        
-                        .. attribute:: cant_receive_more
-                        
-                        	Can't recv more data from peer
-                        	**type**\: bool
-                        
-                        .. attribute:: received_at_mark
-                        
-                        	At mark on input
-                        	**type**\: bool
-                        
-                        .. attribute:: privileged
-                        
-                        	Privileged for broadcast, raw..
-                        	**type**\: bool
-                        
-                        .. attribute:: block_close
-                        
-                        	Close is blocked (i.e. socket is a replicated socket on a standby node
-                        	**type**\: bool
-                        
                         .. attribute:: async_io_notify
                         
                         	Async i/o notify
                         	**type**\: bool
                         
-                        .. attribute:: is_confirming
+                        .. attribute:: block_close
                         
-                        	Deciding to accept connection req
-                        	**type**\: bool
-                        
-                        .. attribute:: is_solock
-                        
-                        	Mutex acquired by solock()
-                        	**type**\: bool
-                        
-                        .. attribute:: is_detached
-                        
-                        	PCB and socket are detached
+                        	Close is blocked (i.e. socket is a replicated socket on a standby node
                         	**type**\: bool
                         
                         .. attribute:: block_receive
@@ -5452,6 +5397,61 @@ class TcpConnection(object):
                         	Socket is blocked for send (if it is a replicated socket on a standby node)
                         	**type**\: bool
                         
+                        .. attribute:: cant_receive_more
+                        
+                        	Can't recv more data from peer
+                        	**type**\: bool
+                        
+                        .. attribute:: cant_send_more
+                        
+                        	Can't send more data to peer
+                        	**type**\: bool
+                        
+                        .. attribute:: is_confirming
+                        
+                        	Deciding to accept connection req
+                        	**type**\: bool
+                        
+                        .. attribute:: is_connected
+                        
+                        	Socket is connected to peer
+                        	**type**\: bool
+                        
+                        .. attribute:: is_connecting
+                        
+                        	Connecting in progress
+                        	**type**\: bool
+                        
+                        .. attribute:: is_detached
+                        
+                        	PCB and socket are detached
+                        	**type**\: bool
+                        
+                        .. attribute:: is_disconnecting
+                        
+                        	Disconnecting in progress
+                        	**type**\: bool
+                        
+                        .. attribute:: is_solock
+                        
+                        	Mutex acquired by solock()
+                        	**type**\: bool
+                        
+                        .. attribute:: no_file_descriptor_reference
+                        
+                        	No file descriptor ref
+                        	**type**\: bool
+                        
+                        .. attribute:: privileged
+                        
+                        	Privileged for broadcast, raw..
+                        	**type**\: bool
+                        
+                        .. attribute:: received_at_mark
+                        
+                        	At mark on input
+                        	**type**\: bool
+                        
                         
 
                         """
@@ -5461,26 +5461,26 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.no_file_descriptor_reference = None
-                            self.is_connected = None
-                            self.is_connecting = None
-                            self.is_disconnecting = None
-                            self.cant_send_more = None
-                            self.cant_receive_more = None
-                            self.received_at_mark = None
-                            self.privileged = None
-                            self.block_close = None
                             self.async_io_notify = None
-                            self.is_confirming = None
-                            self.is_solock = None
-                            self.is_detached = None
+                            self.block_close = None
                             self.block_receive = None
                             self.block_send = None
+                            self.cant_receive_more = None
+                            self.cant_send_more = None
+                            self.is_confirming = None
+                            self.is_connected = None
+                            self.is_connecting = None
+                            self.is_detached = None
+                            self.is_disconnecting = None
+                            self.is_solock = None
+                            self.no_file_descriptor_reference = None
+                            self.privileged = None
+                            self.received_at_mark = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:socket-state-flags'
 
@@ -5491,7 +5491,25 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.no_file_descriptor_reference is not None:
+                            if self.async_io_notify is not None:
+                                return True
+
+                            if self.block_close is not None:
+                                return True
+
+                            if self.block_receive is not None:
+                                return True
+
+                            if self.block_send is not None:
+                                return True
+
+                            if self.cant_receive_more is not None:
+                                return True
+
+                            if self.cant_send_more is not None:
+                                return True
+
+                            if self.is_confirming is not None:
                                 return True
 
                             if self.is_connected is not None:
@@ -5500,40 +5518,22 @@ class TcpConnection(object):
                             if self.is_connecting is not None:
                                 return True
 
+                            if self.is_detached is not None:
+                                return True
+
                             if self.is_disconnecting is not None:
-                                return True
-
-                            if self.cant_send_more is not None:
-                                return True
-
-                            if self.cant_receive_more is not None:
-                                return True
-
-                            if self.received_at_mark is not None:
-                                return True
-
-                            if self.privileged is not None:
-                                return True
-
-                            if self.block_close is not None:
-                                return True
-
-                            if self.async_io_notify is not None:
-                                return True
-
-                            if self.is_confirming is not None:
                                 return True
 
                             if self.is_solock is not None:
                                 return True
 
-                            if self.is_detached is not None:
+                            if self.no_file_descriptor_reference is not None:
                                 return True
 
-                            if self.block_receive is not None:
+                            if self.privileged is not None:
                                 return True
 
-                            if self.block_send is not None:
+                            if self.received_at_mark is not None:
                                 return True
 
                             return False
@@ -5548,14 +5548,39 @@ class TcpConnection(object):
                         """
                         Connection feature flags
                         
-                        .. attribute:: selective_ack
+                        .. attribute:: connection_keep_alive_timer
                         
-                        	Selective ack on?
+                        	Keepalive timer is on?
+                        	**type**\: bool
+                        
+                        .. attribute:: giveup_timer
+                        
+                        	Giveup timer is on?
                         	**type**\: bool
                         
                         .. attribute:: md5
                         
                         	MD5 option on?
+                        	**type**\: bool
+                        
+                        .. attribute:: mss_cisco
+                        
+                        	tcp mss feature is on?
+                        	**type**\: bool
+                        
+                        .. attribute:: nagle
+                        
+                        	Nagle algorithm on?
+                        	**type**\: bool
+                        
+                        .. attribute:: path_mtu_discovery
+                        
+                        	Path MTU Discovery feature is on?
+                        	**type**\: bool
+                        
+                        .. attribute:: selective_ack
+                        
+                        	Selective ack on?
                         	**type**\: bool
                         
                         .. attribute:: timestamps
@@ -5568,31 +5593,6 @@ class TcpConnection(object):
                         	Window\-scaling on?
                         	**type**\: bool
                         
-                        .. attribute:: nagle
-                        
-                        	Nagle algorithm on?
-                        	**type**\: bool
-                        
-                        .. attribute:: giveup_timer
-                        
-                        	Giveup timer is on?
-                        	**type**\: bool
-                        
-                        .. attribute:: connection_keep_alive_timer
-                        
-                        	Keepalive timer is on?
-                        	**type**\: bool
-                        
-                        .. attribute:: path_mtu_discovery
-                        
-                        	Path MTU Discovery feature is on?
-                        	**type**\: bool
-                        
-                        .. attribute:: mss_cisco
-                        
-                        	tcp mss feature is on?
-                        	**type**\: bool
-                        
                         
 
                         """
@@ -5602,20 +5602,20 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.selective_ack = None
+                            self.connection_keep_alive_timer = None
+                            self.giveup_timer = None
                             self.md5 = None
+                            self.mss_cisco = None
+                            self.nagle = None
+                            self.path_mtu_discovery = None
+                            self.selective_ack = None
                             self.timestamps = None
                             self.window_scaling = None
-                            self.nagle = None
-                            self.giveup_timer = None
-                            self.connection_keep_alive_timer = None
-                            self.path_mtu_discovery = None
-                            self.mss_cisco = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:feature-flags'
 
@@ -5626,31 +5626,31 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.selective_ack is not None:
+                            if self.connection_keep_alive_timer is not None:
+                                return True
+
+                            if self.giveup_timer is not None:
                                 return True
 
                             if self.md5 is not None:
+                                return True
+
+                            if self.mss_cisco is not None:
+                                return True
+
+                            if self.nagle is not None:
+                                return True
+
+                            if self.path_mtu_discovery is not None:
+                                return True
+
+                            if self.selective_ack is not None:
                                 return True
 
                             if self.timestamps is not None:
                                 return True
 
                             if self.window_scaling is not None:
-                                return True
-
-                            if self.nagle is not None:
-                                return True
-
-                            if self.giveup_timer is not None:
-                                return True
-
-                            if self.connection_keep_alive_timer is not None:
-                                return True
-
-                            if self.path_mtu_discovery is not None:
-                                return True
-
-                            if self.mss_cisco is not None:
                                 return True
 
                             return False
@@ -5665,11 +5665,6 @@ class TcpConnection(object):
                         """
                         Connection state flags
                         
-                        .. attribute:: nagle_wait
-                        
-                        	Nagle has delayed output
-                        	**type**\: bool
-                        
                         .. attribute:: ack_needed
                         
                         	Send an ACK
@@ -5680,9 +5675,14 @@ class TcpConnection(object):
                         	FIN has been sent
                         	**type**\: bool
                         
-                        .. attribute:: probing
+                        .. attribute:: in_syn_cache
                         
-                        	Probing a closed window
+                        	Connection is in SYN cache
+                        	**type**\: bool
+                        
+                        .. attribute:: nagle_wait
+                        
+                        	Nagle has delayed output
                         	**type**\: bool
                         
                         .. attribute:: need_push
@@ -5690,19 +5690,19 @@ class TcpConnection(object):
                         	Need to push data out
                         	**type**\: bool
                         
-                        .. attribute:: pushed
-                        
-                        	A segment is pushed due to MSG\_PUSH
-                        	**type**\: bool
-                        
-                        .. attribute:: in_syn_cache
-                        
-                        	Connection is in SYN cache
-                        	**type**\: bool
-                        
                         .. attribute:: path_mtu_ager
                         
                         	Path MTU aging timer is running
+                        	**type**\: bool
+                        
+                        .. attribute:: probing
+                        
+                        	Probing a closed window
+                        	**type**\: bool
+                        
+                        .. attribute:: pushed
+                        
+                        	A segment is pushed due to MSG\_PUSH
                         	**type**\: bool
                         
                         
@@ -5714,19 +5714,19 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.nagle_wait = None
                             self.ack_needed = None
                             self.fin_sent = None
-                            self.probing = None
-                            self.need_push = None
-                            self.pushed = None
                             self.in_syn_cache = None
+                            self.nagle_wait = None
+                            self.need_push = None
                             self.path_mtu_ager = None
+                            self.probing = None
+                            self.pushed = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:state-flags'
 
@@ -5737,28 +5737,28 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.nagle_wait is not None:
-                                return True
-
                             if self.ack_needed is not None:
                                 return True
 
                             if self.fin_sent is not None:
                                 return True
 
-                            if self.probing is not None:
+                            if self.in_syn_cache is not None:
+                                return True
+
+                            if self.nagle_wait is not None:
                                 return True
 
                             if self.need_push is not None:
                                 return True
 
-                            if self.pushed is not None:
-                                return True
-
-                            if self.in_syn_cache is not None:
-                                return True
-
                             if self.path_mtu_ager is not None:
+                                return True
+
+                            if self.probing is not None:
+                                return True
+
+                            if self.pushed is not None:
                                 return True
 
                             return False
@@ -5773,14 +5773,39 @@ class TcpConnection(object):
                         """
                         Connection request flags
                         
-                        .. attribute:: selective_ack
+                        .. attribute:: connection_keep_alive_timer
                         
-                        	Selective ack on?
+                        	Keepalive timer is on?
+                        	**type**\: bool
+                        
+                        .. attribute:: giveup_timer
+                        
+                        	Giveup timer is on?
                         	**type**\: bool
                         
                         .. attribute:: md5
                         
                         	MD5 option on?
+                        	**type**\: bool
+                        
+                        .. attribute:: mss_cisco
+                        
+                        	tcp mss feature is on?
+                        	**type**\: bool
+                        
+                        .. attribute:: nagle
+                        
+                        	Nagle algorithm on?
+                        	**type**\: bool
+                        
+                        .. attribute:: path_mtu_discovery
+                        
+                        	Path MTU Discovery feature is on?
+                        	**type**\: bool
+                        
+                        .. attribute:: selective_ack
+                        
+                        	Selective ack on?
                         	**type**\: bool
                         
                         .. attribute:: timestamps
@@ -5793,31 +5818,6 @@ class TcpConnection(object):
                         	Window\-scaling on?
                         	**type**\: bool
                         
-                        .. attribute:: nagle
-                        
-                        	Nagle algorithm on?
-                        	**type**\: bool
-                        
-                        .. attribute:: giveup_timer
-                        
-                        	Giveup timer is on?
-                        	**type**\: bool
-                        
-                        .. attribute:: connection_keep_alive_timer
-                        
-                        	Keepalive timer is on?
-                        	**type**\: bool
-                        
-                        .. attribute:: path_mtu_discovery
-                        
-                        	Path MTU Discovery feature is on?
-                        	**type**\: bool
-                        
-                        .. attribute:: mss_cisco
-                        
-                        	tcp mss feature is on?
-                        	**type**\: bool
-                        
                         
 
                         """
@@ -5827,20 +5827,20 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.selective_ack = None
+                            self.connection_keep_alive_timer = None
+                            self.giveup_timer = None
                             self.md5 = None
+                            self.mss_cisco = None
+                            self.nagle = None
+                            self.path_mtu_discovery = None
+                            self.selective_ack = None
                             self.timestamps = None
                             self.window_scaling = None
-                            self.nagle = None
-                            self.giveup_timer = None
-                            self.connection_keep_alive_timer = None
-                            self.path_mtu_discovery = None
-                            self.mss_cisco = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:request-flags'
 
@@ -5851,31 +5851,31 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.selective_ack is not None:
+                            if self.connection_keep_alive_timer is not None:
+                                return True
+
+                            if self.giveup_timer is not None:
                                 return True
 
                             if self.md5 is not None:
+                                return True
+
+                            if self.mss_cisco is not None:
+                                return True
+
+                            if self.nagle is not None:
+                                return True
+
+                            if self.path_mtu_discovery is not None:
+                                return True
+
+                            if self.selective_ack is not None:
                                 return True
 
                             if self.timestamps is not None:
                                 return True
 
                             if self.window_scaling is not None:
-                                return True
-
-                            if self.nagle is not None:
-                                return True
-
-                            if self.giveup_timer is not None:
-                                return True
-
-                            if self.connection_keep_alive_timer is not None:
-                                return True
-
-                            if self.path_mtu_discovery is not None:
-                                return True
-
-                            if self.mss_cisco is not None:
                                 return True
 
                             return False
@@ -5890,49 +5890,9 @@ class TcpConnection(object):
                         """
                         Receive buffer state flags
                         
-                        .. attribute:: locked
-                        
-                        	Lock on data queue (so\_rcv only)
-                        	**type**\: bool
-                        
-                        .. attribute:: waiting_for_lock
-                        
-                        	Someone is waiting to lock
-                        	**type**\: bool
-                        
-                        .. attribute:: waiting_for_data
-                        
-                        	Someone is waiting for data/space
-                        	**type**\: bool
-                        
-                        .. attribute:: input_select
-                        
-                        	Buffer is selected for INPUT
-                        	**type**\: bool
-                        
                         .. attribute:: async_io
                         
                         	Async I/O
-                        	**type**\: bool
-                        
-                        .. attribute:: not_interruptible
-                        
-                        	Not interruptible
-                        	**type**\: bool
-                        
-                        .. attribute:: io_timer_set
-                        
-                        	Read/write timer set
-                        	**type**\: bool
-                        
-                        .. attribute:: delayed_wakeup
-                        
-                        	Want delayed wakeups
-                        	**type**\: bool
-                        
-                        .. attribute:: wakeup
-                        
-                        	Read/write wakeup pending
                         	**type**\: bool
                         
                         .. attribute:: connect_wakeup
@@ -5940,14 +5900,54 @@ class TcpConnection(object):
                         	Connect wakeup pending
                         	**type**\: bool
                         
-                        .. attribute:: output_select
+                        .. attribute:: delayed_wakeup
                         
-                        	Buffer is selected for OUTPUT
+                        	Want delayed wakeups
+                        	**type**\: bool
+                        
+                        .. attribute:: input_select
+                        
+                        	Buffer is selected for INPUT
+                        	**type**\: bool
+                        
+                        .. attribute:: io_timer_set
+                        
+                        	Read/write timer set
+                        	**type**\: bool
+                        
+                        .. attribute:: locked
+                        
+                        	Lock on data queue (so\_rcv only)
+                        	**type**\: bool
+                        
+                        .. attribute:: not_interruptible
+                        
+                        	Not interruptible
                         	**type**\: bool
                         
                         .. attribute:: out_of_band_select
                         
                         	Buffer is selected for OBAND
+                        	**type**\: bool
+                        
+                        .. attribute:: output_select
+                        
+                        	Buffer is selected for OUTPUT
+                        	**type**\: bool
+                        
+                        .. attribute:: waiting_for_data
+                        
+                        	Someone is waiting for data/space
+                        	**type**\: bool
+                        
+                        .. attribute:: waiting_for_lock
+                        
+                        	Someone is waiting to lock
+                        	**type**\: bool
+                        
+                        .. attribute:: wakeup
+                        
+                        	Read/write wakeup pending
                         	**type**\: bool
                         
                         
@@ -5959,23 +5959,23 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.locked = None
-                            self.waiting_for_lock = None
-                            self.waiting_for_data = None
-                            self.input_select = None
                             self.async_io = None
-                            self.not_interruptible = None
-                            self.io_timer_set = None
-                            self.delayed_wakeup = None
-                            self.wakeup = None
                             self.connect_wakeup = None
-                            self.output_select = None
+                            self.delayed_wakeup = None
+                            self.input_select = None
+                            self.io_timer_set = None
+                            self.locked = None
+                            self.not_interruptible = None
                             self.out_of_band_select = None
+                            self.output_select = None
+                            self.waiting_for_data = None
+                            self.waiting_for_lock = None
+                            self.wakeup = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:receive-buf-state-flags'
 
@@ -5986,40 +5986,40 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.locked is not None:
-                                return True
-
-                            if self.waiting_for_lock is not None:
-                                return True
-
-                            if self.waiting_for_data is not None:
-                                return True
-
-                            if self.input_select is not None:
-                                return True
-
                             if self.async_io is not None:
-                                return True
-
-                            if self.not_interruptible is not None:
-                                return True
-
-                            if self.io_timer_set is not None:
-                                return True
-
-                            if self.delayed_wakeup is not None:
-                                return True
-
-                            if self.wakeup is not None:
                                 return True
 
                             if self.connect_wakeup is not None:
                                 return True
 
-                            if self.output_select is not None:
+                            if self.delayed_wakeup is not None:
+                                return True
+
+                            if self.input_select is not None:
+                                return True
+
+                            if self.io_timer_set is not None:
+                                return True
+
+                            if self.locked is not None:
+                                return True
+
+                            if self.not_interruptible is not None:
                                 return True
 
                             if self.out_of_band_select is not None:
+                                return True
+
+                            if self.output_select is not None:
+                                return True
+
+                            if self.waiting_for_data is not None:
+                                return True
+
+                            if self.waiting_for_lock is not None:
+                                return True
+
+                            if self.wakeup is not None:
                                 return True
 
                             return False
@@ -6034,49 +6034,9 @@ class TcpConnection(object):
                         """
                         Send buffer state flags
                         
-                        .. attribute:: locked
-                        
-                        	Lock on data queue (so\_rcv only)
-                        	**type**\: bool
-                        
-                        .. attribute:: waiting_for_lock
-                        
-                        	Someone is waiting to lock
-                        	**type**\: bool
-                        
-                        .. attribute:: waiting_for_data
-                        
-                        	Someone is waiting for data/space
-                        	**type**\: bool
-                        
-                        .. attribute:: input_select
-                        
-                        	Buffer is selected for INPUT
-                        	**type**\: bool
-                        
                         .. attribute:: async_io
                         
                         	Async I/O
-                        	**type**\: bool
-                        
-                        .. attribute:: not_interruptible
-                        
-                        	Not interruptible
-                        	**type**\: bool
-                        
-                        .. attribute:: io_timer_set
-                        
-                        	Read/write timer set
-                        	**type**\: bool
-                        
-                        .. attribute:: delayed_wakeup
-                        
-                        	Want delayed wakeups
-                        	**type**\: bool
-                        
-                        .. attribute:: wakeup
-                        
-                        	Read/write wakeup pending
                         	**type**\: bool
                         
                         .. attribute:: connect_wakeup
@@ -6084,14 +6044,54 @@ class TcpConnection(object):
                         	Connect wakeup pending
                         	**type**\: bool
                         
-                        .. attribute:: output_select
+                        .. attribute:: delayed_wakeup
                         
-                        	Buffer is selected for OUTPUT
+                        	Want delayed wakeups
+                        	**type**\: bool
+                        
+                        .. attribute:: input_select
+                        
+                        	Buffer is selected for INPUT
+                        	**type**\: bool
+                        
+                        .. attribute:: io_timer_set
+                        
+                        	Read/write timer set
+                        	**type**\: bool
+                        
+                        .. attribute:: locked
+                        
+                        	Lock on data queue (so\_rcv only)
+                        	**type**\: bool
+                        
+                        .. attribute:: not_interruptible
+                        
+                        	Not interruptible
                         	**type**\: bool
                         
                         .. attribute:: out_of_band_select
                         
                         	Buffer is selected for OBAND
+                        	**type**\: bool
+                        
+                        .. attribute:: output_select
+                        
+                        	Buffer is selected for OUTPUT
+                        	**type**\: bool
+                        
+                        .. attribute:: waiting_for_data
+                        
+                        	Someone is waiting for data/space
+                        	**type**\: bool
+                        
+                        .. attribute:: waiting_for_lock
+                        
+                        	Someone is waiting to lock
+                        	**type**\: bool
+                        
+                        .. attribute:: wakeup
+                        
+                        	Read/write wakeup pending
                         	**type**\: bool
                         
                         
@@ -6103,23 +6103,23 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.locked = None
-                            self.waiting_for_lock = None
-                            self.waiting_for_data = None
-                            self.input_select = None
                             self.async_io = None
-                            self.not_interruptible = None
-                            self.io_timer_set = None
-                            self.delayed_wakeup = None
-                            self.wakeup = None
                             self.connect_wakeup = None
-                            self.output_select = None
+                            self.delayed_wakeup = None
+                            self.input_select = None
+                            self.io_timer_set = None
+                            self.locked = None
+                            self.not_interruptible = None
                             self.out_of_band_select = None
+                            self.output_select = None
+                            self.waiting_for_data = None
+                            self.waiting_for_lock = None
+                            self.wakeup = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:send-buf-state-flags'
 
@@ -6130,40 +6130,40 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.locked is not None:
-                                return True
-
-                            if self.waiting_for_lock is not None:
-                                return True
-
-                            if self.waiting_for_data is not None:
-                                return True
-
-                            if self.input_select is not None:
-                                return True
-
                             if self.async_io is not None:
-                                return True
-
-                            if self.not_interruptible is not None:
-                                return True
-
-                            if self.io_timer_set is not None:
-                                return True
-
-                            if self.delayed_wakeup is not None:
-                                return True
-
-                            if self.wakeup is not None:
                                 return True
 
                             if self.connect_wakeup is not None:
                                 return True
 
-                            if self.output_select is not None:
+                            if self.delayed_wakeup is not None:
+                                return True
+
+                            if self.input_select is not None:
+                                return True
+
+                            if self.io_timer_set is not None:
+                                return True
+
+                            if self.locked is not None:
+                                return True
+
+                            if self.not_interruptible is not None:
                                 return True
 
                             if self.out_of_band_select is not None:
+                                return True
+
+                            if self.output_select is not None:
+                                return True
+
+                            if self.waiting_for_data is not None:
+                                return True
+
+                            if self.waiting_for_lock is not None:
+                                return True
+
+                            if self.wakeup is not None:
                                 return True
 
                             return False
@@ -6177,11 +6177,6 @@ class TcpConnection(object):
                     class Timer(object):
                         """
                         Timers
-                        
-                        .. attribute:: timer_type
-                        
-                        	Timer Type
-                        	**type**\: :py:class:`TcpTimerEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpTimerEnum>`
                         
                         .. attribute:: timer_activations
                         
@@ -6204,6 +6199,11 @@ class TcpConnection(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: timer_type
+                        
+                        	Timer Type
+                        	**type**\: :py:class:`TcpTimerEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpTimerEnum>`
+                        
                         
 
                         """
@@ -6213,15 +6213,15 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.timer_type = None
                             self.timer_activations = None
                             self.timer_expirations = None
                             self.timer_next_activation = None
+                            self.timer_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:timer'
 
@@ -6232,9 +6232,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.timer_type is not None:
-                                return True
-
                             if self.timer_activations is not None:
                                 return True
 
@@ -6242,6 +6239,9 @@ class TcpConnection(object):
                                 return True
 
                             if self.timer_next_activation is not None:
+                                return True
+
+                            if self.timer_type is not None:
                                 return True
 
                             return False
@@ -6256,16 +6256,16 @@ class TcpConnection(object):
                         """
                         Seq nos. of sack blocks
                         
-                        .. attribute:: start
+                        .. attribute:: end
                         
-                        	Start seq no. of sack block
+                        	End   seq no. of sack block
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: end
+                        .. attribute:: start
                         
-                        	End   seq no. of sack block
+                        	Start seq no. of sack block
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -6279,13 +6279,13 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.start = None
                             self.end = None
+                            self.start = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:sack-blk'
 
@@ -6296,10 +6296,10 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.start is not None:
+                            if self.end is not None:
                                 return True
 
-                            if self.end is not None:
+                            if self.start is not None:
                                 return True
 
                             return False
@@ -6314,9 +6314,9 @@ class TcpConnection(object):
                         """
                         Sorted list of sack holes
                         
-                        .. attribute:: start
+                        .. attribute:: duplicated_ack
                         
-                        	Start seq no. of hole
+                        	Number of dup (s)acks for this hole
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -6328,16 +6328,16 @@ class TcpConnection(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: duplicated_ack
+                        .. attribute:: retransmitted
                         
-                        	Number of dup (s)acks for this hole
+                        	Next seq. no in hole to be retransmitted
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: retransmitted
+                        .. attribute:: start
                         
-                        	Next seq. no in hole to be retransmitted
+                        	Start seq no. of hole
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -6351,15 +6351,15 @@ class TcpConnection(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.start = None
-                            self.end = None
                             self.duplicated_ack = None
+                            self.end = None
                             self.retransmitted = None
+                            self.start = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:send-sack-hole'
 
@@ -6370,16 +6370,16 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.start is not None:
+                            if self.duplicated_ack is not None:
                                 return True
 
                             if self.end is not None:
                                 return True
 
-                            if self.duplicated_ack is not None:
+                            if self.retransmitted is not None:
                                 return True
 
-                            if self.retransmitted is not None:
+                            if self.start is not None:
                                 return True
 
                             return False
@@ -6392,9 +6392,9 @@ class TcpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.pcb_id is None:
-                            raise YPYDataValidationError('Key property pcb_id is None')
+                            raise YPYModelError('Key property pcb_id is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-information[Cisco-IOS-XR-ip-tcp-oper:pcb-id = ' + str(self.pcb_id) + ']'
 
@@ -6408,47 +6408,79 @@ class TcpConnection(object):
                         if self.pcb_id is not None:
                             return True
 
-                        if self.socket_option_flags is not None and self.socket_option_flags._has_data():
-                            return True
-
-                        if self.socket_state_flags is not None and self.socket_state_flags._has_data():
-                            return True
-
-                        if self.feature_flags is not None and self.feature_flags._has_data():
-                            return True
-
-                        if self.state_flags is not None and self.state_flags._has_data():
-                            return True
-
-                        if self.request_flags is not None and self.request_flags._has_data():
-                            return True
-
-                        if self.receive_buf_state_flags is not None and self.receive_buf_state_flags._has_data():
-                            return True
-
-                        if self.send_buf_state_flags is not None and self.send_buf_state_flags._has_data():
+                        if self.ack_hold_time is not None:
                             return True
 
                         if self.address_family is not None:
                             return True
 
-                        if self.pcb is not None:
+                        if self.connect_retries is not None:
                             return True
 
-                        if self.so is not None:
-                            return True
-
-                        if self.tcpcb is not None:
-                            return True
-
-                        if self.vrf_id is not None:
+                        if self.connect_retry_interval is not None:
                             return True
 
                         if self.connection_state is not None:
                             return True
 
+                        if self.current_receive_queue_packet_size is not None:
+                            return True
+
+                        if self.current_receive_queue_size is not None:
+                            return True
+
+                        if self.current_send_queue_size is not None:
+                            return True
+
                         if self.established_time is not None:
                             return True
+
+                        if self.feature_flags is not None and self.feature_flags._has_data():
+                            return True
+
+                        if self.fib_label_output is not None:
+                            for child in self.fib_label_output:
+                                if child is not None:
+                                    return True
+
+                        if self.fib_pd_ctx is not None:
+                            for child in self.fib_pd_ctx:
+                                if child is not None:
+                                    return True
+
+                        if self.fib_pd_ctx_size is not None:
+                            return True
+
+                        if self.foreign_address is not None:
+                            for child in self.foreign_address:
+                                if child is not None:
+                                    return True
+
+                        if self.foreign_port is not None:
+                            return True
+
+                        if self.giveup_time is not None:
+                            return True
+
+                        if self.hash_index is not None:
+                            return True
+
+                        if self.is_retrans_forever is not None:
+                            return True
+
+                        if self.keep_alive_time is not None:
+                            return True
+
+                        if self.krtt is not None:
+                            return True
+
+                        if self.last_ack_sent is not None:
+                            return True
+
+                        if self.local_address is not None:
+                            for child in self.local_address:
+                                if child is not None:
+                                    return True
 
                         if self.local_pid is not None:
                             return True
@@ -6456,7 +6488,34 @@ class TcpConnection(object):
                         if self.local_port is not None:
                             return True
 
-                        if self.foreign_port is not None:
+                        if self.max_mss is not None:
+                            return True
+
+                        if self.max_receive_queue_packet_size is not None:
+                            return True
+
+                        if self.max_receive_queue_size is not None:
+                            return True
+
+                        if self.max_rtt is not None:
+                            return True
+
+                        if self.max_send_queue_size is not None:
+                            return True
+
+                        if self.min_mss is not None:
+                            return True
+
+                        if self.min_rtt is not None:
+                            return True
+
+                        if self.mss is not None:
+                            return True
+
+                        if self.num_labels is not None:
+                            return True
+
+                        if self.output_ifhandle is not None:
                             return True
 
                         if self.packet_priority is not None:
@@ -6468,46 +6527,16 @@ class TcpConnection(object):
                         if self.packet_ttl is not None:
                             return True
 
-                        if self.hash_index is not None:
+                        if self.pcb is not None:
                             return True
 
-                        if self.current_receive_queue_size is not None:
+                        if self.peer_mss is not None:
                             return True
 
-                        if self.max_receive_queue_size is not None:
+                        if self.receive_adv_window_size is not None:
                             return True
 
-                        if self.current_send_queue_size is not None:
-                            return True
-
-                        if self.max_send_queue_size is not None:
-                            return True
-
-                        if self.current_receive_queue_packet_size is not None:
-                            return True
-
-                        if self.max_receive_queue_packet_size is not None:
-                            return True
-
-                        if self.save_queue_size is not None:
-                            return True
-
-                        if self.send_initial_sequence_num is not None:
-                            return True
-
-                        if self.send_unack_sequence_num is not None:
-                            return True
-
-                        if self.send_next_sequence_num is not None:
-                            return True
-
-                        if self.send_max_sequence_num is not None:
-                            return True
-
-                        if self.send_window_size is not None:
-                            return True
-
-                        if self.send_congestion_window_size is not None:
+                        if self.receive_buf_state_flags is not None and self.receive_buf_state_flags._has_data():
                             return True
 
                         if self.receive_initial_sequence_num is not None:
@@ -6516,85 +6545,113 @@ class TcpConnection(object):
                         if self.receive_next_sequence_num is not None:
                             return True
 
-                        if self.receive_adv_window_size is not None:
+                        if self.receive_window_scale is not None:
                             return True
 
                         if self.receive_window_size is not None:
                             return True
 
-                        if self.mss is not None:
+                        if self.recvbuf_hiwat is not None:
                             return True
 
-                        if self.peer_mss is not None:
+                        if self.recvbuf_lowwat is not None:
                             return True
 
-                        if self.srtt is not None:
-                            return True
-
-                        if self.rtto is not None:
-                            return True
-
-                        if self.krtt is not None:
-                            return True
-
-                        if self.srtv is not None:
-                            return True
-
-                        if self.min_rtt is not None:
-                            return True
-
-                        if self.max_rtt is not None:
-                            return True
-
-                        if self.retries is not None:
-                            return True
-
-                        if self.ack_hold_time is not None:
-                            return True
-
-                        if self.giveup_time is not None:
-                            return True
-
-                        if self.keep_alive_time is not None:
-                            return True
-
-                        if self.syn_wait_time is not None:
-                            return True
-
-                        if self.rxsy_naclname is not None:
-                            return True
-
-                        if self.soft_error is not None:
-                            return True
-
-                        if self.sock_error is not None:
-                            return True
-
-                        if self.is_retrans_forever is not None:
-                            return True
-
-                        if self.min_mss is not None:
-                            return True
-
-                        if self.max_mss is not None:
-                            return True
-
-                        if self.connect_retries is not None:
-                            return True
-
-                        if self.connect_retry_interval is not None:
-                            return True
-
-                        if self.receive_window_scale is not None:
-                            return True
-
-                        if self.send_window_scale is not None:
+                        if self.request_flags is not None and self.request_flags._has_data():
                             return True
 
                         if self.request_receive_window_scale is not None:
                             return True
 
+                        if self.retries is not None:
+                            return True
+
                         if self.rqst_send_wnd_scale is not None:
+                            return True
+
+                        if self.rtto is not None:
+                            return True
+
+                        if self.rxsy_naclname is not None:
+                            return True
+
+                        if self.sack_blk is not None:
+                            for child_ref in self.sack_blk:
+                                if child_ref._has_data():
+                                    return True
+
+                        if self.save_queue_size is not None:
+                            return True
+
+                        if self.send_buf_state_flags is not None and self.send_buf_state_flags._has_data():
+                            return True
+
+                        if self.send_congestion_window_size is not None:
+                            return True
+
+                        if self.send_initial_sequence_num is not None:
+                            return True
+
+                        if self.send_max_sequence_num is not None:
+                            return True
+
+                        if self.send_next_sequence_num is not None:
+                            return True
+
+                        if self.send_pdu_count is not None:
+                            return True
+
+                        if self.send_sack_hole is not None:
+                            for child_ref in self.send_sack_hole:
+                                if child_ref._has_data():
+                                    return True
+
+                        if self.send_unack_sequence_num is not None:
+                            return True
+
+                        if self.send_window_scale is not None:
+                            return True
+
+                        if self.send_window_size is not None:
+                            return True
+
+                        if self.sendbuf_hiwat is not None:
+                            return True
+
+                        if self.sendbuf_lowwat is not None:
+                            return True
+
+                        if self.sendbuf_notify_thresh is not None:
+                            return True
+
+                        if self.so is not None:
+                            return True
+
+                        if self.sock_error is not None:
+                            return True
+
+                        if self.socket_option_flags is not None and self.socket_option_flags._has_data():
+                            return True
+
+                        if self.socket_state_flags is not None and self.socket_state_flags._has_data():
+                            return True
+
+                        if self.soft_error is not None:
+                            return True
+
+                        if self.srtt is not None:
+                            return True
+
+                        if self.srtv is not None:
+                            return True
+
+                        if self.state_flags is not None and self.state_flags._has_data():
+                            return True
+
+                        if self.syn_wait_time is not None:
+                            return True
+
+                        if self.tcpcb is not None:
                             return True
 
                         if self.time_stamp_recent is not None:
@@ -6603,70 +6660,13 @@ class TcpConnection(object):
                         if self.time_stamp_recent_age is not None:
                             return True
 
-                        if self.last_ack_sent is not None:
-                            return True
-
-                        if self.sendbuf_lowwat is not None:
-                            return True
-
-                        if self.recvbuf_lowwat is not None:
-                            return True
-
-                        if self.sendbuf_hiwat is not None:
-                            return True
-
-                        if self.recvbuf_hiwat is not None:
-                            return True
-
-                        if self.sendbuf_notify_thresh is not None:
-                            return True
-
-                        if self.send_pdu_count is not None:
-                            return True
-
-                        if self.output_ifhandle is not None:
-                            return True
-
-                        if self.fib_pd_ctx_size is not None:
-                            return True
-
-                        if self.num_labels is not None:
-                            return True
-
-                        if self.local_address is not None:
-                            for child in self.local_address:
-                                if child is not None:
-                                    return True
-
-                        if self.foreign_address is not None:
-                            for child in self.foreign_address:
-                                if child is not None:
-                                    return True
-
-                        if self.fib_pd_ctx is not None:
-                            for child in self.fib_pd_ctx:
-                                if child is not None:
-                                    return True
-
-                        if self.fib_label_output is not None:
-                            for child in self.fib_label_output:
-                                if child is not None:
-                                    return True
-
                         if self.timer is not None:
                             for child_ref in self.timer:
                                 if child_ref._has_data():
                                     return True
 
-                        if self.sack_blk is not None:
-                            for child_ref in self.sack_blk:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.send_sack_hole is not None:
-                            for child_ref in self.send_sack_hole:
-                                if child_ref._has_data():
-                                    return True
+                        if self.vrf_id is not None:
+                            return True
 
                         return False
 
@@ -6678,7 +6678,7 @@ class TcpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-informations'
 
@@ -6743,38 +6743,10 @@ class TcpConnection(object):
                     	Address family
                     	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                     
-                    .. attribute:: pcb
-                    
-                    	PCB Address
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: connection_state
                     
                     	Connection state
                     	**type**\: :py:class:`TcpConnStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
-                    
-                    .. attribute:: local_pid
-                    
-                    	Id of the local process
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: local_port
-                    
-                    	Local port
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: foreign_port
-                    
-                    	Foreign port
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
                     
                     .. attribute:: current_receive_queue_size
                     
@@ -6790,12 +6762,19 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: vrf_id
+                    .. attribute:: foreign_address
                     
-                    	VRF ID
+                    	Foreign address
+                    	**type**\: list of str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: foreign_port
+                    
+                    	Foreign port
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..65535
                     
                     .. attribute:: local_address
                     
@@ -6804,12 +6783,33 @@ class TcpConnection(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: foreign_address
+                    .. attribute:: local_pid
                     
-                    	Foreign address
-                    	**type**\: list of str
+                    	Id of the local process
+                    	**type**\: int
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: local_port
+                    
+                    	Local port
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: pcb
+                    
+                    	PCB Address
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: vrf_id
+                    
+                    	VRF ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -6822,27 +6822,27 @@ class TcpConnection(object):
                         self.parent = None
                         self.pcb_id = None
                         self.address_family = None
-                        self.pcb = None
                         self.connection_state = None
-                        self.local_pid = None
-                        self.local_port = None
-                        self.foreign_port = None
                         self.current_receive_queue_size = None
                         self.current_send_queue_size = None
-                        self.vrf_id = None
-                        self.local_address = YLeafList()
-                        self.local_address.parent = self
-                        self.local_address.name = 'local_address'
                         self.foreign_address = YLeafList()
                         self.foreign_address.parent = self
                         self.foreign_address.name = 'foreign_address'
+                        self.foreign_port = None
+                        self.local_address = YLeafList()
+                        self.local_address.parent = self
+                        self.local_address.name = 'local_address'
+                        self.local_pid = None
+                        self.local_port = None
+                        self.pcb = None
+                        self.vrf_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.pcb_id is None:
-                            raise YPYDataValidationError('Key property pcb_id is None')
+                            raise YPYModelError('Key property pcb_id is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-information[Cisco-IOS-XR-ip-tcp-oper:pcb-id = ' + str(self.pcb_id) + ']'
 
@@ -6859,19 +6859,7 @@ class TcpConnection(object):
                         if self.address_family is not None:
                             return True
 
-                        if self.pcb is not None:
-                            return True
-
                         if self.connection_state is not None:
-                            return True
-
-                        if self.local_pid is not None:
-                            return True
-
-                        if self.local_port is not None:
-                            return True
-
-                        if self.foreign_port is not None:
                             return True
 
                         if self.current_receive_queue_size is not None:
@@ -6880,7 +6868,12 @@ class TcpConnection(object):
                         if self.current_send_queue_size is not None:
                             return True
 
-                        if self.vrf_id is not None:
+                        if self.foreign_address is not None:
+                            for child in self.foreign_address:
+                                if child is not None:
+                                    return True
+
+                        if self.foreign_port is not None:
                             return True
 
                         if self.local_address is not None:
@@ -6888,10 +6881,17 @@ class TcpConnection(object):
                                 if child is not None:
                                     return True
 
-                        if self.foreign_address is not None:
-                            for child in self.foreign_address:
-                                if child is not None:
-                                    return True
+                        if self.local_pid is not None:
+                            return True
+
+                        if self.local_port is not None:
+                            return True
+
+                        if self.pcb is not None:
+                            return True
+
+                        if self.vrf_id is not None:
+                            return True
 
                         return False
 
@@ -6903,7 +6903,7 @@ class TcpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-informations'
 
@@ -6929,7 +6929,7 @@ class TcpConnection(object):
             @property
             def _common_path(self):
                 if self.id is None:
-                    raise YPYDataValidationError('Key property id is None')
+                    raise YPYModelError('Key property id is None')
 
                 return '/Cisco-IOS-XR-ip-tcp-oper:tcp-connection/Cisco-IOS-XR-ip-tcp-oper:nodes/Cisco-IOS-XR-ip-tcp-oper:node[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -6943,16 +6943,16 @@ class TcpConnection(object):
                 if self.id is not None:
                     return True
 
-                if self.statistics is not None and self.statistics._has_data():
-                    return True
-
-                if self.extended_information is not None and self.extended_information._has_data():
+                if self.brief_informations is not None and self.brief_informations._has_data():
                     return True
 
                 if self.detail_informations is not None and self.detail_informations._has_data():
                     return True
 
-                if self.brief_informations is not None and self.brief_informations._has_data():
+                if self.extended_information is not None and self.extended_information._has_data():
+                    return True
+
+                if self.statistics is not None and self.statistics._has_data():
                     return True
 
                 return False
@@ -7116,13 +7116,6 @@ class Tcp(object):
                     """
                     TCP Traffic statistics for IPv4
                     
-                    .. attribute:: tcp_input_packets
-                    
-                    	TCP packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: tcp_checksum_error_packets
                     
                     	TCP packets with checksum errors
@@ -7133,6 +7126,13 @@ class Tcp(object):
                     .. attribute:: tcp_dropped_packets
                     
                     	TCP packets dropped (no port)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tcp_input_packets
+                    
+                    	TCP packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -7160,16 +7160,16 @@ class Tcp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tcp_input_packets = None
                         self.tcp_checksum_error_packets = None
                         self.tcp_dropped_packets = None
+                        self.tcp_input_packets = None
                         self.tcp_output_packets = None
                         self.tcp_retransmitted_packets = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:ipv4-traffic'
 
@@ -7180,13 +7180,13 @@ class Tcp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tcp_input_packets is not None:
-                            return True
-
                         if self.tcp_checksum_error_packets is not None:
                             return True
 
                         if self.tcp_dropped_packets is not None:
+                            return True
+
+                        if self.tcp_input_packets is not None:
                             return True
 
                         if self.tcp_output_packets is not None:
@@ -7207,13 +7207,6 @@ class Tcp(object):
                     """
                     TCP Traffic statistics for IPv6
                     
-                    .. attribute:: tcp_input_packets
-                    
-                    	TCP packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: tcp_checksum_error_packets
                     
                     	TCP packets with checksum errors
@@ -7224,6 +7217,13 @@ class Tcp(object):
                     .. attribute:: tcp_dropped_packets
                     
                     	TCP packets dropped (no port)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tcp_input_packets
+                    
+                    	TCP packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -7251,16 +7251,16 @@ class Tcp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tcp_input_packets = None
                         self.tcp_checksum_error_packets = None
                         self.tcp_dropped_packets = None
+                        self.tcp_input_packets = None
                         self.tcp_output_packets = None
                         self.tcp_retransmitted_packets = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:ipv6-traffic'
 
@@ -7271,13 +7271,13 @@ class Tcp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tcp_input_packets is not None:
-                            return True
-
                         if self.tcp_checksum_error_packets is not None:
                             return True
 
                         if self.tcp_dropped_packets is not None:
+                            return True
+
+                        if self.tcp_input_packets is not None:
                             return True
 
                         if self.tcp_output_packets is not None:
@@ -7296,7 +7296,7 @@ class Tcp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistics'
 
@@ -7323,7 +7323,7 @@ class Tcp(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ip-tcp-oper:tcp/Cisco-IOS-XR-ip-tcp-oper:nodes/Cisco-IOS-XR-ip-tcp-oper:node[Cisco-IOS-XR-ip-tcp-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -7450,15 +7450,15 @@ class TcpNsr(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: session
-            
-            	Information about TCP NSR Sessions
-            	**type**\: :py:class:`Session <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session>`
-            
             .. attribute:: client
             
             	Information about TCP NSR Client
             	**type**\: :py:class:`Client <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client>`
+            
+            .. attribute:: session
+            
+            	Information about TCP NSR Sessions
+            	**type**\: :py:class:`Session <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session>`
             
             .. attribute:: session_set
             
@@ -7480,10 +7480,10 @@ class TcpNsr(object):
             def __init__(self):
                 self.parent = None
                 self.id = None
-                self.session = TcpNsr.Nodes.Node.Session()
-                self.session.parent = self
                 self.client = TcpNsr.Nodes.Node.Client()
                 self.client.parent = self
+                self.session = TcpNsr.Nodes.Node.Session()
+                self.session.parent = self
                 self.session_set = TcpNsr.Nodes.Node.SessionSet()
                 self.session_set.parent = self
                 self.statistics = TcpNsr.Nodes.Node.Statistics()
@@ -7558,26 +7558,12 @@ class TcpNsr(object):
                         	Address family
                         	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
-                        .. attribute:: pcb
+                        .. attribute:: foreign_address
                         
-                        	PCB Address
-                        	**type**\: int
+                        	Foreign address
+                        	**type**\: list of str
                         
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: sscb
-                        
-                        	SSCB Address
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: local_port
-                        
-                        	Local port
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: foreign_port
                         
@@ -7586,22 +7572,10 @@ class TcpNsr(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: vrf_id
-                        
-                        	VRF Id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: is_admin_configured_up
                         
                         	Is NSR administratively configured?
                         	**type**\: bool
-                        
-                        .. attribute:: is_us_operational_up
-                        
-                        	Is Upstream NSR operational?
-                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: is_ds_operational_up
                         
@@ -7613,6 +7587,11 @@ class TcpNsr(object):
                         	Is replication limited to receive\-path only
                         	**type**\: bool
                         
+                        .. attribute:: is_us_operational_up
+                        
+                        	Is Upstream NSR operational?
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        
                         .. attribute:: local_address
                         
                         	Local address
@@ -7620,12 +7599,33 @@ class TcpNsr(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: foreign_address
+                        .. attribute:: local_port
                         
-                        	Foreign address
-                        	**type**\: list of str
+                        	Local port
+                        	**type**\: int
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**range:** 0..65535
+                        
+                        .. attribute:: pcb
+                        
+                        	PCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: sscb
+                        
+                        	SSCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: vrf_id
+                        
+                        	VRF Id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -7638,28 +7638,28 @@ class TcpNsr(object):
                             self.parent = None
                             self.id = None
                             self.address_family = None
-                            self.pcb = None
-                            self.sscb = None
-                            self.local_port = None
-                            self.foreign_port = None
-                            self.vrf_id = None
-                            self.is_admin_configured_up = None
-                            self.is_us_operational_up = None
-                            self.is_ds_operational_up = None
-                            self.is_only_receive_path_replication = None
-                            self.local_address = YLeafList()
-                            self.local_address.parent = self
-                            self.local_address.name = 'local_address'
                             self.foreign_address = YLeafList()
                             self.foreign_address.parent = self
                             self.foreign_address.name = 'foreign_address'
+                            self.foreign_port = None
+                            self.is_admin_configured_up = None
+                            self.is_ds_operational_up = None
+                            self.is_only_receive_path_replication = None
+                            self.is_us_operational_up = None
+                            self.local_address = YLeafList()
+                            self.local_address.parent = self
+                            self.local_address.name = 'local_address'
+                            self.local_port = None
+                            self.pcb = None
+                            self.sscb = None
+                            self.vrf_id = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-session[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -7676,25 +7676,15 @@ class TcpNsr(object):
                             if self.address_family is not None:
                                 return True
 
-                            if self.pcb is not None:
-                                return True
-
-                            if self.sscb is not None:
-                                return True
-
-                            if self.local_port is not None:
-                                return True
+                            if self.foreign_address is not None:
+                                for child in self.foreign_address:
+                                    if child is not None:
+                                        return True
 
                             if self.foreign_port is not None:
                                 return True
 
-                            if self.vrf_id is not None:
-                                return True
-
                             if self.is_admin_configured_up is not None:
-                                return True
-
-                            if self.is_us_operational_up is not None:
                                 return True
 
                             if self.is_ds_operational_up is not None:
@@ -7703,15 +7693,25 @@ class TcpNsr(object):
                             if self.is_only_receive_path_replication is not None:
                                 return True
 
+                            if self.is_us_operational_up is not None:
+                                return True
+
                             if self.local_address is not None:
                                 for child in self.local_address:
                                     if child is not None:
                                         return True
 
-                            if self.foreign_address is not None:
-                                for child in self.foreign_address:
-                                    if child is not None:
-                                        return True
+                            if self.local_port is not None:
+                                return True
+
+                            if self.pcb is not None:
+                                return True
+
+                            if self.sscb is not None:
+                                return True
+
+                            if self.vrf_id is not None:
+                                return True
 
                             return False
 
@@ -7723,7 +7723,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-sessions'
 
@@ -7781,233 +7781,21 @@ class TcpNsr(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
-                        .. attribute:: set_information
-                        
-                        	Sesson\-set information
-                        	**type**\: :py:class:`SetInformation <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation>`
-                        
                         .. attribute:: address_family
                         
                         	Address family
                         	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
-                        .. attribute:: pcb
-                        
-                        	PCB Address
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: sscb
-                        
-                        	SSCB Address
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: local_port
-                        
-                        	Local port
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: foreign_port
-                        
-                        	Foreign port
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: vrf_id
-                        
-                        	VRF Id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_admin_configured_up
-                        
-                        	Is NSR administratively configured?
-                        	**type**\: bool
-                        
-                        .. attribute:: is_us_operational_up
-                        
-                        	Is Upstream NSR operational?
-                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
-                        
-                        .. attribute:: is_ds_operational_up
-                        
-                        	Is Downstream NSR operational?
-                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
-                        
-                        .. attribute:: is_only_receive_path_replication
-                        
-                        	Is replication limited to receive\-path only
-                        	**type**\: bool
-                        
                         .. attribute:: cookie
                         
                         	Cookie provided by active APP
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_session_replicated
-                        
-                        	Has the session been replicated to standby?
-                        	**type**\: bool
-                        
-                        .. attribute:: is_session_synced
-                        
-                        	Has the session completed initial\-sync?
-                        	**type**\: bool
                         
                         .. attribute:: fist_standby_sequence_number
                         
                         	If initial sync is completed, then the FSSN \- First Standby Sequence Number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: fssn_offset
-                        
-                        	Offset of FSSN in input stream
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: nsr_down_reason
-                        
-                        	If NSR is not up, the reason for it
-                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
-                        
-                        .. attribute:: nsr_down_time
-                        
-                        	Time at which NSR went down
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sequence_number_of_init_sync
-                        
-                        	ID of the Initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_init_sync_in_progress
-                        
-                        	Is initial\-sync currently in progress?
-                        	**type**\: bool
-                        
-                        .. attribute:: is_init_sync_second_phase
-                        
-                        	Is initial sync in the second phase?
-                        	**type**\: bool
-                        
-                        .. attribute:: init_sync_error
-                        
-                        	Initial sync failure reason, if any
-                        	**type**\: str
-                        
-                        .. attribute:: is_init_sync_error_local
-                        
-                        	Initial sync failed due to a local error or remote stack
-                        	**type**\: bool
-                        
-                        .. attribute:: init_sync_start_time
-                        
-                        	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_end_time
-                        
-                        	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_flags
-                        
-                        	Init Sync flags for the session
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sequence_number_of_init_sync_up_stream
-                        
-                        	ID of the Initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: peer_endp_hdl_up_stream
-                        
-                        	Peer NCD endp handle
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: init_sync_start_time_up_stream
-                        
-                        	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_end_time_up_stream
-                        
-                        	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: fist_standby_sequence_number_up_stream
-                        
-                        	FSSN for the upstream partner
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: nsr_down_reason_up_stream
-                        
-                        	The reason NSR is not up towards the upstream partner
-                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
-                        
-                        .. attribute:: nsr_down_time_up_stream
-                        
-                        	Time at which NSR went down
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sequence_number_of_init_sync_down_stream
-                        
-                        	ID of the Initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: peer_endp_hdl_down_stream
-                        
-                        	Peer NCD endp handle
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: init_sync_start_time_down_stream
-                        
-                        	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_end_time_down_stream
-                        
-                        	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -8019,14 +7807,162 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: nsr_down_reason_down_stream
+                        .. attribute:: fist_standby_sequence_number_up_stream
                         
-                        	The reason NSR is not up towards the upstream partner
-                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
+                        	FSSN for the upstream partner
+                        	**type**\: int
                         
-                        .. attribute:: nsr_down_time_down_stream
+                        	**range:** 0..4294967295
                         
-                        	Time at which NSR went down
+                        .. attribute:: foreign_address
+                        
+                        	Foreign address
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: foreign_port
+                        
+                        	Foreign port
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: fssn_offset
+                        
+                        	Offset of FSSN in input stream
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_end_time
+                        
+                        	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_end_time_down_stream
+                        
+                        	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_end_time_up_stream
+                        
+                        	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_error
+                        
+                        	Initial sync failure reason, if any
+                        	**type**\: str
+                        
+                        .. attribute:: init_sync_flags
+                        
+                        	Init Sync flags for the session
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_start_time
+                        
+                        	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_start_time_down_stream
+                        
+                        	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_start_time_up_stream
+                        
+                        	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: internal_ack_hold_queue
+                        
+                        	Sequence Number and datalength of each node in hold\_iackqueue
+                        	**type**\: list of :py:class:`InternalAckHoldQueue <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue>`
+                        
+                        .. attribute:: is_admin_configured_up
+                        
+                        	Is NSR administratively configured?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_ds_operational_up
+                        
+                        	Is Downstream NSR operational?
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        
+                        .. attribute:: is_init_sync_error_local
+                        
+                        	Initial sync failed due to a local error or remote stack
+                        	**type**\: bool
+                        
+                        .. attribute:: is_init_sync_in_progress
+                        
+                        	Is initial\-sync currently in progress?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_init_sync_second_phase
+                        
+                        	Is initial sync in the second phase?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_only_receive_path_replication
+                        
+                        	Is replication limited to receive\-path only
+                        	**type**\: bool
+                        
+                        .. attribute:: is_session_replicated
+                        
+                        	Has the session been replicated to standby?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_session_synced
+                        
+                        	Has the session completed initial\-sync?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_us_operational_up
+                        
+                        	Is Upstream NSR operational?
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        
+                        .. attribute:: local_address
+                        
+                        	Local address
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: local_port
+                        
+                        	Local port
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: max_number_of_held_internal_ack
+                        
+                        	Max number of internal acks have been held
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: max_number_of_held_internal_ack_reach_time
+                        
+                        	Max number of held internal acks reaches at
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -8045,43 +7981,107 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: max_number_of_held_internal_ack
+                        .. attribute:: nsr_down_reason
                         
-                        	Max number of internal acks have been held
-                        	**type**\: int
+                        	If NSR is not up, the reason for it
+                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
-                        	**range:** \-2147483648..2147483647
+                        .. attribute:: nsr_down_reason_down_stream
                         
-                        .. attribute:: max_number_of_held_internal_ack_reach_time
+                        	The reason NSR is not up towards the upstream partner
+                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
-                        	Max number of held internal acks reaches at
+                        .. attribute:: nsr_down_reason_up_stream
+                        
+                        	The reason NSR is not up towards the upstream partner
+                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
+                        
+                        .. attribute:: nsr_down_time
+                        
+                        	Time at which NSR went down
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: local_address
+                        .. attribute:: nsr_down_time_down_stream
                         
-                        	Local address
-                        	**type**\: list of str
+                        	Time at which NSR went down
+                        	**type**\: int
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**range:** 0..4294967295
                         
-                        .. attribute:: foreign_address
+                        .. attribute:: nsr_down_time_up_stream
                         
-                        	Foreign address
-                        	**type**\: list of str
+                        	Time at which NSR went down
+                        	**type**\: int
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**range:** 0..4294967295
                         
                         .. attribute:: packet_hold_queue
                         
                         	Sequence Number and datalength of each node in hold\_pakqueue
                         	**type**\: list of :py:class:`PacketHoldQueue <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue>`
                         
-                        .. attribute:: internal_ack_hold_queue
+                        .. attribute:: pcb
                         
-                        	Sequence Number and datalength of each node in hold\_iackqueue
-                        	**type**\: list of :py:class:`InternalAckHoldQueue <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue>`
+                        	PCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: peer_endp_hdl_down_stream
+                        
+                        	Peer NCD endp handle
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: peer_endp_hdl_up_stream
+                        
+                        	Peer NCD endp handle
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: sequence_number_of_init_sync
+                        
+                        	ID of the Initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sequence_number_of_init_sync_down_stream
+                        
+                        	ID of the Initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sequence_number_of_init_sync_up_stream
+                        
+                        	ID of the Initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: set_information
+                        
+                        	Sesson\-set information
+                        	**type**\: :py:class:`SetInformation <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation>`
+                        
+                        .. attribute:: sscb
+                        
+                        	SSCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: vrf_id
+                        
+                        	VRF Id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -8093,87 +8093,73 @@ class TcpNsr(object):
                         def __init__(self):
                             self.parent = None
                             self.id = None
-                            self.set_information = TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation()
-                            self.set_information.parent = self
                             self.address_family = None
-                            self.pcb = None
-                            self.sscb = None
-                            self.local_port = None
-                            self.foreign_port = None
-                            self.vrf_id = None
-                            self.is_admin_configured_up = None
-                            self.is_us_operational_up = None
-                            self.is_ds_operational_up = None
-                            self.is_only_receive_path_replication = None
                             self.cookie = None
-                            self.is_session_replicated = None
-                            self.is_session_synced = None
                             self.fist_standby_sequence_number = None
-                            self.fssn_offset = None
-                            self.nsr_down_reason = None
-                            self.nsr_down_time = None
-                            self.sequence_number_of_init_sync = None
-                            self.is_init_sync_in_progress = None
-                            self.is_init_sync_second_phase = None
-                            self.init_sync_error = None
-                            self.is_init_sync_error_local = None
-                            self.init_sync_start_time = None
-                            self.init_sync_end_time = None
-                            self.init_sync_flags = None
-                            self.sequence_number_of_init_sync_up_stream = None
-                            self.peer_endp_hdl_up_stream = None
-                            self.init_sync_start_time_up_stream = None
-                            self.init_sync_end_time_up_stream = None
-                            self.fist_standby_sequence_number_up_stream = None
-                            self.nsr_down_reason_up_stream = None
-                            self.nsr_down_time_up_stream = None
-                            self.sequence_number_of_init_sync_down_stream = None
-                            self.peer_endp_hdl_down_stream = None
-                            self.init_sync_start_time_down_stream = None
-                            self.init_sync_end_time_down_stream = None
                             self.fist_standby_sequence_number_down_stream = None
-                            self.nsr_down_reason_down_stream = None
-                            self.nsr_down_time_down_stream = None
-                            self.max_number_of_held_packet = None
-                            self.max_number_of_held_packet_reach_time = None
-                            self.max_number_of_held_internal_ack = None
-                            self.max_number_of_held_internal_ack_reach_time = None
-                            self.local_address = YLeafList()
-                            self.local_address.parent = self
-                            self.local_address.name = 'local_address'
+                            self.fist_standby_sequence_number_up_stream = None
                             self.foreign_address = YLeafList()
                             self.foreign_address.parent = self
                             self.foreign_address.name = 'foreign_address'
-                            self.packet_hold_queue = YList()
-                            self.packet_hold_queue.parent = self
-                            self.packet_hold_queue.name = 'packet_hold_queue'
+                            self.foreign_port = None
+                            self.fssn_offset = None
+                            self.init_sync_end_time = None
+                            self.init_sync_end_time_down_stream = None
+                            self.init_sync_end_time_up_stream = None
+                            self.init_sync_error = None
+                            self.init_sync_flags = None
+                            self.init_sync_start_time = None
+                            self.init_sync_start_time_down_stream = None
+                            self.init_sync_start_time_up_stream = None
                             self.internal_ack_hold_queue = YList()
                             self.internal_ack_hold_queue.parent = self
                             self.internal_ack_hold_queue.name = 'internal_ack_hold_queue'
+                            self.is_admin_configured_up = None
+                            self.is_ds_operational_up = None
+                            self.is_init_sync_error_local = None
+                            self.is_init_sync_in_progress = None
+                            self.is_init_sync_second_phase = None
+                            self.is_only_receive_path_replication = None
+                            self.is_session_replicated = None
+                            self.is_session_synced = None
+                            self.is_us_operational_up = None
+                            self.local_address = YLeafList()
+                            self.local_address.parent = self
+                            self.local_address.name = 'local_address'
+                            self.local_port = None
+                            self.max_number_of_held_internal_ack = None
+                            self.max_number_of_held_internal_ack_reach_time = None
+                            self.max_number_of_held_packet = None
+                            self.max_number_of_held_packet_reach_time = None
+                            self.nsr_down_reason = None
+                            self.nsr_down_reason_down_stream = None
+                            self.nsr_down_reason_up_stream = None
+                            self.nsr_down_time = None
+                            self.nsr_down_time_down_stream = None
+                            self.nsr_down_time_up_stream = None
+                            self.packet_hold_queue = YList()
+                            self.packet_hold_queue.parent = self
+                            self.packet_hold_queue.name = 'packet_hold_queue'
+                            self.pcb = None
+                            self.peer_endp_hdl_down_stream = None
+                            self.peer_endp_hdl_up_stream = None
+                            self.sequence_number_of_init_sync = None
+                            self.sequence_number_of_init_sync_down_stream = None
+                            self.sequence_number_of_init_sync_up_stream = None
+                            self.set_information = TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation()
+                            self.set_information.parent = self
+                            self.sscb = None
+                            self.vrf_id = None
 
 
                         class SetInformation(object):
                             """
                             Sesson\-set information
                             
-                            .. attribute:: sscb
+                            .. attribute:: address_family
                             
-                            	Address of the Session Set Control Block
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: pid
-                            
-                            	PID of the Client that owns this Session\-set
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: client_name
-                            
-                            	the name of Clinet that owns this Session\-set
-                            	**type**\: str
+                            	Address Family of the sessions in this set
+                            	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                             
                             .. attribute:: client_instance
                             
@@ -8182,87 +8168,10 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: set_id
+                            .. attribute:: client_name
                             
-                            	ID of this Session\-set
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: sso_role
-                            
-                            	TCP role for this set?
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mode
-                            
-                            	Session\-set mode
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: address_family
-                            
-                            	Address Family of the sessions in this set
-                            	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
-                            
-                            .. attribute:: well_known_port
-                            
-                            	Well Known Port of the client
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: local_node
-                            
-                            	Local node of this set
+                            	the name of Clinet that owns this Session\-set
                             	**type**\: str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: local_instance
-                            
-                            	Instance of the client application on the local node
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: protect_node
-                            
-                            	The node protecting this set
-                            	**type**\: str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: protect_instance
-                            
-                            	Instance of the client application on the protection node
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: number_of_sessions
-                            
-                            	Number of Sessions in the set
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: number_of_synced_sessions_up_stream
-                            
-                            	How many sessions are synced with upstream partner
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: number_of_synced_sessions_down_stream
-                            
-                            	How many sessions are synced with downstream partner
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: is_init_sync_in_progress
                             
@@ -8274,6 +8183,97 @@ class TcpNsr(object):
                             	Is the SSCB ready for another initial sync?
                             	**type**\: bool
                             
+                            .. attribute:: local_instance
+                            
+                            	Instance of the client application on the local node
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: local_node
+                            
+                            	Local node of this set
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            .. attribute:: mode
+                            
+                            	Session\-set mode
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: number_of_sessions
+                            
+                            	Number of Sessions in the set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: number_of_synced_sessions_down_stream
+                            
+                            	How many sessions are synced with downstream partner
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: number_of_synced_sessions_up_stream
+                            
+                            	How many sessions are synced with upstream partner
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: pid
+                            
+                            	PID of the Client that owns this Session\-set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: protect_instance
+                            
+                            	Instance of the client application on the protection node
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: protect_node
+                            
+                            	The node protecting this set
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            .. attribute:: set_id
+                            
+                            	ID of this Session\-set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sscb
+                            
+                            	Address of the Session Set Control Block
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sso_role
+                            
+                            	TCP role for this set?
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: well_known_port
+                            
+                            	Well Known Port of the client
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
                             
 
                             """
@@ -8283,29 +8283,29 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.sscb = None
-                                self.pid = None
-                                self.client_name = None
-                                self.client_instance = None
-                                self.set_id = None
-                                self.sso_role = None
-                                self.mode = None
                                 self.address_family = None
-                                self.well_known_port = None
-                                self.local_node = None
-                                self.local_instance = None
-                                self.protect_node = None
-                                self.protect_instance = None
-                                self.number_of_sessions = None
-                                self.number_of_synced_sessions_up_stream = None
-                                self.number_of_synced_sessions_down_stream = None
+                                self.client_instance = None
+                                self.client_name = None
                                 self.is_init_sync_in_progress = None
                                 self.is_sscb_init_sync_ready = None
+                                self.local_instance = None
+                                self.local_node = None
+                                self.mode = None
+                                self.number_of_sessions = None
+                                self.number_of_synced_sessions_down_stream = None
+                                self.number_of_synced_sessions_up_stream = None
+                                self.pid = None
+                                self.protect_instance = None
+                                self.protect_node = None
+                                self.set_id = None
+                                self.sscb = None
+                                self.sso_role = None
+                                self.well_known_port = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:set-information'
 
@@ -8316,58 +8316,58 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.sscb is not None:
-                                    return True
-
-                                if self.pid is not None:
-                                    return True
-
-                                if self.client_name is not None:
+                                if self.address_family is not None:
                                     return True
 
                                 if self.client_instance is not None:
                                     return True
 
-                                if self.set_id is not None:
-                                    return True
-
-                                if self.sso_role is not None:
-                                    return True
-
-                                if self.mode is not None:
-                                    return True
-
-                                if self.address_family is not None:
-                                    return True
-
-                                if self.well_known_port is not None:
-                                    return True
-
-                                if self.local_node is not None:
-                                    return True
-
-                                if self.local_instance is not None:
-                                    return True
-
-                                if self.protect_node is not None:
-                                    return True
-
-                                if self.protect_instance is not None:
-                                    return True
-
-                                if self.number_of_sessions is not None:
-                                    return True
-
-                                if self.number_of_synced_sessions_up_stream is not None:
-                                    return True
-
-                                if self.number_of_synced_sessions_down_stream is not None:
+                                if self.client_name is not None:
                                     return True
 
                                 if self.is_init_sync_in_progress is not None:
                                     return True
 
                                 if self.is_sscb_init_sync_ready is not None:
+                                    return True
+
+                                if self.local_instance is not None:
+                                    return True
+
+                                if self.local_node is not None:
+                                    return True
+
+                                if self.mode is not None:
+                                    return True
+
+                                if self.number_of_sessions is not None:
+                                    return True
+
+                                if self.number_of_synced_sessions_down_stream is not None:
+                                    return True
+
+                                if self.number_of_synced_sessions_up_stream is not None:
+                                    return True
+
+                                if self.pid is not None:
+                                    return True
+
+                                if self.protect_instance is not None:
+                                    return True
+
+                                if self.protect_node is not None:
+                                    return True
+
+                                if self.set_id is not None:
+                                    return True
+
+                                if self.sscb is not None:
+                                    return True
+
+                                if self.sso_role is not None:
+                                    return True
+
+                                if self.well_known_port is not None:
                                     return True
 
                                 return False
@@ -8383,9 +8383,9 @@ class TcpNsr(object):
                             Sequence Number and datalength of each node in
                             hold\_pakqueue
                             
-                            .. attribute:: sequence_number
+                            .. attribute:: acknoledgement_number
                             
-                            	Sequence Number
+                            	Ack Number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -8397,9 +8397,9 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: acknoledgement_number
+                            .. attribute:: sequence_number
                             
-                            	Ack Number
+                            	Sequence Number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -8413,14 +8413,14 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.sequence_number = None
-                                self.data_length = None
                                 self.acknoledgement_number = None
+                                self.data_length = None
+                                self.sequence_number = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:packet-hold-queue'
 
@@ -8431,13 +8431,13 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.sequence_number is not None:
+                                if self.acknoledgement_number is not None:
                                     return True
 
                                 if self.data_length is not None:
                                     return True
 
-                                if self.acknoledgement_number is not None:
+                                if self.sequence_number is not None:
                                     return True
 
                                 return False
@@ -8453,9 +8453,9 @@ class TcpNsr(object):
                             Sequence Number and datalength of each node in
                             hold\_iackqueue
                             
-                            .. attribute:: sequence_number
+                            .. attribute:: acknoledgement_number
                             
-                            	Sequence Number
+                            	Ack Number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -8467,9 +8467,9 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: acknoledgement_number
+                            .. attribute:: sequence_number
                             
-                            	Ack Number
+                            	Sequence Number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -8483,14 +8483,14 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.sequence_number = None
-                                self.data_length = None
                                 self.acknoledgement_number = None
+                                self.data_length = None
+                                self.sequence_number = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:internal-ack-hold-queue'
 
@@ -8501,13 +8501,13 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.sequence_number is not None:
+                                if self.acknoledgement_number is not None:
                                     return True
 
                                 if self.data_length is not None:
                                     return True
 
-                                if self.acknoledgement_number is not None:
+                                if self.sequence_number is not None:
                                     return True
 
                                 return False
@@ -8520,9 +8520,9 @@ class TcpNsr(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-session[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -8536,61 +8536,68 @@ class TcpNsr(object):
                             if self.id is not None:
                                 return True
 
-                            if self.set_information is not None and self.set_information._has_data():
-                                return True
-
                             if self.address_family is not None:
-                                return True
-
-                            if self.pcb is not None:
-                                return True
-
-                            if self.sscb is not None:
-                                return True
-
-                            if self.local_port is not None:
-                                return True
-
-                            if self.foreign_port is not None:
-                                return True
-
-                            if self.vrf_id is not None:
-                                return True
-
-                            if self.is_admin_configured_up is not None:
-                                return True
-
-                            if self.is_us_operational_up is not None:
-                                return True
-
-                            if self.is_ds_operational_up is not None:
-                                return True
-
-                            if self.is_only_receive_path_replication is not None:
                                 return True
 
                             if self.cookie is not None:
                                 return True
 
-                            if self.is_session_replicated is not None:
-                                return True
-
-                            if self.is_session_synced is not None:
-                                return True
-
                             if self.fist_standby_sequence_number is not None:
+                                return True
+
+                            if self.fist_standby_sequence_number_down_stream is not None:
+                                return True
+
+                            if self.fist_standby_sequence_number_up_stream is not None:
+                                return True
+
+                            if self.foreign_address is not None:
+                                for child in self.foreign_address:
+                                    if child is not None:
+                                        return True
+
+                            if self.foreign_port is not None:
                                 return True
 
                             if self.fssn_offset is not None:
                                 return True
 
-                            if self.nsr_down_reason is not None:
+                            if self.init_sync_end_time is not None:
                                 return True
 
-                            if self.nsr_down_time is not None:
+                            if self.init_sync_end_time_down_stream is not None:
                                 return True
 
-                            if self.sequence_number_of_init_sync is not None:
+                            if self.init_sync_end_time_up_stream is not None:
+                                return True
+
+                            if self.init_sync_error is not None:
+                                return True
+
+                            if self.init_sync_flags is not None:
+                                return True
+
+                            if self.init_sync_start_time is not None:
+                                return True
+
+                            if self.init_sync_start_time_down_stream is not None:
+                                return True
+
+                            if self.init_sync_start_time_up_stream is not None:
+                                return True
+
+                            if self.internal_ack_hold_queue is not None:
+                                for child_ref in self.internal_ack_hold_queue:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.is_admin_configured_up is not None:
+                                return True
+
+                            if self.is_ds_operational_up is not None:
+                                return True
+
+                            if self.is_init_sync_error_local is not None:
                                 return True
 
                             if self.is_init_sync_in_progress is not None:
@@ -8599,67 +8606,24 @@ class TcpNsr(object):
                             if self.is_init_sync_second_phase is not None:
                                 return True
 
-                            if self.init_sync_error is not None:
+                            if self.is_only_receive_path_replication is not None:
                                 return True
 
-                            if self.is_init_sync_error_local is not None:
+                            if self.is_session_replicated is not None:
                                 return True
 
-                            if self.init_sync_start_time is not None:
+                            if self.is_session_synced is not None:
                                 return True
 
-                            if self.init_sync_end_time is not None:
+                            if self.is_us_operational_up is not None:
                                 return True
 
-                            if self.init_sync_flags is not None:
-                                return True
+                            if self.local_address is not None:
+                                for child in self.local_address:
+                                    if child is not None:
+                                        return True
 
-                            if self.sequence_number_of_init_sync_up_stream is not None:
-                                return True
-
-                            if self.peer_endp_hdl_up_stream is not None:
-                                return True
-
-                            if self.init_sync_start_time_up_stream is not None:
-                                return True
-
-                            if self.init_sync_end_time_up_stream is not None:
-                                return True
-
-                            if self.fist_standby_sequence_number_up_stream is not None:
-                                return True
-
-                            if self.nsr_down_reason_up_stream is not None:
-                                return True
-
-                            if self.nsr_down_time_up_stream is not None:
-                                return True
-
-                            if self.sequence_number_of_init_sync_down_stream is not None:
-                                return True
-
-                            if self.peer_endp_hdl_down_stream is not None:
-                                return True
-
-                            if self.init_sync_start_time_down_stream is not None:
-                                return True
-
-                            if self.init_sync_end_time_down_stream is not None:
-                                return True
-
-                            if self.fist_standby_sequence_number_down_stream is not None:
-                                return True
-
-                            if self.nsr_down_reason_down_stream is not None:
-                                return True
-
-                            if self.nsr_down_time_down_stream is not None:
-                                return True
-
-                            if self.max_number_of_held_packet is not None:
-                                return True
-
-                            if self.max_number_of_held_packet_reach_time is not None:
+                            if self.local_port is not None:
                                 return True
 
                             if self.max_number_of_held_internal_ack is not None:
@@ -8668,25 +8632,61 @@ class TcpNsr(object):
                             if self.max_number_of_held_internal_ack_reach_time is not None:
                                 return True
 
-                            if self.local_address is not None:
-                                for child in self.local_address:
-                                    if child is not None:
-                                        return True
+                            if self.max_number_of_held_packet is not None:
+                                return True
 
-                            if self.foreign_address is not None:
-                                for child in self.foreign_address:
-                                    if child is not None:
-                                        return True
+                            if self.max_number_of_held_packet_reach_time is not None:
+                                return True
+
+                            if self.nsr_down_reason is not None:
+                                return True
+
+                            if self.nsr_down_reason_down_stream is not None:
+                                return True
+
+                            if self.nsr_down_reason_up_stream is not None:
+                                return True
+
+                            if self.nsr_down_time is not None:
+                                return True
+
+                            if self.nsr_down_time_down_stream is not None:
+                                return True
+
+                            if self.nsr_down_time_up_stream is not None:
+                                return True
 
                             if self.packet_hold_queue is not None:
                                 for child_ref in self.packet_hold_queue:
                                     if child_ref._has_data():
                                         return True
 
-                            if self.internal_ack_hold_queue is not None:
-                                for child_ref in self.internal_ack_hold_queue:
-                                    if child_ref._has_data():
-                                        return True
+                            if self.pcb is not None:
+                                return True
+
+                            if self.peer_endp_hdl_down_stream is not None:
+                                return True
+
+                            if self.peer_endp_hdl_up_stream is not None:
+                                return True
+
+                            if self.sequence_number_of_init_sync is not None:
+                                return True
+
+                            if self.sequence_number_of_init_sync_down_stream is not None:
+                                return True
+
+                            if self.sequence_number_of_init_sync_up_stream is not None:
+                                return True
+
+                            if self.set_information is not None and self.set_information._has_data():
+                                return True
+
+                            if self.sscb is not None:
+                                return True
+
+                            if self.vrf_id is not None:
+                                return True
 
                             return False
 
@@ -8698,7 +8698,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-sessions'
 
@@ -8724,7 +8724,7 @@ class TcpNsr(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:session'
 
@@ -8753,15 +8753,15 @@ class TcpNsr(object):
                 """
                 Information about TCP NSR Client
                 
-                .. attribute:: detail_clients
-                
-                	Table about TCP NSR Client details
-                	**type**\: :py:class:`DetailClients <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients>`
-                
                 .. attribute:: brief_clients
                 
                 	Information about TCP NSR Client
                 	**type**\: :py:class:`BriefClients <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients>`
+                
+                .. attribute:: detail_clients
+                
+                	Table about TCP NSR Client details
+                	**type**\: :py:class:`DetailClients <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients>`
                 
                 
 
@@ -8772,10 +8772,10 @@ class TcpNsr(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.detail_clients = TcpNsr.Nodes.Node.Client.DetailClients()
-                    self.detail_clients.parent = self
                     self.brief_clients = TcpNsr.Nodes.Node.Client.BriefClients()
                     self.brief_clients.parent = self
+                    self.detail_clients = TcpNsr.Nodes.Node.Client.DetailClients()
+                    self.detail_clients.parent = self
 
 
                 class DetailClients(object):
@@ -8815,28 +8815,16 @@ class TcpNsr(object):
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: pid
+                        .. attribute:: connected_at
                         
-                        	PID of the Client
+                        	Time of connect (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: process_name
-                        
-                        	Proc name of Clinet
-                        	**type**\: str
-                        
-                        .. attribute:: job_id
-                        
-                        	JOb ID of Client
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: instance
                         
@@ -8845,12 +8833,17 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: numberof_sets
+                        .. attribute:: is_notification_registered
                         
-                        	Number of Sets owned by this client 
+                        	Registered with TCP for notifications?
+                        	**type**\: bool
+                        
+                        .. attribute:: job_id
+                        
+                        	JOb ID of Client
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: number_of_sessions
                         
@@ -8866,17 +8859,24 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: connected_at
+                        .. attribute:: numberof_sets
                         
-                        	Time of connect (in seconds since 1st Jan 1970 00\:00\:00)
+                        	Number of Sets owned by this client 
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_notification_registered
+                        .. attribute:: pid
                         
-                        	Registered with TCP for notifications?
-                        	**type**\: bool
+                        	PID of the Client
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: process_name
+                        
+                        	Proc name of Clinet
+                        	**type**\: str
                         
                         
 
@@ -8889,22 +8889,22 @@ class TcpNsr(object):
                             self.parent = None
                             self.id = None
                             self.ccb = None
-                            self.pid = None
-                            self.process_name = None
-                            self.job_id = None
+                            self.connected_at = None
                             self.instance = None
-                            self.numberof_sets = None
+                            self.is_notification_registered = None
+                            self.job_id = None
                             self.number_of_sessions = None
                             self.number_of_up_sessions = None
-                            self.connected_at = None
-                            self.is_notification_registered = None
+                            self.numberof_sets = None
+                            self.pid = None
+                            self.process_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-client[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -8921,19 +8921,16 @@ class TcpNsr(object):
                             if self.ccb is not None:
                                 return True
 
-                            if self.pid is not None:
-                                return True
-
-                            if self.process_name is not None:
-                                return True
-
-                            if self.job_id is not None:
+                            if self.connected_at is not None:
                                 return True
 
                             if self.instance is not None:
                                 return True
 
-                            if self.numberof_sets is not None:
+                            if self.is_notification_registered is not None:
+                                return True
+
+                            if self.job_id is not None:
                                 return True
 
                             if self.number_of_sessions is not None:
@@ -8942,10 +8939,13 @@ class TcpNsr(object):
                             if self.number_of_up_sessions is not None:
                                 return True
 
-                            if self.connected_at is not None:
+                            if self.numberof_sets is not None:
                                 return True
 
-                            if self.is_notification_registered is not None:
+                            if self.pid is not None:
+                                return True
+
+                            if self.process_name is not None:
                                 return True
 
                             return False
@@ -8958,7 +8958,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-clients'
 
@@ -9019,28 +9019,9 @@ class TcpNsr(object):
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: pid
-                        
-                        	PID of the Client
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: process_name
-                        
-                        	Proc name of Clinet
-                        	**type**\: str
-                        
-                        .. attribute:: job_id
-                        
-                        	JOb ID of Client
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: instance
                         
@@ -9049,12 +9030,12 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: numberof_sets
+                        .. attribute:: job_id
                         
-                        	Number of Sets owned by this client 
+                        	JOb ID of Client
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: number_of_sessions
                         
@@ -9070,6 +9051,25 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: numberof_sets
+                        
+                        	Number of Sets owned by this client 
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pid
+                        
+                        	PID of the Client
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: process_name
+                        
+                        	Proc name of Clinet
+                        	**type**\: str
+                        
                         
 
                         """
@@ -9081,20 +9081,20 @@ class TcpNsr(object):
                             self.parent = None
                             self.id = None
                             self.ccb = None
-                            self.pid = None
-                            self.process_name = None
-                            self.job_id = None
                             self.instance = None
-                            self.numberof_sets = None
+                            self.job_id = None
                             self.number_of_sessions = None
                             self.number_of_up_sessions = None
+                            self.numberof_sets = None
+                            self.pid = None
+                            self.process_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-client[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -9111,25 +9111,25 @@ class TcpNsr(object):
                             if self.ccb is not None:
                                 return True
 
-                            if self.pid is not None:
-                                return True
-
-                            if self.process_name is not None:
-                                return True
-
-                            if self.job_id is not None:
-                                return True
-
                             if self.instance is not None:
                                 return True
 
-                            if self.numberof_sets is not None:
+                            if self.job_id is not None:
                                 return True
 
                             if self.number_of_sessions is not None:
                                 return True
 
                             if self.number_of_up_sessions is not None:
+                                return True
+
+                            if self.numberof_sets is not None:
+                                return True
+
+                            if self.pid is not None:
+                                return True
+
+                            if self.process_name is not None:
                                 return True
 
                             return False
@@ -9142,7 +9142,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-clients'
 
@@ -9168,7 +9168,7 @@ class TcpNsr(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:client'
 
@@ -9179,10 +9179,10 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.detail_clients is not None and self.detail_clients._has_data():
+                    if self.brief_clients is not None and self.brief_clients._has_data():
                         return True
 
-                    if self.brief_clients is not None and self.brief_clients._has_data():
+                    if self.detail_clients is not None and self.detail_clients._has_data():
                         return True
 
                     return False
@@ -9197,15 +9197,15 @@ class TcpNsr(object):
                 """
                 Information about TCP NSR Session Sets
                 
-                .. attribute:: detail_sets
-                
-                	Table about TCP NSR Session Sets details
-                	**type**\: :py:class:`DetailSets <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets>`
-                
                 .. attribute:: brief_sets
                 
                 	Information about TCP NSR Session Sets
                 	**type**\: :py:class:`BriefSets <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets>`
+                
+                .. attribute:: detail_sets
+                
+                	Table about TCP NSR Session Sets details
+                	**type**\: :py:class:`DetailSets <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets>`
                 
                 
 
@@ -9216,10 +9216,10 @@ class TcpNsr(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.detail_sets = TcpNsr.Nodes.Node.SessionSet.DetailSets()
-                    self.detail_sets.parent = self
                     self.brief_sets = TcpNsr.Nodes.Node.SessionSet.BriefSets()
                     self.brief_sets.parent = self
+                    self.detail_sets = TcpNsr.Nodes.Node.SessionSet.DetailSets()
+                    self.detail_sets.parent = self
 
 
                 class DetailSets(object):
@@ -9257,201 +9257,17 @@ class TcpNsr(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
-                        .. attribute:: sscb
-                        
-                        	Address of the Session Set Control Block
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: pid
-                        
-                        	PID of the Client that owns this Session\-set
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: set_id
-                        
-                        	ID of this Session\-set
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sso_role
-                        
-                        	TCP role for this set?
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: mode
-                        
-                        	Session\-set mode
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
                         	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
-                        .. attribute:: well_known_port
+                        .. attribute:: audit_end_time
                         
-                        	Well Known Port of the client
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: local_node
-                        
-                        	Local node of this set
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: local_instance
-                        
-                        	Instance of the client application on the local node
+                        	Time at which the last audit operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: protect_node
-                        
-                        	The node protecting this set
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: protect_instance
-                        
-                        	Instance of the client application on the protection node
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_sessions
-                        
-                        	Number of Sessions in the set
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_synced_sessions_up_stream
-                        
-                        	How many sessions are synced with upstream partner
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_synced_sessions_down_stream
-                        
-                        	How many sessions are synced with downstream partner
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_init_sync_in_progress
-                        
-                        	Is an initial sync in progress currently?
-                        	**type**\: bool
-                        
-                        .. attribute:: is_init_sync_second_phase
-                        
-                        	Is initial sync in the second phase?
-                        	**type**\: bool
-                        
-                        .. attribute:: sequence_number_of_init_sync
-                        
-                        	ID of the current or the last initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_timer
-                        
-                        	Time left on the initial sync timer
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: total_number_of_init_sync_sessions
-                        
-                        	Number of sessions being synced as part of the current initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_init_synced_sessions
-                        
-                        	Number of sessions that are synced as part of the current initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_sessions_init_sync_failed
-                        
-                        	Number of sessions that failed to sync as part of the current initial sync operation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_error
-                        
-                        	Initial sync failure reason, if any
-                        	**type**\: str
-                        
-                        .. attribute:: is_init_sync_error_local
-                        
-                        	Initial sync failed due to a local error or remote stack
-                        	**type**\: bool
-                        
-                        .. attribute:: init_sync_start_time
-                        
-                        	Time at which last or current initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_end_time
-                        
-                        	Time at which the last initial sync operation was ended (in seconds since 1st Jan 1970 00\:00 \:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_sscb_init_sync_ready
-                        
-                        	Is the SSCB ready for another initial sync?
-                        	**type**\: bool
-                        
-                        .. attribute:: init_sync_ready_start_time
-                        
-                        	Time at which the session was ready for initial sync last (in seconds since 1st Jan 1970 00\:00 \:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: init_sync_ready_end_time
-                        
-                        	Time at which the session set last went not\-ready for initial sync (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: nsr_reset_time
-                        
-                        	Time at which NSR was last reset on the session set (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_audit_in_progress
-                        
-                        	Is an audit in progress currently?
-                        	**type**\: bool
                         
                         .. attribute:: audit_seq_number
                         
@@ -9467,12 +9283,196 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: audit_end_time
+                        .. attribute:: init_sync_end_time
                         
-                        	Time at which the last audit operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
+                        	Time at which the last initial sync operation was ended (in seconds since 1st Jan 1970 00\:00 \:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_error
+                        
+                        	Initial sync failure reason, if any
+                        	**type**\: str
+                        
+                        .. attribute:: init_sync_ready_end_time
+                        
+                        	Time at which the session set last went not\-ready for initial sync (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_ready_start_time
+                        
+                        	Time at which the session was ready for initial sync last (in seconds since 1st Jan 1970 00\:00 \:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_start_time
+                        
+                        	Time at which last or current initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: init_sync_timer
+                        
+                        	Time left on the initial sync timer
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_audit_in_progress
+                        
+                        	Is an audit in progress currently?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_init_sync_error_local
+                        
+                        	Initial sync failed due to a local error or remote stack
+                        	**type**\: bool
+                        
+                        .. attribute:: is_init_sync_in_progress
+                        
+                        	Is an initial sync in progress currently?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_init_sync_second_phase
+                        
+                        	Is initial sync in the second phase?
+                        	**type**\: bool
+                        
+                        .. attribute:: is_sscb_init_sync_ready
+                        
+                        	Is the SSCB ready for another initial sync?
+                        	**type**\: bool
+                        
+                        .. attribute:: local_instance
+                        
+                        	Instance of the client application on the local node
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: local_node
+                        
+                        	Local node of this set
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        .. attribute:: mode
+                        
+                        	Session\-set mode
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: nsr_reset_time
+                        
+                        	Time at which NSR was last reset on the session set (in seconds since 1st Jan 1970 00\:00\:00)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_init_synced_sessions
+                        
+                        	Number of sessions that are synced as part of the current initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_sessions
+                        
+                        	Number of Sessions in the set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_sessions_init_sync_failed
+                        
+                        	Number of sessions that failed to sync as part of the current initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_synced_sessions_down_stream
+                        
+                        	How many sessions are synced with downstream partner
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_synced_sessions_up_stream
+                        
+                        	How many sessions are synced with upstream partner
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pid
+                        
+                        	PID of the Client that owns this Session\-set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: protect_instance
+                        
+                        	Instance of the client application on the protection node
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: protect_node
+                        
+                        	The node protecting this set
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        .. attribute:: sequence_number_of_init_sync
+                        
+                        	ID of the current or the last initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: set_id
+                        
+                        	ID of this Session\-set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sscb
+                        
+                        	Address of the Session Set Control Block
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: sso_role
+                        
+                        	TCP role for this set?
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: total_number_of_init_sync_sessions
+                        
+                        	Number of sessions being synced as part of the current initial sync operation
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: well_known_port
+                        
+                        	Well Known Port of the client
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
                         
                         
 
@@ -9484,46 +9484,46 @@ class TcpNsr(object):
                         def __init__(self):
                             self.parent = None
                             self.id = None
-                            self.sscb = None
-                            self.pid = None
-                            self.set_id = None
-                            self.sso_role = None
-                            self.mode = None
                             self.address_family = None
-                            self.well_known_port = None
-                            self.local_node = None
-                            self.local_instance = None
-                            self.protect_node = None
-                            self.protect_instance = None
-                            self.number_of_sessions = None
-                            self.number_of_synced_sessions_up_stream = None
-                            self.number_of_synced_sessions_down_stream = None
-                            self.is_init_sync_in_progress = None
-                            self.is_init_sync_second_phase = None
-                            self.sequence_number_of_init_sync = None
-                            self.init_sync_timer = None
-                            self.total_number_of_init_sync_sessions = None
-                            self.number_of_init_synced_sessions = None
-                            self.number_of_sessions_init_sync_failed = None
-                            self.init_sync_error = None
-                            self.is_init_sync_error_local = None
-                            self.init_sync_start_time = None
-                            self.init_sync_end_time = None
-                            self.is_sscb_init_sync_ready = None
-                            self.init_sync_ready_start_time = None
-                            self.init_sync_ready_end_time = None
-                            self.nsr_reset_time = None
-                            self.is_audit_in_progress = None
+                            self.audit_end_time = None
                             self.audit_seq_number = None
                             self.audit_start_time = None
-                            self.audit_end_time = None
+                            self.init_sync_end_time = None
+                            self.init_sync_error = None
+                            self.init_sync_ready_end_time = None
+                            self.init_sync_ready_start_time = None
+                            self.init_sync_start_time = None
+                            self.init_sync_timer = None
+                            self.is_audit_in_progress = None
+                            self.is_init_sync_error_local = None
+                            self.is_init_sync_in_progress = None
+                            self.is_init_sync_second_phase = None
+                            self.is_sscb_init_sync_ready = None
+                            self.local_instance = None
+                            self.local_node = None
+                            self.mode = None
+                            self.nsr_reset_time = None
+                            self.number_of_init_synced_sessions = None
+                            self.number_of_sessions = None
+                            self.number_of_sessions_init_sync_failed = None
+                            self.number_of_synced_sessions_down_stream = None
+                            self.number_of_synced_sessions_up_stream = None
+                            self.pid = None
+                            self.protect_instance = None
+                            self.protect_node = None
+                            self.sequence_number_of_init_sync = None
+                            self.set_id = None
+                            self.sscb = None
+                            self.sso_role = None
+                            self.total_number_of_init_sync_sessions = None
+                            self.well_known_port = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-set[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -9537,94 +9537,10 @@ class TcpNsr(object):
                             if self.id is not None:
                                 return True
 
-                            if self.sscb is not None:
-                                return True
-
-                            if self.pid is not None:
-                                return True
-
-                            if self.set_id is not None:
-                                return True
-
-                            if self.sso_role is not None:
-                                return True
-
-                            if self.mode is not None:
-                                return True
-
                             if self.address_family is not None:
                                 return True
 
-                            if self.well_known_port is not None:
-                                return True
-
-                            if self.local_node is not None:
-                                return True
-
-                            if self.local_instance is not None:
-                                return True
-
-                            if self.protect_node is not None:
-                                return True
-
-                            if self.protect_instance is not None:
-                                return True
-
-                            if self.number_of_sessions is not None:
-                                return True
-
-                            if self.number_of_synced_sessions_up_stream is not None:
-                                return True
-
-                            if self.number_of_synced_sessions_down_stream is not None:
-                                return True
-
-                            if self.is_init_sync_in_progress is not None:
-                                return True
-
-                            if self.is_init_sync_second_phase is not None:
-                                return True
-
-                            if self.sequence_number_of_init_sync is not None:
-                                return True
-
-                            if self.init_sync_timer is not None:
-                                return True
-
-                            if self.total_number_of_init_sync_sessions is not None:
-                                return True
-
-                            if self.number_of_init_synced_sessions is not None:
-                                return True
-
-                            if self.number_of_sessions_init_sync_failed is not None:
-                                return True
-
-                            if self.init_sync_error is not None:
-                                return True
-
-                            if self.is_init_sync_error_local is not None:
-                                return True
-
-                            if self.init_sync_start_time is not None:
-                                return True
-
-                            if self.init_sync_end_time is not None:
-                                return True
-
-                            if self.is_sscb_init_sync_ready is not None:
-                                return True
-
-                            if self.init_sync_ready_start_time is not None:
-                                return True
-
-                            if self.init_sync_ready_end_time is not None:
-                                return True
-
-                            if self.nsr_reset_time is not None:
-                                return True
-
-                            if self.is_audit_in_progress is not None:
+                            if self.audit_end_time is not None:
                                 return True
 
                             if self.audit_seq_number is not None:
@@ -9633,7 +9549,91 @@ class TcpNsr(object):
                             if self.audit_start_time is not None:
                                 return True
 
-                            if self.audit_end_time is not None:
+                            if self.init_sync_end_time is not None:
+                                return True
+
+                            if self.init_sync_error is not None:
+                                return True
+
+                            if self.init_sync_ready_end_time is not None:
+                                return True
+
+                            if self.init_sync_ready_start_time is not None:
+                                return True
+
+                            if self.init_sync_start_time is not None:
+                                return True
+
+                            if self.init_sync_timer is not None:
+                                return True
+
+                            if self.is_audit_in_progress is not None:
+                                return True
+
+                            if self.is_init_sync_error_local is not None:
+                                return True
+
+                            if self.is_init_sync_in_progress is not None:
+                                return True
+
+                            if self.is_init_sync_second_phase is not None:
+                                return True
+
+                            if self.is_sscb_init_sync_ready is not None:
+                                return True
+
+                            if self.local_instance is not None:
+                                return True
+
+                            if self.local_node is not None:
+                                return True
+
+                            if self.mode is not None:
+                                return True
+
+                            if self.nsr_reset_time is not None:
+                                return True
+
+                            if self.number_of_init_synced_sessions is not None:
+                                return True
+
+                            if self.number_of_sessions is not None:
+                                return True
+
+                            if self.number_of_sessions_init_sync_failed is not None:
+                                return True
+
+                            if self.number_of_synced_sessions_down_stream is not None:
+                                return True
+
+                            if self.number_of_synced_sessions_up_stream is not None:
+                                return True
+
+                            if self.pid is not None:
+                                return True
+
+                            if self.protect_instance is not None:
+                                return True
+
+                            if self.protect_node is not None:
+                                return True
+
+                            if self.sequence_number_of_init_sync is not None:
+                                return True
+
+                            if self.set_id is not None:
+                                return True
+
+                            if self.sscb is not None:
+                                return True
+
+                            if self.sso_role is not None:
+                                return True
+
+                            if self.total_number_of_init_sync_sessions is not None:
+                                return True
+
+                            if self.well_known_port is not None:
                                 return True
 
                             return False
@@ -9646,7 +9646,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:detail-sets'
 
@@ -9704,24 +9704,10 @@ class TcpNsr(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
-                        .. attribute:: sscb
+                        .. attribute:: address_family
                         
-                        	Address of the Session Set Control Block
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: pid
-                        
-                        	PID of the Client that owns this Session\-set
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: client_name
-                        
-                        	the name of Clinet that owns this Session\-set
-                        	**type**\: str
+                        	Address Family of the sessions in this set
+                        	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: client_instance
                         
@@ -9730,87 +9716,10 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: set_id
+                        .. attribute:: client_name
                         
-                        	ID of this Session\-set
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sso_role
-                        
-                        	TCP role for this set?
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: mode
-                        
-                        	Session\-set mode
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: address_family
-                        
-                        	Address Family of the sessions in this set
-                        	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
-                        
-                        .. attribute:: well_known_port
-                        
-                        	Well Known Port of the client
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: local_node
-                        
-                        	Local node of this set
+                        	the name of Clinet that owns this Session\-set
                         	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: local_instance
-                        
-                        	Instance of the client application on the local node
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: protect_node
-                        
-                        	The node protecting this set
-                        	**type**\: str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: protect_instance
-                        
-                        	Instance of the client application on the protection node
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_sessions
-                        
-                        	Number of Sessions in the set
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_synced_sessions_up_stream
-                        
-                        	How many sessions are synced with upstream partner
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_synced_sessions_down_stream
-                        
-                        	How many sessions are synced with downstream partner
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: is_init_sync_in_progress
                         
@@ -9822,6 +9731,97 @@ class TcpNsr(object):
                         	Is the SSCB ready for another initial sync?
                         	**type**\: bool
                         
+                        .. attribute:: local_instance
+                        
+                        	Instance of the client application on the local node
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: local_node
+                        
+                        	Local node of this set
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        .. attribute:: mode
+                        
+                        	Session\-set mode
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_sessions
+                        
+                        	Number of Sessions in the set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_synced_sessions_down_stream
+                        
+                        	How many sessions are synced with downstream partner
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: number_of_synced_sessions_up_stream
+                        
+                        	How many sessions are synced with upstream partner
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pid
+                        
+                        	PID of the Client that owns this Session\-set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: protect_instance
+                        
+                        	Instance of the client application on the protection node
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: protect_node
+                        
+                        	The node protecting this set
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        .. attribute:: set_id
+                        
+                        	ID of this Session\-set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sscb
+                        
+                        	Address of the Session Set Control Block
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: sso_role
+                        
+                        	TCP role for this set?
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: well_known_port
+                        
+                        	Well Known Port of the client
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
                         
 
                         """
@@ -9832,31 +9832,31 @@ class TcpNsr(object):
                         def __init__(self):
                             self.parent = None
                             self.id = None
-                            self.sscb = None
-                            self.pid = None
-                            self.client_name = None
-                            self.client_instance = None
-                            self.set_id = None
-                            self.sso_role = None
-                            self.mode = None
                             self.address_family = None
-                            self.well_known_port = None
-                            self.local_node = None
-                            self.local_instance = None
-                            self.protect_node = None
-                            self.protect_instance = None
-                            self.number_of_sessions = None
-                            self.number_of_synced_sessions_up_stream = None
-                            self.number_of_synced_sessions_down_stream = None
+                            self.client_instance = None
+                            self.client_name = None
                             self.is_init_sync_in_progress = None
                             self.is_sscb_init_sync_ready = None
+                            self.local_instance = None
+                            self.local_node = None
+                            self.mode = None
+                            self.number_of_sessions = None
+                            self.number_of_synced_sessions_down_stream = None
+                            self.number_of_synced_sessions_up_stream = None
+                            self.pid = None
+                            self.protect_instance = None
+                            self.protect_node = None
+                            self.set_id = None
+                            self.sscb = None
+                            self.sso_role = None
+                            self.well_known_port = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-set[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -9870,58 +9870,58 @@ class TcpNsr(object):
                             if self.id is not None:
                                 return True
 
-                            if self.sscb is not None:
-                                return True
-
-                            if self.pid is not None:
-                                return True
-
-                            if self.client_name is not None:
+                            if self.address_family is not None:
                                 return True
 
                             if self.client_instance is not None:
                                 return True
 
-                            if self.set_id is not None:
-                                return True
-
-                            if self.sso_role is not None:
-                                return True
-
-                            if self.mode is not None:
-                                return True
-
-                            if self.address_family is not None:
-                                return True
-
-                            if self.well_known_port is not None:
-                                return True
-
-                            if self.local_node is not None:
-                                return True
-
-                            if self.local_instance is not None:
-                                return True
-
-                            if self.protect_node is not None:
-                                return True
-
-                            if self.protect_instance is not None:
-                                return True
-
-                            if self.number_of_sessions is not None:
-                                return True
-
-                            if self.number_of_synced_sessions_up_stream is not None:
-                                return True
-
-                            if self.number_of_synced_sessions_down_stream is not None:
+                            if self.client_name is not None:
                                 return True
 
                             if self.is_init_sync_in_progress is not None:
                                 return True
 
                             if self.is_sscb_init_sync_ready is not None:
+                                return True
+
+                            if self.local_instance is not None:
+                                return True
+
+                            if self.local_node is not None:
+                                return True
+
+                            if self.mode is not None:
+                                return True
+
+                            if self.number_of_sessions is not None:
+                                return True
+
+                            if self.number_of_synced_sessions_down_stream is not None:
+                                return True
+
+                            if self.number_of_synced_sessions_up_stream is not None:
+                                return True
+
+                            if self.pid is not None:
+                                return True
+
+                            if self.protect_instance is not None:
+                                return True
+
+                            if self.protect_node is not None:
+                                return True
+
+                            if self.set_id is not None:
+                                return True
+
+                            if self.sscb is not None:
+                                return True
+
+                            if self.sso_role is not None:
+                                return True
+
+                            if self.well_known_port is not None:
                                 return True
 
                             return False
@@ -9934,7 +9934,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:brief-sets'
 
@@ -9960,7 +9960,7 @@ class TcpNsr(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:session-set'
 
@@ -9971,10 +9971,10 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.detail_sets is not None and self.detail_sets._has_data():
+                    if self.brief_sets is not None and self.brief_sets._has_data():
                         return True
 
-                    if self.brief_sets is not None and self.brief_sets._has_data():
+                    if self.detail_sets is not None and self.detail_sets._has_data():
                         return True
 
                     return False
@@ -9989,25 +9989,25 @@ class TcpNsr(object):
                 """
                 Statis Information about TCP NSR connections
                 
-                .. attribute:: summary
-                
-                	Summary statistics across all NSR connections
-                	**type**\: :py:class:`Summary <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary>`
-                
                 .. attribute:: statistic_clients
                 
                 	Table listing NSR connections for which statistic information is provided
                 	**type**\: :py:class:`StatisticClients <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients>`
+                
+                .. attribute:: statistic_sessions
+                
+                	Table listing NSR connections for which statistic information is provided
+                	**type**\: :py:class:`StatisticSessions <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions>`
                 
                 .. attribute:: statistic_sets
                 
                 	Table listing NSR connections for which statistic information is provided
                 	**type**\: :py:class:`StatisticSets <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets>`
                 
-                .. attribute:: statistic_sessions
+                .. attribute:: summary
                 
-                	Table listing NSR connections for which statistic information is provided
-                	**type**\: :py:class:`StatisticSessions <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions>`
+                	Summary statistics across all NSR connections
+                	**type**\: :py:class:`Summary <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary>`
                 
                 
 
@@ -10018,29 +10018,59 @@ class TcpNsr(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.summary = TcpNsr.Nodes.Node.Statistics.Summary()
-                    self.summary.parent = self
                     self.statistic_clients = TcpNsr.Nodes.Node.Statistics.StatisticClients()
                     self.statistic_clients.parent = self
-                    self.statistic_sets = TcpNsr.Nodes.Node.Statistics.StatisticSets()
-                    self.statistic_sets.parent = self
                     self.statistic_sessions = TcpNsr.Nodes.Node.Statistics.StatisticSessions()
                     self.statistic_sessions.parent = self
+                    self.statistic_sets = TcpNsr.Nodes.Node.Statistics.StatisticSets()
+                    self.statistic_sets.parent = self
+                    self.summary = TcpNsr.Nodes.Node.Statistics.Summary()
+                    self.summary.parent = self
 
 
                 class Summary(object):
                     """
                     Summary statistics across all NSR connections
                     
-                    .. attribute:: snd_counters
-                    
-                    	Aggregate Send path counters
-                    	**type**\: :py:class:`SndCounters <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters>`
-                    
                     .. attribute:: audit_counters
                     
                     	Aggregate Audit counters
                     	**type**\: :py:class:`AuditCounters <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters>`
+                    
+                    .. attribute:: held_packet_drops
+                    
+                    	Number of held packets dropped because of errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: internal_ack_drops_immediate_match
+                    
+                    	Number of iACKs not held because of an immediate match
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: internal_ack_drops_initsync_first_phase
+                    
+                    	Number of iACKs dropped because init\-sync is in 1st phase
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: internal_ack_drops_not_replicated
+                    
+                    	Number of iACKs dropped because session is not replicated
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: internal_ack_drops_stale
+                    
+                    	Number of stale iACKs dropped
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: last_cleared_time
                     
@@ -10049,72 +10079,14 @@ class TcpNsr(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: number_of_connected_clients
+                    .. attribute:: notification_statistic
                     
-                    	Number of disconnected clients
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_disconnected_clients
-                    
-                    	Number of disconnected clients
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_current_clients
-                    
-                    	Number of current  clients
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_created_session_sets
-                    
-                    	Number of created session sets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_destroyed_session_sets
-                    
-                    	Number of destroyed session sets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_current_session_sets
-                    
-                    	Number of current session sets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Various types of notification stats
+                    	**type**\: list of :py:class:`NotificationStatistic <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic>`
                     
                     .. attribute:: number_of_added_sessions
                     
                     	Number of added sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_deleted_sessions
-                    
-                    	Number of deleted sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_current_sessions
-                    
-                    	Number of current sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_partner_node
-                    
-                    	 Number of Parner Nodes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -10126,9 +10098,58 @@ class TcpNsr(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: number_of_succeeded_init_sync
+                    .. attribute:: number_of_connected_clients
                     
-                    	no. of initial\-sync successes
+                    	Number of disconnected clients
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_created_session_sets
+                    
+                    	Number of created session sets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_current_clients
+                    
+                    	Number of current  clients
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_current_session_sets
+                    
+                    	Number of current session sets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_current_sessions
+                    
+                    	Number of current sessions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_deleted_sessions
+                    
+                    	Number of deleted sessions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_destroyed_session_sets
+                    
+                    	Number of destroyed session sets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_disconnected_clients
+                    
+                    	Number of disconnected clients
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -10140,9 +10161,9 @@ class TcpNsr(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: number_of_held_packets
+                    .. attribute:: number_of_held_but_dropped_internal_acks
                     
-                    	Number of Packets held by Active TCP
+                    	Number of held Internal Acks dropped by Active TCP
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -10161,65 +10182,9 @@ class TcpNsr(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: number_of_held_but_dropped_internal_acks
+                    .. attribute:: number_of_held_packets
                     
-                    	Number of held Internal Acks dropped by Active TCP
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_sent_internal_acks
-                    
-                    	Number of Internal Acks sent to Active TCP by Standby TCP
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_received_internal_acks
-                    
-                    	Number of Internal Acks received by Active TCP
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_qad_receive_messages_drops
-                    
-                    	Number of dropped messages from partner TCP stack(s)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_qad_receive_messages_unknowns
-                    
-                    	Number of unknown messages from partner TCP stack(s)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_qad_receive_messages_accepts
-                    
-                    	Number of messages accepted from partner TCP stack(s)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_qad_stale_receive_messages_drops
-                    
-                    	Number of dropped messages from partner TCP stack(s) because they were out\-of\-order
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_qad_transfer_message_sent
-                    
-                    	Number of messages sent to partner TCP stack(s)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_qad_transfer_message_drops
-                    
-                    	Number of messages failed to be sent to partner TCP stack(s)
+                    	Number of Packets held by Active TCP
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -10238,45 +10203,80 @@ class TcpNsr(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: internal_ack_drops_not_replicated
+                    .. attribute:: number_of_partner_node
                     
-                    	Number of iACKs dropped because session is not replicated
+                    	 Number of Parner Nodes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: internal_ack_drops_initsync_first_phase
+                    .. attribute:: number_of_qad_receive_messages_accepts
                     
-                    	Number of iACKs dropped because init\-sync is in 1st phase
+                    	Number of messages accepted from partner TCP stack(s)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: internal_ack_drops_stale
+                    .. attribute:: number_of_qad_receive_messages_drops
                     
-                    	Number of stale iACKs dropped
+                    	Number of dropped messages from partner TCP stack(s)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: internal_ack_drops_immediate_match
+                    .. attribute:: number_of_qad_receive_messages_unknowns
                     
-                    	Number of iACKs not held because of an immediate match
+                    	Number of unknown messages from partner TCP stack(s)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: held_packet_drops
+                    .. attribute:: number_of_qad_stale_receive_messages_drops
                     
-                    	Number of held packets dropped because of errors
+                    	Number of dropped messages from partner TCP stack(s) because they were out\-of\-order
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: notification_statistic
+                    .. attribute:: number_of_qad_transfer_message_drops
                     
-                    	Various types of notification stats
-                    	**type**\: list of :py:class:`NotificationStatistic <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic>`
+                    	Number of messages failed to be sent to partner TCP stack(s)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_qad_transfer_message_sent
+                    
+                    	Number of messages sent to partner TCP stack(s)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_received_internal_acks
+                    
+                    	Number of Internal Acks received by Active TCP
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_sent_internal_acks
+                    
+                    	Number of Internal Acks sent to Active TCP by Standby TCP
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_succeeded_init_sync
+                    
+                    	no. of initial\-sync successes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: snd_counters
+                    
+                    	Aggregate Send path counters
+                    	**type**\: :py:class:`SndCounters <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters>`
                     
                     
 
@@ -10287,61 +10287,61 @@ class TcpNsr(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.snd_counters = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters()
-                        self.snd_counters.parent = self
                         self.audit_counters = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters()
                         self.audit_counters.parent = self
-                        self.last_cleared_time = None
-                        self.number_of_connected_clients = None
-                        self.number_of_disconnected_clients = None
-                        self.number_of_current_clients = None
-                        self.number_of_created_session_sets = None
-                        self.number_of_destroyed_session_sets = None
-                        self.number_of_current_session_sets = None
-                        self.number_of_added_sessions = None
-                        self.number_of_deleted_sessions = None
-                        self.number_of_current_sessions = None
-                        self.number_of_partner_node = None
-                        self.number_of_attempted_init_sync = None
-                        self.number_of_succeeded_init_sync = None
-                        self.number_of_failed_init_sync = None
-                        self.number_of_held_packets = None
-                        self.number_of_held_but_dropped_packets = None
-                        self.number_of_held_internal_acks = None
-                        self.number_of_held_but_dropped_internal_acks = None
-                        self.number_of_sent_internal_acks = None
-                        self.number_of_received_internal_acks = None
-                        self.number_of_qad_receive_messages_drops = None
-                        self.number_of_qad_receive_messages_unknowns = None
-                        self.number_of_qad_receive_messages_accepts = None
-                        self.number_of_qad_stale_receive_messages_drops = None
-                        self.number_of_qad_transfer_message_sent = None
-                        self.number_of_qad_transfer_message_drops = None
-                        self.number_of_internal_ack_drops_no_pcb = None
-                        self.number_of_internal_ack_drops_no_scbdp = None
-                        self.internal_ack_drops_not_replicated = None
-                        self.internal_ack_drops_initsync_first_phase = None
-                        self.internal_ack_drops_stale = None
-                        self.internal_ack_drops_immediate_match = None
                         self.held_packet_drops = None
+                        self.internal_ack_drops_immediate_match = None
+                        self.internal_ack_drops_initsync_first_phase = None
+                        self.internal_ack_drops_not_replicated = None
+                        self.internal_ack_drops_stale = None
+                        self.last_cleared_time = None
                         self.notification_statistic = YList()
                         self.notification_statistic.parent = self
                         self.notification_statistic.name = 'notification_statistic'
+                        self.number_of_added_sessions = None
+                        self.number_of_attempted_init_sync = None
+                        self.number_of_connected_clients = None
+                        self.number_of_created_session_sets = None
+                        self.number_of_current_clients = None
+                        self.number_of_current_session_sets = None
+                        self.number_of_current_sessions = None
+                        self.number_of_deleted_sessions = None
+                        self.number_of_destroyed_session_sets = None
+                        self.number_of_disconnected_clients = None
+                        self.number_of_failed_init_sync = None
+                        self.number_of_held_but_dropped_internal_acks = None
+                        self.number_of_held_but_dropped_packets = None
+                        self.number_of_held_internal_acks = None
+                        self.number_of_held_packets = None
+                        self.number_of_internal_ack_drops_no_pcb = None
+                        self.number_of_internal_ack_drops_no_scbdp = None
+                        self.number_of_partner_node = None
+                        self.number_of_qad_receive_messages_accepts = None
+                        self.number_of_qad_receive_messages_drops = None
+                        self.number_of_qad_receive_messages_unknowns = None
+                        self.number_of_qad_stale_receive_messages_drops = None
+                        self.number_of_qad_transfer_message_drops = None
+                        self.number_of_qad_transfer_message_sent = None
+                        self.number_of_received_internal_acks = None
+                        self.number_of_sent_internal_acks = None
+                        self.number_of_succeeded_init_sync = None
+                        self.snd_counters = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters()
+                        self.snd_counters.parent = self
 
 
                     class SndCounters(object):
                         """
                         Aggregate Send path counters
                         
-                        .. attribute:: common
-                        
-                        	Common send path counters
-                        	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common>`
-                        
                         .. attribute:: aggr_only
                         
                         	Aggregate only send path counters
                         	**type**\: :py:class:`AggrOnly <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly>`
+                        
+                        .. attribute:: common
+                        
+                        	Common send path counters
+                        	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common>`
                         
                         
 
@@ -10352,152 +10352,33 @@ class TcpNsr(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.common = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common()
-                            self.common.parent = self
                             self.aggr_only = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly()
                             self.aggr_only.parent = self
+                            self.common = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common()
+                            self.common.parent = self
 
 
                         class Common(object):
                             """
                             Common send path counters
                             
-                            .. attribute:: data_xfer_send
+                            .. attribute:: cleanup_rcv
                             
-                            	Number of successful DATA transfers
+                            	Number of received Cleanup messages
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: data_xfer_send_total
+                            .. attribute:: cleanup_rcv_fail_buffer_trim
                             
-                            	Amount of data transferred
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: data_xfer_send_drop
-                            
-                            	Number of failed DATA transfers
+                            	Number of Cleanup messages that had trim failures
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: data_xfer_send_iov_alloc
+                            .. attribute:: cleanup_rcv_success
                             
-                            	Number of data transfer msgs., that required new IOV's to be allocated
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv
-                            
-                            	Number of received DATA transfers
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv_success
-                            
-                            	Number of successfully received DATA transfers
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv_fail_buffer_trim
-                            
-                            	Number of received DATA transfers that had buffer trim failures
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv_fail_snd_una_out_of_sync
-                            
-                            	Number of received DATA transfers that had failures because the send path was out of sync
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_send
-                            
-                            	Number of successful Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_send_units
-                            
-                            	Number of segement units transferred via the successful Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_send_drop
-                            
-                            	Number of failed Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv
-                            
-                            	Number of received Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_success
-                            
-                            	Number of successfully received Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_fail_buffer_trim
-                            
-                            	Number of received Segmentation instructions that had buffer trim failures
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_fail_tcp_process
-                            
-                            	Number of received Segmentation instructions that had failures during TCP processing
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_send
-                            
-                            	Number of successful NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_send_drop
-                            
-                            	Number of failed NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_rcv
-                            
-                            	Number of received NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_rcv_success
-                            
-                            	Number of successfully received NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_rcv_fail_data_send
-                            
-                            	Number of received NACK messages that had failures when sending data in response to the NACK
+                            	Number of successfully received Cleanup messages
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10516,23 +10397,142 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv
+                            .. attribute:: data_xfer_rcv
                             
-                            	Number of received Cleanup messages
+                            	Number of received DATA transfers
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv_success
+                            .. attribute:: data_xfer_rcv_fail_buffer_trim
                             
-                            	Number of successfully received Cleanup messages
+                            	Number of received DATA transfers that had buffer trim failures
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv_fail_buffer_trim
+                            .. attribute:: data_xfer_rcv_fail_snd_una_out_of_sync
                             
-                            	Number of Cleanup messages that had trim failures
+                            	Number of received DATA transfers that had failures because the send path was out of sync
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_rcv_success
+                            
+                            	Number of successfully received DATA transfers
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send
+                            
+                            	Number of successful DATA transfers
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send_drop
+                            
+                            	Number of failed DATA transfers
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send_iov_alloc
+                            
+                            	Number of data transfer msgs., that required new IOV's to be allocated
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send_total
+                            
+                            	Amount of data transferred
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: nack_rcv
+                            
+                            	Number of received NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_rcv_fail_data_send
+                            
+                            	Number of received NACK messages that had failures when sending data in response to the NACK
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_rcv_success
+                            
+                            	Number of successfully received NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_send
+                            
+                            	Number of successful NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_send_drop
+                            
+                            	Number of failed NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv
+                            
+                            	Number of received Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv_fail_buffer_trim
+                            
+                            	Number of received Segmentation instructions that had buffer trim failures
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv_fail_tcp_process
+                            
+                            	Number of received Segmentation instructions that had failures during TCP processing
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv_success
+                            
+                            	Number of successfully received Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_send
+                            
+                            	Number of successful Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_send_drop
+                            
+                            	Number of failed Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_send_units
+                            
+                            	Number of segement units transferred via the successful Segmentation instruction messages
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10546,36 +10546,36 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.data_xfer_send = None
-                                self.data_xfer_send_total = None
-                                self.data_xfer_send_drop = None
-                                self.data_xfer_send_iov_alloc = None
-                                self.data_xfer_rcv = None
-                                self.data_xfer_rcv_success = None
-                                self.data_xfer_rcv_fail_buffer_trim = None
-                                self.data_xfer_rcv_fail_snd_una_out_of_sync = None
-                                self.seg_instr_send = None
-                                self.seg_instr_send_units = None
-                                self.seg_instr_send_drop = None
-                                self.seg_instr_rcv = None
-                                self.seg_instr_rcv_success = None
-                                self.seg_instr_rcv_fail_buffer_trim = None
-                                self.seg_instr_rcv_fail_tcp_process = None
-                                self.nack_send = None
-                                self.nack_send_drop = None
-                                self.nack_rcv = None
-                                self.nack_rcv_success = None
-                                self.nack_rcv_fail_data_send = None
+                                self.cleanup_rcv = None
+                                self.cleanup_rcv_fail_buffer_trim = None
+                                self.cleanup_rcv_success = None
                                 self.cleanup_send = None
                                 self.cleanup_send_drop = None
-                                self.cleanup_rcv = None
-                                self.cleanup_rcv_success = None
-                                self.cleanup_rcv_fail_buffer_trim = None
+                                self.data_xfer_rcv = None
+                                self.data_xfer_rcv_fail_buffer_trim = None
+                                self.data_xfer_rcv_fail_snd_una_out_of_sync = None
+                                self.data_xfer_rcv_success = None
+                                self.data_xfer_send = None
+                                self.data_xfer_send_drop = None
+                                self.data_xfer_send_iov_alloc = None
+                                self.data_xfer_send_total = None
+                                self.nack_rcv = None
+                                self.nack_rcv_fail_data_send = None
+                                self.nack_rcv_success = None
+                                self.nack_send = None
+                                self.nack_send_drop = None
+                                self.seg_instr_rcv = None
+                                self.seg_instr_rcv_fail_buffer_trim = None
+                                self.seg_instr_rcv_fail_tcp_process = None
+                                self.seg_instr_rcv_success = None
+                                self.seg_instr_send = None
+                                self.seg_instr_send_drop = None
+                                self.seg_instr_send_units = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:common'
 
@@ -10586,64 +10586,13 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.data_xfer_send is not None:
+                                if self.cleanup_rcv is not None:
                                     return True
 
-                                if self.data_xfer_send_total is not None:
+                                if self.cleanup_rcv_fail_buffer_trim is not None:
                                     return True
 
-                                if self.data_xfer_send_drop is not None:
-                                    return True
-
-                                if self.data_xfer_send_iov_alloc is not None:
-                                    return True
-
-                                if self.data_xfer_rcv is not None:
-                                    return True
-
-                                if self.data_xfer_rcv_success is not None:
-                                    return True
-
-                                if self.data_xfer_rcv_fail_buffer_trim is not None:
-                                    return True
-
-                                if self.data_xfer_rcv_fail_snd_una_out_of_sync is not None:
-                                    return True
-
-                                if self.seg_instr_send is not None:
-                                    return True
-
-                                if self.seg_instr_send_units is not None:
-                                    return True
-
-                                if self.seg_instr_send_drop is not None:
-                                    return True
-
-                                if self.seg_instr_rcv is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_success is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_fail_buffer_trim is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_fail_tcp_process is not None:
-                                    return True
-
-                                if self.nack_send is not None:
-                                    return True
-
-                                if self.nack_send_drop is not None:
-                                    return True
-
-                                if self.nack_rcv is not None:
-                                    return True
-
-                                if self.nack_rcv_success is not None:
-                                    return True
-
-                                if self.nack_rcv_fail_data_send is not None:
+                                if self.cleanup_rcv_success is not None:
                                     return True
 
                                 if self.cleanup_send is not None:
@@ -10652,13 +10601,64 @@ class TcpNsr(object):
                                 if self.cleanup_send_drop is not None:
                                     return True
 
-                                if self.cleanup_rcv is not None:
+                                if self.data_xfer_rcv is not None:
                                     return True
 
-                                if self.cleanup_rcv_success is not None:
+                                if self.data_xfer_rcv_fail_buffer_trim is not None:
                                     return True
 
-                                if self.cleanup_rcv_fail_buffer_trim is not None:
+                                if self.data_xfer_rcv_fail_snd_una_out_of_sync is not None:
+                                    return True
+
+                                if self.data_xfer_rcv_success is not None:
+                                    return True
+
+                                if self.data_xfer_send is not None:
+                                    return True
+
+                                if self.data_xfer_send_drop is not None:
+                                    return True
+
+                                if self.data_xfer_send_iov_alloc is not None:
+                                    return True
+
+                                if self.data_xfer_send_total is not None:
+                                    return True
+
+                                if self.nack_rcv is not None:
+                                    return True
+
+                                if self.nack_rcv_fail_data_send is not None:
+                                    return True
+
+                                if self.nack_rcv_success is not None:
+                                    return True
+
+                                if self.nack_send is not None:
+                                    return True
+
+                                if self.nack_send_drop is not None:
+                                    return True
+
+                                if self.seg_instr_rcv is not None:
+                                    return True
+
+                                if self.seg_instr_rcv_fail_buffer_trim is not None:
+                                    return True
+
+                                if self.seg_instr_rcv_fail_tcp_process is not None:
+                                    return True
+
+                                if self.seg_instr_rcv_success is not None:
+                                    return True
+
+                                if self.seg_instr_send is not None:
+                                    return True
+
+                                if self.seg_instr_send_drop is not None:
+                                    return True
+
+                                if self.seg_instr_send_units is not None:
                                     return True
 
                                 return False
@@ -10673,6 +10673,20 @@ class TcpNsr(object):
                             """
                             Aggregate only send path counters
                             
+                            .. attribute:: cleanup_rcv_drop_no_pcb
+                            
+                            	Number of Cleanup messages dropped because PCB wasn't found
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: cleanup_rcv_drop_no_scb_dp
+                            
+                            	Number of Cleanup messages dropped because SCB DP wasn't found
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: data_xfer_rcv_drop_no_pcb
                             
                             	Number of Data transfer messages dropped because PCB wasn't found
@@ -10683,20 +10697,6 @@ class TcpNsr(object):
                             .. attribute:: data_xfer_rcv_drop_no_scb_dp
                             
                             	Number of Data transfer messages dropped because SCB DP wasn't found
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_drop_no_pcb
-                            
-                            	Number of Segmentation instruction messages dropped because PCB wasn't found
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_drop_no_scb_dp
-                            
-                            	Number of Segmentation instruction messages dropped because SCB DP wasn't found
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10715,16 +10715,16 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv_drop_no_pcb
+                            .. attribute:: seg_instr_rcv_drop_no_pcb
                             
-                            	Number of Cleanup messages dropped because PCB wasn't found
+                            	Number of Segmentation instruction messages dropped because PCB wasn't found
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv_drop_no_scb_dp
+                            .. attribute:: seg_instr_rcv_drop_no_scb_dp
                             
-                            	Number of Cleanup messages dropped because SCB DP wasn't found
+                            	Number of Segmentation instruction messages dropped because SCB DP wasn't found
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10738,19 +10738,19 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.data_xfer_rcv_drop_no_pcb = None
-                                self.data_xfer_rcv_drop_no_scb_dp = None
-                                self.seg_instr_rcv_drop_no_pcb = None
-                                self.seg_instr_rcv_drop_no_scb_dp = None
-                                self.nack_rcv_drop_no_pcb = None
-                                self.nack_rcv_drop_no_scb_dp = None
                                 self.cleanup_rcv_drop_no_pcb = None
                                 self.cleanup_rcv_drop_no_scb_dp = None
+                                self.data_xfer_rcv_drop_no_pcb = None
+                                self.data_xfer_rcv_drop_no_scb_dp = None
+                                self.nack_rcv_drop_no_pcb = None
+                                self.nack_rcv_drop_no_scb_dp = None
+                                self.seg_instr_rcv_drop_no_pcb = None
+                                self.seg_instr_rcv_drop_no_scb_dp = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:aggr-only'
 
@@ -10761,16 +10761,16 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.cleanup_rcv_drop_no_pcb is not None:
+                                    return True
+
+                                if self.cleanup_rcv_drop_no_scb_dp is not None:
+                                    return True
+
                                 if self.data_xfer_rcv_drop_no_pcb is not None:
                                     return True
 
                                 if self.data_xfer_rcv_drop_no_scb_dp is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_drop_no_pcb is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_drop_no_scb_dp is not None:
                                     return True
 
                                 if self.nack_rcv_drop_no_pcb is not None:
@@ -10779,10 +10779,10 @@ class TcpNsr(object):
                                 if self.nack_rcv_drop_no_scb_dp is not None:
                                     return True
 
-                                if self.cleanup_rcv_drop_no_pcb is not None:
+                                if self.seg_instr_rcv_drop_no_pcb is not None:
                                     return True
 
-                                if self.cleanup_rcv_drop_no_scb_dp is not None:
+                                if self.seg_instr_rcv_drop_no_scb_dp is not None:
                                     return True
 
                                 return False
@@ -10795,7 +10795,7 @@ class TcpNsr(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:snd-counters'
 
@@ -10806,10 +10806,10 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.common is not None and self.common._has_data():
+                            if self.aggr_only is not None and self.aggr_only._has_data():
                                 return True
 
-                            if self.aggr_only is not None and self.aggr_only._has_data():
+                            if self.common is not None and self.common._has_data():
                                 return True
 
                             return False
@@ -10824,15 +10824,15 @@ class TcpNsr(object):
                         """
                         Aggregate Audit counters
                         
-                        .. attribute:: common
-                        
-                        	Common audit counters
-                        	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common>`
-                        
                         .. attribute:: aggr_only
                         
                         	Aggregate only audit counters
                         	**type**\: :py:class:`AggrOnly <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly>`
+                        
+                        .. attribute:: common
+                        
+                        	Common audit counters
+                        	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common>`
                         
                         
 
@@ -10843,138 +10843,19 @@ class TcpNsr(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.common = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common()
-                            self.common.parent = self
                             self.aggr_only = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly()
                             self.aggr_only.parent = self
+                            self.common = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common()
+                            self.common.parent = self
 
 
                         class Common(object):
                             """
                             Common audit counters
                             
-                            .. attribute:: mark_session_set_send
+                            .. attribute:: abort
                             
-                            	Number of successful session\-set Mark's sent by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mark_session_set_send_drop
-                            
-                            	Number of failed session\-set Mark's
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mark_session_set_rcv
-                            
-                            	Number of successful session\-set Mark's received by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mark_session_set_rcv_drop
-                            
-                            	Number of session\-set Mark's dropped by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_send
-                            
-                            	Number of successful session audits sent by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_send_drop
-                            
-                            	Number of session audits that couldn't be sent by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_rcv
-                            
-                            	Number of session audits received by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_rcv_drop
-                            
-                            	Number of session audits dropped by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: sweep_session_set_send
-                            
-                            	Number of successful session\-set Sweep's sent by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: sweep_session_set_send_drop
-                            
-                            	Number of failed session\-set Sweep's
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: sweep_session_set_rcv
-                            
-                            	Number of successful session\-set Sweep's received by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: sweep_session_set_rcv_drop
-                            
-                            	Number of session\-set Sweep's dropped by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_set_response_send
-                            
-                            	Number of successful audit responses sent by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_set_response_send_drop
-                            
-                            	Number of audit responses that couldn't be sent by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_set_response_rcv
-                            
-                            	Number of audit responses received by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_set_response_rcv_drop
-                            
-                            	Number of audit responses dropped by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mark_session_set_ack_send
-                            
-                            	Number of successful audit mark acks sent by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mark_session_set_ack_send_drop
-                            
-                            	Number of audit mark acks that couldn't be sent by standby
+                            	Number of times the active aborted an audit session
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10993,16 +10874,16 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: mark_session_set_nack_send
+                            .. attribute:: mark_session_set_ack_send
                             
-                            	Number of successful audit mark nacks sent by standby
+                            	Number of successful audit mark acks sent by standby
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: mark_session_set_nack_send_drop
+                            .. attribute:: mark_session_set_ack_send_drop
                             
-                            	Number of audit mark nacks that couldn't be sent by standby
+                            	Number of audit mark acks that couldn't be sent by standby
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -11021,9 +10902,128 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: abort
+                            .. attribute:: mark_session_set_nack_send
                             
-                            	Number of times the active aborted an audit session
+                            	Number of successful audit mark nacks sent by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mark_session_set_nack_send_drop
+                            
+                            	Number of audit mark nacks that couldn't be sent by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mark_session_set_rcv
+                            
+                            	Number of successful session\-set Mark's received by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mark_session_set_rcv_drop
+                            
+                            	Number of session\-set Mark's dropped by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mark_session_set_send
+                            
+                            	Number of successful session\-set Mark's sent by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mark_session_set_send_drop
+                            
+                            	Number of failed session\-set Mark's
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_rcv
+                            
+                            	Number of session audits received by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_rcv_drop
+                            
+                            	Number of session audits dropped by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_send
+                            
+                            	Number of successful session audits sent by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_send_drop
+                            
+                            	Number of session audits that couldn't be sent by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_set_response_rcv
+                            
+                            	Number of audit responses received by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_set_response_rcv_drop
+                            
+                            	Number of audit responses dropped by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_set_response_send
+                            
+                            	Number of successful audit responses sent by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_set_response_send_drop
+                            
+                            	Number of audit responses that couldn't be sent by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sweep_session_set_rcv
+                            
+                            	Number of successful session\-set Sweep's received by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sweep_session_set_rcv_drop
+                            
+                            	Number of session\-set Sweep's dropped by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sweep_session_set_send
+                            
+                            	Number of successful session\-set Sweep's sent by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sweep_session_set_send_drop
+                            
+                            	Number of failed session\-set Sweep's
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -11037,36 +11037,36 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.mark_session_set_send = None
-                                self.mark_session_set_send_drop = None
-                                self.mark_session_set_rcv = None
-                                self.mark_session_set_rcv_drop = None
-                                self.session_send = None
-                                self.session_send_drop = None
-                                self.session_rcv = None
-                                self.session_rcv_drop = None
-                                self.sweep_session_set_send = None
-                                self.sweep_session_set_send_drop = None
-                                self.sweep_session_set_rcv = None
-                                self.sweep_session_set_rcv_drop = None
-                                self.session_set_response_send = None
-                                self.session_set_response_send_drop = None
-                                self.session_set_response_rcv = None
-                                self.session_set_response_rcv_drop = None
-                                self.mark_session_set_ack_send = None
-                                self.mark_session_set_ack_send_drop = None
+                                self.abort = None
                                 self.mark_session_set_ack_rcv = None
                                 self.mark_session_set_ack_rcv_drop = None
-                                self.mark_session_set_nack_send = None
-                                self.mark_session_set_nack_send_drop = None
+                                self.mark_session_set_ack_send = None
+                                self.mark_session_set_ack_send_drop = None
                                 self.mark_session_set_nack_rcv = None
                                 self.mark_session_set_nack_rcv_drop = None
-                                self.abort = None
+                                self.mark_session_set_nack_send = None
+                                self.mark_session_set_nack_send_drop = None
+                                self.mark_session_set_rcv = None
+                                self.mark_session_set_rcv_drop = None
+                                self.mark_session_set_send = None
+                                self.mark_session_set_send_drop = None
+                                self.session_rcv = None
+                                self.session_rcv_drop = None
+                                self.session_send = None
+                                self.session_send_drop = None
+                                self.session_set_response_rcv = None
+                                self.session_set_response_rcv_drop = None
+                                self.session_set_response_send = None
+                                self.session_set_response_send_drop = None
+                                self.sweep_session_set_rcv = None
+                                self.sweep_session_set_rcv_drop = None
+                                self.sweep_session_set_send = None
+                                self.sweep_session_set_send_drop = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:common'
 
@@ -11077,58 +11077,7 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.mark_session_set_send is not None:
-                                    return True
-
-                                if self.mark_session_set_send_drop is not None:
-                                    return True
-
-                                if self.mark_session_set_rcv is not None:
-                                    return True
-
-                                if self.mark_session_set_rcv_drop is not None:
-                                    return True
-
-                                if self.session_send is not None:
-                                    return True
-
-                                if self.session_send_drop is not None:
-                                    return True
-
-                                if self.session_rcv is not None:
-                                    return True
-
-                                if self.session_rcv_drop is not None:
-                                    return True
-
-                                if self.sweep_session_set_send is not None:
-                                    return True
-
-                                if self.sweep_session_set_send_drop is not None:
-                                    return True
-
-                                if self.sweep_session_set_rcv is not None:
-                                    return True
-
-                                if self.sweep_session_set_rcv_drop is not None:
-                                    return True
-
-                                if self.session_set_response_send is not None:
-                                    return True
-
-                                if self.session_set_response_send_drop is not None:
-                                    return True
-
-                                if self.session_set_response_rcv is not None:
-                                    return True
-
-                                if self.session_set_response_rcv_drop is not None:
-                                    return True
-
-                                if self.mark_session_set_ack_send is not None:
-                                    return True
-
-                                if self.mark_session_set_ack_send_drop is not None:
+                                if self.abort is not None:
                                     return True
 
                                 if self.mark_session_set_ack_rcv is not None:
@@ -11137,10 +11086,10 @@ class TcpNsr(object):
                                 if self.mark_session_set_ack_rcv_drop is not None:
                                     return True
 
-                                if self.mark_session_set_nack_send is not None:
+                                if self.mark_session_set_ack_send is not None:
                                     return True
 
-                                if self.mark_session_set_nack_send_drop is not None:
+                                if self.mark_session_set_ack_send_drop is not None:
                                     return True
 
                                 if self.mark_session_set_nack_rcv is not None:
@@ -11149,7 +11098,58 @@ class TcpNsr(object):
                                 if self.mark_session_set_nack_rcv_drop is not None:
                                     return True
 
-                                if self.abort is not None:
+                                if self.mark_session_set_nack_send is not None:
+                                    return True
+
+                                if self.mark_session_set_nack_send_drop is not None:
+                                    return True
+
+                                if self.mark_session_set_rcv is not None:
+                                    return True
+
+                                if self.mark_session_set_rcv_drop is not None:
+                                    return True
+
+                                if self.mark_session_set_send is not None:
+                                    return True
+
+                                if self.mark_session_set_send_drop is not None:
+                                    return True
+
+                                if self.session_rcv is not None:
+                                    return True
+
+                                if self.session_rcv_drop is not None:
+                                    return True
+
+                                if self.session_send is not None:
+                                    return True
+
+                                if self.session_send_drop is not None:
+                                    return True
+
+                                if self.session_set_response_rcv is not None:
+                                    return True
+
+                                if self.session_set_response_rcv_drop is not None:
+                                    return True
+
+                                if self.session_set_response_send is not None:
+                                    return True
+
+                                if self.session_set_response_send_drop is not None:
+                                    return True
+
+                                if self.sweep_session_set_rcv is not None:
+                                    return True
+
+                                if self.sweep_session_set_rcv_drop is not None:
+                                    return True
+
+                                if self.sweep_session_set_send is not None:
+                                    return True
+
+                                if self.sweep_session_set_send_drop is not None:
                                     return True
 
                                 return False
@@ -11163,34 +11163,6 @@ class TcpNsr(object):
                         class AggrOnly(object):
                             """
                             Aggregate only audit counters
-                            
-                            .. attribute:: mark_session_set_rcv_drop_aggr
-                            
-                            	Number of session\-set Mark messages dropped by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_rcv_drop_aggr
-                            
-                            	Number of session audit messages dropped by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: sweep_session_set_rcv_drop_aggr
-                            
-                            	Number of session\-set Sweep messages dropped by standby
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: session_set_response_rcv_drop_aggr
-                            
-                            	Number of session\-set response messages dropped by active
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_ack_rcv_drop_aggr
                             
@@ -11206,6 +11178,34 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: mark_session_set_rcv_drop_aggr
+                            
+                            	Number of session\-set Mark messages dropped by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_rcv_drop_aggr
+                            
+                            	Number of session audit messages dropped by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: session_set_response_rcv_drop_aggr
+                            
+                            	Number of session\-set response messages dropped by active
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sweep_session_set_rcv_drop_aggr
+                            
+                            	Number of session\-set Sweep messages dropped by standby
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -11215,17 +11215,17 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.mark_session_set_rcv_drop_aggr = None
-                                self.session_rcv_drop_aggr = None
-                                self.sweep_session_set_rcv_drop_aggr = None
-                                self.session_set_response_rcv_drop_aggr = None
                                 self.mark_session_set_ack_rcv_drop_aggr = None
                                 self.mark_session_set_nack_rcv_drop_aggr = None
+                                self.mark_session_set_rcv_drop_aggr = None
+                                self.session_rcv_drop_aggr = None
+                                self.session_set_response_rcv_drop_aggr = None
+                                self.sweep_session_set_rcv_drop_aggr = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:aggr-only'
 
@@ -11236,22 +11236,22 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.mark_session_set_ack_rcv_drop_aggr is not None:
+                                    return True
+
+                                if self.mark_session_set_nack_rcv_drop_aggr is not None:
+                                    return True
+
                                 if self.mark_session_set_rcv_drop_aggr is not None:
                                     return True
 
                                 if self.session_rcv_drop_aggr is not None:
                                     return True
 
-                                if self.sweep_session_set_rcv_drop_aggr is not None:
-                                    return True
-
                                 if self.session_set_response_rcv_drop_aggr is not None:
                                     return True
 
-                                if self.mark_session_set_ack_rcv_drop_aggr is not None:
-                                    return True
-
-                                if self.mark_session_set_nack_rcv_drop_aggr is not None:
+                                if self.sweep_session_set_rcv_drop_aggr is not None:
                                     return True
 
                                 return False
@@ -11264,7 +11264,7 @@ class TcpNsr(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:audit-counters'
 
@@ -11275,10 +11275,10 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.common is not None and self.common._has_data():
+                            if self.aggr_only is not None and self.aggr_only._has_data():
                                 return True
 
-                            if self.aggr_only is not None and self.aggr_only._has_data():
+                            if self.common is not None and self.common._has_data():
                                 return True
 
                             return False
@@ -11292,20 +11292,6 @@ class TcpNsr(object):
                     class NotificationStatistic(object):
                         """
                         Various types of notification stats
-                        
-                        .. attribute:: queued_count
-                        
-                        	how many were queued
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: failed_count
-                        
-                        	Errors while queuing the notifs
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: delivered_count
                         
@@ -11321,6 +11307,20 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: failed_count
+                        
+                        	Errors while queuing the notifs
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: queued_count
+                        
+                        	how many were queued
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -11330,15 +11330,15 @@ class TcpNsr(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.queued_count = None
-                            self.failed_count = None
                             self.delivered_count = None
                             self.dropped_count = None
+                            self.failed_count = None
+                            self.queued_count = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:notification-statistic'
 
@@ -11349,16 +11349,16 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.queued_count is not None:
+                            if self.delivered_count is not None:
+                                return True
+
+                            if self.dropped_count is not None:
                                 return True
 
                             if self.failed_count is not None:
                                 return True
 
-                            if self.delivered_count is not None:
-                                return True
-
-                            if self.dropped_count is not None:
+                            if self.queued_count is not None:
                                 return True
 
                             return False
@@ -11371,7 +11371,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:summary'
 
@@ -11382,55 +11382,66 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.snd_counters is not None and self.snd_counters._has_data():
+                        if self.audit_counters is not None and self.audit_counters._has_data():
                             return True
 
-                        if self.audit_counters is not None and self.audit_counters._has_data():
+                        if self.held_packet_drops is not None:
+                            return True
+
+                        if self.internal_ack_drops_immediate_match is not None:
+                            return True
+
+                        if self.internal_ack_drops_initsync_first_phase is not None:
+                            return True
+
+                        if self.internal_ack_drops_not_replicated is not None:
+                            return True
+
+                        if self.internal_ack_drops_stale is not None:
                             return True
 
                         if self.last_cleared_time is not None:
                             return True
 
-                        if self.number_of_connected_clients is not None:
-                            return True
-
-                        if self.number_of_disconnected_clients is not None:
-                            return True
-
-                        if self.number_of_current_clients is not None:
-                            return True
-
-                        if self.number_of_created_session_sets is not None:
-                            return True
-
-                        if self.number_of_destroyed_session_sets is not None:
-                            return True
-
-                        if self.number_of_current_session_sets is not None:
-                            return True
+                        if self.notification_statistic is not None:
+                            for child_ref in self.notification_statistic:
+                                if child_ref._has_data():
+                                    return True
 
                         if self.number_of_added_sessions is not None:
-                            return True
-
-                        if self.number_of_deleted_sessions is not None:
-                            return True
-
-                        if self.number_of_current_sessions is not None:
-                            return True
-
-                        if self.number_of_partner_node is not None:
                             return True
 
                         if self.number_of_attempted_init_sync is not None:
                             return True
 
-                        if self.number_of_succeeded_init_sync is not None:
+                        if self.number_of_connected_clients is not None:
+                            return True
+
+                        if self.number_of_created_session_sets is not None:
+                            return True
+
+                        if self.number_of_current_clients is not None:
+                            return True
+
+                        if self.number_of_current_session_sets is not None:
+                            return True
+
+                        if self.number_of_current_sessions is not None:
+                            return True
+
+                        if self.number_of_deleted_sessions is not None:
+                            return True
+
+                        if self.number_of_destroyed_session_sets is not None:
+                            return True
+
+                        if self.number_of_disconnected_clients is not None:
                             return True
 
                         if self.number_of_failed_init_sync is not None:
                             return True
 
-                        if self.number_of_held_packets is not None:
+                        if self.number_of_held_but_dropped_internal_acks is not None:
                             return True
 
                         if self.number_of_held_but_dropped_packets is not None:
@@ -11439,31 +11450,7 @@ class TcpNsr(object):
                         if self.number_of_held_internal_acks is not None:
                             return True
 
-                        if self.number_of_held_but_dropped_internal_acks is not None:
-                            return True
-
-                        if self.number_of_sent_internal_acks is not None:
-                            return True
-
-                        if self.number_of_received_internal_acks is not None:
-                            return True
-
-                        if self.number_of_qad_receive_messages_drops is not None:
-                            return True
-
-                        if self.number_of_qad_receive_messages_unknowns is not None:
-                            return True
-
-                        if self.number_of_qad_receive_messages_accepts is not None:
-                            return True
-
-                        if self.number_of_qad_stale_receive_messages_drops is not None:
-                            return True
-
-                        if self.number_of_qad_transfer_message_sent is not None:
-                            return True
-
-                        if self.number_of_qad_transfer_message_drops is not None:
+                        if self.number_of_held_packets is not None:
                             return True
 
                         if self.number_of_internal_ack_drops_no_pcb is not None:
@@ -11472,25 +11459,38 @@ class TcpNsr(object):
                         if self.number_of_internal_ack_drops_no_scbdp is not None:
                             return True
 
-                        if self.internal_ack_drops_not_replicated is not None:
+                        if self.number_of_partner_node is not None:
                             return True
 
-                        if self.internal_ack_drops_initsync_first_phase is not None:
+                        if self.number_of_qad_receive_messages_accepts is not None:
                             return True
 
-                        if self.internal_ack_drops_stale is not None:
+                        if self.number_of_qad_receive_messages_drops is not None:
                             return True
 
-                        if self.internal_ack_drops_immediate_match is not None:
+                        if self.number_of_qad_receive_messages_unknowns is not None:
                             return True
 
-                        if self.held_packet_drops is not None:
+                        if self.number_of_qad_stale_receive_messages_drops is not None:
                             return True
 
-                        if self.notification_statistic is not None:
-                            for child_ref in self.notification_statistic:
-                                if child_ref._has_data():
-                                    return True
+                        if self.number_of_qad_transfer_message_drops is not None:
+                            return True
+
+                        if self.number_of_qad_transfer_message_sent is not None:
+                            return True
+
+                        if self.number_of_received_internal_acks is not None:
+                            return True
+
+                        if self.number_of_sent_internal_acks is not None:
+                            return True
+
+                        if self.number_of_succeeded_init_sync is not None:
+                            return True
+
+                        if self.snd_counters is not None and self.snd_counters._has_data():
+                            return True
 
                         return False
 
@@ -11538,28 +11538,16 @@ class TcpNsr(object):
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: pid
+                        .. attribute:: connected_at
                         
-                        	PID of the Client
+                        	Time of connect (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: process_name
-                        
-                        	Proc name of Clinet
-                        	**type**\: str
-                        
-                        .. attribute:: job_id
-                        
-                        	JOb ID of Client
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: instance
                         
@@ -11568,12 +11556,24 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: connected_at
+                        .. attribute:: job_id
                         
-                        	Time of connect (in seconds since 1st Jan 1970 00\:00\:00)
+                        	JOb ID of Client
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: last_cleared_time
+                        
+                        	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: notification_statistic
+                        
+                        	Various types of notification stats
+                        	**type**\: list of :py:class:`NotificationStatistic <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic>`
                         
                         .. attribute:: number_of_created_sscb
                         
@@ -11589,17 +11589,17 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: last_cleared_time
+                        .. attribute:: pid
                         
-                        	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
+                        	PID of the Client
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: notification_statistic
+                        .. attribute:: process_name
                         
-                        	Various types of notification stats
-                        	**type**\: list of :py:class:`NotificationStatistic <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic>`
+                        	Proc name of Clinet
+                        	**type**\: str
                         
                         
 
@@ -11612,36 +11612,22 @@ class TcpNsr(object):
                             self.parent = None
                             self.id = None
                             self.ccb = None
-                            self.pid = None
-                            self.process_name = None
-                            self.job_id = None
-                            self.instance = None
                             self.connected_at = None
-                            self.number_of_created_sscb = None
-                            self.number_of_deleted_sscb = None
+                            self.instance = None
+                            self.job_id = None
                             self.last_cleared_time = None
                             self.notification_statistic = YList()
                             self.notification_statistic.parent = self
                             self.notification_statistic.name = 'notification_statistic'
+                            self.number_of_created_sscb = None
+                            self.number_of_deleted_sscb = None
+                            self.pid = None
+                            self.process_name = None
 
 
                         class NotificationStatistic(object):
                             """
                             Various types of notification stats
-                            
-                            .. attribute:: queued_count
-                            
-                            	how many were queued
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: failed_count
-                            
-                            	Errors while queuing the notifs
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: delivered_count
                             
@@ -11657,6 +11643,20 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: failed_count
+                            
+                            	Errors while queuing the notifs
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: queued_count
+                            
+                            	how many were queued
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -11666,15 +11666,15 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.queued_count = None
-                                self.failed_count = None
                                 self.delivered_count = None
                                 self.dropped_count = None
+                                self.failed_count = None
+                                self.queued_count = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:notification-statistic'
 
@@ -11685,16 +11685,16 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.queued_count is not None:
+                                if self.delivered_count is not None:
+                                    return True
+
+                                if self.dropped_count is not None:
                                     return True
 
                                 if self.failed_count is not None:
                                     return True
 
-                                if self.delivered_count is not None:
-                                    return True
-
-                                if self.dropped_count is not None:
+                                if self.queued_count is not None:
                                     return True
 
                                 return False
@@ -11707,9 +11707,9 @@ class TcpNsr(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistic-client[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -11726,25 +11726,13 @@ class TcpNsr(object):
                             if self.ccb is not None:
                                 return True
 
-                            if self.pid is not None:
-                                return True
-
-                            if self.process_name is not None:
-                                return True
-
-                            if self.job_id is not None:
+                            if self.connected_at is not None:
                                 return True
 
                             if self.instance is not None:
                                 return True
 
-                            if self.connected_at is not None:
-                                return True
-
-                            if self.number_of_created_sscb is not None:
-                                return True
-
-                            if self.number_of_deleted_sscb is not None:
+                            if self.job_id is not None:
                                 return True
 
                             if self.last_cleared_time is not None:
@@ -11754,6 +11742,18 @@ class TcpNsr(object):
                                 for child_ref in self.notification_statistic:
                                     if child_ref._has_data():
                                         return True
+
+                            if self.number_of_created_sscb is not None:
+                                return True
+
+                            if self.number_of_deleted_sscb is not None:
+                                return True
+
+                            if self.pid is not None:
+                                return True
+
+                            if self.process_name is not None:
+                                return True
 
                             return False
 
@@ -11765,7 +11765,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistic-clients'
 
@@ -11825,16 +11825,9 @@ class TcpNsr(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
-                        .. attribute:: sscb
+                        .. attribute:: last_cleared_time
                         
-                        	SSCB Address
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: set_id
-                        
-                        	ID of this Session\-set
+                        	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -11842,13 +11835,6 @@ class TcpNsr(object):
                         .. attribute:: number_of_attempted_init_sync
                         
                         	no. of initial\-sync attempts
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_succeeded_init_sync
-                        
-                        	no. of initial\-sync successes
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -11874,12 +11860,26 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: last_cleared_time
+                        .. attribute:: number_of_succeeded_init_sync
                         
-                        	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
+                        	no. of initial\-sync successes
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: set_id
+                        
+                        	ID of this Session\-set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sscb
+                        
+                        	SSCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -11891,21 +11891,21 @@ class TcpNsr(object):
                         def __init__(self):
                             self.parent = None
                             self.id = None
-                            self.sscb = None
-                            self.set_id = None
+                            self.last_cleared_time = None
                             self.number_of_attempted_init_sync = None
-                            self.number_of_succeeded_init_sync = None
                             self.number_of_failed_init_sync = None
                             self.number_of_failover = None
                             self.number_of_nsr_resets = None
-                            self.last_cleared_time = None
+                            self.number_of_succeeded_init_sync = None
+                            self.set_id = None
+                            self.sscb = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistic-set[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -11919,16 +11919,10 @@ class TcpNsr(object):
                             if self.id is not None:
                                 return True
 
-                            if self.sscb is not None:
-                                return True
-
-                            if self.set_id is not None:
+                            if self.last_cleared_time is not None:
                                 return True
 
                             if self.number_of_attempted_init_sync is not None:
-                                return True
-
-                            if self.number_of_succeeded_init_sync is not None:
                                 return True
 
                             if self.number_of_failed_init_sync is not None:
@@ -11940,7 +11934,13 @@ class TcpNsr(object):
                             if self.number_of_nsr_resets is not None:
                                 return True
 
-                            if self.last_cleared_time is not None:
+                            if self.number_of_succeeded_init_sync is not None:
+                                return True
+
+                            if self.set_id is not None:
+                                return True
+
+                            if self.sscb is not None:
                                 return True
 
                             return False
@@ -11953,7 +11953,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistic-sets'
 
@@ -12013,21 +12013,37 @@ class TcpNsr(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
-                        .. attribute:: snd_counters
+                        .. attribute:: internal_ack_drops_immediate_match
                         
-                        	Send path counters for the PCB
-                        	**type**\: :py:class:`SndCounters <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters>`
-                        
-                        .. attribute:: pcb
-                        
-                        	PCB Address
-                        	**type**\: int
+                        	Number of iACKs not held because of an immediate match
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: number_of_times_nsr_up
+                        .. attribute:: internal_ack_drops_initsync_first_phase
                         
-                        	no. of times nsr went up
+                        	Number of iACKs dropped because 1st phase of init\-sync is in progress
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: internal_ack_drops_not_replicated
+                        
+                        	Number of iACKs dropped because session is not replicated
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: internal_ack_drops_stale
+                        
+                        	Number of stale iACKs dropped
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: last_cleared_time
+                        
+                        	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -12053,40 +12069,24 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: internal_ack_drops_not_replicated
+                        .. attribute:: number_of_times_nsr_up
                         
-                        	Number of iACKs dropped because session is not replicated
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: internal_ack_drops_initsync_first_phase
-                        
-                        	Number of iACKs dropped because 1st phase of init\-sync is in progress
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: internal_ack_drops_stale
-                        
-                        	Number of stale iACKs dropped
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: internal_ack_drops_immediate_match
-                        
-                        	Number of iACKs not held because of an immediate match
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_cleared_time
-                        
-                        	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
+                        	no. of times nsr went up
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: pcb
+                        
+                        	PCB Address
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: snd_counters
+                        
+                        	Send path counters for the PCB
+                        	**type**\: :py:class:`SndCounters <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters>`
                         
                         
 
@@ -12098,160 +12098,41 @@ class TcpNsr(object):
                         def __init__(self):
                             self.parent = None
                             self.id = None
-                            self.snd_counters = TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters()
-                            self.snd_counters.parent = self
-                            self.pcb = None
-                            self.number_of_times_nsr_up = None
+                            self.internal_ack_drops_immediate_match = None
+                            self.internal_ack_drops_initsync_first_phase = None
+                            self.internal_ack_drops_not_replicated = None
+                            self.internal_ack_drops_stale = None
+                            self.last_cleared_time = None
                             self.number_of_timers_nsr_down = None
                             self.number_of_times_nsr_disabled = None
                             self.number_of_times_nsr_fail_over = None
-                            self.internal_ack_drops_not_replicated = None
-                            self.internal_ack_drops_initsync_first_phase = None
-                            self.internal_ack_drops_stale = None
-                            self.internal_ack_drops_immediate_match = None
-                            self.last_cleared_time = None
+                            self.number_of_times_nsr_up = None
+                            self.pcb = None
+                            self.snd_counters = TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters()
+                            self.snd_counters.parent = self
 
 
                         class SndCounters(object):
                             """
                             Send path counters for the PCB
                             
-                            .. attribute:: data_xfer_send
+                            .. attribute:: cleanup_rcv
                             
-                            	Number of successful DATA transfers
+                            	Number of received Cleanup messages
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: data_xfer_send_total
+                            .. attribute:: cleanup_rcv_fail_buffer_trim
                             
-                            	Amount of data transferred
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: data_xfer_send_drop
-                            
-                            	Number of failed DATA transfers
+                            	Number of Cleanup messages that had trim failures
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: data_xfer_send_iov_alloc
+                            .. attribute:: cleanup_rcv_success
                             
-                            	Number of data transfer msgs., that required new IOV's to be allocated
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv
-                            
-                            	Number of received DATA transfers
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv_success
-                            
-                            	Number of successfully received DATA transfers
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv_fail_buffer_trim
-                            
-                            	Number of received DATA transfers that had buffer trim failures
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: data_xfer_rcv_fail_snd_una_out_of_sync
-                            
-                            	Number of received DATA transfers that had failures because the send path was out of sync
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_send
-                            
-                            	Number of successful Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_send_units
-                            
-                            	Number of segement units transferred via the successful Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_send_drop
-                            
-                            	Number of failed Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv
-                            
-                            	Number of received Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_success
-                            
-                            	Number of successfully received Segmentation instruction messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_fail_buffer_trim
-                            
-                            	Number of received Segmentation instructions that had buffer trim failures
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seg_instr_rcv_fail_tcp_process
-                            
-                            	Number of received Segmentation instructions that had failures during TCP processing
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_send
-                            
-                            	Number of successful NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_send_drop
-                            
-                            	Number of failed NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_rcv
-                            
-                            	Number of received NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_rcv_success
-                            
-                            	Number of successfully received NACK messages
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: nack_rcv_fail_data_send
-                            
-                            	Number of received NACK messages that had failures when sending data in response to the NACK
+                            	Number of successfully received Cleanup messages
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -12270,23 +12151,142 @@ class TcpNsr(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv
+                            .. attribute:: data_xfer_rcv
                             
-                            	Number of received Cleanup messages
+                            	Number of received DATA transfers
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv_success
+                            .. attribute:: data_xfer_rcv_fail_buffer_trim
                             
-                            	Number of successfully received Cleanup messages
+                            	Number of received DATA transfers that had buffer trim failures
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: cleanup_rcv_fail_buffer_trim
+                            .. attribute:: data_xfer_rcv_fail_snd_una_out_of_sync
                             
-                            	Number of Cleanup messages that had trim failures
+                            	Number of received DATA transfers that had failures because the send path was out of sync
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_rcv_success
+                            
+                            	Number of successfully received DATA transfers
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send
+                            
+                            	Number of successful DATA transfers
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send_drop
+                            
+                            	Number of failed DATA transfers
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send_iov_alloc
+                            
+                            	Number of data transfer msgs., that required new IOV's to be allocated
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: data_xfer_send_total
+                            
+                            	Amount of data transferred
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: nack_rcv
+                            
+                            	Number of received NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_rcv_fail_data_send
+                            
+                            	Number of received NACK messages that had failures when sending data in response to the NACK
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_rcv_success
+                            
+                            	Number of successfully received NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_send
+                            
+                            	Number of successful NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nack_send_drop
+                            
+                            	Number of failed NACK messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv
+                            
+                            	Number of received Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv_fail_buffer_trim
+                            
+                            	Number of received Segmentation instructions that had buffer trim failures
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv_fail_tcp_process
+                            
+                            	Number of received Segmentation instructions that had failures during TCP processing
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_rcv_success
+                            
+                            	Number of successfully received Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_send
+                            
+                            	Number of successful Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_send_drop
+                            
+                            	Number of failed Segmentation instruction messages
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seg_instr_send_units
+                            
+                            	Number of segement units transferred via the successful Segmentation instruction messages
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -12300,36 +12300,36 @@ class TcpNsr(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.data_xfer_send = None
-                                self.data_xfer_send_total = None
-                                self.data_xfer_send_drop = None
-                                self.data_xfer_send_iov_alloc = None
-                                self.data_xfer_rcv = None
-                                self.data_xfer_rcv_success = None
-                                self.data_xfer_rcv_fail_buffer_trim = None
-                                self.data_xfer_rcv_fail_snd_una_out_of_sync = None
-                                self.seg_instr_send = None
-                                self.seg_instr_send_units = None
-                                self.seg_instr_send_drop = None
-                                self.seg_instr_rcv = None
-                                self.seg_instr_rcv_success = None
-                                self.seg_instr_rcv_fail_buffer_trim = None
-                                self.seg_instr_rcv_fail_tcp_process = None
-                                self.nack_send = None
-                                self.nack_send_drop = None
-                                self.nack_rcv = None
-                                self.nack_rcv_success = None
-                                self.nack_rcv_fail_data_send = None
+                                self.cleanup_rcv = None
+                                self.cleanup_rcv_fail_buffer_trim = None
+                                self.cleanup_rcv_success = None
                                 self.cleanup_send = None
                                 self.cleanup_send_drop = None
-                                self.cleanup_rcv = None
-                                self.cleanup_rcv_success = None
-                                self.cleanup_rcv_fail_buffer_trim = None
+                                self.data_xfer_rcv = None
+                                self.data_xfer_rcv_fail_buffer_trim = None
+                                self.data_xfer_rcv_fail_snd_una_out_of_sync = None
+                                self.data_xfer_rcv_success = None
+                                self.data_xfer_send = None
+                                self.data_xfer_send_drop = None
+                                self.data_xfer_send_iov_alloc = None
+                                self.data_xfer_send_total = None
+                                self.nack_rcv = None
+                                self.nack_rcv_fail_data_send = None
+                                self.nack_rcv_success = None
+                                self.nack_send = None
+                                self.nack_send_drop = None
+                                self.seg_instr_rcv = None
+                                self.seg_instr_rcv_fail_buffer_trim = None
+                                self.seg_instr_rcv_fail_tcp_process = None
+                                self.seg_instr_rcv_success = None
+                                self.seg_instr_send = None
+                                self.seg_instr_send_drop = None
+                                self.seg_instr_send_units = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:snd-counters'
 
@@ -12340,64 +12340,13 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.data_xfer_send is not None:
+                                if self.cleanup_rcv is not None:
                                     return True
 
-                                if self.data_xfer_send_total is not None:
+                                if self.cleanup_rcv_fail_buffer_trim is not None:
                                     return True
 
-                                if self.data_xfer_send_drop is not None:
-                                    return True
-
-                                if self.data_xfer_send_iov_alloc is not None:
-                                    return True
-
-                                if self.data_xfer_rcv is not None:
-                                    return True
-
-                                if self.data_xfer_rcv_success is not None:
-                                    return True
-
-                                if self.data_xfer_rcv_fail_buffer_trim is not None:
-                                    return True
-
-                                if self.data_xfer_rcv_fail_snd_una_out_of_sync is not None:
-                                    return True
-
-                                if self.seg_instr_send is not None:
-                                    return True
-
-                                if self.seg_instr_send_units is not None:
-                                    return True
-
-                                if self.seg_instr_send_drop is not None:
-                                    return True
-
-                                if self.seg_instr_rcv is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_success is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_fail_buffer_trim is not None:
-                                    return True
-
-                                if self.seg_instr_rcv_fail_tcp_process is not None:
-                                    return True
-
-                                if self.nack_send is not None:
-                                    return True
-
-                                if self.nack_send_drop is not None:
-                                    return True
-
-                                if self.nack_rcv is not None:
-                                    return True
-
-                                if self.nack_rcv_success is not None:
-                                    return True
-
-                                if self.nack_rcv_fail_data_send is not None:
+                                if self.cleanup_rcv_success is not None:
                                     return True
 
                                 if self.cleanup_send is not None:
@@ -12406,13 +12355,64 @@ class TcpNsr(object):
                                 if self.cleanup_send_drop is not None:
                                     return True
 
-                                if self.cleanup_rcv is not None:
+                                if self.data_xfer_rcv is not None:
                                     return True
 
-                                if self.cleanup_rcv_success is not None:
+                                if self.data_xfer_rcv_fail_buffer_trim is not None:
                                     return True
 
-                                if self.cleanup_rcv_fail_buffer_trim is not None:
+                                if self.data_xfer_rcv_fail_snd_una_out_of_sync is not None:
+                                    return True
+
+                                if self.data_xfer_rcv_success is not None:
+                                    return True
+
+                                if self.data_xfer_send is not None:
+                                    return True
+
+                                if self.data_xfer_send_drop is not None:
+                                    return True
+
+                                if self.data_xfer_send_iov_alloc is not None:
+                                    return True
+
+                                if self.data_xfer_send_total is not None:
+                                    return True
+
+                                if self.nack_rcv is not None:
+                                    return True
+
+                                if self.nack_rcv_fail_data_send is not None:
+                                    return True
+
+                                if self.nack_rcv_success is not None:
+                                    return True
+
+                                if self.nack_send is not None:
+                                    return True
+
+                                if self.nack_send_drop is not None:
+                                    return True
+
+                                if self.seg_instr_rcv is not None:
+                                    return True
+
+                                if self.seg_instr_rcv_fail_buffer_trim is not None:
+                                    return True
+
+                                if self.seg_instr_rcv_fail_tcp_process is not None:
+                                    return True
+
+                                if self.seg_instr_rcv_success is not None:
+                                    return True
+
+                                if self.seg_instr_send is not None:
+                                    return True
+
+                                if self.seg_instr_send_drop is not None:
+                                    return True
+
+                                if self.seg_instr_send_units is not None:
                                     return True
 
                                 return False
@@ -12425,9 +12425,9 @@ class TcpNsr(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.id is None:
-                                raise YPYDataValidationError('Key property id is None')
+                                raise YPYModelError('Key property id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistic-session[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -12441,13 +12441,19 @@ class TcpNsr(object):
                             if self.id is not None:
                                 return True
 
-                            if self.snd_counters is not None and self.snd_counters._has_data():
+                            if self.internal_ack_drops_immediate_match is not None:
                                 return True
 
-                            if self.pcb is not None:
+                            if self.internal_ack_drops_initsync_first_phase is not None:
                                 return True
 
-                            if self.number_of_times_nsr_up is not None:
+                            if self.internal_ack_drops_not_replicated is not None:
+                                return True
+
+                            if self.internal_ack_drops_stale is not None:
+                                return True
+
+                            if self.last_cleared_time is not None:
                                 return True
 
                             if self.number_of_timers_nsr_down is not None:
@@ -12459,19 +12465,13 @@ class TcpNsr(object):
                             if self.number_of_times_nsr_fail_over is not None:
                                 return True
 
-                            if self.internal_ack_drops_not_replicated is not None:
+                            if self.number_of_times_nsr_up is not None:
                                 return True
 
-                            if self.internal_ack_drops_initsync_first_phase is not None:
+                            if self.pcb is not None:
                                 return True
 
-                            if self.internal_ack_drops_stale is not None:
-                                return True
-
-                            if self.internal_ack_drops_immediate_match is not None:
-                                return True
-
-                            if self.last_cleared_time is not None:
+                            if self.snd_counters is not None and self.snd_counters._has_data():
                                 return True
 
                             return False
@@ -12484,7 +12484,7 @@ class TcpNsr(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistic-sessions'
 
@@ -12510,7 +12510,7 @@ class TcpNsr(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:statistics'
 
@@ -12521,16 +12521,16 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.summary is not None and self.summary._has_data():
+                    if self.statistic_clients is not None and self.statistic_clients._has_data():
                         return True
 
-                    if self.statistic_clients is not None and self.statistic_clients._has_data():
+                    if self.statistic_sessions is not None and self.statistic_sessions._has_data():
                         return True
 
                     if self.statistic_sets is not None and self.statistic_sets._has_data():
                         return True
 
-                    if self.statistic_sessions is not None and self.statistic_sessions._has_data():
+                    if self.summary is not None and self.summary._has_data():
                         return True
 
                     return False
@@ -12543,7 +12543,7 @@ class TcpNsr(object):
             @property
             def _common_path(self):
                 if self.id is None:
-                    raise YPYDataValidationError('Key property id is None')
+                    raise YPYModelError('Key property id is None')
 
                 return '/Cisco-IOS-XR-ip-tcp-oper:tcp-nsr/Cisco-IOS-XR-ip-tcp-oper:nodes/Cisco-IOS-XR-ip-tcp-oper:node[Cisco-IOS-XR-ip-tcp-oper:id = ' + str(self.id) + ']'
 
@@ -12557,10 +12557,10 @@ class TcpNsr(object):
                 if self.id is not None:
                     return True
 
-                if self.session is not None and self.session._has_data():
+                if self.client is not None and self.client._has_data():
                     return True
 
-                if self.client is not None and self.client._has_data():
+                if self.session is not None and self.session._has_data():
                     return True
 
                 if self.session_set is not None and self.session_set._has_data():

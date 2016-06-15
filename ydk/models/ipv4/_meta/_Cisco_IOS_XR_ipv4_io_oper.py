@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -36,6 +36,12 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-io-oper', True),
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv4MaOperLineStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineStateEnum', 
+                [], [], 
+                '''                Line state of the interface
+                ''',
+                'line_state',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Primary address
@@ -47,12 +53,6 @@ _meta_table = {
                 '''                VRF ID of the interface
                 ''',
                 'vrf_id',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv4MaOperLineStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineStateEnum', 
-                [], [], 
-                '''                Line state of the interface
-                ''',
-                'line_state',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -83,18 +83,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl',
             False, 
             [
-            _MetaInfoClassMember('inbound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to incoming packets
-                ''',
-                'inbound',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('outbound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to outgoing packets
-                ''',
-                'outbound',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('common-in-bound', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Common ACL applied to incoming packets
@@ -107,6 +95,18 @@ _meta_table = {
                 ''',
                 'common_out_bound',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('inbound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to incoming packets
+                ''',
+                'inbound',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('outbound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to outgoing packets
+                ''',
+                'outbound',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
             'acl',
@@ -118,6 +118,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl',
             False, 
             [
+            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Common ACLs
+                ''',
+                'common',
+                'Cisco-IOS-XR-ipv4-io-oper', False, max_elements=5),
             _MetaInfoClassMember('inbound', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Inbound ACLs
@@ -129,12 +135,6 @@ _meta_table = {
                 '''                Outbound ACLs
                 ''',
                 'outbound',
-                'Cisco-IOS-XR-ipv4-io-oper', False, max_elements=5),
-            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Common ACLs
-                ''',
-                'common',
                 'Cisco-IOS-XR-ipv4-io-oper', False, max_elements=5),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -164,12 +164,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable RPF config
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('allow-default-route', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Allow Default Route
@@ -181,6 +175,12 @@ _meta_table = {
                 '''                Allow Self Ping
                 ''',
                 'allow_self_ping',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable RPF config
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'RpfModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'RpfModeEnum', 
                 [], [], 
@@ -199,6 +199,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -210,12 +216,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -228,6 +228,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -239,12 +245,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -394,41 +394,11 @@ _meta_table = {
                 ''',
                 'acl',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('multi-acl', REFERENCE_CLASS, 'MultiAcl' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl', 
-                [], [], 
-                '''                Multi ACLs configured on the interface
-                ''',
-                'multi_acl',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('helper-address', REFERENCE_CLASS, 'HelperAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress', 
-                [], [], 
-                '''                Helper Addresses configured on the interface
-                ''',
-                'helper_address',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf', 
-                [], [], 
-                '''                RPF config on the interface
-                ''',
-                'rpf',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('bgp-pa', REFERENCE_CLASS, 'BgpPa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa', 
                 [], [], 
                 '''                BGP PA config on the interface
                 ''',
                 'bgp_pa',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('pub-utime', REFERENCE_CLASS, 'PubUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime', 
-                [], [], 
-                '''                Address Publish Time
-                ''',
-                'pub_utime',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime', 
-                [], [], 
-                '''                IDB Create Time
-                ''',
-                'idb_utime',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('caps-utime', REFERENCE_CLASS, 'CapsUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime', 
                 [], [], 
@@ -436,11 +406,23 @@ _meta_table = {
                 ''',
                 'caps_utime',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime', 
+            _MetaInfoClassMember('direct-broadcast', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                FWD ENABLE Time
+                '''                Are direct broadcasts sent on the interface?
                 ''',
-                'fwd_en_utime',
+                'direct_broadcast',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is BGP Flow Tag Destination is enable
+                ''',
+                'flow_tag_dst',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is BGP Flow Tag Source is enable
+                ''',
+                'flow_tag_src',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('fwd-dis-utime', REFERENCE_CLASS, 'FwdDisUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime', 
                 [], [], 
@@ -448,17 +430,23 @@ _meta_table = {
                 ''',
                 'fwd_dis_utime',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Primary address
+            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime', 
+                [], [], 
+                '''                FWD ENABLE Time
                 ''',
-                'primary_address',
+                'fwd_en_utime',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                VRF ID of the interface
+            _MetaInfoClassMember('helper-address', REFERENCE_CLASS, 'HelperAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress', 
+                [], [], 
+                '''                Helper Addresses configured on the interface
                 ''',
-                'vrf_id',
+                'helper_address',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime', 
+                [], [], 
+                '''                IDB Create Time
+                ''',
+                'idb_utime',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv4MaOperLineStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineStateEnum', 
                 [], [], 
@@ -466,11 +454,71 @@ _meta_table = {
                 ''',
                 'line_state',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mask-reply', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Are mask replies sent on the interface?
+                ''',
+                'mask_reply',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is mLACP state Active (valid if RG ID exists)
+                ''',
+                'mlacp_active',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP MTU of the interface
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('multi-acl', REFERENCE_CLASS, 'MultiAcl' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl', 
+                [], [], 
+                '''                Multi ACLs configured on the interface
+                ''',
+                'multi_acl',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('multicast-group', REFERENCE_LIST, 'MulticastGroup' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup', 
+                [], [], 
+                '''                Multicast groups joined on the interface
+                ''',
+                'multicast_group',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Prefix length of primary address
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Primary address
+                ''',
+                'primary_address',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('proxy-arp-disabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is Proxy ARP disabled on the interface?
+                ''',
+                'proxy_arp_disabled',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('pub-utime', REFERENCE_CLASS, 'PubUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime', 
+                [], [], 
+                '''                Address Publish Time
+                ''',
+                'pub_utime',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('redirect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Are ICMP redirects sent on the interface?
+                ''',
+                'redirect',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Does ICCP RG ID exist on the interface?
+                ''',
+                'rg_id_exists',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -479,47 +527,17 @@ _meta_table = {
                 ''',
                 'route_tag',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP MTU of the interface
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('unreachable', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf', 
                 [], [], 
-                '''                Are ICMP unreachables sent on the interface?
+                '''                RPF config on the interface
                 ''',
-                'unreachable',
+                'rpf',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('redirect', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('secondary-address', REFERENCE_LIST, 'SecondaryAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress', 
                 [], [], 
-                '''                Are ICMP redirects sent on the interface?
+                '''                Secondary addresses on the interface
                 ''',
-                'redirect',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('direct-broadcast', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Are direct broadcasts sent on the interface?
-                ''',
-                'direct_broadcast',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mask-reply', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Are mask replies sent on the interface?
-                ''',
-                'mask_reply',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Does ICCP RG ID exist on the interface?
-                ''',
-                'rg_id_exists',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is mLACP state Active (valid if RG ID exists)
-                ''',
-                'mlacp_active',
+                'secondary_address',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('unnumbered-interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -528,35 +546,17 @@ _meta_table = {
                 ''',
                 'unnumbered_interface_name',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('proxy-arp-disabled', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unreachable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Is Proxy ARP disabled on the interface?
+                '''                Are ICMP unreachables sent on the interface?
                 ''',
-                'proxy_arp_disabled',
+                'unreachable',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is BGP Flow Tag Source is enable
+            _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VRF ID of the interface
                 ''',
-                'flow_tag_src',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is BGP Flow Tag Destination is enable
-                ''',
-                'flow_tag_dst',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('multicast-group', REFERENCE_LIST, 'MulticastGroup' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup', 
-                [], [], 
-                '''                Multicast groups joined on the interface
-                ''',
-                'multicast_group',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('secondary-address', REFERENCE_LIST, 'SecondaryAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress', 
-                [], [], 
-                '''                Secondary addresses on the interface
-                ''',
-                'secondary_address',
+                'vrf_id',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -731,18 +731,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Summary',
             False, 
             [
-            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp', 
-                [], [], 
-                '''                Number of interfaces (up,up)
-                ''',
-                'if_up_up',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown', 
-                [], [], 
-                '''                Number of interfaces (up,down)
-                ''',
-                'if_up_down',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('if-down-down', REFERENCE_CLASS, 'IfDownDown' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown', 
                 [], [], 
                 '''                Number of interfaces (down,down)
@@ -755,11 +743,23 @@ _meta_table = {
                 ''',
                 'if_shutdown_down',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown', 
+                [], [], 
+                '''                Number of interfaces (up,down)
+                ''',
+                'if_up_down',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('if-up-down-basecaps-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of interfaces (up,down) with basecaps up
                 ''',
                 'if_up_down_basecaps_up',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp', 
+                [], [], 
+                '''                Number of interfaces (up,up)
+                ''',
+                'if_up_up',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -772,19 +772,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData',
             False, 
             [
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs', 
-                [], [], 
-                '''                VRF specific IPv4 network operational
-                interface data
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Summary', 
                 [], [], 
                 '''                Summary of IPv4 network operational interface
                 data on a node
                 ''',
                 'summary',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.InterfaceData.Vrfs', 
+                [], [], 
+                '''                VRF specific IPv4 network operational
+                interface data
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -797,23 +797,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats',
             False, 
             [
-            _MetaInfoClassMember('input-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('bad-header', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Input Packets
+                '''                Bad Header
                 ''',
-                'input_packets',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Received Packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('format-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Format Errors
-                ''',
-                'format_errors',
+                'bad_header',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('bad-hop-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -821,77 +809,11 @@ _meta_table = {
                 ''',
                 'bad_hop_count',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('bad-source-address', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Bad Source Address
-                ''',
-                'bad_source_address',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('bad-header', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Bad Header
-                ''',
-                'bad_header',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('no-protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Protocol
-                ''',
-                'no_protocol',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('no-gateway', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Gateway
-                ''',
-                'no_gateway',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassemble-input', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                RaInput
-                ''',
-                'reassemble_input',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassembled', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reassembled
-                ''',
-                'reassembled',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassemble-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reassembly Timeout
-                ''',
-                'reassemble_timeout',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassemble-max-drop', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reassembly Max Drop
-                ''',
-                'reassemble_max_drop',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassemble-failed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reassembly Failed
-                ''',
-                'reassemble_failed',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('options-present', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP Options Present
-                ''',
-                'options_present',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('bad-option', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bad Option
                 ''',
                 'bad_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('unknown-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unknown Option
-                ''',
-                'unknown_option',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('bad-security-option', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -899,125 +821,17 @@ _meta_table = {
                 ''',
                 'bad_security_option',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('bad-source-address', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Bad Source Address
+                ''',
+                'bad_source_address',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('basic-security-option', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Basic Security Option
                 ''',
                 'basic_security_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('extended-security-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Extended Security Option
-                ''',
-                'extended_security_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('cipso-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Cipso Option
-                ''',
-                'cipso_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('strict-source-route-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Strict Source Route Option
-                ''',
-                'strict_source_route_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('loose-source-route-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Loose Source Route Option
-                ''',
-                'loose_source_route_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('record-route-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Record Route Option
-                ''',
-                'record_route_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('sid-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SID Option
-                ''',
-                'sid_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('timestamp-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Timestamp Option
-                ''',
-                'timestamp_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('router-alert-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Router Alert Option
-                ''',
-                'router_alert_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('noop-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Noop Option
-                ''',
-                'noop_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('end-option', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                End Option
-                ''',
-                'end_option',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('packets-output', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets Output
-                ''',
-                'packets_output',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('packets-forwarded', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets Forwarded
-                ''',
-                'packets_forwarded',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('packets-fragmented', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packets Fragmented
-                ''',
-                'packets_fragmented',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('fragment-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Fragment Count
-                ''',
-                'fragment_count',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('encapsultion-failed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Encapsulation Failed
-                ''',
-                'encapsultion_failed',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('no-router', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Router
-                ''',
-                'no_router',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('packet-too-big', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Packet Too Big
-                ''',
-                'packet_too_big',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('multicast-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Multicast In
-                ''',
-                'multicast_in',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('multicast-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Multicast Out
-                ''',
-                'multicast_out',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('broadcast-in', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1031,29 +845,53 @@ _meta_table = {
                 ''',
                 'broadcast_out',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('lisp-v4-encap', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cipso-option', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Lisp IPv4 encapped packets
+                '''                Cipso Option
                 ''',
-                'lisp_v4_encap',
+                'cipso_option',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('lisp-v4-decap', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('encapsultion-failed', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Lisp IPv4 decapped packets
+                '''                Encapsulation Failed
                 ''',
-                'lisp_v4_decap',
+                'encapsultion_failed',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('lisp-v6-encap', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('end-option', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Lisp IPv6 encapped packets
+                '''                End Option
                 ''',
-                'lisp_v6_encap',
+                'end_option',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('lisp-v6-decap', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('extended-security-option', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Lisp IPv6 decapped packets
+                '''                Extended Security Option
                 ''',
-                'lisp_v6_decap',
+                'extended_security_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('format-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Format Errors
+                ''',
+                'format_errors',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('fragment-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Fragment Count
+                ''',
+                'fragment_count',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('input-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Input Packets
+                ''',
+                'input_packets',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('lisp-decap-error', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Lisp decap errors
+                ''',
+                'lisp_decap_error',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('lisp-encap-error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1061,11 +899,173 @@ _meta_table = {
                 ''',
                 'lisp_encap_error',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('lisp-decap-error', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lisp-v4-decap', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Lisp decap errors
+                '''                Lisp IPv4 decapped packets
                 ''',
-                'lisp_decap_error',
+                'lisp_v4_decap',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('lisp-v4-encap', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Lisp IPv4 encapped packets
+                ''',
+                'lisp_v4_encap',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('lisp-v6-decap', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Lisp IPv6 decapped packets
+                ''',
+                'lisp_v6_decap',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('lisp-v6-encap', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Lisp IPv6 encapped packets
+                ''',
+                'lisp_v6_encap',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('loose-source-route-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Loose Source Route Option
+                ''',
+                'loose_source_route_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('multicast-in', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Multicast In
+                ''',
+                'multicast_in',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('multicast-out', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Multicast Out
+                ''',
+                'multicast_out',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('no-gateway', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Gateway
+                ''',
+                'no_gateway',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('no-protocol', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Protocol
+                ''',
+                'no_protocol',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('no-router', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Router
+                ''',
+                'no_router',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('noop-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Noop Option
+                ''',
+                'noop_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('options-present', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP Options Present
+                ''',
+                'options_present',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('packet-too-big', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packet Too Big
+                ''',
+                'packet_too_big',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('packets-forwarded', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets Forwarded
+                ''',
+                'packets_forwarded',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('packets-fragmented', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets Fragmented
+                ''',
+                'packets_fragmented',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('packets-output', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets Output
+                ''',
+                'packets_output',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('reassemble-failed', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reassembly Failed
+                ''',
+                'reassemble_failed',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('reassemble-input', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                RaInput
+                ''',
+                'reassemble_input',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('reassemble-max-drop', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reassembly Max Drop
+                ''',
+                'reassemble_max_drop',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('reassemble-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reassembly Timeout
+                ''',
+                'reassemble_timeout',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('reassembled', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reassembled
+                ''',
+                'reassembled',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Received Packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('record-route-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Record Route Option
+                ''',
+                'record_route_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('router-alert-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Router Alert Option
+                ''',
+                'router_alert_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('sid-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SID Option
+                ''',
+                'sid_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('strict-source-route-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Strict Source Route Option
+                ''',
+                'strict_source_route_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('timestamp-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Timestamp Option
+                ''',
+                'timestamp_option',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('unknown-option', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unknown Option
+                ''',
+                'unknown_option',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -1078,29 +1078,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats',
             False, 
             [
-            _MetaInfoClassMember('received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('admin-unreachable-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Received
+                '''                ICMP Admin Unreachable Received
                 ''',
-                'received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('checksum-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Checksum Errors
-                ''',
-                'checksum_error',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('unknown', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Unknown
-                ''',
-                'unknown',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('output', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Transmitted
-                ''',
-                'output',
+                'admin_unreachable_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('admin-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1108,65 +1090,35 @@ _meta_table = {
                 ''',
                 'admin_unreachable_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('network-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('checksum-error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Network Unreachable Sent
+                '''                ICMP Checksum Errors
                 ''',
-                'network_unreachable_sent',
+                'checksum_error',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('host-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('echo-reply-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Host Unreachable Sent
+                '''                ICMP Echo Reply Received
                 ''',
-                'host_unreachable_sent',
+                'echo_reply_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('protocol-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('echo-reply-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Protocol Unreachable Sent
+                '''                ICMP Echo Reply Sent
                 ''',
-                'protocol_unreachable_sent',
+                'echo_reply_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('port-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('echo-request-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Port Unreachable Sent
+                '''                ICMP Echo Request Sent
                 ''',
-                'port_unreachable_sent',
+                'echo_request_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('fragment-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('echo-request-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Fragment Unreachable Sent
+                '''                ICMP Echo Request Sent
                 ''',
-                'fragment_unreachable_sent',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('admin-unreachable-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Admin Unreachable Received
-                ''',
-                'admin_unreachable_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('network-unreachable-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Network Unreachable Received
-                ''',
-                'network_unreachable_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('host-unreachable-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Host Unreachable Received
-                ''',
-                'host_unreachable_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('protocol-unreachable-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Protocol Unreachable Received
-                ''',
-                'protocol_unreachable_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('port-unreachable-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Port Unreachable Received
-                ''',
-                'port_unreachable_received',
+                'echo_request_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('fragment-unreachable-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1174,17 +1126,11 @@ _meta_table = {
                 ''',
                 'fragment_unreachable_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('hopcount-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('fragment-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Hopcount Sent
+                '''                ICMP Fragment Unreachable Sent
                 ''',
-                'hopcount_sent',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassembly-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Reassembly Sent
-                ''',
-                'reassembly_sent',
+                'fragment_unreachable_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('hopcount-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1192,11 +1138,65 @@ _meta_table = {
                 ''',
                 'hopcount_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('reassebly-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('hopcount-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Reassembly Received
+                '''                ICMP Hopcount Sent
                 ''',
-                'reassebly_received',
+                'hopcount_sent',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('host-unreachable-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Host Unreachable Received
+                ''',
+                'host_unreachable_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('host-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Host Unreachable Sent
+                ''',
+                'host_unreachable_sent',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mask-reply-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Mask Received
+                ''',
+                'mask_reply_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mask-reply-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Mask Sent
+                ''',
+                'mask_reply_sent',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mask-request-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Mask Received
+                ''',
+                'mask_request_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('mask-request-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Mask Sent
+                ''',
+                'mask_request_sent',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('network-unreachable-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Network Unreachable Received
+                ''',
+                'network_unreachable_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('network-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Network Unreachable Sent
+                ''',
+                'network_unreachable_sent',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('output', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Transmitted
+                ''',
+                'output',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('param-error-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1210,59 +1210,47 @@ _meta_table = {
                 ''',
                 'param_error_send',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('echo-request-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('port-unreachable-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Echo Request Sent
+                '''                ICMP Port Unreachable Received
                 ''',
-                'echo_request_sent',
+                'port_unreachable_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('echo-request-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('port-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Echo Request Sent
+                '''                ICMP Port Unreachable Sent
                 ''',
-                'echo_request_received',
+                'port_unreachable_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('echo-reply-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('protocol-unreachable-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Echo Reply Sent
+                '''                ICMP Protocol Unreachable Received
                 ''',
-                'echo_reply_sent',
+                'protocol_unreachable_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('echo-reply-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('protocol-unreachable-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Echo Reply Received
+                '''                ICMP Protocol Unreachable Sent
                 ''',
-                'echo_reply_received',
+                'protocol_unreachable_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mask-request-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('reassebly-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Mask Sent
+                '''                ICMP Reassembly Received
                 ''',
-                'mask_request_sent',
+                'reassebly_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mask-request-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('reassembly-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Mask Received
+                '''                ICMP Reassembly Sent
                 ''',
-                'mask_request_received',
+                'reassembly_sent',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mask-reply-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICMP Mask Sent
+                '''                ICMP Received
                 ''',
-                'mask_reply_sent',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('mask-reply-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Mask Received
-                ''',
-                'mask_reply_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('source-quench-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Source Quench
-                ''',
-                'source_quench_received',
+                'received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('redirect-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1276,18 +1264,6 @@ _meta_table = {
                 ''',
                 'redirect_send',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('timestamp-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Timestamp Received
-                ''',
-                'timestamp_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
-            _MetaInfoClassMember('timestamp-reply-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ICMP Timestamp Reply Received
-                ''',
-                'timestamp_reply_received',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('router-advert-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICMP Router Advertisement Received
@@ -1300,6 +1276,30 @@ _meta_table = {
                 ''',
                 'router_solicit_received',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('source-quench-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Source Quench
+                ''',
+                'source_quench_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('timestamp-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Timestamp Received
+                ''',
+                'timestamp_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('timestamp-reply-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Timestamp Reply Received
+                ''',
+                'timestamp_reply_received',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('unknown', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICMP Unknown
+                ''',
+                'unknown',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
             'icmp-stats',
@@ -1311,17 +1311,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.Statistics.Traffic',
             False, 
             [
-            _MetaInfoClassMember('ipv4-stats', REFERENCE_CLASS, 'Ipv4Stats' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats', 
-                [], [], 
-                '''                IPv4 Network Stats
-                ''',
-                'ipv4_stats',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('icmp-stats', REFERENCE_CLASS, 'IcmpStats' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats', 
                 [], [], 
                 '''                ICMP Stats
                 ''',
                 'icmp_stats',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
+            _MetaInfoClassMember('ipv4-stats', REFERENCE_CLASS, 'Ipv4Stats' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats', 
+                [], [], 
+                '''                IPv4 Network Stats
+                ''',
+                'ipv4_stats',
                 'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
@@ -1399,18 +1399,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl',
             False, 
             [
-            _MetaInfoClassMember('inbound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to incoming packets
-                ''',
-                'inbound',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('outbound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to outgoing packets
-                ''',
-                'outbound',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('common-in-bound', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Common ACL applied to incoming packets
@@ -1423,6 +1411,18 @@ _meta_table = {
                 ''',
                 'common_out_bound',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('inbound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to incoming packets
+                ''',
+                'inbound',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('outbound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to outgoing packets
+                ''',
+                'outbound',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
             'acl',
@@ -1434,6 +1434,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl',
             False, 
             [
+            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Common ACLs
+                ''',
+                'common',
+                'Cisco-IOS-XR-ipv4-ma-oper', False, max_elements=5),
             _MetaInfoClassMember('inbound', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Inbound ACLs
@@ -1445,12 +1451,6 @@ _meta_table = {
                 '''                Outbound ACLs
                 ''',
                 'outbound',
-                'Cisco-IOS-XR-ipv4-ma-oper', False, max_elements=5),
-            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Common ACLs
-                ''',
-                'common',
                 'Cisco-IOS-XR-ipv4-ma-oper', False, max_elements=5),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
@@ -1480,12 +1480,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable RPF config
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('allow-default-route', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Allow Default Route
@@ -1497,6 +1491,12 @@ _meta_table = {
                 '''                Allow Self Ping
                 ''',
                 'allow_self_ping',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable RPF config
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'RpfModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper', 'RpfModeEnum', 
                 [], [], 
@@ -1515,6 +1515,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -1526,12 +1532,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
@@ -1544,6 +1544,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -1555,12 +1561,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
@@ -1704,41 +1704,11 @@ _meta_table = {
                 ''',
                 'acl',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('multi-acl', REFERENCE_CLASS, 'MultiAcl' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl', 
-                [], [], 
-                '''                Multi ACLs configured on the interface
-                ''',
-                'multi_acl',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('helper-address', REFERENCE_CLASS, 'HelperAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress', 
-                [], [], 
-                '''                Helper Addresses configured on the interface
-                ''',
-                'helper_address',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf', 
-                [], [], 
-                '''                RPF config on the interface
-                ''',
-                'rpf',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('bgp-pa', REFERENCE_CLASS, 'BgpPa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa', 
                 [], [], 
                 '''                BGP PA config on the interface
                 ''',
                 'bgp_pa',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('pub-utime', REFERENCE_CLASS, 'PubUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime', 
-                [], [], 
-                '''                Address Publish Time
-                ''',
-                'pub_utime',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime', 
-                [], [], 
-                '''                IDB Create Time
-                ''',
-                'idb_utime',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('caps-utime', REFERENCE_CLASS, 'CapsUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime', 
                 [], [], 
@@ -1746,11 +1716,23 @@ _meta_table = {
                 ''',
                 'caps_utime',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime', 
+            _MetaInfoClassMember('direct-broadcast', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                FWD ENABLE Time
+                '''                Are direct broadcasts sent on the interface?
                 ''',
-                'fwd_en_utime',
+                'direct_broadcast',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is BGP Flow Tag Destination is enable
+                ''',
+                'flow_tag_dst',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is BGP Flow Tag Source is enable
+                ''',
+                'flow_tag_src',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('fwd-dis-utime', REFERENCE_CLASS, 'FwdDisUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime', 
                 [], [], 
@@ -1758,17 +1740,23 @@ _meta_table = {
                 ''',
                 'fwd_dis_utime',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Primary address
+            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime', 
+                [], [], 
+                '''                FWD ENABLE Time
                 ''',
-                'primary_address',
+                'fwd_en_utime',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                VRF ID of the interface
+            _MetaInfoClassMember('helper-address', REFERENCE_CLASS, 'HelperAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress', 
+                [], [], 
+                '''                Helper Addresses configured on the interface
                 ''',
-                'vrf_id',
+                'helper_address',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime', 
+                [], [], 
+                '''                IDB Create Time
+                ''',
+                'idb_utime',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv4MaOperLineStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineStateEnum', 
                 [], [], 
@@ -1776,11 +1764,71 @@ _meta_table = {
                 ''',
                 'line_state',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('mask-reply', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Are mask replies sent on the interface?
+                ''',
+                'mask_reply',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is mLACP state Active (valid if RG ID exists)
+                ''',
+                'mlacp_active',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP MTU of the interface
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('multi-acl', REFERENCE_CLASS, 'MultiAcl' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl', 
+                [], [], 
+                '''                Multi ACLs configured on the interface
+                ''',
+                'multi_acl',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('multicast-group', REFERENCE_LIST, 'MulticastGroup' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup', 
+                [], [], 
+                '''                Multicast groups joined on the interface
+                ''',
+                'multicast_group',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Prefix length of primary address
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Primary address
+                ''',
+                'primary_address',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('proxy-arp-disabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is Proxy ARP disabled on the interface?
+                ''',
+                'proxy_arp_disabled',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('pub-utime', REFERENCE_CLASS, 'PubUtime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime', 
+                [], [], 
+                '''                Address Publish Time
+                ''',
+                'pub_utime',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('redirect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Are ICMP redirects sent on the interface?
+                ''',
+                'redirect',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Does ICCP RG ID exist on the interface?
+                ''',
+                'rg_id_exists',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1789,47 +1837,17 @@ _meta_table = {
                 ''',
                 'route_tag',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP MTU of the interface
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('unreachable', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf', 
                 [], [], 
-                '''                Are ICMP unreachables sent on the interface?
+                '''                RPF config on the interface
                 ''',
-                'unreachable',
+                'rpf',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('redirect', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('secondary-address', REFERENCE_LIST, 'SecondaryAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress', 
                 [], [], 
-                '''                Are ICMP redirects sent on the interface?
+                '''                Secondary addresses on the interface
                 ''',
-                'redirect',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('direct-broadcast', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Are direct broadcasts sent on the interface?
-                ''',
-                'direct_broadcast',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('mask-reply', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Are mask replies sent on the interface?
-                ''',
-                'mask_reply',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Does ICCP RG ID exist on the interface?
-                ''',
-                'rg_id_exists',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is mLACP state Active (valid if RG ID exists)
-                ''',
-                'mlacp_active',
+                'secondary_address',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('unnumbered-interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1838,35 +1856,17 @@ _meta_table = {
                 ''',
                 'unnumbered_interface_name',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('proxy-arp-disabled', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unreachable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Is Proxy ARP disabled on the interface?
+                '''                Are ICMP unreachables sent on the interface?
                 ''',
-                'proxy_arp_disabled',
+                'unreachable',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is BGP Flow Tag Source is enable
+            _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VRF ID of the interface
                 ''',
-                'flow_tag_src',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is BGP Flow Tag Destination is enable
-                ''',
-                'flow_tag_dst',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('multicast-group', REFERENCE_LIST, 'MulticastGroup' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup', 
-                [], [], 
-                '''                Multicast groups joined on the interface
-                ''',
-                'multicast_group',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('secondary-address', REFERENCE_LIST, 'SecondaryAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress', 
-                [], [], 
-                '''                Secondary addresses on the interface
-                ''',
-                'secondary_address',
+                'vrf_id',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
@@ -1879,6 +1879,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief',
             False, 
             [
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv4MaOperLineStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineStateEnum', 
+                [], [], 
+                '''                Line state of the interface
+                ''',
+                'line_state',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Primary address
@@ -1890,12 +1896,6 @@ _meta_table = {
                 '''                VRF ID of the interface
                 ''',
                 'vrf_id',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv4MaOperLineStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineStateEnum', 
-                [], [], 
-                '''                Line state of the interface
-                ''',
-                'line_state',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
@@ -1914,19 +1914,19 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-ma-oper', True),
-            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail', 
-                [], [], 
-                '''                Detail IPv4 network operational data for an
-                interface
-                ''',
-                'detail',
-                'Cisco-IOS-XR-ipv4-ma-oper', False),
             _MetaInfoClassMember('brief', REFERENCE_CLASS, 'Brief' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief', 
                 [], [], 
                 '''                Brief IPv4 network operational data for an
                 interface
                 ''',
                 'brief',
+                'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail', 
+                [], [], 
+                '''                Detail IPv4 network operational data for an
+                interface
+                ''',
+                'detail',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-oper',
@@ -1996,18 +1996,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4Network',
             False, 
             [
-            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes', 
-                [], [], 
-                '''                Node-specific IPv4 network operational data
-                ''',
-                'nodes',
-                'Cisco-IOS-XR-ipv4-io-oper', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Interfaces', 
                 [], [], 
                 '''                IPv4 network operational interface data
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ipv4-ma-oper', False),
+            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4Network.Nodes', 
+                [], [], 
+                '''                Node-specific IPv4 network operational data
+                ''',
+                'nodes',
+                'Cisco-IOS-XR-ipv4-io-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-io-oper',
             'ipv4-network',

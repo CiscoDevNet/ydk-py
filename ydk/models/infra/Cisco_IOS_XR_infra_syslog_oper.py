@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -120,14 +120,14 @@ class Logging(object):
         """
         Syslog Info 
         
-        .. attribute:: properties
-        
-        	Syslog Properties
-        	**type**\: str
-        
         .. attribute:: message
         
         	Syslog Message
+        	**type**\: str
+        
+        .. attribute:: properties
+        
+        	Syslog Properties
         	**type**\: str
         
         
@@ -139,8 +139,8 @@ class Logging(object):
 
         def __init__(self):
             self.parent = None
-            self.properties = None
             self.message = None
+            self.properties = None
 
         @property
         def _common_path(self):
@@ -154,10 +154,10 @@ class Logging(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.properties is not None:
+            if self.message is not None:
                 return True
 
-            if self.message is not None:
+            if self.properties is not None:
                 return True
 
             return False
@@ -199,15 +199,15 @@ class Syslog(object):
     	Logging AN remote servers information
     	**type**\: :py:class:`AnRemoteServers <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
     
-    .. attribute:: messages
-    
-    	Message table information
-    	**type**\: :py:class:`Messages <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
-    
     .. attribute:: logging_statistics
     
     	Logging statistics information
     	**type**\: :py:class:`LoggingStatistics <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
+    
+    .. attribute:: messages
+    
+    	Message table information
+    	**type**\: :py:class:`Messages <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
     
     
 
@@ -219,10 +219,10 @@ class Syslog(object):
     def __init__(self):
         self.an_remote_servers = Syslog.AnRemoteServers()
         self.an_remote_servers.parent = self
-        self.messages = Syslog.Messages()
-        self.messages.parent = self
         self.logging_statistics = Syslog.LoggingStatistics()
         self.logging_statistics.parent = self
+        self.messages = Syslog.Messages()
+        self.messages.parent = self
 
 
     class AnRemoteServers(object):
@@ -257,6 +257,11 @@ class Syslog(object):
             	IP Address
             	**type**\: str
             
+            .. attribute:: rh_discriminator
+            
+            	Remote\-Host Discriminator
+            	**type**\: str
+            
             .. attribute:: vrf_name
             
             	VRF Name
@@ -265,11 +270,6 @@ class Syslog(object):
             .. attribute:: vrf_severity
             
             	VRF Severity
-            	**type**\: str
-            
-            .. attribute:: rh_discriminator
-            
-            	Remote\-Host Discriminator
             	**type**\: str
             
             
@@ -282,9 +282,9 @@ class Syslog(object):
             def __init__(self):
                 self.parent = None
                 self.ip_address = None
+                self.rh_discriminator = None
                 self.vrf_name = None
                 self.vrf_severity = None
-                self.rh_discriminator = None
 
             @property
             def _common_path(self):
@@ -301,13 +301,13 @@ class Syslog(object):
                 if self.ip_address is not None:
                     return True
 
+                if self.rh_discriminator is not None:
+                    return True
+
                 if self.vrf_name is not None:
                     return True
 
                 if self.vrf_severity is not None:
-                    return True
-
-                if self.rh_discriminator is not None:
                     return True
 
                 return False
@@ -381,35 +381,6 @@ class Syslog(object):
             	Message card location\: 'RP', 'DRP', 'LC', 'SC', 'SP' or 'UNK' 
             	**type**\: str
             
-            .. attribute:: node_name
-            
-            	Message source location
-            	**type**\: str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: time_stamp
-            
-            	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: time_of_day
-            
-            	Time of day of event in DDD MMM DD  YYYY HH\:MM \:SS format, e.g Wed Apr 01 2009  15\:50\:26
-            	**type**\: str
-            
-            .. attribute:: time_zone
-            
-            	Time Zone in UTC+/\-HH\:MM format,  e.g UTC+5\:30, UTC\-6
-            	**type**\: str
-            
-            .. attribute:: process_name
-            
-            	Process name
-            	**type**\: str
-            
             .. attribute:: category
             
             	Message category
@@ -425,6 +396,18 @@ class Syslog(object):
             	Message name
             	**type**\: str
             
+            .. attribute:: node_name
+            
+            	Message source location
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: process_name
+            
+            	Process name
+            	**type**\: str
+            
             .. attribute:: severity
             
             	Message severity
@@ -433,6 +416,23 @@ class Syslog(object):
             .. attribute:: text
             
             	Additional message text
+            	**type**\: str
+            
+            .. attribute:: time_of_day
+            
+            	Time of day of event in DDD MMM DD  YYYY HH\:MM \:SS format, e.g Wed Apr 01 2009  15\:50\:26
+            	**type**\: str
+            
+            .. attribute:: time_stamp
+            
+            	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: time_zone
+            
+            	Time Zone in UTC+/\-HH\:MM format,  e.g UTC+5\:30, UTC\-6
             	**type**\: str
             
             
@@ -446,21 +446,21 @@ class Syslog(object):
                 self.parent = None
                 self.message_id = None
                 self.card_type = None
-                self.node_name = None
-                self.time_stamp = None
-                self.time_of_day = None
-                self.time_zone = None
-                self.process_name = None
                 self.category = None
                 self.group = None
                 self.message_name = None
+                self.node_name = None
+                self.process_name = None
                 self.severity = None
                 self.text = None
+                self.time_of_day = None
+                self.time_stamp = None
+                self.time_zone = None
 
             @property
             def _common_path(self):
                 if self.message_id is None:
-                    raise YPYDataValidationError('Key property message_id is None')
+                    raise YPYModelError('Key property message_id is None')
 
                 return '/Cisco-IOS-XR-infra-syslog-oper:syslog/Cisco-IOS-XR-infra-syslog-oper:messages/Cisco-IOS-XR-infra-syslog-oper:message[Cisco-IOS-XR-infra-syslog-oper:message-id = ' + str(self.message_id) + ']'
 
@@ -477,21 +477,6 @@ class Syslog(object):
                 if self.card_type is not None:
                     return True
 
-                if self.node_name is not None:
-                    return True
-
-                if self.time_stamp is not None:
-                    return True
-
-                if self.time_of_day is not None:
-                    return True
-
-                if self.time_zone is not None:
-                    return True
-
-                if self.process_name is not None:
-                    return True
-
                 if self.category is not None:
                     return True
 
@@ -501,10 +486,25 @@ class Syslog(object):
                 if self.message_name is not None:
                     return True
 
+                if self.node_name is not None:
+                    return True
+
+                if self.process_name is not None:
+                    return True
+
                 if self.severity is not None:
                     return True
 
                 if self.text is not None:
+                    return True
+
+                if self.time_of_day is not None:
+                    return True
+
+                if self.time_stamp is not None:
+                    return True
+
+                if self.time_zone is not None:
                     return True
 
                 return False
@@ -543,40 +543,40 @@ class Syslog(object):
         """
         Logging statistics information
         
-        .. attribute:: logging_stats
+        .. attribute:: buffer_logging_stats
         
-        	Logging statistics
-        	**type**\: :py:class:`LoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
+        	Buffer logging statistics
+        	**type**\: :py:class:`BufferLoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
         
         .. attribute:: console_logging_stats
         
         	Console logging statistics
         	**type**\: :py:class:`ConsoleLoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
         
+        .. attribute:: file_logging_stat
+        
+        	File logging statistics
+        	**type**\: list of :py:class:`FileLoggingStat <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
+        
+        .. attribute:: logging_stats
+        
+        	Logging statistics
+        	**type**\: :py:class:`LoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
+        
         .. attribute:: monitor_logging_stats
         
         	Monitor loggingstatistics
         	**type**\: :py:class:`MonitorLoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
-        
-        .. attribute:: trap_logging_stats
-        
-        	Trap logging statistics
-        	**type**\: :py:class:`TrapLoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
-        
-        .. attribute:: buffer_logging_stats
-        
-        	Buffer logging statistics
-        	**type**\: :py:class:`BufferLoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
         
         .. attribute:: remote_logging_stat
         
         	Remote logging statistics
         	**type**\: list of :py:class:`RemoteLoggingStat <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
         
-        .. attribute:: file_logging_stat
+        .. attribute:: trap_logging_stats
         
-        	File logging statistics
-        	**type**\: list of :py:class:`FileLoggingStat <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
+        	Trap logging statistics
+        	**type**\: :py:class:`TrapLoggingStats <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
         
         
 
@@ -587,32 +587,27 @@ class Syslog(object):
 
         def __init__(self):
             self.parent = None
-            self.logging_stats = Syslog.LoggingStatistics.LoggingStats()
-            self.logging_stats.parent = self
-            self.console_logging_stats = Syslog.LoggingStatistics.ConsoleLoggingStats()
-            self.console_logging_stats.parent = self
-            self.monitor_logging_stats = Syslog.LoggingStatistics.MonitorLoggingStats()
-            self.monitor_logging_stats.parent = self
-            self.trap_logging_stats = Syslog.LoggingStatistics.TrapLoggingStats()
-            self.trap_logging_stats.parent = self
             self.buffer_logging_stats = Syslog.LoggingStatistics.BufferLoggingStats()
             self.buffer_logging_stats.parent = self
-            self.remote_logging_stat = YList()
-            self.remote_logging_stat.parent = self
-            self.remote_logging_stat.name = 'remote_logging_stat'
+            self.console_logging_stats = Syslog.LoggingStatistics.ConsoleLoggingStats()
+            self.console_logging_stats.parent = self
             self.file_logging_stat = YList()
             self.file_logging_stat.parent = self
             self.file_logging_stat.name = 'file_logging_stat'
+            self.logging_stats = Syslog.LoggingStatistics.LoggingStats()
+            self.logging_stats.parent = self
+            self.monitor_logging_stats = Syslog.LoggingStatistics.MonitorLoggingStats()
+            self.monitor_logging_stats.parent = self
+            self.remote_logging_stat = YList()
+            self.remote_logging_stat.parent = self
+            self.remote_logging_stat.name = 'remote_logging_stat'
+            self.trap_logging_stats = Syslog.LoggingStatistics.TrapLoggingStats()
+            self.trap_logging_stats.parent = self
 
 
         class LoggingStats(object):
             """
             Logging statistics
-            
-            .. attribute:: is_log_enabled
-            
-            	Is log enabled
-            	**type**\: bool
             
             .. attribute:: drop_count
             
@@ -627,6 +622,11 @@ class Syslog(object):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: is_log_enabled
+            
+            	Is log enabled
+            	**type**\: bool
             
             .. attribute:: overrun_count
             
@@ -644,9 +644,9 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.is_log_enabled = None
                 self.drop_count = None
                 self.flush_count = None
+                self.is_log_enabled = None
                 self.overrun_count = None
 
             @property
@@ -661,13 +661,13 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_log_enabled is not None:
-                    return True
-
                 if self.drop_count is not None:
                     return True
 
                 if self.flush_count is not None:
+                    return True
+
+                if self.is_log_enabled is not None:
                     return True
 
                 if self.overrun_count is not None:
@@ -685,15 +685,17 @@ class Syslog(object):
             """
             Console logging statistics
             
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
             	**type**\: bool
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             .. attribute:: message_count
             
@@ -702,12 +704,10 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: buffer_size
+            .. attribute:: severity
             
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	Configured severity
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -718,10 +718,10 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.is_log_enabled = None
-                self.severity = None
-                self.message_count = None
                 self.buffer_size = None
+                self.is_log_enabled = None
+                self.message_count = None
+                self.severity = None
 
             @property
             def _common_path(self):
@@ -735,16 +735,16 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_log_enabled is not None:
+                if self.buffer_size is not None:
                     return True
 
-                if self.severity is not None:
+                if self.is_log_enabled is not None:
                     return True
 
                 if self.message_count is not None:
                     return True
 
-                if self.buffer_size is not None:
+                if self.severity is not None:
                     return True
 
                 return False
@@ -759,15 +759,17 @@ class Syslog(object):
             """
             Monitor loggingstatistics
             
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
             	**type**\: bool
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             .. attribute:: message_count
             
@@ -776,12 +778,10 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: buffer_size
+            .. attribute:: severity
             
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	Configured severity
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -792,10 +792,10 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.is_log_enabled = None
-                self.severity = None
-                self.message_count = None
                 self.buffer_size = None
+                self.is_log_enabled = None
+                self.message_count = None
+                self.severity = None
 
             @property
             def _common_path(self):
@@ -809,16 +809,16 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_log_enabled is not None:
+                if self.buffer_size is not None:
                     return True
 
-                if self.severity is not None:
+                if self.is_log_enabled is not None:
                     return True
 
                 if self.message_count is not None:
                     return True
 
-                if self.buffer_size is not None:
+                if self.severity is not None:
                     return True
 
                 return False
@@ -833,15 +833,17 @@ class Syslog(object):
             """
             Trap logging statistics
             
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
             	**type**\: bool
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             .. attribute:: message_count
             
@@ -850,12 +852,10 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: buffer_size
+            .. attribute:: severity
             
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	Configured severity
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -866,10 +866,10 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.is_log_enabled = None
-                self.severity = None
-                self.message_count = None
                 self.buffer_size = None
+                self.is_log_enabled = None
+                self.message_count = None
+                self.severity = None
 
             @property
             def _common_path(self):
@@ -883,16 +883,16 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_log_enabled is not None:
+                if self.buffer_size is not None:
                     return True
 
-                if self.severity is not None:
+                if self.is_log_enabled is not None:
                     return True
 
                 if self.message_count is not None:
                     return True
 
-                if self.buffer_size is not None:
+                if self.severity is not None:
                     return True
 
                 return False
@@ -907,15 +907,17 @@ class Syslog(object):
             """
             Buffer logging statistics
             
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
             	**type**\: bool
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             .. attribute:: message_count
             
@@ -924,12 +926,10 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: buffer_size
+            .. attribute:: severity
             
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	Configured severity
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -940,10 +940,10 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.is_log_enabled = None
-                self.severity = None
-                self.message_count = None
                 self.buffer_size = None
+                self.is_log_enabled = None
+                self.message_count = None
+                self.severity = None
 
             @property
             def _common_path(self):
@@ -957,16 +957,16 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_log_enabled is not None:
+                if self.buffer_size is not None:
                     return True
 
-                if self.severity is not None:
+                if self.is_log_enabled is not None:
                     return True
 
                 if self.message_count is not None:
                     return True
 
-                if self.buffer_size is not None:
+                if self.severity is not None:
                     return True
 
                 return False
@@ -981,17 +981,17 @@ class Syslog(object):
             """
             Remote logging statistics
             
-            .. attribute:: remote_host_name
-            
-            	Remote hostname
-            	**type**\: str
-            
             .. attribute:: message_count
             
             	Message count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: remote_host_name
+            
+            	Remote hostname
+            	**type**\: str
             
             
 
@@ -1002,8 +1002,8 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.remote_host_name = None
                 self.message_count = None
+                self.remote_host_name = None
 
             @property
             def _common_path(self):
@@ -1017,10 +1017,10 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.remote_host_name is not None:
+                if self.message_count is not None:
                     return True
 
-                if self.message_count is not None:
+                if self.remote_host_name is not None:
                     return True
 
                 return False
@@ -1096,19 +1096,21 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.logging_stats is not None and self.logging_stats._has_data():
+            if self.buffer_logging_stats is not None and self.buffer_logging_stats._has_data():
                 return True
 
             if self.console_logging_stats is not None and self.console_logging_stats._has_data():
                 return True
 
+            if self.file_logging_stat is not None:
+                for child_ref in self.file_logging_stat:
+                    if child_ref._has_data():
+                        return True
+
+            if self.logging_stats is not None and self.logging_stats._has_data():
+                return True
+
             if self.monitor_logging_stats is not None and self.monitor_logging_stats._has_data():
-                return True
-
-            if self.trap_logging_stats is not None and self.trap_logging_stats._has_data():
-                return True
-
-            if self.buffer_logging_stats is not None and self.buffer_logging_stats._has_data():
                 return True
 
             if self.remote_logging_stat is not None:
@@ -1116,10 +1118,8 @@ class Syslog(object):
                     if child_ref._has_data():
                         return True
 
-            if self.file_logging_stat is not None:
-                for child_ref in self.file_logging_stat:
-                    if child_ref._has_data():
-                        return True
+            if self.trap_logging_stats is not None and self.trap_logging_stats._has_data():
+                return True
 
             return False
 
@@ -1143,10 +1143,10 @@ class Syslog(object):
         if self.an_remote_servers is not None and self.an_remote_servers._has_data():
             return True
 
-        if self.messages is not None and self.messages._has_data():
+        if self.logging_statistics is not None and self.logging_statistics._has_data():
             return True
 
-        if self.logging_statistics is not None and self.logging_statistics._has_data():
+        if self.messages is not None and self.messages._has_data():
             return True
 
         return False

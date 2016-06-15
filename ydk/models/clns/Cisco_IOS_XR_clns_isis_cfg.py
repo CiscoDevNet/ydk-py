@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisAddressFamilyEnum
@@ -1512,130 +1512,130 @@ class Isis(object):
             
             	**range:** 0..40
             
-            .. attribute:: srgb
-            
-            	Segment Routing Global Block configuration
-            	**type**\: :py:class:`Srgb <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Srgb>`
-            
-            .. attribute:: lsp_generation_intervals
-            
-            	LSP generation\-interval configuration
-            	**type**\: :py:class:`LspGenerationIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspGenerationIntervals>`
-            
-            .. attribute:: lsp_arrival_times
-            
-            	LSP arrival time configuration
-            	**type**\: :py:class:`LspArrivalTimes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspArrivalTimes>`
-            
-            .. attribute:: trace_buffer_size
-            
-            	Trace buffer size configuration
-            	**type**\: :py:class:`TraceBufferSize <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.TraceBufferSize>`
-            
-            .. attribute:: max_link_metrics
-            
-            	Max Link Metric configuration
-            	**type**\: :py:class:`MaxLinkMetrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics>`
-            
             .. attribute:: afs
             
             	Per\-address\-family configuration
             	**type**\: :py:class:`Afs <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs>`
-            
-            .. attribute:: lsp_refresh_intervals
-            
-            	LSP refresh\-interval configuration
-            	**type**\: :py:class:`LspRefreshIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspRefreshIntervals>`
             
             .. attribute:: distribute
             
             	IS\-IS Distribute BGP\-LS configuration
             	**type**\: :py:class:`Distribute <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Distribute>`
             
-            .. attribute:: lsp_accept_passwords
+            .. attribute:: dynamic_host_name
             
-            	LSP/SNP accept password configuration
-            	**type**\: :py:class:`LspAcceptPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspAcceptPasswords>`
-            
-            .. attribute:: lsp_mtus
-            
-            	LSP MTU configuration
-            	**type**\: :py:class:`LspMtus <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspMtus>`
-            
-            .. attribute:: nsf
-            
-            	IS\-IS NSF configuration
-            	**type**\: :py:class:`Nsf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nsf>`
-            
-            .. attribute:: link_groups
-            
-            	Link Group
-            	**type**\: :py:class:`LinkGroups <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LinkGroups>`
-            
-            .. attribute:: lsp_check_intervals
-            
-            	LSP checksum check interval configuration
-            	**type**\: :py:class:`LspCheckIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspCheckIntervals>`
-            
-            .. attribute:: lsp_passwords
-            
-            	LSP/SNP password configuration
-            	**type**\: :py:class:`LspPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspPasswords>`
-            
-            .. attribute:: nets
-            
-            	NET configuration
-            	**type**\: :py:class:`Nets <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nets>`
-            
-            .. attribute:: lsp_lifetimes
-            
-            	LSP lifetime configuration
-            	**type**\: :py:class:`LspLifetimes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspLifetimes>`
-            
-            .. attribute:: overload_bits
-            
-            	LSP overload\-bit configuration
-            	**type**\: :py:class:`OverloadBits <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.OverloadBits>`
-            
-            .. attribute:: interfaces
-            
-            	Per\-interface configuration
-            	**type**\: :py:class:`Interfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces>`
-            
-            .. attribute:: running
-            
-            	Flag to indicate that instance should be running.  This must be the first object created when an IS\-IS instance is configured, and the last object deleted when it is deconfigured.  When this object is deleted, the IS\-IS instance will exit
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: log_adjacency_changes
-            
-            	Log changes in adjacency state
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	If TRUE, dynamic hostname resolution is disabled, and system IDs will always be displayed by show and debug output
+            	**type**\: bool
             
             .. attribute:: ignore_lsp_errors
             
             	If TRUE, LSPs recieved with bad checksums will result in the purging of that LSP from the LSP DB. If FALSE or not set, the received LSP will just be ignored
             	**type**\: bool
             
+            .. attribute:: interfaces
+            
+            	Per\-interface configuration
+            	**type**\: :py:class:`Interfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces>`
+            
             .. attribute:: is_type
             
             	IS type of the IS\-IS process
             	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
             
-            .. attribute:: dynamic_host_name
+            .. attribute:: link_groups
             
-            	If TRUE, dynamic hostname resolution is disabled, and system IDs will always be displayed by show and debug output
-            	**type**\: bool
+            	Link Group
+            	**type**\: :py:class:`LinkGroups <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LinkGroups>`
             
-            .. attribute:: nsr
+            .. attribute:: log_adjacency_changes
             
-            	IS\-IS NSR configuration
+            	Log changes in adjacency state
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: log_pdu_drops
             
             	Log PDU drops
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: lsp_accept_passwords
+            
+            	LSP/SNP accept password configuration
+            	**type**\: :py:class:`LspAcceptPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspAcceptPasswords>`
+            
+            .. attribute:: lsp_arrival_times
+            
+            	LSP arrival time configuration
+            	**type**\: :py:class:`LspArrivalTimes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspArrivalTimes>`
+            
+            .. attribute:: lsp_check_intervals
+            
+            	LSP checksum check interval configuration
+            	**type**\: :py:class:`LspCheckIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspCheckIntervals>`
+            
+            .. attribute:: lsp_generation_intervals
+            
+            	LSP generation\-interval configuration
+            	**type**\: :py:class:`LspGenerationIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspGenerationIntervals>`
+            
+            .. attribute:: lsp_lifetimes
+            
+            	LSP lifetime configuration
+            	**type**\: :py:class:`LspLifetimes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspLifetimes>`
+            
+            .. attribute:: lsp_mtus
+            
+            	LSP MTU configuration
+            	**type**\: :py:class:`LspMtus <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspMtus>`
+            
+            .. attribute:: lsp_passwords
+            
+            	LSP/SNP password configuration
+            	**type**\: :py:class:`LspPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspPasswords>`
+            
+            .. attribute:: lsp_refresh_intervals
+            
+            	LSP refresh\-interval configuration
+            	**type**\: :py:class:`LspRefreshIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspRefreshIntervals>`
+            
+            .. attribute:: max_link_metrics
+            
+            	Max Link Metric configuration
+            	**type**\: :py:class:`MaxLinkMetrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics>`
+            
+            .. attribute:: nets
+            
+            	NET configuration
+            	**type**\: :py:class:`Nets <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nets>`
+            
+            .. attribute:: nsf
+            
+            	IS\-IS NSF configuration
+            	**type**\: :py:class:`Nsf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nsf>`
+            
+            .. attribute:: nsr
+            
+            	IS\-IS NSR configuration
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: overload_bits
+            
+            	LSP overload\-bit configuration
+            	**type**\: :py:class:`OverloadBits <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.OverloadBits>`
+            
+            .. attribute:: running
+            
+            	Flag to indicate that instance should be running.  This must be the first object created when an IS\-IS instance is configured, and the last object deleted when it is deconfigured.  When this object is deleted, the IS\-IS instance will exit
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: srgb
+            
+            	Segment Routing Global Block configuration
+            	**type**\: :py:class:`Srgb <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Srgb>`
+            
+            .. attribute:: trace_buffer_size
+            
+            	Trace buffer size configuration
+            	**type**\: :py:class:`TraceBufferSize <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.TraceBufferSize>`
             
             
 
@@ -1647,47 +1647,47 @@ class Isis(object):
             def __init__(self):
                 self.parent = None
                 self.instance_name = None
-                self.srgb = None
-                self.lsp_generation_intervals = Isis.Instances.Instance.LspGenerationIntervals()
-                self.lsp_generation_intervals.parent = self
-                self.lsp_arrival_times = Isis.Instances.Instance.LspArrivalTimes()
-                self.lsp_arrival_times.parent = self
-                self.trace_buffer_size = Isis.Instances.Instance.TraceBufferSize()
-                self.trace_buffer_size.parent = self
-                self.max_link_metrics = Isis.Instances.Instance.MaxLinkMetrics()
-                self.max_link_metrics.parent = self
                 self.afs = Isis.Instances.Instance.Afs()
                 self.afs.parent = self
-                self.lsp_refresh_intervals = Isis.Instances.Instance.LspRefreshIntervals()
-                self.lsp_refresh_intervals.parent = self
                 self.distribute = None
-                self.lsp_accept_passwords = Isis.Instances.Instance.LspAcceptPasswords()
-                self.lsp_accept_passwords.parent = self
-                self.lsp_mtus = Isis.Instances.Instance.LspMtus()
-                self.lsp_mtus.parent = self
-                self.nsf = Isis.Instances.Instance.Nsf()
-                self.nsf.parent = self
-                self.link_groups = Isis.Instances.Instance.LinkGroups()
-                self.link_groups.parent = self
-                self.lsp_check_intervals = Isis.Instances.Instance.LspCheckIntervals()
-                self.lsp_check_intervals.parent = self
-                self.lsp_passwords = Isis.Instances.Instance.LspPasswords()
-                self.lsp_passwords.parent = self
-                self.nets = Isis.Instances.Instance.Nets()
-                self.nets.parent = self
-                self.lsp_lifetimes = Isis.Instances.Instance.LspLifetimes()
-                self.lsp_lifetimes.parent = self
-                self.overload_bits = Isis.Instances.Instance.OverloadBits()
-                self.overload_bits.parent = self
+                self.dynamic_host_name = None
+                self.ignore_lsp_errors = None
                 self.interfaces = Isis.Instances.Instance.Interfaces()
                 self.interfaces.parent = self
-                self.running = None
-                self.log_adjacency_changes = None
-                self.ignore_lsp_errors = None
                 self.is_type = None
-                self.dynamic_host_name = None
-                self.nsr = None
+                self.link_groups = Isis.Instances.Instance.LinkGroups()
+                self.link_groups.parent = self
+                self.log_adjacency_changes = None
                 self.log_pdu_drops = None
+                self.lsp_accept_passwords = Isis.Instances.Instance.LspAcceptPasswords()
+                self.lsp_accept_passwords.parent = self
+                self.lsp_arrival_times = Isis.Instances.Instance.LspArrivalTimes()
+                self.lsp_arrival_times.parent = self
+                self.lsp_check_intervals = Isis.Instances.Instance.LspCheckIntervals()
+                self.lsp_check_intervals.parent = self
+                self.lsp_generation_intervals = Isis.Instances.Instance.LspGenerationIntervals()
+                self.lsp_generation_intervals.parent = self
+                self.lsp_lifetimes = Isis.Instances.Instance.LspLifetimes()
+                self.lsp_lifetimes.parent = self
+                self.lsp_mtus = Isis.Instances.Instance.LspMtus()
+                self.lsp_mtus.parent = self
+                self.lsp_passwords = Isis.Instances.Instance.LspPasswords()
+                self.lsp_passwords.parent = self
+                self.lsp_refresh_intervals = Isis.Instances.Instance.LspRefreshIntervals()
+                self.lsp_refresh_intervals.parent = self
+                self.max_link_metrics = Isis.Instances.Instance.MaxLinkMetrics()
+                self.max_link_metrics.parent = self
+                self.nets = Isis.Instances.Instance.Nets()
+                self.nets.parent = self
+                self.nsf = Isis.Instances.Instance.Nsf()
+                self.nsf.parent = self
+                self.nsr = None
+                self.overload_bits = Isis.Instances.Instance.OverloadBits()
+                self.overload_bits.parent = self
+                self.running = None
+                self.srgb = None
+                self.trace_buffer_size = Isis.Instances.Instance.TraceBufferSize()
+                self.trace_buffer_size.parent = self
 
 
             class Srgb(object):
@@ -1735,7 +1735,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:srgb'
 
@@ -1792,16 +1792,16 @@ class Isis(object):
                     	Level to which configuration applies
                     	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
-                    .. attribute:: maximum_wait
+                    .. attribute:: initial_wait
                     
-                    	Maximum wait before generating local LSP in milliseconds
+                    	Initial wait before generating local LSP in milliseconds
                     	**type**\: int
                     
                     	**range:** 0..120000
                     
-                    .. attribute:: initial_wait
+                    .. attribute:: maximum_wait
                     
-                    	Initial wait before generating local LSP in milliseconds
+                    	Maximum wait before generating local LSP in milliseconds
                     	**type**\: int
                     
                     	**range:** 0..120000
@@ -1823,16 +1823,16 @@ class Isis(object):
                     def __init__(self):
                         self.parent = None
                         self.level = None
-                        self.maximum_wait = None
                         self.initial_wait = None
+                        self.maximum_wait = None
                         self.secondary_wait = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-generation-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -1846,10 +1846,10 @@ class Isis(object):
                         if self.level is not None:
                             return True
 
-                        if self.maximum_wait is not None:
+                        if self.initial_wait is not None:
                             return True
 
-                        if self.initial_wait is not None:
+                        if self.maximum_wait is not None:
                             return True
 
                         if self.secondary_wait is not None:
@@ -1865,7 +1865,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-generation-intervals'
 
@@ -1921,16 +1921,16 @@ class Isis(object):
                     	Level to which configuration applies
                     	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
-                    .. attribute:: maximum_wait
+                    .. attribute:: initial_wait
                     
-                    	Maximum delay expected to take since last LSPin milliseconds
+                    	Initial delay expected to take since last LSPin milliseconds
                     	**type**\: int
                     
                     	**range:** 0..120000
                     
-                    .. attribute:: initial_wait
+                    .. attribute:: maximum_wait
                     
-                    	Initial delay expected to take since last LSPin milliseconds
+                    	Maximum delay expected to take since last LSPin milliseconds
                     	**type**\: int
                     
                     	**range:** 0..120000
@@ -1952,16 +1952,16 @@ class Isis(object):
                     def __init__(self):
                         self.parent = None
                         self.level = None
-                        self.maximum_wait = None
                         self.initial_wait = None
+                        self.maximum_wait = None
                         self.secondary_wait = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-arrival-time[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -1975,10 +1975,10 @@ class Isis(object):
                         if self.level is not None:
                             return True
 
-                        if self.maximum_wait is not None:
+                        if self.initial_wait is not None:
                             return True
 
-                        if self.initial_wait is not None:
+                        if self.maximum_wait is not None:
                             return True
 
                         if self.secondary_wait is not None:
@@ -1994,7 +1994,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-arrival-times'
 
@@ -2029,16 +2029,16 @@ class Isis(object):
                 
                 	**range:** 1..1000000
                 
-                .. attribute:: standard
+                .. attribute:: severe
                 
-                	Buffer size for standard traces
+                	Buffer size for severe trace
                 	**type**\: int
                 
                 	**range:** 1..1000000
                 
-                .. attribute:: severe
+                .. attribute:: standard
                 
-                	Buffer size for severe trace
+                	Buffer size for standard traces
                 	**type**\: int
                 
                 	**range:** 1..1000000
@@ -2053,13 +2053,13 @@ class Isis(object):
                 def __init__(self):
                     self.parent = None
                     self.detailed = None
-                    self.standard = None
                     self.severe = None
+                    self.standard = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:trace-buffer-size'
 
@@ -2073,10 +2073,10 @@ class Isis(object):
                     if self.detailed is not None:
                         return True
 
-                    if self.standard is not None:
+                    if self.severe is not None:
                         return True
 
-                    if self.severe is not None:
+                    if self.standard is not None:
                         return True
 
                     return False
@@ -2133,9 +2133,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:max-link-metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -2159,7 +2159,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:max-link-metrics'
 
@@ -2253,20 +2253,72 @@ class Isis(object):
                         """
                         Data container.
                         
-                        .. attribute:: segment_routing
+                        .. attribute:: adjacency_check
                         
-                        	Enable Segment Routing configuration
-                        	**type**\: :py:class:`SegmentRouting <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting>`
+                        	Suppress check for consistent AF support on received IIHs
+                        	**type**\: :py:class:`IsisAdjCheckEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheckEnum>`
                         
                         .. attribute:: _is_presence
                         
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: metric_styles
+                        .. attribute:: admin_distances
                         
-                        	Metric\-style configuration
-                        	**type**\: :py:class:`MetricStyles <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles>`
+                        	Per\-route administrative distanceconfiguration
+                        	**type**\: :py:class:`AdminDistances <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: advertise_passive_only
+                        
+                        	If enabled, advertise prefixes of passive interfaces only
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: apply_weight
+                        
+                        	Apply weights to UCMP or ECMP only
+                        	**type**\: :py:class:`IsisApplyWeightEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeightEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: attached_bit
+                        
+                        	Set the attached bit in this router's level 1 System LSP
+                        	**type**\: :py:class:`IsisAttachedBitEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBitEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: default_admin_distance
+                        
+                        	Default IS\-IS administrative distance configuration
+                        	**type**\: int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: default_information
+                        
+                        	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
+                        	**type**\: :py:class:`DefaultInformation <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation>`
                         
                         .. attribute:: _is_presence
                         
@@ -2283,20 +2335,62 @@ class Isis(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: spf_prefix_priorities
+                        .. attribute:: ignore_attached_bit
                         
-                        	SPF Prefix Priority configuration
-                        	**type**\: :py:class:`SpfPrefixPriorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities>`
+                        	If TRUE, Ignore other routers attached bit
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: summary_prefixes
+                        .. attribute:: ispf
                         
-                        	Summary\-prefix configuration
-                        	**type**\: :py:class:`SummaryPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes>`
+                        	ISPF configuration
+                        	**type**\: :py:class:`Ispf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: max_redist_prefixes
+                        
+                        	Maximum number of redistributed prefixesconfiguration
+                        	**type**\: :py:class:`MaxRedistPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: maximum_paths
+                        
+                        	Maximum number of active parallel paths per route
+                        	**type**\: int
+                        
+                        	**range:** 1..64
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: metric_styles
+                        
+                        	Metric\-style configuration
+                        	**type**\: :py:class:`MetricStyles <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: metrics
+                        
+                        	Metric configuration
+                        	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics>`
                         
                         .. attribute:: _is_presence
                         
@@ -2313,20 +2407,30 @@ class Isis(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: ucmp
+                        .. attribute:: monitor_convergence
                         
-                        	UCMP (UnEqual Cost MultiPath) configuration
-                        	**type**\: :py:class:`Ucmp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp>`
+                        	Enable convergence monitoring
+                        	**type**\: :py:class:`MonitorConvergence <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence>`
                         
                         .. attribute:: _is_presence
                         
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: max_redist_prefixes
+                        .. attribute:: mpls
                         
-                        	Maximum number of redistributed prefixesconfiguration
-                        	**type**\: :py:class:`MaxRedistPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes>`
+                        	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
+                        	**type**\: :py:class:`Mpls <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: mpls_ldp_global
+                        
+                        	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
+                        	**type**\: :py:class:`MplsLdpGlobal <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal>`
                         
                         .. attribute:: _is_presence
                         
@@ -2353,10 +2457,30 @@ class Isis(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: spf_periodic_intervals
+                        .. attribute:: route_source_first_hop
                         
-                        	Peoridic SPF configuration
-                        	**type**\: :py:class:`SpfPeriodicIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals>`
+                        	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: segment_routing
+                        
+                        	Enable Segment Routing configuration
+                        	**type**\: :py:class:`SegmentRouting <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: single_topology
+                        
+                        	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: _is_presence
                         
@@ -2373,72 +2497,30 @@ class Isis(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: monitor_convergence
+                        .. attribute:: spf_periodic_intervals
                         
-                        	Enable convergence monitoring
-                        	**type**\: :py:class:`MonitorConvergence <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: default_information
-                        
-                        	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
-                        	**type**\: :py:class:`DefaultInformation <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation>`
+                        	Peoridic SPF configuration
+                        	**type**\: :py:class:`SpfPeriodicIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals>`
                         
                         .. attribute:: _is_presence
                         
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: admin_distances
+                        .. attribute:: spf_prefix_priorities
                         
-                        	Per\-route administrative distanceconfiguration
-                        	**type**\: :py:class:`AdminDistances <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: ispf
-                        
-                        	ISPF configuration
-                        	**type**\: :py:class:`Ispf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf>`
+                        	SPF Prefix Priority configuration
+                        	**type**\: :py:class:`SpfPrefixPriorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities>`
                         
                         .. attribute:: _is_presence
                         
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: mpls_ldp_global
+                        .. attribute:: summary_prefixes
                         
-                        	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\: :py:class:`MplsLdpGlobal <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: mpls
-                        
-                        	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\: :py:class:`Mpls <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: maximum_paths
-                        
-                        	Maximum number of active parallel paths per route
-                        	**type**\: int
-                        
-                        	**range:** 1..64
+                        	Summary\-prefix configuration
+                        	**type**\: :py:class:`SummaryPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes>`
                         
                         .. attribute:: _is_presence
                         
@@ -2457,92 +2539,10 @@ class Isis(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: single_topology
+                        .. attribute:: ucmp
                         
-                        	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: adjacency_check
-                        
-                        	Suppress check for consistent AF support on received IIHs
-                        	**type**\: :py:class:`IsisAdjCheckEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheckEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: apply_weight
-                        
-                        	Apply weights to UCMP or ECMP only
-                        	**type**\: :py:class:`IsisApplyWeightEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeightEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: default_admin_distance
-                        
-                        	Default IS\-IS administrative distance configuration
-                        	**type**\: int
-                        
-                        	**range:** 1..255
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: advertise_passive_only
-                        
-                        	If enabled, advertise prefixes of passive interfaces only
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: ignore_attached_bit
-                        
-                        	If TRUE, Ignore other routers attached bit
-                        	**type**\: bool
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: attached_bit
-                        
-                        	Set the attached bit in this router's level 1 System LSP
-                        	**type**\: :py:class:`IsisAttachedBitEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBitEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: route_source_first_hop
-                        
-                        	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
-                        	**type**\: bool
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: metrics
-                        
-                        	Metric configuration
-                        	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics>`
+                        	UCMP (UnEqual Cost MultiPath) configuration
+                        	**type**\: :py:class:`Ucmp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp>`
                         
                         .. attribute:: _is_presence
                         
@@ -2570,54 +2570,54 @@ class Isis(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.segment_routing = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting()
-                            self.segment_routing.parent = self
-                            self.metric_styles = Isis.Instances.Instance.Afs.Af.AfData.MetricStyles()
-                            self.metric_styles.parent = self
+                            self.adjacency_check = None
+                            self.admin_distances = Isis.Instances.Instance.Afs.Af.AfData.AdminDistances()
+                            self.admin_distances.parent = self
+                            self.advertise_passive_only = None
+                            self.apply_weight = None
+                            self.attached_bit = None
+                            self.default_admin_distance = None
+                            self.default_information = Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation()
+                            self.default_information.parent = self
                             self.frr_table = Isis.Instances.Instance.Afs.Af.AfData.FrrTable()
                             self.frr_table.parent = self
-                            self.spf_prefix_priorities = Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities()
-                            self.spf_prefix_priorities.parent = self
-                            self.summary_prefixes = Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes()
-                            self.summary_prefixes.parent = self
-                            self.micro_loop_avoidance = Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance()
-                            self.micro_loop_avoidance.parent = self
-                            self.ucmp = Isis.Instances.Instance.Afs.Af.AfData.Ucmp()
-                            self.ucmp.parent = self
+                            self.ignore_attached_bit = None
+                            self.ispf = Isis.Instances.Instance.Afs.Af.AfData.Ispf()
+                            self.ispf.parent = self
                             self.max_redist_prefixes = Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes()
                             self.max_redist_prefixes.parent = self
+                            self.maximum_paths = None
+                            self.metric_styles = Isis.Instances.Instance.Afs.Af.AfData.MetricStyles()
+                            self.metric_styles.parent = self
+                            self.metrics = Isis.Instances.Instance.Afs.Af.AfData.Metrics()
+                            self.metrics.parent = self
+                            self.micro_loop_avoidance = Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance()
+                            self.micro_loop_avoidance.parent = self
+                            self.monitor_convergence = Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence()
+                            self.monitor_convergence.parent = self
+                            self.mpls = Isis.Instances.Instance.Afs.Af.AfData.Mpls()
+                            self.mpls.parent = self
+                            self.mpls_ldp_global = Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal()
+                            self.mpls_ldp_global.parent = self
                             self.propagations = Isis.Instances.Instance.Afs.Af.AfData.Propagations()
                             self.propagations.parent = self
                             self.redistributions = Isis.Instances.Instance.Afs.Af.AfData.Redistributions()
                             self.redistributions.parent = self
-                            self.spf_periodic_intervals = Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals()
-                            self.spf_periodic_intervals.parent = self
+                            self.route_source_first_hop = None
+                            self.segment_routing = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting()
+                            self.segment_routing.parent = self
+                            self.single_topology = None
                             self.spf_intervals = Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals()
                             self.spf_intervals.parent = self
-                            self.monitor_convergence = Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence()
-                            self.monitor_convergence.parent = self
-                            self.default_information = Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation()
-                            self.default_information.parent = self
-                            self.admin_distances = Isis.Instances.Instance.Afs.Af.AfData.AdminDistances()
-                            self.admin_distances.parent = self
-                            self.ispf = Isis.Instances.Instance.Afs.Af.AfData.Ispf()
-                            self.ispf.parent = self
-                            self.mpls_ldp_global = Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal()
-                            self.mpls_ldp_global.parent = self
-                            self.mpls = Isis.Instances.Instance.Afs.Af.AfData.Mpls()
-                            self.mpls.parent = self
-                            self.maximum_paths = None
+                            self.spf_periodic_intervals = Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals()
+                            self.spf_periodic_intervals.parent = self
+                            self.spf_prefix_priorities = Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities()
+                            self.spf_prefix_priorities.parent = self
+                            self.summary_prefixes = Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes()
+                            self.summary_prefixes.parent = self
                             self.topology_id = None
-                            self.single_topology = None
-                            self.adjacency_check = None
-                            self.apply_weight = None
-                            self.default_admin_distance = None
-                            self.advertise_passive_only = None
-                            self.ignore_attached_bit = None
-                            self.attached_bit = None
-                            self.route_source_first_hop = None
-                            self.metrics = Isis.Instances.Instance.Afs.Af.AfData.Metrics()
-                            self.metrics.parent = self
+                            self.ucmp = Isis.Instances.Instance.Afs.Af.AfData.Ucmp()
+                            self.ucmp.parent = self
                             self.weights = Isis.Instances.Instance.Afs.Af.AfData.Weights()
                             self.weights.parent = self
 
@@ -2626,15 +2626,15 @@ class Isis(object):
                             """
                             Enable Segment Routing configuration
                             
-                            .. attribute:: prefix_sid_map
-                            
-                            	Enable Segment Routing prefix SID map configuration
-                            	**type**\: :py:class:`PrefixSidMap <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap>`
-                            
                             .. attribute:: mpls
                             
                             	Prefer segment routing labels over LDP labels
                             	**type**\: :py:class:`IsisLabelPreferenceEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreferenceEnum>`
+                            
+                            .. attribute:: prefix_sid_map
+                            
+                            	Enable Segment Routing prefix SID map configuration
+                            	**type**\: :py:class:`PrefixSidMap <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap>`
                             
                             
 
@@ -2645,9 +2645,9 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.mpls = None
                                 self.prefix_sid_map = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap()
                                 self.prefix_sid_map.parent = self
-                                self.mpls = None
 
 
                             class PrefixSidMap(object):
@@ -2680,7 +2680,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-sid-map'
 
@@ -2707,7 +2707,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:segment-routing'
 
@@ -2718,10 +2718,10 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.prefix_sid_map is not None and self.prefix_sid_map._has_data():
+                                if self.mpls is not None:
                                     return True
 
-                                if self.mpls is not None:
+                                if self.prefix_sid_map is not None and self.prefix_sid_map._has_data():
                                     return True
 
                                 return False
@@ -2790,9 +2790,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric-style[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -2822,7 +2822,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric-styles'
 
@@ -2855,11 +2855,6 @@ class Isis(object):
                             	Load share prefixes across multiple backups
                             	**type**\: :py:class:`FrrLoadSharings <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings>`
                             
-                            .. attribute:: priority_limits
-                            
-                            	FRR prefix\-limit configuration
-                            	**type**\: :py:class:`PriorityLimits <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits>`
-                            
                             .. attribute:: frr_remote_lfa_prefixes
                             
                             	FRR remote LFA prefix list filter configuration
@@ -2875,6 +2870,11 @@ class Isis(object):
                             	FRR use candidate only configuration
                             	**type**\: :py:class:`FrrUseCandOnlies <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies>`
                             
+                            .. attribute:: priority_limits
+                            
+                            	FRR prefix\-limit configuration
+                            	**type**\: :py:class:`PriorityLimits <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits>`
+                            
                             
 
                             """
@@ -2886,14 +2886,14 @@ class Isis(object):
                                 self.parent = None
                                 self.frr_load_sharings = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings()
                                 self.frr_load_sharings.parent = self
-                                self.priority_limits = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits()
-                                self.priority_limits.parent = self
                                 self.frr_remote_lfa_prefixes = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes()
                                 self.frr_remote_lfa_prefixes.parent = self
                                 self.frr_tiebreakers = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers()
                                 self.frr_tiebreakers.parent = self
                                 self.frr_use_cand_onlies = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies()
                                 self.frr_use_cand_onlies.parent = self
+                                self.priority_limits = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits()
+                                self.priority_limits.parent = self
 
 
                             class FrrLoadSharings(object):
@@ -2949,9 +2949,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-load-sharing[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -2978,7 +2978,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-load-sharings'
 
@@ -3030,15 +3030,15 @@ class Isis(object):
                                     Limit backup computation upto the prefix
                                     priority
                                     
-                                    .. attribute:: level  <key>
-                                    
-                                    	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                    
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
                                     	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                    
+                                    .. attribute:: level  <key>
+                                    
+                                    	Level to which configuration applies
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: priority
                                     
@@ -3054,20 +3054,20 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.level = None
                                         self.frr_type = None
+                                        self.level = None
                                         self.priority = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.frr_type is None:
-                                            raise YPYDataValidationError('Key property frr_type is None')
+                                            raise YPYModelError('Key property frr_type is None')
+                                        if self.level is None:
+                                            raise YPYModelError('Key property level is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -3076,10 +3076,10 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
                                         if self.priority is not None:
@@ -3095,7 +3095,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limits'
 
@@ -3173,9 +3173,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-prefix[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -3202,7 +3202,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-prefixes'
 
@@ -3286,11 +3286,11 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
                                         if self.tiebreaker is None:
-                                            raise YPYDataValidationError('Key property tiebreaker is None')
+                                            raise YPYModelError('Key property tiebreaker is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-tiebreaker[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:tiebreaker = ' + str(self.tiebreaker) + ']'
 
@@ -3320,7 +3320,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-tiebreakers'
 
@@ -3372,15 +3372,15 @@ class Isis(object):
                                     Configure use candidate only to exclude
                                     interfaces as backup
                                     
-                                    .. attribute:: level  <key>
-                                    
-                                    	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                    
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
                                     	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                    
+                                    .. attribute:: level  <key>
+                                    
+                                    	Level to which configuration applies
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     
 
@@ -3391,19 +3391,19 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.level = None
                                         self.frr_type = None
+                                        self.level = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.frr_type is None:
-                                            raise YPYDataValidationError('Key property frr_type is None')
+                                            raise YPYModelError('Key property frr_type is None')
+                                        if self.level is None:
+                                            raise YPYModelError('Key property level is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -3412,10 +3412,10 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
                                         return False
@@ -3428,7 +3428,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-onlies'
 
@@ -3454,7 +3454,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-table'
 
@@ -3468,9 +3468,6 @@ class Isis(object):
                                 if self.frr_load_sharings is not None and self.frr_load_sharings._has_data():
                                     return True
 
-                                if self.priority_limits is not None and self.priority_limits._has_data():
-                                    return True
-
                                 if self.frr_remote_lfa_prefixes is not None and self.frr_remote_lfa_prefixes._has_data():
                                     return True
 
@@ -3478,6 +3475,9 @@ class Isis(object):
                                     return True
 
                                 if self.frr_use_cand_onlies is not None and self.frr_use_cand_onlies._has_data():
+                                    return True
+
+                                if self.priority_limits is not None and self.priority_limits._has_data():
                                     return True
 
                                 return False
@@ -3525,17 +3525,17 @@ class Isis(object):
                                 	SPF Priority to assign matching prefixes
                                 	**type**\: :py:class:`IsisPrefixPriorityEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriorityEnum>`
                                 
+                                .. attribute:: access_list_name
+                                
+                                	Access List to determine prefixes for this priority
+                                	**type**\: str
+                                
                                 .. attribute:: admin_tag
                                 
                                 	Tag value to determine prefixes for this priority
                                 	**type**\: int
                                 
                                 	**range:** 1..4294967295
-                                
-                                .. attribute:: access_list_name
-                                
-                                	Access List to determine prefixes for this priority
-                                	**type**\: str
                                 
                                 
 
@@ -3548,17 +3548,17 @@ class Isis(object):
                                     self.parent = None
                                     self.level = None
                                     self.prefix_priority_type = None
-                                    self.admin_tag = None
                                     self.access_list_name = None
+                                    self.admin_tag = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
                                     if self.prefix_priority_type is None:
-                                        raise YPYDataValidationError('Key property prefix_priority_type is None')
+                                        raise YPYModelError('Key property prefix_priority_type is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-prefix-priority[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:prefix-priority-type = ' + str(self.prefix_priority_type) + ']'
 
@@ -3575,10 +3575,10 @@ class Isis(object):
                                     if self.prefix_priority_type is not None:
                                         return True
 
-                                    if self.admin_tag is not None:
+                                    if self.access_list_name is not None:
                                         return True
 
-                                    if self.access_list_name is not None:
+                                    if self.admin_tag is not None:
                                         return True
 
                                     return False
@@ -3591,7 +3591,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-prefix-priorities'
 
@@ -3659,19 +3659,19 @@ class Isis(object):
                                 
                                 
                                 ----
-                                .. attribute:: tag
-                                
-                                	The tag value
-                                	**type**\: int
-                                
-                                	**range:** 1..4294967295
-                                
                                 .. attribute:: level
                                 
                                 	Level in which to summarize routes
                                 	**type**\: int
                                 
                                 	**range:** 1..2
+                                
+                                .. attribute:: tag
+                                
+                                	The tag value
+                                	**type**\: int
+                                
+                                	**range:** 1..4294967295
                                 
                                 
 
@@ -3683,15 +3683,15 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.address_prefix = None
-                                    self.tag = None
                                     self.level = None
+                                    self.tag = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.address_prefix is None:
-                                        raise YPYDataValidationError('Key property address_prefix is None')
+                                        raise YPYModelError('Key property address_prefix is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:summary-prefix[Cisco-IOS-XR-clns-isis-cfg:address-prefix = ' + str(self.address_prefix) + ']'
 
@@ -3705,10 +3705,10 @@ class Isis(object):
                                     if self.address_prefix is not None:
                                         return True
 
-                                    if self.tag is not None:
+                                    if self.level is not None:
                                         return True
 
-                                    if self.level is not None:
+                                    if self.tag is not None:
                                         return True
 
                                     return False
@@ -3721,7 +3721,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:summary-prefixes'
 
@@ -3776,7 +3776,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:micro-loop-avoidance'
 
@@ -3805,6 +3805,13 @@ class Isis(object):
                             """
                             UCMP (UnEqual Cost MultiPath) configuration
                             
+                            .. attribute:: delay_interval
+                            
+                            	Delay in msecs between primary SPF and UCMP computation
+                            	**type**\: int
+                            
+                            	**range:** 100..65535
+                            
                             .. attribute:: enable
                             
                             	UCMP feature enable configuration
@@ -3815,13 +3822,6 @@ class Isis(object):
                             	Interfaces excluded from UCMP path computation
                             	**type**\: :py:class:`ExcludeInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces>`
                             
-                            .. attribute:: delay_interval
-                            
-                            	Delay in msecs between primary SPF and UCMP computation
-                            	**type**\: int
-                            
-                            	**range:** 100..65535
-                            
                             
 
                             """
@@ -3831,16 +3831,21 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.delay_interval = None
                                 self.enable = Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable()
                                 self.enable.parent = self
                                 self.exclude_interfaces = Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces()
                                 self.exclude_interfaces.parent = self
-                                self.delay_interval = None
 
 
                             class Enable(object):
                                 """
                                 UCMP feature enable configuration
+                                
+                                .. attribute:: prefix_list_name
+                                
+                                	Name of the Prefix List
+                                	**type**\: str
                                 
                                 .. attribute:: variance
                                 
@@ -3848,11 +3853,6 @@ class Isis(object):
                                 	**type**\: int
                                 
                                 	**range:** 101..10000
-                                
-                                .. attribute:: prefix_list_name
-                                
-                                	Name of the Prefix List
-                                	**type**\: str
                                 
                                 
 
@@ -3863,13 +3863,13 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.variance = None
                                     self.prefix_list_name = None
+                                    self.variance = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:enable'
 
@@ -3880,10 +3880,10 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.variance is not None:
+                                    if self.prefix_list_name is not None:
                                         return True
 
-                                    if self.prefix_list_name is not None:
+                                    if self.variance is not None:
                                         return True
 
                                     return False
@@ -3944,9 +3944,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.interface_name is None:
-                                            raise YPYDataValidationError('Key property interface_name is None')
+                                            raise YPYModelError('Key property interface_name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:exclude-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -3970,7 +3970,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:exclude-interfaces'
 
@@ -3996,7 +3996,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:ucmp'
 
@@ -4007,13 +4007,13 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.delay_interval is not None:
+                                    return True
+
                                 if self.enable is not None and self.enable._has_data():
                                     return True
 
                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                    return True
-
-                                if self.delay_interval is not None:
                                     return True
 
                                 return False
@@ -4081,9 +4081,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:max-redist-prefix[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -4110,7 +4110,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:max-redist-prefixes'
 
@@ -4161,14 +4161,14 @@ class Isis(object):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
-                                .. attribute:: source_level  <key>
-                                
-                                	Source level for routes
-                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                
                                 .. attribute:: destination_level  <key>
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                
+                                .. attribute:: source_level  <key>
+                                
+                                	Source level for routes
                                 	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: route_policy_name
@@ -4185,20 +4185,20 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.source_level = None
                                     self.destination_level = None
+                                    self.source_level = None
                                     self.route_policy_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                    if self.source_level is None:
-                                        raise YPYDataValidationError('Key property source_level is None')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.destination_level is None:
-                                        raise YPYDataValidationError('Key property destination_level is None')
+                                        raise YPYModelError('Key property destination_level is None')
+                                    if self.source_level is None:
+                                        raise YPYModelError('Key property source_level is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + '][Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + '][Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
@@ -4207,10 +4207,10 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.source_level is not None:
+                                    if self.destination_level is not None:
                                         return True
 
-                                    if self.destination_level is not None:
+                                    if self.source_level is not None:
                                         return True
 
                                     if self.route_policy_name is not None:
@@ -4226,7 +4226,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagations'
 
@@ -4283,25 +4283,25 @@ class Isis(object):
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
                                 	**type**\: :py:class:`IsisRedistProtoEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProtoEnum>`
                                 
-                                .. attribute:: connected_or_static_or_rip_or_subscriber_or_mobile
-                                
-                                	connected or static or rip or subscriber or mobile
-                                	**type**\: :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
-                                
-                                .. attribute:: ospf_or_ospfv3_or_isis_or_application
-                                
-                                	ospf or ospfv3 or isis or application
-                                	**type**\: list of :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
-                                
                                 .. attribute:: bgp
                                 
                                 	bgp
                                 	**type**\: list of :py:class:`Bgp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp>`
                                 
+                                .. attribute:: connected_or_static_or_rip_or_subscriber_or_mobile
+                                
+                                	connected or static or rip or subscriber or mobile
+                                	**type**\: :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
+                                
                                 .. attribute:: eigrp
                                 
                                 	eigrp
                                 	**type**\: list of :py:class:`Eigrp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp>`
+                                
+                                .. attribute:: ospf_or_ospfv3_or_isis_or_application
+                                
+                                	ospf or ospfv3 or isis or application
+                                	**type**\: list of :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
                                 
                                 
 
@@ -4313,34 +4313,22 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.protocol_name = None
-                                    self.connected_or_static_or_rip_or_subscriber_or_mobile = None
-                                    self.ospf_or_ospfv3_or_isis_or_application = YList()
-                                    self.ospf_or_ospfv3_or_isis_or_application.parent = self
-                                    self.ospf_or_ospfv3_or_isis_or_application.name = 'ospf_or_ospfv3_or_isis_or_application'
                                     self.bgp = YList()
                                     self.bgp.parent = self
                                     self.bgp.name = 'bgp'
+                                    self.connected_or_static_or_rip_or_subscriber_or_mobile = None
                                     self.eigrp = YList()
                                     self.eigrp.parent = self
                                     self.eigrp.name = 'eigrp'
+                                    self.ospf_or_ospfv3_or_isis_or_application = YList()
+                                    self.ospf_or_ospfv3_or_isis_or_application.parent = self
+                                    self.ospf_or_ospfv3_or_isis_or_application.name = 'ospf_or_ospfv3_or_isis_or_application'
 
 
                                 class ConnectedOrStaticOrRipOrSubscriberOrMobile(object):
                                     """
                                     connected or static or rip or subscriber
                                     or mobile
-                                    
-                                    .. attribute:: metric
-                                    
-                                    	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..16777215
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
                                     
                                     .. attribute:: levels
                                     
@@ -4352,10 +4340,12 @@ class Isis(object):
                                     	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
-                                    .. attribute:: route_policy_name
+                                    .. attribute:: metric
                                     
-                                    	Route policy to control redistribution
-                                    	**type**\: str
+                                    	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..16777215
                                     
                                     .. attribute:: _is_presence
                                     
@@ -4384,6 +4374,16 @@ class Isis(object):
                                     	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     
 
                                     This class is a :ref:`presence class<presence-class>`
@@ -4395,16 +4395,16 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:connected-or-static-or-rip-or-subscriber-or-mobile'
 
@@ -4415,19 +4415,19 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -4449,22 +4449,17 @@ class Isis(object):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    .. attribute:: levels
+                                    
+                                    	Levels to redistribute routes into
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
                                     	**type**\: int
                                     
                                     	**range:** 0..16777215
-                                    
-                                    .. attribute:: levels
-                                    
-                                    	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                                    
-                                    .. attribute:: route_policy_name
-                                    
-                                    	Route policy to control redistribution
-                                    	**type**\: str
                                     
                                     .. attribute:: metric_type
                                     
@@ -4478,6 +4473,11 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -4488,18 +4488,18 @@ class Isis(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.instance_name = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.instance_name is None:
-                                            raise YPYDataValidationError('Key property instance_name is None')
+                                            raise YPYModelError('Key property instance_name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:ospf-or-ospfv3-or-isis-or-application[Cisco-IOS-XR-clns-isis-cfg:instance-name = ' + str(self.instance_name) + ']'
 
@@ -4513,19 +4513,19 @@ class Isis(object):
                                         if self.instance_name is not None:
                                             return True
 
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -4554,22 +4554,17 @@ class Isis(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: levels
+                                    
+                                    	Levels to redistribute routes into
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
                                     	**type**\: int
                                     
                                     	**range:** 0..16777215
-                                    
-                                    .. attribute:: levels
-                                    
-                                    	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                                    
-                                    .. attribute:: route_policy_name
-                                    
-                                    	Route policy to control redistribution
-                                    	**type**\: str
                                     
                                     .. attribute:: metric_type
                                     
@@ -4583,6 +4578,11 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -4594,20 +4594,20 @@ class Isis(object):
                                         self.parent = None
                                         self.as_xx = None
                                         self.as_yy = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.as_xx is None:
-                                            raise YPYDataValidationError('Key property as_xx is None')
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.as_yy is None:
-                                            raise YPYDataValidationError('Key property as_yy is None')
+                                            raise YPYModelError('Key property as_yy is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:bgp[Cisco-IOS-XR-clns-isis-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-clns-isis-cfg:as-yy = ' + str(self.as_yy) + ']'
 
@@ -4624,19 +4624,19 @@ class Isis(object):
                                         if self.as_yy is not None:
                                             return True
 
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -4658,22 +4658,17 @@ class Isis(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    .. attribute:: levels
+                                    
+                                    	Levels to redistribute routes into
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
                                     	**type**\: int
                                     
                                     	**range:** 0..16777215
-                                    
-                                    .. attribute:: levels
-                                    
-                                    	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                                    
-                                    .. attribute:: route_policy_name
-                                    
-                                    	Route policy to control redistribution
-                                    	**type**\: str
                                     
                                     .. attribute:: metric_type
                                     
@@ -4687,6 +4682,11 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -4697,18 +4697,18 @@ class Isis(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.as_zz = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.as_zz is None:
-                                            raise YPYDataValidationError('Key property as_zz is None')
+                                            raise YPYModelError('Key property as_zz is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:eigrp[Cisco-IOS-XR-clns-isis-cfg:as-zz = ' + str(self.as_zz) + ']'
 
@@ -4722,19 +4722,19 @@ class Isis(object):
                                         if self.as_zz is not None:
                                             return True
 
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -4747,9 +4747,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.protocol_name is None:
-                                        raise YPYDataValidationError('Key property protocol_name is None')
+                                        raise YPYModelError('Key property protocol_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:redistribution[Cisco-IOS-XR-clns-isis-cfg:protocol-name = ' + str(self.protocol_name) + ']'
 
@@ -4763,21 +4763,21 @@ class Isis(object):
                                     if self.protocol_name is not None:
                                         return True
 
-                                    if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile._has_data():
-                                        return True
-
-                                    if self.ospf_or_ospfv3_or_isis_or_application is not None:
-                                        for child_ref in self.ospf_or_ospfv3_or_isis_or_application:
-                                            if child_ref._has_data():
-                                                return True
-
                                     if self.bgp is not None:
                                         for child_ref in self.bgp:
                                             if child_ref._has_data():
                                                 return True
 
+                                    if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile._has_data():
+                                        return True
+
                                     if self.eigrp is not None:
                                         for child_ref in self.eigrp:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    if self.ospf_or_ospfv3_or_isis_or_application is not None:
+                                        for child_ref in self.ospf_or_ospfv3_or_isis_or_application:
                                             if child_ref._has_data():
                                                 return True
 
@@ -4791,7 +4791,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:redistributions'
 
@@ -4869,9 +4869,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-periodic-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -4898,7 +4898,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-periodic-intervals'
 
@@ -4954,16 +4954,16 @@ class Isis(object):
                                 	Level to which configuration applies
                                 	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
-                                .. attribute:: maximum_wait
+                                .. attribute:: initial_wait
                                 
-                                	Maximum wait before running a route calculation in milliseconds
+                                	Initial wait before running a route calculation in milliseconds
                                 	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
-                                .. attribute:: initial_wait
+                                .. attribute:: maximum_wait
                                 
-                                	Initial wait before running a route calculation in milliseconds
+                                	Maximum wait before running a route calculation in milliseconds
                                 	**type**\: int
                                 
                                 	**range:** 0..120000
@@ -4985,16 +4985,16 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.level = None
-                                    self.maximum_wait = None
                                     self.initial_wait = None
+                                    self.maximum_wait = None
                                     self.secondary_wait = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -5008,10 +5008,10 @@ class Isis(object):
                                     if self.level is not None:
                                         return True
 
-                                    if self.maximum_wait is not None:
+                                    if self.initial_wait is not None:
                                         return True
 
-                                    if self.initial_wait is not None:
+                                    if self.maximum_wait is not None:
                                         return True
 
                                     if self.secondary_wait is not None:
@@ -5027,7 +5027,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-intervals'
 
@@ -5060,15 +5060,15 @@ class Isis(object):
                             	Enable convergence monitoring
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
-                            .. attribute:: track_ip_frr
-                            
-                            	Enable the Tracking of IP\-Frr Convergence
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: prefix_list
                             
                             	Enable the monitoring of individual prefixes (prefix list name)
                             	**type**\: str
+                            
+                            .. attribute:: track_ip_frr
+                            
+                            	Enable the Tracking of IP\-Frr Convergence
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
 
@@ -5080,13 +5080,13 @@ class Isis(object):
                             def __init__(self):
                                 self.parent = None
                                 self.enable = None
-                                self.track_ip_frr = None
                                 self.prefix_list = None
+                                self.track_ip_frr = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:monitor-convergence'
 
@@ -5100,10 +5100,10 @@ class Isis(object):
                                 if self.enable is not None:
                                     return True
 
-                                if self.track_ip_frr is not None:
+                                if self.prefix_list is not None:
                                     return True
 
-                                if self.prefix_list is not None:
+                                if self.track_ip_frr is not None:
                                     return True
 
                                 return False
@@ -5121,20 +5121,20 @@ class Isis(object):
                             is specified the default route is
                             advertised with zero cost in level 2 only.
                             
-                            .. attribute:: use_policy
+                            .. attribute:: external
                             
-                            	Flag to indicate whether default origination is controlled using a policy
-                            	**type**\: bool
+                            	Flag to indicate that the default prefix should be originated as an external route
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             .. attribute:: policy_name
                             
                             	Policy name
                             	**type**\: str
                             
-                            .. attribute:: external
+                            .. attribute:: use_policy
                             
-                            	Flag to indicate that the default prefix should be originated as an external route
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            	Flag to indicate whether default origination is controlled using a policy
+                            	**type**\: bool
                             
                             
 
@@ -5145,14 +5145,14 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.use_policy = None
-                                self.policy_name = None
                                 self.external = None
+                                self.policy_name = None
+                                self.use_policy = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:default-information'
 
@@ -5163,13 +5163,13 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.use_policy is not None:
+                                if self.external is not None:
                                     return True
 
                                 if self.policy_name is not None:
                                     return True
 
-                                if self.external is not None:
+                                if self.use_policy is not None:
                                     return True
 
                                 return False
@@ -5257,9 +5257,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.address_prefix is None:
-                                        raise YPYDataValidationError('Key property address_prefix is None')
+                                        raise YPYModelError('Key property address_prefix is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-distance[Cisco-IOS-XR-clns-isis-cfg:address-prefix = ' + str(self.address_prefix) + ']'
 
@@ -5289,7 +5289,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-distances'
 
@@ -5387,9 +5387,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:state[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -5416,7 +5416,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:states'
 
@@ -5442,7 +5442,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:ispf'
 
@@ -5489,7 +5489,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:mpls-ldp-global'
 
@@ -5517,11 +5517,6 @@ class Isis(object):
                             only be applied for the IPv4\-unicast
                             address\-family.
                             
-                            .. attribute:: router_id
-                            
-                            	Traffic Engineering stable IP address for system
-                            	**type**\: :py:class:`RouterId <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId>`
-                            
                             .. attribute:: igp_intact
                             
                             	Install TE and non\-TE nexthops in the RIB
@@ -5537,6 +5532,11 @@ class Isis(object):
                             	Install non\-TE nexthops in the RIB for use by multicast
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: router_id
+                            
+                            	Traffic Engineering stable IP address for system
+                            	**type**\: :py:class:`RouterId <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId>`
+                            
                             
 
                             """
@@ -5546,11 +5546,11 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.router_id = Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId()
-                                self.router_id.parent = self
                                 self.igp_intact = None
                                 self.level = None
                                 self.multicast_intact = None
+                                self.router_id = Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId()
+                                self.router_id.parent = self
 
 
                             class RouterId(object):
@@ -5587,7 +5587,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:router-id'
 
@@ -5614,7 +5614,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:mpls'
 
@@ -5625,9 +5625,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.router_id is not None and self.router_id._has_data():
-                                    return True
-
                                 if self.igp_intact is not None:
                                     return True
 
@@ -5635,6 +5632,9 @@ class Isis(object):
                                     return True
 
                                 if self.multicast_intact is not None:
+                                    return True
+
+                                if self.router_id is not None and self.router_id._has_data():
                                     return True
 
                                 return False
@@ -5739,9 +5739,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -5768,7 +5768,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metrics'
 
@@ -5847,9 +5847,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weight[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -5876,7 +5876,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weights'
 
@@ -5902,7 +5902,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:af-data'
 
@@ -5913,28 +5913,58 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.segment_routing is not None and self.segment_routing._has_data():
+                            if self.adjacency_check is not None:
                                 return True
 
-                            if self.metric_styles is not None and self.metric_styles._has_data():
+                            if self.admin_distances is not None and self.admin_distances._has_data():
+                                return True
+
+                            if self.advertise_passive_only is not None:
+                                return True
+
+                            if self.apply_weight is not None:
+                                return True
+
+                            if self.attached_bit is not None:
+                                return True
+
+                            if self.default_admin_distance is not None:
+                                return True
+
+                            if self.default_information is not None and self.default_information._has_data():
                                 return True
 
                             if self.frr_table is not None and self.frr_table._has_data():
                                 return True
 
-                            if self.spf_prefix_priorities is not None and self.spf_prefix_priorities._has_data():
+                            if self.ignore_attached_bit is not None:
                                 return True
 
-                            if self.summary_prefixes is not None and self.summary_prefixes._has_data():
+                            if self.ispf is not None and self.ispf._has_data():
+                                return True
+
+                            if self.max_redist_prefixes is not None and self.max_redist_prefixes._has_data():
+                                return True
+
+                            if self.maximum_paths is not None:
+                                return True
+
+                            if self.metric_styles is not None and self.metric_styles._has_data():
+                                return True
+
+                            if self.metrics is not None and self.metrics._has_data():
                                 return True
 
                             if self.micro_loop_avoidance is not None and self.micro_loop_avoidance._has_data():
                                 return True
 
-                            if self.ucmp is not None and self.ucmp._has_data():
+                            if self.monitor_convergence is not None and self.monitor_convergence._has_data():
                                 return True
 
-                            if self.max_redist_prefixes is not None and self.max_redist_prefixes._has_data():
+                            if self.mpls is not None and self.mpls._has_data():
+                                return True
+
+                            if self.mpls_ldp_global is not None and self.mpls_ldp_global._has_data():
                                 return True
 
                             if self.propagations is not None and self.propagations._has_data():
@@ -5943,61 +5973,31 @@ class Isis(object):
                             if self.redistributions is not None and self.redistributions._has_data():
                                 return True
 
-                            if self.spf_periodic_intervals is not None and self.spf_periodic_intervals._has_data():
+                            if self.route_source_first_hop is not None:
                                 return True
 
-                            if self.spf_intervals is not None and self.spf_intervals._has_data():
-                                return True
-
-                            if self.monitor_convergence is not None and self.monitor_convergence._has_data():
-                                return True
-
-                            if self.default_information is not None and self.default_information._has_data():
-                                return True
-
-                            if self.admin_distances is not None and self.admin_distances._has_data():
-                                return True
-
-                            if self.ispf is not None and self.ispf._has_data():
-                                return True
-
-                            if self.mpls_ldp_global is not None and self.mpls_ldp_global._has_data():
-                                return True
-
-                            if self.mpls is not None and self.mpls._has_data():
-                                return True
-
-                            if self.maximum_paths is not None:
-                                return True
-
-                            if self.topology_id is not None:
+                            if self.segment_routing is not None and self.segment_routing._has_data():
                                 return True
 
                             if self.single_topology is not None:
                                 return True
 
-                            if self.adjacency_check is not None:
+                            if self.spf_intervals is not None and self.spf_intervals._has_data():
                                 return True
 
-                            if self.apply_weight is not None:
+                            if self.spf_periodic_intervals is not None and self.spf_periodic_intervals._has_data():
                                 return True
 
-                            if self.default_admin_distance is not None:
+                            if self.spf_prefix_priorities is not None and self.spf_prefix_priorities._has_data():
                                 return True
 
-                            if self.advertise_passive_only is not None:
+                            if self.summary_prefixes is not None and self.summary_prefixes._has_data():
                                 return True
 
-                            if self.ignore_attached_bit is not None:
+                            if self.topology_id is not None:
                                 return True
 
-                            if self.attached_bit is not None:
-                                return True
-
-                            if self.route_source_first_hop is not None:
-                                return True
-
-                            if self.metrics is not None and self.metrics._has_data():
+                            if self.ucmp is not None and self.ucmp._has_data():
                                 return True
 
                             if self.weights is not None and self.weights._has_data():
@@ -6022,45 +6022,99 @@ class Isis(object):
                         
                         	**range:** 0..32
                         
-                        .. attribute:: segment_routing
+                        .. attribute:: adjacency_check
                         
-                        	Enable Segment Routing configuration
-                        	**type**\: :py:class:`SegmentRouting <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting>`
+                        	Suppress check for consistent AF support on received IIHs
+                        	**type**\: :py:class:`IsisAdjCheckEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheckEnum>`
                         
-                        .. attribute:: metric_styles
+                        .. attribute:: admin_distances
                         
-                        	Metric\-style configuration
-                        	**type**\: :py:class:`MetricStyles <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles>`
+                        	Per\-route administrative distanceconfiguration
+                        	**type**\: :py:class:`AdminDistances <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances>`
+                        
+                        .. attribute:: advertise_passive_only
+                        
+                        	If enabled, advertise prefixes of passive interfaces only
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: apply_weight
+                        
+                        	Apply weights to UCMP or ECMP only
+                        	**type**\: :py:class:`IsisApplyWeightEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeightEnum>`
+                        
+                        .. attribute:: attached_bit
+                        
+                        	Set the attached bit in this router's level 1 System LSP
+                        	**type**\: :py:class:`IsisAttachedBitEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBitEnum>`
+                        
+                        .. attribute:: default_admin_distance
+                        
+                        	Default IS\-IS administrative distance configuration
+                        	**type**\: int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: default_information
+                        
+                        	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
+                        	**type**\: :py:class:`DefaultInformation <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation>`
                         
                         .. attribute:: frr_table
                         
                         	Fast\-ReRoute configuration
                         	**type**\: :py:class:`FrrTable <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable>`
                         
-                        .. attribute:: spf_prefix_priorities
+                        .. attribute:: ignore_attached_bit
                         
-                        	SPF Prefix Priority configuration
-                        	**type**\: :py:class:`SpfPrefixPriorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities>`
+                        	If TRUE, Ignore other routers attached bit
+                        	**type**\: bool
                         
-                        .. attribute:: summary_prefixes
+                        .. attribute:: ispf
                         
-                        	Summary\-prefix configuration
-                        	**type**\: :py:class:`SummaryPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes>`
+                        	ISPF configuration
+                        	**type**\: :py:class:`Ispf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf>`
+                        
+                        .. attribute:: max_redist_prefixes
+                        
+                        	Maximum number of redistributed prefixesconfiguration
+                        	**type**\: :py:class:`MaxRedistPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes>`
+                        
+                        .. attribute:: maximum_paths
+                        
+                        	Maximum number of active parallel paths per route
+                        	**type**\: int
+                        
+                        	**range:** 1..64
+                        
+                        .. attribute:: metric_styles
+                        
+                        	Metric\-style configuration
+                        	**type**\: :py:class:`MetricStyles <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles>`
+                        
+                        .. attribute:: metrics
+                        
+                        	Metric configuration
+                        	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Metrics>`
                         
                         .. attribute:: micro_loop_avoidance
                         
                         	Micro Loop Avoidance configuration
                         	**type**\: :py:class:`MicroLoopAvoidance <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance>`
                         
-                        .. attribute:: ucmp
+                        .. attribute:: monitor_convergence
                         
-                        	UCMP (UnEqual Cost MultiPath) configuration
-                        	**type**\: :py:class:`Ucmp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp>`
+                        	Enable convergence monitoring
+                        	**type**\: :py:class:`MonitorConvergence <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence>`
                         
-                        .. attribute:: max_redist_prefixes
+                        .. attribute:: mpls
                         
-                        	Maximum number of redistributed prefixesconfiguration
-                        	**type**\: :py:class:`MaxRedistPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes>`
+                        	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
+                        	**type**\: :py:class:`Mpls <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls>`
+                        
+                        .. attribute:: mpls_ldp_global
+                        
+                        	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
+                        	**type**\: :py:class:`MplsLdpGlobal <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal>`
                         
                         .. attribute:: propagations
                         
@@ -6072,52 +6126,40 @@ class Isis(object):
                         	Protocol redistribution configuration
                         	**type**\: :py:class:`Redistributions <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions>`
                         
-                        .. attribute:: spf_periodic_intervals
+                        .. attribute:: route_source_first_hop
                         
-                        	Peoridic SPF configuration
-                        	**type**\: :py:class:`SpfPeriodicIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals>`
+                        	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
+                        	**type**\: bool
+                        
+                        .. attribute:: segment_routing
+                        
+                        	Enable Segment Routing configuration
+                        	**type**\: :py:class:`SegmentRouting <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting>`
+                        
+                        .. attribute:: single_topology
+                        
+                        	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: spf_intervals
                         
                         	SPF\-interval configuration
                         	**type**\: :py:class:`SpfIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals>`
                         
-                        .. attribute:: monitor_convergence
+                        .. attribute:: spf_periodic_intervals
                         
-                        	Enable convergence monitoring
-                        	**type**\: :py:class:`MonitorConvergence <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence>`
+                        	Peoridic SPF configuration
+                        	**type**\: :py:class:`SpfPeriodicIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals>`
                         
-                        .. attribute:: default_information
+                        .. attribute:: spf_prefix_priorities
                         
-                        	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
-                        	**type**\: :py:class:`DefaultInformation <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation>`
+                        	SPF Prefix Priority configuration
+                        	**type**\: :py:class:`SpfPrefixPriorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities>`
                         
-                        .. attribute:: admin_distances
+                        .. attribute:: summary_prefixes
                         
-                        	Per\-route administrative distanceconfiguration
-                        	**type**\: :py:class:`AdminDistances <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances>`
-                        
-                        .. attribute:: ispf
-                        
-                        	ISPF configuration
-                        	**type**\: :py:class:`Ispf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf>`
-                        
-                        .. attribute:: mpls_ldp_global
-                        
-                        	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\: :py:class:`MplsLdpGlobal <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal>`
-                        
-                        .. attribute:: mpls
-                        
-                        	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\: :py:class:`Mpls <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls>`
-                        
-                        .. attribute:: maximum_paths
-                        
-                        	Maximum number of active parallel paths per route
-                        	**type**\: int
-                        
-                        	**range:** 1..64
+                        	Summary\-prefix configuration
+                        	**type**\: :py:class:`SummaryPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes>`
                         
                         .. attribute:: topology_id
                         
@@ -6126,52 +6168,10 @@ class Isis(object):
                         
                         	**range:** 6..4095
                         
-                        .. attribute:: single_topology
+                        .. attribute:: ucmp
                         
-                        	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: adjacency_check
-                        
-                        	Suppress check for consistent AF support on received IIHs
-                        	**type**\: :py:class:`IsisAdjCheckEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheckEnum>`
-                        
-                        .. attribute:: apply_weight
-                        
-                        	Apply weights to UCMP or ECMP only
-                        	**type**\: :py:class:`IsisApplyWeightEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeightEnum>`
-                        
-                        .. attribute:: default_admin_distance
-                        
-                        	Default IS\-IS administrative distance configuration
-                        	**type**\: int
-                        
-                        	**range:** 1..255
-                        
-                        .. attribute:: advertise_passive_only
-                        
-                        	If enabled, advertise prefixes of passive interfaces only
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: ignore_attached_bit
-                        
-                        	If TRUE, Ignore other routers attached bit
-                        	**type**\: bool
-                        
-                        .. attribute:: attached_bit
-                        
-                        	Set the attached bit in this router's level 1 System LSP
-                        	**type**\: :py:class:`IsisAttachedBitEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBitEnum>`
-                        
-                        .. attribute:: route_source_first_hop
-                        
-                        	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
-                        	**type**\: bool
-                        
-                        .. attribute:: metrics
-                        
-                        	Metric configuration
-                        	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Metrics>`
+                        	UCMP (UnEqual Cost MultiPath) configuration
+                        	**type**\: :py:class:`Ucmp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp>`
                         
                         .. attribute:: weights
                         
@@ -6188,54 +6188,54 @@ class Isis(object):
                         def __init__(self):
                             self.parent = None
                             self.topology_name = None
-                            self.segment_routing = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting()
-                            self.segment_routing.parent = self
-                            self.metric_styles = Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles()
-                            self.metric_styles.parent = self
+                            self.adjacency_check = None
+                            self.admin_distances = Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances()
+                            self.admin_distances.parent = self
+                            self.advertise_passive_only = None
+                            self.apply_weight = None
+                            self.attached_bit = None
+                            self.default_admin_distance = None
+                            self.default_information = Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation()
+                            self.default_information.parent = self
                             self.frr_table = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable()
                             self.frr_table.parent = self
-                            self.spf_prefix_priorities = Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities()
-                            self.spf_prefix_priorities.parent = self
-                            self.summary_prefixes = Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes()
-                            self.summary_prefixes.parent = self
-                            self.micro_loop_avoidance = Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance()
-                            self.micro_loop_avoidance.parent = self
-                            self.ucmp = Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp()
-                            self.ucmp.parent = self
+                            self.ignore_attached_bit = None
+                            self.ispf = Isis.Instances.Instance.Afs.Af.TopologyName.Ispf()
+                            self.ispf.parent = self
                             self.max_redist_prefixes = Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes()
                             self.max_redist_prefixes.parent = self
+                            self.maximum_paths = None
+                            self.metric_styles = Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles()
+                            self.metric_styles.parent = self
+                            self.metrics = Isis.Instances.Instance.Afs.Af.TopologyName.Metrics()
+                            self.metrics.parent = self
+                            self.micro_loop_avoidance = Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance()
+                            self.micro_loop_avoidance.parent = self
+                            self.monitor_convergence = Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence()
+                            self.monitor_convergence.parent = self
+                            self.mpls = Isis.Instances.Instance.Afs.Af.TopologyName.Mpls()
+                            self.mpls.parent = self
+                            self.mpls_ldp_global = Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal()
+                            self.mpls_ldp_global.parent = self
                             self.propagations = Isis.Instances.Instance.Afs.Af.TopologyName.Propagations()
                             self.propagations.parent = self
                             self.redistributions = Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions()
                             self.redistributions.parent = self
-                            self.spf_periodic_intervals = Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals()
-                            self.spf_periodic_intervals.parent = self
+                            self.route_source_first_hop = None
+                            self.segment_routing = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting()
+                            self.segment_routing.parent = self
+                            self.single_topology = None
                             self.spf_intervals = Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals()
                             self.spf_intervals.parent = self
-                            self.monitor_convergence = Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence()
-                            self.monitor_convergence.parent = self
-                            self.default_information = Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation()
-                            self.default_information.parent = self
-                            self.admin_distances = Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances()
-                            self.admin_distances.parent = self
-                            self.ispf = Isis.Instances.Instance.Afs.Af.TopologyName.Ispf()
-                            self.ispf.parent = self
-                            self.mpls_ldp_global = Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal()
-                            self.mpls_ldp_global.parent = self
-                            self.mpls = Isis.Instances.Instance.Afs.Af.TopologyName.Mpls()
-                            self.mpls.parent = self
-                            self.maximum_paths = None
+                            self.spf_periodic_intervals = Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals()
+                            self.spf_periodic_intervals.parent = self
+                            self.spf_prefix_priorities = Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities()
+                            self.spf_prefix_priorities.parent = self
+                            self.summary_prefixes = Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes()
+                            self.summary_prefixes.parent = self
                             self.topology_id = None
-                            self.single_topology = None
-                            self.adjacency_check = None
-                            self.apply_weight = None
-                            self.default_admin_distance = None
-                            self.advertise_passive_only = None
-                            self.ignore_attached_bit = None
-                            self.attached_bit = None
-                            self.route_source_first_hop = None
-                            self.metrics = Isis.Instances.Instance.Afs.Af.TopologyName.Metrics()
-                            self.metrics.parent = self
+                            self.ucmp = Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp()
+                            self.ucmp.parent = self
                             self.weights = Isis.Instances.Instance.Afs.Af.TopologyName.Weights()
                             self.weights.parent = self
 
@@ -6244,15 +6244,15 @@ class Isis(object):
                             """
                             Enable Segment Routing configuration
                             
-                            .. attribute:: prefix_sid_map
-                            
-                            	Enable Segment Routing prefix SID map configuration
-                            	**type**\: :py:class:`PrefixSidMap <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap>`
-                            
                             .. attribute:: mpls
                             
                             	Prefer segment routing labels over LDP labels
                             	**type**\: :py:class:`IsisLabelPreferenceEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreferenceEnum>`
+                            
+                            .. attribute:: prefix_sid_map
+                            
+                            	Enable Segment Routing prefix SID map configuration
+                            	**type**\: :py:class:`PrefixSidMap <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap>`
                             
                             
 
@@ -6263,9 +6263,9 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.mpls = None
                                 self.prefix_sid_map = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap()
                                 self.prefix_sid_map.parent = self
-                                self.mpls = None
 
 
                             class PrefixSidMap(object):
@@ -6298,7 +6298,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-sid-map'
 
@@ -6325,7 +6325,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:segment-routing'
 
@@ -6336,10 +6336,10 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.prefix_sid_map is not None and self.prefix_sid_map._has_data():
+                                if self.mpls is not None:
                                     return True
 
-                                if self.mpls is not None:
+                                if self.prefix_sid_map is not None and self.prefix_sid_map._has_data():
                                     return True
 
                                 return False
@@ -6408,9 +6408,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric-style[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -6440,7 +6440,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric-styles'
 
@@ -6473,11 +6473,6 @@ class Isis(object):
                             	Load share prefixes across multiple backups
                             	**type**\: :py:class:`FrrLoadSharings <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings>`
                             
-                            .. attribute:: priority_limits
-                            
-                            	FRR prefix\-limit configuration
-                            	**type**\: :py:class:`PriorityLimits <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits>`
-                            
                             .. attribute:: frr_remote_lfa_prefixes
                             
                             	FRR remote LFA prefix list filter configuration
@@ -6493,6 +6488,11 @@ class Isis(object):
                             	FRR use candidate only configuration
                             	**type**\: :py:class:`FrrUseCandOnlies <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies>`
                             
+                            .. attribute:: priority_limits
+                            
+                            	FRR prefix\-limit configuration
+                            	**type**\: :py:class:`PriorityLimits <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits>`
+                            
                             
 
                             """
@@ -6504,14 +6504,14 @@ class Isis(object):
                                 self.parent = None
                                 self.frr_load_sharings = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings()
                                 self.frr_load_sharings.parent = self
-                                self.priority_limits = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits()
-                                self.priority_limits.parent = self
                                 self.frr_remote_lfa_prefixes = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes()
                                 self.frr_remote_lfa_prefixes.parent = self
                                 self.frr_tiebreakers = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers()
                                 self.frr_tiebreakers.parent = self
                                 self.frr_use_cand_onlies = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies()
                                 self.frr_use_cand_onlies.parent = self
+                                self.priority_limits = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits()
+                                self.priority_limits.parent = self
 
 
                             class FrrLoadSharings(object):
@@ -6567,9 +6567,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-load-sharing[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -6596,7 +6596,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-load-sharings'
 
@@ -6648,15 +6648,15 @@ class Isis(object):
                                     Limit backup computation upto the prefix
                                     priority
                                     
-                                    .. attribute:: level  <key>
-                                    
-                                    	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                    
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
                                     	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                    
+                                    .. attribute:: level  <key>
+                                    
+                                    	Level to which configuration applies
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: priority
                                     
@@ -6672,20 +6672,20 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.level = None
                                         self.frr_type = None
+                                        self.level = None
                                         self.priority = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.frr_type is None:
-                                            raise YPYDataValidationError('Key property frr_type is None')
+                                            raise YPYModelError('Key property frr_type is None')
+                                        if self.level is None:
+                                            raise YPYModelError('Key property level is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -6694,10 +6694,10 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
                                         if self.priority is not None:
@@ -6713,7 +6713,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limits'
 
@@ -6791,9 +6791,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-prefix[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -6820,7 +6820,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-prefixes'
 
@@ -6904,11 +6904,11 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
                                         if self.tiebreaker is None:
-                                            raise YPYDataValidationError('Key property tiebreaker is None')
+                                            raise YPYModelError('Key property tiebreaker is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-tiebreaker[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:tiebreaker = ' + str(self.tiebreaker) + ']'
 
@@ -6938,7 +6938,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-tiebreakers'
 
@@ -6990,15 +6990,15 @@ class Isis(object):
                                     Configure use candidate only to exclude
                                     interfaces as backup
                                     
-                                    .. attribute:: level  <key>
-                                    
-                                    	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                    
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
                                     	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                    
+                                    .. attribute:: level  <key>
+                                    
+                                    	Level to which configuration applies
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     
 
@@ -7009,19 +7009,19 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.level = None
                                         self.frr_type = None
+                                        self.level = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.frr_type is None:
-                                            raise YPYDataValidationError('Key property frr_type is None')
+                                            raise YPYModelError('Key property frr_type is None')
+                                        if self.level is None:
+                                            raise YPYModelError('Key property level is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -7030,10 +7030,10 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
                                         return False
@@ -7046,7 +7046,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-onlies'
 
@@ -7072,7 +7072,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-table'
 
@@ -7086,9 +7086,6 @@ class Isis(object):
                                 if self.frr_load_sharings is not None and self.frr_load_sharings._has_data():
                                     return True
 
-                                if self.priority_limits is not None and self.priority_limits._has_data():
-                                    return True
-
                                 if self.frr_remote_lfa_prefixes is not None and self.frr_remote_lfa_prefixes._has_data():
                                     return True
 
@@ -7096,6 +7093,9 @@ class Isis(object):
                                     return True
 
                                 if self.frr_use_cand_onlies is not None and self.frr_use_cand_onlies._has_data():
+                                    return True
+
+                                if self.priority_limits is not None and self.priority_limits._has_data():
                                     return True
 
                                 return False
@@ -7143,17 +7143,17 @@ class Isis(object):
                                 	SPF Priority to assign matching prefixes
                                 	**type**\: :py:class:`IsisPrefixPriorityEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriorityEnum>`
                                 
+                                .. attribute:: access_list_name
+                                
+                                	Access List to determine prefixes for this priority
+                                	**type**\: str
+                                
                                 .. attribute:: admin_tag
                                 
                                 	Tag value to determine prefixes for this priority
                                 	**type**\: int
                                 
                                 	**range:** 1..4294967295
-                                
-                                .. attribute:: access_list_name
-                                
-                                	Access List to determine prefixes for this priority
-                                	**type**\: str
                                 
                                 
 
@@ -7166,17 +7166,17 @@ class Isis(object):
                                     self.parent = None
                                     self.level = None
                                     self.prefix_priority_type = None
-                                    self.admin_tag = None
                                     self.access_list_name = None
+                                    self.admin_tag = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
                                     if self.prefix_priority_type is None:
-                                        raise YPYDataValidationError('Key property prefix_priority_type is None')
+                                        raise YPYModelError('Key property prefix_priority_type is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-prefix-priority[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:prefix-priority-type = ' + str(self.prefix_priority_type) + ']'
 
@@ -7193,10 +7193,10 @@ class Isis(object):
                                     if self.prefix_priority_type is not None:
                                         return True
 
-                                    if self.admin_tag is not None:
+                                    if self.access_list_name is not None:
                                         return True
 
-                                    if self.access_list_name is not None:
+                                    if self.admin_tag is not None:
                                         return True
 
                                     return False
@@ -7209,7 +7209,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-prefix-priorities'
 
@@ -7277,19 +7277,19 @@ class Isis(object):
                                 
                                 
                                 ----
-                                .. attribute:: tag
-                                
-                                	The tag value
-                                	**type**\: int
-                                
-                                	**range:** 1..4294967295
-                                
                                 .. attribute:: level
                                 
                                 	Level in which to summarize routes
                                 	**type**\: int
                                 
                                 	**range:** 1..2
+                                
+                                .. attribute:: tag
+                                
+                                	The tag value
+                                	**type**\: int
+                                
+                                	**range:** 1..4294967295
                                 
                                 
 
@@ -7301,15 +7301,15 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.address_prefix = None
-                                    self.tag = None
                                     self.level = None
+                                    self.tag = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.address_prefix is None:
-                                        raise YPYDataValidationError('Key property address_prefix is None')
+                                        raise YPYModelError('Key property address_prefix is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:summary-prefix[Cisco-IOS-XR-clns-isis-cfg:address-prefix = ' + str(self.address_prefix) + ']'
 
@@ -7323,10 +7323,10 @@ class Isis(object):
                                     if self.address_prefix is not None:
                                         return True
 
-                                    if self.tag is not None:
+                                    if self.level is not None:
                                         return True
 
-                                    if self.level is not None:
+                                    if self.tag is not None:
                                         return True
 
                                     return False
@@ -7339,7 +7339,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:summary-prefixes'
 
@@ -7394,7 +7394,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:micro-loop-avoidance'
 
@@ -7423,6 +7423,13 @@ class Isis(object):
                             """
                             UCMP (UnEqual Cost MultiPath) configuration
                             
+                            .. attribute:: delay_interval
+                            
+                            	Delay in msecs between primary SPF and UCMP computation
+                            	**type**\: int
+                            
+                            	**range:** 100..65535
+                            
                             .. attribute:: enable
                             
                             	UCMP feature enable configuration
@@ -7433,13 +7440,6 @@ class Isis(object):
                             	Interfaces excluded from UCMP path computation
                             	**type**\: :py:class:`ExcludeInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces>`
                             
-                            .. attribute:: delay_interval
-                            
-                            	Delay in msecs between primary SPF and UCMP computation
-                            	**type**\: int
-                            
-                            	**range:** 100..65535
-                            
                             
 
                             """
@@ -7449,16 +7449,21 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.delay_interval = None
                                 self.enable = Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable()
                                 self.enable.parent = self
                                 self.exclude_interfaces = Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces()
                                 self.exclude_interfaces.parent = self
-                                self.delay_interval = None
 
 
                             class Enable(object):
                                 """
                                 UCMP feature enable configuration
+                                
+                                .. attribute:: prefix_list_name
+                                
+                                	Name of the Prefix List
+                                	**type**\: str
                                 
                                 .. attribute:: variance
                                 
@@ -7466,11 +7471,6 @@ class Isis(object):
                                 	**type**\: int
                                 
                                 	**range:** 101..10000
-                                
-                                .. attribute:: prefix_list_name
-                                
-                                	Name of the Prefix List
-                                	**type**\: str
                                 
                                 
 
@@ -7481,13 +7481,13 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.variance = None
                                     self.prefix_list_name = None
+                                    self.variance = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:enable'
 
@@ -7498,10 +7498,10 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.variance is not None:
+                                    if self.prefix_list_name is not None:
                                         return True
 
-                                    if self.prefix_list_name is not None:
+                                    if self.variance is not None:
                                         return True
 
                                     return False
@@ -7562,9 +7562,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.interface_name is None:
-                                            raise YPYDataValidationError('Key property interface_name is None')
+                                            raise YPYModelError('Key property interface_name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:exclude-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -7588,7 +7588,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:exclude-interfaces'
 
@@ -7614,7 +7614,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:ucmp'
 
@@ -7625,13 +7625,13 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.delay_interval is not None:
+                                    return True
+
                                 if self.enable is not None and self.enable._has_data():
                                     return True
 
                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                    return True
-
-                                if self.delay_interval is not None:
                                     return True
 
                                 return False
@@ -7699,9 +7699,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:max-redist-prefix[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -7728,7 +7728,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:max-redist-prefixes'
 
@@ -7779,14 +7779,14 @@ class Isis(object):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
-                                .. attribute:: source_level  <key>
-                                
-                                	Source level for routes
-                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                
                                 .. attribute:: destination_level  <key>
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                
+                                .. attribute:: source_level  <key>
+                                
+                                	Source level for routes
                                 	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: route_policy_name
@@ -7803,20 +7803,20 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.source_level = None
                                     self.destination_level = None
+                                    self.source_level = None
                                     self.route_policy_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                    if self.source_level is None:
-                                        raise YPYDataValidationError('Key property source_level is None')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.destination_level is None:
-                                        raise YPYDataValidationError('Key property destination_level is None')
+                                        raise YPYModelError('Key property destination_level is None')
+                                    if self.source_level is None:
+                                        raise YPYModelError('Key property source_level is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + '][Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + '][Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
@@ -7825,10 +7825,10 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.source_level is not None:
+                                    if self.destination_level is not None:
                                         return True
 
-                                    if self.destination_level is not None:
+                                    if self.source_level is not None:
                                         return True
 
                                     if self.route_policy_name is not None:
@@ -7844,7 +7844,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagations'
 
@@ -7901,25 +7901,25 @@ class Isis(object):
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
                                 	**type**\: :py:class:`IsisRedistProtoEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProtoEnum>`
                                 
-                                .. attribute:: connected_or_static_or_rip_or_subscriber_or_mobile
-                                
-                                	connected or static or rip or subscriber or mobile
-                                	**type**\: :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
-                                
-                                .. attribute:: ospf_or_ospfv3_or_isis_or_application
-                                
-                                	ospf or ospfv3 or isis or application
-                                	**type**\: list of :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
-                                
                                 .. attribute:: bgp
                                 
                                 	bgp
                                 	**type**\: list of :py:class:`Bgp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp>`
                                 
+                                .. attribute:: connected_or_static_or_rip_or_subscriber_or_mobile
+                                
+                                	connected or static or rip or subscriber or mobile
+                                	**type**\: :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
+                                
                                 .. attribute:: eigrp
                                 
                                 	eigrp
                                 	**type**\: list of :py:class:`Eigrp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp>`
+                                
+                                .. attribute:: ospf_or_ospfv3_or_isis_or_application
+                                
+                                	ospf or ospfv3 or isis or application
+                                	**type**\: list of :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
                                 
                                 
 
@@ -7931,34 +7931,22 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.protocol_name = None
-                                    self.connected_or_static_or_rip_or_subscriber_or_mobile = None
-                                    self.ospf_or_ospfv3_or_isis_or_application = YList()
-                                    self.ospf_or_ospfv3_or_isis_or_application.parent = self
-                                    self.ospf_or_ospfv3_or_isis_or_application.name = 'ospf_or_ospfv3_or_isis_or_application'
                                     self.bgp = YList()
                                     self.bgp.parent = self
                                     self.bgp.name = 'bgp'
+                                    self.connected_or_static_or_rip_or_subscriber_or_mobile = None
                                     self.eigrp = YList()
                                     self.eigrp.parent = self
                                     self.eigrp.name = 'eigrp'
+                                    self.ospf_or_ospfv3_or_isis_or_application = YList()
+                                    self.ospf_or_ospfv3_or_isis_or_application.parent = self
+                                    self.ospf_or_ospfv3_or_isis_or_application.name = 'ospf_or_ospfv3_or_isis_or_application'
 
 
                                 class ConnectedOrStaticOrRipOrSubscriberOrMobile(object):
                                     """
                                     connected or static or rip or subscriber
                                     or mobile
-                                    
-                                    .. attribute:: metric
-                                    
-                                    	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..16777215
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
                                     
                                     .. attribute:: levels
                                     
@@ -7970,10 +7958,12 @@ class Isis(object):
                                     	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
-                                    .. attribute:: route_policy_name
+                                    .. attribute:: metric
                                     
-                                    	Route policy to control redistribution
-                                    	**type**\: str
+                                    	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..16777215
                                     
                                     .. attribute:: _is_presence
                                     
@@ -8002,6 +7992,16 @@ class Isis(object):
                                     	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     
 
                                     This class is a :ref:`presence class<presence-class>`
@@ -8013,16 +8013,16 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:connected-or-static-or-rip-or-subscriber-or-mobile'
 
@@ -8033,19 +8033,19 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -8067,22 +8067,17 @@ class Isis(object):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    .. attribute:: levels
+                                    
+                                    	Levels to redistribute routes into
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
                                     	**type**\: int
                                     
                                     	**range:** 0..16777215
-                                    
-                                    .. attribute:: levels
-                                    
-                                    	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                                    
-                                    .. attribute:: route_policy_name
-                                    
-                                    	Route policy to control redistribution
-                                    	**type**\: str
                                     
                                     .. attribute:: metric_type
                                     
@@ -8096,6 +8091,11 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -8106,18 +8106,18 @@ class Isis(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.instance_name = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.instance_name is None:
-                                            raise YPYDataValidationError('Key property instance_name is None')
+                                            raise YPYModelError('Key property instance_name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:ospf-or-ospfv3-or-isis-or-application[Cisco-IOS-XR-clns-isis-cfg:instance-name = ' + str(self.instance_name) + ']'
 
@@ -8131,19 +8131,19 @@ class Isis(object):
                                         if self.instance_name is not None:
                                             return True
 
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -8172,22 +8172,17 @@ class Isis(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: levels
+                                    
+                                    	Levels to redistribute routes into
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
                                     	**type**\: int
                                     
                                     	**range:** 0..16777215
-                                    
-                                    .. attribute:: levels
-                                    
-                                    	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                                    
-                                    .. attribute:: route_policy_name
-                                    
-                                    	Route policy to control redistribution
-                                    	**type**\: str
                                     
                                     .. attribute:: metric_type
                                     
@@ -8201,6 +8196,11 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -8212,20 +8212,20 @@ class Isis(object):
                                         self.parent = None
                                         self.as_xx = None
                                         self.as_yy = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.as_xx is None:
-                                            raise YPYDataValidationError('Key property as_xx is None')
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.as_yy is None:
-                                            raise YPYDataValidationError('Key property as_yy is None')
+                                            raise YPYModelError('Key property as_yy is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:bgp[Cisco-IOS-XR-clns-isis-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-clns-isis-cfg:as-yy = ' + str(self.as_yy) + ']'
 
@@ -8242,19 +8242,19 @@ class Isis(object):
                                         if self.as_yy is not None:
                                             return True
 
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -8276,22 +8276,17 @@ class Isis(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    .. attribute:: levels
+                                    
+                                    	Levels to redistribute routes into
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
                                     	**type**\: int
                                     
                                     	**range:** 0..16777215
-                                    
-                                    .. attribute:: levels
-                                    
-                                    	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                                    
-                                    .. attribute:: route_policy_name
-                                    
-                                    	Route policy to control redistribution
-                                    	**type**\: str
                                     
                                     .. attribute:: metric_type
                                     
@@ -8305,6 +8300,11 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: route_policy_name
+                                    
+                                    	Route policy to control redistribution
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -8315,18 +8315,18 @@ class Isis(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.as_zz = None
-                                        self.metric = None
                                         self.levels = None
-                                        self.route_policy_name = None
+                                        self.metric = None
                                         self.metric_type = None
                                         self.ospf_route_type = None
+                                        self.route_policy_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.as_zz is None:
-                                            raise YPYDataValidationError('Key property as_zz is None')
+                                            raise YPYModelError('Key property as_zz is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:eigrp[Cisco-IOS-XR-clns-isis-cfg:as-zz = ' + str(self.as_zz) + ']'
 
@@ -8340,19 +8340,19 @@ class Isis(object):
                                         if self.as_zz is not None:
                                             return True
 
-                                        if self.metric is not None:
-                                            return True
-
                                         if self.levels is not None:
                                             return True
 
-                                        if self.route_policy_name is not None:
+                                        if self.metric is not None:
                                             return True
 
                                         if self.metric_type is not None:
                                             return True
 
                                         if self.ospf_route_type is not None:
+                                            return True
+
+                                        if self.route_policy_name is not None:
                                             return True
 
                                         return False
@@ -8365,9 +8365,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.protocol_name is None:
-                                        raise YPYDataValidationError('Key property protocol_name is None')
+                                        raise YPYModelError('Key property protocol_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:redistribution[Cisco-IOS-XR-clns-isis-cfg:protocol-name = ' + str(self.protocol_name) + ']'
 
@@ -8381,21 +8381,21 @@ class Isis(object):
                                     if self.protocol_name is not None:
                                         return True
 
-                                    if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile._has_data():
-                                        return True
-
-                                    if self.ospf_or_ospfv3_or_isis_or_application is not None:
-                                        for child_ref in self.ospf_or_ospfv3_or_isis_or_application:
-                                            if child_ref._has_data():
-                                                return True
-
                                     if self.bgp is not None:
                                         for child_ref in self.bgp:
                                             if child_ref._has_data():
                                                 return True
 
+                                    if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile._has_data():
+                                        return True
+
                                     if self.eigrp is not None:
                                         for child_ref in self.eigrp:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    if self.ospf_or_ospfv3_or_isis_or_application is not None:
+                                        for child_ref in self.ospf_or_ospfv3_or_isis_or_application:
                                             if child_ref._has_data():
                                                 return True
 
@@ -8409,7 +8409,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:redistributions'
 
@@ -8487,9 +8487,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-periodic-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -8516,7 +8516,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-periodic-intervals'
 
@@ -8572,16 +8572,16 @@ class Isis(object):
                                 	Level to which configuration applies
                                 	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
-                                .. attribute:: maximum_wait
+                                .. attribute:: initial_wait
                                 
-                                	Maximum wait before running a route calculation in milliseconds
+                                	Initial wait before running a route calculation in milliseconds
                                 	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
-                                .. attribute:: initial_wait
+                                .. attribute:: maximum_wait
                                 
-                                	Initial wait before running a route calculation in milliseconds
+                                	Maximum wait before running a route calculation in milliseconds
                                 	**type**\: int
                                 
                                 	**range:** 0..120000
@@ -8603,16 +8603,16 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.level = None
-                                    self.maximum_wait = None
                                     self.initial_wait = None
+                                    self.maximum_wait = None
                                     self.secondary_wait = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -8626,10 +8626,10 @@ class Isis(object):
                                     if self.level is not None:
                                         return True
 
-                                    if self.maximum_wait is not None:
+                                    if self.initial_wait is not None:
                                         return True
 
-                                    if self.initial_wait is not None:
+                                    if self.maximum_wait is not None:
                                         return True
 
                                     if self.secondary_wait is not None:
@@ -8645,7 +8645,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:spf-intervals'
 
@@ -8678,15 +8678,15 @@ class Isis(object):
                             	Enable convergence monitoring
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
-                            .. attribute:: track_ip_frr
-                            
-                            	Enable the Tracking of IP\-Frr Convergence
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: prefix_list
                             
                             	Enable the monitoring of individual prefixes (prefix list name)
                             	**type**\: str
+                            
+                            .. attribute:: track_ip_frr
+                            
+                            	Enable the Tracking of IP\-Frr Convergence
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
 
@@ -8698,13 +8698,13 @@ class Isis(object):
                             def __init__(self):
                                 self.parent = None
                                 self.enable = None
-                                self.track_ip_frr = None
                                 self.prefix_list = None
+                                self.track_ip_frr = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:monitor-convergence'
 
@@ -8718,10 +8718,10 @@ class Isis(object):
                                 if self.enable is not None:
                                     return True
 
-                                if self.track_ip_frr is not None:
+                                if self.prefix_list is not None:
                                     return True
 
-                                if self.prefix_list is not None:
+                                if self.track_ip_frr is not None:
                                     return True
 
                                 return False
@@ -8739,20 +8739,20 @@ class Isis(object):
                             is specified the default route is
                             advertised with zero cost in level 2 only.
                             
-                            .. attribute:: use_policy
+                            .. attribute:: external
                             
-                            	Flag to indicate whether default origination is controlled using a policy
-                            	**type**\: bool
+                            	Flag to indicate that the default prefix should be originated as an external route
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             .. attribute:: policy_name
                             
                             	Policy name
                             	**type**\: str
                             
-                            .. attribute:: external
+                            .. attribute:: use_policy
                             
-                            	Flag to indicate that the default prefix should be originated as an external route
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            	Flag to indicate whether default origination is controlled using a policy
+                            	**type**\: bool
                             
                             
 
@@ -8763,14 +8763,14 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.use_policy = None
-                                self.policy_name = None
                                 self.external = None
+                                self.policy_name = None
+                                self.use_policy = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:default-information'
 
@@ -8781,13 +8781,13 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.use_policy is not None:
+                                if self.external is not None:
                                     return True
 
                                 if self.policy_name is not None:
                                     return True
 
-                                if self.external is not None:
+                                if self.use_policy is not None:
                                     return True
 
                                 return False
@@ -8875,9 +8875,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.address_prefix is None:
-                                        raise YPYDataValidationError('Key property address_prefix is None')
+                                        raise YPYModelError('Key property address_prefix is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-distance[Cisco-IOS-XR-clns-isis-cfg:address-prefix = ' + str(self.address_prefix) + ']'
 
@@ -8907,7 +8907,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-distances'
 
@@ -9005,9 +9005,9 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.level is None:
-                                            raise YPYDataValidationError('Key property level is None')
+                                            raise YPYModelError('Key property level is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:state[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -9034,7 +9034,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:states'
 
@@ -9060,7 +9060,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:ispf'
 
@@ -9107,7 +9107,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:mpls-ldp-global'
 
@@ -9135,11 +9135,6 @@ class Isis(object):
                             only be applied for the IPv4\-unicast
                             address\-family.
                             
-                            .. attribute:: router_id
-                            
-                            	Traffic Engineering stable IP address for system
-                            	**type**\: :py:class:`RouterId <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId>`
-                            
                             .. attribute:: igp_intact
                             
                             	Install TE and non\-TE nexthops in the RIB
@@ -9155,6 +9150,11 @@ class Isis(object):
                             	Install non\-TE nexthops in the RIB for use by multicast
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: router_id
+                            
+                            	Traffic Engineering stable IP address for system
+                            	**type**\: :py:class:`RouterId <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId>`
+                            
                             
 
                             """
@@ -9164,11 +9164,11 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.router_id = Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId()
-                                self.router_id.parent = self
                                 self.igp_intact = None
                                 self.level = None
                                 self.multicast_intact = None
+                                self.router_id = Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId()
+                                self.router_id.parent = self
 
 
                             class RouterId(object):
@@ -9205,7 +9205,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:router-id'
 
@@ -9232,7 +9232,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:mpls'
 
@@ -9243,9 +9243,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.router_id is not None and self.router_id._has_data():
-                                    return True
-
                                 if self.igp_intact is not None:
                                     return True
 
@@ -9253,6 +9250,9 @@ class Isis(object):
                                     return True
 
                                 if self.multicast_intact is not None:
+                                    return True
+
+                                if self.router_id is not None and self.router_id._has_data():
                                     return True
 
                                 return False
@@ -9357,9 +9357,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -9386,7 +9386,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metrics'
 
@@ -9465,9 +9465,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.level is None:
-                                        raise YPYDataValidationError('Key property level is None')
+                                        raise YPYModelError('Key property level is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weight[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -9494,7 +9494,7 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weights'
 
@@ -9520,9 +9520,9 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.topology_name is None:
-                                raise YPYDataValidationError('Key property topology_name is None')
+                                raise YPYModelError('Key property topology_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:topology-name[Cisco-IOS-XR-clns-isis-cfg:topology-name = ' + str(self.topology_name) + ']'
 
@@ -9536,28 +9536,58 @@ class Isis(object):
                             if self.topology_name is not None:
                                 return True
 
-                            if self.segment_routing is not None and self.segment_routing._has_data():
+                            if self.adjacency_check is not None:
                                 return True
 
-                            if self.metric_styles is not None and self.metric_styles._has_data():
+                            if self.admin_distances is not None and self.admin_distances._has_data():
+                                return True
+
+                            if self.advertise_passive_only is not None:
+                                return True
+
+                            if self.apply_weight is not None:
+                                return True
+
+                            if self.attached_bit is not None:
+                                return True
+
+                            if self.default_admin_distance is not None:
+                                return True
+
+                            if self.default_information is not None and self.default_information._has_data():
                                 return True
 
                             if self.frr_table is not None and self.frr_table._has_data():
                                 return True
 
-                            if self.spf_prefix_priorities is not None and self.spf_prefix_priorities._has_data():
+                            if self.ignore_attached_bit is not None:
                                 return True
 
-                            if self.summary_prefixes is not None and self.summary_prefixes._has_data():
+                            if self.ispf is not None and self.ispf._has_data():
+                                return True
+
+                            if self.max_redist_prefixes is not None and self.max_redist_prefixes._has_data():
+                                return True
+
+                            if self.maximum_paths is not None:
+                                return True
+
+                            if self.metric_styles is not None and self.metric_styles._has_data():
+                                return True
+
+                            if self.metrics is not None and self.metrics._has_data():
                                 return True
 
                             if self.micro_loop_avoidance is not None and self.micro_loop_avoidance._has_data():
                                 return True
 
-                            if self.ucmp is not None and self.ucmp._has_data():
+                            if self.monitor_convergence is not None and self.monitor_convergence._has_data():
                                 return True
 
-                            if self.max_redist_prefixes is not None and self.max_redist_prefixes._has_data():
+                            if self.mpls is not None and self.mpls._has_data():
+                                return True
+
+                            if self.mpls_ldp_global is not None and self.mpls_ldp_global._has_data():
                                 return True
 
                             if self.propagations is not None and self.propagations._has_data():
@@ -9566,61 +9596,31 @@ class Isis(object):
                             if self.redistributions is not None and self.redistributions._has_data():
                                 return True
 
-                            if self.spf_periodic_intervals is not None and self.spf_periodic_intervals._has_data():
+                            if self.route_source_first_hop is not None:
                                 return True
 
-                            if self.spf_intervals is not None and self.spf_intervals._has_data():
-                                return True
-
-                            if self.monitor_convergence is not None and self.monitor_convergence._has_data():
-                                return True
-
-                            if self.default_information is not None and self.default_information._has_data():
-                                return True
-
-                            if self.admin_distances is not None and self.admin_distances._has_data():
-                                return True
-
-                            if self.ispf is not None and self.ispf._has_data():
-                                return True
-
-                            if self.mpls_ldp_global is not None and self.mpls_ldp_global._has_data():
-                                return True
-
-                            if self.mpls is not None and self.mpls._has_data():
-                                return True
-
-                            if self.maximum_paths is not None:
-                                return True
-
-                            if self.topology_id is not None:
+                            if self.segment_routing is not None and self.segment_routing._has_data():
                                 return True
 
                             if self.single_topology is not None:
                                 return True
 
-                            if self.adjacency_check is not None:
+                            if self.spf_intervals is not None and self.spf_intervals._has_data():
                                 return True
 
-                            if self.apply_weight is not None:
+                            if self.spf_periodic_intervals is not None and self.spf_periodic_intervals._has_data():
                                 return True
 
-                            if self.default_admin_distance is not None:
+                            if self.spf_prefix_priorities is not None and self.spf_prefix_priorities._has_data():
                                 return True
 
-                            if self.advertise_passive_only is not None:
+                            if self.summary_prefixes is not None and self.summary_prefixes._has_data():
                                 return True
 
-                            if self.ignore_attached_bit is not None:
+                            if self.topology_id is not None:
                                 return True
 
-                            if self.attached_bit is not None:
-                                return True
-
-                            if self.route_source_first_hop is not None:
-                                return True
-
-                            if self.metrics is not None and self.metrics._has_data():
+                            if self.ucmp is not None and self.ucmp._has_data():
                                 return True
 
                             if self.weights is not None and self.weights._has_data():
@@ -9636,11 +9636,11 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.af_name is None:
-                            raise YPYDataValidationError('Key property af_name is None')
+                            raise YPYModelError('Key property af_name is None')
                         if self.saf_name is None:
-                            raise YPYDataValidationError('Key property saf_name is None')
+                            raise YPYModelError('Key property saf_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:af[Cisco-IOS-XR-clns-isis-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-clns-isis-cfg:saf-name = ' + str(self.saf_name) + ']'
 
@@ -9675,7 +9675,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:afs'
 
@@ -9754,9 +9754,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-refresh-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -9783,7 +9783,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-refresh-intervals'
 
@@ -9823,22 +9823,22 @@ class Isis(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: level
-                
-                	Level
-                	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 .. attribute:: dist_throttle
                 
                 	Seconds
                 	**type**\: int
                 
                 	**range:** 5..20
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: level
+                
+                	Level
+                	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -9857,13 +9857,13 @@ class Isis(object):
                 def __init__(self):
                     self.parent = None
                     self.dist_inst_id = None
-                    self.level = None
                     self.dist_throttle = None
+                    self.level = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:distribute'
 
@@ -9877,10 +9877,10 @@ class Isis(object):
                     if self.dist_inst_id is not None:
                         return True
 
-                    if self.level is not None:
+                    if self.dist_throttle is not None:
                         return True
 
-                    if self.dist_throttle is not None:
+                    if self.level is not None:
                         return True
 
                     return False
@@ -9947,9 +9947,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-accept-password[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -9976,7 +9976,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-accept-passwords'
 
@@ -10054,9 +10054,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-mtu[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -10083,7 +10083,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-mtus'
 
@@ -10123,19 +10123,19 @@ class Isis(object):
                 
                 	**range:** 1..20
                 
-                .. attribute:: max_interface_timer_expiry
-                
-                	Maximum number of times an interface timer may expire during an IETF\-NSF restart before the NSF restart is aborted. This configuration has no effect if IETF NSF is not configured
-                	**type**\: int
-                
-                	**range:** 1..10
-                
                 .. attribute:: lifetime
                 
                 	Maximum route lifetime following restart. When this lifetime expires, old routes will be purged from the RIB
                 	**type**\: int
                 
                 	**range:** 5..300
+                
+                .. attribute:: max_interface_timer_expiry
+                
+                	Maximum number of times an interface timer may expire during an IETF\-NSF restart before the NSF restart is aborted. This configuration has no effect if IETF NSF is not configured
+                	**type**\: int
+                
+                	**range:** 1..10
                 
                 
 
@@ -10148,13 +10148,13 @@ class Isis(object):
                     self.parent = None
                     self.flavor = None
                     self.interface_timer = None
-                    self.max_interface_timer_expiry = None
                     self.lifetime = None
+                    self.max_interface_timer_expiry = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:nsf'
 
@@ -10171,10 +10171,10 @@ class Isis(object):
                     if self.interface_timer is not None:
                         return True
 
-                    if self.max_interface_timer_expiry is not None:
+                    if self.lifetime is not None:
                         return True
 
-                    if self.lifetime is not None:
+                    if self.max_interface_timer_expiry is not None:
                         return True
 
                     return False
@@ -10231,16 +10231,16 @@ class Isis(object):
                     
                     	**range:** 0..16777215
                     
-                    .. attribute:: revert_members
+                    .. attribute:: minimum_members
                     
-                    	Revert Members
+                    	Minimum Members
                     	**type**\: int
                     
                     	**range:** 2..64
                     
-                    .. attribute:: minimum_members
+                    .. attribute:: revert_members
                     
-                    	Minimum Members
+                    	Revert Members
                     	**type**\: int
                     
                     	**range:** 2..64
@@ -10257,15 +10257,15 @@ class Isis(object):
                         self.link_group_name = None
                         self.enable = None
                         self.metric_offset = None
-                        self.revert_members = None
                         self.minimum_members = None
+                        self.revert_members = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.link_group_name is None:
-                            raise YPYDataValidationError('Key property link_group_name is None')
+                            raise YPYModelError('Key property link_group_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:link-group[Cisco-IOS-XR-clns-isis-cfg:link-group-name = ' + str(self.link_group_name) + ']'
 
@@ -10285,10 +10285,10 @@ class Isis(object):
                         if self.metric_offset is not None:
                             return True
 
-                        if self.revert_members is not None:
+                        if self.minimum_members is not None:
                             return True
 
-                        if self.minimum_members is not None:
+                        if self.revert_members is not None:
                             return True
 
                         return False
@@ -10301,7 +10301,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:link-groups'
 
@@ -10379,9 +10379,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-check-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -10408,7 +10408,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-check-intervals'
 
@@ -10470,15 +10470,15 @@ class Isis(object):
                     	Algorithm
                     	**type**\: :py:class:`IsisAuthenticationAlgorithmEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithmEnum>`
                     
-                    .. attribute:: failure_mode
-                    
-                    	Failure Mode
-                    	**type**\: :py:class:`IsisAuthenticationFailureModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureModeEnum>`
-                    
                     .. attribute:: authentication_type
                     
                     	SNP packet authentication mode
                     	**type**\: :py:class:`IsisSnpAuthEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisSnpAuthEnum>`
+                    
+                    .. attribute:: failure_mode
+                    
+                    	Failure Mode
+                    	**type**\: :py:class:`IsisAuthenticationFailureModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureModeEnum>`
                     
                     .. attribute:: password
                     
@@ -10498,16 +10498,16 @@ class Isis(object):
                         self.parent = None
                         self.level = None
                         self.algorithm = None
-                        self.failure_mode = None
                         self.authentication_type = None
+                        self.failure_mode = None
                         self.password = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-password[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -10524,10 +10524,10 @@ class Isis(object):
                         if self.algorithm is not None:
                             return True
 
-                        if self.failure_mode is not None:
+                        if self.authentication_type is not None:
                             return True
 
-                        if self.authentication_type is not None:
+                        if self.failure_mode is not None:
                             return True
 
                         if self.password is not None:
@@ -10543,7 +10543,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-passwords'
 
@@ -10615,9 +10615,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.net_name is None:
-                            raise YPYDataValidationError('Key property net_name is None')
+                            raise YPYModelError('Key property net_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:net[Cisco-IOS-XR-clns-isis-cfg:net-name = ' + str(self.net_name) + ']'
 
@@ -10641,7 +10641,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:nets'
 
@@ -10719,9 +10719,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-lifetime[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -10748,7 +10748,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-lifetimes'
 
@@ -10811,10 +10811,10 @@ class Isis(object):
                     	Level to which configuration applies
                     	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
-                    .. attribute:: overload_bit_mode
+                    .. attribute:: external_adv_type
                     
-                    	Circumstances under which the overload bit is set in the system LSP
-                    	**type**\: :py:class:`IsisOverloadBitModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisOverloadBitModeEnum>`
+                    	Advertise prefixes from other protocols
+                    	**type**\: :py:class:`IsisAdvTypeExternalEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeExternalEnum>`
                     
                     .. attribute:: hippity_period
                     
@@ -10823,15 +10823,15 @@ class Isis(object):
                     
                     	**range:** 5..86400
                     
-                    .. attribute:: external_adv_type
-                    
-                    	Advertise prefixes from other protocols
-                    	**type**\: :py:class:`IsisAdvTypeExternalEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeExternalEnum>`
-                    
                     .. attribute:: inter_level_adv_type
                     
                     	Advertise prefixes across ISIS levels
                     	**type**\: :py:class:`IsisAdvTypeInterLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeInterLevelEnum>`
+                    
+                    .. attribute:: overload_bit_mode
+                    
+                    	Circumstances under which the overload bit is set in the system LSP
+                    	**type**\: :py:class:`IsisOverloadBitModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisOverloadBitModeEnum>`
                     
                     
 
@@ -10843,17 +10843,17 @@ class Isis(object):
                     def __init__(self):
                         self.parent = None
                         self.level = None
-                        self.overload_bit_mode = None
-                        self.hippity_period = None
                         self.external_adv_type = None
+                        self.hippity_period = None
                         self.inter_level_adv_type = None
+                        self.overload_bit_mode = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.level is None:
-                            raise YPYDataValidationError('Key property level is None')
+                            raise YPYModelError('Key property level is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:overload-bit[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -10867,16 +10867,16 @@ class Isis(object):
                         if self.level is not None:
                             return True
 
-                        if self.overload_bit_mode is not None:
+                        if self.external_adv_type is not None:
                             return True
 
                         if self.hippity_period is not None:
                             return True
 
-                        if self.external_adv_type is not None:
+                        if self.inter_level_adv_type is not None:
                             return True
 
-                        if self.inter_level_adv_type is not None:
+                        if self.overload_bit_mode is not None:
                             return True
 
                         return False
@@ -10889,7 +10889,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:overload-bits'
 
@@ -10947,90 +10947,75 @@ class Isis(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: lsp_retransmit_throttle_intervals
-                    
-                    	LSP\-retransmission\-throttle\-interval configuration
-                    	**type**\: :py:class:`LspRetransmitThrottleIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals>`
-                    
-                    .. attribute:: lsp_retransmit_intervals
-                    
-                    	LSP\-retransmission\-interval configuration
-                    	**type**\: :py:class:`LspRetransmitIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals>`
-                    
                     .. attribute:: bfd
                     
                     	BFD configuration
                     	**type**\: :py:class:`Bfd <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Bfd>`
-                    
-                    .. attribute:: priorities
-                    
-                    	DIS\-election priority configuration
-                    	**type**\: :py:class:`Priorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Priorities>`
-                    
-                    .. attribute:: hello_accept_passwords
-                    
-                    	IIH accept password configuration
-                    	**type**\: :py:class:`HelloAcceptPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords>`
-                    
-                    .. attribute:: hello_passwords
-                    
-                    	IIH password configuration
-                    	**type**\: :py:class:`HelloPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPasswords>`
-                    
-                    .. attribute:: hello_paddings
-                    
-                    	Hello\-padding configuration
-                    	**type**\: :py:class:`HelloPaddings <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPaddings>`
-                    
-                    .. attribute:: hello_multipliers
-                    
-                    	Hello\-multiplier configuration
-                    	**type**\: :py:class:`HelloMultipliers <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers>`
-                    
-                    .. attribute:: lsp_fast_flood_thresholds
-                    
-                    	LSP fast flood threshold configuration
-                    	**type**\: :py:class:`LspFastFloodThresholds <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds>`
-                    
-                    .. attribute:: hello_intervals
-                    
-                    	Hello\-interval configuration
-                    	**type**\: :py:class:`HelloIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloIntervals>`
-                    
-                    .. attribute:: interface_afs
-                    
-                    	Per\-interface address\-family configuration
-                    	**type**\: :py:class:`InterfaceAfs <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs>`
-                    
-                    .. attribute:: csnp_intervals
-                    
-                    	CSNP\-interval configuration
-                    	**type**\: :py:class:`CsnpIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals>`
-                    
-                    .. attribute:: lsp_intervals
-                    
-                    	LSP\-interval configuration
-                    	**type**\: :py:class:`LspIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspIntervals>`
-                    
-                    .. attribute:: running
-                    
-                    	This object must be set before any other configuration is supplied for an interface, and must be the last per\-interface configuration object to be removed
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: circuit_type
                     
                     	Configure circuit type for interface
                     	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                     
-                    .. attribute:: point_to_point
+                    .. attribute:: csnp_intervals
                     
-                    	IS\-IS will attempt to form point\-to\-point over LAN adjacencies over this interface
+                    	CSNP\-interval configuration
+                    	**type**\: :py:class:`CsnpIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals>`
+                    
+                    .. attribute:: hello_accept_passwords
+                    
+                    	IIH accept password configuration
+                    	**type**\: :py:class:`HelloAcceptPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords>`
+                    
+                    .. attribute:: hello_intervals
+                    
+                    	Hello\-interval configuration
+                    	**type**\: :py:class:`HelloIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloIntervals>`
+                    
+                    .. attribute:: hello_multipliers
+                    
+                    	Hello\-multiplier configuration
+                    	**type**\: :py:class:`HelloMultipliers <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers>`
+                    
+                    .. attribute:: hello_paddings
+                    
+                    	Hello\-padding configuration
+                    	**type**\: :py:class:`HelloPaddings <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPaddings>`
+                    
+                    .. attribute:: hello_passwords
+                    
+                    	IIH password configuration
+                    	**type**\: :py:class:`HelloPasswords <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPasswords>`
+                    
+                    .. attribute:: interface_afs
+                    
+                    	Per\-interface address\-family configuration
+                    	**type**\: :py:class:`InterfaceAfs <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs>`
+                    
+                    .. attribute:: link_down_fast_detect
+                    
+                    	Configure high priority detection of interface down event
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: state
+                    .. attribute:: lsp_fast_flood_thresholds
                     
-                    	Enable/Disable routing
-                    	**type**\: :py:class:`IsisInterfaceStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceStateEnum>`
+                    	LSP fast flood threshold configuration
+                    	**type**\: :py:class:`LspFastFloodThresholds <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds>`
+                    
+                    .. attribute:: lsp_intervals
+                    
+                    	LSP\-interval configuration
+                    	**type**\: :py:class:`LspIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspIntervals>`
+                    
+                    .. attribute:: lsp_retransmit_intervals
+                    
+                    	LSP\-retransmission\-interval configuration
+                    	**type**\: :py:class:`LspRetransmitIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals>`
+                    
+                    .. attribute:: lsp_retransmit_throttle_intervals
+                    
+                    	LSP\-retransmission\-throttle\-interval configuration
+                    	**type**\: :py:class:`LspRetransmitThrottleIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals>`
                     
                     .. attribute:: mesh_group
                     
@@ -11047,10 +11032,25 @@ class Isis(object):
                     
                     
                     ----
-                    .. attribute:: link_down_fast_detect
+                    .. attribute:: point_to_point
                     
-                    	Configure high priority detection of interface down event
+                    	IS\-IS will attempt to form point\-to\-point over LAN adjacencies over this interface
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: priorities
+                    
+                    	DIS\-election priority configuration
+                    	**type**\: :py:class:`Priorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Priorities>`
+                    
+                    .. attribute:: running
+                    
+                    	This object must be set before any other configuration is supplied for an interface, and must be the last per\-interface configuration object to be removed
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: state
+                    
+                    	Enable/Disable routing
+                    	**type**\: :py:class:`IsisInterfaceStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceStateEnum>`
                     
                     
 
@@ -11062,38 +11062,38 @@ class Isis(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.lsp_retransmit_throttle_intervals = Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals()
-                        self.lsp_retransmit_throttle_intervals.parent = self
-                        self.lsp_retransmit_intervals = Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals()
-                        self.lsp_retransmit_intervals.parent = self
                         self.bfd = Isis.Instances.Instance.Interfaces.Interface.Bfd()
                         self.bfd.parent = self
-                        self.priorities = Isis.Instances.Instance.Interfaces.Interface.Priorities()
-                        self.priorities.parent = self
-                        self.hello_accept_passwords = Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords()
-                        self.hello_accept_passwords.parent = self
-                        self.hello_passwords = Isis.Instances.Instance.Interfaces.Interface.HelloPasswords()
-                        self.hello_passwords.parent = self
-                        self.hello_paddings = Isis.Instances.Instance.Interfaces.Interface.HelloPaddings()
-                        self.hello_paddings.parent = self
-                        self.hello_multipliers = Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers()
-                        self.hello_multipliers.parent = self
-                        self.lsp_fast_flood_thresholds = Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds()
-                        self.lsp_fast_flood_thresholds.parent = self
-                        self.hello_intervals = Isis.Instances.Instance.Interfaces.Interface.HelloIntervals()
-                        self.hello_intervals.parent = self
-                        self.interface_afs = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs()
-                        self.interface_afs.parent = self
+                        self.circuit_type = None
                         self.csnp_intervals = Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals()
                         self.csnp_intervals.parent = self
+                        self.hello_accept_passwords = Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords()
+                        self.hello_accept_passwords.parent = self
+                        self.hello_intervals = Isis.Instances.Instance.Interfaces.Interface.HelloIntervals()
+                        self.hello_intervals.parent = self
+                        self.hello_multipliers = Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers()
+                        self.hello_multipliers.parent = self
+                        self.hello_paddings = Isis.Instances.Instance.Interfaces.Interface.HelloPaddings()
+                        self.hello_paddings.parent = self
+                        self.hello_passwords = Isis.Instances.Instance.Interfaces.Interface.HelloPasswords()
+                        self.hello_passwords.parent = self
+                        self.interface_afs = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs()
+                        self.interface_afs.parent = self
+                        self.link_down_fast_detect = None
+                        self.lsp_fast_flood_thresholds = Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds()
+                        self.lsp_fast_flood_thresholds.parent = self
                         self.lsp_intervals = Isis.Instances.Instance.Interfaces.Interface.LspIntervals()
                         self.lsp_intervals.parent = self
-                        self.running = None
-                        self.circuit_type = None
-                        self.point_to_point = None
-                        self.state = None
+                        self.lsp_retransmit_intervals = Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals()
+                        self.lsp_retransmit_intervals.parent = self
+                        self.lsp_retransmit_throttle_intervals = Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals()
+                        self.lsp_retransmit_throttle_intervals.parent = self
                         self.mesh_group = None
-                        self.link_down_fast_detect = None
+                        self.point_to_point = None
+                        self.priorities = Isis.Instances.Instance.Interfaces.Interface.Priorities()
+                        self.priorities.parent = self
+                        self.running = None
+                        self.state = None
 
                     class MeshGroupEnum(Enum):
                         """
@@ -11175,9 +11175,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-retransmit-throttle-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11204,7 +11204,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-retransmit-throttle-intervals'
 
@@ -11283,9 +11283,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-retransmit-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11312,7 +11312,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-retransmit-intervals'
 
@@ -11340,12 +11340,19 @@ class Isis(object):
                         """
                         BFD configuration
                         
-                        .. attribute:: enable_ipv6
+                        .. attribute:: detection_multiplier
+                        
+                        	Detection multiplier for BFD sessions created by isis
+                        	**type**\: int
+                        
+                        	**range:** 2..50
+                        
+                        .. attribute:: enable_ipv4
                         
                         	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
                         	**type**\: bool
                         
-                        .. attribute:: enable_ipv4
+                        .. attribute:: enable_ipv6
                         
                         	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
                         	**type**\: bool
@@ -11357,13 +11364,6 @@ class Isis(object):
                         
                         	**range:** 3..30000
                         
-                        .. attribute:: detection_multiplier
-                        
-                        	Detection multiplier for BFD sessions created by isis
-                        	**type**\: int
-                        
-                        	**range:** 2..50
-                        
                         
 
                         """
@@ -11373,15 +11373,15 @@ class Isis(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.enable_ipv6 = None
-                            self.enable_ipv4 = None
-                            self.interval = None
                             self.detection_multiplier = None
+                            self.enable_ipv4 = None
+                            self.enable_ipv6 = None
+                            self.interval = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:bfd'
 
@@ -11392,16 +11392,16 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.enable_ipv6 is not None:
+                            if self.detection_multiplier is not None:
                                 return True
 
                             if self.enable_ipv4 is not None:
                                 return True
 
-                            if self.interval is not None:
+                            if self.enable_ipv6 is not None:
                                 return True
 
-                            if self.detection_multiplier is not None:
+                            if self.interval is not None:
                                 return True
 
                             return False
@@ -11466,9 +11466,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11495,7 +11495,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priorities'
 
@@ -11575,9 +11575,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-accept-password[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11604,7 +11604,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-accept-passwords'
 
@@ -11696,9 +11696,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-password[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11731,7 +11731,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-passwords'
 
@@ -11807,9 +11807,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-padding[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11836,7 +11836,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-paddings'
 
@@ -11916,9 +11916,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-multiplier[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -11945,7 +11945,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-multipliers'
 
@@ -12024,9 +12024,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-fast-flood-threshold[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -12053,7 +12053,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-fast-flood-thresholds'
 
@@ -12134,9 +12134,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -12163,7 +12163,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:hello-intervals'
 
@@ -12261,50 +12261,50 @@ class Isis(object):
                                 """
                                 Data container.
                                 
-                                .. attribute:: prefix_sid
+                                .. attribute:: admin_tags
                                 
-                                	Assign prefix SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
-                                	**type**\: :py:class:`PrefixSid <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid>`
-                                
-                                .. attribute:: interface_frr_table
-                                
-                                	Fast\-ReRoute configuration
-                                	**type**\: :py:class:`InterfaceFrrTable <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable>`
-                                
-                                .. attribute:: mpls_ldp
-                                
-                                	MPLS LDP configuration
-                                	**type**\: :py:class:`MplsLdp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp>`
+                                	admin\-tag configuration
+                                	**type**\: :py:class:`AdminTags <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags>`
                                 
                                 .. attribute:: auto_metrics
                                 
                                 	AutoMetric configuration
                                 	**type**\: :py:class:`AutoMetrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics>`
                                 
-                                .. attribute:: admin_tags
+                                .. attribute:: interface_af_state
                                 
-                                	admin\-tag configuration
-                                	**type**\: :py:class:`AdminTags <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags>`
+                                	Interface state
+                                	**type**\: :py:class:`IsisInterfaceAfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfStateEnum>`
+                                
+                                .. attribute:: interface_frr_table
+                                
+                                	Fast\-ReRoute configuration
+                                	**type**\: :py:class:`InterfaceFrrTable <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable>`
                                 
                                 .. attribute:: interface_link_group
                                 
                                 	Provide link group name and level
                                 	**type**\: :py:class:`InterfaceLinkGroup <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup>`
                                 
-                                .. attribute:: interface_af_state
+                                .. attribute:: metrics
                                 
-                                	Interface state
-                                	**type**\: :py:class:`IsisInterfaceAfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfStateEnum>`
+                                	Metric configuration
+                                	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics>`
+                                
+                                .. attribute:: mpls_ldp
+                                
+                                	MPLS LDP configuration
+                                	**type**\: :py:class:`MplsLdp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp>`
+                                
+                                .. attribute:: prefix_sid
+                                
+                                	Assign prefix SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
+                                	**type**\: :py:class:`PrefixSid <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid>`
                                 
                                 .. attribute:: running
                                 
                                 	The presence of this object allows an address\-family to be run over the interface in question.This must be the first object created under the InterfaceAddressFamily container, and the last one deleted
                                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                
-                                .. attribute:: metrics
-                                
-                                	Metric configuration
-                                	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics>`
                                 
                                 .. attribute:: weights
                                 
@@ -12320,20 +12320,20 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.prefix_sid = None
-                                    self.interface_frr_table = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable()
-                                    self.interface_frr_table.parent = self
-                                    self.mpls_ldp = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp()
-                                    self.mpls_ldp.parent = self
-                                    self.auto_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics()
-                                    self.auto_metrics.parent = self
                                     self.admin_tags = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags()
                                     self.admin_tags.parent = self
-                                    self.interface_link_group = None
+                                    self.auto_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics()
+                                    self.auto_metrics.parent = self
                                     self.interface_af_state = None
-                                    self.running = None
+                                    self.interface_frr_table = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable()
+                                    self.interface_frr_table.parent = self
+                                    self.interface_link_group = None
                                     self.metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics()
                                     self.metrics.parent = self
+                                    self.mpls_ldp = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp()
+                                    self.mpls_ldp.parent = self
+                                    self.prefix_sid = None
+                                    self.running = None
                                     self.weights = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights()
                                     self.weights.parent = self
 
@@ -12344,6 +12344,36 @@ class Isis(object):
                                     ISISPHPFlag will be rejected if set to
                                     disable, ISISEXPLICITNULLFlag will
                                     override the value of ISISPHPFlag
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Enable/Disable Explicit\-NULL flag
+                                    	**type**\: :py:class:`IsisexplicitNullFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: nflag_clear
+                                    
+                                    	Clear N\-flag for the prefix\-SID
+                                    	**type**\: :py:class:`NflagClearEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: php
+                                    
+                                    	Enable/Disable Penultimate Hop Popping
+                                    	**type**\: :py:class:`IsisphpFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: type
                                     
@@ -12367,36 +12397,6 @@ class Isis(object):
                                     	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
-                                    .. attribute:: php
-                                    
-                                    	Enable/Disable Penultimate Hop Popping
-                                    	**type**\: :py:class:`IsisphpFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: explicit_null
-                                    
-                                    	Enable/Disable Explicit\-NULL flag
-                                    	**type**\: :py:class:`IsisexplicitNullFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: nflag_clear
-                                    
-                                    	Clear N\-flag for the prefix\-SID
-                                    	**type**\: :py:class:`NflagClearEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
                                     
 
                                     This class is a :ref:`presence class<presence-class>`
@@ -12408,16 +12408,16 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.type = None
-                                        self.value = None
-                                        self.php = None
                                         self.explicit_null = None
                                         self.nflag_clear = None
+                                        self.php = None
+                                        self.type = None
+                                        self.value = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-sid'
 
@@ -12428,19 +12428,19 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.type is not None:
+                                        if self.explicit_null is not None:
                                             return True
 
-                                        if self.value is not None:
+                                        if self.nflag_clear is not None:
                                             return True
 
                                         if self.php is not None:
                                             return True
 
-                                        if self.explicit_null is not None:
+                                        if self.type is not None:
                                             return True
 
-                                        if self.nflag_clear is not None:
+                                        if self.value is not None:
                                             return True
 
                                         return False
@@ -12455,35 +12455,35 @@ class Isis(object):
                                     """
                                     Fast\-ReRoute configuration
                                     
-                                    .. attribute:: frrlfa_candidate_interfaces
+                                    .. attribute:: frr_exclude_interfaces
                                     
-                                    	FRR LFA candidate configuration
-                                    	**type**\: :py:class:`FrrlfaCandidateInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
+                                    	FRR exclusion configuration
+                                    	**type**\: :py:class:`FrrExcludeInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces>`
                                     
                                     .. attribute:: frr_remote_lfa_max_metrics
                                     
                                     	Remote LFA maxmimum metric
                                     	**type**\: :py:class:`FrrRemoteLfaMaxMetrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics>`
                                     
-                                    .. attribute:: frr_types
-                                    
-                                    	Type of FRR computation per level
-                                    	**type**\: :py:class:`FrrTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes>`
-                                    
                                     .. attribute:: frr_remote_lfa_types
                                     
                                     	Remote LFA Enable
                                     	**type**\: :py:class:`FrrRemoteLfaTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes>`
                                     
+                                    .. attribute:: frr_types
+                                    
+                                    	Type of FRR computation per level
+                                    	**type**\: :py:class:`FrrTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes>`
+                                    
+                                    .. attribute:: frrlfa_candidate_interfaces
+                                    
+                                    	FRR LFA candidate configuration
+                                    	**type**\: :py:class:`FrrlfaCandidateInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
+                                    
                                     .. attribute:: frrtilfa_types
                                     
                                     	TI LFA Enable
                                     	**type**\: :py:class:`FrrtilfaTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes>`
-                                    
-                                    .. attribute:: frr_exclude_interfaces
-                                    
-                                    	FRR exclusion configuration
-                                    	**type**\: :py:class:`FrrExcludeInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces>`
                                     
                                     
 
@@ -12494,18 +12494,18 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.frrlfa_candidate_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces()
-                                        self.frrlfa_candidate_interfaces.parent = self
-                                        self.frr_remote_lfa_max_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics()
-                                        self.frr_remote_lfa_max_metrics.parent = self
-                                        self.frr_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes()
-                                        self.frr_types.parent = self
-                                        self.frr_remote_lfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes()
-                                        self.frr_remote_lfa_types.parent = self
-                                        self.frrtilfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes()
-                                        self.frrtilfa_types.parent = self
                                         self.frr_exclude_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces()
                                         self.frr_exclude_interfaces.parent = self
+                                        self.frr_remote_lfa_max_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics()
+                                        self.frr_remote_lfa_max_metrics.parent = self
+                                        self.frr_remote_lfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes()
+                                        self.frr_remote_lfa_types.parent = self
+                                        self.frr_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes()
+                                        self.frr_types.parent = self
+                                        self.frrlfa_candidate_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces()
+                                        self.frrlfa_candidate_interfaces.parent = self
+                                        self.frrtilfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes()
+                                        self.frrtilfa_types.parent = self
 
 
                                     class FrrlfaCandidateInterfaces(object):
@@ -12536,17 +12536,17 @@ class Isis(object):
                                             Include an interface to LFA candidate
                                             in computation
                                             
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                            
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -12564,20 +12564,20 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.interface_name = None
                                                 self.frr_type = None
+                                                self.interface_name = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                                if self.interface_name is None:
-                                                    raise YPYDataValidationError('Key property interface_name is None')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.frr_type is None:
-                                                    raise YPYDataValidationError('Key property frr_type is None')
+                                                    raise YPYModelError('Key property frr_type is None')
+                                                if self.interface_name is None:
+                                                    raise YPYModelError('Key property interface_name is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -12586,10 +12586,10 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -12605,7 +12605,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interfaces'
 
@@ -12684,9 +12684,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-max-metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -12713,7 +12713,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-max-metrics'
 
@@ -12790,9 +12790,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-type[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -12819,7 +12819,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-types'
 
@@ -12896,9 +12896,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-type[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -12925,7 +12925,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-types'
 
@@ -12995,9 +12995,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrtilfa-type[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -13021,7 +13021,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrtilfa-types'
 
@@ -13072,17 +13072,17 @@ class Isis(object):
                                             """
                                             Exclude an interface from computation
                                             
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                            
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -13100,20 +13100,20 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.interface_name = None
                                                 self.frr_type = None
+                                                self.interface_name = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                                if self.interface_name is None:
-                                                    raise YPYDataValidationError('Key property interface_name is None')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.frr_type is None:
-                                                    raise YPYDataValidationError('Key property frr_type is None')
+                                                    raise YPYModelError('Key property frr_type is None')
+                                                if self.interface_name is None:
+                                                    raise YPYModelError('Key property interface_name is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -13122,10 +13122,10 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -13141,7 +13141,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interfaces'
 
@@ -13167,7 +13167,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-table'
 
@@ -13178,22 +13178,22 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces._has_data():
+                                        if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
                                             return True
 
                                         if self.frr_remote_lfa_max_metrics is not None and self.frr_remote_lfa_max_metrics._has_data():
                                             return True
 
-                                        if self.frr_types is not None and self.frr_types._has_data():
-                                            return True
-
                                         if self.frr_remote_lfa_types is not None and self.frr_remote_lfa_types._has_data():
                                             return True
 
-                                        if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
+                                        if self.frr_types is not None and self.frr_types._has_data():
                                             return True
 
-                                        if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
+                                        if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces._has_data():
+                                            return True
+
+                                        if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
                                             return True
 
                                         return False
@@ -13229,7 +13229,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:mpls-ldp'
 
@@ -13313,9 +13313,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:auto-metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -13342,7 +13342,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:auto-metrics'
 
@@ -13421,9 +13421,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-tag[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -13450,7 +13450,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-tags'
 
@@ -13478,24 +13478,24 @@ class Isis(object):
                                     """
                                     Provide link group name and level
                                     
-                                    .. attribute:: link_group
-                                    
-                                    	Link Group
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..40
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
                                     .. attribute:: level
                                     
                                     	Level in which link group will be effective
                                     	**type**\: int
                                     
                                     	**range:** 0..2
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: link_group
+                                    
+                                    	Link Group
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..40
                                     
                                     .. attribute:: _is_presence
                                     
@@ -13513,13 +13513,13 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.link_group = None
                                         self.level = None
+                                        self.link_group = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-link-group'
 
@@ -13530,10 +13530,10 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.link_group is not None:
+                                        if self.level is not None:
                                             return True
 
-                                        if self.level is not None:
+                                        if self.link_group is not None:
                                             return True
 
                                         return False
@@ -13638,9 +13638,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -13667,7 +13667,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metrics'
 
@@ -13746,9 +13746,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weight[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -13775,7 +13775,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weights'
 
@@ -13801,7 +13801,7 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-af-data'
 
@@ -13812,31 +13812,31 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.interface_frr_table is not None and self.interface_frr_table._has_data():
-                                        return True
-
-                                    if self.mpls_ldp is not None and self.mpls_ldp._has_data():
+                                    if self.admin_tags is not None and self.admin_tags._has_data():
                                         return True
 
                                     if self.auto_metrics is not None and self.auto_metrics._has_data():
                                         return True
 
-                                    if self.admin_tags is not None and self.admin_tags._has_data():
+                                    if self.interface_af_state is not None:
+                                        return True
+
+                                    if self.interface_frr_table is not None and self.interface_frr_table._has_data():
                                         return True
 
                                     if self.interface_link_group is not None and self.interface_link_group._has_data():
                                         return True
 
-                                    if self.interface_af_state is not None:
+                                    if self.metrics is not None and self.metrics._has_data():
+                                        return True
+
+                                    if self.mpls_ldp is not None and self.mpls_ldp._has_data():
+                                        return True
+
+                                    if self.prefix_sid is not None and self.prefix_sid._has_data():
                                         return True
 
                                     if self.running is not None:
-                                        return True
-
-                                    if self.metrics is not None and self.metrics._has_data():
                                         return True
 
                                     if self.weights is not None and self.weights._has_data():
@@ -13861,50 +13861,50 @@ class Isis(object):
                                 
                                 	**range:** 0..32
                                 
-                                .. attribute:: prefix_sid
+                                .. attribute:: admin_tags
                                 
-                                	Assign prefix SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
-                                	**type**\: :py:class:`PrefixSid <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid>`
-                                
-                                .. attribute:: interface_frr_table
-                                
-                                	Fast\-ReRoute configuration
-                                	**type**\: :py:class:`InterfaceFrrTable <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable>`
-                                
-                                .. attribute:: mpls_ldp
-                                
-                                	MPLS LDP configuration
-                                	**type**\: :py:class:`MplsLdp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp>`
+                                	admin\-tag configuration
+                                	**type**\: :py:class:`AdminTags <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags>`
                                 
                                 .. attribute:: auto_metrics
                                 
                                 	AutoMetric configuration
                                 	**type**\: :py:class:`AutoMetrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics>`
                                 
-                                .. attribute:: admin_tags
+                                .. attribute:: interface_af_state
                                 
-                                	admin\-tag configuration
-                                	**type**\: :py:class:`AdminTags <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags>`
+                                	Interface state
+                                	**type**\: :py:class:`IsisInterfaceAfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfStateEnum>`
+                                
+                                .. attribute:: interface_frr_table
+                                
+                                	Fast\-ReRoute configuration
+                                	**type**\: :py:class:`InterfaceFrrTable <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable>`
                                 
                                 .. attribute:: interface_link_group
                                 
                                 	Provide link group name and level
                                 	**type**\: :py:class:`InterfaceLinkGroup <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup>`
                                 
-                                .. attribute:: interface_af_state
+                                .. attribute:: metrics
                                 
-                                	Interface state
-                                	**type**\: :py:class:`IsisInterfaceAfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfStateEnum>`
+                                	Metric configuration
+                                	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics>`
+                                
+                                .. attribute:: mpls_ldp
+                                
+                                	MPLS LDP configuration
+                                	**type**\: :py:class:`MplsLdp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp>`
+                                
+                                .. attribute:: prefix_sid
+                                
+                                	Assign prefix SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
+                                	**type**\: :py:class:`PrefixSid <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid>`
                                 
                                 .. attribute:: running
                                 
                                 	The presence of this object allows an address\-family to be run over the interface in question.This must be the first object created under the InterfaceAddressFamily container, and the last one deleted
                                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                
-                                .. attribute:: metrics
-                                
-                                	Metric configuration
-                                	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics>`
                                 
                                 .. attribute:: weights
                                 
@@ -13921,20 +13921,20 @@ class Isis(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.topology_name = None
-                                    self.prefix_sid = None
-                                    self.interface_frr_table = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable()
-                                    self.interface_frr_table.parent = self
-                                    self.mpls_ldp = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp()
-                                    self.mpls_ldp.parent = self
-                                    self.auto_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics()
-                                    self.auto_metrics.parent = self
                                     self.admin_tags = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags()
                                     self.admin_tags.parent = self
-                                    self.interface_link_group = None
+                                    self.auto_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics()
+                                    self.auto_metrics.parent = self
                                     self.interface_af_state = None
-                                    self.running = None
+                                    self.interface_frr_table = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable()
+                                    self.interface_frr_table.parent = self
+                                    self.interface_link_group = None
                                     self.metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics()
                                     self.metrics.parent = self
+                                    self.mpls_ldp = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp()
+                                    self.mpls_ldp.parent = self
+                                    self.prefix_sid = None
+                                    self.running = None
                                     self.weights = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights()
                                     self.weights.parent = self
 
@@ -13945,6 +13945,36 @@ class Isis(object):
                                     ISISPHPFlag will be rejected if set to
                                     disable, ISISEXPLICITNULLFlag will
                                     override the value of ISISPHPFlag
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Enable/Disable Explicit\-NULL flag
+                                    	**type**\: :py:class:`IsisexplicitNullFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: nflag_clear
+                                    
+                                    	Clear N\-flag for the prefix\-SID
+                                    	**type**\: :py:class:`NflagClearEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: php
+                                    
+                                    	Enable/Disable Penultimate Hop Popping
+                                    	**type**\: :py:class:`IsisphpFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: type
                                     
@@ -13968,36 +13998,6 @@ class Isis(object):
                                     	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
-                                    .. attribute:: php
-                                    
-                                    	Enable/Disable Penultimate Hop Popping
-                                    	**type**\: :py:class:`IsisphpFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: explicit_null
-                                    
-                                    	Enable/Disable Explicit\-NULL flag
-                                    	**type**\: :py:class:`IsisexplicitNullFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: nflag_clear
-                                    
-                                    	Clear N\-flag for the prefix\-SID
-                                    	**type**\: :py:class:`NflagClearEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
                                     
 
                                     This class is a :ref:`presence class<presence-class>`
@@ -14009,16 +14009,16 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.type = None
-                                        self.value = None
-                                        self.php = None
                                         self.explicit_null = None
                                         self.nflag_clear = None
+                                        self.php = None
+                                        self.type = None
+                                        self.value = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-sid'
 
@@ -14029,19 +14029,19 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.type is not None:
+                                        if self.explicit_null is not None:
                                             return True
 
-                                        if self.value is not None:
+                                        if self.nflag_clear is not None:
                                             return True
 
                                         if self.php is not None:
                                             return True
 
-                                        if self.explicit_null is not None:
+                                        if self.type is not None:
                                             return True
 
-                                        if self.nflag_clear is not None:
+                                        if self.value is not None:
                                             return True
 
                                         return False
@@ -14056,35 +14056,35 @@ class Isis(object):
                                     """
                                     Fast\-ReRoute configuration
                                     
-                                    .. attribute:: frrlfa_candidate_interfaces
+                                    .. attribute:: frr_exclude_interfaces
                                     
-                                    	FRR LFA candidate configuration
-                                    	**type**\: :py:class:`FrrlfaCandidateInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
+                                    	FRR exclusion configuration
+                                    	**type**\: :py:class:`FrrExcludeInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces>`
                                     
                                     .. attribute:: frr_remote_lfa_max_metrics
                                     
                                     	Remote LFA maxmimum metric
                                     	**type**\: :py:class:`FrrRemoteLfaMaxMetrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics>`
                                     
-                                    .. attribute:: frr_types
-                                    
-                                    	Type of FRR computation per level
-                                    	**type**\: :py:class:`FrrTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes>`
-                                    
                                     .. attribute:: frr_remote_lfa_types
                                     
                                     	Remote LFA Enable
                                     	**type**\: :py:class:`FrrRemoteLfaTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes>`
                                     
+                                    .. attribute:: frr_types
+                                    
+                                    	Type of FRR computation per level
+                                    	**type**\: :py:class:`FrrTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes>`
+                                    
+                                    .. attribute:: frrlfa_candidate_interfaces
+                                    
+                                    	FRR LFA candidate configuration
+                                    	**type**\: :py:class:`FrrlfaCandidateInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
+                                    
                                     .. attribute:: frrtilfa_types
                                     
                                     	TI LFA Enable
                                     	**type**\: :py:class:`FrrtilfaTypes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes>`
-                                    
-                                    .. attribute:: frr_exclude_interfaces
-                                    
-                                    	FRR exclusion configuration
-                                    	**type**\: :py:class:`FrrExcludeInterfaces <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces>`
                                     
                                     
 
@@ -14095,18 +14095,18 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.frrlfa_candidate_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces()
-                                        self.frrlfa_candidate_interfaces.parent = self
-                                        self.frr_remote_lfa_max_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics()
-                                        self.frr_remote_lfa_max_metrics.parent = self
-                                        self.frr_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes()
-                                        self.frr_types.parent = self
-                                        self.frr_remote_lfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes()
-                                        self.frr_remote_lfa_types.parent = self
-                                        self.frrtilfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes()
-                                        self.frrtilfa_types.parent = self
                                         self.frr_exclude_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces()
                                         self.frr_exclude_interfaces.parent = self
+                                        self.frr_remote_lfa_max_metrics = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics()
+                                        self.frr_remote_lfa_max_metrics.parent = self
+                                        self.frr_remote_lfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes()
+                                        self.frr_remote_lfa_types.parent = self
+                                        self.frr_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes()
+                                        self.frr_types.parent = self
+                                        self.frrlfa_candidate_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces()
+                                        self.frrlfa_candidate_interfaces.parent = self
+                                        self.frrtilfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes()
+                                        self.frrtilfa_types.parent = self
 
 
                                     class FrrlfaCandidateInterfaces(object):
@@ -14137,17 +14137,17 @@ class Isis(object):
                                             Include an interface to LFA candidate
                                             in computation
                                             
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                            
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -14165,20 +14165,20 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.interface_name = None
                                                 self.frr_type = None
+                                                self.interface_name = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                                if self.interface_name is None:
-                                                    raise YPYDataValidationError('Key property interface_name is None')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.frr_type is None:
-                                                    raise YPYDataValidationError('Key property frr_type is None')
+                                                    raise YPYModelError('Key property frr_type is None')
+                                                if self.interface_name is None:
+                                                    raise YPYModelError('Key property interface_name is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -14187,10 +14187,10 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -14206,7 +14206,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interfaces'
 
@@ -14285,9 +14285,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-max-metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -14314,7 +14314,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-max-metrics'
 
@@ -14391,9 +14391,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-type[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -14420,7 +14420,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-types'
 
@@ -14497,9 +14497,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-type[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -14526,7 +14526,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-remote-lfa-types'
 
@@ -14596,9 +14596,9 @@ class Isis(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.level is None:
-                                                    raise YPYDataValidationError('Key property level is None')
+                                                    raise YPYModelError('Key property level is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrtilfa-type[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -14622,7 +14622,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrtilfa-types'
 
@@ -14673,17 +14673,17 @@ class Isis(object):
                                             """
                                             Exclude an interface from computation
                                             
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
+                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                            
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -14701,20 +14701,20 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.interface_name = None
                                                 self.frr_type = None
+                                                self.interface_name = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                                if self.interface_name is None:
-                                                    raise YPYDataValidationError('Key property interface_name is None')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.frr_type is None:
-                                                    raise YPYDataValidationError('Key property frr_type is None')
+                                                    raise YPYModelError('Key property frr_type is None')
+                                                if self.interface_name is None:
+                                                    raise YPYModelError('Key property interface_name is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -14723,10 +14723,10 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -14742,7 +14742,7 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interfaces'
 
@@ -14768,7 +14768,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-table'
 
@@ -14779,22 +14779,22 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces._has_data():
+                                        if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
                                             return True
 
                                         if self.frr_remote_lfa_max_metrics is not None and self.frr_remote_lfa_max_metrics._has_data():
                                             return True
 
-                                        if self.frr_types is not None and self.frr_types._has_data():
-                                            return True
-
                                         if self.frr_remote_lfa_types is not None and self.frr_remote_lfa_types._has_data():
                                             return True
 
-                                        if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
+                                        if self.frr_types is not None and self.frr_types._has_data():
                                             return True
 
-                                        if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
+                                        if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces._has_data():
+                                            return True
+
+                                        if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
                                             return True
 
                                         return False
@@ -14830,7 +14830,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:mpls-ldp'
 
@@ -14914,9 +14914,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:auto-metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -14943,7 +14943,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:auto-metrics'
 
@@ -15022,9 +15022,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-tag[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -15051,7 +15051,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:admin-tags'
 
@@ -15079,24 +15079,24 @@ class Isis(object):
                                     """
                                     Provide link group name and level
                                     
-                                    .. attribute:: link_group
-                                    
-                                    	Link Group
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..40
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
                                     .. attribute:: level
                                     
                                     	Level in which link group will be effective
                                     	**type**\: int
                                     
                                     	**range:** 0..2
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: link_group
+                                    
+                                    	Link Group
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..40
                                     
                                     .. attribute:: _is_presence
                                     
@@ -15114,13 +15114,13 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.link_group = None
                                         self.level = None
+                                        self.link_group = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-link-group'
 
@@ -15131,10 +15131,10 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.link_group is not None:
+                                        if self.level is not None:
                                             return True
 
-                                        if self.level is not None:
+                                        if self.link_group is not None:
                                             return True
 
                                         return False
@@ -15239,9 +15239,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metric[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -15268,7 +15268,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:metrics'
 
@@ -15347,9 +15347,9 @@ class Isis(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.level is None:
-                                                raise YPYDataValidationError('Key property level is None')
+                                                raise YPYModelError('Key property level is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weight[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -15376,7 +15376,7 @@ class Isis(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:weights'
 
@@ -15402,9 +15402,9 @@ class Isis(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.topology_name is None:
-                                        raise YPYDataValidationError('Key property topology_name is None')
+                                        raise YPYModelError('Key property topology_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:topology-name[Cisco-IOS-XR-clns-isis-cfg:topology-name = ' + str(self.topology_name) + ']'
 
@@ -15418,31 +15418,31 @@ class Isis(object):
                                     if self.topology_name is not None:
                                         return True
 
-                                    if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.interface_frr_table is not None and self.interface_frr_table._has_data():
-                                        return True
-
-                                    if self.mpls_ldp is not None and self.mpls_ldp._has_data():
+                                    if self.admin_tags is not None and self.admin_tags._has_data():
                                         return True
 
                                     if self.auto_metrics is not None and self.auto_metrics._has_data():
                                         return True
 
-                                    if self.admin_tags is not None and self.admin_tags._has_data():
+                                    if self.interface_af_state is not None:
+                                        return True
+
+                                    if self.interface_frr_table is not None and self.interface_frr_table._has_data():
                                         return True
 
                                     if self.interface_link_group is not None and self.interface_link_group._has_data():
                                         return True
 
-                                    if self.interface_af_state is not None:
+                                    if self.metrics is not None and self.metrics._has_data():
+                                        return True
+
+                                    if self.mpls_ldp is not None and self.mpls_ldp._has_data():
+                                        return True
+
+                                    if self.prefix_sid is not None and self.prefix_sid._has_data():
                                         return True
 
                                     if self.running is not None:
-                                        return True
-
-                                    if self.metrics is not None and self.metrics._has_data():
                                         return True
 
                                     if self.weights is not None and self.weights._has_data():
@@ -15458,11 +15458,11 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.af_name is None:
-                                    raise YPYDataValidationError('Key property af_name is None')
+                                    raise YPYModelError('Key property af_name is None')
                                 if self.saf_name is None:
-                                    raise YPYDataValidationError('Key property saf_name is None')
+                                    raise YPYModelError('Key property saf_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-af[Cisco-IOS-XR-clns-isis-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-clns-isis-cfg:saf-name = ' + str(self.saf_name) + ']'
 
@@ -15497,7 +15497,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-afs'
 
@@ -15577,9 +15577,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:csnp-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -15606,7 +15606,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:csnp-intervals'
 
@@ -15685,9 +15685,9 @@ class Isis(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.level is None:
-                                    raise YPYDataValidationError('Key property level is None')
+                                    raise YPYModelError('Key property level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-interval[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
 
@@ -15714,7 +15714,7 @@ class Isis(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:lsp-intervals'
 
@@ -15740,9 +15740,9 @@ class Isis(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -15756,61 +15756,61 @@ class Isis(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.lsp_retransmit_throttle_intervals is not None and self.lsp_retransmit_throttle_intervals._has_data():
-                            return True
-
-                        if self.lsp_retransmit_intervals is not None and self.lsp_retransmit_intervals._has_data():
-                            return True
-
                         if self.bfd is not None and self.bfd._has_data():
-                            return True
-
-                        if self.priorities is not None and self.priorities._has_data():
-                            return True
-
-                        if self.hello_accept_passwords is not None and self.hello_accept_passwords._has_data():
-                            return True
-
-                        if self.hello_passwords is not None and self.hello_passwords._has_data():
-                            return True
-
-                        if self.hello_paddings is not None and self.hello_paddings._has_data():
-                            return True
-
-                        if self.hello_multipliers is not None and self.hello_multipliers._has_data():
-                            return True
-
-                        if self.lsp_fast_flood_thresholds is not None and self.lsp_fast_flood_thresholds._has_data():
-                            return True
-
-                        if self.hello_intervals is not None and self.hello_intervals._has_data():
-                            return True
-
-                        if self.interface_afs is not None and self.interface_afs._has_data():
-                            return True
-
-                        if self.csnp_intervals is not None and self.csnp_intervals._has_data():
-                            return True
-
-                        if self.lsp_intervals is not None and self.lsp_intervals._has_data():
-                            return True
-
-                        if self.running is not None:
                             return True
 
                         if self.circuit_type is not None:
                             return True
 
-                        if self.point_to_point is not None:
+                        if self.csnp_intervals is not None and self.csnp_intervals._has_data():
                             return True
 
-                        if self.state is not None:
+                        if self.hello_accept_passwords is not None and self.hello_accept_passwords._has_data():
+                            return True
+
+                        if self.hello_intervals is not None and self.hello_intervals._has_data():
+                            return True
+
+                        if self.hello_multipliers is not None and self.hello_multipliers._has_data():
+                            return True
+
+                        if self.hello_paddings is not None and self.hello_paddings._has_data():
+                            return True
+
+                        if self.hello_passwords is not None and self.hello_passwords._has_data():
+                            return True
+
+                        if self.interface_afs is not None and self.interface_afs._has_data():
+                            return True
+
+                        if self.link_down_fast_detect is not None:
+                            return True
+
+                        if self.lsp_fast_flood_thresholds is not None and self.lsp_fast_flood_thresholds._has_data():
+                            return True
+
+                        if self.lsp_intervals is not None and self.lsp_intervals._has_data():
+                            return True
+
+                        if self.lsp_retransmit_intervals is not None and self.lsp_retransmit_intervals._has_data():
+                            return True
+
+                        if self.lsp_retransmit_throttle_intervals is not None and self.lsp_retransmit_throttle_intervals._has_data():
                             return True
 
                         if self.mesh_group is not None:
                             return True
 
-                        if self.link_down_fast_detect is not None:
+                        if self.point_to_point is not None:
+                            return True
+
+                        if self.priorities is not None and self.priorities._has_data():
+                            return True
+
+                        if self.running is not None:
+                            return True
+
+                        if self.state is not None:
                             return True
 
                         return False
@@ -15823,7 +15823,7 @@ class Isis(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interfaces'
 
@@ -15849,7 +15849,7 @@ class Isis(object):
             @property
             def _common_path(self):
                 if self.instance_name is None:
-                    raise YPYDataValidationError('Key property instance_name is None')
+                    raise YPYModelError('Key property instance_name is None')
 
                 return '/Cisco-IOS-XR-clns-isis-cfg:isis/Cisco-IOS-XR-clns-isis-cfg:instances/Cisco-IOS-XR-clns-isis-cfg:instance[Cisco-IOS-XR-clns-isis-cfg:instance-name = ' + str(self.instance_name) + ']'
 
@@ -15863,79 +15863,79 @@ class Isis(object):
                 if self.instance_name is not None:
                     return True
 
-                if self.srgb is not None and self.srgb._has_data():
-                    return True
-
-                if self.lsp_generation_intervals is not None and self.lsp_generation_intervals._has_data():
-                    return True
-
-                if self.lsp_arrival_times is not None and self.lsp_arrival_times._has_data():
-                    return True
-
-                if self.trace_buffer_size is not None and self.trace_buffer_size._has_data():
-                    return True
-
-                if self.max_link_metrics is not None and self.max_link_metrics._has_data():
-                    return True
-
                 if self.afs is not None and self.afs._has_data():
-                    return True
-
-                if self.lsp_refresh_intervals is not None and self.lsp_refresh_intervals._has_data():
                     return True
 
                 if self.distribute is not None and self.distribute._has_data():
                     return True
 
-                if self.lsp_accept_passwords is not None and self.lsp_accept_passwords._has_data():
-                    return True
-
-                if self.lsp_mtus is not None and self.lsp_mtus._has_data():
-                    return True
-
-                if self.nsf is not None and self.nsf._has_data():
-                    return True
-
-                if self.link_groups is not None and self.link_groups._has_data():
-                    return True
-
-                if self.lsp_check_intervals is not None and self.lsp_check_intervals._has_data():
-                    return True
-
-                if self.lsp_passwords is not None and self.lsp_passwords._has_data():
-                    return True
-
-                if self.nets is not None and self.nets._has_data():
-                    return True
-
-                if self.lsp_lifetimes is not None and self.lsp_lifetimes._has_data():
-                    return True
-
-                if self.overload_bits is not None and self.overload_bits._has_data():
-                    return True
-
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.running is not None:
-                    return True
-
-                if self.log_adjacency_changes is not None:
+                if self.dynamic_host_name is not None:
                     return True
 
                 if self.ignore_lsp_errors is not None:
                     return True
 
+                if self.interfaces is not None and self.interfaces._has_data():
+                    return True
+
                 if self.is_type is not None:
                     return True
 
-                if self.dynamic_host_name is not None:
+                if self.link_groups is not None and self.link_groups._has_data():
+                    return True
+
+                if self.log_adjacency_changes is not None:
+                    return True
+
+                if self.log_pdu_drops is not None:
+                    return True
+
+                if self.lsp_accept_passwords is not None and self.lsp_accept_passwords._has_data():
+                    return True
+
+                if self.lsp_arrival_times is not None and self.lsp_arrival_times._has_data():
+                    return True
+
+                if self.lsp_check_intervals is not None and self.lsp_check_intervals._has_data():
+                    return True
+
+                if self.lsp_generation_intervals is not None and self.lsp_generation_intervals._has_data():
+                    return True
+
+                if self.lsp_lifetimes is not None and self.lsp_lifetimes._has_data():
+                    return True
+
+                if self.lsp_mtus is not None and self.lsp_mtus._has_data():
+                    return True
+
+                if self.lsp_passwords is not None and self.lsp_passwords._has_data():
+                    return True
+
+                if self.lsp_refresh_intervals is not None and self.lsp_refresh_intervals._has_data():
+                    return True
+
+                if self.max_link_metrics is not None and self.max_link_metrics._has_data():
+                    return True
+
+                if self.nets is not None and self.nets._has_data():
+                    return True
+
+                if self.nsf is not None and self.nsf._has_data():
                     return True
 
                 if self.nsr is not None:
                     return True
 
-                if self.log_pdu_drops is not None:
+                if self.overload_bits is not None and self.overload_bits._has_data():
+                    return True
+
+                if self.running is not None:
+                    return True
+
+                if self.srgb is not None and self.srgb._has_data():
+                    return True
+
+                if self.trace_buffer_size is not None and self.trace_buffer_size._has_data():
                     return True
 
                 return False

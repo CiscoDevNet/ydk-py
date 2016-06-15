@@ -22,7 +22,6 @@ import logging
 
 from ydk._core._dm_meta_info import REFERENCE_BITS, \
     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_LEAFLIST
-from ydk.errors import YPYDataValidationError, YPYError
 from ydk.types import Empty, Decimal64, YListItem
 
 import ydk.models._yang_ns as _yang_ns
@@ -51,7 +50,7 @@ class ValueEncoder(object):
                     value = " ".join([k for k in bits_value._dictionary if bits_value._dictionary[k] == True])
                     if (len(value) > 1):
                         text = value
-            elif member.mtype == REFERENCE_ENUM_CLASS:
+            elif member.mtype == REFERENCE_ENUM_CLASS or 'Enum' in member.ptype:
                 enum_value = value
                 exec_import = 'from ' + member.pmodule_name + ' import ' + member.clazz_name.split('.')[0]
                 exec exec_import
@@ -76,7 +75,7 @@ class ValueEncoder(object):
                 text = value
             elif member.ptype == 'int' and isinstance(value, int):
                 text = str(value)
-            elif member.ptype == 'long' and isinstance(value, long):
+            elif member.ptype == 'long' and isinstance(value, (int, long)):
                 text = str(value)
             else:
                 ydk_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')

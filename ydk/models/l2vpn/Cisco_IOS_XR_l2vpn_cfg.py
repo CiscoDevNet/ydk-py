@@ -27,7 +27,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -1237,62 +1237,32 @@ class L2Vpn(object):
     """
     L2VPN configuration
     
-    .. attribute:: pw_routing
+    .. attribute:: auto_discovery
     
-    	Pseudowire\-routing attributes
-    	**type**\: :py:class:`PwRouting <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting>`
+    	Global auto\-discovery attributes
+    	**type**\: :py:class:`AutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery>`
     
-    .. attribute:: neighbor
+    .. attribute:: capability
     
-    	L2VPN neighbor submode
-    	**type**\: :py:class:`Neighbor <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Neighbor>`
+    	L2VPN Capability Mode
+    	**type**\: :py:class:`L2VpnCapabilityModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnCapabilityModeEnum>`
     
     .. attribute:: database
     
     	L2VPN databases
     	**type**\: :py:class:`Database <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database>`
     
-    .. attribute:: pbb
+    .. attribute:: enable
     
-    	L2VPN PBB Global
-    	**type**\: :py:class:`Pbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Pbb>`
-    
-    .. attribute:: auto_discovery
-    
-    	Global auto\-discovery attributes
-    	**type**\: :py:class:`AutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery>`
-    
-    .. attribute:: utility
-    
-    	L2VPN utilities
-    	**type**\: :py:class:`Utility <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility>`
-    
-    .. attribute:: snmp
-    
-    	SNMP related configuration
-    	**type**\: :py:class:`Snmp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp>`
-    
-    .. attribute:: nsr
-    
-    	Enable Non\-Stop Routing
+    	Enable L2VPN feature
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    .. attribute:: mtu_mismatch_ignore
+    .. attribute:: l2vpn_router_id
     
-    	Ignore MTU Mismatch for XCs
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	Global L2VPN Router ID
+    	**type**\: str
     
-    .. attribute:: tcn_propagation
-    
-    	Topology change notification propagation
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: pwoam_refresh
-    
-    	Configure PW OAM refresh interval
-    	**type**\: int
-    
-    	**range:** 1..4095
+    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
     
     .. attribute:: load_balance
     
@@ -1306,32 +1276,62 @@ class L2Vpn(object):
     
     	**range:** 0..64
     
-    .. attribute:: pw_status_disable
+    .. attribute:: mtu_mismatch_ignore
     
-    	Disable PW status
+    	Ignore MTU Mismatch for XCs
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    .. attribute:: enable
+    .. attribute:: neighbor
     
-    	Enable L2VPN feature
+    	L2VPN neighbor submode
+    	**type**\: :py:class:`Neighbor <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Neighbor>`
+    
+    .. attribute:: nsr
+    
+    	Enable Non\-Stop Routing
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: pbb
+    
+    	L2VPN PBB Global
+    	**type**\: :py:class:`Pbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Pbb>`
     
     .. attribute:: pw_grouping
     
     	Enable PW grouping
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    .. attribute:: capability
+    .. attribute:: pw_routing
     
-    	L2VPN Capability Mode
-    	**type**\: :py:class:`L2VpnCapabilityModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnCapabilityModeEnum>`
+    	Pseudowire\-routing attributes
+    	**type**\: :py:class:`PwRouting <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting>`
     
-    .. attribute:: l2vpn_router_id
+    .. attribute:: pw_status_disable
     
-    	Global L2VPN Router ID
-    	**type**\: str
+    	Disable PW status
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+    .. attribute:: pwoam_refresh
+    
+    	Configure PW OAM refresh interval
+    	**type**\: int
+    
+    	**range:** 1..4095
+    
+    .. attribute:: snmp
+    
+    	SNMP related configuration
+    	**type**\: :py:class:`Snmp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp>`
+    
+    .. attribute:: tcn_propagation
+    
+    	Topology change notification propagation
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: utility
+    
+    	L2VPN utilities
+    	**type**\: :py:class:`Utility <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility>`
     
     
 
@@ -1341,31 +1341,31 @@ class L2Vpn(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.pw_routing = L2Vpn.PwRouting()
-        self.pw_routing.parent = self
-        self.neighbor = L2Vpn.Neighbor()
-        self.neighbor.parent = self
-        self.database = L2Vpn.Database()
-        self.database.parent = self
-        self.pbb = L2Vpn.Pbb()
-        self.pbb.parent = self
         self.auto_discovery = L2Vpn.AutoDiscovery()
         self.auto_discovery.parent = self
-        self.utility = L2Vpn.Utility()
-        self.utility.parent = self
-        self.snmp = L2Vpn.Snmp()
-        self.snmp.parent = self
-        self.nsr = None
-        self.mtu_mismatch_ignore = None
-        self.tcn_propagation = None
-        self.pwoam_refresh = None
+        self.capability = None
+        self.database = L2Vpn.Database()
+        self.database.parent = self
+        self.enable = None
+        self.l2vpn_router_id = None
         self.load_balance = None
         self.mspw_description = None
-        self.pw_status_disable = None
-        self.enable = None
+        self.mtu_mismatch_ignore = None
+        self.neighbor = L2Vpn.Neighbor()
+        self.neighbor.parent = self
+        self.nsr = None
+        self.pbb = L2Vpn.Pbb()
+        self.pbb.parent = self
         self.pw_grouping = None
-        self.capability = None
-        self.l2vpn_router_id = None
+        self.pw_routing = L2Vpn.PwRouting()
+        self.pw_routing.parent = self
+        self.pw_status_disable = None
+        self.pwoam_refresh = None
+        self.snmp = L2Vpn.Snmp()
+        self.snmp.parent = self
+        self.tcn_propagation = None
+        self.utility = L2Vpn.Utility()
+        self.utility.parent = self
 
 
     class PwRouting(object):
@@ -1430,10 +1430,19 @@ class L2Vpn(object):
                 """
                 Route Distinguisher
                 
-                .. attribute:: type
+                .. attribute:: addr_index
                 
-                	Router Distinguisher Type
-                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                	Addr index
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: address
+                
+                	IPV4 address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: as_
                 
@@ -1449,19 +1458,10 @@ class L2Vpn(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: address
+                .. attribute:: type
                 
-                	IPV4 address
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: addr_index
-                
-                	Addr index
-                	**type**\: int
-                
-                	**range:** 0..65535
+                	Router Distinguisher Type
+                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                 
                 
 
@@ -1472,11 +1472,11 @@ class L2Vpn(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.type = None
+                    self.addr_index = None
+                    self.address = None
                     self.as_ = None
                     self.as_index = None
-                    self.address = None
-                    self.addr_index = None
+                    self.type = None
 
                 @property
                 def _common_path(self):
@@ -1490,7 +1490,10 @@ class L2Vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.type is not None:
+                    if self.addr_index is not None:
+                        return True
+
+                    if self.address is not None:
                         return True
 
                     if self.as_ is not None:
@@ -1499,10 +1502,7 @@ class L2Vpn(object):
                     if self.as_index is not None:
                         return True
 
-                    if self.address is not None:
-                        return True
-
-                    if self.addr_index is not None:
+                    if self.type is not None:
                         return True
 
                     return False
@@ -1610,20 +1610,15 @@ class L2Vpn(object):
         """
         L2VPN databases
         
-        .. attribute:: g8032_rings
-        
-        	List of G8032 Ring
-        	**type**\: :py:class:`G8032Rings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings>`
-        
-        .. attribute:: xconnect_groups
-        
-        	List of xconnect groups
-        	**type**\: :py:class:`XconnectGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups>`
-        
         .. attribute:: bridge_domain_groups
         
         	List of bridge  groups
         	**type**\: :py:class:`BridgeDomainGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups>`
+        
+        .. attribute:: g8032_rings
+        
+        	List of G8032 Ring
+        	**type**\: :py:class:`G8032Rings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings>`
         
         .. attribute:: pseudowire_classes
         
@@ -1635,6 +1630,11 @@ class L2Vpn(object):
         	Redundancy groups
         	**type**\: :py:class:`Redundancy <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy>`
         
+        .. attribute:: xconnect_groups
+        
+        	List of xconnect groups
+        	**type**\: :py:class:`XconnectGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups>`
+        
         
 
         """
@@ -1644,16 +1644,16 @@ class L2Vpn(object):
 
         def __init__(self):
             self.parent = None
-            self.g8032_rings = L2Vpn.Database.G8032Rings()
-            self.g8032_rings.parent = self
-            self.xconnect_groups = L2Vpn.Database.XconnectGroups()
-            self.xconnect_groups.parent = self
             self.bridge_domain_groups = L2Vpn.Database.BridgeDomainGroups()
             self.bridge_domain_groups.parent = self
+            self.g8032_rings = L2Vpn.Database.G8032Rings()
+            self.g8032_rings.parent = self
             self.pseudowire_classes = L2Vpn.Database.PseudowireClasses()
             self.pseudowire_classes.parent = self
             self.redundancy = L2Vpn.Database.Redundancy()
             self.redundancy.parent = self
+            self.xconnect_groups = L2Vpn.Database.XconnectGroups()
+            self.xconnect_groups.parent = self
 
 
         class G8032Rings(object):
@@ -1690,24 +1690,24 @@ class L2Vpn(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: erp_port0s
-                
-                	Ethernet ring protection port0
-                	**type**\: :py:class:`ErpPort0S <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S>`
-                
                 .. attribute:: erp_instances
                 
                 	List of ethernet ring protection instance
                 	**type**\: :py:class:`ErpInstances <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances>`
+                
+                .. attribute:: erp_port0s
+                
+                	Ethernet ring protection port0
+                	**type**\: :py:class:`ErpPort0S <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S>`
                 
                 .. attribute:: erp_port1s
                 
                 	Ethernet ring protection port0
                 	**type**\: :py:class:`ErpPort1S <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S>`
                 
-                .. attribute:: open_ring
+                .. attribute:: erp_provider_bridge
                 
-                	Specify the G.8032 instance as open ring
+                	Ethernet ring protection provider bridge
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: exclusion_list
@@ -1715,9 +1715,9 @@ class L2Vpn(object):
                 	Vlan IDs in the format of a\-b,c,d,e\-f,g ,untagged
                 	**type**\: str
                 
-                .. attribute:: erp_provider_bridge
+                .. attribute:: open_ring
                 
-                	Ethernet ring protection provider bridge
+                	Specify the G.8032 instance as open ring
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -1730,15 +1730,15 @@ class L2Vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.g8032_ring_name = None
-                    self.erp_port0s = L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S()
-                    self.erp_port0s.parent = self
                     self.erp_instances = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances()
                     self.erp_instances.parent = self
+                    self.erp_port0s = L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S()
+                    self.erp_port0s.parent = self
                     self.erp_port1s = L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S()
                     self.erp_port1s.parent = self
-                    self.open_ring = None
-                    self.exclusion_list = None
                     self.erp_provider_bridge = None
+                    self.exclusion_list = None
+                    self.open_ring = None
 
 
                 class ErpPort0S(object):
@@ -1797,9 +1797,9 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface_name is None:
-                                raise YPYDataValidationError('Key property interface_name is None')
+                                raise YPYModelError('Key property interface_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:erp-port0[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1826,7 +1826,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:erp-port0s'
 
@@ -1884,11 +1884,6 @@ class L2Vpn(object):
                         
                         	**range:** 1..2
                         
-                        .. attribute:: rpl
-                        
-                        	Ring protection link
-                        	**type**\: :py:class:`Rpl <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl>`
-                        
                         .. attribute:: aps
                         
                         	Automatic protection switching
@@ -1913,6 +1908,11 @@ class L2Vpn(object):
                         
                         	**range:** 0..32
                         
+                        .. attribute:: rpl
+                        
+                        	Ring protection link
+                        	**type**\: :py:class:`Rpl <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl>`
+                        
                         
 
                         """
@@ -1923,13 +1923,13 @@ class L2Vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.erp_instance_id = None
-                            self.rpl = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl()
-                            self.rpl.parent = self
                             self.aps = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps()
                             self.aps.parent = self
                             self.description = None
                             self.inclusion_list = None
                             self.profile = None
+                            self.rpl = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl()
+                            self.rpl.parent = self
 
 
                         class Rpl(object):
@@ -1961,7 +1961,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:rpl'
 
@@ -1990,16 +1990,6 @@ class L2Vpn(object):
                             """
                             Automatic protection switching
                             
-                            .. attribute:: port1
-                            
-                            	APS channel for ERP port1
-                            	**type**\: :py:class:`Port1 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1>`
-                            
-                            .. attribute:: port0
-                            
-                            	Port0 APS channel in the format of InterfaceName
-                            	**type**\: str
-                            
                             .. attribute:: enable
                             
                             	Enable automatic protection switching
@@ -2012,6 +2002,16 @@ class L2Vpn(object):
                             
                             	**range:** 0..7
                             
+                            .. attribute:: port0
+                            
+                            	Port0 APS channel in the format of InterfaceName
+                            	**type**\: str
+                            
+                            .. attribute:: port1
+                            
+                            	APS channel for ERP port1
+                            	**type**\: :py:class:`Port1 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1>`
+                            
                             
 
                             """
@@ -2021,26 +2021,26 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.port1 = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1()
-                                self.port1.parent = self
-                                self.port0 = None
                                 self.enable = None
                                 self.level = None
+                                self.port0 = None
+                                self.port1 = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1()
+                                self.port1.parent = self
 
 
                             class Port1(object):
                                 """
                                 APS channel for ERP port1
                                 
-                                .. attribute:: aps_type
-                                
-                                	Port1 APS type
-                                	**type**\: :py:class:`ErpapsEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpapsEnum>`
-                                
                                 .. attribute:: aps_channel
                                 
                                 	Port1 APS channel in the format of InterfaceName, BDName or XconnectName
                                 	**type**\: str
+                                
+                                .. attribute:: aps_type
+                                
+                                	Port1 APS type
+                                	**type**\: :py:class:`ErpapsEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpapsEnum>`
                                 
                                 
 
@@ -2051,13 +2051,13 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.aps_type = None
                                     self.aps_channel = None
+                                    self.aps_type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:port1'
 
@@ -2068,10 +2068,10 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.aps_type is not None:
+                                    if self.aps_channel is not None:
                                         return True
 
-                                    if self.aps_channel is not None:
+                                    if self.aps_type is not None:
                                         return True
 
                                     return False
@@ -2084,7 +2084,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:aps'
 
@@ -2095,16 +2095,16 @@ class L2Vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.port1 is not None and self.port1._has_data():
+                                if self.enable is not None:
+                                    return True
+
+                                if self.level is not None:
                                     return True
 
                                 if self.port0 is not None:
                                     return True
 
-                                if self.enable is not None:
-                                    return True
-
-                                if self.level is not None:
+                                if self.port1 is not None and self.port1._has_data():
                                     return True
 
                                 return False
@@ -2117,9 +2117,9 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.erp_instance_id is None:
-                                raise YPYDataValidationError('Key property erp_instance_id is None')
+                                raise YPYModelError('Key property erp_instance_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:erp-instance[Cisco-IOS-XR-l2vpn-cfg:erp-instance-id = ' + str(self.erp_instance_id) + ']'
 
@@ -2131,9 +2131,6 @@ class L2Vpn(object):
                             if not self.is_config():
                                 return False
                             if self.erp_instance_id is not None:
-                                return True
-
-                            if self.rpl is not None and self.rpl._has_data():
                                 return True
 
                             if self.aps is not None and self.aps._has_data():
@@ -2148,6 +2145,9 @@ class L2Vpn(object):
                             if self.profile is not None:
                                 return True
 
+                            if self.rpl is not None and self.rpl._has_data():
+                                return True
+
                             return False
 
                         @staticmethod
@@ -2158,7 +2158,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:erp-instances'
 
@@ -2272,7 +2272,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:none'
 
@@ -2327,9 +2327,9 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:virtual-or-interface[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2356,9 +2356,9 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.erp_port_type is None:
-                                raise YPYDataValidationError('Key property erp_port_type is None')
+                                raise YPYModelError('Key property erp_port_type is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:erp-port1[Cisco-IOS-XR-l2vpn-cfg:erp-port-type = ' + str(self.erp_port_type) + ']'
 
@@ -2390,7 +2390,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:erp-port1s'
 
@@ -2416,7 +2416,7 @@ class L2Vpn(object):
                 @property
                 def _common_path(self):
                     if self.g8032_ring_name is None:
-                        raise YPYDataValidationError('Key property g8032_ring_name is None')
+                        raise YPYModelError('Key property g8032_ring_name is None')
 
                     return '/Cisco-IOS-XR-l2vpn-cfg:l2vpn/Cisco-IOS-XR-l2vpn-cfg:database/Cisco-IOS-XR-l2vpn-cfg:g8032-rings/Cisco-IOS-XR-l2vpn-cfg:g8032-ring[Cisco-IOS-XR-l2vpn-cfg:g8032-ring-name = ' + str(self.g8032_ring_name) + ']'
 
@@ -2430,22 +2430,22 @@ class L2Vpn(object):
                     if self.g8032_ring_name is not None:
                         return True
 
-                    if self.erp_port0s is not None and self.erp_port0s._has_data():
+                    if self.erp_instances is not None and self.erp_instances._has_data():
                         return True
 
-                    if self.erp_instances is not None and self.erp_instances._has_data():
+                    if self.erp_port0s is not None and self.erp_port0s._has_data():
                         return True
 
                     if self.erp_port1s is not None and self.erp_port1s._has_data():
                         return True
 
-                    if self.open_ring is not None:
+                    if self.erp_provider_bridge is not None:
                         return True
 
                     if self.exclusion_list is not None:
                         return True
 
-                    if self.erp_provider_bridge is not None:
+                    if self.open_ring is not None:
                         return True
 
                     return False
@@ -2514,15 +2514,15 @@ class L2Vpn(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: p2p_xconnects
-                
-                	List of point to point xconnects
-                	**type**\: :py:class:`P2PXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects>`
-                
                 .. attribute:: mp2mp_xconnects
                 
                 	List of multi point to multi point xconnects
                 	**type**\: :py:class:`Mp2MpXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects>`
+                
+                .. attribute:: p2p_xconnects
+                
+                	List of point to point xconnects
+                	**type**\: :py:class:`P2PXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects>`
                 
                 
 
@@ -2534,10 +2534,10 @@ class L2Vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.p2p_xconnects = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects()
-                    self.p2p_xconnects.parent = self
                     self.mp2mp_xconnects = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects()
                     self.mp2mp_xconnects.parent = self
+                    self.p2p_xconnects = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects()
+                    self.p2p_xconnects.parent = self
 
 
                 class P2PXconnects(object):
@@ -2574,35 +2574,25 @@ class L2Vpn(object):
                         
                         	**range:** 0..38
                         
+                        .. attribute:: attachment_circuits
+                        
+                        	List of attachment circuits
+                        	**type**\: :py:class:`AttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits>`
+                        
                         .. attribute:: backup_attachment_circuits
                         
                         	List of backup attachment circuits
                         	**type**\: :py:class:`BackupAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits>`
                         
-                        .. attribute:: pseudowire_evpns
+                        .. attribute:: interworking
                         
-                        	List of EVPN Services
-                        	**type**\: :py:class:`PseudowireEvpns <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns>`
-                        
-                        .. attribute:: pseudowires
-                        
-                        	List of pseudowires
-                        	**type**\: :py:class:`Pseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires>`
+                        	Interworking
+                        	**type**\: :py:class:`InterworkingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
                         
                         .. attribute:: monitor_sessions
                         
                         	List of Monitor session segments
                         	**type**\: :py:class:`MonitorSessions <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions>`
-                        
-                        .. attribute:: pseudowire_routeds
-                        
-                        	List of pseudowire\-routed
-                        	**type**\: :py:class:`PseudowireRouteds <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds>`
-                        
-                        .. attribute:: attachment_circuits
-                        
-                        	List of attachment circuits
-                        	**type**\: :py:class:`AttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits>`
                         
                         .. attribute:: p2p_description
                         
@@ -2611,10 +2601,20 @@ class L2Vpn(object):
                         
                         	**range:** 0..64
                         
-                        .. attribute:: interworking
+                        .. attribute:: pseudowire_evpns
                         
-                        	Interworking
-                        	**type**\: :py:class:`InterworkingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
+                        	List of EVPN Services
+                        	**type**\: :py:class:`PseudowireEvpns <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns>`
+                        
+                        .. attribute:: pseudowire_routeds
+                        
+                        	List of pseudowire\-routed
+                        	**type**\: :py:class:`PseudowireRouteds <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds>`
+                        
+                        .. attribute:: pseudowires
+                        
+                        	List of pseudowires
+                        	**type**\: :py:class:`Pseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires>`
                         
                         
 
@@ -2626,20 +2626,20 @@ class L2Vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.backup_attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits()
-                            self.backup_attachment_circuits.parent = self
-                            self.pseudowire_evpns = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns()
-                            self.pseudowire_evpns.parent = self
-                            self.pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires()
-                            self.pseudowires.parent = self
-                            self.monitor_sessions = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions()
-                            self.monitor_sessions.parent = self
-                            self.pseudowire_routeds = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds()
-                            self.pseudowire_routeds.parent = self
                             self.attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits()
                             self.attachment_circuits.parent = self
-                            self.p2p_description = None
+                            self.backup_attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits()
+                            self.backup_attachment_circuits.parent = self
                             self.interworking = None
+                            self.monitor_sessions = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions()
+                            self.monitor_sessions.parent = self
+                            self.p2p_description = None
+                            self.pseudowire_evpns = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns()
+                            self.pseudowire_evpns.parent = self
+                            self.pseudowire_routeds = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds()
+                            self.pseudowire_routeds.parent = self
+                            self.pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires()
+                            self.pseudowires.parent = self
 
 
                         class BackupAttachmentCircuits(object):
@@ -2690,9 +2690,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-attachment-circuit[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2716,7 +2716,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-attachment-circuits'
 
@@ -2804,13 +2804,13 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.eviid is None:
-                                        raise YPYDataValidationError('Key property eviid is None')
+                                        raise YPYModelError('Key property eviid is None')
                                     if self.remote_acid is None:
-                                        raise YPYDataValidationError('Key property remote_acid is None')
+                                        raise YPYModelError('Key property remote_acid is None')
                                     if self.source_acid is None:
-                                        raise YPYDataValidationError('Key property source_acid is None')
+                                        raise YPYModelError('Key property source_acid is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-evpn[Cisco-IOS-XR-l2vpn-cfg:eviid = ' + str(self.eviid) + '][Cisco-IOS-XR-l2vpn-cfg:remote-acid = ' + str(self.remote_acid) + '][Cisco-IOS-XR-l2vpn-cfg:source-acid = ' + str(self.source_acid) + ']'
 
@@ -2840,7 +2840,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-evpns'
 
@@ -2937,32 +2937,17 @@ class L2Vpn(object):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: mpls_static_labels
-                                    
-                                    	MPLS static labels
-                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels>`
-                                    
                                     .. attribute:: backup_pseudowires
                                     
                                     	List of pseudowires
                                     	**type**\: :py:class:`BackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires>`
                                     
-                                    .. attribute:: l2tp_static_attributes
+                                    .. attribute:: bandwidth
                                     
-                                    	L2TP Static Attributes
-                                    	**type**\: :py:class:`L2TpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes>`
-                                    
-                                    .. attribute:: l2tp_static
-                                    
-                                    	Pseudowire L2TPv3 static configuration
-                                    	**type**\: :py:class:`L2TpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic>`
-                                    
-                                    .. attribute:: tag_impose
-                                    
-                                    	Tag Impose vlan tagged mode
+                                    	Pseudowire Bandwidth
                                     	**type**\: int
                                     
-                                    	**range:** 1..4094
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: class_
                                     
@@ -2970,6 +2955,21 @@ class L2Vpn(object):
                                     	**type**\: str
                                     
                                     	**range:** 0..32
+                                    
+                                    .. attribute:: l2tp_static
+                                    
+                                    	Pseudowire L2TPv3 static configuration
+                                    	**type**\: :py:class:`L2TpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic>`
+                                    
+                                    .. attribute:: l2tp_static_attributes
+                                    
+                                    	L2TP Static Attributes
+                                    	**type**\: :py:class:`L2TpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes>`
+                                    
+                                    .. attribute:: mpls_static_labels
+                                    
+                                    	MPLS static labels
+                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels>`
                                     
                                     .. attribute:: source_address
                                     
@@ -2988,12 +2988,12 @@ class L2Vpn(object):
                                     
                                     
                                     ----
-                                    .. attribute:: bandwidth
+                                    .. attribute:: tag_impose
                                     
-                                    	Pseudowire Bandwidth
+                                    	Tag Impose vlan tagged mode
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 1..4094
                                     
                                     
 
@@ -3005,18 +3005,18 @@ class L2Vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.neighbor = None
-                                        self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels()
-                                        self.mpls_static_labels.parent = self
                                         self.backup_pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires()
                                         self.backup_pseudowires.parent = self
-                                        self.l2tp_static_attributes = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes()
-                                        self.l2tp_static_attributes.parent = self
+                                        self.bandwidth = None
+                                        self.class_ = None
                                         self.l2tp_static = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic()
                                         self.l2tp_static.parent = self
-                                        self.tag_impose = None
-                                        self.class_ = None
+                                        self.l2tp_static_attributes = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes()
+                                        self.l2tp_static_attributes.parent = self
+                                        self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels()
+                                        self.mpls_static_labels.parent = self
                                         self.source_address = None
-                                        self.bandwidth = None
+                                        self.tag_impose = None
 
 
                                     class MplsStaticLabels(object):
@@ -3052,7 +3052,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mpls-static-labels'
 
@@ -3179,7 +3179,7 @@ class L2Vpn(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-mpls-static-labels'
 
@@ -3206,11 +3206,11 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.neighbor is None:
-                                                    raise YPYDataValidationError('Key property neighbor is None')
+                                                    raise YPYModelError('Key property neighbor is None')
                                                 if self.pseudowire_id is None:
-                                                    raise YPYDataValidationError('Key property pseudowire_id is None')
+                                                    raise YPYModelError('Key property pseudowire_id is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-pseudowire[Cisco-IOS-XR-l2vpn-cfg:neighbor = ' + str(self.neighbor) + '][Cisco-IOS-XR-l2vpn-cfg:pseudowire-id = ' + str(self.pseudowire_id) + ']'
 
@@ -3243,7 +3243,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-pseudowires'
 
@@ -3271,20 +3271,22 @@ class L2Vpn(object):
                                         """
                                         L2TP Static Attributes
                                         
-                                        .. attribute:: l2tp_remote_cookie
-                                        
-                                        	L2TP remote cookie
-                                        	**type**\: :py:class:`L2TpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie>`
-                                        
-                                        .. attribute:: l2tp_secondary_local_cookie
-                                        
-                                        	L2TP secondary local cookie
-                                        	**type**\: :py:class:`L2TpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
-                                        
                                         .. attribute:: l2tp_local_cookie
                                         
                                         	L2TP local cookie
                                         	**type**\: :py:class:`L2TpLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie>`
+                                        
+                                        .. attribute:: l2tp_local_session_id
+                                        
+                                        	L2TP local session ID
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..65535
+                                        
+                                        .. attribute:: l2tp_remote_cookie
+                                        
+                                        	L2TP remote cookie
+                                        	**type**\: :py:class:`L2TpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie>`
                                         
                                         .. attribute:: l2tp_remote_session_id
                                         
@@ -3293,12 +3295,10 @@ class L2Vpn(object):
                                         
                                         	**range:** 1..65535
                                         
-                                        .. attribute:: l2tp_local_session_id
+                                        .. attribute:: l2tp_secondary_local_cookie
                                         
-                                        	L2TP local session ID
-                                        	**type**\: int
-                                        
-                                        	**range:** 1..65535
+                                        	L2TP secondary local cookie
+                                        	**type**\: :py:class:`L2TpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
                                         
                                         
 
@@ -3309,24 +3309,26 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie()
-                                            self.l2tp_remote_cookie.parent = self
-                                            self.l2tp_secondary_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie()
-                                            self.l2tp_secondary_local_cookie.parent = self
                                             self.l2tp_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie()
                                             self.l2tp_local_cookie.parent = self
-                                            self.l2tp_remote_session_id = None
                                             self.l2tp_local_session_id = None
+                                            self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie()
+                                            self.l2tp_remote_cookie.parent = self
+                                            self.l2tp_remote_session_id = None
+                                            self.l2tp_secondary_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie()
+                                            self.l2tp_secondary_local_cookie.parent = self
 
 
                                         class L2TpRemoteCookie(object):
                                             """
                                             L2TP remote cookie
                                             
-                                            .. attribute:: size
+                                            .. attribute:: higher_value
                                             
-                                            	Remote cookie size
-                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	Higher remote cookie value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: lower_value
                                             
@@ -3335,12 +3337,10 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: higher_value
+                                            .. attribute:: size
                                             
-                                            	Higher remote cookie value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	Remote cookie size
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -3351,14 +3351,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.size = None
-                                                self.lower_value = None
                                                 self.higher_value = None
+                                                self.lower_value = None
+                                                self.size = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-remote-cookie'
 
@@ -3369,13 +3369,13 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.size is not None:
+                                                if self.higher_value is not None:
                                                     return True
 
                                                 if self.lower_value is not None:
                                                     return True
 
-                                                if self.higher_value is not None:
+                                                if self.size is not None:
                                                     return True
 
                                                 return False
@@ -3390,10 +3390,12 @@ class L2Vpn(object):
                                             """
                                             L2TP secondary local cookie
                                             
-                                            .. attribute:: size
+                                            .. attribute:: higher_value
                                             
-                                            	Local cookie size
-                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	Higher local cookie value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: lower_value
                                             
@@ -3402,12 +3404,10 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: higher_value
+                                            .. attribute:: size
                                             
-                                            	Higher local cookie value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	Local cookie size
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -3418,14 +3418,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.size = None
-                                                self.lower_value = None
                                                 self.higher_value = None
+                                                self.lower_value = None
+                                                self.size = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-secondary-local-cookie'
 
@@ -3436,13 +3436,13 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.size is not None:
+                                                if self.higher_value is not None:
                                                     return True
 
                                                 if self.lower_value is not None:
                                                     return True
 
-                                                if self.higher_value is not None:
+                                                if self.size is not None:
                                                     return True
 
                                                 return False
@@ -3457,10 +3457,12 @@ class L2Vpn(object):
                                             """
                                             L2TP local cookie
                                             
-                                            .. attribute:: size
+                                            .. attribute:: higher_value
                                             
-                                            	Local cookie size
-                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	Higher local cookie value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: lower_value
                                             
@@ -3469,12 +3471,10 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: higher_value
+                                            .. attribute:: size
                                             
-                                            	Higher local cookie value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	Local cookie size
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -3485,14 +3485,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.size = None
-                                                self.lower_value = None
                                                 self.higher_value = None
+                                                self.lower_value = None
+                                                self.size = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-local-cookie'
 
@@ -3503,13 +3503,13 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.size is not None:
+                                                if self.higher_value is not None:
                                                     return True
 
                                                 if self.lower_value is not None:
                                                     return True
 
-                                                if self.higher_value is not None:
+                                                if self.size is not None:
                                                     return True
 
                                                 return False
@@ -3522,7 +3522,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-static-attributes'
 
@@ -3533,19 +3533,19 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie._has_data():
-                                                return True
-
-                                            if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie._has_data():
-                                                return True
-
                                             if self.l2tp_local_cookie is not None and self.l2tp_local_cookie._has_data():
+                                                return True
+
+                                            if self.l2tp_local_session_id is not None:
+                                                return True
+
+                                            if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie._has_data():
                                                 return True
 
                                             if self.l2tp_remote_session_id is not None:
                                                 return True
 
-                                            if self.l2tp_local_session_id is not None:
+                                            if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie._has_data():
                                                 return True
 
                                             return False
@@ -3579,7 +3579,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-static'
 
@@ -3603,9 +3603,9 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.neighbor is None:
-                                            raise YPYDataValidationError('Key property neighbor is None')
+                                            raise YPYModelError('Key property neighbor is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:neighbor[Cisco-IOS-XR-l2vpn-cfg:neighbor = ' + str(self.neighbor) + ']'
 
@@ -3619,28 +3619,28 @@ class L2Vpn(object):
                                         if self.neighbor is not None:
                                             return True
 
-                                        if self.mpls_static_labels is not None and self.mpls_static_labels._has_data():
-                                            return True
-
                                         if self.backup_pseudowires is not None and self.backup_pseudowires._has_data():
                                             return True
 
-                                        if self.l2tp_static_attributes is not None and self.l2tp_static_attributes._has_data():
-                                            return True
-
-                                        if self.l2tp_static is not None and self.l2tp_static._has_data():
-                                            return True
-
-                                        if self.tag_impose is not None:
+                                        if self.bandwidth is not None:
                                             return True
 
                                         if self.class_ is not None:
                                             return True
 
+                                        if self.l2tp_static is not None and self.l2tp_static._has_data():
+                                            return True
+
+                                        if self.l2tp_static_attributes is not None and self.l2tp_static_attributes._has_data():
+                                            return True
+
+                                        if self.mpls_static_labels is not None and self.mpls_static_labels._has_data():
+                                            return True
+
                                         if self.source_address is not None:
                                             return True
 
-                                        if self.bandwidth is not None:
+                                        if self.tag_impose is not None:
                                             return True
 
                                         return False
@@ -3662,32 +3662,17 @@ class L2Vpn(object):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: mpls_static_labels
-                                    
-                                    	MPLS static labels
-                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels>`
-                                    
                                     .. attribute:: backup_pseudowires
                                     
                                     	List of pseudowires
                                     	**type**\: :py:class:`BackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires>`
                                     
-                                    .. attribute:: l2tp_static_attributes
+                                    .. attribute:: bandwidth
                                     
-                                    	L2TP Static Attributes
-                                    	**type**\: :py:class:`L2TpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes>`
-                                    
-                                    .. attribute:: l2tp_static
-                                    
-                                    	Pseudowire L2TPv3 static configuration
-                                    	**type**\: :py:class:`L2TpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic>`
-                                    
-                                    .. attribute:: tag_impose
-                                    
-                                    	Tag Impose vlan tagged mode
+                                    	Pseudowire Bandwidth
                                     	**type**\: int
                                     
-                                    	**range:** 1..4094
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: class_
                                     
@@ -3695,6 +3680,21 @@ class L2Vpn(object):
                                     	**type**\: str
                                     
                                     	**range:** 0..32
+                                    
+                                    .. attribute:: l2tp_static
+                                    
+                                    	Pseudowire L2TPv3 static configuration
+                                    	**type**\: :py:class:`L2TpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic>`
+                                    
+                                    .. attribute:: l2tp_static_attributes
+                                    
+                                    	L2TP Static Attributes
+                                    	**type**\: :py:class:`L2TpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes>`
+                                    
+                                    .. attribute:: mpls_static_labels
+                                    
+                                    	MPLS static labels
+                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels>`
                                     
                                     .. attribute:: source_address
                                     
@@ -3713,12 +3713,12 @@ class L2Vpn(object):
                                     
                                     
                                     ----
-                                    .. attribute:: bandwidth
+                                    .. attribute:: tag_impose
                                     
-                                    	Pseudowire Bandwidth
+                                    	Tag Impose vlan tagged mode
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 1..4094
                                     
                                     
 
@@ -3730,18 +3730,18 @@ class L2Vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.pseudowire_address = None
-                                        self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels()
-                                        self.mpls_static_labels.parent = self
                                         self.backup_pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires()
                                         self.backup_pseudowires.parent = self
-                                        self.l2tp_static_attributes = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes()
-                                        self.l2tp_static_attributes.parent = self
+                                        self.bandwidth = None
+                                        self.class_ = None
                                         self.l2tp_static = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic()
                                         self.l2tp_static.parent = self
-                                        self.tag_impose = None
-                                        self.class_ = None
+                                        self.l2tp_static_attributes = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes()
+                                        self.l2tp_static_attributes.parent = self
+                                        self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels()
+                                        self.mpls_static_labels.parent = self
                                         self.source_address = None
-                                        self.bandwidth = None
+                                        self.tag_impose = None
 
 
                                     class MplsStaticLabels(object):
@@ -3777,7 +3777,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mpls-static-labels'
 
@@ -3904,7 +3904,7 @@ class L2Vpn(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-mpls-static-labels'
 
@@ -3931,11 +3931,11 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.neighbor is None:
-                                                    raise YPYDataValidationError('Key property neighbor is None')
+                                                    raise YPYModelError('Key property neighbor is None')
                                                 if self.pseudowire_id is None:
-                                                    raise YPYDataValidationError('Key property pseudowire_id is None')
+                                                    raise YPYModelError('Key property pseudowire_id is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-pseudowire[Cisco-IOS-XR-l2vpn-cfg:neighbor = ' + str(self.neighbor) + '][Cisco-IOS-XR-l2vpn-cfg:pseudowire-id = ' + str(self.pseudowire_id) + ']'
 
@@ -3968,7 +3968,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-pseudowires'
 
@@ -3996,20 +3996,22 @@ class L2Vpn(object):
                                         """
                                         L2TP Static Attributes
                                         
-                                        .. attribute:: l2tp_remote_cookie
-                                        
-                                        	L2TP remote cookie
-                                        	**type**\: :py:class:`L2TpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie>`
-                                        
-                                        .. attribute:: l2tp_secondary_local_cookie
-                                        
-                                        	L2TP secondary local cookie
-                                        	**type**\: :py:class:`L2TpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
-                                        
                                         .. attribute:: l2tp_local_cookie
                                         
                                         	L2TP local cookie
                                         	**type**\: :py:class:`L2TpLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie>`
+                                        
+                                        .. attribute:: l2tp_local_session_id
+                                        
+                                        	L2TP local session ID
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..65535
+                                        
+                                        .. attribute:: l2tp_remote_cookie
+                                        
+                                        	L2TP remote cookie
+                                        	**type**\: :py:class:`L2TpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie>`
                                         
                                         .. attribute:: l2tp_remote_session_id
                                         
@@ -4018,12 +4020,10 @@ class L2Vpn(object):
                                         
                                         	**range:** 1..65535
                                         
-                                        .. attribute:: l2tp_local_session_id
+                                        .. attribute:: l2tp_secondary_local_cookie
                                         
-                                        	L2TP local session ID
-                                        	**type**\: int
-                                        
-                                        	**range:** 1..65535
+                                        	L2TP secondary local cookie
+                                        	**type**\: :py:class:`L2TpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
                                         
                                         
 
@@ -4034,24 +4034,26 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie()
-                                            self.l2tp_remote_cookie.parent = self
-                                            self.l2tp_secondary_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie()
-                                            self.l2tp_secondary_local_cookie.parent = self
                                             self.l2tp_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie()
                                             self.l2tp_local_cookie.parent = self
-                                            self.l2tp_remote_session_id = None
                                             self.l2tp_local_session_id = None
+                                            self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie()
+                                            self.l2tp_remote_cookie.parent = self
+                                            self.l2tp_remote_session_id = None
+                                            self.l2tp_secondary_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie()
+                                            self.l2tp_secondary_local_cookie.parent = self
 
 
                                         class L2TpRemoteCookie(object):
                                             """
                                             L2TP remote cookie
                                             
-                                            .. attribute:: size
+                                            .. attribute:: higher_value
                                             
-                                            	Remote cookie size
-                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	Higher remote cookie value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: lower_value
                                             
@@ -4060,12 +4062,10 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: higher_value
+                                            .. attribute:: size
                                             
-                                            	Higher remote cookie value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	Remote cookie size
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -4076,14 +4076,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.size = None
-                                                self.lower_value = None
                                                 self.higher_value = None
+                                                self.lower_value = None
+                                                self.size = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-remote-cookie'
 
@@ -4094,13 +4094,13 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.size is not None:
+                                                if self.higher_value is not None:
                                                     return True
 
                                                 if self.lower_value is not None:
                                                     return True
 
-                                                if self.higher_value is not None:
+                                                if self.size is not None:
                                                     return True
 
                                                 return False
@@ -4115,10 +4115,12 @@ class L2Vpn(object):
                                             """
                                             L2TP secondary local cookie
                                             
-                                            .. attribute:: size
+                                            .. attribute:: higher_value
                                             
-                                            	Local cookie size
-                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	Higher local cookie value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: lower_value
                                             
@@ -4127,12 +4129,10 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: higher_value
+                                            .. attribute:: size
                                             
-                                            	Higher local cookie value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	Local cookie size
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -4143,14 +4143,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.size = None
-                                                self.lower_value = None
                                                 self.higher_value = None
+                                                self.lower_value = None
+                                                self.size = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-secondary-local-cookie'
 
@@ -4161,13 +4161,13 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.size is not None:
+                                                if self.higher_value is not None:
                                                     return True
 
                                                 if self.lower_value is not None:
                                                     return True
 
-                                                if self.higher_value is not None:
+                                                if self.size is not None:
                                                     return True
 
                                                 return False
@@ -4182,10 +4182,12 @@ class L2Vpn(object):
                                             """
                                             L2TP local cookie
                                             
-                                            .. attribute:: size
+                                            .. attribute:: higher_value
                                             
-                                            	Local cookie size
-                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	Higher local cookie value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: lower_value
                                             
@@ -4194,12 +4196,10 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: higher_value
+                                            .. attribute:: size
                                             
-                                            	Higher local cookie value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	Local cookie size
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -4210,14 +4210,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.size = None
-                                                self.lower_value = None
                                                 self.higher_value = None
+                                                self.lower_value = None
+                                                self.size = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-local-cookie'
 
@@ -4228,13 +4228,13 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.size is not None:
+                                                if self.higher_value is not None:
                                                     return True
 
                                                 if self.lower_value is not None:
                                                     return True
 
-                                                if self.higher_value is not None:
+                                                if self.size is not None:
                                                     return True
 
                                                 return False
@@ -4247,7 +4247,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-static-attributes'
 
@@ -4258,19 +4258,19 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie._has_data():
-                                                return True
-
-                                            if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie._has_data():
-                                                return True
-
                                             if self.l2tp_local_cookie is not None and self.l2tp_local_cookie._has_data():
+                                                return True
+
+                                            if self.l2tp_local_session_id is not None:
+                                                return True
+
+                                            if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie._has_data():
                                                 return True
 
                                             if self.l2tp_remote_session_id is not None:
                                                 return True
 
-                                            if self.l2tp_local_session_id is not None:
+                                            if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie._has_data():
                                                 return True
 
                                             return False
@@ -4304,7 +4304,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tp-static'
 
@@ -4328,9 +4328,9 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.pseudowire_address is None:
-                                            raise YPYDataValidationError('Key property pseudowire_address is None')
+                                            raise YPYModelError('Key property pseudowire_address is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-address[Cisco-IOS-XR-l2vpn-cfg:pseudowire-address = ' + str(self.pseudowire_address) + ']'
 
@@ -4344,28 +4344,28 @@ class L2Vpn(object):
                                         if self.pseudowire_address is not None:
                                             return True
 
-                                        if self.mpls_static_labels is not None and self.mpls_static_labels._has_data():
-                                            return True
-
                                         if self.backup_pseudowires is not None and self.backup_pseudowires._has_data():
                                             return True
 
-                                        if self.l2tp_static_attributes is not None and self.l2tp_static_attributes._has_data():
-                                            return True
-
-                                        if self.l2tp_static is not None and self.l2tp_static._has_data():
-                                            return True
-
-                                        if self.tag_impose is not None:
+                                        if self.bandwidth is not None:
                                             return True
 
                                         if self.class_ is not None:
                                             return True
 
+                                        if self.l2tp_static is not None and self.l2tp_static._has_data():
+                                            return True
+
+                                        if self.l2tp_static_attributes is not None and self.l2tp_static_attributes._has_data():
+                                            return True
+
+                                        if self.mpls_static_labels is not None and self.mpls_static_labels._has_data():
+                                            return True
+
                                         if self.source_address is not None:
                                             return True
 
-                                        if self.bandwidth is not None:
+                                        if self.tag_impose is not None:
                                             return True
 
                                         return False
@@ -4378,9 +4378,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.pseudowire_id is None:
-                                        raise YPYDataValidationError('Key property pseudowire_id is None')
+                                        raise YPYModelError('Key property pseudowire_id is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire[Cisco-IOS-XR-l2vpn-cfg:pseudowire-id = ' + str(self.pseudowire_id) + ']'
 
@@ -4414,7 +4414,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowires'
 
@@ -4492,9 +4492,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.name is None:
-                                        raise YPYDataValidationError('Key property name is None')
+                                        raise YPYModelError('Key property name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:monitor-session[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -4521,7 +4521,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:monitor-sessions'
 
@@ -4572,6 +4572,13 @@ class L2Vpn(object):
                                 """
                                 Pseudowire configuration
                                 
+                                .. attribute:: acid  <key>
+                                
+                                	Target AC ID
+                                	**type**\: int
+                                
+                                	**range:** 1..4294967295
+                                
                                 .. attribute:: global_id  <key>
                                 
                                 	Target Global ID
@@ -4586,13 +4593,6 @@ class L2Vpn(object):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: acid  <key>
-                                
-                                	Target AC ID
-                                	**type**\: int
-                                
-                                	**range:** 1..4294967295
-                                
                                 .. attribute:: sacid  <key>
                                 
                                 	Source AC ID
@@ -4600,19 +4600,19 @@ class L2Vpn(object):
                                 
                                 	**range:** 1..4294967295
                                 
-                                .. attribute:: tag_impose
-                                
-                                	Tag Impose vlan tagged mode
-                                	**type**\: int
-                                
-                                	**range:** 1..4094
-                                
                                 .. attribute:: class_
                                 
                                 	Name of the pseudowire class
                                 	**type**\: str
                                 
                                 	**range:** 0..32
+                                
+                                .. attribute:: tag_impose
+                                
+                                	Tag Impose vlan tagged mode
+                                	**type**\: int
+                                
+                                	**range:** 1..4094
                                 
                                 
 
@@ -4623,27 +4623,27 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.acid = None
                                     self.global_id = None
                                     self.prefix = None
-                                    self.acid = None
                                     self.sacid = None
-                                    self.tag_impose = None
                                     self.class_ = None
+                                    self.tag_impose = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                    if self.global_id is None:
-                                        raise YPYDataValidationError('Key property global_id is None')
-                                    if self.prefix is None:
-                                        raise YPYDataValidationError('Key property prefix is None')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.acid is None:
-                                        raise YPYDataValidationError('Key property acid is None')
+                                        raise YPYModelError('Key property acid is None')
+                                    if self.global_id is None:
+                                        raise YPYModelError('Key property global_id is None')
+                                    if self.prefix is None:
+                                        raise YPYModelError('Key property prefix is None')
                                     if self.sacid is None:
-                                        raise YPYDataValidationError('Key property sacid is None')
+                                        raise YPYModelError('Key property sacid is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-routed[Cisco-IOS-XR-l2vpn-cfg:global-id = ' + str(self.global_id) + '][Cisco-IOS-XR-l2vpn-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + '][Cisco-IOS-XR-l2vpn-cfg:sacid = ' + str(self.sacid) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-routed[Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + '][Cisco-IOS-XR-l2vpn-cfg:global-id = ' + str(self.global_id) + '][Cisco-IOS-XR-l2vpn-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-l2vpn-cfg:sacid = ' + str(self.sacid) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
@@ -4652,22 +4652,22 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.acid is not None:
+                                        return True
+
                                     if self.global_id is not None:
                                         return True
 
                                     if self.prefix is not None:
                                         return True
 
-                                    if self.acid is not None:
-                                        return True
-
                                     if self.sacid is not None:
                                         return True
 
-                                    if self.tag_impose is not None:
+                                    if self.class_ is not None:
                                         return True
 
-                                    if self.class_ is not None:
+                                    if self.tag_impose is not None:
                                         return True
 
                                     return False
@@ -4680,7 +4680,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-routeds'
 
@@ -4758,9 +4758,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.name is None:
-                                        raise YPYDataValidationError('Key property name is None')
+                                        raise YPYModelError('Key property name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:attachment-circuit[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -4787,7 +4787,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:attachment-circuits'
 
@@ -4813,9 +4813,9 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.name is None:
-                                raise YPYDataValidationError('Key property name is None')
+                                raise YPYModelError('Key property name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:p2p-xconnect[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -4829,28 +4829,28 @@ class L2Vpn(object):
                             if self.name is not None:
                                 return True
 
+                            if self.attachment_circuits is not None and self.attachment_circuits._has_data():
+                                return True
+
                             if self.backup_attachment_circuits is not None and self.backup_attachment_circuits._has_data():
                                 return True
 
-                            if self.pseudowire_evpns is not None and self.pseudowire_evpns._has_data():
-                                return True
-
-                            if self.pseudowires is not None and self.pseudowires._has_data():
+                            if self.interworking is not None:
                                 return True
 
                             if self.monitor_sessions is not None and self.monitor_sessions._has_data():
                                 return True
 
-                            if self.pseudowire_routeds is not None and self.pseudowire_routeds._has_data():
-                                return True
-
-                            if self.attachment_circuits is not None and self.attachment_circuits._has_data():
-                                return True
-
                             if self.p2p_description is not None:
                                 return True
 
-                            if self.interworking is not None:
+                            if self.pseudowire_evpns is not None and self.pseudowire_evpns._has_data():
+                                return True
+
+                            if self.pseudowire_routeds is not None and self.pseudowire_routeds._has_data():
+                                return True
+
+                            if self.pseudowires is not None and self.pseudowires._has_data():
                                 return True
 
                             return False
@@ -4863,7 +4863,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:p2p-xconnects'
 
@@ -4926,22 +4926,10 @@ class L2Vpn(object):
                         	auto\-discovery in this MP2MP
                         	**type**\: :py:class:`Mp2MpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery>`
                         
-                        .. attribute:: mp2mpmtu
-                        
-                        	Maximum transmission unit for this MP2MP VPWS instance
-                        	**type**\: int
-                        
-                        	**range:** 64..65535
-                        
                         .. attribute:: mp2mp_control_word
                         
                         	Disable control word
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: mp2mpl2_encapsulation
-                        
-                        	Configure Layer 2 Encapsulation
-                        	**type**\: :py:class:`L2EncapsulationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2EncapsulationEnum>`
                         
                         .. attribute:: mp2mp_interworking
                         
@@ -4952,6 +4940,18 @@ class L2Vpn(object):
                         
                         	shutdown this MP2MP VPWS instance
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: mp2mpl2_encapsulation
+                        
+                        	Configure Layer 2 Encapsulation
+                        	**type**\: :py:class:`L2EncapsulationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2EncapsulationEnum>`
+                        
+                        .. attribute:: mp2mpmtu
+                        
+                        	Maximum transmission unit for this MP2MP VPWS instance
+                        	**type**\: int
+                        
+                        	**range:** 64..65535
                         
                         .. attribute:: mp2mpvpn_id
                         
@@ -4972,11 +4972,11 @@ class L2Vpn(object):
                             self.name = None
                             self.mp2mp_auto_discovery = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery()
                             self.mp2mp_auto_discovery.parent = self
-                            self.mp2mpmtu = None
                             self.mp2mp_control_word = None
-                            self.mp2mpl2_encapsulation = None
                             self.mp2mp_interworking = None
                             self.mp2mp_shutdown = None
+                            self.mp2mpl2_encapsulation = None
+                            self.mp2mpmtu = None
                             self.mp2mpvpn_id = None
 
 
@@ -4984,10 +4984,10 @@ class L2Vpn(object):
                             """
                             auto\-discovery in this MP2MP
                             
-                            .. attribute:: route_distinguisher
+                            .. attribute:: enable
                             
-                            	Route Distinguisher
-                            	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher>`
+                            	Enable auto\-discovery
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             .. attribute:: mp2mp_route_targets
                             
@@ -4999,10 +4999,10 @@ class L2Vpn(object):
                             	signaling protocol in this MP2MP
                             	**type**\: :py:class:`Mp2MpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol>`
                             
-                            .. attribute:: enable
+                            .. attribute:: route_distinguisher
                             
-                            	Enable auto\-discovery
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            	Route Distinguisher
+                            	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher>`
                             
                             
 
@@ -5013,23 +5013,32 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.route_distinguisher = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher()
-                                self.route_distinguisher.parent = self
+                                self.enable = None
                                 self.mp2mp_route_targets = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets()
                                 self.mp2mp_route_targets.parent = self
                                 self.mp2mp_signaling_protocol = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol()
                                 self.mp2mp_signaling_protocol.parent = self
-                                self.enable = None
+                                self.route_distinguisher = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher()
+                                self.route_distinguisher.parent = self
 
 
                             class RouteDistinguisher(object):
                                 """
                                 Route Distinguisher
                                 
-                                .. attribute:: type
+                                .. attribute:: addr_index
                                 
-                                	Router distinguisher type
-                                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                                	Addr index
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: address
+                                
+                                	IPV4 address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: as_
                                 
@@ -5045,19 +5054,10 @@ class L2Vpn(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: address
+                                .. attribute:: type
                                 
-                                	IPV4 address
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: addr_index
-                                
-                                	Addr index
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
+                                	Router distinguisher type
+                                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                                 
                                 
 
@@ -5068,16 +5068,16 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.type = None
+                                    self.addr_index = None
+                                    self.address = None
                                     self.as_ = None
                                     self.as_index = None
-                                    self.address = None
-                                    self.addr_index = None
+                                    self.type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-distinguisher'
 
@@ -5088,7 +5088,10 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.type is not None:
+                                    if self.addr_index is not None:
+                                        return True
+
+                                    if self.address is not None:
                                         return True
 
                                     if self.as_ is not None:
@@ -5097,10 +5100,7 @@ class L2Vpn(object):
                                     if self.as_index is not None:
                                         return True
 
-                                    if self.address is not None:
-                                        return True
-
-                                    if self.addr_index is not None:
+                                    if self.type is not None:
                                         return True
 
                                     return False
@@ -5138,25 +5138,25 @@ class L2Vpn(object):
                                     """
                                     Name of the Route Target
                                     
-                                    .. attribute:: role  <key>
-                                    
-                                    	Role of the router target type
-                                    	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
-                                    
                                     .. attribute:: format  <key>
                                     
                                     	Format of the route target
                                     	**type**\: :py:class:`BgpRouteTargetFormatEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                     
-                                    .. attribute:: two_byte_as_or_four_byte_as
+                                    .. attribute:: role  <key>
                                     
-                                    	two byte as or four byte as
-                                    	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs>`
+                                    	Role of the router target type
+                                    	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	ipv4 address
                                     	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address>`
+                                    
+                                    .. attribute:: two_byte_as_or_four_byte_as
+                                    
+                                    	two byte as or four byte as
+                                    	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs>`
                                     
                                     
 
@@ -5167,14 +5167,14 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.role = None
                                         self.format = None
-                                        self.two_byte_as_or_four_byte_as = YList()
-                                        self.two_byte_as_or_four_byte_as.parent = self
-                                        self.two_byte_as_or_four_byte_as.name = 'two_byte_as_or_four_byte_as'
+                                        self.role = None
                                         self.ipv4_address = YList()
                                         self.ipv4_address.parent = self
                                         self.ipv4_address.name = 'ipv4_address'
+                                        self.two_byte_as_or_four_byte_as = YList()
+                                        self.two_byte_as_or_four_byte_as.parent = self
+                                        self.two_byte_as_or_four_byte_as.name = 'two_byte_as_or_four_byte_as'
 
 
                                     class TwoByteAsOrFourByteAs(object):
@@ -5210,11 +5210,11 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.as_ is None:
-                                                raise YPYDataValidationError('Key property as_ is None')
+                                                raise YPYModelError('Key property as_ is None')
                                             if self.as_index is None:
-                                                raise YPYDataValidationError('Key property as_index is None')
+                                                raise YPYModelError('Key property as_index is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:two-byte-as-or-four-byte-as[Cisco-IOS-XR-l2vpn-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-l2vpn-cfg:as-index = ' + str(self.as_index) + ']'
 
@@ -5243,19 +5243,19 @@ class L2Vpn(object):
                                         """
                                         ipv4 address
                                         
-                                        .. attribute:: address  <key>
-                                        
-                                        	IPV4 address
-                                        	**type**\: str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                        
                                         .. attribute:: addr_index  <key>
                                         
                                         	Addr index
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: address  <key>
+                                        
+                                        	IPV4 address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         
 
@@ -5266,19 +5266,19 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.address = None
                                             self.addr_index = None
+                                            self.address = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                            if self.address is None:
-                                                raise YPYDataValidationError('Key property address is None')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.addr_index is None:
-                                                raise YPYDataValidationError('Key property addr_index is None')
+                                                raise YPYModelError('Key property addr_index is None')
+                                            if self.address is None:
+                                                raise YPYModelError('Key property address is None')
 
-                                            return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + ']'
+                                            return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
                                         def is_config(self):
                                             ''' Returns True if this instance represents config data else returns False '''
@@ -5287,10 +5287,10 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.address is not None:
+                                            if self.addr_index is not None:
                                                 return True
 
-                                            if self.addr_index is not None:
+                                            if self.address is not None:
                                                 return True
 
                                             return False
@@ -5303,13 +5303,13 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.role is None:
-                                            raise YPYDataValidationError('Key property role is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.format is None:
-                                            raise YPYDataValidationError('Key property format is None')
+                                            raise YPYModelError('Key property format is None')
+                                        if self.role is None:
+                                            raise YPYModelError('Key property role is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-route-target[Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-route-target[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -5318,19 +5318,19 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.role is not None:
-                                            return True
-
                                         if self.format is not None:
                                             return True
 
-                                        if self.two_byte_as_or_four_byte_as is not None:
-                                            for child_ref in self.two_byte_as_or_four_byte_as:
-                                                if child_ref._has_data():
-                                                    return True
+                                        if self.role is not None:
+                                            return True
 
                                         if self.ipv4_address is not None:
                                             for child_ref in self.ipv4_address:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        if self.two_byte_as_or_four_byte_as is not None:
+                                            for child_ref in self.two_byte_as_or_four_byte_as:
                                                 if child_ref._has_data():
                                                     return True
 
@@ -5344,7 +5344,7 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-route-targets'
 
@@ -5372,16 +5372,6 @@ class L2Vpn(object):
                                 """
                                 signaling protocol in this MP2MP
                                 
-                                .. attribute:: flow_label_load_balance
-                                
-                                	Enable Flow Label based load balancing
-                                	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance>`
-                                
-                                .. attribute:: ceids
-                                
-                                	Local Customer Edge Identifier Table
-                                	**type**\: :py:class:`Ceids <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids>`
-                                
                                 .. attribute:: ce_range
                                 
                                 	Local Customer Edge Identifier
@@ -5389,10 +5379,20 @@ class L2Vpn(object):
                                 
                                 	**range:** 11..100
                                 
+                                .. attribute:: ceids
+                                
+                                	Local Customer Edge Identifier Table
+                                	**type**\: :py:class:`Ceids <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids>`
+                                
                                 .. attribute:: enable
                                 
                                 	Enable signaling protocol
                                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                
+                                .. attribute:: flow_label_load_balance
+                                
+                                	Enable Flow Label based load balancing
+                                	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance>`
                                 
                                 
 
@@ -5403,12 +5403,12 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.flow_label_load_balance = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance()
-                                    self.flow_label_load_balance.parent = self
+                                    self.ce_range = None
                                     self.ceids = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids()
                                     self.ceids.parent = self
-                                    self.ce_range = None
                                     self.enable = None
+                                    self.flow_label_load_balance = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance()
+                                    self.flow_label_load_balance.parent = self
 
 
                                 class FlowLabelLoadBalance(object):
@@ -5440,7 +5440,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:flow-label-load-balance'
 
@@ -5575,11 +5575,11 @@ class L2Vpn(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                                     if self.name is None:
-                                                        raise YPYDataValidationError('Key property name is None')
+                                                        raise YPYModelError('Key property name is None')
                                                     if self.remote_ce_id is None:
-                                                        raise YPYDataValidationError('Key property remote_ce_id is None')
+                                                        raise YPYModelError('Key property remote_ce_id is None')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:remote-ceid-attachment-circuit[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-l2vpn-cfg:remote-ce-id = ' + str(self.remote_ce_id) + ']'
 
@@ -5606,7 +5606,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:remote-ceid-attachment-circuits'
 
@@ -5632,9 +5632,9 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.ce_id is None:
-                                                raise YPYDataValidationError('Key property ce_id is None')
+                                                raise YPYModelError('Key property ce_id is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ceid[Cisco-IOS-XR-l2vpn-cfg:ce-id = ' + str(self.ce_id) + ']'
 
@@ -5661,7 +5661,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ceids'
 
@@ -5687,7 +5687,7 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-signaling-protocol'
 
@@ -5698,16 +5698,16 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
+                                    if self.ce_range is not None:
                                         return True
 
                                     if self.ceids is not None and self.ceids._has_data():
                                         return True
 
-                                    if self.ce_range is not None:
+                                    if self.enable is not None:
                                         return True
 
-                                    if self.enable is not None:
+                                    if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
                                         return True
 
                                     return False
@@ -5720,7 +5720,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-auto-discovery'
 
@@ -5731,7 +5731,7 @@ class L2Vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.route_distinguisher is not None and self.route_distinguisher._has_data():
+                                if self.enable is not None:
                                     return True
 
                                 if self.mp2mp_route_targets is not None and self.mp2mp_route_targets._has_data():
@@ -5740,7 +5740,7 @@ class L2Vpn(object):
                                 if self.mp2mp_signaling_protocol is not None and self.mp2mp_signaling_protocol._has_data():
                                     return True
 
-                                if self.enable is not None:
+                                if self.route_distinguisher is not None and self.route_distinguisher._has_data():
                                     return True
 
                                 return False
@@ -5753,9 +5753,9 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.name is None:
-                                raise YPYDataValidationError('Key property name is None')
+                                raise YPYModelError('Key property name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-xconnect[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -5772,19 +5772,19 @@ class L2Vpn(object):
                             if self.mp2mp_auto_discovery is not None and self.mp2mp_auto_discovery._has_data():
                                 return True
 
-                            if self.mp2mpmtu is not None:
-                                return True
-
                             if self.mp2mp_control_word is not None:
-                                return True
-
-                            if self.mp2mpl2_encapsulation is not None:
                                 return True
 
                             if self.mp2mp_interworking is not None:
                                 return True
 
                             if self.mp2mp_shutdown is not None:
+                                return True
+
+                            if self.mp2mpl2_encapsulation is not None:
+                                return True
+
+                            if self.mp2mpmtu is not None:
                                 return True
 
                             if self.mp2mpvpn_id is not None:
@@ -5800,7 +5800,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-xconnects'
 
@@ -5826,7 +5826,7 @@ class L2Vpn(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/Cisco-IOS-XR-l2vpn-cfg:l2vpn/Cisco-IOS-XR-l2vpn-cfg:database/Cisco-IOS-XR-l2vpn-cfg:xconnect-groups/Cisco-IOS-XR-l2vpn-cfg:xconnect-group[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -5840,10 +5840,10 @@ class L2Vpn(object):
                     if self.name is not None:
                         return True
 
-                    if self.p2p_xconnects is not None and self.p2p_xconnects._has_data():
+                    if self.mp2mp_xconnects is not None and self.mp2mp_xconnects._has_data():
                         return True
 
-                    if self.mp2mp_xconnects is not None and self.mp2mp_xconnects._has_data():
+                    if self.p2p_xconnects is not None and self.p2p_xconnects._has_data():
                         return True
 
                     return False
@@ -5965,92 +5965,25 @@ class L2Vpn(object):
                         
                         	**range:** 0..27
                         
-                        .. attribute:: bd_storm_controls
+                        .. attribute:: bd_attachment_circuits
                         
-                        	Storm Control
-                        	**type**\: :py:class:`BdStormControls <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls>`
-                        
-                        .. attribute:: member_vnis
-                        
-                        	Bridge Domain VxLAN Network Identifier Table
-                        	**type**\: :py:class:`MemberVnis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis>`
-                        
-                        .. attribute:: bridge_domain_mac
-                        
-                        	MAC configuration commands
-                        	**type**\: :py:class:`BridgeDomainMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac>`
-                        
-                        .. attribute:: nv_satellite
-                        
-                        	nV Satellite
-                        	**type**\: :py:class:`NvSatellite <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite>`
-                        
-                        .. attribute:: bridge_domain_pbb
-                        
-                        	Bridge Domain PBB
-                        	**type**\: :py:class:`BridgeDomainPbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
+                        	Attachment Circuit table
+                        	**type**\: :py:class:`BdAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
                         
                         .. attribute:: bd_pseudowires
                         
                         	List of pseudowires
                         	**type**\: :py:class:`BdPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires>`
                         
-                        .. attribute:: vfis
+                        .. attribute:: bd_storm_controls
                         
-                        	Specify the virtual forwarding interface name
-                        	**type**\: :py:class:`Vfis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
+                        	Storm Control
+                        	**type**\: :py:class:`BdStormControls <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls>`
                         
-                        .. attribute:: bd_attachment_circuits
+                        .. attribute:: bridge_domain_mac
                         
-                        	Attachment Circuit table
-                        	**type**\: :py:class:`BdAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
-                        
-                        .. attribute:: ip_source_guard
-                        
-                        	IP Source Guard
-                        	**type**\: :py:class:`IpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard>`
-                        
-                        .. attribute:: dai
-                        
-                        	Dynamic ARP Inspection
-                        	**type**\: :py:class:`Dai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai>`
-                        
-                        .. attribute:: routed_interfaces
-                        
-                        	Bridge Domain Routed Interface Table
-                        	**type**\: :py:class:`RoutedInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces>`
-                        
-                        .. attribute:: coupled_mode
-                        
-                        	Coupled\-mode configuration
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: shutdown
-                        
-                        	shutdown the Bridge Domain
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: flooding_unknown_unicast
-                        
-                        	Disable Unknown Unicast flooding
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: igmp_snooping_disable
-                        
-                        	Disable IGMP Snooping
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: transport_mode
-                        
-                        	Bridge Domain Transport mode
-                        	**type**\: :py:class:`BridgeDomainTransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportModeEnum>`
-                        
-                        .. attribute:: mld_snooping
-                        
-                        	Attach MLD Snooping Profile Name
-                        	**type**\: str
-                        
-                        	**range:** 0..32
+                        	MAC configuration commands
+                        	**type**\: :py:class:`BridgeDomainMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac>`
                         
                         .. attribute:: bridge_domain_mtu
                         
@@ -6059,16 +5992,24 @@ class L2Vpn(object):
                         
                         	**range:** 46..65535
                         
+                        .. attribute:: bridge_domain_pbb
+                        
+                        	Bridge Domain PBB
+                        	**type**\: :py:class:`BridgeDomainPbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
+                        
+                        .. attribute:: coupled_mode
+                        
+                        	Coupled\-mode configuration
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: dai
+                        
+                        	Dynamic ARP Inspection
+                        	**type**\: :py:class:`Dai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai>`
+                        
                         .. attribute:: dhcp
                         
                         	DHCPv4 Snooping profile name
-                        	**type**\: str
-                        
-                        	**range:** 0..32
-                        
-                        .. attribute:: igmp_snooping
-                        
-                        	Attach IGMP Snooping Profile Name
                         	**type**\: str
                         
                         	**range:** 0..32
@@ -6077,6 +6018,65 @@ class L2Vpn(object):
                         
                         	Disable flooding
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: flooding_unknown_unicast
+                        
+                        	Disable Unknown Unicast flooding
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: igmp_snooping
+                        
+                        	Attach IGMP Snooping Profile Name
+                        	**type**\: str
+                        
+                        	**range:** 0..32
+                        
+                        .. attribute:: igmp_snooping_disable
+                        
+                        	Disable IGMP Snooping
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: ip_source_guard
+                        
+                        	IP Source Guard
+                        	**type**\: :py:class:`IpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard>`
+                        
+                        .. attribute:: member_vnis
+                        
+                        	Bridge Domain VxLAN Network Identifier Table
+                        	**type**\: :py:class:`MemberVnis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis>`
+                        
+                        .. attribute:: mld_snooping
+                        
+                        	Attach MLD Snooping Profile Name
+                        	**type**\: str
+                        
+                        	**range:** 0..32
+                        
+                        .. attribute:: nv_satellite
+                        
+                        	nV Satellite
+                        	**type**\: :py:class:`NvSatellite <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite>`
+                        
+                        .. attribute:: routed_interfaces
+                        
+                        	Bridge Domain Routed Interface Table
+                        	**type**\: :py:class:`RoutedInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces>`
+                        
+                        .. attribute:: shutdown
+                        
+                        	shutdown the Bridge Domain
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: transport_mode
+                        
+                        	Bridge Domain Transport mode
+                        	**type**\: :py:class:`BridgeDomainTransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportModeEnum>`
+                        
+                        .. attribute:: vfis
+                        
+                        	Specify the virtual forwarding interface name
+                        	**type**\: :py:class:`Vfis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
                         
                         
 
@@ -6088,38 +6088,38 @@ class L2Vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.bd_storm_controls = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls()
-                            self.bd_storm_controls.parent = self
-                            self.member_vnis = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis()
-                            self.member_vnis.parent = self
-                            self.bridge_domain_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac()
-                            self.bridge_domain_mac.parent = self
-                            self.nv_satellite = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite()
-                            self.nv_satellite.parent = self
-                            self.bridge_domain_pbb = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb()
-                            self.bridge_domain_pbb.parent = self
-                            self.bd_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires()
-                            self.bd_pseudowires.parent = self
-                            self.vfis = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis()
-                            self.vfis.parent = self
                             self.bd_attachment_circuits = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits()
                             self.bd_attachment_circuits.parent = self
-                            self.ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard()
-                            self.ip_source_guard.parent = self
+                            self.bd_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires()
+                            self.bd_pseudowires.parent = self
+                            self.bd_storm_controls = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls()
+                            self.bd_storm_controls.parent = self
+                            self.bridge_domain_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac()
+                            self.bridge_domain_mac.parent = self
+                            self.bridge_domain_mtu = None
+                            self.bridge_domain_pbb = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb()
+                            self.bridge_domain_pbb.parent = self
+                            self.coupled_mode = None
                             self.dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai()
                             self.dai.parent = self
+                            self.dhcp = None
+                            self.flooding = None
+                            self.flooding_unknown_unicast = None
+                            self.igmp_snooping = None
+                            self.igmp_snooping_disable = None
+                            self.ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard()
+                            self.ip_source_guard.parent = self
+                            self.member_vnis = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis()
+                            self.member_vnis.parent = self
+                            self.mld_snooping = None
+                            self.nv_satellite = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite()
+                            self.nv_satellite.parent = self
                             self.routed_interfaces = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces()
                             self.routed_interfaces.parent = self
-                            self.coupled_mode = None
                             self.shutdown = None
-                            self.flooding_unknown_unicast = None
-                            self.igmp_snooping_disable = None
                             self.transport_mode = None
-                            self.mld_snooping = None
-                            self.bridge_domain_mtu = None
-                            self.dhcp = None
-                            self.igmp_snooping = None
-                            self.flooding = None
+                            self.vfis = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis()
+                            self.vfis.parent = self
 
 
                         class BdStormControls(object):
@@ -6206,7 +6206,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:storm-control-unit'
 
@@ -6233,9 +6233,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.sctype is None:
-                                        raise YPYDataValidationError('Key property sctype is None')
+                                        raise YPYModelError('Key property sctype is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-storm-control[Cisco-IOS-XR-l2vpn-cfg:sctype = ' + str(self.sctype) + ']'
 
@@ -6262,7 +6262,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-storm-controls'
 
@@ -6336,9 +6336,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.vni is None:
-                                        raise YPYDataValidationError('Key property vni is None')
+                                        raise YPYModelError('Key property vni is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:member-vni[Cisco-IOS-XR-l2vpn-cfg:vni = ' + str(self.vni) + ']'
 
@@ -6362,7 +6362,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:member-vnis'
 
@@ -6390,35 +6390,25 @@ class L2Vpn(object):
                             """
                             MAC configuration commands
                             
-                            .. attribute:: bd_mac_limit
+                            .. attribute:: bd_mac_aging
                             
-                            	MAC\-Limit configuration commands
-                            	**type**\: :py:class:`BdMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
+                            	MAC\-Aging configuration commands
+                            	**type**\: :py:class:`BdMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
                             
                             .. attribute:: bd_mac_filters
                             
                             	Filter Mac Address
                             	**type**\: :py:class:`BdMacFilters <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters>`
                             
-                            .. attribute:: mac_secure
+                            .. attribute:: bd_mac_learn
                             
-                            	MAC Secure
-                            	**type**\: :py:class:`MacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
+                            	Enable Mac Learning
+                            	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                             
-                            .. attribute:: bd_mac_aging
+                            .. attribute:: bd_mac_limit
                             
-                            	MAC\-Aging configuration commands
-                            	**type**\: :py:class:`BdMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
-                            
-                            .. attribute:: bd_mac_withdraw_relay
-                            
-                            	Mac withdraw sent from access PW to access PW
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
-                            .. attribute:: bd_mac_withdraw_access_pw_disable
-                            
-                            	MAC withdraw on Access PW
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            	MAC\-Limit configuration commands
+                            	**type**\: :py:class:`BdMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
                             
                             .. attribute:: bd_mac_port_down_flush
                             
@@ -6430,15 +6420,25 @@ class L2Vpn(object):
                             	Disable Mac Withdraw
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: bd_mac_withdraw_access_pw_disable
+                            
+                            	MAC withdraw on Access PW
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
                             .. attribute:: bd_mac_withdraw_behavior
                             
                             	MAC withdraw sent on bridge port down
                             	**type**\: :py:class:`MacWithdrawBehaviorEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacWithdrawBehaviorEnum>`
                             
-                            .. attribute:: bd_mac_learn
+                            .. attribute:: bd_mac_withdraw_relay
                             
-                            	Enable Mac Learning
-                            	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                            	Mac withdraw sent from access PW to access PW
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: mac_secure
+                            
+                            	MAC Secure
+                            	**type**\: :py:class:`MacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
                             
                             
 
@@ -6449,20 +6449,20 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.bd_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit()
-                                self.bd_mac_limit.parent = self
-                                self.bd_mac_filters = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters()
-                                self.bd_mac_filters.parent = self
-                                self.mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure()
-                                self.mac_secure.parent = self
                                 self.bd_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging()
                                 self.bd_mac_aging.parent = self
-                                self.bd_mac_withdraw_relay = None
-                                self.bd_mac_withdraw_access_pw_disable = None
+                                self.bd_mac_filters = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters()
+                                self.bd_mac_filters.parent = self
+                                self.bd_mac_learn = None
+                                self.bd_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit()
+                                self.bd_mac_limit.parent = self
                                 self.bd_mac_port_down_flush = None
                                 self.bd_mac_withdraw = None
+                                self.bd_mac_withdraw_access_pw_disable = None
                                 self.bd_mac_withdraw_behavior = None
-                                self.bd_mac_learn = None
+                                self.bd_mac_withdraw_relay = None
+                                self.mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure()
+                                self.mac_secure.parent = self
 
 
                             class BdMacLimit(object):
@@ -6474,17 +6474,17 @@ class L2Vpn(object):
                                 	MAC address limit enforcement action
                                 	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                 
-                                .. attribute:: bd_mac_limit_notif
-                                
-                                	Mac Address Limit Notification
-                                	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
-                                
                                 .. attribute:: bd_mac_limit_max
                                 
                                 	Number of MAC addresses after which MAC limit action is taken
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: bd_mac_limit_notif
+                                
+                                	Mac Address Limit Notification
+                                	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                 
                                 
 
@@ -6496,13 +6496,13 @@ class L2Vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.bd_mac_limit_action = None
-                                    self.bd_mac_limit_notif = None
                                     self.bd_mac_limit_max = None
+                                    self.bd_mac_limit_notif = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-mac-limit'
 
@@ -6516,10 +6516,10 @@ class L2Vpn(object):
                                     if self.bd_mac_limit_action is not None:
                                         return True
 
-                                    if self.bd_mac_limit_notif is not None:
+                                    if self.bd_mac_limit_max is not None:
                                         return True
 
-                                    if self.bd_mac_limit_max is not None:
+                                    if self.bd_mac_limit_notif is not None:
                                         return True
 
                                     return False
@@ -6584,9 +6584,9 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.address is None:
-                                            raise YPYDataValidationError('Key property address is None')
+                                            raise YPYModelError('Key property address is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-mac-filter[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
@@ -6613,7 +6613,7 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-mac-filters'
 
@@ -6641,11 +6641,6 @@ class L2Vpn(object):
                                 """
                                 MAC Secure
                                 
-                                .. attribute:: logging
-                                
-                                	MAC Secure Logging
-                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                
                                 .. attribute:: action
                                 
                                 	MAC secure enforcement action
@@ -6654,6 +6649,11 @@ class L2Vpn(object):
                                 .. attribute:: enable
                                 
                                 	Enable MAC Secure
+                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                
+                                .. attribute:: logging
+                                
+                                	MAC Secure Logging
                                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                 
                                 
@@ -6665,14 +6665,14 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.logging = None
                                     self.action = None
                                     self.enable = None
+                                    self.logging = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mac-secure'
 
@@ -6683,13 +6683,13 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.logging is not None:
-                                        return True
-
                                     if self.action is not None:
                                         return True
 
                                     if self.enable is not None:
+                                        return True
+
+                                    if self.logging is not None:
                                         return True
 
                                     return False
@@ -6704,17 +6704,17 @@ class L2Vpn(object):
                                 """
                                 MAC\-Aging configuration commands
                                 
-                                .. attribute:: bd_mac_aging_type
-                                
-                                	MAC address aging type
-                                	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
-                                
                                 .. attribute:: bd_mac_aging_time
                                 
                                 	Mac Aging Time
                                 	**type**\: int
                                 
                                 	**range:** 300..30000
+                                
+                                .. attribute:: bd_mac_aging_type
+                                
+                                	MAC address aging type
+                                	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                 
                                 
 
@@ -6725,13 +6725,13 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.bd_mac_aging_type = None
                                     self.bd_mac_aging_time = None
+                                    self.bd_mac_aging_type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-mac-aging'
 
@@ -6742,10 +6742,10 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.bd_mac_aging_type is not None:
+                                    if self.bd_mac_aging_time is not None:
                                         return True
 
-                                    if self.bd_mac_aging_time is not None:
+                                    if self.bd_mac_aging_type is not None:
                                         return True
 
                                     return False
@@ -6758,7 +6758,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bridge-domain-mac'
 
@@ -6769,22 +6769,16 @@ class L2Vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.bd_mac_limit is not None and self.bd_mac_limit._has_data():
+                                if self.bd_mac_aging is not None and self.bd_mac_aging._has_data():
                                     return True
 
                                 if self.bd_mac_filters is not None and self.bd_mac_filters._has_data():
                                     return True
 
-                                if self.mac_secure is not None and self.mac_secure._has_data():
+                                if self.bd_mac_learn is not None:
                                     return True
 
-                                if self.bd_mac_aging is not None and self.bd_mac_aging._has_data():
-                                    return True
-
-                                if self.bd_mac_withdraw_relay is not None:
-                                    return True
-
-                                if self.bd_mac_withdraw_access_pw_disable is not None:
+                                if self.bd_mac_limit is not None and self.bd_mac_limit._has_data():
                                     return True
 
                                 if self.bd_mac_port_down_flush is not None:
@@ -6793,10 +6787,16 @@ class L2Vpn(object):
                                 if self.bd_mac_withdraw is not None:
                                     return True
 
+                                if self.bd_mac_withdraw_access_pw_disable is not None:
+                                    return True
+
                                 if self.bd_mac_withdraw_behavior is not None:
                                     return True
 
-                                if self.bd_mac_learn is not None:
+                                if self.bd_mac_withdraw_relay is not None:
+                                    return True
+
+                                if self.mac_secure is not None and self.mac_secure._has_data():
                                     return True
 
                                 return False
@@ -6811,14 +6811,14 @@ class L2Vpn(object):
                             """
                             nV Satellite
                             
-                            .. attribute:: offload_ipv4_multicast_enable
-                            
-                            	Enable IPv4 Multicast Offload to Satellite Nodes
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: enable
                             
                             	Enable nV Satellite Settings
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: offload_ipv4_multicast_enable
+                            
+                            	Enable IPv4 Multicast Offload to Satellite Nodes
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
@@ -6830,13 +6830,13 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.offload_ipv4_multicast_enable = None
                                 self.enable = None
+                                self.offload_ipv4_multicast_enable = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:nv-satellite'
 
@@ -6847,10 +6847,10 @@ class L2Vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.offload_ipv4_multicast_enable is not None:
+                                if self.enable is not None:
                                     return True
 
-                                if self.enable is not None:
+                                if self.offload_ipv4_multicast_enable is not None:
                                     return True
 
                                 return False
@@ -6865,15 +6865,15 @@ class L2Vpn(object):
                             """
                             Bridge Domain PBB
                             
-                            .. attribute:: pbb_edges
-                            
-                            	PBB Edge
-                            	**type**\: :py:class:`PbbEdges <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
-                            
                             .. attribute:: pbb_core
                             
                             	PBB Core
                             	**type**\: :py:class:`PbbCore <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore>`
+                            
+                            .. attribute:: pbb_edges
+                            
+                            	PBB Edge
+                            	**type**\: :py:class:`PbbEdges <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
                             
                             
 
@@ -6884,10 +6884,10 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.pbb_edges = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges()
-                                self.pbb_edges.parent = self
                                 self.pbb_core = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore()
                                 self.pbb_core.parent = self
+                                self.pbb_edges = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges()
+                                self.pbb_edges.parent = self
 
 
                             class PbbEdges(object):
@@ -6918,13 +6918,6 @@ class L2Vpn(object):
                                     Configure BD as PBB Edge with ISID and
                                     associated PBB Core BD
                                     
-                                    .. attribute:: isid  <key>
-                                    
-                                    	ISID
-                                    	**type**\: int
-                                    
-                                    	**range:** 256..16777214
-                                    
                                     .. attribute:: core_bd_name  <key>
                                     
                                     	Core BD Name
@@ -6932,20 +6925,17 @@ class L2Vpn(object):
                                     
                                     	**range:** 0..27
                                     
-                                    .. attribute:: pbb_static_mac_mappings
+                                    .. attribute:: isid  <key>
                                     
-                                    	PBB Static Mac Address Mapping Table
-                                    	**type**\: :py:class:`PbbStaticMacMappings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
+                                    	ISID
+                                    	**type**\: int
+                                    
+                                    	**range:** 256..16777214
                                     
                                     .. attribute:: pbb_edge_dhcp_profile
                                     
                                     	Attach a DHCP profile
                                     	**type**\: :py:class:`PbbEdgeDhcpProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile>`
-                                    
-                                    .. attribute:: pbb_edge_mac
-                                    
-                                    	MAC configuration commands
-                                    	**type**\: :py:class:`PbbEdgeMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
                                     
                                     .. attribute:: pbb_edge_igmp_profile
                                     
@@ -6953,6 +6943,16 @@ class L2Vpn(object):
                                     	**type**\: str
                                     
                                     	**range:** 0..32
+                                    
+                                    .. attribute:: pbb_edge_mac
+                                    
+                                    	MAC configuration commands
+                                    	**type**\: :py:class:`PbbEdgeMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
+                                    
+                                    .. attribute:: pbb_static_mac_mappings
+                                    
+                                    	PBB Static Mac Address Mapping Table
+                                    	**type**\: :py:class:`PbbStaticMacMappings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
                                     
                                     .. attribute:: unknown_unicast_bmac
                                     
@@ -6970,15 +6970,15 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.isid = None
                                         self.core_bd_name = None
-                                        self.pbb_static_mac_mappings = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings()
-                                        self.pbb_static_mac_mappings.parent = self
+                                        self.isid = None
                                         self.pbb_edge_dhcp_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile()
                                         self.pbb_edge_dhcp_profile.parent = self
+                                        self.pbb_edge_igmp_profile = None
                                         self.pbb_edge_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac()
                                         self.pbb_edge_mac.parent = self
-                                        self.pbb_edge_igmp_profile = None
+                                        self.pbb_static_mac_mappings = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings()
+                                        self.pbb_static_mac_mappings.parent = self
                                         self.unknown_unicast_bmac = None
 
 
@@ -7039,9 +7039,9 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.address is None:
-                                                    raise YPYDataValidationError('Key property address is None')
+                                                    raise YPYModelError('Key property address is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-static-mac-mapping[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
@@ -7068,7 +7068,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-static-mac-mappings'
 
@@ -7096,15 +7096,15 @@ class L2Vpn(object):
                                         """
                                         Attach a DHCP profile
                                         
-                                        .. attribute:: profile_id
-                                        
-                                        	Set the snooping profile
-                                        	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
-                                        
                                         .. attribute:: dhcp_snooping_id
                                         
                                         	Disable DHCP snooping
                                         	**type**\: str
+                                        
+                                        .. attribute:: profile_id
+                                        
+                                        	Set the snooping profile
+                                        	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                         
                                         
 
@@ -7115,13 +7115,13 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.profile_id = None
                                             self.dhcp_snooping_id = None
+                                            self.profile_id = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge-dhcp-profile'
 
@@ -7132,10 +7132,10 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.profile_id is not None:
+                                            if self.dhcp_snooping_id is not None:
                                                 return True
 
-                                            if self.dhcp_snooping_id is not None:
+                                            if self.profile_id is not None:
                                                 return True
 
                                             return False
@@ -7150,25 +7150,25 @@ class L2Vpn(object):
                                         """
                                         MAC configuration commands
                                         
-                                        .. attribute:: pbb_edge_mac_limit
-                                        
-                                        	MAC\-Limit configuration commands
-                                        	**type**\: :py:class:`PbbEdgeMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
-                                        
                                         .. attribute:: pbb_edge_mac_aging
                                         
                                         	MAC\-Aging configuration commands
                                         	**type**\: :py:class:`PbbEdgeMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging>`
                                         
-                                        .. attribute:: pbb_edge_mac_secure
-                                        
-                                        	MAC Secure
-                                        	**type**\: :py:class:`PbbEdgeMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
-                                        
                                         .. attribute:: pbb_edge_mac_learning
                                         
                                         	Enable Mac Learning
                                         	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                        
+                                        .. attribute:: pbb_edge_mac_limit
+                                        
+                                        	MAC\-Limit configuration commands
+                                        	**type**\: :py:class:`PbbEdgeMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
+                                        
+                                        .. attribute:: pbb_edge_mac_secure
+                                        
+                                        	MAC Secure
+                                        	**type**\: :py:class:`PbbEdgeMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
                                         
                                         
 
@@ -7179,13 +7179,13 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.pbb_edge_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit()
-                                            self.pbb_edge_mac_limit.parent = self
                                             self.pbb_edge_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging()
                                             self.pbb_edge_mac_aging.parent = self
+                                            self.pbb_edge_mac_learning = None
+                                            self.pbb_edge_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit()
+                                            self.pbb_edge_mac_limit.parent = self
                                             self.pbb_edge_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure()
                                             self.pbb_edge_mac_secure.parent = self
-                                            self.pbb_edge_mac_learning = None
 
 
                                         class PbbEdgeMacLimit(object):
@@ -7225,7 +7225,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge-mac-limit'
 
@@ -7257,17 +7257,17 @@ class L2Vpn(object):
                                             """
                                             MAC\-Aging configuration commands
                                             
-                                            .. attribute:: pbb_edge_mac_aging_type
-                                            
-                                            	MAC address aging type
-                                            	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
-                                            
                                             .. attribute:: pbb_edge_mac_aging_time
                                             
                                             	Mac Aging Time
                                             	**type**\: int
                                             
                                             	**range:** 300..30000
+                                            
+                                            .. attribute:: pbb_edge_mac_aging_type
+                                            
+                                            	MAC address aging type
+                                            	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                             
                                             
 
@@ -7278,13 +7278,13 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.pbb_edge_mac_aging_type = None
                                                 self.pbb_edge_mac_aging_time = None
+                                                self.pbb_edge_mac_aging_type = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge-mac-aging'
 
@@ -7295,10 +7295,10 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.pbb_edge_mac_aging_type is not None:
+                                                if self.pbb_edge_mac_aging_time is not None:
                                                     return True
 
-                                                if self.pbb_edge_mac_aging_time is not None:
+                                                if self.pbb_edge_mac_aging_type is not None:
                                                     return True
 
                                                 return False
@@ -7313,14 +7313,9 @@ class L2Vpn(object):
                                             """
                                             MAC Secure
                                             
-                                            .. attribute:: logging
+                                            .. attribute:: accept_shutdown
                                             
-                                            	MAC Secure Logging
-                                            	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
-                                            
-                                            .. attribute:: disable
-                                            
-                                            	Disable Virtual instance port MAC Secure
+                                            	Accept Virtual instance port to be shutdown on mac violation
                                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                             
                                             .. attribute:: action
@@ -7328,15 +7323,20 @@ class L2Vpn(object):
                                             	MAC secure enforcement action
                                             	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                             
+                                            .. attribute:: disable
+                                            
+                                            	Disable Virtual instance port MAC Secure
+                                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                            
                                             .. attribute:: enable
                                             
                                             	Enable MAC Secure
                                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                             
-                                            .. attribute:: accept_shutdown
+                                            .. attribute:: logging
                                             
-                                            	Accept Virtual instance port to be shutdown on mac violation
-                                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                            	MAC Secure Logging
+                                            	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                             
                                             
 
@@ -7347,16 +7347,16 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.logging = None
-                                                self.disable = None
-                                                self.action = None
-                                                self.enable = None
                                                 self.accept_shutdown = None
+                                                self.action = None
+                                                self.disable = None
+                                                self.enable = None
+                                                self.logging = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge-mac-secure'
 
@@ -7367,19 +7367,19 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.logging is not None:
-                                                    return True
-
-                                                if self.disable is not None:
+                                                if self.accept_shutdown is not None:
                                                     return True
 
                                                 if self.action is not None:
                                                     return True
 
+                                                if self.disable is not None:
+                                                    return True
+
                                                 if self.enable is not None:
                                                     return True
 
-                                                if self.accept_shutdown is not None:
+                                                if self.logging is not None:
                                                     return True
 
                                                 return False
@@ -7392,7 +7392,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge-mac'
 
@@ -7403,16 +7403,16 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.pbb_edge_mac_limit is not None and self.pbb_edge_mac_limit._has_data():
-                                                return True
-
                                             if self.pbb_edge_mac_aging is not None and self.pbb_edge_mac_aging._has_data():
                                                 return True
 
-                                            if self.pbb_edge_mac_secure is not None and self.pbb_edge_mac_secure._has_data():
+                                            if self.pbb_edge_mac_learning is not None:
                                                 return True
 
-                                            if self.pbb_edge_mac_learning is not None:
+                                            if self.pbb_edge_mac_limit is not None and self.pbb_edge_mac_limit._has_data():
+                                                return True
+
+                                            if self.pbb_edge_mac_secure is not None and self.pbb_edge_mac_secure._has_data():
                                                 return True
 
                                             return False
@@ -7425,13 +7425,13 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.isid is None:
-                                            raise YPYDataValidationError('Key property isid is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.core_bd_name is None:
-                                            raise YPYDataValidationError('Key property core_bd_name is None')
+                                            raise YPYModelError('Key property core_bd_name is None')
+                                        if self.isid is None:
+                                            raise YPYModelError('Key property isid is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge[Cisco-IOS-XR-l2vpn-cfg:isid = ' + str(self.isid) + '][Cisco-IOS-XR-l2vpn-cfg:core-bd-name = ' + str(self.core_bd_name) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge[Cisco-IOS-XR-l2vpn-cfg:core-bd-name = ' + str(self.core_bd_name) + '][Cisco-IOS-XR-l2vpn-cfg:isid = ' + str(self.isid) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -7440,22 +7440,22 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.isid is not None:
-                                            return True
-
                                         if self.core_bd_name is not None:
                                             return True
 
-                                        if self.pbb_static_mac_mappings is not None and self.pbb_static_mac_mappings._has_data():
+                                        if self.isid is not None:
                                             return True
 
                                         if self.pbb_edge_dhcp_profile is not None and self.pbb_edge_dhcp_profile._has_data():
                                             return True
 
+                                        if self.pbb_edge_igmp_profile is not None:
+                                            return True
+
                                         if self.pbb_edge_mac is not None and self.pbb_edge_mac._has_data():
                                             return True
 
-                                        if self.pbb_edge_igmp_profile is not None:
+                                        if self.pbb_static_mac_mappings is not None and self.pbb_static_mac_mappings._has_data():
                                             return True
 
                                         if self.unknown_unicast_bmac is not None:
@@ -7471,7 +7471,7 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edges'
 
@@ -7499,15 +7499,34 @@ class L2Vpn(object):
                                 """
                                 PBB Core
                                 
-                                .. attribute:: pbb_core_mac
+                                .. attribute:: enable
                                 
-                                	MAC configuration commands
-                                	**type**\: :py:class:`PbbCoreMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
+                                	Enable Bridge Domain PBB Core Configuration
+                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                
+                                .. attribute:: evpn_attribute
+                                
+                                	Configure EVPN EVI
+                                	**type**\: int
+                                
+                                	**range:** 1..65534
                                 
                                 .. attribute:: pbb_core_dhcp_profile
                                 
                                 	Attach a DHCP profile
                                 	**type**\: :py:class:`PbbCoreDhcpProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile>`
+                                
+                                .. attribute:: pbb_core_igmp_profile
+                                
+                                	Attach a IGMP Snooping profile
+                                	**type**\: str
+                                
+                                	**range:** 0..32
+                                
+                                .. attribute:: pbb_core_mac
+                                
+                                	MAC configuration commands
+                                	**type**\: :py:class:`PbbCoreMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
                                 
                                 .. attribute:: pbb_core_mmrp_flood_optimization
                                 
@@ -7521,25 +7540,6 @@ class L2Vpn(object):
                                 
                                 	**range:** 1..4094
                                 
-                                .. attribute:: pbb_core_igmp_profile
-                                
-                                	Attach a IGMP Snooping profile
-                                	**type**\: str
-                                
-                                	**range:** 0..32
-                                
-                                .. attribute:: enable
-                                
-                                	Enable Bridge Domain PBB Core Configuration
-                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                
-                                .. attribute:: evpn_attribute
-                                
-                                	Configure EVPN EVI
-                                	**type**\: int
-                                
-                                	**range:** 1..65534
-                                
                                 
 
                                 """
@@ -7549,15 +7549,15 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.pbb_core_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac()
-                                    self.pbb_core_mac.parent = self
-                                    self.pbb_core_dhcp_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile()
-                                    self.pbb_core_dhcp_profile.parent = self
-                                    self.pbb_core_mmrp_flood_optimization = None
-                                    self.vlan_id = None
-                                    self.pbb_core_igmp_profile = None
                                     self.enable = None
                                     self.evpn_attribute = None
+                                    self.pbb_core_dhcp_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile()
+                                    self.pbb_core_dhcp_profile.parent = self
+                                    self.pbb_core_igmp_profile = None
+                                    self.pbb_core_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac()
+                                    self.pbb_core_mac.parent = self
+                                    self.pbb_core_mmrp_flood_optimization = None
+                                    self.vlan_id = None
 
 
                                 class PbbCoreMac(object):
@@ -7569,15 +7569,15 @@ class L2Vpn(object):
                                     	MAC\-Aging configuration commands
                                     	**type**\: :py:class:`PbbCoreMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging>`
                                     
-                                    .. attribute:: pbb_core_mac_limit
-                                    
-                                    	MAC\-Limit configuration commands
-                                    	**type**\: :py:class:`PbbCoreMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
-                                    
                                     .. attribute:: pbb_core_mac_learning
                                     
                                     	Enable Mac Learning
                                     	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                    
+                                    .. attribute:: pbb_core_mac_limit
+                                    
+                                    	MAC\-Limit configuration commands
+                                    	**type**\: :py:class:`PbbCoreMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
                                     
                                     
 
@@ -7590,19 +7590,14 @@ class L2Vpn(object):
                                         self.parent = None
                                         self.pbb_core_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging()
                                         self.pbb_core_mac_aging.parent = self
+                                        self.pbb_core_mac_learning = None
                                         self.pbb_core_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit()
                                         self.pbb_core_mac_limit.parent = self
-                                        self.pbb_core_mac_learning = None
 
 
                                     class PbbCoreMacAging(object):
                                         """
                                         MAC\-Aging configuration commands
-                                        
-                                        .. attribute:: pbb_core_mac_aging_type
-                                        
-                                        	MAC address aging type
-                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         .. attribute:: pbb_core_mac_aging_time
                                         
@@ -7610,6 +7605,11 @@ class L2Vpn(object):
                                         	**type**\: int
                                         
                                         	**range:** 300..30000
+                                        
+                                        .. attribute:: pbb_core_mac_aging_type
+                                        
+                                        	MAC address aging type
+                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -7620,13 +7620,13 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.pbb_core_mac_aging_type = None
                                             self.pbb_core_mac_aging_time = None
+                                            self.pbb_core_mac_aging_type = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-core-mac-aging'
 
@@ -7637,10 +7637,10 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.pbb_core_mac_aging_type is not None:
+                                            if self.pbb_core_mac_aging_time is not None:
                                                 return True
 
-                                            if self.pbb_core_mac_aging_time is not None:
+                                            if self.pbb_core_mac_aging_type is not None:
                                                 return True
 
                                             return False
@@ -7655,6 +7655,11 @@ class L2Vpn(object):
                                         """
                                         MAC\-Limit configuration commands
                                         
+                                        .. attribute:: pbb_core_mac_limit_action
+                                        
+                                        	MAC address limit enforcement action
+                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                        
                                         .. attribute:: pbb_core_mac_limit_max
                                         
                                         	Number of MAC addresses after which MAC limit action is taken
@@ -7667,11 +7672,6 @@ class L2Vpn(object):
                                         	MAC address limit notification action
                                         	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
-                                        .. attribute:: pbb_core_mac_limit_action
-                                        
-                                        	MAC address limit enforcement action
-                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
-                                        
                                         
 
                                         """
@@ -7681,14 +7681,14 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.pbb_core_mac_limit_action = None
                                             self.pbb_core_mac_limit_max = None
                                             self.pbb_core_mac_limit_notif = None
-                                            self.pbb_core_mac_limit_action = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-core-mac-limit'
 
@@ -7699,13 +7699,13 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.pbb_core_mac_limit_action is not None:
+                                                return True
+
                                             if self.pbb_core_mac_limit_max is not None:
                                                 return True
 
                                             if self.pbb_core_mac_limit_notif is not None:
-                                                return True
-
-                                            if self.pbb_core_mac_limit_action is not None:
                                                 return True
 
                                             return False
@@ -7718,7 +7718,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-core-mac'
 
@@ -7732,10 +7732,10 @@ class L2Vpn(object):
                                         if self.pbb_core_mac_aging is not None and self.pbb_core_mac_aging._has_data():
                                             return True
 
-                                        if self.pbb_core_mac_limit is not None and self.pbb_core_mac_limit._has_data():
+                                        if self.pbb_core_mac_learning is not None:
                                             return True
 
-                                        if self.pbb_core_mac_learning is not None:
+                                        if self.pbb_core_mac_limit is not None and self.pbb_core_mac_limit._has_data():
                                             return True
 
                                         return False
@@ -7750,15 +7750,15 @@ class L2Vpn(object):
                                     """
                                     Attach a DHCP profile
                                     
-                                    .. attribute:: profile_id
-                                    
-                                    	Set the snooping profile
-                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
-                                    
                                     .. attribute:: dhcp_snooping_id
                                     
                                     	Disable DHCP snooping
                                     	**type**\: str
+                                    
+                                    .. attribute:: profile_id
+                                    
+                                    	Set the snooping profile
+                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -7769,13 +7769,13 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.profile_id = None
                                         self.dhcp_snooping_id = None
+                                        self.profile_id = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-core-dhcp-profile'
 
@@ -7786,10 +7786,10 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.profile_id is not None:
+                                        if self.dhcp_snooping_id is not None:
                                             return True
 
-                                        if self.dhcp_snooping_id is not None:
+                                        if self.profile_id is not None:
                                             return True
 
                                         return False
@@ -7802,7 +7802,7 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-core'
 
@@ -7813,25 +7813,25 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.pbb_core_mac is not None and self.pbb_core_mac._has_data():
+                                    if self.enable is not None:
+                                        return True
+
+                                    if self.evpn_attribute is not None:
                                         return True
 
                                     if self.pbb_core_dhcp_profile is not None and self.pbb_core_dhcp_profile._has_data():
+                                        return True
+
+                                    if self.pbb_core_igmp_profile is not None:
+                                        return True
+
+                                    if self.pbb_core_mac is not None and self.pbb_core_mac._has_data():
                                         return True
 
                                     if self.pbb_core_mmrp_flood_optimization is not None:
                                         return True
 
                                     if self.vlan_id is not None:
-                                        return True
-
-                                    if self.pbb_core_igmp_profile is not None:
-                                        return True
-
-                                    if self.enable is not None:
-                                        return True
-
-                                    if self.evpn_attribute is not None:
                                         return True
 
                                     return False
@@ -7844,7 +7844,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bridge-domain-pbb'
 
@@ -7855,10 +7855,10 @@ class L2Vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.pbb_edges is not None and self.pbb_edges._has_data():
+                                if self.pbb_core is not None and self.pbb_core._has_data():
                                     return True
 
-                                if self.pbb_core is not None and self.pbb_core._has_data():
+                                if self.pbb_edges is not None and self.pbb_edges._has_data():
                                     return True
 
                                 return False
@@ -7910,25 +7910,59 @@ class L2Vpn(object):
                                 
                                 	**range:** 1..4294967295
                                 
-                                .. attribute:: pseudowire_dai
+                                .. attribute:: bd_pw_class
                                 
-                                	Access Pseudowire Dynamic ARP Inspection
-                                	**type**\: :py:class:`PseudowireDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
+                                	PW class template name to use for this pseudowire
+                                	**type**\: str
+                                
+                                	**range:** 0..32
+                                
+                                .. attribute:: bd_pw_mpls_static_labels
+                                
+                                	MPLS static labels
+                                	**type**\: :py:class:`BdPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
+                                
+                                .. attribute:: bd_pw_split_horizon
+                                
+                                	Split Horizon
+                                	**type**\: :py:class:`BdPwSplitHorizon <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
+                                
+                                .. attribute:: bd_pw_static_mac_addresses
+                                
+                                	Static Mac Address Table
+                                	**type**\: :py:class:`BdPwStaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
                                 
                                 .. attribute:: bdpw_storm_control_types
                                 
                                 	Storm Control
                                 	**type**\: :py:class:`BdpwStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes>`
                                 
-                                .. attribute:: pseudowire_profile
+                                .. attribute:: bridge_domain_backup_pseudowires
                                 
-                                	Attach a DHCP profile
-                                	**type**\: :py:class:`PseudowireProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
+                                	List of pseudowires
+                                	**type**\: :py:class:`BridgeDomainBackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
                                 
-                                .. attribute:: bd_pw_static_mac_addresses
+                                .. attribute:: pseudowire_dai
                                 
-                                	Static Mac Address Table
-                                	**type**\: :py:class:`BdPwStaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
+                                	Access Pseudowire Dynamic ARP Inspection
+                                	**type**\: :py:class:`PseudowireDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
+                                
+                                .. attribute:: pseudowire_flooding
+                                
+                                	Bridge\-domain Pseudowire flooding
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                
+                                .. attribute:: pseudowire_flooding_unknown_unicast
+                                
+                                	Bridge\-domain Pseudowire flooding Unknown Unicast
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                
+                                .. attribute:: pseudowire_igmp_snoop
+                                
+                                	Attach a IGMP Snooping profile
+                                	**type**\: str
+                                
+                                	**range:** 0..32
                                 
                                 .. attribute:: pseudowire_ip_source_guard
                                 
@@ -7940,21 +7974,6 @@ class L2Vpn(object):
                                 	Bridge\-domain Pseudowire MAC configuration commands
                                 	**type**\: :py:class:`PseudowireMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac>`
                                 
-                                .. attribute:: bd_pw_split_horizon
-                                
-                                	Split Horizon
-                                	**type**\: :py:class:`BdPwSplitHorizon <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
-                                
-                                .. attribute:: bd_pw_mpls_static_labels
-                                
-                                	MPLS static labels
-                                	**type**\: :py:class:`BdPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
-                                
-                                .. attribute:: bridge_domain_backup_pseudowires
-                                
-                                	List of pseudowires
-                                	**type**\: :py:class:`BridgeDomainBackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
-                                
                                 .. attribute:: pseudowire_mld_snoop
                                 
                                 	Attach a MLD Snooping profile
@@ -7962,29 +7981,10 @@ class L2Vpn(object):
                                 
                                 	**range:** 0..32
                                 
-                                .. attribute:: pseudowire_igmp_snoop
+                                .. attribute:: pseudowire_profile
                                 
-                                	Attach a IGMP Snooping profile
-                                	**type**\: str
-                                
-                                	**range:** 0..32
-                                
-                                .. attribute:: pseudowire_flooding
-                                
-                                	Bridge\-domain Pseudowire flooding
-                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
-                                
-                                .. attribute:: bd_pw_class
-                                
-                                	PW class template name to use for this pseudowire
-                                	**type**\: str
-                                
-                                	**range:** 0..32
-                                
-                                .. attribute:: pseudowire_flooding_unknown_unicast
-                                
-                                	Bridge\-domain Pseudowire flooding Unknown Unicast
-                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                	Attach a DHCP profile
+                                	**type**\: :py:class:`PseudowireProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
                                 
                                 
 
@@ -7997,44 +7997,34 @@ class L2Vpn(object):
                                     self.parent = None
                                     self.neighbor = None
                                     self.pseudowire_id = None
-                                    self.pseudowire_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai()
-                                    self.pseudowire_dai.parent = self
-                                    self.bdpw_storm_control_types = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes()
-                                    self.bdpw_storm_control_types.parent = self
-                                    self.pseudowire_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile()
-                                    self.pseudowire_profile.parent = self
+                                    self.bd_pw_class = None
+                                    self.bd_pw_mpls_static_labels = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels()
+                                    self.bd_pw_mpls_static_labels.parent = self
+                                    self.bd_pw_split_horizon = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon()
+                                    self.bd_pw_split_horizon.parent = self
                                     self.bd_pw_static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses()
                                     self.bd_pw_static_mac_addresses.parent = self
+                                    self.bdpw_storm_control_types = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes()
+                                    self.bdpw_storm_control_types.parent = self
+                                    self.bridge_domain_backup_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires()
+                                    self.bridge_domain_backup_pseudowires.parent = self
+                                    self.pseudowire_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai()
+                                    self.pseudowire_dai.parent = self
+                                    self.pseudowire_flooding = None
+                                    self.pseudowire_flooding_unknown_unicast = None
+                                    self.pseudowire_igmp_snoop = None
                                     self.pseudowire_ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard()
                                     self.pseudowire_ip_source_guard.parent = self
                                     self.pseudowire_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac()
                                     self.pseudowire_mac.parent = self
-                                    self.bd_pw_split_horizon = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon()
-                                    self.bd_pw_split_horizon.parent = self
-                                    self.bd_pw_mpls_static_labels = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels()
-                                    self.bd_pw_mpls_static_labels.parent = self
-                                    self.bridge_domain_backup_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires()
-                                    self.bridge_domain_backup_pseudowires.parent = self
                                     self.pseudowire_mld_snoop = None
-                                    self.pseudowire_igmp_snoop = None
-                                    self.pseudowire_flooding = None
-                                    self.bd_pw_class = None
-                                    self.pseudowire_flooding_unknown_unicast = None
+                                    self.pseudowire_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile()
+                                    self.pseudowire_profile.parent = self
 
 
                                 class PseudowireDai(object):
                                     """
                                     Access Pseudowire Dynamic ARP Inspection
-                                    
-                                    .. attribute:: pseudowire_dai_address_validation
-                                    
-                                    	Address Validation
-                                    	**type**\: :py:class:`PseudowireDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
-                                    
-                                    .. attribute:: logging
-                                    
-                                    	Logging Type
-                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     .. attribute:: disable
                                     
@@ -8046,6 +8036,16 @@ class L2Vpn(object):
                                     	Enable Access Pseudowire Dynamic ARP Inspection
                                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    
+                                    .. attribute:: pseudowire_dai_address_validation
+                                    
+                                    	Address Validation
+                                    	**type**\: :py:class:`PseudowireDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
+                                    
                                     
 
                                     """
@@ -8055,25 +8055,25 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.pseudowire_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation()
-                                        self.pseudowire_dai_address_validation.parent = self
-                                        self.logging = None
                                         self.disable = None
                                         self.enable = None
+                                        self.logging = None
+                                        self.pseudowire_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation()
+                                        self.pseudowire_dai_address_validation.parent = self
 
 
                                     class PseudowireDaiAddressValidation(object):
                                         """
                                         Address Validation
                                         
-                                        .. attribute:: ipv4_verification
-                                        
-                                        	IPv4 Verification
-                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
-                                        
                                         .. attribute:: destination_mac_verification
                                         
                                         	Destination MAC Verification
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        
+                                        .. attribute:: ipv4_verification
+                                        
+                                        	IPv4 Verification
                                         	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: source_mac_verification
@@ -8090,14 +8090,14 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.ipv4_verification = None
                                             self.destination_mac_verification = None
+                                            self.ipv4_verification = None
                                             self.source_mac_verification = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-dai-address-validation'
 
@@ -8108,10 +8108,10 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.ipv4_verification is not None:
+                                            if self.destination_mac_verification is not None:
                                                 return True
 
-                                            if self.destination_mac_verification is not None:
+                                            if self.ipv4_verification is not None:
                                                 return True
 
                                             if self.source_mac_verification is not None:
@@ -8127,7 +8127,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-dai'
 
@@ -8138,16 +8138,16 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.pseudowire_dai_address_validation is not None and self.pseudowire_dai_address_validation._has_data():
+                                        if self.disable is not None:
+                                            return True
+
+                                        if self.enable is not None:
                                             return True
 
                                         if self.logging is not None:
                                             return True
 
-                                        if self.disable is not None:
-                                            return True
-
-                                        if self.enable is not None:
+                                        if self.pseudowire_dai_address_validation is not None and self.pseudowire_dai_address_validation._has_data():
                                             return True
 
                                         return False
@@ -8242,7 +8242,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:storm-control-unit'
 
@@ -8269,9 +8269,9 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.sctype is None:
-                                                raise YPYDataValidationError('Key property sctype is None')
+                                                raise YPYModelError('Key property sctype is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bdpw-storm-control-type[Cisco-IOS-XR-l2vpn-cfg:sctype = ' + str(self.sctype) + ']'
 
@@ -8298,7 +8298,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bdpw-storm-control-types'
 
@@ -8326,15 +8326,15 @@ class L2Vpn(object):
                                     """
                                     Attach a DHCP profile
                                     
-                                    .. attribute:: profile_id
-                                    
-                                    	Set the snooping profile
-                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
-                                    
                                     .. attribute:: dhcp_snooping_id
                                     
                                     	Disable DHCP snooping
                                     	**type**\: str
+                                    
+                                    .. attribute:: profile_id
+                                    
+                                    	Set the snooping profile
+                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -8345,13 +8345,13 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.profile_id = None
                                         self.dhcp_snooping_id = None
+                                        self.profile_id = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-profile'
 
@@ -8362,10 +8362,10 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.profile_id is not None:
+                                        if self.dhcp_snooping_id is not None:
                                             return True
 
-                                        if self.dhcp_snooping_id is not None:
+                                        if self.profile_id is not None:
                                             return True
 
                                         return False
@@ -8424,9 +8424,9 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.address is None:
-                                                raise YPYDataValidationError('Key property address is None')
+                                                raise YPYModelError('Key property address is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pw-static-mac-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
@@ -8450,7 +8450,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pw-static-mac-addresses'
 
@@ -8478,11 +8478,6 @@ class L2Vpn(object):
                                     """
                                     IP Source Guard
                                     
-                                    .. attribute:: logging
-                                    
-                                    	Logging Type
-                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
-                                    
                                     .. attribute:: disable
                                     
                                     	Disable Dynamic IP source guard
@@ -8493,6 +8488,11 @@ class L2Vpn(object):
                                     	Enable IP Source Guard
                                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    
                                     
 
                                     """
@@ -8502,14 +8502,14 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.logging = None
                                         self.disable = None
                                         self.enable = None
+                                        self.logging = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-ip-source-guard'
 
@@ -8520,13 +8520,13 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.logging is not None:
-                                            return True
-
                                         if self.disable is not None:
                                             return True
 
                                         if self.enable is not None:
+                                            return True
+
+                                        if self.logging is not None:
                                             return True
 
                                         return False
@@ -8542,15 +8542,20 @@ class L2Vpn(object):
                                     Bridge\-domain Pseudowire MAC
                                     configuration commands
                                     
-                                    .. attribute:: pseudowire_mac_secure
+                                    .. attribute:: enable
                                     
-                                    	MAC Secure
-                                    	**type**\: :py:class:`PseudowireMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
+                                    	Bridge\-domain Pseudowire MAC configuration mode
+                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
                                     .. attribute:: pseudowire_mac_aging
                                     
                                     	MAC\-Aging configuration commands
                                     	**type**\: :py:class:`PseudowireMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging>`
+                                    
+                                    .. attribute:: pseudowire_mac_learning
+                                    
+                                    	Enable MAC Learning
+                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: pseudowire_mac_limit
                                     
@@ -8562,15 +8567,10 @@ class L2Vpn(object):
                                     	Enable/Disable MAC Flush When Port goes down
                                     	**type**\: :py:class:`PortDownFlushEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
                                     
-                                    .. attribute:: enable
+                                    .. attribute:: pseudowire_mac_secure
                                     
-                                    	Bridge\-domain Pseudowire MAC configuration mode
-                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                    
-                                    .. attribute:: pseudowire_mac_learning
-                                    
-                                    	Enable MAC Learning
-                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                    	MAC Secure
+                                    	**type**\: :py:class:`PseudowireMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
                                     
                                     
 
@@ -8581,40 +8581,40 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.pseudowire_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure()
-                                        self.pseudowire_mac_secure.parent = self
+                                        self.enable = None
                                         self.pseudowire_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging()
                                         self.pseudowire_mac_aging.parent = self
+                                        self.pseudowire_mac_learning = None
                                         self.pseudowire_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit()
                                         self.pseudowire_mac_limit.parent = self
                                         self.pseudowire_mac_port_down_flush = None
-                                        self.enable = None
-                                        self.pseudowire_mac_learning = None
+                                        self.pseudowire_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure()
+                                        self.pseudowire_mac_secure.parent = self
 
 
                                     class PseudowireMacSecure(object):
                                         """
                                         MAC Secure
                                         
-                                        .. attribute:: logging
+                                        .. attribute:: action
                                         
-                                        	MAC Secure Logging
-                                        	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                        	MAC secure enforcement action
+                                        	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                         
                                         .. attribute:: disable
                                         
                                         	Disable L2 Pseudowire MAC Secure
                                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                         
-                                        .. attribute:: action
-                                        
-                                        	MAC secure enforcement action
-                                        	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
-                                        
                                         .. attribute:: enable
                                         
                                         	Enable MAC Secure
                                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                        
+                                        .. attribute:: logging
+                                        
+                                        	MAC Secure Logging
+                                        	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                         
                                         
 
@@ -8625,15 +8625,15 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.logging = None
-                                            self.disable = None
                                             self.action = None
+                                            self.disable = None
                                             self.enable = None
+                                            self.logging = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-mac-secure'
 
@@ -8644,16 +8644,16 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.logging is not None:
+                                            if self.action is not None:
                                                 return True
 
                                             if self.disable is not None:
                                                 return True
 
-                                            if self.action is not None:
+                                            if self.enable is not None:
                                                 return True
 
-                                            if self.enable is not None:
+                                            if self.logging is not None:
                                                 return True
 
                                             return False
@@ -8668,17 +8668,17 @@ class L2Vpn(object):
                                         """
                                         MAC\-Aging configuration commands
                                         
-                                        .. attribute:: pseudowire_mac_aging_type
-                                        
-                                        	MAC address aging type
-                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
-                                        
                                         .. attribute:: pseudowire_mac_aging_time
                                         
                                         	MAC Aging Time
                                         	**type**\: int
                                         
                                         	**range:** 300..30000
+                                        
+                                        .. attribute:: pseudowire_mac_aging_type
+                                        
+                                        	MAC address aging type
+                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -8689,13 +8689,13 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.pseudowire_mac_aging_type = None
                                             self.pseudowire_mac_aging_time = None
+                                            self.pseudowire_mac_aging_type = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-mac-aging'
 
@@ -8706,10 +8706,10 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.pseudowire_mac_aging_type is not None:
+                                            if self.pseudowire_mac_aging_time is not None:
                                                 return True
 
-                                            if self.pseudowire_mac_aging_time is not None:
+                                            if self.pseudowire_mac_aging_type is not None:
                                                 return True
 
                                             return False
@@ -8729,17 +8729,17 @@ class L2Vpn(object):
                                         	Bridge Access Pseudowire MAC address limit enforcement action
                                         	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
-                                        .. attribute:: pseudowire_mac_limit_notif
-                                        
-                                        	MAC address limit notification action in a Bridge Access Pseudowire
-                                        	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
-                                        
                                         .. attribute:: pseudowire_mac_limit_max
                                         
                                         	Number of MAC addresses on a Bridge Access Pseudowire after which MAC limit action is taken
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: pseudowire_mac_limit_notif
+                                        
+                                        	MAC address limit notification action in a Bridge Access Pseudowire
+                                        	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -8751,13 +8751,13 @@ class L2Vpn(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.pseudowire_mac_limit_action = None
-                                            self.pseudowire_mac_limit_notif = None
                                             self.pseudowire_mac_limit_max = None
+                                            self.pseudowire_mac_limit_notif = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-mac-limit'
 
@@ -8771,10 +8771,10 @@ class L2Vpn(object):
                                             if self.pseudowire_mac_limit_action is not None:
                                                 return True
 
-                                            if self.pseudowire_mac_limit_notif is not None:
+                                            if self.pseudowire_mac_limit_max is not None:
                                                 return True
 
-                                            if self.pseudowire_mac_limit_max is not None:
+                                            if self.pseudowire_mac_limit_notif is not None:
                                                 return True
 
                                             return False
@@ -8787,7 +8787,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-mac'
 
@@ -8798,10 +8798,13 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.pseudowire_mac_secure is not None and self.pseudowire_mac_secure._has_data():
+                                        if self.enable is not None:
                                             return True
 
                                         if self.pseudowire_mac_aging is not None and self.pseudowire_mac_aging._has_data():
+                                            return True
+
+                                        if self.pseudowire_mac_learning is not None:
                                             return True
 
                                         if self.pseudowire_mac_limit is not None and self.pseudowire_mac_limit._has_data():
@@ -8810,10 +8813,7 @@ class L2Vpn(object):
                                         if self.pseudowire_mac_port_down_flush is not None:
                                             return True
 
-                                        if self.enable is not None:
-                                            return True
-
-                                        if self.pseudowire_mac_learning is not None:
+                                        if self.pseudowire_mac_secure is not None and self.pseudowire_mac_secure._has_data():
                                             return True
 
                                         return False
@@ -8869,7 +8869,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pw-split-horizon-group'
 
@@ -8893,7 +8893,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pw-split-horizon'
 
@@ -8948,7 +8948,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pw-mpls-static-labels'
 
@@ -9037,11 +9037,11 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.neighbor is None:
-                                                raise YPYDataValidationError('Key property neighbor is None')
+                                                raise YPYModelError('Key property neighbor is None')
                                             if self.pseudowire_id is None:
-                                                raise YPYDataValidationError('Key property pseudowire_id is None')
+                                                raise YPYModelError('Key property pseudowire_id is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bridge-domain-backup-pseudowire[Cisco-IOS-XR-l2vpn-cfg:neighbor = ' + str(self.neighbor) + '][Cisco-IOS-XR-l2vpn-cfg:pseudowire-id = ' + str(self.pseudowire_id) + ']'
 
@@ -9071,7 +9071,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bridge-domain-backup-pseudowires'
 
@@ -9097,11 +9097,11 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.neighbor is None:
-                                        raise YPYDataValidationError('Key property neighbor is None')
+                                        raise YPYModelError('Key property neighbor is None')
                                     if self.pseudowire_id is None:
-                                        raise YPYDataValidationError('Key property pseudowire_id is None')
+                                        raise YPYModelError('Key property pseudowire_id is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pseudowire[Cisco-IOS-XR-l2vpn-cfg:neighbor = ' + str(self.neighbor) + '][Cisco-IOS-XR-l2vpn-cfg:pseudowire-id = ' + str(self.pseudowire_id) + ']'
 
@@ -9118,16 +9118,34 @@ class L2Vpn(object):
                                     if self.pseudowire_id is not None:
                                         return True
 
-                                    if self.pseudowire_dai is not None and self.pseudowire_dai._has_data():
+                                    if self.bd_pw_class is not None:
+                                        return True
+
+                                    if self.bd_pw_mpls_static_labels is not None and self.bd_pw_mpls_static_labels._has_data():
+                                        return True
+
+                                    if self.bd_pw_split_horizon is not None and self.bd_pw_split_horizon._has_data():
+                                        return True
+
+                                    if self.bd_pw_static_mac_addresses is not None and self.bd_pw_static_mac_addresses._has_data():
                                         return True
 
                                     if self.bdpw_storm_control_types is not None and self.bdpw_storm_control_types._has_data():
                                         return True
 
-                                    if self.pseudowire_profile is not None and self.pseudowire_profile._has_data():
+                                    if self.bridge_domain_backup_pseudowires is not None and self.bridge_domain_backup_pseudowires._has_data():
                                         return True
 
-                                    if self.bd_pw_static_mac_addresses is not None and self.bd_pw_static_mac_addresses._has_data():
+                                    if self.pseudowire_dai is not None and self.pseudowire_dai._has_data():
+                                        return True
+
+                                    if self.pseudowire_flooding is not None:
+                                        return True
+
+                                    if self.pseudowire_flooding_unknown_unicast is not None:
+                                        return True
+
+                                    if self.pseudowire_igmp_snoop is not None:
                                         return True
 
                                     if self.pseudowire_ip_source_guard is not None and self.pseudowire_ip_source_guard._has_data():
@@ -9136,28 +9154,10 @@ class L2Vpn(object):
                                     if self.pseudowire_mac is not None and self.pseudowire_mac._has_data():
                                         return True
 
-                                    if self.bd_pw_split_horizon is not None and self.bd_pw_split_horizon._has_data():
-                                        return True
-
-                                    if self.bd_pw_mpls_static_labels is not None and self.bd_pw_mpls_static_labels._has_data():
-                                        return True
-
-                                    if self.bridge_domain_backup_pseudowires is not None and self.bridge_domain_backup_pseudowires._has_data():
-                                        return True
-
                                     if self.pseudowire_mld_snoop is not None:
                                         return True
 
-                                    if self.pseudowire_igmp_snoop is not None:
-                                        return True
-
-                                    if self.pseudowire_flooding is not None:
-                                        return True
-
-                                    if self.bd_pw_class is not None:
-                                        return True
-
-                                    if self.pseudowire_flooding_unknown_unicast is not None:
+                                    if self.pseudowire_profile is not None and self.pseudowire_profile._has_data():
                                         return True
 
                                     return False
@@ -9170,7 +9170,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pseudowires'
 
@@ -9229,6 +9229,11 @@ class L2Vpn(object):
                                 
                                 	**range:** 0..32
                                 
+                                .. attribute:: bgp_auto_discovery
+                                
+                                	Enable Autodiscovery BGP in this VFI
+                                	**type**\: :py:class:`BgpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
+                                
                                 .. attribute:: multicast_p2mp
                                 
                                 	Enable Multicast P2MP in this VFI
@@ -9238,11 +9243,6 @@ class L2Vpn(object):
                                 
                                 	List of pseudowires
                                 	**type**\: :py:class:`VfiPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires>`
-                                
-                                .. attribute:: bgp_auto_discovery
-                                
-                                	Enable Autodiscovery BGP in this VFI
-                                	**type**\: :py:class:`BgpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
                                 
                                 .. attribute:: vfi_shutdown
                                 
@@ -9266,12 +9266,12 @@ class L2Vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.name = None
+                                    self.bgp_auto_discovery = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery()
+                                    self.bgp_auto_discovery.parent = self
                                     self.multicast_p2mp = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp()
                                     self.multicast_p2mp.parent = self
                                     self.vfi_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires()
                                     self.vfi_pseudowires.parent = self
-                                    self.bgp_auto_discovery = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery()
-                                    self.bgp_auto_discovery.parent = self
                                     self.vfi_shutdown = None
                                     self.vpnid = None
 
@@ -9280,20 +9280,20 @@ class L2Vpn(object):
                                     """
                                     Enable Multicast P2MP in this VFI
                                     
-                                    .. attribute:: transports
+                                    .. attribute:: enable
                                     
-                                    	Multicast P2MP Transport
-                                    	**type**\: :py:class:`Transports <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports>`
+                                    	Enable Autodiscovery P2MP
+                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
                                     .. attribute:: signalings
                                     
                                     	Multicast P2MP Signaling Type
                                     	**type**\: :py:class:`Signalings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings>`
                                     
-                                    .. attribute:: enable
+                                    .. attribute:: transports
                                     
-                                    	Enable Autodiscovery P2MP
-                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                    	Multicast P2MP Transport
+                                    	**type**\: :py:class:`Transports <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports>`
                                     
                                     
 
@@ -9304,11 +9304,11 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.transports = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports()
-                                        self.transports.parent = self
+                                        self.enable = None
                                         self.signalings = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings()
                                         self.signalings.parent = self
-                                        self.enable = None
+                                        self.transports = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports()
+                                        self.transports.parent = self
 
 
                                     class Transports(object):
@@ -9367,9 +9367,9 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.transport_name is None:
-                                                    raise YPYDataValidationError('Key property transport_name is None')
+                                                    raise YPYModelError('Key property transport_name is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:transport[Cisco-IOS-XR-l2vpn-cfg:transport-name = ' + str(self.transport_name) + ']'
 
@@ -9396,7 +9396,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:transports'
 
@@ -9468,9 +9468,9 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.signaling_name is None:
-                                                    raise YPYDataValidationError('Key property signaling_name is None')
+                                                    raise YPYModelError('Key property signaling_name is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:signaling[Cisco-IOS-XR-l2vpn-cfg:signaling-name = ' + str(self.signaling_name) + ']'
 
@@ -9494,7 +9494,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:signalings'
 
@@ -9520,7 +9520,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:multicast-p2mp'
 
@@ -9531,13 +9531,13 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.transports is not None and self.transports._has_data():
+                                        if self.enable is not None:
                                             return True
 
                                         if self.signalings is not None and self.signalings._has_data():
                                             return True
 
-                                        if self.enable is not None:
+                                        if self.transports is not None and self.transports._has_data():
                                             return True
 
                                         return False
@@ -9589,16 +9589,6 @@ class L2Vpn(object):
                                         
                                         	**range:** 1..4294967295
                                         
-                                        .. attribute:: vfi_pw_dhcp_snoop
-                                        
-                                        	Attach a DHCP Snooping profile
-                                        	**type**\: :py:class:`VfiPwDhcpSnoop <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
-                                        
-                                        .. attribute:: vfi_pw_mpls_static_labels
-                                        
-                                        	MPLS static labels
-                                        	**type**\: :py:class:`VfiPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
-                                        
                                         .. attribute:: pseudowire_static_mac_addresses
                                         
                                         	Static Mac Address Table
@@ -9610,6 +9600,11 @@ class L2Vpn(object):
                                         	**type**\: str
                                         
                                         	**range:** 0..32
+                                        
+                                        .. attribute:: vfi_pw_dhcp_snoop
+                                        
+                                        	Attach a DHCP Snooping profile
+                                        	**type**\: :py:class:`VfiPwDhcpSnoop <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
                                         
                                         .. attribute:: vfi_pw_igmp_snoop
                                         
@@ -9625,6 +9620,11 @@ class L2Vpn(object):
                                         
                                         	**range:** 0..32
                                         
+                                        .. attribute:: vfi_pw_mpls_static_labels
+                                        
+                                        	MPLS static labels
+                                        	**type**\: :py:class:`VfiPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
+                                        
                                         
 
                                         """
@@ -9636,30 +9636,30 @@ class L2Vpn(object):
                                             self.parent = None
                                             self.neighbor = None
                                             self.pseudowire_id = None
-                                            self.vfi_pw_dhcp_snoop = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop()
-                                            self.vfi_pw_dhcp_snoop.parent = self
-                                            self.vfi_pw_mpls_static_labels = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels()
-                                            self.vfi_pw_mpls_static_labels.parent = self
                                             self.pseudowire_static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses()
                                             self.pseudowire_static_mac_addresses.parent = self
                                             self.vfi_pw_class = None
+                                            self.vfi_pw_dhcp_snoop = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop()
+                                            self.vfi_pw_dhcp_snoop.parent = self
                                             self.vfi_pw_igmp_snoop = None
                                             self.vfi_pw_mld_snoop = None
+                                            self.vfi_pw_mpls_static_labels = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels()
+                                            self.vfi_pw_mpls_static_labels.parent = self
 
 
                                         class VfiPwDhcpSnoop(object):
                                             """
                                             Attach a DHCP Snooping profile
                                             
-                                            .. attribute:: profile_id
-                                            
-                                            	Set the snooping profile
-                                            	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
-                                            
                                             .. attribute:: dhcp_snooping_id
                                             
                                             	Disable DHCP snooping
                                             	**type**\: str
+                                            
+                                            .. attribute:: profile_id
+                                            
+                                            	Set the snooping profile
+                                            	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                             
                                             
 
@@ -9670,13 +9670,13 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.profile_id = None
                                                 self.dhcp_snooping_id = None
+                                                self.profile_id = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vfi-pw-dhcp-snoop'
 
@@ -9687,10 +9687,10 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.profile_id is not None:
+                                                if self.dhcp_snooping_id is not None:
                                                     return True
 
-                                                if self.dhcp_snooping_id is not None:
+                                                if self.profile_id is not None:
                                                     return True
 
                                                 return False
@@ -9734,7 +9734,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vfi-pw-mpls-static-labels'
 
@@ -9807,9 +9807,9 @@ class L2Vpn(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                                     if self.address is None:
-                                                        raise YPYDataValidationError('Key property address is None')
+                                                        raise YPYModelError('Key property address is None')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-static-mac-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
@@ -9833,7 +9833,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-static-mac-addresses'
 
@@ -9859,11 +9859,11 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.neighbor is None:
-                                                raise YPYDataValidationError('Key property neighbor is None')
+                                                raise YPYModelError('Key property neighbor is None')
                                             if self.pseudowire_id is None:
-                                                raise YPYDataValidationError('Key property pseudowire_id is None')
+                                                raise YPYModelError('Key property pseudowire_id is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vfi-pseudowire[Cisco-IOS-XR-l2vpn-cfg:neighbor = ' + str(self.neighbor) + '][Cisco-IOS-XR-l2vpn-cfg:pseudowire-id = ' + str(self.pseudowire_id) + ']'
 
@@ -9880,22 +9880,22 @@ class L2Vpn(object):
                                             if self.pseudowire_id is not None:
                                                 return True
 
-                                            if self.vfi_pw_dhcp_snoop is not None and self.vfi_pw_dhcp_snoop._has_data():
-                                                return True
-
-                                            if self.vfi_pw_mpls_static_labels is not None and self.vfi_pw_mpls_static_labels._has_data():
-                                                return True
-
                                             if self.pseudowire_static_mac_addresses is not None and self.pseudowire_static_mac_addresses._has_data():
                                                 return True
 
                                             if self.vfi_pw_class is not None:
                                                 return True
 
+                                            if self.vfi_pw_dhcp_snoop is not None and self.vfi_pw_dhcp_snoop._has_data():
+                                                return True
+
                                             if self.vfi_pw_igmp_snoop is not None:
                                                 return True
 
                                             if self.vfi_pw_mld_snoop is not None:
+                                                return True
+
+                                            if self.vfi_pw_mpls_static_labels is not None and self.vfi_pw_mpls_static_labels._has_data():
                                                 return True
 
                                             return False
@@ -9908,7 +9908,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vfi-pseudowires'
 
@@ -9936,6 +9936,21 @@ class L2Vpn(object):
                                     """
                                     Enable Autodiscovery BGP in this VFI
                                     
+                                    .. attribute:: ad_control_word
+                                    
+                                    	Enable control\-word for this VFI
+                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                    
+                                    .. attribute:: bgp_signaling_protocol
+                                    
+                                    	Enable Signaling Protocol BGP in this VFI
+                                    	**type**\: :py:class:`BgpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable Autodiscovery BGP
+                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                    
                                     .. attribute:: ldp_signaling_protocol
                                     
                                     	Signaling Protocol LDP in this VFI configuration
@@ -9946,25 +9961,10 @@ class L2Vpn(object):
                                     	Route Distinguisher
                                     	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher>`
                                     
-                                    .. attribute:: bgp_signaling_protocol
-                                    
-                                    	Enable Signaling Protocol BGP in this VFI
-                                    	**type**\: :py:class:`BgpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
-                                    
                                     .. attribute:: route_targets
                                     
                                     	Route Target
                                     	**type**\: :py:class:`RouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets>`
-                                    
-                                    .. attribute:: ad_control_word
-                                    
-                                    	Enable control\-word for this VFI
-                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                    
-                                    .. attribute:: enable
-                                    
-                                    	Enable Autodiscovery BGP
-                                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
                                     
 
@@ -9975,16 +9975,16 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.ad_control_word = None
+                                        self.bgp_signaling_protocol = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol()
+                                        self.bgp_signaling_protocol.parent = self
+                                        self.enable = None
                                         self.ldp_signaling_protocol = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol()
                                         self.ldp_signaling_protocol.parent = self
                                         self.route_distinguisher = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher()
                                         self.route_distinguisher.parent = self
-                                        self.bgp_signaling_protocol = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol()
-                                        self.bgp_signaling_protocol.parent = self
                                         self.route_targets = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets()
                                         self.route_targets.parent = self
-                                        self.ad_control_word = None
-                                        self.enable = None
 
 
                                     class LdpSignalingProtocol(object):
@@ -9992,20 +9992,20 @@ class L2Vpn(object):
                                         Signaling Protocol LDP in this VFI
                                         configuration
                                         
-                                        .. attribute:: vplsid
+                                        .. attribute:: enable
                                         
-                                        	VPLS ID
-                                        	**type**\: :py:class:`Vplsid <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid>`
+                                        	Enable LDP as Signaling Protocol .Deletion of this object also causes deletion of all objects under LDPSignalingProtocol
+                                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                         
                                         .. attribute:: flow_label_load_balance
                                         
                                         	Enable Flow Label based load balancing
                                         	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance>`
                                         
-                                        .. attribute:: enable
+                                        .. attribute:: vplsid
                                         
-                                        	Enable LDP as Signaling Protocol .Deletion of this object also causes deletion of all objects under LDPSignalingProtocol
-                                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                        	VPLS ID
+                                        	**type**\: :py:class:`Vplsid <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid>`
                                         
                                         
 
@@ -10016,35 +10016,16 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.vplsid = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid()
-                                            self.vplsid.parent = self
+                                            self.enable = None
                                             self.flow_label_load_balance = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance()
                                             self.flow_label_load_balance.parent = self
-                                            self.enable = None
+                                            self.vplsid = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid()
+                                            self.vplsid.parent = self
 
 
                                         class Vplsid(object):
                                             """
                                             VPLS ID
-                                            
-                                            .. attribute:: type
-                                            
-                                            	VPLS\-ID Type
-                                            	**type**\: :py:class:`LdpVplsIdEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LdpVplsIdEnum>`
-                                            
-                                            .. attribute:: as_
-                                            
-                                            	Two byte AS number
-                                            	**type**\: int
-                                            
-                                            	**range:** 1..65535
-                                            
-                                            .. attribute:: as_index
-                                            
-                                            	AS index
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
@@ -10060,6 +10041,25 @@ class L2Vpn(object):
                                             
                                             	**range:** 0..32767
                                             
+                                            .. attribute:: as_
+                                            
+                                            	Two byte AS number
+                                            	**type**\: int
+                                            
+                                            	**range:** 1..65535
+                                            
+                                            .. attribute:: as_index
+                                            
+                                            	AS index
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: type
+                                            
+                                            	VPLS\-ID Type
+                                            	**type**\: :py:class:`LdpVplsIdEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LdpVplsIdEnum>`
+                                            
                                             
 
                                             """
@@ -10069,16 +10069,16 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.type = None
-                                                self.as_ = None
-                                                self.as_index = None
                                                 self.address = None
                                                 self.address_index = None
+                                                self.as_ = None
+                                                self.as_index = None
+                                                self.type = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vplsid'
 
@@ -10089,7 +10089,10 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.type is not None:
+                                                if self.address is not None:
+                                                    return True
+
+                                                if self.address_index is not None:
                                                     return True
 
                                                 if self.as_ is not None:
@@ -10098,10 +10101,7 @@ class L2Vpn(object):
                                                 if self.as_index is not None:
                                                     return True
 
-                                                if self.address is not None:
-                                                    return True
-
-                                                if self.address_index is not None:
+                                                if self.type is not None:
                                                     return True
 
                                                 return False
@@ -10141,7 +10141,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:flow-label-load-balance'
 
@@ -10168,7 +10168,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ldp-signaling-protocol'
 
@@ -10179,13 +10179,13 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.vplsid is not None and self.vplsid._has_data():
+                                            if self.enable is not None:
                                                 return True
 
                                             if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
                                                 return True
 
-                                            if self.enable is not None:
+                                            if self.vplsid is not None and self.vplsid._has_data():
                                                 return True
 
                                             return False
@@ -10200,10 +10200,19 @@ class L2Vpn(object):
                                         """
                                         Route Distinguisher
                                         
-                                        .. attribute:: type
+                                        .. attribute:: addr_index
                                         
-                                        	Router Distinguisher Type
-                                        	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                                        	Addr index
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: address
+                                        
+                                        	IPV4 address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: as_
                                         
@@ -10219,19 +10228,10 @@ class L2Vpn(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: address
+                                        .. attribute:: type
                                         
-                                        	IPV4 address
-                                        	**type**\: str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                        
-                                        .. attribute:: addr_index
-                                        
-                                        	Addr index
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..65535
+                                        	Router Distinguisher Type
+                                        	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                                         
                                         
 
@@ -10242,16 +10242,16 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.type = None
+                                            self.addr_index = None
+                                            self.address = None
                                             self.as_ = None
                                             self.as_index = None
-                                            self.address = None
-                                            self.addr_index = None
+                                            self.type = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-distinguisher'
 
@@ -10262,7 +10262,10 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.type is not None:
+                                            if self.addr_index is not None:
+                                                return True
+
+                                            if self.address is not None:
                                                 return True
 
                                             if self.as_ is not None:
@@ -10271,10 +10274,7 @@ class L2Vpn(object):
                                             if self.as_index is not None:
                                                 return True
 
-                                            if self.address is not None:
-                                                return True
-
-                                            if self.addr_index is not None:
+                                            if self.type is not None:
                                                 return True
 
                                             return False
@@ -10289,6 +10289,11 @@ class L2Vpn(object):
                                         """
                                         Enable Signaling Protocol BGP in this
                                         VFI
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable BGP as Signaling Protocol
+                                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                         
                                         .. attribute:: flow_label_load_balance
                                         
@@ -10309,11 +10314,6 @@ class L2Vpn(object):
                                         
                                         	**range:** 1..16384
                                         
-                                        .. attribute:: enable
-                                        
-                                        	Enable BGP as Signaling Protocol
-                                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                        
                                         
 
                                         """
@@ -10323,11 +10323,11 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.enable = None
                                             self.flow_label_load_balance = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance()
                                             self.flow_label_load_balance.parent = self
                                             self.ve_range = None
                                             self.veid = None
-                                            self.enable = None
 
 
                                         class FlowLabelLoadBalance(object):
@@ -10359,7 +10359,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:flow-label-load-balance'
 
@@ -10386,7 +10386,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bgp-signaling-protocol'
 
@@ -10397,6 +10397,9 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.enable is not None:
+                                                return True
+
                                             if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
                                                 return True
 
@@ -10404,9 +10407,6 @@ class L2Vpn(object):
                                                 return True
 
                                             if self.veid is not None:
-                                                return True
-
-                                            if self.enable is not None:
                                                 return True
 
                                             return False
@@ -10444,25 +10444,25 @@ class L2Vpn(object):
                                             """
                                             Name of the Route Target
                                             
-                                            .. attribute:: role  <key>
-                                            
-                                            	Role of the router target type
-                                            	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
-                                            
                                             .. attribute:: format  <key>
                                             
                                             	Format of the route target
                                             	**type**\: :py:class:`BgpRouteTargetFormatEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                             
-                                            .. attribute:: two_byte_as_or_four_byte_as
+                                            .. attribute:: role  <key>
                                             
-                                            	two byte as or four byte as
-                                            	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
+                                            	Role of the router target type
+                                            	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	ipv4 address
                                             	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address>`
+                                            
+                                            .. attribute:: two_byte_as_or_four_byte_as
+                                            
+                                            	two byte as or four byte as
+                                            	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
                                             
                                             
 
@@ -10473,14 +10473,14 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.role = None
                                                 self.format = None
-                                                self.two_byte_as_or_four_byte_as = YList()
-                                                self.two_byte_as_or_four_byte_as.parent = self
-                                                self.two_byte_as_or_four_byte_as.name = 'two_byte_as_or_four_byte_as'
+                                                self.role = None
                                                 self.ipv4_address = YList()
                                                 self.ipv4_address.parent = self
                                                 self.ipv4_address.name = 'ipv4_address'
+                                                self.two_byte_as_or_four_byte_as = YList()
+                                                self.two_byte_as_or_four_byte_as.parent = self
+                                                self.two_byte_as_or_four_byte_as.name = 'two_byte_as_or_four_byte_as'
 
 
                                             class TwoByteAsOrFourByteAs(object):
@@ -10516,11 +10516,11 @@ class L2Vpn(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                                     if self.as_ is None:
-                                                        raise YPYDataValidationError('Key property as_ is None')
+                                                        raise YPYModelError('Key property as_ is None')
                                                     if self.as_index is None:
-                                                        raise YPYDataValidationError('Key property as_index is None')
+                                                        raise YPYModelError('Key property as_index is None')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:two-byte-as-or-four-byte-as[Cisco-IOS-XR-l2vpn-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-l2vpn-cfg:as-index = ' + str(self.as_index) + ']'
 
@@ -10549,19 +10549,19 @@ class L2Vpn(object):
                                                 """
                                                 ipv4 address
                                                 
-                                                .. attribute:: address  <key>
-                                                
-                                                	IPV4 address
-                                                	**type**\: str
-                                                
-                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                                
                                                 .. attribute:: addr_index  <key>
                                                 
                                                 	Addr index
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..65535
+                                                
+                                                .. attribute:: address  <key>
+                                                
+                                                	IPV4 address
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 
 
@@ -10572,19 +10572,19 @@ class L2Vpn(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.address = None
                                                     self.addr_index = None
+                                                    self.address = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                                    if self.address is None:
-                                                        raise YPYDataValidationError('Key property address is None')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                                     if self.addr_index is None:
-                                                        raise YPYDataValidationError('Key property addr_index is None')
+                                                        raise YPYModelError('Key property addr_index is None')
+                                                    if self.address is None:
+                                                        raise YPYModelError('Key property address is None')
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + ']'
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
                                                 def is_config(self):
                                                     ''' Returns True if this instance represents config data else returns False '''
@@ -10593,10 +10593,10 @@ class L2Vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.address is not None:
+                                                    if self.addr_index is not None:
                                                         return True
 
-                                                    if self.addr_index is not None:
+                                                    if self.address is not None:
                                                         return True
 
                                                     return False
@@ -10609,13 +10609,13 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                                if self.role is None:
-                                                    raise YPYDataValidationError('Key property role is None')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.format is None:
-                                                    raise YPYDataValidationError('Key property format is None')
+                                                    raise YPYModelError('Key property format is None')
+                                                if self.role is None:
+                                                    raise YPYModelError('Key property role is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-target[Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-target[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -10624,19 +10624,19 @@ class L2Vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.role is not None:
-                                                    return True
-
                                                 if self.format is not None:
                                                     return True
 
-                                                if self.two_byte_as_or_four_byte_as is not None:
-                                                    for child_ref in self.two_byte_as_or_four_byte_as:
-                                                        if child_ref._has_data():
-                                                            return True
+                                                if self.role is not None:
+                                                    return True
 
                                                 if self.ipv4_address is not None:
                                                     for child_ref in self.ipv4_address:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.two_byte_as_or_four_byte_as is not None:
+                                                    for child_ref in self.two_byte_as_or_four_byte_as:
                                                         if child_ref._has_data():
                                                             return True
 
@@ -10650,7 +10650,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-targets'
 
@@ -10676,7 +10676,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bgp-auto-discovery'
 
@@ -10687,22 +10687,22 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
+                                        if self.ad_control_word is not None:
+                                            return True
+
+                                        if self.bgp_signaling_protocol is not None and self.bgp_signaling_protocol._has_data():
+                                            return True
+
+                                        if self.enable is not None:
+                                            return True
+
                                         if self.ldp_signaling_protocol is not None and self.ldp_signaling_protocol._has_data():
                                             return True
 
                                         if self.route_distinguisher is not None and self.route_distinguisher._has_data():
                                             return True
 
-                                        if self.bgp_signaling_protocol is not None and self.bgp_signaling_protocol._has_data():
-                                            return True
-
                                         if self.route_targets is not None and self.route_targets._has_data():
-                                            return True
-
-                                        if self.ad_control_word is not None:
-                                            return True
-
-                                        if self.enable is not None:
                                             return True
 
                                         return False
@@ -10715,9 +10715,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.name is None:
-                                        raise YPYDataValidationError('Key property name is None')
+                                        raise YPYModelError('Key property name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vfi[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -10731,13 +10731,13 @@ class L2Vpn(object):
                                     if self.name is not None:
                                         return True
 
+                                    if self.bgp_auto_discovery is not None and self.bgp_auto_discovery._has_data():
+                                        return True
+
                                     if self.multicast_p2mp is not None and self.multicast_p2mp._has_data():
                                         return True
 
                                     if self.vfi_pseudowires is not None and self.vfi_pseudowires._has_data():
-                                        return True
-
-                                    if self.bgp_auto_discovery is not None and self.bgp_auto_discovery._has_data():
                                         return True
 
                                     if self.vfi_shutdown is not None:
@@ -10756,7 +10756,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vfis'
 
@@ -10814,25 +10814,54 @@ class L2Vpn(object):
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
-                                .. attribute:: interface_ip_source_guard
+                                .. attribute:: bdac_storm_control_types
                                 
-                                	IP Source Guard
-                                	**type**\: :py:class:`InterfaceIpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
+                                	Storm Control
+                                	**type**\: :py:class:`BdacStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
                                 
                                 .. attribute:: interface_dai
                                 
                                 	L2 Interface Dynamic ARP Inspection
                                 	**type**\: :py:class:`InterfaceDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai>`
                                 
+                                .. attribute:: interface_flooding
+                                
+                                	Enable or Disable Flooding
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                
+                                .. attribute:: interface_flooding_unknown_unicast
+                                
+                                	Enable or Disable Unknown Unicast Flooding
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                
+                                .. attribute:: interface_igmp_snoop
+                                
+                                	Attach a IGMP Snooping profile
+                                	**type**\: str
+                                
+                                	**range:** 0..32
+                                
+                                .. attribute:: interface_ip_source_guard
+                                
+                                	IP Source Guard
+                                	**type**\: :py:class:`InterfaceIpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
+                                
+                                .. attribute:: interface_mac
+                                
+                                	MAC configuration commands
+                                	**type**\: :py:class:`InterfaceMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
+                                
+                                .. attribute:: interface_mld_snoop
+                                
+                                	Attach a MLD Snooping profile
+                                	**type**\: str
+                                
+                                	**range:** 0..32
+                                
                                 .. attribute:: interface_profile
                                 
                                 	Attach a DHCP profile
                                 	**type**\: :py:class:`InterfaceProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile>`
-                                
-                                .. attribute:: bdac_storm_control_types
-                                
-                                	Storm Control
-                                	**type**\: :py:class:`BdacStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
                                 
                                 .. attribute:: split_horizon
                                 
@@ -10844,35 +10873,6 @@ class L2Vpn(object):
                                 	Static Mac Address Table
                                 	**type**\: :py:class:`StaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses>`
                                 
-                                .. attribute:: interface_mac
-                                
-                                	MAC configuration commands
-                                	**type**\: :py:class:`InterfaceMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
-                                
-                                .. attribute:: interface_flooding
-                                
-                                	Enable or Disable Flooding
-                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
-                                
-                                .. attribute:: interface_igmp_snoop
-                                
-                                	Attach a IGMP Snooping profile
-                                	**type**\: str
-                                
-                                	**range:** 0..32
-                                
-                                .. attribute:: interface_flooding_unknown_unicast
-                                
-                                	Enable or Disable Unknown Unicast Flooding
-                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
-                                
-                                .. attribute:: interface_mld_snoop
-                                
-                                	Attach a MLD Snooping profile
-                                	**type**\: str
-                                
-                                	**range:** 0..32
-                                
                                 
 
                                 """
@@ -10883,34 +10883,29 @@ class L2Vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.name = None
-                                    self.interface_ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard()
-                                    self.interface_ip_source_guard.parent = self
-                                    self.interface_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai()
-                                    self.interface_dai.parent = self
-                                    self.interface_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile()
-                                    self.interface_profile.parent = self
                                     self.bdac_storm_control_types = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes()
                                     self.bdac_storm_control_types.parent = self
+                                    self.interface_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai()
+                                    self.interface_dai.parent = self
+                                    self.interface_flooding = None
+                                    self.interface_flooding_unknown_unicast = None
+                                    self.interface_igmp_snoop = None
+                                    self.interface_ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard()
+                                    self.interface_ip_source_guard.parent = self
+                                    self.interface_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac()
+                                    self.interface_mac.parent = self
+                                    self.interface_mld_snoop = None
+                                    self.interface_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile()
+                                    self.interface_profile.parent = self
                                     self.split_horizon = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon()
                                     self.split_horizon.parent = self
                                     self.static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses()
                                     self.static_mac_addresses.parent = self
-                                    self.interface_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac()
-                                    self.interface_mac.parent = self
-                                    self.interface_flooding = None
-                                    self.interface_igmp_snoop = None
-                                    self.interface_flooding_unknown_unicast = None
-                                    self.interface_mld_snoop = None
 
 
                                 class InterfaceIpSourceGuard(object):
                                     """
                                     IP Source Guard
-                                    
-                                    .. attribute:: logging
-                                    
-                                    	Logging Type
-                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     .. attribute:: disable
                                     
@@ -10922,6 +10917,11 @@ class L2Vpn(object):
                                     	Enable IP Source Guard
                                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    
                                     
 
                                     """
@@ -10931,14 +10931,14 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.logging = None
                                         self.disable = None
                                         self.enable = None
+                                        self.logging = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-ip-source-guard'
 
@@ -10949,13 +10949,13 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.logging is not None:
-                                            return True
-
                                         if self.disable is not None:
                                             return True
 
                                         if self.enable is not None:
+                                            return True
+
+                                        if self.logging is not None:
                                             return True
 
                                         return False
@@ -10970,16 +10970,6 @@ class L2Vpn(object):
                                     """
                                     L2 Interface Dynamic ARP Inspection
                                     
-                                    .. attribute:: interface_dai_address_validation
-                                    
-                                    	Address Validation
-                                    	**type**\: :py:class:`InterfaceDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
-                                    
-                                    .. attribute:: logging
-                                    
-                                    	Logging Type
-                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
-                                    
                                     .. attribute:: disable
                                     
                                     	Disable L2 Interface Dynamic ARP Inspection
@@ -10990,6 +10980,16 @@ class L2Vpn(object):
                                     	Enable L2 Interface Dynamic ARP Inspection
                                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                     
+                                    .. attribute:: interface_dai_address_validation
+                                    
+                                    	Address Validation
+                                    	**type**\: :py:class:`InterfaceDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
+                                    
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    
                                     
 
                                     """
@@ -10999,36 +10999,36 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.disable = None
+                                        self.enable = None
                                         self.interface_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation()
                                         self.interface_dai_address_validation.parent = self
                                         self.logging = None
-                                        self.disable = None
-                                        self.enable = None
 
 
                                     class InterfaceDaiAddressValidation(object):
                                         """
                                         Address Validation
                                         
-                                        .. attribute:: ipv4_verification
-                                        
-                                        	IPv4 Verification
-                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
-                                        
                                         .. attribute:: destination_mac_verification
                                         
                                         	Destination MAC Verification
-                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
-                                        
-                                        .. attribute:: source_mac_verification
-                                        
-                                        	Source MAC Verification
                                         	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: enable
                                         
                                         	Enable Address Validation
                                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                        
+                                        .. attribute:: ipv4_verification
+                                        
+                                        	IPv4 Verification
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        
+                                        .. attribute:: source_mac_verification
+                                        
+                                        	Source MAC Verification
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         
 
@@ -11039,15 +11039,15 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.ipv4_verification = None
                                             self.destination_mac_verification = None
-                                            self.source_mac_verification = None
                                             self.enable = None
+                                            self.ipv4_verification = None
+                                            self.source_mac_verification = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-dai-address-validation'
 
@@ -11058,16 +11058,16 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.ipv4_verification is not None:
-                                                return True
-
                                             if self.destination_mac_verification is not None:
                                                 return True
 
-                                            if self.source_mac_verification is not None:
+                                            if self.enable is not None:
                                                 return True
 
-                                            if self.enable is not None:
+                                            if self.ipv4_verification is not None:
+                                                return True
+
+                                            if self.source_mac_verification is not None:
                                                 return True
 
                                             return False
@@ -11080,7 +11080,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-dai'
 
@@ -11091,16 +11091,16 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.interface_dai_address_validation is not None and self.interface_dai_address_validation._has_data():
-                                            return True
-
-                                        if self.logging is not None:
-                                            return True
-
                                         if self.disable is not None:
                                             return True
 
                                         if self.enable is not None:
+                                            return True
+
+                                        if self.interface_dai_address_validation is not None and self.interface_dai_address_validation._has_data():
+                                            return True
+
+                                        if self.logging is not None:
                                             return True
 
                                         return False
@@ -11115,15 +11115,15 @@ class L2Vpn(object):
                                     """
                                     Attach a DHCP profile
                                     
-                                    .. attribute:: profile_id
-                                    
-                                    	Set the snooping profile
-                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
-                                    
                                     .. attribute:: dhcp_snooping_id
                                     
                                     	Disable DHCP snooping
                                     	**type**\: str
+                                    
+                                    .. attribute:: profile_id
+                                    
+                                    	Set the snooping profile
+                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -11134,13 +11134,13 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.profile_id = None
                                         self.dhcp_snooping_id = None
+                                        self.profile_id = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-profile'
 
@@ -11151,10 +11151,10 @@ class L2Vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.profile_id is not None:
+                                        if self.dhcp_snooping_id is not None:
                                             return True
 
-                                        if self.dhcp_snooping_id is not None:
+                                        if self.profile_id is not None:
                                             return True
 
                                         return False
@@ -11249,7 +11249,7 @@ class L2Vpn(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:storm-control-unit'
 
@@ -11276,9 +11276,9 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.sctype is None:
-                                                raise YPYDataValidationError('Key property sctype is None')
+                                                raise YPYModelError('Key property sctype is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bdac-storm-control-type[Cisco-IOS-XR-l2vpn-cfg:sctype = ' + str(self.sctype) + ']'
 
@@ -11305,7 +11305,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bdac-storm-control-types'
 
@@ -11374,7 +11374,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:split-horizon-group-id'
 
@@ -11398,7 +11398,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:split-horizon'
 
@@ -11468,9 +11468,9 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.address is None:
-                                                raise YPYDataValidationError('Key property address is None')
+                                                raise YPYModelError('Key property address is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:static-mac-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
@@ -11494,7 +11494,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:static-mac-addresses'
 
@@ -11527,10 +11527,10 @@ class L2Vpn(object):
                                     	MAC\-Aging configuration commands
                                     	**type**\: :py:class:`InterfaceMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging>`
                                     
-                                    .. attribute:: interface_mac_secure
+                                    .. attribute:: interface_mac_learning
                                     
-                                    	MAC Secure
-                                    	**type**\: :py:class:`InterfaceMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
+                                    	Enable Mac Learning
+                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: interface_mac_limit
                                     
@@ -11542,10 +11542,10 @@ class L2Vpn(object):
                                     	Enable/Disable MAC Flush When Port goes down
                                     	**type**\: :py:class:`PortDownFlushEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
                                     
-                                    .. attribute:: interface_mac_learning
+                                    .. attribute:: interface_mac_secure
                                     
-                                    	Enable Mac Learning
-                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                    	MAC Secure
+                                    	**type**\: :py:class:`InterfaceMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
                                     
                                     
 
@@ -11558,12 +11558,12 @@ class L2Vpn(object):
                                         self.parent = None
                                         self.interface_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging()
                                         self.interface_mac_aging.parent = self
-                                        self.interface_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure()
-                                        self.interface_mac_secure.parent = self
+                                        self.interface_mac_learning = None
                                         self.interface_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit()
                                         self.interface_mac_limit.parent = self
                                         self.interface_mac_port_down_flush = None
-                                        self.interface_mac_learning = None
+                                        self.interface_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure()
+                                        self.interface_mac_secure.parent = self
 
 
                                     class InterfaceMacAging(object):
@@ -11597,7 +11597,7 @@ class L2Vpn(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-mac-aging'
 
@@ -11626,25 +11626,25 @@ class L2Vpn(object):
                                         """
                                         MAC Secure
                                         
-                                        .. attribute:: logging
+                                        .. attribute:: action
                                         
-                                        	MAC Secure Logging
-                                        	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                        	MAC secure enforcement action
+                                        	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                         
                                         .. attribute:: disable
                                         
                                         	Disable L2 Interface MAC Secure
                                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                         
-                                        .. attribute:: action
-                                        
-                                        	MAC secure enforcement action
-                                        	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
-                                        
                                         .. attribute:: enable
                                         
                                         	Enable MAC Secure
                                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                        
+                                        .. attribute:: logging
+                                        
+                                        	MAC Secure Logging
+                                        	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                         
                                         
 
@@ -11655,15 +11655,15 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.logging = None
-                                            self.disable = None
                                             self.action = None
+                                            self.disable = None
                                             self.enable = None
+                                            self.logging = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-mac-secure'
 
@@ -11674,16 +11674,16 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.logging is not None:
+                                            if self.action is not None:
                                                 return True
 
                                             if self.disable is not None:
                                                 return True
 
-                                            if self.action is not None:
+                                            if self.enable is not None:
                                                 return True
 
-                                            if self.enable is not None:
+                                            if self.logging is not None:
                                                 return True
 
                                             return False
@@ -11698,6 +11698,11 @@ class L2Vpn(object):
                                         """
                                         MAC\-Limit configuration commands
                                         
+                                        .. attribute:: interface_mac_limit_action
+                                        
+                                        	Interface MAC address limit enforcement action
+                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                        
                                         .. attribute:: interface_mac_limit_max
                                         
                                         	Number of MAC addresses on an Interface after which MAC limit action is taken
@@ -11710,11 +11715,6 @@ class L2Vpn(object):
                                         	MAC address limit notification action in a Interface
                                         	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
-                                        .. attribute:: interface_mac_limit_action
-                                        
-                                        	Interface MAC address limit enforcement action
-                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
-                                        
                                         
 
                                         """
@@ -11724,14 +11724,14 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.interface_mac_limit_action = None
                                             self.interface_mac_limit_max = None
                                             self.interface_mac_limit_notif = None
-                                            self.interface_mac_limit_action = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-mac-limit'
 
@@ -11742,13 +11742,13 @@ class L2Vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.interface_mac_limit_action is not None:
+                                                return True
+
                                             if self.interface_mac_limit_max is not None:
                                                 return True
 
                                             if self.interface_mac_limit_notif is not None:
-                                                return True
-
-                                            if self.interface_mac_limit_action is not None:
                                                 return True
 
                                             return False
@@ -11761,7 +11761,7 @@ class L2Vpn(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface-mac'
 
@@ -11775,7 +11775,7 @@ class L2Vpn(object):
                                         if self.interface_mac_aging is not None and self.interface_mac_aging._has_data():
                                             return True
 
-                                        if self.interface_mac_secure is not None and self.interface_mac_secure._has_data():
+                                        if self.interface_mac_learning is not None:
                                             return True
 
                                         if self.interface_mac_limit is not None and self.interface_mac_limit._has_data():
@@ -11784,7 +11784,7 @@ class L2Vpn(object):
                                         if self.interface_mac_port_down_flush is not None:
                                             return True
 
-                                        if self.interface_mac_learning is not None:
+                                        if self.interface_mac_secure is not None and self.interface_mac_secure._has_data():
                                             return True
 
                                         return False
@@ -11797,9 +11797,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.name is None:
-                                        raise YPYDataValidationError('Key property name is None')
+                                        raise YPYModelError('Key property name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-attachment-circuit[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -11813,37 +11813,37 @@ class L2Vpn(object):
                                     if self.name is not None:
                                         return True
 
-                                    if self.interface_ip_source_guard is not None and self.interface_ip_source_guard._has_data():
+                                    if self.bdac_storm_control_types is not None and self.bdac_storm_control_types._has_data():
                                         return True
 
                                     if self.interface_dai is not None and self.interface_dai._has_data():
                                         return True
 
-                                    if self.interface_profile is not None and self.interface_profile._has_data():
+                                    if self.interface_flooding is not None:
                                         return True
 
-                                    if self.bdac_storm_control_types is not None and self.bdac_storm_control_types._has_data():
+                                    if self.interface_flooding_unknown_unicast is not None:
+                                        return True
+
+                                    if self.interface_igmp_snoop is not None:
+                                        return True
+
+                                    if self.interface_ip_source_guard is not None and self.interface_ip_source_guard._has_data():
+                                        return True
+
+                                    if self.interface_mac is not None and self.interface_mac._has_data():
+                                        return True
+
+                                    if self.interface_mld_snoop is not None:
+                                        return True
+
+                                    if self.interface_profile is not None and self.interface_profile._has_data():
                                         return True
 
                                     if self.split_horizon is not None and self.split_horizon._has_data():
                                         return True
 
                                     if self.static_mac_addresses is not None and self.static_mac_addresses._has_data():
-                                        return True
-
-                                    if self.interface_mac is not None and self.interface_mac._has_data():
-                                        return True
-
-                                    if self.interface_flooding is not None:
-                                        return True
-
-                                    if self.interface_igmp_snoop is not None:
-                                        return True
-
-                                    if self.interface_flooding_unknown_unicast is not None:
-                                        return True
-
-                                    if self.interface_mld_snoop is not None:
                                         return True
 
                                     return False
@@ -11856,7 +11856,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-attachment-circuits'
 
@@ -11884,14 +11884,14 @@ class L2Vpn(object):
                             """
                             IP Source Guard
                             
-                            .. attribute:: logging
-                            
-                            	Enable Logging
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: enable
                             
                             	Enable IP Source Guard
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: logging
+                            
+                            	Enable Logging
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
@@ -11903,13 +11903,13 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.logging = None
                                 self.enable = None
+                                self.logging = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ip-source-guard'
 
@@ -11920,10 +11920,10 @@ class L2Vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.logging is not None:
+                                if self.enable is not None:
                                     return True
 
-                                if self.enable is not None:
+                                if self.logging is not None:
                                     return True
 
                                 return False
@@ -11943,14 +11943,14 @@ class L2Vpn(object):
                             	Address Validation
                             	**type**\: :py:class:`DaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation>`
                             
-                            .. attribute:: logging
-                            
-                            	Enable Logging
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: enable
                             
                             	Enable Dynamic ARP Inspection
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: logging
+                            
+                            	Enable Logging
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
@@ -11964,32 +11964,32 @@ class L2Vpn(object):
                                 self.parent = None
                                 self.dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation()
                                 self.dai_address_validation.parent = self
-                                self.logging = None
                                 self.enable = None
+                                self.logging = None
 
 
                             class DaiAddressValidation(object):
                                 """
                                 Address Validation
                                 
-                                .. attribute:: ipv4_verification
-                                
-                                	Enable IPv4 Verification
-                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                
                                 .. attribute:: destination_mac_verification
                                 
                                 	Enable Destination MAC Verification
                                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                 
-                                .. attribute:: source_mac_verification
-                                
-                                	Enable Source MAC Verification
-                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                                
                                 .. attribute:: enable
                                 
                                 	Enable Address Validation
+                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                
+                                .. attribute:: ipv4_verification
+                                
+                                	Enable IPv4 Verification
+                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                
+                                .. attribute:: source_mac_verification
+                                
+                                	Enable Source MAC Verification
                                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                 
                                 
@@ -12001,15 +12001,15 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.ipv4_verification = None
                                     self.destination_mac_verification = None
-                                    self.source_mac_verification = None
                                     self.enable = None
+                                    self.ipv4_verification = None
+                                    self.source_mac_verification = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:dai-address-validation'
 
@@ -12020,16 +12020,16 @@ class L2Vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.ipv4_verification is not None:
-                                        return True
-
                                     if self.destination_mac_verification is not None:
                                         return True
 
-                                    if self.source_mac_verification is not None:
+                                    if self.enable is not None:
                                         return True
 
-                                    if self.enable is not None:
+                                    if self.ipv4_verification is not None:
+                                        return True
+
+                                    if self.source_mac_verification is not None:
                                         return True
 
                                     return False
@@ -12042,7 +12042,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:dai'
 
@@ -12056,10 +12056,10 @@ class L2Vpn(object):
                                 if self.dai_address_validation is not None and self.dai_address_validation._has_data():
                                     return True
 
-                                if self.logging is not None:
+                                if self.enable is not None:
                                     return True
 
-                                if self.enable is not None:
+                                if self.logging is not None:
                                     return True
 
                                 return False
@@ -12118,9 +12118,9 @@ class L2Vpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:routed-interface[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -12144,7 +12144,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:routed-interfaces'
 
@@ -12170,9 +12170,9 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.name is None:
-                                raise YPYDataValidationError('Key property name is None')
+                                raise YPYModelError('Key property name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bridge-domain[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -12186,67 +12186,67 @@ class L2Vpn(object):
                             if self.name is not None:
                                 return True
 
-                            if self.bd_storm_controls is not None and self.bd_storm_controls._has_data():
-                                return True
-
-                            if self.member_vnis is not None and self.member_vnis._has_data():
-                                return True
-
-                            if self.bridge_domain_mac is not None and self.bridge_domain_mac._has_data():
-                                return True
-
-                            if self.nv_satellite is not None and self.nv_satellite._has_data():
-                                return True
-
-                            if self.bridge_domain_pbb is not None and self.bridge_domain_pbb._has_data():
+                            if self.bd_attachment_circuits is not None and self.bd_attachment_circuits._has_data():
                                 return True
 
                             if self.bd_pseudowires is not None and self.bd_pseudowires._has_data():
                                 return True
 
-                            if self.vfis is not None and self.vfis._has_data():
+                            if self.bd_storm_controls is not None and self.bd_storm_controls._has_data():
                                 return True
 
-                            if self.bd_attachment_circuits is not None and self.bd_attachment_circuits._has_data():
-                                return True
-
-                            if self.ip_source_guard is not None and self.ip_source_guard._has_data():
-                                return True
-
-                            if self.dai is not None and self.dai._has_data():
-                                return True
-
-                            if self.routed_interfaces is not None and self.routed_interfaces._has_data():
-                                return True
-
-                            if self.coupled_mode is not None:
-                                return True
-
-                            if self.shutdown is not None:
-                                return True
-
-                            if self.flooding_unknown_unicast is not None:
-                                return True
-
-                            if self.igmp_snooping_disable is not None:
-                                return True
-
-                            if self.transport_mode is not None:
-                                return True
-
-                            if self.mld_snooping is not None:
+                            if self.bridge_domain_mac is not None and self.bridge_domain_mac._has_data():
                                 return True
 
                             if self.bridge_domain_mtu is not None:
                                 return True
 
+                            if self.bridge_domain_pbb is not None and self.bridge_domain_pbb._has_data():
+                                return True
+
+                            if self.coupled_mode is not None:
+                                return True
+
+                            if self.dai is not None and self.dai._has_data():
+                                return True
+
                             if self.dhcp is not None:
+                                return True
+
+                            if self.flooding is not None:
+                                return True
+
+                            if self.flooding_unknown_unicast is not None:
                                 return True
 
                             if self.igmp_snooping is not None:
                                 return True
 
-                            if self.flooding is not None:
+                            if self.igmp_snooping_disable is not None:
+                                return True
+
+                            if self.ip_source_guard is not None and self.ip_source_guard._has_data():
+                                return True
+
+                            if self.member_vnis is not None and self.member_vnis._has_data():
+                                return True
+
+                            if self.mld_snooping is not None:
+                                return True
+
+                            if self.nv_satellite is not None and self.nv_satellite._has_data():
+                                return True
+
+                            if self.routed_interfaces is not None and self.routed_interfaces._has_data():
+                                return True
+
+                            if self.shutdown is not None:
+                                return True
+
+                            if self.transport_mode is not None:
+                                return True
+
+                            if self.vfis is not None and self.vfis._has_data():
                                 return True
 
                             return False
@@ -12259,7 +12259,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bridge-domains'
 
@@ -12285,7 +12285,7 @@ class L2Vpn(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/Cisco-IOS-XR-l2vpn-cfg:l2vpn/Cisco-IOS-XR-l2vpn-cfg:database/Cisco-IOS-XR-l2vpn-cfg:bridge-domain-groups/Cisco-IOS-XR-l2vpn-cfg:bridge-domain-group[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -12368,30 +12368,30 @@ class L2Vpn(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: l2tpv3_encapsulation
-                
-                	L2TPv3 encapsulation
-                	**type**\: :py:class:`L2Tpv3Encapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation>`
-                
                 .. attribute:: backup_disable_delay
                 
                 	Back Up Pseudowire class
                 	**type**\: :py:class:`BackupDisableDelay <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay>`
                 
-                .. attribute:: mpls_encapsulation
+                .. attribute:: enable
                 
-                	MPLS encapsulation
-                	**type**\: :py:class:`MplsEncapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation>`
+                	Enable pseudowire class
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: l2tpv3_encapsulation
+                
+                	L2TPv3 encapsulation
+                	**type**\: :py:class:`L2Tpv3Encapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation>`
                 
                 .. attribute:: mac_withdraw
                 
                 	Enable backup MAC withdraw
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: enable
+                .. attribute:: mpls_encapsulation
                 
-                	Enable pseudowire class
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	MPLS encapsulation
+                	**type**\: :py:class:`MplsEncapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation>`
                 
                 
 
@@ -12403,49 +12403,49 @@ class L2Vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.l2tpv3_encapsulation = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation()
-                    self.l2tpv3_encapsulation.parent = self
                     self.backup_disable_delay = L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay()
                     self.backup_disable_delay.parent = self
+                    self.enable = None
+                    self.l2tpv3_encapsulation = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation()
+                    self.l2tpv3_encapsulation.parent = self
+                    self.mac_withdraw = None
                     self.mpls_encapsulation = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation()
                     self.mpls_encapsulation.parent = self
-                    self.mac_withdraw = None
-                    self.enable = None
 
 
                 class L2Tpv3Encapsulation(object):
                     """
                     L2TPv3 encapsulation
                     
-                    .. attribute:: sequencing
+                    .. attribute:: cookie_size
                     
-                    	Sequencing
-                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing>`
-                    
-                    .. attribute:: type_of_service
-                    
-                    	Type of service
-                    	**type**\: :py:class:`TypeOfService <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService>`
-                    
-                    .. attribute:: signaling_protocol
-                    
-                    	L2TPv3 signaling protocol
-                    	**type**\: :py:class:`SignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol>`
-                    
-                    .. attribute:: path_mtu
-                    
-                    	Path maximum transmission unit
-                    	**type**\: :py:class:`PathMtu <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu>`
+                    	Cookie size
+                    	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                     
                     .. attribute:: df_bit_set
                     
                     	Set the do not fragment bit to 1
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: cookie_size
+                    .. attribute:: enable
                     
-                    	Cookie size
-                    	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                    	Enable L2TPv3 encapsulation
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: path_mtu
+                    
+                    	Path maximum transmission unit
+                    	**type**\: :py:class:`PathMtu <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu>`
+                    
+                    .. attribute:: sequencing
+                    
+                    	Sequencing
+                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing>`
+                    
+                    .. attribute:: signaling_protocol
+                    
+                    	L2TPv3 signaling protocol
+                    	**type**\: :py:class:`SignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol>`
                     
                     .. attribute:: source_address
                     
@@ -12454,22 +12454,22 @@ class L2Vpn(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: transport_mode
-                    
-                    	Transport mode
-                    	**type**\: :py:class:`TransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
-                    
-                    .. attribute:: enable
-                    
-                    	Enable L2TPv3 encapsulation
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: time_to_live
                     
                     	Time to live
                     	**type**\: int
                     
                     	**range:** 1..255
+                    
+                    .. attribute:: transport_mode
+                    
+                    	Transport mode
+                    	**type**\: :py:class:`TransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
+                    
+                    .. attribute:: type_of_service
+                    
+                    	Type of service
+                    	**type**\: :py:class:`TypeOfService <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService>`
                     
                     
 
@@ -12480,30 +12480,25 @@ class L2Vpn(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing()
-                        self.sequencing.parent = self
-                        self.type_of_service = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService()
-                        self.type_of_service.parent = self
-                        self.signaling_protocol = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol()
-                        self.signaling_protocol.parent = self
+                        self.cookie_size = None
+                        self.df_bit_set = None
+                        self.enable = None
                         self.path_mtu = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu()
                         self.path_mtu.parent = self
-                        self.df_bit_set = None
-                        self.cookie_size = None
+                        self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing()
+                        self.sequencing.parent = self
+                        self.signaling_protocol = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol()
+                        self.signaling_protocol.parent = self
                         self.source_address = None
-                        self.transport_mode = None
-                        self.enable = None
                         self.time_to_live = None
+                        self.transport_mode = None
+                        self.type_of_service = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService()
+                        self.type_of_service.parent = self
 
 
                     class Sequencing(object):
                         """
                         Sequencing
-                        
-                        .. attribute:: sequencing
-                        
-                        	Sequencing
-                        	**type**\: :py:class:`L2Tpv3SequencingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Tpv3SequencingEnum>`
                         
                         .. attribute:: resync_threshold
                         
@@ -12511,6 +12506,11 @@ class L2Vpn(object):
                         	**type**\: int
                         
                         	**range:** 5..65535
+                        
+                        .. attribute:: sequencing
+                        
+                        	Sequencing
+                        	**type**\: :py:class:`L2Tpv3SequencingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Tpv3SequencingEnum>`
                         
                         
 
@@ -12521,13 +12521,13 @@ class L2Vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.sequencing = None
                             self.resync_threshold = None
+                            self.sequencing = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:sequencing'
 
@@ -12538,10 +12538,10 @@ class L2Vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.sequencing is not None:
+                            if self.resync_threshold is not None:
                                 return True
 
-                            if self.resync_threshold is not None:
+                            if self.sequencing is not None:
                                 return True
 
                             return False
@@ -12556,17 +12556,17 @@ class L2Vpn(object):
                         """
                         Type of service
                         
+                        .. attribute:: type_of_service_mode
+                        
+                        	Type of service mode
+                        	**type**\: :py:class:`TypeOfServiceModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TypeOfServiceModeEnum>`
+                        
                         .. attribute:: type_of_service_value
                         
                         	Type of service value
                         	**type**\: int
                         
                         	**range:** 0..255
-                        
-                        .. attribute:: type_of_service_mode
-                        
-                        	Type of service mode
-                        	**type**\: :py:class:`TypeOfServiceModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TypeOfServiceModeEnum>`
                         
                         
 
@@ -12577,13 +12577,13 @@ class L2Vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type_of_service_value = None
                             self.type_of_service_mode = None
+                            self.type_of_service_value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:type-of-service'
 
@@ -12594,10 +12594,10 @@ class L2Vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type_of_service_value is not None:
+                            if self.type_of_service_mode is not None:
                                 return True
 
-                            if self.type_of_service_mode is not None:
+                            if self.type_of_service_value is not None:
                                 return True
 
                             return False
@@ -12612,17 +12612,17 @@ class L2Vpn(object):
                         """
                         L2TPv3 signaling protocol
                         
-                        .. attribute:: protocol
-                        
-                        	L2TPv3 signaling protocol
-                        	**type**\: :py:class:`L2TpSignalingProtocolEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpSignalingProtocolEnum>`
-                        
                         .. attribute:: l2tpv3_class_name
                         
                         	Name of the L2TPv3 class name
                         	**type**\: str
                         
                         	**range:** 0..32
+                        
+                        .. attribute:: protocol
+                        
+                        	L2TPv3 signaling protocol
+                        	**type**\: :py:class:`L2TpSignalingProtocolEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpSignalingProtocolEnum>`
                         
                         
 
@@ -12633,13 +12633,13 @@ class L2Vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.protocol = None
                             self.l2tpv3_class_name = None
+                            self.protocol = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:signaling-protocol'
 
@@ -12650,10 +12650,10 @@ class L2Vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.protocol is not None:
+                            if self.l2tpv3_class_name is not None:
                                 return True
 
-                            if self.l2tpv3_class_name is not None:
+                            if self.protocol is not None:
                                 return True
 
                             return False
@@ -12695,7 +12695,7 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:path-mtu'
 
@@ -12722,7 +12722,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2tpv3-encapsulation'
 
@@ -12733,34 +12733,34 @@ class L2Vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sequencing is not None and self.sequencing._has_data():
-                            return True
-
-                        if self.type_of_service is not None and self.type_of_service._has_data():
-                            return True
-
-                        if self.signaling_protocol is not None and self.signaling_protocol._has_data():
-                            return True
-
-                        if self.path_mtu is not None and self.path_mtu._has_data():
+                        if self.cookie_size is not None:
                             return True
 
                         if self.df_bit_set is not None:
                             return True
 
-                        if self.cookie_size is not None:
+                        if self.enable is not None:
+                            return True
+
+                        if self.path_mtu is not None and self.path_mtu._has_data():
+                            return True
+
+                        if self.sequencing is not None and self.sequencing._has_data():
+                            return True
+
+                        if self.signaling_protocol is not None and self.signaling_protocol._has_data():
                             return True
 
                         if self.source_address is not None:
                             return True
 
+                        if self.time_to_live is not None:
+                            return True
+
                         if self.transport_mode is not None:
                             return True
 
-                        if self.enable is not None:
-                            return True
-
-                        if self.time_to_live is not None:
+                        if self.type_of_service is not None and self.type_of_service._has_data():
                             return True
 
                         return False
@@ -12775,17 +12775,17 @@ class L2Vpn(object):
                     """
                     Back Up Pseudowire class
                     
-                    .. attribute:: type
-                    
-                    	Delay or Never
-                    	**type**\: :py:class:`BackupDisableEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BackupDisableEnum>`
-                    
                     .. attribute:: disable_backup
                     
                     	Disable backup delay
                     	**type**\: int
                     
                     	**range:** 0..180
+                    
+                    .. attribute:: type
+                    
+                    	Delay or Never
+                    	**type**\: :py:class:`BackupDisableEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BackupDisableEnum>`
                     
                     
 
@@ -12796,13 +12796,13 @@ class L2Vpn(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.type = None
                         self.disable_backup = None
+                        self.type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:backup-disable-delay'
 
@@ -12813,10 +12813,10 @@ class L2Vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.type is not None:
+                        if self.disable_backup is not None:
                             return True
 
-                        if self.disable_backup is not None:
+                        if self.type is not None:
                             return True
 
                         return False
@@ -12831,10 +12831,20 @@ class L2Vpn(object):
                     """
                     MPLS encapsulation
                     
-                    .. attribute:: sequencing
+                    .. attribute:: control_word
                     
-                    	Sequencing
-                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing>`
+                    	Enable control word
+                    	**type**\: :py:class:`ControlWordEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ControlWordEnum>`
+                    
+                    .. attribute:: enable
+                    
+                    	Enable MPLS encapsulation
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: load_balance_group
+                    
+                    	Load Balancing
+                    	**type**\: :py:class:`LoadBalanceGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup>`
                     
                     .. attribute:: mpls_redundancy
                     
@@ -12846,32 +12856,20 @@ class L2Vpn(object):
                     	Preferred path
                     	**type**\: :py:class:`PreferredPath <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath>`
                     
-                    .. attribute:: load_balance_group
-                    
-                    	Load Balancing
-                    	**type**\: :py:class:`LoadBalanceGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup>`
-                    
                     .. attribute:: pw_switching_tlv
                     
                     	Pseudowire Switching Point Tlv
                     	**type**\: :py:class:`PwSwitchingPointTlvEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PwSwitchingPointTlvEnum>`
                     
-                    .. attribute:: static_tag_rewrite
+                    .. attribute:: sequencing
                     
-                    	Static Tag rewrite
-                    	**type**\: int
-                    
-                    	**range:** 1..4094
+                    	Sequencing
+                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing>`
                     
                     .. attribute:: signaling_protocol
                     
                     	MPLS signaling protocol
                     	**type**\: :py:class:`MplsSignalingProtocolEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSignalingProtocolEnum>`
-                    
-                    .. attribute:: vccv_type
-                    
-                    	VCCV verification type
-                    	**type**\: :py:class:`VccvVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.VccvVerificationEnum>`
                     
                     .. attribute:: source_address
                     
@@ -12880,20 +12878,22 @@ class L2Vpn(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: static_tag_rewrite
+                    
+                    	Static Tag rewrite
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
                     .. attribute:: transport_mode
                     
                     	Transport mode
                     	**type**\: :py:class:`TransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
                     
-                    .. attribute:: enable
+                    .. attribute:: vccv_type
                     
-                    	Enable MPLS encapsulation
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: control_word
-                    
-                    	Enable control word
-                    	**type**\: :py:class:`ControlWordEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ControlWordEnum>`
+                    	VCCV verification type
+                    	**type**\: :py:class:`VccvVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.VccvVerificationEnum>`
                     
                     
 
@@ -12904,32 +12904,27 @@ class L2Vpn(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing()
-                        self.sequencing.parent = self
+                        self.control_word = None
+                        self.enable = None
+                        self.load_balance_group = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup()
+                        self.load_balance_group.parent = self
                         self.mpls_redundancy = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy()
                         self.mpls_redundancy.parent = self
                         self.preferred_path = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath()
                         self.preferred_path.parent = self
-                        self.load_balance_group = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup()
-                        self.load_balance_group.parent = self
                         self.pw_switching_tlv = None
-                        self.static_tag_rewrite = None
+                        self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing()
+                        self.sequencing.parent = self
                         self.signaling_protocol = None
-                        self.vccv_type = None
                         self.source_address = None
+                        self.static_tag_rewrite = None
                         self.transport_mode = None
-                        self.enable = None
-                        self.control_word = None
+                        self.vccv_type = None
 
 
                     class Sequencing(object):
                         """
                         Sequencing
-                        
-                        .. attribute:: sequencing
-                        
-                        	Sequencing
-                        	**type**\: :py:class:`MplsSequencingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSequencingEnum>`
                         
                         .. attribute:: resync_threshold
                         
@@ -12937,6 +12932,11 @@ class L2Vpn(object):
                         	**type**\: int
                         
                         	**range:** 5..65535
+                        
+                        .. attribute:: sequencing
+                        
+                        	Sequencing
+                        	**type**\: :py:class:`MplsSequencingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSequencingEnum>`
                         
                         
 
@@ -12947,13 +12947,13 @@ class L2Vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.sequencing = None
                             self.resync_threshold = None
+                            self.sequencing = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:sequencing'
 
@@ -12964,10 +12964,10 @@ class L2Vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.sequencing is not None:
+                            if self.resync_threshold is not None:
                                 return True
 
-                            if self.resync_threshold is not None:
+                            if self.sequencing is not None:
                                 return True
 
                             return False
@@ -12982,17 +12982,17 @@ class L2Vpn(object):
                         """
                         Redundancy options for MPLS encapsulation
                         
-                        .. attribute:: redundancy_one_way
-                        
-                        	Force one\-way PW redundancy behavior in Redundancy Group
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: redundancy_initial_delay
                         
                         	Initial delay before activating the redundant PW, in seconds
                         	**type**\: int
                         
                         	**range:** 0..120
+                        
+                        .. attribute:: redundancy_one_way
+                        
+                        	Force one\-way PW redundancy behavior in Redundancy Group
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
 
@@ -13003,13 +13003,13 @@ class L2Vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.redundancy_one_way = None
                             self.redundancy_initial_delay = None
+                            self.redundancy_one_way = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mpls-redundancy'
 
@@ -13020,10 +13020,10 @@ class L2Vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.redundancy_one_way is not None:
+                            if self.redundancy_initial_delay is not None:
                                 return True
 
-                            if self.redundancy_initial_delay is not None:
+                            if self.redundancy_one_way is not None:
                                 return True
 
                             return False
@@ -13038,10 +13038,10 @@ class L2Vpn(object):
                         """
                         Preferred path
                         
-                        .. attribute:: type
+                        .. attribute:: fallback_disable
                         
-                        	Preferred Path Type
-                        	**type**\: :py:class:`PreferredPathEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PreferredPathEnum>`
+                        	Fallback disable
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: interface_tunnel_number
                         
@@ -13050,10 +13050,10 @@ class L2Vpn(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: fallback_disable
+                        .. attribute:: type
                         
-                        	Fallback disable
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	Preferred Path Type
+                        	**type**\: :py:class:`PreferredPathEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PreferredPathEnum>`
                         
                         
 
@@ -13064,14 +13064,14 @@ class L2Vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type = None
-                            self.interface_tunnel_number = None
                             self.fallback_disable = None
+                            self.interface_tunnel_number = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:preferred-path'
 
@@ -13082,13 +13082,13 @@ class L2Vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None:
+                            if self.fallback_disable is not None:
                                 return True
 
                             if self.interface_tunnel_number is not None:
                                 return True
 
-                            if self.fallback_disable is not None:
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -13162,7 +13162,7 @@ class L2Vpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:flow-label-load-balance'
 
@@ -13189,7 +13189,7 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:load-balance-group'
 
@@ -13219,7 +13219,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mpls-encapsulation'
 
@@ -13230,7 +13230,13 @@ class L2Vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sequencing is not None and self.sequencing._has_data():
+                        if self.control_word is not None:
+                            return True
+
+                        if self.enable is not None:
+                            return True
+
+                        if self.load_balance_group is not None and self.load_balance_group._has_data():
                             return True
 
                         if self.mpls_redundancy is not None and self.mpls_redundancy._has_data():
@@ -13239,31 +13245,25 @@ class L2Vpn(object):
                         if self.preferred_path is not None and self.preferred_path._has_data():
                             return True
 
-                        if self.load_balance_group is not None and self.load_balance_group._has_data():
-                            return True
-
                         if self.pw_switching_tlv is not None:
                             return True
 
-                        if self.static_tag_rewrite is not None:
+                        if self.sequencing is not None and self.sequencing._has_data():
                             return True
 
                         if self.signaling_protocol is not None:
                             return True
 
-                        if self.vccv_type is not None:
+                        if self.source_address is not None:
                             return True
 
-                        if self.source_address is not None:
+                        if self.static_tag_rewrite is not None:
                             return True
 
                         if self.transport_mode is not None:
                             return True
 
-                        if self.enable is not None:
-                            return True
-
-                        if self.control_word is not None:
+                        if self.vccv_type is not None:
                             return True
 
                         return False
@@ -13276,7 +13276,7 @@ class L2Vpn(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/Cisco-IOS-XR-l2vpn-cfg:l2vpn/Cisco-IOS-XR-l2vpn-cfg:database/Cisco-IOS-XR-l2vpn-cfg:pseudowire-classes/Cisco-IOS-XR-l2vpn-cfg:pseudowire-class[Cisco-IOS-XR-l2vpn-cfg:name = ' + str(self.name) + ']'
 
@@ -13290,19 +13290,19 @@ class L2Vpn(object):
                     if self.name is not None:
                         return True
 
-                    if self.l2tpv3_encapsulation is not None and self.l2tpv3_encapsulation._has_data():
-                        return True
-
                     if self.backup_disable_delay is not None and self.backup_disable_delay._has_data():
                         return True
 
-                    if self.mpls_encapsulation is not None and self.mpls_encapsulation._has_data():
+                    if self.enable is not None:
+                        return True
+
+                    if self.l2tpv3_encapsulation is not None and self.l2tpv3_encapsulation._has_data():
                         return True
 
                     if self.mac_withdraw is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.mpls_encapsulation is not None and self.mpls_encapsulation._has_data():
                         return True
 
                     return False
@@ -13341,15 +13341,15 @@ class L2Vpn(object):
             """
             Redundancy groups
             
-            .. attribute:: iccp_redundancy_groups
-            
-            	List of Inter\-Chassis Communication Protocol redundancy groups
-            	**type**\: :py:class:`IccpRedundancyGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups>`
-            
             .. attribute:: enable
             
             	Enable redundancy groups
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: iccp_redundancy_groups
+            
+            	List of Inter\-Chassis Communication Protocol redundancy groups
+            	**type**\: :py:class:`IccpRedundancyGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups>`
             
             
 
@@ -13360,9 +13360,9 @@ class L2Vpn(object):
 
             def __init__(self):
                 self.parent = None
+                self.enable = None
                 self.iccp_redundancy_groups = L2Vpn.Database.Redundancy.IccpRedundancyGroups()
                 self.iccp_redundancy_groups.parent = self
-                self.enable = None
 
 
             class IccpRedundancyGroups(object):
@@ -13461,9 +13461,14 @@ class L2Vpn(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: secondary_vlan_range
+                            .. attribute:: mac_flush_tcn
                             
-                            	Secondary VLAN range, in the form of 1\-3,5 ,8\-11
+                            	Enable STP\-TCN MAC flushing
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: primary_vlan_range
+                            
+                            	Primary VLAN range, in the form of 1\-3,5 ,8\-11
                             	**type**\: str
                             
                             .. attribute:: recovery_delay
@@ -13473,15 +13478,10 @@ class L2Vpn(object):
                             
                             	**range:** 30..3600
                             
-                            .. attribute:: primary_vlan_range
+                            .. attribute:: secondary_vlan_range
                             
-                            	Primary VLAN range, in the form of 1\-3,5 ,8\-11
+                            	Secondary VLAN range, in the form of 1\-3,5 ,8\-11
                             	**type**\: str
-                            
-                            .. attribute:: mac_flush_tcn
-                            
-                            	Enable STP\-TCN MAC flushing
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
 
@@ -13493,17 +13493,17 @@ class L2Vpn(object):
                             def __init__(self):
                                 self.parent = None
                                 self.interface_name = None
-                                self.secondary_vlan_range = None
-                                self.recovery_delay = None
-                                self.primary_vlan_range = None
                                 self.mac_flush_tcn = None
+                                self.primary_vlan_range = None
+                                self.recovery_delay = None
+                                self.secondary_vlan_range = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:iccp-interface[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -13517,16 +13517,16 @@ class L2Vpn(object):
                                 if self.interface_name is not None:
                                     return True
 
-                                if self.secondary_vlan_range is not None:
-                                    return True
-
-                                if self.recovery_delay is not None:
+                                if self.mac_flush_tcn is not None:
                                     return True
 
                                 if self.primary_vlan_range is not None:
                                     return True
 
-                                if self.mac_flush_tcn is not None:
+                                if self.recovery_delay is not None:
+                                    return True
+
+                                if self.secondary_vlan_range is not None:
                                     return True
 
                                 return False
@@ -13539,7 +13539,7 @@ class L2Vpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:iccp-interfaces'
 
@@ -13565,7 +13565,7 @@ class L2Vpn(object):
                     @property
                     def _common_path(self):
                         if self.group_id is None:
-                            raise YPYDataValidationError('Key property group_id is None')
+                            raise YPYModelError('Key property group_id is None')
 
                         return '/Cisco-IOS-XR-l2vpn-cfg:l2vpn/Cisco-IOS-XR-l2vpn-cfg:database/Cisco-IOS-XR-l2vpn-cfg:redundancy/Cisco-IOS-XR-l2vpn-cfg:iccp-redundancy-groups/Cisco-IOS-XR-l2vpn-cfg:iccp-redundancy-group[Cisco-IOS-XR-l2vpn-cfg:group-id = ' + str(self.group_id) + ']'
 
@@ -13628,10 +13628,10 @@ class L2Vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.iccp_redundancy_groups is not None and self.iccp_redundancy_groups._has_data():
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.iccp_redundancy_groups is not None and self.iccp_redundancy_groups._has_data():
                     return True
 
                 return False
@@ -13653,19 +13653,19 @@ class L2Vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.g8032_rings is not None and self.g8032_rings._has_data():
-                return True
-
-            if self.xconnect_groups is not None and self.xconnect_groups._has_data():
-                return True
-
             if self.bridge_domain_groups is not None and self.bridge_domain_groups._has_data():
+                return True
+
+            if self.g8032_rings is not None and self.g8032_rings._has_data():
                 return True
 
             if self.pseudowire_classes is not None and self.pseudowire_classes._has_data():
                 return True
 
             if self.redundancy is not None and self.redundancy._has_data():
+                return True
+
+            if self.xconnect_groups is not None and self.xconnect_groups._has_data():
                 return True
 
             return False
@@ -13839,24 +13839,24 @@ class L2Vpn(object):
             	Enable Bridge Domain state change logging
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: pseudowire_state_change
-            
-            	Enable pseudowire state change logging
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: vfi
-            
-            	Enable VFI state change logging
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: nsr_state_change
             
             	Enable Non Stop Routing state change logging
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: pseudowire_state_change
+            
+            	Enable pseudowire state change logging
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: pwhe_replication_state_change
             
             	Enable PW\-HE Replication state change logging
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: vfi
+            
+            	Enable VFI state change logging
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -13869,10 +13869,10 @@ class L2Vpn(object):
             def __init__(self):
                 self.parent = None
                 self.bridge_domain_state_change = None
-                self.pseudowire_state_change = None
-                self.vfi = None
                 self.nsr_state_change = None
+                self.pseudowire_state_change = None
                 self.pwhe_replication_state_change = None
+                self.vfi = None
 
             @property
             def _common_path(self):
@@ -13889,16 +13889,16 @@ class L2Vpn(object):
                 if self.bridge_domain_state_change is not None:
                     return True
 
-                if self.pseudowire_state_change is not None:
-                    return True
-
-                if self.vfi is not None:
-                    return True
-
                 if self.nsr_state_change is not None:
                     return True
 
+                if self.pseudowire_state_change is not None:
+                    return True
+
                 if self.pwhe_replication_state_change is not None:
+                    return True
+
+                if self.vfi is not None:
                     return True
 
                 return False
@@ -14117,37 +14117,19 @@ class L2Vpn(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.pw_routing is not None and self.pw_routing._has_data():
+        if self.auto_discovery is not None and self.auto_discovery._has_data():
             return True
 
-        if self.neighbor is not None and self.neighbor._has_data():
+        if self.capability is not None:
             return True
 
         if self.database is not None and self.database._has_data():
             return True
 
-        if self.pbb is not None and self.pbb._has_data():
+        if self.enable is not None:
             return True
 
-        if self.auto_discovery is not None and self.auto_discovery._has_data():
-            return True
-
-        if self.utility is not None and self.utility._has_data():
-            return True
-
-        if self.snmp is not None and self.snmp._has_data():
-            return True
-
-        if self.nsr is not None:
-            return True
-
-        if self.mtu_mismatch_ignore is not None:
-            return True
-
-        if self.tcn_propagation is not None:
-            return True
-
-        if self.pwoam_refresh is not None:
+        if self.l2vpn_router_id is not None:
             return True
 
         if self.load_balance is not None:
@@ -14156,19 +14138,37 @@ class L2Vpn(object):
         if self.mspw_description is not None:
             return True
 
-        if self.pw_status_disable is not None:
+        if self.mtu_mismatch_ignore is not None:
             return True
 
-        if self.enable is not None:
+        if self.neighbor is not None and self.neighbor._has_data():
+            return True
+
+        if self.nsr is not None:
+            return True
+
+        if self.pbb is not None and self.pbb._has_data():
             return True
 
         if self.pw_grouping is not None:
             return True
 
-        if self.capability is not None:
+        if self.pw_routing is not None and self.pw_routing._has_data():
             return True
 
-        if self.l2vpn_router_id is not None:
+        if self.pw_status_disable is not None:
+            return True
+
+        if self.pwoam_refresh is not None:
+            return True
+
+        if self.snmp is not None and self.snmp._has_data():
+            return True
+
+        if self.tcn_propagation is not None:
+            return True
+
+        if self.utility is not None and self.utility._has_data():
             return True
 
         return False
@@ -14212,15 +14212,15 @@ class GenericInterfaceLists(object):
         
         	**range:** 0..32
         
-        .. attribute:: interfaces
-        
-        	Interface table
-        	**type**\: :py:class:`Interfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces>`
-        
         .. attribute:: enable
         
         	Enable interface list
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: interfaces
+        
+        	Interface table
+        	**type**\: :py:class:`Interfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces>`
         
         
 
@@ -14232,9 +14232,9 @@ class GenericInterfaceLists(object):
         def __init__(self):
             self.parent = None
             self.generic_interface_list_name = None
+            self.enable = None
             self.interfaces = GenericInterfaceLists.GenericInterface.Interfaces()
             self.interfaces.parent = self
-            self.enable = None
 
 
         class Interfaces(object):
@@ -14291,9 +14291,9 @@ class GenericInterfaceLists(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.interface_name is None:
-                        raise YPYDataValidationError('Key property interface_name is None')
+                        raise YPYModelError('Key property interface_name is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interface[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -14320,7 +14320,7 @@ class GenericInterfaceLists(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:interfaces'
 
@@ -14346,7 +14346,7 @@ class GenericInterfaceLists(object):
         @property
         def _common_path(self):
             if self.generic_interface_list_name is None:
-                raise YPYDataValidationError('Key property generic_interface_list_name is None')
+                raise YPYModelError('Key property generic_interface_list_name is None')
 
             return '/Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists/Cisco-IOS-XR-l2vpn-cfg:generic-interface[Cisco-IOS-XR-l2vpn-cfg:generic-interface-list-name = ' + str(self.generic_interface_list_name) + ']'
 
@@ -14360,10 +14360,10 @@ class GenericInterfaceLists(object):
             if self.generic_interface_list_name is not None:
                 return True
 
-            if self.interfaces is not None and self.interfaces._has_data():
+            if self.enable is not None:
                 return True
 
-            if self.enable is not None:
+            if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
             return False
@@ -14402,6 +14402,11 @@ class Evpn(object):
     """
     evpn
     
+    .. attribute:: enable
+    
+    	Enable EVPN feature
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
     .. attribute:: evpn_tables
     
     	EVPN submodes
@@ -14412,11 +14417,6 @@ class Evpn(object):
     	Set Standard EVPN Version
     	**type**\: :py:class:`StandardVersion <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.StandardVersion>`
     
-    .. attribute:: enable
-    
-    	Enable EVPN feature
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
     
 
     """
@@ -14425,41 +14425,41 @@ class Evpn(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        self.enable = None
         self.evpn_tables = Evpn.EvpnTables()
         self.evpn_tables.parent = self
         self.standard_version = Evpn.StandardVersion()
         self.standard_version.parent = self
-        self.enable = None
 
 
     class EvpnTables(object):
         """
         EVPN submodes
         
-        .. attribute:: evpn_timers
+        .. attribute:: evpn_interfaces
         
-        	Enter EVPN timers configuration submode
-        	**type**\: :py:class:`EvpnTimers <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnTimers>`
-        
-        .. attribute:: evpnevis
-        
-        	Enter EVPN EVI configuration submode
-        	**type**\: :py:class:`Evpnevis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis>`
+        	Attachment Circuit interfaces
+        	**type**\: :py:class:`EvpnInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces>`
         
         .. attribute:: evpn_load_balancing
         
         	Enter EVPN Loadbalancing configuration submode
         	**type**\: :py:class:`EvpnLoadBalancing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnLoadBalancing>`
         
+        .. attribute:: evpn_timers
+        
+        	Enter EVPN timers configuration submode
+        	**type**\: :py:class:`EvpnTimers <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnTimers>`
+        
         .. attribute:: evpnbgp_auto_discovery
         
         	Enable Autodiscovery BGP in EVPN
         	**type**\: :py:class:`EvpnbgpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnbgpAutoDiscovery>`
         
-        .. attribute:: evpn_interfaces
+        .. attribute:: evpnevis
         
-        	Attachment Circuit interfaces
-        	**type**\: :py:class:`EvpnInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces>`
+        	Enter EVPN EVI configuration submode
+        	**type**\: :py:class:`Evpnevis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis>`
         
         
 
@@ -14470,28 +14470,26 @@ class Evpn(object):
 
         def __init__(self):
             self.parent = None
-            self.evpn_timers = Evpn.EvpnTables.EvpnTimers()
-            self.evpn_timers.parent = self
-            self.evpnevis = Evpn.EvpnTables.Evpnevis()
-            self.evpnevis.parent = self
-            self.evpn_load_balancing = Evpn.EvpnTables.EvpnLoadBalancing()
-            self.evpn_load_balancing.parent = self
-            self.evpnbgp_auto_discovery = Evpn.EvpnTables.EvpnbgpAutoDiscovery()
-            self.evpnbgp_auto_discovery.parent = self
             self.evpn_interfaces = Evpn.EvpnTables.EvpnInterfaces()
             self.evpn_interfaces.parent = self
+            self.evpn_load_balancing = Evpn.EvpnTables.EvpnLoadBalancing()
+            self.evpn_load_balancing.parent = self
+            self.evpn_timers = Evpn.EvpnTables.EvpnTimers()
+            self.evpn_timers.parent = self
+            self.evpnbgp_auto_discovery = Evpn.EvpnTables.EvpnbgpAutoDiscovery()
+            self.evpnbgp_auto_discovery.parent = self
+            self.evpnevis = Evpn.EvpnTables.Evpnevis()
+            self.evpnevis.parent = self
 
 
         class EvpnTimers(object):
             """
             Enter EVPN timers configuration submode
             
-            .. attribute:: evpn_programming
+            .. attribute:: enable
             
-            	Global Programming timer
-            	**type**\: int
-            
-            	**range:** 0..100000
+            	Enable EVPN timers
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: evpn_flush_again
             
@@ -14500,24 +14498,26 @@ class Evpn(object):
             
             	**range:** 0..120
             
-            .. attribute:: evpn_recovery
-            
-            	Global Recovery timer
-            	**type**\: int
-            
-            	**range:** 20..3600
-            
-            .. attribute:: enable
-            
-            	Enable EVPN timers
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: evpn_peering
             
             	Global Peering timer
             	**type**\: int
             
             	**range:** 0..300
+            
+            .. attribute:: evpn_programming
+            
+            	Global Programming timer
+            	**type**\: int
+            
+            	**range:** 0..100000
+            
+            .. attribute:: evpn_recovery
+            
+            	Global Recovery timer
+            	**type**\: int
+            
+            	**range:** 20..3600
             
             
 
@@ -14528,11 +14528,11 @@ class Evpn(object):
 
             def __init__(self):
                 self.parent = None
-                self.evpn_programming = None
-                self.evpn_flush_again = None
-                self.evpn_recovery = None
                 self.enable = None
+                self.evpn_flush_again = None
                 self.evpn_peering = None
+                self.evpn_programming = None
+                self.evpn_recovery = None
 
             @property
             def _common_path(self):
@@ -14546,19 +14546,19 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.evpn_programming is not None:
+                if self.enable is not None:
                     return True
 
                 if self.evpn_flush_again is not None:
                     return True
 
-                if self.evpn_recovery is not None:
-                    return True
-
-                if self.enable is not None:
-                    return True
-
                 if self.evpn_peering is not None:
+                    return True
+
+                if self.evpn_programming is not None:
+                    return True
+
+                if self.evpn_recovery is not None:
                     return True
 
                 return False
@@ -14633,14 +14633,14 @@ class Evpn(object):
                     """
                     Enter EVI Loadbalancing configuration submode
                     
-                    .. attribute:: evi_flow_label
-                    
-                    	Enable Flow Label based load balancing
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: enable
                     
                     	Enable EVI Loadbalancing
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: evi_flow_label
+                    
+                    	Enable Flow Label based load balancing
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
@@ -14652,13 +14652,13 @@ class Evpn(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.evi_flow_label = None
                         self.enable = None
+                        self.evi_flow_label = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evi-load-balancing'
 
@@ -14669,10 +14669,10 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.evi_flow_label is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.evi_flow_label is not None:
                             return True
 
                         return False
@@ -14687,11 +14687,6 @@ class Evpn(object):
                     """
                     Enable Autodiscovery BGP in EVPN EVI
                     
-                    .. attribute:: evpn_route_targets
-                    
-                    	Route Target
-                    	**type**\: :py:class:`EvpnRouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets>`
-                    
                     .. attribute:: enable
                     
                     	Enable Autodiscovery BGP
@@ -14702,6 +14697,11 @@ class Evpn(object):
                     	Route Distinguisher
                     	**type**\: :py:class:`EvpnRouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteDistinguisher>`
                     
+                    .. attribute:: evpn_route_targets
+                    
+                    	Route Target
+                    	**type**\: :py:class:`EvpnRouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets>`
+                    
                     
 
                     """
@@ -14711,11 +14711,11 @@ class Evpn(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.evpn_route_targets = Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets()
-                        self.evpn_route_targets.parent = self
                         self.enable = None
                         self.evpn_route_distinguisher = Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
+                        self.evpn_route_targets = Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets()
+                        self.evpn_route_targets.parent = self
 
 
                     class EvpnRouteTargets(object):
@@ -14745,25 +14745,25 @@ class Evpn(object):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: role  <key>
-                            
-                            	Role of the router target type
-                            	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
-                            
                             .. attribute:: format  <key>
                             
                             	Format of the route target
                             	**type**\: :py:class:`BgpRouteTargetFormatEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                             
-                            .. attribute:: two_byte_as_or_four_byte_as
+                            .. attribute:: role  <key>
                             
-                            	two byte as or four byte as
-                            	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs>`
+                            	Role of the router target type
+                            	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                             
                             .. attribute:: ipv4_address
                             
                             	ipv4 address
                             	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address>`
+                            
+                            .. attribute:: two_byte_as_or_four_byte_as
+                            
+                            	two byte as or four byte as
+                            	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs>`
                             
                             
 
@@ -14774,14 +14774,14 @@ class Evpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.role = None
                                 self.format = None
-                                self.two_byte_as_or_four_byte_as = YList()
-                                self.two_byte_as_or_four_byte_as.parent = self
-                                self.two_byte_as_or_four_byte_as.name = 'two_byte_as_or_four_byte_as'
+                                self.role = None
                                 self.ipv4_address = YList()
                                 self.ipv4_address.parent = self
                                 self.ipv4_address.name = 'ipv4_address'
+                                self.two_byte_as_or_four_byte_as = YList()
+                                self.two_byte_as_or_four_byte_as.parent = self
+                                self.two_byte_as_or_four_byte_as.name = 'two_byte_as_or_four_byte_as'
 
 
                             class TwoByteAsOrFourByteAs(object):
@@ -14817,11 +14817,11 @@ class Evpn(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.as_ is None:
-                                        raise YPYDataValidationError('Key property as_ is None')
+                                        raise YPYModelError('Key property as_ is None')
                                     if self.as_index is None:
-                                        raise YPYDataValidationError('Key property as_index is None')
+                                        raise YPYModelError('Key property as_index is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:two-byte-as-or-four-byte-as[Cisco-IOS-XR-l2vpn-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-l2vpn-cfg:as-index = ' + str(self.as_index) + ']'
 
@@ -14850,19 +14850,19 @@ class Evpn(object):
                                 """
                                 ipv4 address
                                 
-                                .. attribute:: address  <key>
-                                
-                                	IPV4 address
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: addr_index  <key>
                                 
                                 	Addr index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                .. attribute:: address  <key>
+                                
+                                	IPV4 address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -14873,19 +14873,19 @@ class Evpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.address = None
                                     self.addr_index = None
+                                    self.address = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                    if self.address is None:
-                                        raise YPYDataValidationError('Key property address is None')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.addr_index is None:
-                                        raise YPYDataValidationError('Key property addr_index is None')
+                                        raise YPYModelError('Key property addr_index is None')
+                                    if self.address is None:
+                                        raise YPYModelError('Key property address is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
@@ -14894,10 +14894,10 @@ class Evpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.address is not None:
+                                    if self.addr_index is not None:
                                         return True
 
-                                    if self.addr_index is not None:
+                                    if self.address is not None:
                                         return True
 
                                     return False
@@ -14910,13 +14910,13 @@ class Evpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.role is None:
-                                    raise YPYDataValidationError('Key property role is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.format is None:
-                                    raise YPYDataValidationError('Key property format is None')
+                                    raise YPYModelError('Key property format is None')
+                                if self.role is None:
+                                    raise YPYModelError('Key property role is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-target[Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-target[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -14925,19 +14925,19 @@ class Evpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.role is not None:
-                                    return True
-
                                 if self.format is not None:
                                     return True
 
-                                if self.two_byte_as_or_four_byte_as is not None:
-                                    for child_ref in self.two_byte_as_or_four_byte_as:
-                                        if child_ref._has_data():
-                                            return True
+                                if self.role is not None:
+                                    return True
 
                                 if self.ipv4_address is not None:
                                     for child_ref in self.ipv4_address:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.two_byte_as_or_four_byte_as is not None:
+                                    for child_ref in self.two_byte_as_or_four_byte_as:
                                         if child_ref._has_data():
                                             return True
 
@@ -14951,7 +14951,7 @@ class Evpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-targets'
 
@@ -14979,10 +14979,19 @@ class Evpn(object):
                         """
                         Route Distinguisher
                         
-                        .. attribute:: type
+                        .. attribute:: addr_index
                         
-                        	Router Distinguisher Type
-                        	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                        	Addr index
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: address
+                        
+                        	IPV4 address
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: as_
                         
@@ -14998,19 +15007,10 @@ class Evpn(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: address
+                        .. attribute:: type
                         
-                        	IPV4 address
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: addr_index
-                        
-                        	Addr index
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
+                        	Router Distinguisher Type
+                        	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                         
                         
 
@@ -15021,16 +15021,16 @@ class Evpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type = None
+                            self.addr_index = None
+                            self.address = None
                             self.as_ = None
                             self.as_index = None
-                            self.address = None
-                            self.addr_index = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-distinguisher'
 
@@ -15041,7 +15041,10 @@ class Evpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None:
+                            if self.addr_index is not None:
+                                return True
+
+                            if self.address is not None:
                                 return True
 
                             if self.as_ is not None:
@@ -15050,10 +15053,7 @@ class Evpn(object):
                             if self.as_index is not None:
                                 return True
 
-                            if self.address is not None:
-                                return True
-
-                            if self.addr_index is not None:
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -15066,7 +15066,7 @@ class Evpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpnevibgp-auto-discovery'
 
@@ -15077,13 +15077,13 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.evpn_route_targets is not None and self.evpn_route_targets._has_data():
-                            return True
-
                         if self.enable is not None:
                             return True
 
                         if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher._has_data():
+                            return True
+
+                        if self.evpn_route_targets is not None and self.evpn_route_targets._has_data():
                             return True
 
                         return False
@@ -15096,7 +15096,7 @@ class Evpn(object):
                 @property
                 def _common_path(self):
                     if self.eviid is None:
-                        raise YPYDataValidationError('Key property eviid is None')
+                        raise YPYModelError('Key property eviid is None')
 
                     return '/Cisco-IOS-XR-l2vpn-cfg:evpn/Cisco-IOS-XR-l2vpn-cfg:evpn-tables/Cisco-IOS-XR-l2vpn-cfg:evpnevis/Cisco-IOS-XR-l2vpn-cfg:evpnevi[Cisco-IOS-XR-l2vpn-cfg:eviid = ' + str(self.eviid) + ']'
 
@@ -15152,14 +15152,14 @@ class Evpn(object):
             """
             Enter EVPN Loadbalancing configuration submode
             
-            .. attribute:: evpn_flow_label
-            
-            	Enable Flow Label based load balancing
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: enable
             
             	Enable EVPN Loadbalancing
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: evpn_flow_label
+            
+            	Enable Flow Label based load balancing
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -15171,8 +15171,8 @@ class Evpn(object):
 
             def __init__(self):
                 self.parent = None
-                self.evpn_flow_label = None
                 self.enable = None
+                self.evpn_flow_label = None
 
             @property
             def _common_path(self):
@@ -15186,10 +15186,10 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.evpn_flow_label is not None:
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.evpn_flow_label is not None:
                     return True
 
                 return False
@@ -15232,10 +15232,19 @@ class Evpn(object):
                 """
                 Route Distinguisher
                 
-                .. attribute:: type
+                .. attribute:: addr_index
                 
-                	Router Distinguisher Type
-                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                	Addr index
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: address
+                
+                	IPV4 address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: as_
                 
@@ -15251,19 +15260,10 @@ class Evpn(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: address
+                .. attribute:: type
                 
-                	IPV4 address
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: addr_index
-                
-                	Addr index
-                	**type**\: int
-                
-                	**range:** 0..65535
+                	Router Distinguisher Type
+                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                 
                 
 
@@ -15274,11 +15274,11 @@ class Evpn(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.type = None
+                    self.addr_index = None
+                    self.address = None
                     self.as_ = None
                     self.as_index = None
-                    self.address = None
-                    self.addr_index = None
+                    self.type = None
 
                 @property
                 def _common_path(self):
@@ -15292,7 +15292,10 @@ class Evpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.type is not None:
+                    if self.addr_index is not None:
+                        return True
+
+                    if self.address is not None:
                         return True
 
                     if self.as_ is not None:
@@ -15301,10 +15304,7 @@ class Evpn(object):
                     if self.as_index is not None:
                         return True
 
-                    if self.address is not None:
-                        return True
-
-                    if self.addr_index is not None:
+                    if self.type is not None:
                         return True
 
                     return False
@@ -15374,15 +15374,15 @@ class Evpn(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: evpnac_timers
-                
-                	Enter Interface\-specific timers configuration submode
-                	**type**\: :py:class:`EvpnacTimers <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers>`
-                
                 .. attribute:: ethernet_segment
                 
                 	Enter Ethernet Segment configuration submode
                 	**type**\: :py:class:`EthernetSegment <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment>`
+                
+                .. attribute:: evpnac_timers
+                
+                	Enter Interface\-specific timers configuration submode
+                	**type**\: :py:class:`EvpnacTimers <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers>`
                 
                 .. attribute:: mac_flush
                 
@@ -15399,10 +15399,10 @@ class Evpn(object):
                 def __init__(self):
                     self.parent = None
                     self.interface_name = None
-                    self.evpnac_timers = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers()
-                    self.evpnac_timers.parent = self
                     self.ethernet_segment = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment()
                     self.ethernet_segment.parent = self
+                    self.evpnac_timers = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers()
+                    self.evpnac_timers.parent = self
                     self.mac_flush = None
 
 
@@ -15411,17 +15411,17 @@ class Evpn(object):
                     Enter Interface\-specific timers configuration
                     submode
                     
+                    .. attribute:: enable
+                    
+                    	Enable Interface\-specific timers
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: evpnac_flush_again
                     
                     	Interface\-specific MAC Flush again timer
                     	**type**\: int
                     
                     	**range:** 0..120
-                    
-                    .. attribute:: enable
-                    
-                    	Enable Interface\-specific timers
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: evpnac_recovery
                     
@@ -15439,14 +15439,14 @@ class Evpn(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.evpnac_flush_again = None
                         self.enable = None
+                        self.evpnac_flush_again = None
                         self.evpnac_recovery = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpnac-timers'
 
@@ -15457,10 +15457,10 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.evpnac_flush_again is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.evpnac_flush_again is not None:
                             return True
 
                         if self.evpnac_recovery is not None:
@@ -15478,29 +15478,9 @@ class Evpn(object):
                     """
                     Enter Ethernet Segment configuration submode
                     
-                    .. attribute:: identifier_type0
+                    .. attribute:: backbone_source_mac
                     
-                    	Ethernet segment identifier (Type 0)
-                    	**type**\: :py:class:`IdentifierType0 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0>`
-                    
-                    .. attribute:: manual_service_carving
-                    
-                    	Enter Manual service carving configuration submode
-                    	**type**\: :py:class:`ManualServiceCarving <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving>`
-                    
-                    .. attribute:: force_single_homed
-                    
-                    	Force ethernet segment to remain single\-homed
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: load_balancing_per_service
-                    
-                    	Enable per service load balancing mode
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: es_import_route_target
-                    
-                    	ES\-Import Route Target
+                    	Backbone Source MAC
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
@@ -15510,12 +15490,32 @@ class Evpn(object):
                     	Enable Ethernet Segment
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: backbone_source_mac
+                    .. attribute:: es_import_route_target
                     
-                    	Backbone Source MAC
+                    	ES\-Import Route Target
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    .. attribute:: force_single_homed
+                    
+                    	Force ethernet segment to remain single\-homed
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: identifier_type0
+                    
+                    	Ethernet segment identifier (Type 0)
+                    	**type**\: :py:class:`IdentifierType0 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0>`
+                    
+                    .. attribute:: load_balancing_per_service
+                    
+                    	Enable per service load balancing mode
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: manual_service_carving
+                    
+                    	Enter Manual service carving configuration submode
+                    	**type**\: :py:class:`ManualServiceCarving <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving>`
                     
                     
 
@@ -15526,15 +15526,15 @@ class Evpn(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.backbone_source_mac = None
+                        self.enable = None
+                        self.es_import_route_target = None
+                        self.force_single_homed = None
                         self.identifier_type0 = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0()
                         self.identifier_type0.parent = self
+                        self.load_balancing_per_service = None
                         self.manual_service_carving = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving()
                         self.manual_service_carving.parent = self
-                        self.force_single_homed = None
-                        self.load_balancing_per_service = None
-                        self.es_import_route_target = None
-                        self.enable = None
-                        self.backbone_source_mac = None
 
 
                     class IdentifierType0(object):
@@ -15594,7 +15594,7 @@ class Evpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:identifier-type0'
 
@@ -15633,15 +15633,15 @@ class Evpn(object):
                         Enter Manual service carving configuration
                         submode
                         
-                        .. attribute:: service_list
-                        
-                        	Manual service carving primary,secondary lists
-                        	**type**\: :py:class:`ServiceList <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList>`
-                        
                         .. attribute:: enable
                         
                         	Enable Manual service carving
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: service_list
+                        
+                        	Manual service carving primary,secondary lists
+                        	**type**\: :py:class:`ServiceList <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList>`
                         
                         
 
@@ -15652,9 +15652,9 @@ class Evpn(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.enable = None
                             self.service_list = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList()
                             self.service_list.parent = self
-                            self.enable = None
 
 
                         class ServiceList(object):
@@ -15691,7 +15691,7 @@ class Evpn(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:service-list'
 
@@ -15718,7 +15718,7 @@ class Evpn(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:manual-service-carving'
 
@@ -15729,10 +15729,10 @@ class Evpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.service_list is not None and self.service_list._has_data():
+                            if self.enable is not None:
                                 return True
 
-                            if self.enable is not None:
+                            if self.service_list is not None and self.service_list._has_data():
                                 return True
 
                             return False
@@ -15745,7 +15745,7 @@ class Evpn(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ethernet-segment'
 
@@ -15756,25 +15756,25 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.identifier_type0 is not None and self.identifier_type0._has_data():
-                            return True
-
-                        if self.manual_service_carving is not None and self.manual_service_carving._has_data():
-                            return True
-
-                        if self.force_single_homed is not None:
-                            return True
-
-                        if self.load_balancing_per_service is not None:
-                            return True
-
-                        if self.es_import_route_target is not None:
+                        if self.backbone_source_mac is not None:
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        if self.backbone_source_mac is not None:
+                        if self.es_import_route_target is not None:
+                            return True
+
+                        if self.force_single_homed is not None:
+                            return True
+
+                        if self.identifier_type0 is not None and self.identifier_type0._has_data():
+                            return True
+
+                        if self.load_balancing_per_service is not None:
+                            return True
+
+                        if self.manual_service_carving is not None and self.manual_service_carving._has_data():
                             return True
 
                         return False
@@ -15787,7 +15787,7 @@ class Evpn(object):
                 @property
                 def _common_path(self):
                     if self.interface_name is None:
-                        raise YPYDataValidationError('Key property interface_name is None')
+                        raise YPYModelError('Key property interface_name is None')
 
                     return '/Cisco-IOS-XR-l2vpn-cfg:evpn/Cisco-IOS-XR-l2vpn-cfg:evpn-tables/Cisco-IOS-XR-l2vpn-cfg:evpn-interfaces/Cisco-IOS-XR-l2vpn-cfg:evpn-interface[Cisco-IOS-XR-l2vpn-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -15801,10 +15801,10 @@ class Evpn(object):
                     if self.interface_name is not None:
                         return True
 
-                    if self.evpnac_timers is not None and self.evpnac_timers._has_data():
+                    if self.ethernet_segment is not None and self.ethernet_segment._has_data():
                         return True
 
-                    if self.ethernet_segment is not None and self.ethernet_segment._has_data():
+                    if self.evpnac_timers is not None and self.evpnac_timers._has_data():
                         return True
 
                     if self.mac_flush is not None:
@@ -15853,19 +15853,19 @@ class Evpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.evpn_timers is not None and self.evpn_timers._has_data():
-                return True
-
-            if self.evpnevis is not None and self.evpnevis._has_data():
+            if self.evpn_interfaces is not None and self.evpn_interfaces._has_data():
                 return True
 
             if self.evpn_load_balancing is not None and self.evpn_load_balancing._has_data():
                 return True
 
+            if self.evpn_timers is not None and self.evpn_timers._has_data():
+                return True
+
             if self.evpnbgp_auto_discovery is not None and self.evpnbgp_auto_discovery._has_data():
                 return True
 
-            if self.evpn_interfaces is not None and self.evpn_interfaces._has_data():
+            if self.evpnevis is not None and self.evpnevis._has_data():
                 return True
 
             return False
@@ -15930,13 +15930,13 @@ class Evpn(object):
     def _has_data(self):
         if not self.is_config():
             return False
+        if self.enable is not None:
+            return True
+
         if self.evpn_tables is not None and self.evpn_tables._has_data():
             return True
 
         if self.standard_version is not None and self.standard_version._has_data():
-            return True
-
-        if self.enable is not None:
             return True
 
         return False

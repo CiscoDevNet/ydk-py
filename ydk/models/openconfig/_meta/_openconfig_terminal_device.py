@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -40,17 +40,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.Config',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the physical client port
-                ''',
-                'name',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Text description for the physical client port
                 ''',
                 'description',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the physical client port
+                ''',
+                'name',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -63,27 +63,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.State',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the physical client port
-                ''',
-                'name',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Text description for the physical client port
                 ''',
                 'description',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('output-power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The output optical power of this port in units of 0.01dBm.
-                If the port is an aggregate of multiple physical channels,
-                this attribute is the total power or sum of all channels.
+            _MetaInfoClassMember('ethernet-compliance-code', REFERENCE_IDENTITY_CLASS, 'EthernetPmdTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'EthernetPmdTypeIdentity', 
+                [], [], 
+                '''                Ethernet PMD that the transceiver supports. The SFF/QSFP
+                MSAs have registers for this and CFP MSA has similar.
                 ''',
-                'output_power',
+                'ethernet_compliance_code',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('input-power', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('input-power', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The input optical power of this port in units of 0.01dBm.
                 If the port is an aggregate of multiple physical channels,
@@ -91,24 +84,31 @@ _meta_table = {
                 ''',
                 'input_power',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('ethernet-compliance-code', REFERENCE_IDENTITY_CLASS, 'EthernetPmdType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'EthernetPmdType_Identity', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Ethernet PMD that the transceiver supports. The SFF/QSFP
-                MSAs have registers for this and CFP MSA has similar.
+                '''                Name of the physical client port
                 ''',
-                'ethernet_compliance_code',
+                'name',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('sonet-sdh-compliance-code', REFERENCE_IDENTITY_CLASS, 'SonetApplicationCode_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'SonetApplicationCode_Identity', 
-                [], [], 
-                '''                SONET/SDH application code supported by the port
-                ''',
-                'sonet_sdh_compliance_code',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('otn-compliance-code', REFERENCE_IDENTITY_CLASS, 'OtnApplicationCode_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'OtnApplicationCode_Identity', 
+            _MetaInfoClassMember('otn-compliance-code', REFERENCE_IDENTITY_CLASS, 'OtnApplicationCodeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'OtnApplicationCodeIdentity', 
                 [], [], 
                 '''                OTN application code supported by the port
                 ''',
                 'otn_compliance_code',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('output-power', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The output optical power of this port in units of 0.01dBm.
+                If the port is an aggregate of multiple physical channels,
+                this attribute is the total power or sum of all channels.
+                ''',
+                'output_power',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('sonet-sdh-compliance-code', REFERENCE_IDENTITY_CLASS, 'SonetApplicationCodeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'SonetApplicationCodeIdentity', 
+                [], [], 
+                '''                SONET/SDH application code supported by the port
+                ''',
+                'sonet_sdh_compliance_code',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -148,6 +148,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.Transceiver.State',
             False, 
             [
+            _MetaInfoClassMember('connector-type', REFERENCE_IDENTITY_CLASS, 'FiberConnectorTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'FiberConnectorTypeIdentity', 
+                [], [], 
+                '''                Connector type used on this port
+                ''',
+                'connector_type',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('date-code', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                Representation of the transceiver date code, typically
+                stored as YYMMDD.  The time portion of the value is
+                undefined and not intended to be read.
+                ''',
+                'date_code',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Turns power on / off to the transceiver -- provides a means
@@ -159,14 +173,13 @@ _meta_table = {
                 ''',
                 'enabled',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('present', REFERENCE_ENUM_CLASS, 'PresentEnum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.Transceiver.State.PresentEnum', 
+            _MetaInfoClassMember('fault-condition', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Indicates whether a transceiver is present in
-                the specified client port.
+                '''                Indicates if a fault condition exists in the transceiver
                 ''',
-                'present',
+                'fault_condition',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('form-factor', REFERENCE_IDENTITY_CLASS, 'TransceiverFormFactorType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'TransceiverFormFactorType_Identity', 
+            _MetaInfoClassMember('form-factor', REFERENCE_IDENTITY_CLASS, 'TransceiverFormFactorTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'TransceiverFormFactorTypeIdentity', 
                 [], [], 
                 '''                Indicates the type of optical transceiver used on this
                 port.  If the client port is built into the device and not
@@ -179,12 +192,6 @@ _meta_table = {
                 ''',
                 'form_factor',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('connector-type', REFERENCE_IDENTITY_CLASS, 'FiberConnectorType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'FiberConnectorType_Identity', 
-                [], [], 
-                '''                Connector type used on this port
-                ''',
-                'connector_type',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('internal-temp', ATTRIBUTE, 'int' , None, None, 
                 [(-40, 125)], [], 
                 '''                Internally measured temperature in degrees Celsius. MSA
@@ -192,6 +199,22 @@ _meta_table = {
                 better than +/- 3 degC over the whole temperature range.
                 ''',
                 'internal_temp',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('present', REFERENCE_ENUM_CLASS, 'PresentEnum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.Transceiver.State.PresentEnum', 
+                [], [], 
+                '''                Indicates whether a transceiver is present in
+                the specified client port.
+                ''',
+                'present',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('serial-no', ATTRIBUTE, 'str' , None, None, 
+                [(1, 16)], [], 
+                '''                Transceiver serial number. 16-octet field that contains
+                ASCII characters, left-aligned and padded on the right with
+                ASCII spaces (20h). If part serial number is undefined, all
+                16 octets = 0h
+                ''',
+                'serial_no',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('vendor', ATTRIBUTE, 'str' , None, None, 
                 [(1, 16)], [], 
@@ -217,29 +240,6 @@ _meta_table = {
                 right with ASCII spaces (20h)
                 ''',
                 'vendor_rev',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('serial-no', ATTRIBUTE, 'str' , None, None, 
-                [(1, 16)], [], 
-                '''                Transceiver serial number. 16-octet field that contains
-                ASCII characters, left-aligned and padded on the right with
-                ASCII spaces (20h). If part serial number is undefined, all
-                16 octets = 0h
-                ''',
-                'serial_no',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('date-code', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                Representation of the transceiver date code, typically
-                stored as YYMMDD.  The time portion of the value is
-                undefined and not intended to be read.
-                ''',
-                'date_code',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('fault-condition', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if a fault condition exists in the transceiver
-                ''',
-                'fault_condition',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -275,18 +275,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.PhysicalChannels.Channel.Config',
             False, 
             [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Text description for the client physical channel
+                ''',
+                'description',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Index of the physical channnel or lane within a physical
                 client port
                 ''',
                 'index',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Text description for the client physical channel
-                ''',
-                'description',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('tx-laser', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -306,6 +306,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.PhysicalChannels.Channel.State',
             False, 
             [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Text description for the client physical channel
+                ''',
+                'description',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Index of the physical channnel or lane within a physical
@@ -313,28 +319,7 @@ _meta_table = {
                 ''',
                 'index',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Text description for the client physical channel
-                ''',
-                'description',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('tx-laser', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable (true) or disable (false) the transmit label for the
-                channel
-                ''',
-                'tx_laser',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('output-power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The output optical power of this port in units of 0.01dBm.
-                If the port is an aggregate of multiple physical channels,
-                this attribute is the total power or sum of all channels.
-                ''',
-                'output_power',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('output-frequency', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('output-frequency', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The frequency in MHz of the individual physical channel
                 (e.g. ITU C50 - 195.0THz and would be reported as
@@ -342,6 +327,21 @@ _meta_table = {
                 configurable on most client ports.
                 ''',
                 'output_frequency',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('output-power', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The output optical power of this port in units of 0.01dBm.
+                If the port is an aggregate of multiple physical channels,
+                this attribute is the total power or sum of all channels.
+                ''',
+                'output_power',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('tx-laser', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable (true) or disable (false) the transmit label for the
+                channel
+                ''',
+                'tx_laser',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -402,26 +402,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.LogicalChannelAssignments.Assignment.Config',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index of the client port assignment
-                ''',
-                'index',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Descriptive name for the client port-to-logical channel
-                mapping
-                ''',
-                'description',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('logical-channel', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reference to the logical channel for this
-                assignment
-                ''',
-                'logical_channel',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('allocation', ATTRIBUTE, 'Decimal64' , None, None, 
                 [('-9223372036854775.808', '9223372036854775.807')], [], 
                 '''                Allocation of the client physical port to the assigned
@@ -430,6 +410,26 @@ _meta_table = {
                 logical channel.
                 ''',
                 'allocation',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Descriptive name for the client port-to-logical channel
+                mapping
+                ''',
+                'description',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index of the client port assignment
+                ''',
+                'index',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('logical-channel', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reference to the logical channel for this
+                assignment
+                ''',
+                'logical_channel',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -442,26 +442,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.ClientPorts.Port.LogicalChannelAssignments.Assignment.State',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index of the client port assignment
-                ''',
-                'index',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Descriptive name for the client port-to-logical channel
-                mapping
-                ''',
-                'description',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('logical-channel', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reference to the logical channel for this
-                assignment
-                ''',
-                'logical_channel',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('allocation', ATTRIBUTE, 'Decimal64' , None, None, 
                 [('-9223372036854775.808', '9223372036854775.807')], [], 
                 '''                Allocation of the client physical port to the assigned
@@ -470,6 +450,26 @@ _meta_table = {
                 logical channel.
                 ''',
                 'allocation',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Descriptive name for the client port-to-logical channel
+                mapping
+                ''',
+                'description',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index of the client port assignment
+                ''',
+                'index',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('logical-channel', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reference to the logical channel for this
+                assignment
+                ''',
+                'logical_channel',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -542,6 +542,19 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-terminal-device', False),
+            _MetaInfoClassMember('logical-channel-assignments', REFERENCE_CLASS, 'LogicalChannelAssignments' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.LogicalChannelAssignments', 
+                [], [], 
+                '''                Enclosing container for client port to logical client
+                mappings
+                ''',
+                'logical_channel_assignments',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('physical-channels', REFERENCE_CLASS, 'PhysicalChannels' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.PhysicalChannels', 
+                [], [], 
+                '''                Enclosing container for client channels
+                ''',
+                'physical_channels',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.State', 
                 [], [], 
                 '''                Operational state data for client physical ports
@@ -553,19 +566,6 @@ _meta_table = {
                 '''                Top-level container for client port transceiver data
                 ''',
                 'transceiver',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('physical-channels', REFERENCE_CLASS, 'PhysicalChannels' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.PhysicalChannels', 
-                [], [], 
-                '''                Enclosing container for client channels
-                ''',
-                'physical_channels',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('logical-channel-assignments', REFERENCE_CLASS, 'LogicalChannelAssignments' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.LogicalChannelAssignments', 
-                [], [], 
-                '''                Enclosing container for client port to logical client
-                mappings
-                ''',
-                'logical_channel_assignments',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -595,26 +595,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.LogicalChannels.Channel.Config',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index of the current logical client channel
-                ''',
-                'index',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Description of the client logical channel
                 ''',
                 'description',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('trib-rate-class', REFERENCE_IDENTITY_CLASS, 'TributaryRateClassType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryRateClassType_Identity', 
-                [], [], 
-                '''                Rounded bit rate of the tributary signal. Exact bit rate
-                will be refined by protocol selection.
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index of the current logical client channel
                 ''',
-                'trib_rate_class',
+                'index',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('trib-protocol', REFERENCE_IDENTITY_CLASS, 'TributaryProtocolType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryProtocolType_Identity', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_IDENTITY_CLASS, 'LogicalElementProtocolTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'LogicalElementProtocolTypeIdentity', 
+                [], [], 
+                '''                The type / stage of the logical element determines the
+                configuration and operational state parameters (PMs)
+                available for the logical element
+                ''',
+                'protocol_type',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('trib-protocol', REFERENCE_IDENTITY_CLASS, 'TributaryProtocolTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryProtocolTypeIdentity', 
                 [], [], 
                 '''                Protocol framing of the tributary signal. If this
                 LogicalChannel is directly connected to a Client-Port or
@@ -647,13 +648,12 @@ _meta_table = {
                 ''',
                 'trib_protocol',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_IDENTITY_CLASS, 'LogicalElementProtocolType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'LogicalElementProtocolType_Identity', 
+            _MetaInfoClassMember('trib-rate-class', REFERENCE_IDENTITY_CLASS, 'TributaryRateClassTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryRateClassTypeIdentity', 
                 [], [], 
-                '''                The type / stage of the logical element determines the
-                configuration and operational state parameters (PMs)
-                available for the logical element
+                '''                Rounded bit rate of the tributary signal. Exact bit rate
+                will be refined by protocol selection.
                 ''',
-                'protocol_type',
+                'trib_rate_class',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -666,25 +666,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.LogicalChannels.Channel.State.Ethernet',
             False, 
             [
-            _MetaInfoClassMember('in-mac-control-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-8021q-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                MAC layer control frames received on the interface
+                '''                Number of 802.1q tagged frames received on the interface
                 ''',
-                'in_mac_control_frames',
+                'in_8021q_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('in-mac-pause-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-crc-errors', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                MAC layer PAUSE frames received on the interface
+                '''                Number of receive error events due to FCS/CRC check
+                failure
                 ''',
-                'in_mac_pause_frames',
+                'in_crc_errors',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('in-oversize-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-fragment-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of oversize frames received on the interface
+                '''                Number of fragment frames received on the interface.
                 ''',
-                'in_oversize_frames',
+                'in_fragment_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('in-jabber-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-jabber-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of jabber frames received on the
                 interface.  Jabber frames are typically defined as oversize
@@ -694,42 +695,41 @@ _meta_table = {
                 ''',
                 'in_jabber_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('in-fragment-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-mac-control-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of fragment frames received on the interface.
+                '''                MAC layer control frames received on the interface
                 ''',
-                'in_fragment_frames',
+                'in_mac_control_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('in-8021q-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-mac-pause-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of 802.1q tagged frames received on the interface
+                '''                MAC layer PAUSE frames received on the interface
                 ''',
-                'in_8021q_frames',
+                'in_mac_pause_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('in-crc-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-oversize-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of receive error events due to FCS/CRC check
-                failure
+                '''                Number of oversize frames received on the interface
                 ''',
-                'in_crc_errors',
+                'in_oversize_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('out-mac-control-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-8021q-frames', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of 802.1q tagged frames sent on the interface
+                ''',
+                'out_8021q_frames',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('out-mac-control-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                MAC layer control frames sent on the interface
                 ''',
                 'out_mac_control_frames',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('out-mac-pause-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-mac-pause-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                MAC layer PAUSE frames sent on the interface
                 ''',
                 'out_mac_pause_frames',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('out-8021q-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of 802.1q tagged frames sent on the interface
-                ''',
-                'out_8021q_frames',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -749,19 +749,19 @@ _meta_table = {
                 ''',
                 'avg',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-922337203685477580.8', '922337203685477580.7')], [], 
-                '''                The minimum value of the statistic over the sampling
-                period
-                ''',
-                'min',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
                 [('-922337203685477580.8', '922337203685477580.7')], [], 
                 '''                The maximum value of the statitic over the sampling
                 period
                 ''',
                 'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -781,19 +781,19 @@ _meta_table = {
                 ''',
                 'avg',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-922337203685477580.8', '922337203685477580.7')], [], 
-                '''                The minimum value of the statistic over the sampling
-                period
-                ''',
-                'min',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
                 [('-922337203685477580.8', '922337203685477580.7')], [], 
                 '''                The maximum value of the statitic over the sampling
                 period
                 ''',
                 'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -806,13 +806,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.LogicalChannels.Channel.State.Otn',
             False, 
             [
-            _MetaInfoClassMember('pre-fec-ber', REFERENCE_CLASS, 'PreFecBer' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Otn.PreFecBer', 
-                [], [], 
-                '''                Bit error rate before forward error correction -- computed
-                value
-                ''',
-                'pre_fec_ber',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('post-fec-ber', REFERENCE_CLASS, 'PostFecBer' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Otn.PostFecBer', 
                 [], [], 
                 '''                Bit error rate after forward error correction -- computed
@@ -820,17 +813,24 @@ _meta_table = {
                 ''',
                 'post_fec_ber',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('tti-msg', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('pre-fec-ber', REFERENCE_CLASS, 'PreFecBer' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Otn.PreFecBer', 
                 [], [], 
-                '''                Trail trace identifier (TTI) message received
+                '''                Bit error rate before forward error correction -- computed
+                value
                 ''',
-                'tti_msg',
+                'pre_fec_ber',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('rdi-msg', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Remote defect indication (RDI) message received
                 ''',
                 'rdi_msg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('tti-msg', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trail trace identifier (TTI) message received
+                ''',
+                'tti_msg',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -848,26 +848,46 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.LogicalChannels.Channel.State',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index of the current logical client channel
-                ''',
-                'index',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Description of the client logical channel
                 ''',
                 'description',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('trib-rate-class', REFERENCE_IDENTITY_CLASS, 'TributaryRateClassType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryRateClassType_Identity', 
+            _MetaInfoClassMember('ethernet', REFERENCE_CLASS, 'Ethernet' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Ethernet', 
                 [], [], 
-                '''                Rounded bit rate of the tributary signal. Exact bit rate
-                will be refined by protocol selection.
+                '''                PMs and counters for Ethernet protocol channels
                 ''',
-                'trib_rate_class',
+                'ethernet',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('trib-protocol', REFERENCE_IDENTITY_CLASS, 'TributaryProtocolType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryProtocolType_Identity', 
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index of the current logical client channel
+                ''',
+                'index',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'LinkStateEnum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.LinkStateEnum', 
+                [], [], 
+                '''                Link-state of the Ethernet protocol on the logical channel,
+                SONET / SDH framed signal, etc.
+                ''',
+                'link_state',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('otn', REFERENCE_CLASS, 'Otn' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Otn', 
+                [], [], 
+                '''                PMs and statistics for OTN protocol channels
+                ''',
+                'otn',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('protocol-type', REFERENCE_IDENTITY_CLASS, 'LogicalElementProtocolTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'LogicalElementProtocolTypeIdentity', 
+                [], [], 
+                '''                The type / stage of the logical element determines the
+                configuration and operational state parameters (PMs)
+                available for the logical element
+                ''',
+                'protocol_type',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('trib-protocol', REFERENCE_IDENTITY_CLASS, 'TributaryProtocolTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryProtocolTypeIdentity', 
                 [], [], 
                 '''                Protocol framing of the tributary signal. If this
                 LogicalChannel is directly connected to a Client-Port or
@@ -900,32 +920,12 @@ _meta_table = {
                 ''',
                 'trib_protocol',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_IDENTITY_CLASS, 'LogicalElementProtocolType_Identity' , 'ydk.models.openconfig.openconfig_transport_types', 'LogicalElementProtocolType_Identity', 
+            _MetaInfoClassMember('trib-rate-class', REFERENCE_IDENTITY_CLASS, 'TributaryRateClassTypeIdentity' , 'ydk.models.openconfig.openconfig_transport_types', 'TributaryRateClassTypeIdentity', 
                 [], [], 
-                '''                The type / stage of the logical element determines the
-                configuration and operational state parameters (PMs)
-                available for the logical element
+                '''                Rounded bit rate of the tributary signal. Exact bit rate
+                will be refined by protocol selection.
                 ''',
-                'protocol_type',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'LinkStateEnum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.LinkStateEnum', 
-                [], [], 
-                '''                Link-state of the Ethernet protocol on the logical channel,
-                SONET / SDH framed signal, etc.
-                ''',
-                'link_state',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('ethernet', REFERENCE_CLASS, 'Ethernet' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Ethernet', 
-                [], [], 
-                '''                PMs and counters for Ethernet protocol channels
-                ''',
-                'ethernet',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('otn', REFERENCE_CLASS, 'Otn' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.Otn', 
-                [], [], 
-                '''                PMs and statistics for OTN protocol channels
-                ''',
-                'otn',
+                'trib_rate_class',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -938,12 +938,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index of the current logical client channel to tributary
-                mapping
+            _MetaInfoClassMember('allocation', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-9223372036854775.808', '9223372036854775.807')], [], 
+                '''                Allocation of the logical client channel to the tributary
+                or sub-channel, expressed in Gbps
                 ''',
-                'index',
+                'allocation',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -951,26 +951,26 @@ _meta_table = {
                 ''',
                 'description',
                 'openconfig-terminal-device', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index of the current logical client channel to tributary
+                mapping
+                ''',
+                'index',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('logical-channel', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Reference to another stage of logical channel elements.
                 ''',
                 'logical_channel',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('optical-channel', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('optical-channel', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Reference to the line-side optical channel that should
                 carry the current logical channel element.  Use this
                 reference to exit the logical element stage.
                 ''',
                 'optical_channel',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('allocation', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-9223372036854775.808', '9223372036854775.807')], [], 
-                '''                Allocation of the logical client channel to the tributary
-                or sub-channel, expressed in Gbps
-                ''',
-                'allocation',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -983,12 +983,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index of the current logical client channel to tributary
-                mapping
+            _MetaInfoClassMember('allocation', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-9223372036854775.808', '9223372036854775.807')], [], 
+                '''                Allocation of the logical client channel to the tributary
+                or sub-channel, expressed in Gbps
                 ''',
-                'index',
+                'allocation',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -996,26 +996,26 @@ _meta_table = {
                 ''',
                 'description',
                 'openconfig-terminal-device', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index of the current logical client channel to tributary
+                mapping
+                ''',
+                'index',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('logical-channel', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Reference to another stage of logical channel elements.
                 ''',
                 'logical_channel',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('optical-channel', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('optical-channel', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Reference to the line-side optical channel that should
                 carry the current logical channel element.  Use this
                 reference to exit the logical element stage.
                 ''',
                 'optical_channel',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('allocation', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-9223372036854775.808', '9223372036854775.807')], [], 
-                '''                Allocation of the logical client channel to the tributary
-                or sub-channel, expressed in Gbps
-                ''',
-                'allocation',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -1105,17 +1105,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State', 
-                [], [], 
-                '''                Operational state data for logical client channels
-                ''',
-                'state',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('logical-channel-assignments', REFERENCE_CLASS, 'LogicalChannelAssignments' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments', 
                 [], [], 
                 '''                Enclosing container for tributary assignments
                 ''',
                 'logical_channel_assignments',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State', 
+                [], [], 
+                '''                Operational state data for logical client channels
+                ''',
+                'state',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -1145,24 +1145,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.OpticalChannels.OpticalChannel.Config',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('frequency', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Frequency of the optical channel
+                ''',
+                'frequency',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Index number assigned to the optical channel.  The index
                 must be unique on the local system.
                 ''',
                 'index',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Frequency of the optical channel
+            _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reference to the line-side physical port that carries
+                this optical channel
                 ''',
-                'frequency',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Power level of the optical channel
-                ''',
-                'power',
+                'line_port',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('operational-mode', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1171,12 +1172,11 @@ _meta_table = {
                 ''',
                 'operational_mode',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reference to the line-side physical port that carries
-                this optical channel
+            _MetaInfoClassMember('power', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Power level of the optical channel
                 ''',
-                'line_port',
+                'power',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -1189,24 +1189,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.OpticalChannels.OpticalChannel.State',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('frequency', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Frequency of the optical channel
+                ''',
+                'frequency',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Index number assigned to the optical channel.  The index
                 must be unique on the local system.
                 ''',
                 'index',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Frequency of the optical channel
+            _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reference to the line-side physical port that carries
+                this optical channel
                 ''',
-                'frequency',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Power level of the optical channel
-                ''',
-                'power',
+                'line_port',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('operational-mode', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1215,12 +1216,11 @@ _meta_table = {
                 ''',
                 'operational_mode',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reference to the line-side physical port that carries
-                this optical channel
+            _MetaInfoClassMember('power', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Power level of the optical channel
                 ''',
-                'line_port',
+                'power',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',
@@ -1233,7 +1233,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice.OpticalChannels.OpticalChannel',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('index', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                 
                 ''',
@@ -1285,7 +1285,7 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('output-power', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('output-power', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The output optical power of this port in units of 0.01dBm.
                 If the port is an aggregate of multiple physical channels,
@@ -1310,7 +1310,7 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('output-power', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('output-power', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The output optical power of this port in units of 0.01dBm.
                 If the port is an aggregate of multiple physical channels,
@@ -1463,35 +1463,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TerminalDevice',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.Config', 
-                [], [], 
-                '''                Configuration data for global terminal-device
-                ''',
-                'config',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.State', 
-                [], [], 
-                '''                Operational state data for global terminal device
-                ''',
-                'state',
-                'openconfig-terminal-device', False),
             _MetaInfoClassMember('client-ports', REFERENCE_CLASS, 'ClientPorts' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts', 
                 [], [], 
                 '''                Enclosing container for the list of client ports
                 ''',
                 'client_ports',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('logical-channels', REFERENCE_CLASS, 'LogicalChannels' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.Config', 
                 [], [], 
-                '''                Enclosing container the list of logical channels
+                '''                Configuration data for global terminal-device
                 ''',
-                'logical_channels',
-                'openconfig-terminal-device', False),
-            _MetaInfoClassMember('optical-channels', REFERENCE_CLASS, 'OpticalChannels' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.OpticalChannels', 
-                [], [], 
-                '''                Enclosing container 
-                ''',
-                'optical_channels',
+                'config',
                 'openconfig-terminal-device', False),
             _MetaInfoClassMember('line-ports', REFERENCE_CLASS, 'LinePorts' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LinePorts', 
                 [], [], 
@@ -1499,12 +1481,30 @@ _meta_table = {
                 ''',
                 'line_ports',
                 'openconfig-terminal-device', False),
+            _MetaInfoClassMember('logical-channels', REFERENCE_CLASS, 'LogicalChannels' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels', 
+                [], [], 
+                '''                Enclosing container the list of logical channels
+                ''',
+                'logical_channels',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('operational-modes', REFERENCE_CLASS, 'OperationalModes' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.OperationalModes', 
                 [], [], 
                 '''                Top-level container for vendor-specific operational mode
                 information
                 ''',
                 'operational_modes',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('optical-channels', REFERENCE_CLASS, 'OpticalChannels' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.OpticalChannels', 
+                [], [], 
+                '''                Enclosing container 
+                ''',
+                'optical_channels',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.State', 
+                [], [], 
+                '''                Operational state data for global terminal device
+                ''',
+                'state',
                 'openconfig-terminal-device', False),
             ],
             'openconfig-terminal-device',

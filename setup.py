@@ -93,12 +93,15 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['ecdsa>=0.13',
-                      'enum34>=1.1.3',
-                      'lxml>=3.4.4',
-                      'paramiko>=1.15.2',
-                      'pycrypto>=2.6.1',
-                      'ncclient>=0.4.7'],
+    install_requires=['ecdsa==0.13',
+                    'enum34==1.1.3',
+                    'lxml==3.4.4',
+                    'paramiko==1.15.2',
+                    'pyang==1.6',
+                    'pycrypto==2.6.1',
+                    'Twisted>=16.0.0',
+                    'protobuf==3.0.0b2.post2',
+                    'ncclient>=0.4.7'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,

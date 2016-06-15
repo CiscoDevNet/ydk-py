@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -38,52 +38,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Clock.SummerTime',
             False, 
             [
-            _MetaInfoClassMember('time-zone-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of time zone in summer
-                ''',
-                'time_zone_name',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ClockSummerTimeModeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockSummerTimeModeEnum', 
-                [], [], 
-                '''                Summer time mode
-                ''',
-                'mode',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('start-week-number-or-start-date', ATTRIBUTE, 'int' , None, None, 
-                [(1, 31)], [], 
-                '''                 If Mode is set to 'Recurring' specify Week
-                number of the Month to start (first and last
-                strings are not allowed as they are in CLI) ,
-                if Mode is set to 'Date' specify Date to start 
-                ''',
-                'start_week_number_or_start_date',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('start-weekday-or-start-year', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2035)], [], 
-                '''                 If Mode is set to 'Recurring' specify Weekday
-                to start , if Mode is set to 'Date' specify
-                Year to start 
-                ''',
-                'start_weekday_or_start_year',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('start-month', REFERENCE_ENUM_CLASS, 'ClockMonthEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonthEnum', 
-                [], [], 
-                '''                 Month to start 
-                ''',
-                'start_month',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('start-hour', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('end-hour', ATTRIBUTE, 'int' , None, None, 
                 [(0, 23)], [], 
-                '''                Hour to start 
+                '''                Hour to end 
                 ''',
-                'start_hour',
+                'end_hour',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('start-minute', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('end-minute', ATTRIBUTE, 'int' , None, None, 
                 [(0, 59)], [], 
-                '''                Minute to start 
+                '''                Minute to end 
                 ''',
-                'start_minute',
+                'end_minute',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('end-month', REFERENCE_ENUM_CLASS, 'ClockMonthEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonthEnum', 
+                [], [], 
+                '''                 Month to end 
+                ''',
+                'end_month',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('end-week-number-or-end-date', ATTRIBUTE, 'int' , None, None, 
                 [(1, 31)], [], 
@@ -102,29 +73,58 @@ _meta_table = {
                 ''',
                 'end_weekday_or_end_year',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('end-month', REFERENCE_ENUM_CLASS, 'ClockMonthEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonthEnum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ClockSummerTimeModeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockSummerTimeModeEnum', 
                 [], [], 
-                '''                 Month to end 
+                '''                Summer time mode
                 ''',
-                'end_month',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('end-hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
-                '''                Hour to end 
-                ''',
-                'end_hour',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('end-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
-                '''                Minute to end 
-                ''',
-                'end_minute',
+                'mode',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
                 [(1, 1440)], [], 
                 '''                Offset to add in minutes 
                 ''',
                 'offset',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('start-hour', ATTRIBUTE, 'int' , None, None, 
+                [(0, 23)], [], 
+                '''                Hour to start 
+                ''',
+                'start_hour',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('start-minute', ATTRIBUTE, 'int' , None, None, 
+                [(0, 59)], [], 
+                '''                Minute to start 
+                ''',
+                'start_minute',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('start-month', REFERENCE_ENUM_CLASS, 'ClockMonthEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonthEnum', 
+                [], [], 
+                '''                 Month to start 
+                ''',
+                'start_month',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('start-week-number-or-start-date', ATTRIBUTE, 'int' , None, None, 
+                [(1, 31)], [], 
+                '''                 If Mode is set to 'Recurring' specify Week
+                number of the Month to start (first and last
+                strings are not allowed as they are in CLI) ,
+                if Mode is set to 'Date' specify Date to start 
+                ''',
+                'start_week_number_or_start_date',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('start-weekday-or-start-year', ATTRIBUTE, 'int' , None, None, 
+                [(0, 2035)], [], 
+                '''                 If Mode is set to 'Recurring' specify Weekday
+                to start , if Mode is set to 'Date' specify
+                Year to start 
+                ''',
+                'start_weekday_or_start_year',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('time-zone-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of time zone in summer
+                ''',
+                'time_zone_name',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             ],
             'Cisco-IOS-XR-infra-infra-clock-cfg',
@@ -137,12 +137,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Clock.TimeZone',
             False, 
             [
-            _MetaInfoClassMember('time-zone-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of time zone
-                ''',
-                'time_zone_name',
-                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('hour-offset', ATTRIBUTE, 'int' , None, None, 
                 [(-23, 23)], [], 
                 '''                Hours offset from UTC
@@ -154,6 +148,12 @@ _meta_table = {
                 '''                Minutes offset from UTC
                 ''',
                 'minute_offset',
+                'Cisco-IOS-XR-infra-infra-clock-cfg', False),
+            _MetaInfoClassMember('time-zone-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of time zone
+                ''',
+                'time_zone_name',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             ],
             'Cisco-IOS-XR-infra-infra-clock-cfg',

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -35,13 +35,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetconfYang.Agent.Session',
             False, 
             [
-            _MetaInfoClassMember('limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1024)], [], 
-                '''                Count of allowable concurrent netconf-yang
-                sessions
-                ''',
-                'limit',
-                'Cisco-IOS-XR-man-netconf-cfg', False),
             _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(1, 1440)], [], 
                 '''                Absolute timeout in minutes
@@ -54,6 +47,13 @@ _meta_table = {
                 ''',
                 'idle_timeout',
                 'Cisco-IOS-XR-man-netconf-cfg', False),
+            _MetaInfoClassMember('limit', ATTRIBUTE, 'int' , None, None, 
+                [(1, 1024)], [], 
+                '''                Count of allowable concurrent netconf-yang
+                sessions
+                ''',
+                'limit',
+                'Cisco-IOS-XR-man-netconf-cfg', False),
             ],
             'Cisco-IOS-XR-man-netconf-cfg',
             'session',
@@ -65,11 +65,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetconfYang.Agent',
             False, 
             [
-            _MetaInfoClassMember('ssh', REFERENCE_CLASS, 'Ssh' , 'ydk.models.man.Cisco_IOS_XR_man_netconf_cfg', 'NetconfYang.Agent.Ssh', 
-                [], [], 
-                '''                NETCONF YANG agent over SSH connection
+            _MetaInfoClassMember('rate-limit', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 4294967295)], [], 
+                '''                Number of bytes to process per sec
                 ''',
-                'ssh',
+                'rate_limit',
                 'Cisco-IOS-XR-man-netconf-cfg', False),
             _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.man.Cisco_IOS_XR_man_netconf_cfg', 'NetconfYang.Agent.Session', 
                 [], [], 
@@ -77,11 +77,11 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-man-netconf-cfg', False),
-            _MetaInfoClassMember('rate-limit', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 4294967295)], [], 
-                '''                Number of bytes to process per sec
+            _MetaInfoClassMember('ssh', REFERENCE_CLASS, 'Ssh' , 'ydk.models.man.Cisco_IOS_XR_man_netconf_cfg', 'NetconfYang.Agent.Ssh', 
+                [], [], 
+                '''                NETCONF YANG agent over SSH connection
                 ''',
-                'rate_limit',
+                'ssh',
                 'Cisco-IOS-XR-man-netconf-cfg', False),
             ],
             'Cisco-IOS-XR-man-netconf-cfg',

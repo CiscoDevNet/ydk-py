@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -25,8 +25,8 @@ _meta_table = {
             'ALL':'ALL',
             'INVERT':'INVERT',
         }, 'policy-types', _yang_ns._namespaces['policy-types']),
-    'InstallProtocolType_Identity' : {
-        'meta_info' : _MetaInfoClass('InstallProtocolType_Identity',
+    'InstallProtocolTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('InstallProtocolTypeIdentity',
             False, 
             [
             ],
@@ -36,8 +36,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'AttributeComparison_Identity' : {
-        'meta_info' : _MetaInfoClass('AttributeComparison_Identity',
+    'AttributeComparisonIdentity' : {
+        'meta_info' : _MetaInfoClass('AttributeComparisonIdentity',
             False, 
             [
             ],
@@ -47,41 +47,19 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'LocalAggregate_Identity' : {
-        'meta_info' : _MetaInfoClass('LocalAggregate_Identity',
+    'IsisIdentity' : {
+        'meta_info' : _MetaInfoClass('IsisIdentity',
             False, 
             [
             ],
             'policy-types',
-            'LOCAL-AGGREGATE',
+            'ISIS',
             _yang_ns._namespaces['policy-types'],
         'ydk.models.policy.policy_types'
         ),
     },
-    'AttributeGe_Identity' : {
-        'meta_info' : _MetaInfoClass('AttributeGe_Identity',
-            False, 
-            [
-            ],
-            'policy-types',
-            'attribute-ge',
-            _yang_ns._namespaces['policy-types'],
-        'ydk.models.policy.policy_types'
-        ),
-    },
-    'Ospf3_Identity' : {
-        'meta_info' : _MetaInfoClass('Ospf3_Identity',
-            False, 
-            [
-            ],
-            'policy-types',
-            'OSPF3',
-            _yang_ns._namespaces['policy-types'],
-        'ydk.models.policy.policy_types'
-        ),
-    },
-    'AttributeLe_Identity' : {
-        'meta_info' : _MetaInfoClass('AttributeLe_Identity',
+    'AttributeLeIdentity' : {
+        'meta_info' : _MetaInfoClass('AttributeLeIdentity',
             False, 
             [
             ],
@@ -91,30 +69,19 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'AttributeEq_Identity' : {
-        'meta_info' : _MetaInfoClass('AttributeEq_Identity',
+    'AttributeGeIdentity' : {
+        'meta_info' : _MetaInfoClass('AttributeGeIdentity',
             False, 
             [
             ],
             'policy-types',
-            'attribute-eq',
+            'attribute-ge',
             _yang_ns._namespaces['policy-types'],
         'ydk.models.policy.policy_types'
         ),
     },
-    'Ospf_Identity' : {
-        'meta_info' : _MetaInfoClass('Ospf_Identity',
-            False, 
-            [
-            ],
-            'policy-types',
-            'OSPF',
-            _yang_ns._namespaces['policy-types'],
-        'ydk.models.policy.policy_types'
-        ),
-    },
-    'Bgp_Identity' : {
-        'meta_info' : _MetaInfoClass('Bgp_Identity',
+    'BgpIdentity' : {
+        'meta_info' : _MetaInfoClass('BgpIdentity',
             False, 
             [
             ],
@@ -124,8 +91,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'DirectlyConnected_Identity' : {
-        'meta_info' : _MetaInfoClass('DirectlyConnected_Identity',
+    'DirectlyConnectedIdentity' : {
+        'meta_info' : _MetaInfoClass('DirectlyConnectedIdentity',
             False, 
             [
             ],
@@ -135,8 +102,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'Static_Identity' : {
-        'meta_info' : _MetaInfoClass('Static_Identity',
+    'StaticIdentity' : {
+        'meta_info' : _MetaInfoClass('StaticIdentity',
             False, 
             [
             ],
@@ -146,13 +113,46 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'Isis_Identity' : {
-        'meta_info' : _MetaInfoClass('Isis_Identity',
+    'LocalAggregateIdentity' : {
+        'meta_info' : _MetaInfoClass('LocalAggregateIdentity',
             False, 
             [
             ],
             'policy-types',
-            'ISIS',
+            'LOCAL-AGGREGATE',
+            _yang_ns._namespaces['policy-types'],
+        'ydk.models.policy.policy_types'
+        ),
+    },
+    'AttributeEqIdentity' : {
+        'meta_info' : _MetaInfoClass('AttributeEqIdentity',
+            False, 
+            [
+            ],
+            'policy-types',
+            'attribute-eq',
+            _yang_ns._namespaces['policy-types'],
+        'ydk.models.policy.policy_types'
+        ),
+    },
+    'OspfIdentity' : {
+        'meta_info' : _MetaInfoClass('OspfIdentity',
+            False, 
+            [
+            ],
+            'policy-types',
+            'OSPF',
+            _yang_ns._namespaces['policy-types'],
+        'ydk.models.policy.policy_types'
+        ),
+    },
+    'Ospf3Identity' : {
+        'meta_info' : _MetaInfoClass('Ospf3Identity',
+            False, 
+            [
+            ],
+            'policy-types',
+            'OSPF3',
             _yang_ns._namespaces['policy-types'],
         'ydk.models.policy.policy_types'
         ),

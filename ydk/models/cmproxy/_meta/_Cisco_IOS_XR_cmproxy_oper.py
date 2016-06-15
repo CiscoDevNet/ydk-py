@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -24,12 +24,6 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-cmproxy-oper', True),
-            _MetaInfoClassMember('valid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                valid flag
-                ''',
-                'valid',
-                'Cisco-IOS-XR-cmproxy-oper', False),
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                card type
@@ -42,41 +36,23 @@ _meta_table = {
                 ''',
                 'card_type_string',
                 'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('nodeid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                node ID
+            _MetaInfoClassMember('node-ip', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                node IP address
                 ''',
-                'nodeid',
+                'node_ip',
+                'Cisco-IOS-XR-cmproxy-oper', False),
+            _MetaInfoClassMember('node-ipv4-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 16)], [], 
+                '''                node IPv4 address string
+                ''',
+                'node_ipv4_string',
                 'Cisco-IOS-XR-cmproxy-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                node name string
                 ''',
                 'node_name',
-                'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('partner-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                partner node id
-                ''',
-                'partner_id',
-                'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('partner-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                partner name string
-                ''',
-                'partner_name',
-                'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('red-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                redundancy state
-                ''',
-                'red_state',
-                'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('redundancy-state-string', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                redundancy state string
-                ''',
-                'redundancy_state_string',
                 'Cisco-IOS-XR-cmproxy-oper', False),
             _MetaInfoClassMember('node-sw-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -90,6 +66,24 @@ _meta_table = {
                 ''',
                 'node_sw_state_string',
                 'Cisco-IOS-XR-cmproxy-oper', False),
+            _MetaInfoClassMember('nodeid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                node ID
+                ''',
+                'nodeid',
+                'Cisco-IOS-XR-cmproxy-oper', False),
+            _MetaInfoClassMember('partner-id', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                partner node id
+                ''',
+                'partner_id',
+                'Cisco-IOS-XR-cmproxy-oper', False),
+            _MetaInfoClassMember('partner-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                partner name string
+                ''',
+                'partner_name',
+                'Cisco-IOS-XR-cmproxy-oper', False),
             _MetaInfoClassMember('prev-sw-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                previous software state
@@ -102,17 +96,23 @@ _meta_table = {
                 ''',
                 'previous_sw_state_string',
                 'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('node-ip', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('red-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                node IP address
+                '''                redundancy state
                 ''',
-                'node_ip',
+                'red_state',
                 'Cisco-IOS-XR-cmproxy-oper', False),
-            _MetaInfoClassMember('node-ipv4-string', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
-                '''                node IPv4 address string
+            _MetaInfoClassMember('redundancy-state-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                redundancy state string
                 ''',
-                'node_ipv4_string',
+                'redundancy_state_string',
+                'Cisco-IOS-XR-cmproxy-oper', False),
+            _MetaInfoClassMember('valid', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                valid flag
+                ''',
+                'valid',
                 'Cisco-IOS-XR-cmproxy-oper', False),
             ],
             'Cisco-IOS-XR-cmproxy-oper',

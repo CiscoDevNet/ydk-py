@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -58,18 +58,18 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-aaa-locald-admin-cfg', True),
+            _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Specify the secret for the admin user
+                ''',
+                'secret',
+                'Cisco-IOS-XR-aaa-locald-admin-cfg', False),
             _MetaInfoClassMember('usergroup-under-usernames', REFERENCE_CLASS, 'UsergroupUnderUsernames' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_locald_admin_cfg', 'Aaa.Usernames.Username.UsergroupUnderUsernames', 
                 [], [], 
                 '''                Specify the usergroup to which this admin user
                 belongs
                 ''',
                 'usergroup_under_usernames',
-                'Cisco-IOS-XR-aaa-locald-admin-cfg', False),
-            _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Specify the secret for the admin user
-                ''',
-                'secret',
                 'Cisco-IOS-XR-aaa-locald-admin-cfg', False),
             ],
             'Cisco-IOS-XR-aaa-locald-admin-cfg',

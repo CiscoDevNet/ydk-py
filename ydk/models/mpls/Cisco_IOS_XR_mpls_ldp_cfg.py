@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -358,20 +358,20 @@ class MplsLdp(object):
     	Global VRF attribute configuration for MPLS LDP
     	**type**\: :py:class:`DefaultVrf <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf>`
     
-    .. attribute:: vrfs
+    .. attribute:: enable
     
-    	VRF Table attribute configuration for MPLS LDP
-    	**type**\: :py:class:`Vrfs <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs>`
+    	Enable Label Distribution Protocol (LDP) globally.Without creating this object the LDP feature will not be enabled. Deleting this object will stop the LDP feature
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: global_
     
     	Global configuration for MPLS LDP
     	**type**\: :py:class:`Global <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global>`
     
-    .. attribute:: enable
+    .. attribute:: vrfs
     
-    	Enable Label Distribution Protocol (LDP) globally.Without creating this object the LDP feature will not be enabled. Deleting this object will stop the LDP feature
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	VRF Table attribute configuration for MPLS LDP
+    	**type**\: :py:class:`Vrfs <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs>`
     
     
 
@@ -383,11 +383,11 @@ class MplsLdp(object):
     def __init__(self):
         self.default_vrf = MplsLdp.DefaultVrf()
         self.default_vrf.parent = self
-        self.vrfs = MplsLdp.Vrfs()
-        self.vrfs.parent = self
+        self.enable = None
         self.global_ = MplsLdp.Global()
         self.global_.parent = self
-        self.enable = None
+        self.vrfs = MplsLdp.Vrfs()
+        self.vrfs.parent = self
 
 
     class DefaultVrf(object):
@@ -459,20 +459,20 @@ class MplsLdp(object):
                 	Address Family type
                 	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                 
-                .. attribute:: label
-                
-                	Configure Label policies and control
-                	**type**\: :py:class:`Label <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label>`
-                
                 .. attribute:: discovery
                 
                 	Configure Discovery parameters
                 	**type**\: :py:class:`Discovery <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Discovery>`
                 
-                .. attribute:: traffic_engineering
+                .. attribute:: enable
                 
-                	MPLS Traffic Engingeering parameters for LDP
-                	**type**\: :py:class:`TrafficEngineering <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering>`
+                	Enable Address Family
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: label
+                
+                	Configure Label policies and control
+                	**type**\: :py:class:`Label <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label>`
                 
                 .. attribute:: neighbor
                 
@@ -484,10 +484,10 @@ class MplsLdp(object):
                 	MPLS LDP configuration for protocol redistribution
                 	**type**\: :py:class:`RedistributionProtocol <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol>`
                 
-                .. attribute:: enable
+                .. attribute:: traffic_engineering
                 
-                	Enable Address Family
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	MPLS Traffic Engingeering parameters for LDP
+                	**type**\: :py:class:`TrafficEngineering <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering>`
                 
                 
 
@@ -499,32 +499,32 @@ class MplsLdp(object):
                 def __init__(self):
                     self.parent = None
                     self.af_name = None
-                    self.label = MplsLdp.DefaultVrf.Afs.Af.Label()
-                    self.label.parent = self
                     self.discovery = MplsLdp.DefaultVrf.Afs.Af.Discovery()
                     self.discovery.parent = self
-                    self.traffic_engineering = MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering()
-                    self.traffic_engineering.parent = self
+                    self.enable = None
+                    self.label = MplsLdp.DefaultVrf.Afs.Af.Label()
+                    self.label.parent = self
                     self.neighbor = MplsLdp.DefaultVrf.Afs.Af.Neighbor()
                     self.neighbor.parent = self
                     self.redistribution_protocol = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol()
                     self.redistribution_protocol.parent = self
-                    self.enable = None
+                    self.traffic_engineering = MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering()
+                    self.traffic_engineering.parent = self
 
 
                 class Label(object):
                     """
                     Configure Label policies and control
                     
-                    .. attribute:: remote
-                    
-                    	Configure remote/peer label policies and control
-                    	**type**\: :py:class:`Remote <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote>`
-                    
                     .. attribute:: local
                     
                     	Configure local label policies and control
                     	**type**\: :py:class:`Local <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local>`
+                    
+                    .. attribute:: remote
+                    
+                    	Configure remote/peer label policies and control
+                    	**type**\: :py:class:`Remote <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote>`
                     
                     
 
@@ -535,10 +535,10 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.remote = MplsLdp.DefaultVrf.Afs.Af.Label.Remote()
-                        self.remote.parent = self
                         self.local = MplsLdp.DefaultVrf.Afs.Af.Label.Local()
                         self.local.parent = self
+                        self.remote = MplsLdp.DefaultVrf.Afs.Af.Label.Remote()
+                        self.remote.parent = self
 
 
                     class Remote(object):
@@ -615,19 +615,19 @@ class MplsLdp(object):
                                     Control acceptance of labels from a
                                     neighbor for prefix(es) using ACL
                                     
-                                    .. attribute:: lsr_id  <key>
-                                    
-                                    	LSR ID of neighbor
-                                    	**type**\: str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     .. attribute:: label_space_id  <key>
                                     
                                     	Label space ID of neighbor
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: lsr_id  <key>
+                                    
+                                    	LSR ID of neighbor
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_acl_name
                                     
@@ -643,20 +643,20 @@ class MplsLdp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.lsr_id = None
                                         self.label_space_id = None
+                                        self.lsr_id = None
                                         self.prefix_acl_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.lsr_id is None:
-                                            raise YPYDataValidationError('Key property lsr_id is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.label_space_id is None:
-                                            raise YPYDataValidationError('Key property label_space_id is None')
+                                            raise YPYModelError('Key property label_space_id is None')
+                                        if self.lsr_id is None:
+                                            raise YPYModelError('Key property lsr_id is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-accept-policy[Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-accept-policy[Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -665,10 +665,10 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.lsr_id is not None:
+                                        if self.label_space_id is not None:
                                             return True
 
-                                        if self.label_space_id is not None:
+                                        if self.lsr_id is not None:
                                             return True
 
                                         if self.prefix_acl_name is not None:
@@ -684,7 +684,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-accept-policies'
 
@@ -710,7 +710,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:accept'
 
@@ -734,7 +734,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:remote'
 
@@ -770,15 +770,15 @@ class MplsLdp(object):
                         	Control local label allocation for prefix(es)
                         	**type**\: :py:class:`Allocate <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate>`
                         
-                        .. attribute:: implicit_null_override
-                        
-                        	Control use of implicit\-null label for set of prefix(es)
-                        	**type**\: str
-                        
                         .. attribute:: default_route
                         
                         	Enable MPLS forwarding for default route
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: implicit_null_override
+                        
+                        	Control use of implicit\-null label for set of prefix(es)
+                        	**type**\: str
                         
                         
 
@@ -793,23 +793,18 @@ class MplsLdp(object):
                             self.advertise.parent = self
                             self.allocate = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate()
                             self.allocate.parent = self
-                            self.implicit_null_override = None
                             self.default_route = None
+                            self.implicit_null_override = None
 
 
                         class Advertise(object):
                             """
                             Configure outbound label advertisement
                             
-                            .. attribute:: peer_advertise_policies
+                            .. attribute:: disable
                             
-                            	Configure peer centric outbound label advertisement using ACL
-                            	**type**\: :py:class:`PeerAdvertisePolicies <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
-                            
-                            .. attribute:: prefix_advertise_policies
-                            
-                            	Configure prefix centric outbound label advertisement using ACL
-                            	**type**\: :py:class:`PrefixAdvertisePolicies <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies>`
+                            	Disable label advertisement
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             .. attribute:: explicit_null
                             
@@ -821,10 +816,15 @@ class MplsLdp(object):
                             	Configure outbound label advertisement for an interface
                             	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces>`
                             
-                            .. attribute:: disable
+                            .. attribute:: peer_advertise_policies
                             
-                            	Disable label advertisement
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            	Configure peer centric outbound label advertisement using ACL
+                            	**type**\: :py:class:`PeerAdvertisePolicies <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
+                            
+                            .. attribute:: prefix_advertise_policies
+                            
+                            	Configure prefix centric outbound label advertisement using ACL
+                            	**type**\: :py:class:`PrefixAdvertisePolicies <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies>`
                             
                             
 
@@ -835,15 +835,15 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.peer_advertise_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies()
-                                self.peer_advertise_policies.parent = self
-                                self.prefix_advertise_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies()
-                                self.prefix_advertise_policies.parent = self
+                                self.disable = None
                                 self.explicit_null = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull()
                                 self.explicit_null.parent = self
                                 self.interfaces = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces()
                                 self.interfaces.parent = self
-                                self.disable = None
+                                self.peer_advertise_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies()
+                                self.peer_advertise_policies.parent = self
+                                self.prefix_advertise_policies = MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies()
+                                self.prefix_advertise_policies.parent = self
 
 
                             class PeerAdvertisePolicies(object):
@@ -875,19 +875,19 @@ class MplsLdp(object):
                                     Control advertisement of prefix(es) using
                                     ACL
                                     
-                                    .. attribute:: lsr_id  <key>
-                                    
-                                    	LSR ID of neighbor
-                                    	**type**\: str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     .. attribute:: label_space_id  <key>
                                     
                                     	Label space ID of neighbor
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: lsr_id  <key>
+                                    
+                                    	LSR ID of neighbor
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_acl_name
                                     
@@ -903,20 +903,20 @@ class MplsLdp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.lsr_id = None
                                         self.label_space_id = None
+                                        self.lsr_id = None
                                         self.prefix_acl_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                        if self.lsr_id is None:
-                                            raise YPYDataValidationError('Key property lsr_id is None')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.label_space_id is None:
-                                            raise YPYDataValidationError('Key property label_space_id is None')
+                                            raise YPYModelError('Key property label_space_id is None')
+                                        if self.lsr_id is None:
+                                            raise YPYModelError('Key property lsr_id is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-advertise-policy[Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-advertise-policy[Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -925,10 +925,10 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.lsr_id is not None:
+                                        if self.label_space_id is not None:
                                             return True
 
-                                        if self.label_space_id is not None:
+                                        if self.lsr_id is not None:
                                             return True
 
                                         if self.prefix_acl_name is not None:
@@ -944,7 +944,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-advertise-policies'
 
@@ -1030,9 +1030,9 @@ class MplsLdp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.prefix_acl_name is None:
-                                            raise YPYDataValidationError('Key property prefix_acl_name is None')
+                                            raise YPYModelError('Key property prefix_acl_name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:prefix-advertise-policy[Cisco-IOS-XR-mpls-ldp-cfg:prefix-acl-name = ' + str(self.prefix_acl_name) + ']'
 
@@ -1062,7 +1062,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:prefix-advertise-policies'
 
@@ -1096,14 +1096,14 @@ class MplsLdp(object):
                                 	Explicit Null command variant
                                 	**type**\: :py:class:`MplsLdpExpNullEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
                                 
-                                .. attribute:: prefix_acl_name
-                                
-                                	Name of prefix ACL
-                                	**type**\: str
-                                
                                 .. attribute:: peer_acl_name
                                 
                                 	Name of peer ACL
+                                	**type**\: str
+                                
+                                .. attribute:: prefix_acl_name
+                                
+                                	Name of prefix ACL
                                 	**type**\: str
                                 
                                 
@@ -1116,13 +1116,13 @@ class MplsLdp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.explicit_null_type = None
-                                    self.prefix_acl_name = None
                                     self.peer_acl_name = None
+                                    self.prefix_acl_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:explicit-null'
 
@@ -1136,10 +1136,10 @@ class MplsLdp(object):
                                     if self.explicit_null_type is not None:
                                         return True
 
-                                    if self.prefix_acl_name is not None:
+                                    if self.peer_acl_name is not None:
                                         return True
 
-                                    if self.peer_acl_name is not None:
+                                    if self.prefix_acl_name is not None:
                                         return True
 
                                     return False
@@ -1200,9 +1200,9 @@ class MplsLdp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.interface_name is None:
-                                            raise YPYDataValidationError('Key property interface_name is None')
+                                            raise YPYModelError('Key property interface_name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:interface[Cisco-IOS-XR-mpls-ldp-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1226,7 +1226,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:interfaces'
 
@@ -1252,7 +1252,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:advertise'
 
@@ -1263,10 +1263,7 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.peer_advertise_policies is not None and self.peer_advertise_policies._has_data():
-                                    return True
-
-                                if self.prefix_advertise_policies is not None and self.prefix_advertise_policies._has_data():
+                                if self.disable is not None:
                                     return True
 
                                 if self.explicit_null is not None and self.explicit_null._has_data():
@@ -1275,7 +1272,10 @@ class MplsLdp(object):
                                 if self.interfaces is not None and self.interfaces._has_data():
                                     return True
 
-                                if self.disable is not None:
+                                if self.peer_advertise_policies is not None and self.peer_advertise_policies._has_data():
+                                    return True
+
+                                if self.prefix_advertise_policies is not None and self.prefix_advertise_policies._has_data():
                                     return True
 
                                 return False
@@ -1316,7 +1316,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:allocate'
 
@@ -1343,7 +1343,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:local'
 
@@ -1360,10 +1360,10 @@ class MplsLdp(object):
                             if self.allocate is not None and self.allocate._has_data():
                                 return True
 
-                            if self.implicit_null_override is not None:
+                            if self.default_route is not None:
                                 return True
 
-                            if self.default_route is not None:
+                            if self.implicit_null_override is not None:
                                 return True
 
                             return False
@@ -1376,7 +1376,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:label'
 
@@ -1387,10 +1387,10 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.remote is not None and self.remote._has_data():
+                        if self.local is not None and self.local._has_data():
                             return True
 
-                        if self.local is not None and self.local._has_data():
+                        if self.remote is not None and self.remote._has_data():
                             return True
 
                         return False
@@ -1471,7 +1471,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:targeted-hello-accept'
 
@@ -1498,7 +1498,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:discovery'
 
@@ -1550,15 +1550,15 @@ class MplsLdp(object):
                         MPLS Traffic Engineering auto\-tunnel mesh
                         parameters for LDP
                         
-                        .. attribute:: group_ids
-                        
-                        	Enable interfaces in specific MPLS TE auto\-tunnel mesh\-groups
-                        	**type**\: :py:class:`GroupIds <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds>`
-                        
                         .. attribute:: group_all
                         
                         	Enable all MPLS TE auto\-tunnel mesh\-group interfaces
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: group_ids
+                        
+                        	Enable interfaces in specific MPLS TE auto\-tunnel mesh\-groups
+                        	**type**\: :py:class:`GroupIds <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds>`
                         
                         
 
@@ -1569,9 +1569,9 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.group_all = None
                             self.group_ids = MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds()
                             self.group_ids.parent = self
-                            self.group_all = None
 
 
                         class GroupIds(object):
@@ -1623,9 +1623,9 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.mesh_group_id is None:
-                                        raise YPYDataValidationError('Key property mesh_group_id is None')
+                                        raise YPYModelError('Key property mesh_group_id is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:group-id[Cisco-IOS-XR-mpls-ldp-cfg:mesh-group-id = ' + str(self.mesh_group_id) + ']'
 
@@ -1649,7 +1649,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:group-ids'
 
@@ -1675,7 +1675,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:auto-tunnel-mesh'
 
@@ -1686,10 +1686,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.group_ids is not None and self.group_ids._has_data():
+                            if self.group_all is not None:
                                 return True
 
-                            if self.group_all is not None:
+                            if self.group_ids is not None and self.group_ids._has_data():
                                 return True
 
                             return False
@@ -1702,7 +1702,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:traffic-engineering'
 
@@ -1812,9 +1812,9 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ip_address is None:
-                                    raise YPYDataValidationError('Key property ip_address is None')
+                                    raise YPYModelError('Key property ip_address is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:address[Cisco-IOS-XR-mpls-ldp-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -1841,7 +1841,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:addresses'
 
@@ -1867,7 +1867,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:neighbor'
 
@@ -1917,15 +1917,15 @@ class MplsLdp(object):
                         MPLS LDP configuration for protocol
                         redistribution
                         
-                        .. attribute:: as_
-                        
-                        	MPLS LDP configuration for protocol redistribution
-                        	**type**\: :py:class:`As <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As>`
-                        
                         .. attribute:: advertise_to
                         
                         	ACL containing list of neighbors for BGP route redistribution
                         	**type**\: :py:class:`AdvertiseTo <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo>`
+                        
+                        .. attribute:: as_
+                        
+                        	MPLS LDP configuration for protocol redistribution
+                        	**type**\: :py:class:`As <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As>`
                         
                         
 
@@ -1936,10 +1936,10 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.as_ = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As()
-                            self.as_.parent = self
                             self.advertise_to = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo()
                             self.advertise_to.parent = self
+                            self.as_ = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As()
+                            self.as_.parent = self
 
 
                         class As(object):
@@ -1976,7 +1976,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:as'
 
@@ -2006,15 +2006,15 @@ class MplsLdp(object):
                             ACL containing list of neighbors for BGP
                             route redistribution
                             
-                            .. attribute:: type
-                            
-                            	advertise to peer acl type
-                            	**type**\: :py:class:`MplsLdpAdvertiseBgpaclEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpAdvertiseBgpaclEnum>`
-                            
                             .. attribute:: peer_acl_name
                             
                             	Name of peer ACL
                             	**type**\: str
+                            
+                            .. attribute:: type
+                            
+                            	advertise to peer acl type
+                            	**type**\: :py:class:`MplsLdpAdvertiseBgpaclEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpAdvertiseBgpaclEnum>`
                             
                             
 
@@ -2025,13 +2025,13 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.type = None
                                 self.peer_acl_name = None
+                                self.type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:advertise-to'
 
@@ -2042,10 +2042,10 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.type is not None:
+                                if self.peer_acl_name is not None:
                                     return True
 
-                                if self.peer_acl_name is not None:
+                                if self.type is not None:
                                     return True
 
                                 return False
@@ -2058,7 +2058,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:bgp'
 
@@ -2069,10 +2069,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.as_ is not None and self.as_._has_data():
+                            if self.advertise_to is not None and self.advertise_to._has_data():
                                 return True
 
-                            if self.advertise_to is not None and self.advertise_to._has_data():
+                            if self.as_ is not None and self.as_._has_data():
                                 return True
 
                             return False
@@ -2085,7 +2085,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:redistribution-protocol'
 
@@ -2109,7 +2109,7 @@ class MplsLdp(object):
                 @property
                 def _common_path(self):
                     if self.af_name is None:
-                        raise YPYDataValidationError('Key property af_name is None')
+                        raise YPYModelError('Key property af_name is None')
 
                     return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:default-vrf/Cisco-IOS-XR-mpls-ldp-cfg:afs/Cisco-IOS-XR-mpls-ldp-cfg:af[Cisco-IOS-XR-mpls-ldp-cfg:af-name = ' + str(self.af_name) + ']'
 
@@ -2123,13 +2123,13 @@ class MplsLdp(object):
                     if self.af_name is not None:
                         return True
 
-                    if self.label is not None and self.label._has_data():
-                        return True
-
                     if self.discovery is not None and self.discovery._has_data():
                         return True
 
-                    if self.traffic_engineering is not None and self.traffic_engineering._has_data():
+                    if self.enable is not None:
+                        return True
+
+                    if self.label is not None and self.label._has_data():
                         return True
 
                     if self.neighbor is not None and self.neighbor._has_data():
@@ -2138,7 +2138,7 @@ class MplsLdp(object):
                     if self.redistribution_protocol is not None and self.redistribution_protocol._has_data():
                         return True
 
-                    if self.enable is not None:
+                    if self.traffic_engineering is not None and self.traffic_engineering._has_data():
                         return True
 
                     return False
@@ -2177,20 +2177,15 @@ class MplsLdp(object):
             """
             Default VRF Global configuration for MPLS LDP
             
-            .. attribute:: session
+            .. attribute:: graceful_restart
             
-            	LDP Session parameters
-            	**type**\: :py:class:`Session <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session>`
+            	Configuration for per\-VRF LDP Graceful Restart parameters
+            	**type**\: :py:class:`GracefulRestart <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.GracefulRestart>`
             
             .. attribute:: neighbor
             
             	Configuration related to Neighbors
             	**type**\: :py:class:`Neighbor <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor>`
-            
-            .. attribute:: graceful_restart
-            
-            	Configuration for per\-VRF LDP Graceful Restart parameters
-            	**type**\: :py:class:`GracefulRestart <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.GracefulRestart>`
             
             .. attribute:: router_id
             
@@ -2198,6 +2193,11 @@ class MplsLdp(object):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            .. attribute:: session
+            
+            	LDP Session parameters
+            	**type**\: :py:class:`Session <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session>`
             
             
 
@@ -2208,28 +2208,28 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.session = MplsLdp.DefaultVrf.Global.Session()
-                self.session.parent = self
-                self.neighbor = MplsLdp.DefaultVrf.Global.Neighbor()
-                self.neighbor.parent = self
                 self.graceful_restart = MplsLdp.DefaultVrf.Global.GracefulRestart()
                 self.graceful_restart.parent = self
+                self.neighbor = MplsLdp.DefaultVrf.Global.Neighbor()
+                self.neighbor.parent = self
                 self.router_id = None
+                self.session = MplsLdp.DefaultVrf.Global.Session()
+                self.session.parent = self
 
 
             class Session(object):
                 """
                 LDP Session parameters
                 
-                .. attribute:: protection
-                
-                	Configure Session Protection parameters
-                	**type**\: :py:class:`Protection <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session.Protection>`
-                
                 .. attribute:: downstream_on_demand
                 
                 	ACL with the list of neighbors configured for Downstream on Demand
                 	**type**\: :py:class:`DownstreamOnDemand <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand>`
+                
+                .. attribute:: protection
+                
+                	Configure Session Protection parameters
+                	**type**\: :py:class:`Protection <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session.Protection>`
                 
                 
 
@@ -2240,25 +2240,15 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.protection = MplsLdp.DefaultVrf.Global.Session.Protection()
-                    self.protection.parent = self
                     self.downstream_on_demand = MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand()
                     self.downstream_on_demand.parent = self
+                    self.protection = MplsLdp.DefaultVrf.Global.Session.Protection()
+                    self.protection.parent = self
 
 
                 class Protection(object):
                     """
                     Configure Session Protection parameters
-                    
-                    .. attribute:: protection_type
-                    
-                    	Session protection type
-                    	**type**\: :py:class:`MplsLdpSessionProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpSessionProtectionEnum>`
-                    
-                    .. attribute:: peer_acl_name
-                    
-                    	Name of peer ACL
-                    	**type**\: str
                     
                     .. attribute:: duration
                     
@@ -2266,6 +2256,16 @@ class MplsLdp(object):
                     	**type**\: int
                     
                     	**range:** 30..2147483
+                    
+                    .. attribute:: peer_acl_name
+                    
+                    	Name of peer ACL
+                    	**type**\: str
+                    
+                    .. attribute:: protection_type
+                    
+                    	Session protection type
+                    	**type**\: :py:class:`MplsLdpSessionProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpSessionProtectionEnum>`
                     
                     
 
@@ -2276,9 +2276,9 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.protection_type = None
-                        self.peer_acl_name = None
                         self.duration = None
+                        self.peer_acl_name = None
+                        self.protection_type = None
 
                     @property
                     def _common_path(self):
@@ -2292,13 +2292,13 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.protection_type is not None:
+                        if self.duration is not None:
                             return True
 
                         if self.peer_acl_name is not None:
                             return True
 
-                        if self.duration is not None:
+                        if self.protection_type is not None:
                             return True
 
                         return False
@@ -2314,15 +2314,15 @@ class MplsLdp(object):
                     ACL with the list of neighbors configured for
                     Downstream on Demand
                     
-                    .. attribute:: type
-                    
-                    	Downstream on demand type
-                    	**type**\: :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
-                    
                     .. attribute:: peer_acl_name
                     
                     	Name of peer ACL
                     	**type**\: str
+                    
+                    .. attribute:: type
+                    
+                    	Downstream on demand type
+                    	**type**\: :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
                     
                     
 
@@ -2333,8 +2333,8 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.type = None
                         self.peer_acl_name = None
+                        self.type = None
 
                     @property
                     def _common_path(self):
@@ -2348,10 +2348,10 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.type is not None:
+                        if self.peer_acl_name is not None:
                             return True
 
-                        if self.peer_acl_name is not None:
+                        if self.type is not None:
                             return True
 
                         return False
@@ -2373,10 +2373,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.protection is not None and self.protection._has_data():
+                    if self.downstream_on_demand is not None and self.downstream_on_demand._has_data():
                         return True
 
-                    if self.downstream_on_demand is not None and self.downstream_on_demand._has_data():
+                    if self.protection is not None and self.protection._has_data():
                         return True
 
                     return False
@@ -2391,15 +2391,15 @@ class MplsLdp(object):
                 """
                 Configuration related to Neighbors
                 
-                .. attribute:: ldp_ids
-                
-                	Configuration related to Neighbors using LDP Id
-                	**type**\: :py:class:`LdpIds <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.LdpIds>`
-                
                 .. attribute:: dual_stack
                 
                 	Configuration related to neighbor transport
                 	**type**\: :py:class:`DualStack <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack>`
+                
+                .. attribute:: ldp_ids
+                
+                	Configuration related to Neighbors using LDP Id
+                	**type**\: :py:class:`LdpIds <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.LdpIds>`
                 
                 .. attribute:: password
                 
@@ -2417,10 +2417,10 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ldp_ids = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds()
-                    self.ldp_ids.parent = self
                     self.dual_stack = MplsLdp.DefaultVrf.Global.Neighbor.DualStack()
                     self.dual_stack.parent = self
+                    self.ldp_ids = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds()
+                    self.ldp_ids.parent = self
                     self.password = None
 
 
@@ -2453,19 +2453,19 @@ class MplsLdp(object):
                         LDP ID based configuration related to a
                         neigbor
                         
-                        .. attribute:: lsr_id  <key>
-                        
-                        	LSR ID of neighbor
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: label_space_id  <key>
                         
                         	Label space ID of neighbor
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: lsr_id  <key>
+                        
+                        	LSR ID of neighbor
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: password
                         
@@ -2481,8 +2481,8 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.lsr_id = None
                             self.label_space_id = None
+                            self.lsr_id = None
                             self.password = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password()
                             self.password.parent = self
 
@@ -2519,7 +2519,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:password'
 
@@ -2545,12 +2545,12 @@ class MplsLdp(object):
 
                         @property
                         def _common_path(self):
-                            if self.lsr_id is None:
-                                raise YPYDataValidationError('Key property lsr_id is None')
                             if self.label_space_id is None:
-                                raise YPYDataValidationError('Key property label_space_id is None')
+                                raise YPYModelError('Key property label_space_id is None')
+                            if self.lsr_id is None:
+                                raise YPYModelError('Key property lsr_id is None')
 
-                            return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:default-vrf/Cisco-IOS-XR-mpls-ldp-cfg:global/Cisco-IOS-XR-mpls-ldp-cfg:neighbor/Cisco-IOS-XR-mpls-ldp-cfg:ldp-ids/Cisco-IOS-XR-mpls-ldp-cfg:ldp-id[Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + ']'
+                            return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:default-vrf/Cisco-IOS-XR-mpls-ldp-cfg:global/Cisco-IOS-XR-mpls-ldp-cfg:neighbor/Cisco-IOS-XR-mpls-ldp-cfg:ldp-ids/Cisco-IOS-XR-mpls-ldp-cfg:ldp-id[Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2559,10 +2559,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.lsr_id is not None:
+                            if self.label_space_id is not None:
                                 return True
 
-                            if self.label_space_id is not None:
+                            if self.lsr_id is not None:
                                 return True
 
                             if self.password is not None and self.password._has_data():
@@ -2604,15 +2604,15 @@ class MplsLdp(object):
                     """
                     Configuration related to neighbor transport
                     
-                    .. attribute:: transport_connection
-                    
-                    	Configuration related to neighbor transport
-                    	**type**\: :py:class:`TransportConnection <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection>`
-                    
                     .. attribute:: tlv_compliance
                     
                     	Configuration to enable neighbor dual\-stack tlv\-compliance
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: transport_connection
+                    
+                    	Configuration related to neighbor transport
+                    	**type**\: :py:class:`TransportConnection <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection>`
                     
                     
 
@@ -2623,19 +2623,14 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.tlv_compliance = None
                         self.transport_connection = MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection()
                         self.transport_connection.parent = self
-                        self.tlv_compliance = None
 
 
                     class TransportConnection(object):
                         """
                         Configuration related to neighbor transport
-                        
-                        .. attribute:: prefer
-                        
-                        	Configuration related to neighbor dual\-stack xport\-connection preference
-                        	**type**\: :py:class:`Prefer <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer>`
                         
                         .. attribute:: max_wait
                         
@@ -2643,6 +2638,11 @@ class MplsLdp(object):
                         	**type**\: int
                         
                         	**range:** 0..60
+                        
+                        .. attribute:: prefer
+                        
+                        	Configuration related to neighbor dual\-stack xport\-connection preference
+                        	**type**\: :py:class:`Prefer <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer>`
                         
                         
 
@@ -2653,9 +2653,9 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.max_wait = None
                             self.prefer = MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer()
                             self.prefer.parent = self
-                            self.max_wait = None
 
 
                         class Prefer(object):
@@ -2713,10 +2713,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.prefer is not None and self.prefer._has_data():
+                            if self.max_wait is not None:
                                 return True
 
-                            if self.max_wait is not None:
+                            if self.prefer is not None and self.prefer._has_data():
                                 return True
 
                             return False
@@ -2738,10 +2738,10 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.transport_connection is not None and self.transport_connection._has_data():
+                        if self.tlv_compliance is not None:
                             return True
 
-                        if self.tlv_compliance is not None:
+                        if self.transport_connection is not None and self.transport_connection._has_data():
                             return True
 
                         return False
@@ -2763,10 +2763,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ldp_ids is not None and self.ldp_ids._has_data():
+                    if self.dual_stack is not None and self.dual_stack._has_data():
                         return True
 
-                    if self.dual_stack is not None and self.dual_stack._has_data():
+                    if self.ldp_ids is not None and self.ldp_ids._has_data():
                         return True
 
                     if self.password is not None:
@@ -2880,16 +2880,16 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.session is not None and self.session._has_data():
+                if self.graceful_restart is not None and self.graceful_restart._has_data():
                     return True
 
                 if self.neighbor is not None and self.neighbor._has_data():
                     return True
 
-                if self.graceful_restart is not None and self.graceful_restart._has_data():
+                if self.router_id is not None:
                     return True
 
-                if self.router_id is not None:
+                if self.session is not None and self.session._has_data():
                     return True
 
                 return False
@@ -2940,15 +2940,15 @@ class MplsLdp(object):
                 	Address Family specific configuration for MPLS LDP intf
                 	**type**\: :py:class:`Afs <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs>`
                 
-                .. attribute:: global_
-                
-                	Per VRF interface Global configuration for MPLS LDP
-                	**type**\: :py:class:`Global <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global>`
-                
                 .. attribute:: enable
                 
                 	Enable Label Distribution Protocol (LDP) on thisinterface
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: global_
+                
+                	Per VRF interface Global configuration for MPLS LDP
+                	**type**\: :py:class:`Global <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global>`
                 
                 
 
@@ -2962,9 +2962,9 @@ class MplsLdp(object):
                     self.interface_name = None
                     self.afs = MplsLdp.DefaultVrf.Interfaces.Interface.Afs()
                     self.afs.parent = self
+                    self.enable = None
                     self.global_ = MplsLdp.DefaultVrf.Interfaces.Interface.Global()
                     self.global_.parent = self
-                    self.enable = None
 
 
                 class Afs(object):
@@ -3005,6 +3005,11 @@ class MplsLdp(object):
                         	Configure interface discovery parameters
                         	**type**\: :py:class:`Discovery <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery>`
                         
+                        .. attribute:: enable
+                        
+                        	Enable Address Family
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         .. attribute:: igp
                         
                         	LDP interface IGP configuration
@@ -3014,11 +3019,6 @@ class MplsLdp(object):
                         
                         	Interface configuration parameters for mLDP
                         	**type**\: :py:class:`Mldp <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp>`
-                        
-                        .. attribute:: enable
-                        
-                        	Enable Address Family
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
 
@@ -3032,11 +3032,11 @@ class MplsLdp(object):
                             self.af_name = None
                             self.discovery = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery()
                             self.discovery.parent = self
+                            self.enable = None
                             self.igp = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp()
                             self.igp.parent = self
                             self.mldp = MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp()
                             self.mldp.parent = self
-                            self.enable = None
 
 
                         class Discovery(object):
@@ -3066,11 +3066,6 @@ class MplsLdp(object):
                                 MPLS LDP configuration for interface
                                 discovery transportaddress.
                                 
-                                .. attribute:: address_type
-                                
-                                	Transport address option
-                                	**type**\: :py:class:`MplsLdpTransportAddressEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
-                                
                                 .. attribute:: address
                                 
                                 	IP address
@@ -3088,6 +3083,11 @@ class MplsLdp(object):
                                 
                                 
                                 ----
+                                .. attribute:: address_type
+                                
+                                	Transport address option
+                                	**type**\: :py:class:`MplsLdpTransportAddressEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
+                                
                                 
 
                                 """
@@ -3097,13 +3097,13 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.address_type = None
                                     self.address = None
+                                    self.address_type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:transport-address'
 
@@ -3114,10 +3114,10 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.address_type is not None:
+                                    if self.address is not None:
                                         return True
 
-                                    if self.address is not None:
+                                    if self.address_type is not None:
                                         return True
 
                                     return False
@@ -3130,7 +3130,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:discovery'
 
@@ -3175,7 +3175,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:igp'
 
@@ -3220,7 +3220,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:mldp'
 
@@ -3244,9 +3244,9 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.af_name is None:
-                                raise YPYDataValidationError('Key property af_name is None')
+                                raise YPYModelError('Key property af_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:af[Cisco-IOS-XR-mpls-ldp-cfg:af-name = ' + str(self.af_name) + ']'
 
@@ -3263,13 +3263,13 @@ class MplsLdp(object):
                             if self.discovery is not None and self.discovery._has_data():
                                 return True
 
+                            if self.enable is not None:
+                                return True
+
                             if self.igp is not None and self.igp._has_data():
                                 return True
 
                             if self.mldp is not None and self.mldp._has_data():
-                                return True
-
-                            if self.enable is not None:
                                 return True
 
                             return False
@@ -3282,7 +3282,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:afs'
 
@@ -3340,15 +3340,15 @@ class MplsLdp(object):
                         """
                         Configure interface discovery parameters
                         
-                        .. attribute:: link_hello
-                        
-                        	LDP Link Hellos
-                        	**type**\: :py:class:`LinkHello <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello>`
-                        
                         .. attribute:: disable_quick_start
                         
                         	Disable discovery's quick start mode
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: link_hello
+                        
+                        	LDP Link Hellos
+                        	**type**\: :py:class:`LinkHello <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello>`
                         
                         
 
@@ -3359,21 +3359,14 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.disable_quick_start = None
                             self.link_hello = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello()
                             self.link_hello.parent = self
-                            self.disable_quick_start = None
 
 
                         class LinkHello(object):
                             """
                             LDP Link Hellos
-                            
-                            .. attribute:: interval
-                            
-                            	Link Hello interval
-                            	**type**\: int
-                            
-                            	**range:** 1..65535
                             
                             .. attribute:: dual_stack
                             
@@ -3387,6 +3380,13 @@ class MplsLdp(object):
                             
                             	**range:** 1..65535
                             
+                            .. attribute:: interval
+                            
+                            	Link Hello interval
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
                             
 
                             """
@@ -3396,14 +3396,14 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.interval = None
                                 self.dual_stack = None
                                 self.hold_time = None
+                                self.interval = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:link-hello'
 
@@ -3414,13 +3414,13 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.interval is not None:
-                                    return True
-
                                 if self.dual_stack is not None:
                                     return True
 
                                 if self.hold_time is not None:
+                                    return True
+
+                                if self.interval is not None:
                                     return True
 
                                 return False
@@ -3433,7 +3433,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:discovery'
 
@@ -3444,10 +3444,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.link_hello is not None and self.link_hello._has_data():
+                            if self.disable_quick_start is not None:
                                 return True
 
-                            if self.disable_quick_start is not None:
+                            if self.link_hello is not None and self.link_hello._has_data():
                                 return True
 
                             return False
@@ -3555,7 +3555,7 @@ class MplsLdp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:on-session-up'
 
@@ -3582,7 +3582,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:delay'
 
@@ -3606,7 +3606,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:sync'
 
@@ -3630,7 +3630,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:igp'
 
@@ -3654,7 +3654,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:global'
 
@@ -3681,7 +3681,7 @@ class MplsLdp(object):
                 @property
                 def _common_path(self):
                     if self.interface_name is None:
-                        raise YPYDataValidationError('Key property interface_name is None')
+                        raise YPYModelError('Key property interface_name is None')
 
                     return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:default-vrf/Cisco-IOS-XR-mpls-ldp-cfg:interfaces/Cisco-IOS-XR-mpls-ldp-cfg:interface[Cisco-IOS-XR-mpls-ldp-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -3698,10 +3698,10 @@ class MplsLdp(object):
                     if self.afs is not None and self.afs._has_data():
                         return True
 
-                    if self.global_ is not None and self.global_._has_data():
+                    if self.enable is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.global_ is not None and self.global_._has_data():
                         return True
 
                     return False
@@ -3798,25 +3798,25 @@ class MplsLdp(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: global_
-            
-            	Per VRF Global configuration for MPLS LDP
-            	**type**\: :py:class:`Global <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global>`
-            
             .. attribute:: afs
             
             	Address Family specific configuration for MPLS LDP vrf
             	**type**\: :py:class:`Afs <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs>`
             
-            .. attribute:: interfaces
-            
-            	MPLS LDP configuration pertaining to interfaces
-            	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces>`
-            
             .. attribute:: enable
             
             	Enable VRF
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: global_
+            
+            	Per VRF Global configuration for MPLS LDP
+            	**type**\: :py:class:`Global <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global>`
+            
+            .. attribute:: interfaces
+            
+            	MPLS LDP configuration pertaining to interfaces
+            	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces>`
             
             
 
@@ -3828,33 +3828,28 @@ class MplsLdp(object):
             def __init__(self):
                 self.parent = None
                 self.vrf_name = None
-                self.global_ = MplsLdp.Vrfs.Vrf.Global()
-                self.global_.parent = self
                 self.afs = MplsLdp.Vrfs.Vrf.Afs()
                 self.afs.parent = self
+                self.enable = None
+                self.global_ = MplsLdp.Vrfs.Vrf.Global()
+                self.global_.parent = self
                 self.interfaces = MplsLdp.Vrfs.Vrf.Interfaces()
                 self.interfaces.parent = self
-                self.enable = None
 
 
             class Global(object):
                 """
                 Per VRF Global configuration for MPLS LDP
                 
-                .. attribute:: session
+                .. attribute:: graceful_restart
                 
-                	LDP Session parameters
-                	**type**\: :py:class:`Session <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Session>`
+                	Configuration for per\-VRF LDP Graceful Restart parameters
+                	**type**\: :py:class:`GracefulRestart <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.GracefulRestart>`
                 
                 .. attribute:: neighbor
                 
                 	Configuration related to Neighbors
                 	**type**\: :py:class:`Neighbor <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Neighbor>`
-                
-                .. attribute:: graceful_restart
-                
-                	Configuration for per\-VRF LDP Graceful Restart parameters
-                	**type**\: :py:class:`GracefulRestart <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.GracefulRestart>`
                 
                 .. attribute:: router_id
                 
@@ -3862,6 +3857,11 @@ class MplsLdp(object):
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: session
+                
+                	LDP Session parameters
+                	**type**\: :py:class:`Session <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Session>`
                 
                 
 
@@ -3872,13 +3872,13 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.session = MplsLdp.Vrfs.Vrf.Global.Session()
-                    self.session.parent = self
-                    self.neighbor = MplsLdp.Vrfs.Vrf.Global.Neighbor()
-                    self.neighbor.parent = self
                     self.graceful_restart = MplsLdp.Vrfs.Vrf.Global.GracefulRestart()
                     self.graceful_restart.parent = self
+                    self.neighbor = MplsLdp.Vrfs.Vrf.Global.Neighbor()
+                    self.neighbor.parent = self
                     self.router_id = None
+                    self.session = MplsLdp.Vrfs.Vrf.Global.Session()
+                    self.session.parent = self
 
 
                 class Session(object):
@@ -3908,15 +3908,15 @@ class MplsLdp(object):
                         ACL with the list of neighbors configured
                         for Downstream on Demand
                         
-                        .. attribute:: type
-                        
-                        	Downstream on demand type
-                        	**type**\: :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
-                        
                         .. attribute:: peer_acl_name
                         
                         	Name of peer ACL
                         	**type**\: str
+                        
+                        .. attribute:: type
+                        
+                        	Downstream on demand type
+                        	**type**\: :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
                         
                         
 
@@ -3927,13 +3927,13 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type = None
                             self.peer_acl_name = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:downstream-on-demand'
 
@@ -3944,10 +3944,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None:
+                            if self.peer_acl_name is not None:
                                 return True
 
-                            if self.peer_acl_name is not None:
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -3960,7 +3960,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:session'
 
@@ -4041,19 +4041,19 @@ class MplsLdp(object):
                             LDP ID based configuration related to a
                             neigbor
                             
-                            .. attribute:: lsr_id  <key>
-                            
-                            	LSR ID of neighbor
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: label_space_id  <key>
                             
                             	Label space ID of neighbor
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: lsr_id  <key>
+                            
+                            	LSR ID of neighbor
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: password
                             
@@ -4069,8 +4069,8 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.lsr_id = None
                                 self.label_space_id = None
+                                self.lsr_id = None
                                 self.password = MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password()
                                 self.password.parent = self
 
@@ -4107,7 +4107,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:password'
 
@@ -4134,13 +4134,13 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.lsr_id is None:
-                                    raise YPYDataValidationError('Key property lsr_id is None')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.label_space_id is None:
-                                    raise YPYDataValidationError('Key property label_space_id is None')
+                                    raise YPYModelError('Key property label_space_id is None')
+                                if self.lsr_id is None:
+                                    raise YPYModelError('Key property lsr_id is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:ldp-id[Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:ldp-id[Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + '][Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -4149,10 +4149,10 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.lsr_id is not None:
+                                if self.label_space_id is not None:
                                     return True
 
-                                if self.label_space_id is not None:
+                                if self.lsr_id is not None:
                                     return True
 
                                 if self.password is not None and self.password._has_data():
@@ -4168,7 +4168,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:ldp-ids'
 
@@ -4194,7 +4194,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:neighbor'
 
@@ -4266,7 +4266,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:helper-peer'
 
@@ -4290,7 +4290,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:graceful-restart'
 
@@ -4314,7 +4314,7 @@ class MplsLdp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:global'
 
@@ -4325,16 +4325,16 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.session is not None and self.session._has_data():
+                    if self.graceful_restart is not None and self.graceful_restart._has_data():
                         return True
 
                     if self.neighbor is not None and self.neighbor._has_data():
                         return True
 
-                    if self.graceful_restart is not None and self.graceful_restart._has_data():
+                    if self.router_id is not None:
                         return True
 
-                    if self.router_id is not None:
+                    if self.session is not None and self.session._has_data():
                         return True
 
                     return False
@@ -4383,15 +4383,15 @@ class MplsLdp(object):
                     	Configure Discovery parameters
                     	**type**\: :py:class:`Discovery <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Discovery>`
                     
-                    .. attribute:: label
-                    
-                    	Configure Label policies and control
-                    	**type**\: :py:class:`Label <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label>`
-                    
                     .. attribute:: enable
                     
                     	Enable Address Family
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: label
+                    
+                    	Configure Label policies and control
+                    	**type**\: :py:class:`Label <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label>`
                     
                     
 
@@ -4405,9 +4405,9 @@ class MplsLdp(object):
                         self.af_name = None
                         self.discovery = MplsLdp.Vrfs.Vrf.Afs.Af.Discovery()
                         self.discovery.parent = self
+                        self.enable = None
                         self.label = MplsLdp.Vrfs.Vrf.Afs.Af.Label()
                         self.label.parent = self
-                        self.enable = None
 
 
                     class Discovery(object):
@@ -4433,7 +4433,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:discovery'
 
@@ -4459,15 +4459,15 @@ class MplsLdp(object):
                         """
                         Configure Label policies and control
                         
-                        .. attribute:: remote
-                        
-                        	Configure remote/peer label policies and control
-                        	**type**\: :py:class:`Remote <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote>`
-                        
                         .. attribute:: local
                         
                         	Configure local label policies and control
                         	**type**\: :py:class:`Local <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local>`
+                        
+                        .. attribute:: remote
+                        
+                        	Configure remote/peer label policies and control
+                        	**type**\: :py:class:`Remote <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote>`
                         
                         
 
@@ -4478,10 +4478,10 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.remote = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote()
-                            self.remote.parent = self
                             self.local = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local()
                             self.local.parent = self
+                            self.remote = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote()
+                            self.remote.parent = self
 
 
                         class Remote(object):
@@ -4565,15 +4565,15 @@ class MplsLdp(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: peer_accept_policy_data
-                                        
-                                        	Data container
-                                        	**type**\: :py:class:`PeerAcceptPolicyData <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData>`
-                                        
                                         .. attribute:: lsr_id
                                         
                                         	keys\: lsr\-id
                                         	**type**\: list of :py:class:`LsrId <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId>`
+                                        
+                                        .. attribute:: peer_accept_policy_data
+                                        
+                                        	Data container
+                                        	**type**\: :py:class:`PeerAcceptPolicyData <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData>`
                                         
                                         
 
@@ -4585,11 +4585,11 @@ class MplsLdp(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.label_space_id = None
-                                            self.peer_accept_policy_data = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData()
-                                            self.peer_accept_policy_data.parent = self
                                             self.lsr_id = YList()
                                             self.lsr_id.parent = self
                                             self.lsr_id.name = 'lsr_id'
+                                            self.peer_accept_policy_data = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData()
+                                            self.peer_accept_policy_data.parent = self
 
 
                                         class PeerAcceptPolicyData(object):
@@ -4615,7 +4615,7 @@ class MplsLdp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-accept-policy-data'
 
@@ -4668,9 +4668,9 @@ class MplsLdp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.lsr_id is None:
-                                                    raise YPYDataValidationError('Key property lsr_id is None')
+                                                    raise YPYModelError('Key property lsr_id is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:lsr-id[Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + ']'
 
@@ -4697,9 +4697,9 @@ class MplsLdp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.label_space_id is None:
-                                                raise YPYDataValidationError('Key property label_space_id is None')
+                                                raise YPYModelError('Key property label_space_id is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-accept-policy[Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + ']'
 
@@ -4713,13 +4713,13 @@ class MplsLdp(object):
                                             if self.label_space_id is not None:
                                                 return True
 
-                                            if self.peer_accept_policy_data is not None and self.peer_accept_policy_data._has_data():
-                                                return True
-
                                             if self.lsr_id is not None:
                                                 for child_ref in self.lsr_id:
                                                     if child_ref._has_data():
                                                         return True
+
+                                            if self.peer_accept_policy_data is not None and self.peer_accept_policy_data._has_data():
+                                                return True
 
                                             return False
 
@@ -4731,7 +4731,7 @@ class MplsLdp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-accept-policies'
 
@@ -4757,7 +4757,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:accept'
 
@@ -4781,7 +4781,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:remote'
 
@@ -4817,15 +4817,15 @@ class MplsLdp(object):
                             	Control local label allocation for prefix(es)
                             	**type**\: :py:class:`Allocate <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate>`
                             
-                            .. attribute:: implicit_null_override
-                            
-                            	Control use of implicit\-null label for set of prefix(es)
-                            	**type**\: str
-                            
                             .. attribute:: default_route
                             
                             	Enable MPLS forwarding for default route
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: implicit_null_override
+                            
+                            	Control use of implicit\-null label for set of prefix(es)
+                            	**type**\: str
                             
                             
 
@@ -4840,33 +4840,33 @@ class MplsLdp(object):
                                 self.advertise.parent = self
                                 self.allocate = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate()
                                 self.allocate.parent = self
-                                self.implicit_null_override = None
                                 self.default_route = None
+                                self.implicit_null_override = None
 
 
                             class Advertise(object):
                                 """
                                 Configure outbound label advertisement
                                 
-                                .. attribute:: peer_advertise_policies
+                                .. attribute:: disable
                                 
-                                	Configure peer centric outbound label advertisement using ACL
-                                	**type**\: :py:class:`PeerAdvertisePolicies <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
-                                
-                                .. attribute:: interfaces
-                                
-                                	Configure outbound label advertisement for an interface
-                                	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces>`
+                                	Disable label advertisement
+                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                                 
                                 .. attribute:: explicit_null
                                 
                                 	Configure advertisment of explicit\-null for connected prefixes
                                 	**type**\: :py:class:`ExplicitNull <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull>`
                                 
-                                .. attribute:: disable
+                                .. attribute:: interfaces
                                 
-                                	Disable label advertisement
-                                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                                	Configure outbound label advertisement for an interface
+                                	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces>`
+                                
+                                .. attribute:: peer_advertise_policies
+                                
+                                	Configure peer centric outbound label advertisement using ACL
+                                	**type**\: :py:class:`PeerAdvertisePolicies <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
                                 
                                 
 
@@ -4877,13 +4877,13 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.peer_advertise_policies = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies()
-                                    self.peer_advertise_policies.parent = self
-                                    self.interfaces = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces()
-                                    self.interfaces.parent = self
+                                    self.disable = None
                                     self.explicit_null = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull()
                                     self.explicit_null.parent = self
-                                    self.disable = None
+                                    self.interfaces = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces()
+                                    self.interfaces.parent = self
+                                    self.peer_advertise_policies = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies()
+                                    self.peer_advertise_policies.parent = self
 
 
                                 class PeerAdvertisePolicies(object):
@@ -4922,15 +4922,15 @@ class MplsLdp(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: peer_advertise_policy_data
-                                        
-                                        	Data container
-                                        	**type**\: :py:class:`PeerAdvertisePolicyData <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData>`
-                                        
                                         .. attribute:: lsr_id
                                         
                                         	keys\: lsr\-id
                                         	**type**\: list of :py:class:`LsrId <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId>`
+                                        
+                                        .. attribute:: peer_advertise_policy_data
+                                        
+                                        	Data container
+                                        	**type**\: :py:class:`PeerAdvertisePolicyData <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData>`
                                         
                                         
 
@@ -4942,11 +4942,11 @@ class MplsLdp(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.label_space_id = None
-                                            self.peer_advertise_policy_data = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData()
-                                            self.peer_advertise_policy_data.parent = self
                                             self.lsr_id = YList()
                                             self.lsr_id.parent = self
                                             self.lsr_id.name = 'lsr_id'
+                                            self.peer_advertise_policy_data = MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData()
+                                            self.peer_advertise_policy_data.parent = self
 
 
                                         class PeerAdvertisePolicyData(object):
@@ -4972,7 +4972,7 @@ class MplsLdp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-advertise-policy-data'
 
@@ -5025,9 +5025,9 @@ class MplsLdp(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.lsr_id is None:
-                                                    raise YPYDataValidationError('Key property lsr_id is None')
+                                                    raise YPYModelError('Key property lsr_id is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:lsr-id[Cisco-IOS-XR-mpls-ldp-cfg:lsr-id = ' + str(self.lsr_id) + ']'
 
@@ -5054,9 +5054,9 @@ class MplsLdp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.label_space_id is None:
-                                                raise YPYDataValidationError('Key property label_space_id is None')
+                                                raise YPYModelError('Key property label_space_id is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-advertise-policy[Cisco-IOS-XR-mpls-ldp-cfg:label-space-id = ' + str(self.label_space_id) + ']'
 
@@ -5070,13 +5070,13 @@ class MplsLdp(object):
                                             if self.label_space_id is not None:
                                                 return True
 
-                                            if self.peer_advertise_policy_data is not None and self.peer_advertise_policy_data._has_data():
-                                                return True
-
                                             if self.lsr_id is not None:
                                                 for child_ref in self.lsr_id:
                                                     if child_ref._has_data():
                                                         return True
+
+                                            if self.peer_advertise_policy_data is not None and self.peer_advertise_policy_data._has_data():
+                                                return True
 
                                             return False
 
@@ -5088,7 +5088,7 @@ class MplsLdp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:peer-advertise-policies'
 
@@ -5162,9 +5162,9 @@ class MplsLdp(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.interface_name is None:
-                                                raise YPYDataValidationError('Key property interface_name is None')
+                                                raise YPYModelError('Key property interface_name is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:interface[Cisco-IOS-XR-mpls-ldp-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -5188,7 +5188,7 @@ class MplsLdp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:interfaces'
 
@@ -5222,14 +5222,14 @@ class MplsLdp(object):
                                     	Explicit Null command variant
                                     	**type**\: :py:class:`MplsLdpExpNullEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
                                     
-                                    .. attribute:: prefix_acl_name
-                                    
-                                    	Name of prefix ACL
-                                    	**type**\: str
-                                    
                                     .. attribute:: peer_acl_name
                                     
                                     	Name of peer ACL
+                                    	**type**\: str
+                                    
+                                    .. attribute:: prefix_acl_name
+                                    
+                                    	Name of prefix ACL
                                     	**type**\: str
                                     
                                     
@@ -5242,13 +5242,13 @@ class MplsLdp(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.explicit_null_type = None
-                                        self.prefix_acl_name = None
                                         self.peer_acl_name = None
+                                        self.prefix_acl_name = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:explicit-null'
 
@@ -5262,10 +5262,10 @@ class MplsLdp(object):
                                         if self.explicit_null_type is not None:
                                             return True
 
-                                        if self.prefix_acl_name is not None:
+                                        if self.peer_acl_name is not None:
                                             return True
 
-                                        if self.peer_acl_name is not None:
+                                        if self.prefix_acl_name is not None:
                                             return True
 
                                         return False
@@ -5278,7 +5278,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:advertise'
 
@@ -5289,16 +5289,16 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.peer_advertise_policies is not None and self.peer_advertise_policies._has_data():
-                                        return True
-
-                                    if self.interfaces is not None and self.interfaces._has_data():
+                                    if self.disable is not None:
                                         return True
 
                                     if self.explicit_null is not None and self.explicit_null._has_data():
                                         return True
 
-                                    if self.disable is not None:
+                                    if self.interfaces is not None and self.interfaces._has_data():
+                                        return True
+
+                                    if self.peer_advertise_policies is not None and self.peer_advertise_policies._has_data():
                                         return True
 
                                     return False
@@ -5339,7 +5339,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:allocate'
 
@@ -5366,7 +5366,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:local'
 
@@ -5383,10 +5383,10 @@ class MplsLdp(object):
                                 if self.allocate is not None and self.allocate._has_data():
                                     return True
 
-                                if self.implicit_null_override is not None:
+                                if self.default_route is not None:
                                     return True
 
-                                if self.default_route is not None:
+                                if self.implicit_null_override is not None:
                                     return True
 
                                 return False
@@ -5399,7 +5399,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:label'
 
@@ -5410,10 +5410,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.remote is not None and self.remote._has_data():
+                            if self.local is not None and self.local._has_data():
                                 return True
 
-                            if self.local is not None and self.local._has_data():
+                            if self.remote is not None and self.remote._has_data():
                                 return True
 
                             return False
@@ -5426,9 +5426,9 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.af_name is None:
-                            raise YPYDataValidationError('Key property af_name is None')
+                            raise YPYModelError('Key property af_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:af[Cisco-IOS-XR-mpls-ldp-cfg:af-name = ' + str(self.af_name) + ']'
 
@@ -5445,10 +5445,10 @@ class MplsLdp(object):
                         if self.discovery is not None and self.discovery._has_data():
                             return True
 
-                        if self.label is not None and self.label._has_data():
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.label is not None and self.label._has_data():
                             return True
 
                         return False
@@ -5461,7 +5461,7 @@ class MplsLdp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:afs'
 
@@ -5631,11 +5631,6 @@ class MplsLdp(object):
                                     MPLS LDP configuration for interface
                                     discovery transportaddress.
                                     
-                                    .. attribute:: address_type
-                                    
-                                    	Transport address option
-                                    	**type**\: :py:class:`MplsLdpTransportAddressEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
-                                    
                                     .. attribute:: address
                                     
                                     	IP address
@@ -5653,6 +5648,11 @@ class MplsLdp(object):
                                     
                                     
                                     ----
+                                    .. attribute:: address_type
+                                    
+                                    	Transport address option
+                                    	**type**\: :py:class:`MplsLdpTransportAddressEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
+                                    
                                     
 
                                     """
@@ -5662,13 +5662,13 @@ class MplsLdp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.address_type = None
                                         self.address = None
+                                        self.address_type = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:transport-address'
 
@@ -5679,10 +5679,10 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.address_type is not None:
+                                        if self.address is not None:
                                             return True
 
-                                        if self.address is not None:
+                                        if self.address_type is not None:
                                             return True
 
                                         return False
@@ -5695,7 +5695,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:discovery'
 
@@ -5719,9 +5719,9 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.af_name is None:
-                                    raise YPYDataValidationError('Key property af_name is None')
+                                    raise YPYModelError('Key property af_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:af[Cisco-IOS-XR-mpls-ldp-cfg:af-name = ' + str(self.af_name) + ']'
 
@@ -5751,7 +5751,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:afs'
 
@@ -5777,9 +5777,9 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:interface[Cisco-IOS-XR-mpls-ldp-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -5809,7 +5809,7 @@ class MplsLdp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:interfaces'
 
@@ -5835,7 +5835,7 @@ class MplsLdp(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:vrfs/Cisco-IOS-XR-mpls-ldp-cfg:vrf[Cisco-IOS-XR-mpls-ldp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -5849,16 +5849,16 @@ class MplsLdp(object):
                 if self.vrf_name is not None:
                     return True
 
-                if self.global_ is not None and self.global_._has_data():
-                    return True
-
                 if self.afs is not None and self.afs._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces._has_data():
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.global_ is not None and self.global_._has_data():
+                    return True
+
+                if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
                 return False
@@ -5897,55 +5897,55 @@ class MplsLdp(object):
         """
         Global configuration for MPLS LDP
         
-        .. attribute:: entropy_label
+        .. attribute:: disable_implicit_ipv4
         
-        	Configure for LDP Entropy\-Label
-        	**type**\: :py:class:`EntropyLabel <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.EntropyLabel>`
-        
-        .. attribute:: session
-        
-        	LDP Session parameters
-        	**type**\: :py:class:`Session <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Session>`
-        
-        .. attribute:: igp
-        
-        	LDP IGP configuration
-        	**type**\: :py:class:`Igp <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Igp>`
-        
-        .. attribute:: enable_logging
-        
-        	Enable logging of events
-        	**type**\: :py:class:`EnableLogging <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.EnableLogging>`
-        
-        .. attribute:: signalling
-        
-        	Configure LDP signalling parameters
-        	**type**\: :py:class:`Signalling <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Signalling>`
-        
-        .. attribute:: nsr
-        
-        	Configure LDP Non\-Stop Routing
-        	**type**\: :py:class:`Nsr <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Nsr>`
-        
-        .. attribute:: graceful_restart
-        
-        	Configuration for LDP Graceful Restart parameters
-        	**type**\: :py:class:`GracefulRestart <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.GracefulRestart>`
+        	Disable the implicit enabling for IPv4 address family
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: discovery
         
         	Configure Discovery parameters
         	**type**\: :py:class:`Discovery <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery>`
         
+        .. attribute:: enable_logging
+        
+        	Enable logging of events
+        	**type**\: :py:class:`EnableLogging <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.EnableLogging>`
+        
+        .. attribute:: entropy_label
+        
+        	Configure for LDP Entropy\-Label
+        	**type**\: :py:class:`EntropyLabel <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.EntropyLabel>`
+        
+        .. attribute:: graceful_restart
+        
+        	Configuration for LDP Graceful Restart parameters
+        	**type**\: :py:class:`GracefulRestart <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.GracefulRestart>`
+        
+        .. attribute:: igp
+        
+        	LDP IGP configuration
+        	**type**\: :py:class:`Igp <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Igp>`
+        
         .. attribute:: mldp
         
         	MPLS mLDP configuration
         	**type**\: :py:class:`Mldp <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp>`
         
-        .. attribute:: disable_implicit_ipv4
+        .. attribute:: nsr
         
-        	Disable the implicit enabling for IPv4 address family
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Configure LDP Non\-Stop Routing
+        	**type**\: :py:class:`Nsr <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Nsr>`
+        
+        .. attribute:: session
+        
+        	LDP Session parameters
+        	**type**\: :py:class:`Session <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Session>`
+        
+        .. attribute:: signalling
+        
+        	Configure LDP signalling parameters
+        	**type**\: :py:class:`Signalling <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Signalling>`
         
         
 
@@ -5956,25 +5956,25 @@ class MplsLdp(object):
 
         def __init__(self):
             self.parent = None
-            self.entropy_label = MplsLdp.Global.EntropyLabel()
-            self.entropy_label.parent = self
-            self.session = MplsLdp.Global.Session()
-            self.session.parent = self
-            self.igp = MplsLdp.Global.Igp()
-            self.igp.parent = self
-            self.enable_logging = MplsLdp.Global.EnableLogging()
-            self.enable_logging.parent = self
-            self.signalling = MplsLdp.Global.Signalling()
-            self.signalling.parent = self
-            self.nsr = MplsLdp.Global.Nsr()
-            self.nsr.parent = self
-            self.graceful_restart = MplsLdp.Global.GracefulRestart()
-            self.graceful_restart.parent = self
+            self.disable_implicit_ipv4 = None
             self.discovery = MplsLdp.Global.Discovery()
             self.discovery.parent = self
+            self.enable_logging = MplsLdp.Global.EnableLogging()
+            self.enable_logging.parent = self
+            self.entropy_label = MplsLdp.Global.EntropyLabel()
+            self.entropy_label.parent = self
+            self.graceful_restart = MplsLdp.Global.GracefulRestart()
+            self.graceful_restart.parent = self
+            self.igp = MplsLdp.Global.Igp()
+            self.igp.parent = self
             self.mldp = MplsLdp.Global.Mldp()
             self.mldp.parent = self
-            self.disable_implicit_ipv4 = None
+            self.nsr = MplsLdp.Global.Nsr()
+            self.nsr.parent = self
+            self.session = MplsLdp.Global.Session()
+            self.session.parent = self
+            self.signalling = MplsLdp.Global.Signalling()
+            self.signalling.parent = self
 
 
         class EntropyLabel(object):
@@ -6179,19 +6179,19 @@ class MplsLdp(object):
                     """
                     LDP IGP synchronization delay time
                     
-                    .. attribute:: on_session_up
-                    
-                    	Interface sync up delay after session up
-                    	**type**\: int
-                    
-                    	**range:** 5..300
-                    
                     .. attribute:: on_proc_restart
                     
                     	Global sync up delay to be used after process restart
                     	**type**\: int
                     
                     	**range:** 60..600
+                    
+                    .. attribute:: on_session_up
+                    
+                    	Interface sync up delay after session up
+                    	**type**\: int
+                    
+                    	**range:** 5..300
                     
                     
 
@@ -6202,8 +6202,8 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.on_session_up = None
                         self.on_proc_restart = None
+                        self.on_session_up = None
 
                     @property
                     def _common_path(self):
@@ -6217,10 +6217,10 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.on_session_up is not None:
+                        if self.on_proc_restart is not None:
                             return True
 
-                        if self.on_proc_restart is not None:
+                        if self.on_session_up is not None:
                             return True
 
                         return False
@@ -6279,9 +6279,14 @@ class MplsLdp(object):
             """
             Enable logging of events
             
-            .. attribute:: nsr
+            .. attribute:: adjacency
             
-            	Enable logging of NSR events
+            	Enable logging of adjacency events
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: gr_session_changes
+            
+            	Enable logging of Graceful Restart (GR) events
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: neighbor_changes
@@ -6289,19 +6294,14 @@ class MplsLdp(object):
             	Enable logging of neighbor events
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: adjacency
+            .. attribute:: nsr
             
-            	Enable logging of adjacency events
+            	Enable logging of NSR events
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: session_protection
             
             	Enable logging of session protection events
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: gr_session_changes
-            
-            	Enable logging of Graceful Restart (GR) events
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -6313,11 +6313,11 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.nsr = None
-                self.neighbor_changes = None
                 self.adjacency = None
-                self.session_protection = None
                 self.gr_session_changes = None
+                self.neighbor_changes = None
+                self.nsr = None
+                self.session_protection = None
 
             @property
             def _common_path(self):
@@ -6331,19 +6331,19 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.nsr is not None:
+                if self.adjacency is not None:
+                    return True
+
+                if self.gr_session_changes is not None:
                     return True
 
                 if self.neighbor_changes is not None:
                     return True
 
-                if self.adjacency is not None:
+                if self.nsr is not None:
                     return True
 
                 if self.session_protection is not None:
-                    return True
-
-                if self.gr_session_changes is not None:
                     return True
 
                 return False
@@ -6447,13 +6447,6 @@ class MplsLdp(object):
             Configuration for LDP Graceful Restart
             parameters
             
-            .. attribute:: reconnect_timeout
-            
-            	Configure Graceful Restart Reconnect Timeout value
-            	**type**\: int
-            
-            	**range:** 60..1800
-            
             .. attribute:: enable
             
             	none
@@ -6462,6 +6455,13 @@ class MplsLdp(object):
             .. attribute:: forwarding_hold_time
             
             	Configure Graceful Restart Session holdtime
+            	**type**\: int
+            
+            	**range:** 60..1800
+            
+            .. attribute:: reconnect_timeout
+            
+            	Configure Graceful Restart Reconnect Timeout value
             	**type**\: int
             
             	**range:** 60..1800
@@ -6475,9 +6475,9 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.reconnect_timeout = None
                 self.enable = None
                 self.forwarding_hold_time = None
+                self.reconnect_timeout = None
 
             @property
             def _common_path(self):
@@ -6491,13 +6491,13 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.reconnect_timeout is not None:
-                    return True
-
                 if self.enable is not None:
                     return True
 
                 if self.forwarding_hold_time is not None:
+                    return True
+
+                if self.reconnect_timeout is not None:
                     return True
 
                 return False
@@ -6512,16 +6512,6 @@ class MplsLdp(object):
             """
             Configure Discovery parameters
             
-            .. attribute:: link_hello
-            
-            	LDP Link Hellos
-            	**type**\: :py:class:`LinkHello <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery.LinkHello>`
-            
-            .. attribute:: targeted_hello
-            
-            	LDP Targeted Hellos
-            	**type**\: :py:class:`TargetedHello <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery.TargetedHello>`
-            
             .. attribute:: disable_instance_tlv
             
             	Disable transmit and receive processing for private Instance TLV in LDP discovery hello messages
@@ -6532,6 +6522,16 @@ class MplsLdp(object):
             	Disable discovery's quick start mode
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: link_hello
+            
+            	LDP Link Hellos
+            	**type**\: :py:class:`LinkHello <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery.LinkHello>`
+            
+            .. attribute:: targeted_hello
+            
+            	LDP Targeted Hellos
+            	**type**\: :py:class:`TargetedHello <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery.TargetedHello>`
+            
             
 
             """
@@ -6541,28 +6541,28 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
+                self.disable_instance_tlv = None
+                self.disable_quick_start = None
                 self.link_hello = MplsLdp.Global.Discovery.LinkHello()
                 self.link_hello.parent = self
                 self.targeted_hello = MplsLdp.Global.Discovery.TargetedHello()
                 self.targeted_hello.parent = self
-                self.disable_instance_tlv = None
-                self.disable_quick_start = None
 
 
             class LinkHello(object):
                 """
                 LDP Link Hellos
                 
-                .. attribute:: interval
+                .. attribute:: hold_time
                 
-                	Link Hello interval
+                	Time (seconds) \- 65535 implies infinite
                 	**type**\: int
                 
                 	**range:** 1..65535
                 
-                .. attribute:: hold_time
+                .. attribute:: interval
                 
-                	Time (seconds) \- 65535 implies infinite
+                	Link Hello interval
                 	**type**\: int
                 
                 	**range:** 1..65535
@@ -6576,8 +6576,8 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interval = None
                     self.hold_time = None
+                    self.interval = None
 
                 @property
                 def _common_path(self):
@@ -6591,10 +6591,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.interval is not None:
+                    if self.hold_time is not None:
                         return True
 
-                    if self.hold_time is not None:
+                    if self.interval is not None:
                         return True
 
                     return False
@@ -6609,16 +6609,16 @@ class MplsLdp(object):
                 """
                 LDP Targeted Hellos
                 
-                .. attribute:: interval
+                .. attribute:: hold_time
                 
-                	Targeted Hello interval
+                	Time (seconds) \- 65535 implies infinite
                 	**type**\: int
                 
                 	**range:** 1..65535
                 
-                .. attribute:: hold_time
+                .. attribute:: interval
                 
-                	Time (seconds) \- 65535 implies infinite
+                	Targeted Hello interval
                 	**type**\: int
                 
                 	**range:** 1..65535
@@ -6632,8 +6632,8 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interval = None
                     self.hold_time = None
+                    self.interval = None
 
                 @property
                 def _common_path(self):
@@ -6647,10 +6647,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.interval is not None:
+                    if self.hold_time is not None:
                         return True
 
-                    if self.hold_time is not None:
+                    if self.interval is not None:
                         return True
 
                     return False
@@ -6672,16 +6672,16 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.link_hello is not None and self.link_hello._has_data():
-                    return True
-
-                if self.targeted_hello is not None and self.targeted_hello._has_data():
-                    return True
-
                 if self.disable_instance_tlv is not None:
                     return True
 
                 if self.disable_quick_start is not None:
+                    return True
+
+                if self.link_hello is not None and self.link_hello._has_data():
+                    return True
+
+                if self.targeted_hello is not None and self.targeted_hello._has_data():
                     return True
 
                 return False
@@ -6696,25 +6696,25 @@ class MplsLdp(object):
             """
             MPLS mLDP configuration
             
-            .. attribute:: vrfs
-            
-            	VRF Table attribute configuration for MPLS LDP
-            	**type**\: :py:class:`Vrfs <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs>`
-            
             .. attribute:: default_vrf
             
             	Default VRF attribute configuration for mLDP
             	**type**\: :py:class:`DefaultVrf <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf>`
+            
+            .. attribute:: enable
+            
+            	Enable Multicast Label Distribution Protocol (mLDP)
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: mldp_global
             
             	Global configuration for mLDP
             	**type**\: :py:class:`MldpGlobal <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.MldpGlobal>`
             
-            .. attribute:: enable
+            .. attribute:: vrfs
             
-            	Enable Multicast Label Distribution Protocol (mLDP)
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	VRF Table attribute configuration for MPLS LDP
+            	**type**\: :py:class:`Vrfs <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs>`
             
             
 
@@ -6725,13 +6725,13 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.vrfs = MplsLdp.Global.Mldp.Vrfs()
-                self.vrfs.parent = self
                 self.default_vrf = MplsLdp.Global.Mldp.DefaultVrf()
                 self.default_vrf.parent = self
+                self.enable = None
                 self.mldp_global = MplsLdp.Global.Mldp.MldpGlobal()
                 self.mldp_global.parent = self
-                self.enable = None
+                self.vrfs = MplsLdp.Global.Mldp.Vrfs()
+                self.vrfs.parent = self
 
 
             class Vrfs(object):
@@ -6819,21 +6819,6 @@ class MplsLdp(object):
                             	Address Family name
                             	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                             
-                            .. attribute:: mldp_recursive_fec
-                            
-                            	MPLS mLDP Recursive FEC
-                            	**type**\: :py:class:`MldpRecursiveFec <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec>`
-                            
-                            .. attribute:: mo_frr
-                            
-                            	MPLS mLDP MoFRR
-                            	**type**\: :py:class:`MoFrr <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr>`
-                            
-                            .. attribute:: make_before_break
-                            
-                            	MPLS mLDP Make\-Before\-Break configuration
-                            	**type**\: :py:class:`MakeBeforeBreak <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak>`
-                            
                             .. attribute:: csc
                             
                             	MPLS mLDP CSC
@@ -6844,10 +6829,25 @@ class MplsLdp(object):
                             	Enable Multicast Label Distribution Protocol (mLDP) under AF
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: make_before_break
+                            
+                            	MPLS mLDP Make\-Before\-Break configuration
+                            	**type**\: :py:class:`MakeBeforeBreak <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak>`
+                            
+                            .. attribute:: mldp_recursive_fec
+                            
+                            	MPLS mLDP Recursive FEC
+                            	**type**\: :py:class:`MldpRecursiveFec <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec>`
+                            
                             .. attribute:: mldp_rib_unicast_always
                             
                             	Enable MPLS MLDP RIB unicast\-always configuration
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: mo_frr
+                            
+                            	MPLS mLDP MoFRR
+                            	**type**\: :py:class:`MoFrr <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr>`
                             
                             
 
@@ -6859,16 +6859,16 @@ class MplsLdp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.af_name = None
-                                self.mldp_recursive_fec = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec()
-                                self.mldp_recursive_fec.parent = self
-                                self.mo_frr = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr()
-                                self.mo_frr.parent = self
-                                self.make_before_break = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak()
-                                self.make_before_break.parent = self
                                 self.csc = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc()
                                 self.csc.parent = self
                                 self.enable = None
+                                self.make_before_break = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak()
+                                self.make_before_break.parent = self
+                                self.mldp_recursive_fec = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec()
+                                self.mldp_recursive_fec.parent = self
                                 self.mldp_rib_unicast_always = None
+                                self.mo_frr = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr()
+                                self.mo_frr.parent = self
 
 
                             class MldpRecursiveFec(object):
@@ -6894,7 +6894,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:mldp-recursive-fec'
 
@@ -6939,7 +6939,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:mo-frr'
 
@@ -6987,19 +6987,19 @@ class MplsLdp(object):
                                     """
                                     Enable MPLS mLDP MBB signaling
                                     
-                                    .. attribute:: forward_delay
-                                    
-                                    	Forwarding Delay in Seconds
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..600
-                                    
                                     .. attribute:: delete_delay
                                     
                                     	Delete Delay in seconds
                                     	**type**\: int
                                     
                                     	**range:** 0..60
+                                    
+                                    .. attribute:: forward_delay
+                                    
+                                    	Forwarding Delay in Seconds
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..600
                                     
                                     
 
@@ -7010,13 +7010,13 @@ class MplsLdp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.forward_delay = None
                                         self.delete_delay = None
+                                        self.forward_delay = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:signaling'
 
@@ -7027,10 +7027,10 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.forward_delay is not None:
+                                        if self.delete_delay is not None:
                                             return True
 
-                                        if self.delete_delay is not None:
+                                        if self.forward_delay is not None:
                                             return True
 
                                         return False
@@ -7043,7 +7043,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:make-before-break'
 
@@ -7088,7 +7088,7 @@ class MplsLdp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:csc'
 
@@ -7112,9 +7112,9 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.af_name is None:
-                                    raise YPYDataValidationError('Key property af_name is None')
+                                    raise YPYModelError('Key property af_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:af[Cisco-IOS-XR-mpls-ldp-cfg:af-name = ' + str(self.af_name) + ']'
 
@@ -7128,22 +7128,22 @@ class MplsLdp(object):
                                 if self.af_name is not None:
                                     return True
 
-                                if self.mldp_recursive_fec is not None and self.mldp_recursive_fec._has_data():
-                                    return True
-
-                                if self.mo_frr is not None and self.mo_frr._has_data():
-                                    return True
-
-                                if self.make_before_break is not None and self.make_before_break._has_data():
-                                    return True
-
                                 if self.csc is not None and self.csc._has_data():
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
+                                if self.make_before_break is not None and self.make_before_break._has_data():
+                                    return True
+
+                                if self.mldp_recursive_fec is not None and self.mldp_recursive_fec._has_data():
+                                    return True
+
                                 if self.mldp_rib_unicast_always is not None:
+                                    return True
+
+                                if self.mo_frr is not None and self.mo_frr._has_data():
                                     return True
 
                                 return False
@@ -7156,7 +7156,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:afs'
 
@@ -7182,7 +7182,7 @@ class MplsLdp(object):
                     @property
                     def _common_path(self):
                         if self.vrf_name is None:
-                            raise YPYDataValidationError('Key property vrf_name is None')
+                            raise YPYModelError('Key property vrf_name is None')
 
                         return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:global/Cisco-IOS-XR-mpls-ldp-cfg:mldp/Cisco-IOS-XR-mpls-ldp-cfg:vrfs/Cisco-IOS-XR-mpls-ldp-cfg:vrf[Cisco-IOS-XR-mpls-ldp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -7285,21 +7285,6 @@ class MplsLdp(object):
                         	Address Family name
                         	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                         
-                        .. attribute:: mldp_recursive_fec
-                        
-                        	MPLS mLDP Recursive FEC
-                        	**type**\: :py:class:`MldpRecursiveFec <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec>`
-                        
-                        .. attribute:: mo_frr
-                        
-                        	MPLS mLDP MoFRR
-                        	**type**\: :py:class:`MoFrr <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr>`
-                        
-                        .. attribute:: make_before_break
-                        
-                        	MPLS mLDP Make\-Before\-Break configuration
-                        	**type**\: :py:class:`MakeBeforeBreak <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak>`
-                        
                         .. attribute:: csc
                         
                         	MPLS mLDP CSC
@@ -7310,10 +7295,25 @@ class MplsLdp(object):
                         	Enable Multicast Label Distribution Protocol (mLDP) under AF
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
+                        .. attribute:: make_before_break
+                        
+                        	MPLS mLDP Make\-Before\-Break configuration
+                        	**type**\: :py:class:`MakeBeforeBreak <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak>`
+                        
+                        .. attribute:: mldp_recursive_fec
+                        
+                        	MPLS mLDP Recursive FEC
+                        	**type**\: :py:class:`MldpRecursiveFec <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec>`
+                        
                         .. attribute:: mldp_rib_unicast_always
                         
                         	Enable MPLS MLDP RIB unicast\-always configuration
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: mo_frr
+                        
+                        	MPLS mLDP MoFRR
+                        	**type**\: :py:class:`MoFrr <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr>`
                         
                         
 
@@ -7325,16 +7325,16 @@ class MplsLdp(object):
                         def __init__(self):
                             self.parent = None
                             self.af_name = None
-                            self.mldp_recursive_fec = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec()
-                            self.mldp_recursive_fec.parent = self
-                            self.mo_frr = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr()
-                            self.mo_frr.parent = self
-                            self.make_before_break = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak()
-                            self.make_before_break.parent = self
                             self.csc = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc()
                             self.csc.parent = self
                             self.enable = None
+                            self.make_before_break = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak()
+                            self.make_before_break.parent = self
+                            self.mldp_recursive_fec = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec()
+                            self.mldp_recursive_fec.parent = self
                             self.mldp_rib_unicast_always = None
+                            self.mo_frr = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr()
+                            self.mo_frr.parent = self
 
 
                         class MldpRecursiveFec(object):
@@ -7360,7 +7360,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:mldp-recursive-fec'
 
@@ -7405,7 +7405,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:mo-frr'
 
@@ -7453,19 +7453,19 @@ class MplsLdp(object):
                                 """
                                 Enable MPLS mLDP MBB signaling
                                 
-                                .. attribute:: forward_delay
-                                
-                                	Forwarding Delay in Seconds
-                                	**type**\: int
-                                
-                                	**range:** 0..600
-                                
                                 .. attribute:: delete_delay
                                 
                                 	Delete Delay in seconds
                                 	**type**\: int
                                 
                                 	**range:** 0..60
+                                
+                                .. attribute:: forward_delay
+                                
+                                	Forwarding Delay in Seconds
+                                	**type**\: int
+                                
+                                	**range:** 0..600
                                 
                                 
 
@@ -7476,13 +7476,13 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.forward_delay = None
                                     self.delete_delay = None
+                                    self.forward_delay = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:signaling'
 
@@ -7493,10 +7493,10 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.forward_delay is not None:
+                                    if self.delete_delay is not None:
                                         return True
 
-                                    if self.delete_delay is not None:
+                                    if self.forward_delay is not None:
                                         return True
 
                                     return False
@@ -7509,7 +7509,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:make-before-break'
 
@@ -7554,7 +7554,7 @@ class MplsLdp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:csc'
 
@@ -7578,7 +7578,7 @@ class MplsLdp(object):
                         @property
                         def _common_path(self):
                             if self.af_name is None:
-                                raise YPYDataValidationError('Key property af_name is None')
+                                raise YPYModelError('Key property af_name is None')
 
                             return '/Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/Cisco-IOS-XR-mpls-ldp-cfg:global/Cisco-IOS-XR-mpls-ldp-cfg:mldp/Cisco-IOS-XR-mpls-ldp-cfg:default-vrf/Cisco-IOS-XR-mpls-ldp-cfg:afs/Cisco-IOS-XR-mpls-ldp-cfg:af[Cisco-IOS-XR-mpls-ldp-cfg:af-name = ' + str(self.af_name) + ']'
 
@@ -7592,22 +7592,22 @@ class MplsLdp(object):
                             if self.af_name is not None:
                                 return True
 
-                            if self.mldp_recursive_fec is not None and self.mldp_recursive_fec._has_data():
-                                return True
-
-                            if self.mo_frr is not None and self.mo_frr._has_data():
-                                return True
-
-                            if self.make_before_break is not None and self.make_before_break._has_data():
-                                return True
-
                             if self.csc is not None and self.csc._has_data():
                                 return True
 
                             if self.enable is not None:
                                 return True
 
+                            if self.make_before_break is not None and self.make_before_break._has_data():
+                                return True
+
+                            if self.mldp_recursive_fec is not None and self.mldp_recursive_fec._has_data():
+                                return True
+
                             if self.mldp_rib_unicast_always is not None:
+                                return True
+
+                            if self.mo_frr is not None and self.mo_frr._has_data():
                                 return True
 
                             return False
@@ -7762,16 +7762,16 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.vrfs is not None and self.vrfs._has_data():
+                if self.default_vrf is not None and self.default_vrf._has_data():
                     return True
 
-                if self.default_vrf is not None and self.default_vrf._has_data():
+                if self.enable is not None:
                     return True
 
                 if self.mldp_global is not None and self.mldp_global._has_data():
                     return True
 
-                if self.enable is not None:
+                if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
                 return False
@@ -7793,34 +7793,34 @@ class MplsLdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.entropy_label is not None and self.entropy_label._has_data():
-                return True
-
-            if self.session is not None and self.session._has_data():
-                return True
-
-            if self.igp is not None and self.igp._has_data():
-                return True
-
-            if self.enable_logging is not None and self.enable_logging._has_data():
-                return True
-
-            if self.signalling is not None and self.signalling._has_data():
-                return True
-
-            if self.nsr is not None and self.nsr._has_data():
-                return True
-
-            if self.graceful_restart is not None and self.graceful_restart._has_data():
+            if self.disable_implicit_ipv4 is not None:
                 return True
 
             if self.discovery is not None and self.discovery._has_data():
                 return True
 
+            if self.enable_logging is not None and self.enable_logging._has_data():
+                return True
+
+            if self.entropy_label is not None and self.entropy_label._has_data():
+                return True
+
+            if self.graceful_restart is not None and self.graceful_restart._has_data():
+                return True
+
+            if self.igp is not None and self.igp._has_data():
+                return True
+
             if self.mldp is not None and self.mldp._has_data():
                 return True
 
-            if self.disable_implicit_ipv4 is not None:
+            if self.nsr is not None and self.nsr._has_data():
+                return True
+
+            if self.session is not None and self.session._has_data():
+                return True
+
+            if self.signalling is not None and self.signalling._has_data():
                 return True
 
             return False
@@ -7845,13 +7845,13 @@ class MplsLdp(object):
         if self.default_vrf is not None and self.default_vrf._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs._has_data():
+        if self.enable is not None:
             return True
 
         if self.global_ is not None and self.global_._has_data():
             return True
 
-        if self.enable is not None:
+        if self.vrfs is not None and self.vrfs._has_data():
             return True
 
         return False

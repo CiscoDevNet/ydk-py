@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -19,8 +19,8 @@ _meta_table = {
             'static-mapping':'STATIC_MAPPING',
             'domain-service':'DOMAIN_SERVICE',
         }, 'Cisco-IOS-XR-ip-domain-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-domain-oper']),
-    'HostAddressBase_Identity' : {
-        'meta_info' : _MetaInfoClass('HostAddressBase_Identity',
+    'HostAddressBaseIdentity' : {
+        'meta_info' : _MetaInfoClass('HostAddressBaseIdentity',
             False, 
             [
             ],
@@ -34,7 +34,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpDomain.Vrfs.Vrf.Server.ServerAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAddressBase_Identity' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBase_Identity', 
+            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAddressBaseIdentity' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBaseIdentity', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -63,6 +63,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpDomain.Vrfs.Vrf.Server',
             False, 
             [
+            _MetaInfoClassMember('domain', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [(0, 256)], [], 
+                '''                Domain list
+                ''',
+                'domain',
+                'Cisco-IOS-XR-ip-domain-oper', False),
             _MetaInfoClassMember('domain-lookup', REFERENCE_ENUM_CLASS, 'ServerDomainLkupEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'ServerDomainLkupEnum', 
                 [], [], 
                 '''                Domain lookup
@@ -74,12 +80,6 @@ _meta_table = {
                 '''                Domain name
                 ''',
                 'domain_name',
-                'Cisco-IOS-XR-ip-domain-oper', False),
-            _MetaInfoClassMember('domain', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [(0, 256)], [], 
-                '''                Domain list
-                ''',
-                'domain',
                 'Cisco-IOS-XR-ip-domain-oper', False),
             _MetaInfoClassMember('server-address', REFERENCE_LIST, 'ServerAddress' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'IpDomain.Vrfs.Vrf.Server.ServerAddress', 
                 [], [], 
@@ -115,7 +115,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAddressBase_Identity' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBase_Identity', 
+            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAddressBaseIdentity' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBaseIdentity', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -150,13 +150,7 @@ _meta_table = {
                 ''',
                 'host_name',
                 'Cisco-IOS-XR-ip-domain-oper', True),
-            _MetaInfoClassMember('host-alias-list', REFERENCE_CLASS, 'HostAliasList' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList', 
-                [], [], 
-                '''                Host alias
-                ''',
-                'host_alias_list',
-                'Cisco-IOS-XR-ip-domain-oper', False),
-            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAddressBase_Identity' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBase_Identity', 
+            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAddressBaseIdentity' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBaseIdentity', 
                 [], [], 
                 '''                Address type
                 ''',
@@ -173,6 +167,12 @@ _meta_table = {
                 '''                Host address list
                 ''',
                 'host_address',
+                'Cisco-IOS-XR-ip-domain-oper', False),
+            _MetaInfoClassMember('host-alias-list', REFERENCE_CLASS, 'HostAliasList' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList', 
+                [], [], 
+                '''                Host alias
+                ''',
+                'host_alias_list',
                 'Cisco-IOS-XR-ip-domain-oper', False),
             ],
             'Cisco-IOS-XR-ip-domain-oper',
@@ -209,17 +209,17 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ip-domain-oper', True),
-            _MetaInfoClassMember('server', REFERENCE_CLASS, 'Server' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'IpDomain.Vrfs.Vrf.Server', 
-                [], [], 
-                '''                Domain server data
-                ''',
-                'server',
-                'Cisco-IOS-XR-ip-domain-oper', False),
             _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'IpDomain.Vrfs.Vrf.Hosts', 
                 [], [], 
                 '''                List of domain hosts
                 ''',
                 'hosts',
+                'Cisco-IOS-XR-ip-domain-oper', False),
+            _MetaInfoClassMember('server', REFERENCE_CLASS, 'Server' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'IpDomain.Vrfs.Vrf.Server', 
+                [], [], 
+                '''                Domain server data
+                ''',
+                'server',
                 'Cisco-IOS-XR-ip-domain-oper', False),
             ],
             'Cisco-IOS-XR-ip-domain-oper',
@@ -262,8 +262,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper'
         ),
     },
-    'Ipv4_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv4_Identity',
+    'Ipv4Identity' : {
+        'meta_info' : _MetaInfoClass('Ipv4Identity',
             False, 
             [
             ],
@@ -273,8 +273,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper'
         ),
     },
-    'Ipv6_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv6_Identity',
+    'Ipv6Identity' : {
+        'meta_info' : _MetaInfoClass('Ipv6Identity',
             False, 
             [
             ],

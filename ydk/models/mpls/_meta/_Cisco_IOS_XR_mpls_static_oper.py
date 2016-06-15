@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -109,6 +109,36 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo',
             False, 
             [
+            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Next-Hop Interface Name
+                ''',
+                'next_hop_interface_name',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Next-Hop Ipv4 Address
+                ''',
+                'next_hop_ipv4_address',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-ipv4-address-set', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Next-Hop Ipv4 Set
+                ''',
+                'next_hop_ipv4_address_set',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Next-Hop Label
+                ''',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLblEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLblEnum', 
+                [], [], 
+                '''                Next-Hop Label Type
+                ''',
+                'next_hop_label_type',
+                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Number
@@ -120,36 +150,6 @@ _meta_table = {
                 '''                Path Type
                 ''',
                 'type',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLblEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLblEnum', 
-                [], [], 
-                '''                Next-Hop Label Type
-                ''',
-                'next_hop_label_type',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Next-Hop Label
-                ''',
-                'next_hop_label',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Next-Hop Interface Name
-                ''',
-                'next_hop_interface_name',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-ipv4-address-set', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Next-Hop Ipv4 Set
-                ''',
-                'next_hop_ipv4_address_set',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Next-Hop Ipv4 Address
-                ''',
-                'next_hop_ipv4_address',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             ],
             'Cisco-IOS-XR-mpls-static-oper',
@@ -168,12 +168,6 @@ _meta_table = {
                 ''',
                 'local_label_id',
                 'Cisco-IOS-XR-mpls-static-oper', True),
-            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix', 
-                [], [], 
-                '''                Prefix Information
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label value
@@ -192,17 +186,23 @@ _meta_table = {
                 ''',
                 'label_status',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('path-info', REFERENCE_LIST, 'PathInfo' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo', 
                 [], [], 
                 '''                Path Information
                 ''',
                 'path_info',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix', 
+                [], [], 
+                '''                Prefix Information
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name
+                ''',
+                'vrf_name',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             ],
             'Cisco-IOS-XR-mpls-static-oper',
@@ -272,35 +272,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Summary',
             False, 
             [
-            _MetaInfoClassMember('label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Labels
-                ''',
-                'label_count',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('label-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Labels with Errors
-                ''',
-                'label_error_count',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('label-discrepancy-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Labels with Discrepancies
-                ''',
-                'label_discrepancy_count',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('vrf-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of VRF configured
-                ''',
-                'vrf_count',
-                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('active-vrf-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Number of Active VRF Active
                 ''',
                 'active_vrf_count',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('im-connected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                IM is connected
+                ''',
+                'im_connected',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -314,11 +296,23 @@ _meta_table = {
                 ''',
                 'interface_foward_reference_count',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('mpls-enabled-interface-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Total Number of MPLS enabled Interface
+                '''                Total Number of Labels
                 ''',
-                'mpls_enabled_interface_count',
+                'label_count',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('label-discrepancy-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Labels with Discrepancies
+                ''',
+                'label_discrepancy_count',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('label-error-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Labels with Errors
+                ''',
+                'label_error_count',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('lsd-connected', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -326,17 +320,23 @@ _meta_table = {
                 ''',
                 'lsd_connected',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('im-connected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                IM is connected
+            _MetaInfoClassMember('mpls-enabled-interface-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of MPLS enabled Interface
                 ''',
-                'im_connected',
+                'mpls_enabled_interface_count',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('rsi-connected', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                RSI is connected
                 ''',
                 'rsi_connected',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('vrf-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of VRF configured
+                ''',
+                'vrf_count',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             ],
             'Cisco-IOS-XR-mpls-static-oper',
@@ -401,6 +401,36 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.LocalLabels.LocalLabel.PathInfo',
             False, 
             [
+            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Next-Hop Interface Name
+                ''',
+                'next_hop_interface_name',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Next-Hop Ipv4 Address
+                ''',
+                'next_hop_ipv4_address',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-ipv4-address-set', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Next-Hop Ipv4 Set
+                ''',
+                'next_hop_ipv4_address_set',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Next-Hop Label
+                ''',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLblEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLblEnum', 
+                [], [], 
+                '''                Next-Hop Label Type
+                ''',
+                'next_hop_label_type',
+                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Number
@@ -412,36 +442,6 @@ _meta_table = {
                 '''                Path Type
                 ''',
                 'type',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLblEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLblEnum', 
-                [], [], 
-                '''                Next-Hop Label Type
-                ''',
-                'next_hop_label_type',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Next-Hop Label
-                ''',
-                'next_hop_label',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Next-Hop Interface Name
-                ''',
-                'next_hop_interface_name',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-ipv4-address-set', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Next-Hop Ipv4 Set
-                ''',
-                'next_hop_ipv4_address_set',
-                'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Next-Hop Ipv4 Address
-                ''',
-                'next_hop_ipv4_address',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             ],
             'Cisco-IOS-XR-mpls-static-oper',
@@ -460,12 +460,6 @@ _meta_table = {
                 ''',
                 'local_label_id',
                 'Cisco-IOS-XR-mpls-static-oper', True),
-            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels.LocalLabel.Prefix', 
-                [], [], 
-                '''                Prefix Information
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label value
@@ -484,17 +478,23 @@ _meta_table = {
                 ''',
                 'label_status',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('path-info', REFERENCE_LIST, 'PathInfo' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels.LocalLabel.PathInfo', 
                 [], [], 
                 '''                Path Information
                 ''',
                 'path_info',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels.LocalLabel.Prefix', 
+                [], [], 
+                '''                Prefix Information
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-mpls-static-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name
+                ''',
+                'vrf_name',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             ],
             'Cisco-IOS-XR-mpls-static-oper',
@@ -524,11 +524,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic',
             False, 
             [
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs', 
+            _MetaInfoClassMember('local-labels', REFERENCE_CLASS, 'LocalLabels' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels', 
                 [], [], 
-                '''                VRF table
+                '''                data for static local-label table
                 ''',
-                'vrfs',
+                'local_labels',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Summary', 
                 [], [], 
@@ -536,11 +536,11 @@ _meta_table = {
                 ''',
                 'summary',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('local-labels', REFERENCE_CLASS, 'LocalLabels' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels', 
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs', 
                 [], [], 
-                '''                data for static local-label table
+                '''                VRF table
                 ''',
-                'local_labels',
+                'vrfs',
                 'Cisco-IOS-XR-mpls-static-oper', False),
             ],
             'Cisco-IOS-XR-mpls-static-oper',

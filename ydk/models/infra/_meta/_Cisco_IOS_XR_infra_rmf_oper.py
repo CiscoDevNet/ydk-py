@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -24,12 +24,6 @@ _meta_table = {
                 ''',
                 'active',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Standby
-                ''',
-                'standby',
-                'Cisco-IOS-XR-infra-rmf-oper', False),
             _MetaInfoClassMember('ha-state', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                HAState
@@ -41,6 +35,12 @@ _meta_table = {
                 '''                NSRState
                 ''',
                 'nsr_state',
+                'Cisco-IOS-XR-infra-rmf-oper', False),
+            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Standby
+                ''',
+                'standby',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             ],
             'Cisco-IOS-XR-infra-rmf-oper',
@@ -59,11 +59,11 @@ _meta_table = {
                 ''',
                 'active',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('groupinfo', REFERENCE_LIST, 'Groupinfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy.Groupinfo', 
                 [], [], 
-                '''                Standby node name R/S/I
+                '''                groupinfo
                 ''',
-                'standby',
+                'groupinfo',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             _MetaInfoClassMember('ha-state', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -77,11 +77,11 @@ _meta_table = {
                 ''',
                 'nsr_state',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('groupinfo', REFERENCE_LIST, 'Groupinfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy.Groupinfo', 
+            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                groupinfo
+                '''                Standby node name R/S/I
                 ''',
-                'groupinfo',
+                'standby',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             ],
             'Cisco-IOS-XR-infra-rmf-oper',
@@ -100,11 +100,17 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-infra-rmf-oper', True),
-            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy', 
+            _MetaInfoClassMember('active-reboot-reason', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Row information
+                '''                Active node reload
                 ''',
-                'redundancy',
+                'active_reboot_reason',
+                'Cisco-IOS-XR-infra-rmf-oper', False),
+            _MetaInfoClassMember('err-log', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Error Log
+                ''',
+                'err_log',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             _MetaInfoClassMember('log', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -112,23 +118,17 @@ _meta_table = {
                 ''',
                 'log',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('active-reboot-reason', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy', 
                 [], [], 
-                '''                Active node reload
+                '''                Row information
                 ''',
-                'active_reboot_reason',
+                'redundancy',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             _MetaInfoClassMember('standby-reboot-reason', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Standby node reload
                 ''',
                 'standby_reboot_reason',
-                'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('err-log', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Error Log
-                ''',
-                'err_log',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             ],
             'Cisco-IOS-XR-infra-rmf-oper',
@@ -164,12 +164,6 @@ _meta_table = {
                 ''',
                 'active',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Standby
-                ''',
-                'standby',
-                'Cisco-IOS-XR-infra-rmf-oper', False),
             _MetaInfoClassMember('ha-state', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                HAState
@@ -181,6 +175,12 @@ _meta_table = {
                 '''                NSRState
                 ''',
                 'nsr_state',
+                'Cisco-IOS-XR-infra-rmf-oper', False),
+            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Standby
+                ''',
+                'standby',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             ],
             'Cisco-IOS-XR-infra-rmf-oper',
@@ -199,11 +199,11 @@ _meta_table = {
                 ''',
                 'active',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('groupinfo', REFERENCE_LIST, 'Groupinfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Summary.RedPair.Groupinfo', 
                 [], [], 
-                '''                Standby node name R/S/I
+                '''                groupinfo
                 ''',
-                'standby',
+                'groupinfo',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             _MetaInfoClassMember('ha-state', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -217,11 +217,11 @@ _meta_table = {
                 ''',
                 'nsr_state',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('groupinfo', REFERENCE_LIST, 'Groupinfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Summary.RedPair.Groupinfo', 
+            _MetaInfoClassMember('standby', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                groupinfo
+                '''                Standby node name R/S/I
                 ''',
-                'groupinfo',
+                'standby',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
             ],
             'Cisco-IOS-XR-infra-rmf-oper',

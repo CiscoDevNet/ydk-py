@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -24,24 +24,6 @@ _meta_table = {
                 ''',
                 'session_id',
                 'Cisco-IOS-XR-tty-management-cmd-oper', True),
-            _MetaInfoClassMember('line', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Line Number
-                ''',
-                'line',
-                'Cisco-IOS-XR-tty-management-cmd-oper', False),
-            _MetaInfoClassMember('user', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                User Name
-                ''',
-                'user',
-                'Cisco-IOS-XR-tty-management-cmd-oper', False),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service Name
-                ''',
-                'service',
-                'Cisco-IOS-XR-tty-management-cmd-oper', False),
             _MetaInfoClassMember('conns', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                No. of Connections
@@ -54,11 +36,29 @@ _meta_table = {
                 ''',
                 'idle_string',
                 'Cisco-IOS-XR-tty-management-cmd-oper', False),
+            _MetaInfoClassMember('line', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Line Number
+                ''',
+                'line',
+                'Cisco-IOS-XR-tty-management-cmd-oper', False),
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                location
                 ''',
                 'location',
+                'Cisco-IOS-XR-tty-management-cmd-oper', False),
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service Name
+                ''',
+                'service',
+                'Cisco-IOS-XR-tty-management-cmd-oper', False),
+            _MetaInfoClassMember('user', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                User Name
+                ''',
+                'user',
                 'Cisco-IOS-XR-tty-management-cmd-oper', False),
             ],
             'Cisco-IOS-XR-tty-management-cmd-oper',

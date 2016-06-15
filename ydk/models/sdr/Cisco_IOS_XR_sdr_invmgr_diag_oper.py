@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -80,25 +80,25 @@ class Diag(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: power_shelfs
+            .. attribute:: chassis
             
-            	Table for rack power shelf 
-            	**type**\: :py:class:`PowerShelfs <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs>`
+            	Chassis information
+            	**type**\: :py:class:`Chassis <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis>`
             
             .. attribute:: fan_traies
             
             	Table for rack fan trays
             	**type**\: :py:class:`FanTraies <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies>`
             
+            .. attribute:: power_shelfs
+            
+            	Table for rack power shelf 
+            	**type**\: :py:class:`PowerShelfs <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs>`
+            
             .. attribute:: slots
             
             	Table of slots
             	**type**\: :py:class:`Slots <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots>`
-            
-            .. attribute:: chassis
-            
-            	Chassis information
-            	**type**\: :py:class:`Chassis <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis>`
             
             
 
@@ -110,14 +110,14 @@ class Diag(object):
             def __init__(self):
                 self.parent = None
                 self.rack_name = None
-                self.power_shelfs = Diag.Racks.Rack.PowerShelfs()
-                self.power_shelfs.parent = self
-                self.fan_traies = Diag.Racks.Rack.FanTraies()
-                self.fan_traies.parent = self
-                self.slots = Diag.Racks.Rack.Slots()
-                self.slots.parent = self
                 self.chassis = Diag.Racks.Rack.Chassis()
                 self.chassis.parent = self
+                self.fan_traies = Diag.Racks.Rack.FanTraies()
+                self.fan_traies.parent = self
+                self.power_shelfs = Diag.Racks.Rack.PowerShelfs()
+                self.power_shelfs.parent = self
+                self.slots = Diag.Racks.Rack.Slots()
+                self.slots.parent = self
 
 
             class PowerShelfs(object):
@@ -230,21 +230,93 @@ class Diag(object):
                                 """
                                 Basic information
                                 
-                                .. attribute:: rma
+                                .. attribute:: asset_alias
                                 
-                                	RMA Data
-                                	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma>`
-                                
-                                .. attribute:: description
-                                
-                                	A textual description of physical entity
+                                	Asset Alias
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: idprom_format_rev
+                                .. attribute:: asset_id
                                 
-                                	IDPROM Format Revision
+                                	Asset ID
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address1
+                                
+                                	Base Mac Address #1
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address2
+                                
+                                	Base Mac Address #2
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address3
+                                
+                                	Base Mac Address #3
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address4
+                                
+                                	Base Mac Address #4
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_checksum
+                                
+                                	Block Checksum
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_count
+                                
+                                	Block Count
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_length
+                                
+                                	Block Length
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_signature
+                                
+                                	Block Signature
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_version
+                                
+                                	Block Version
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_sid
+                                
+                                	Chassis serial number
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: clei
+                                
+                                	Common Language Equipment Identifier (CLEI) code
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -263,86 +335,9 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: vid
+                                .. attribute:: description
                                 
-                                	Version ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: hwid
-                                
-                                	Hardware Revision
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pid
-                                
-                                	Product ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: udi_description
-                                
-                                	UDI description
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: udi_name
-                                
-                                	UDI name
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: clei
-                                
-                                	Common Language Equipment Identifier (CLEI) code
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: eci
-                                
-                                	Equipment Catalog Item (ECI) number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: top_assem_part_num
-                                
-                                	Top assembly part number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: top_assem_vid
-                                
-                                	Top assembly revision number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pca_num
-                                
-                                	PCA number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pcavid
-                                
-                                	PCA revision ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: chassis_sid
-                                
-                                	Chassis serial number
+                                	A textual description of physical entity
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -396,128 +391,9 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: manu_test_data
+                                .. attribute:: eci
                                 
-                                	Manufacturing Test Data
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: asset_id
-                                
-                                	Asset ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: asset_alias
-                                
-                                	Asset Alias
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address1
-                                
-                                	Base Mac Address #1
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size1
-                                
-                                	Mac Address Block Size #1
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address2
-                                
-                                	Base Mac Address #2
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size2
-                                
-                                	Mac Address Block Size #2
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address3
-                                
-                                	Base Mac Address #3
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size3
-                                
-                                	Mac Address Block Size #3
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address4
-                                
-                                	Base Mac Address #4
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size4
-                                
-                                	Mac Address Block Size #4
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pcb_serial_num
-                                
-                                	PCB Serial Number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: power_supply_type
-                                
-                                	Power Supply Type
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: power_consumption
-                                
-                                	Power Consumption
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_signature
-                                
-                                	Block Signature
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_version
-                                
-                                	Block Version
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_length
-                                
-                                	Block Length
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_checksum
-                                
-                                	Block Checksum
+                                	Equipment Catalog Item (ECI) number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -529,9 +405,9 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: block_count
+                                .. attribute:: engineer_use
                                 
-                                	Block Count
+                                	Engineer Use
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -550,23 +426,79 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: hw_version
+                                
+                                	Hardware Version
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: hwid
+                                
+                                	Hardware Revision
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: idprom_format_rev
+                                
+                                	IDPROM Format Revision
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size1
+                                
+                                	Mac Address Block Size #1
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size2
+                                
+                                	Mac Address Block Size #2
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size3
+                                
+                                	Mac Address Block Size #3
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size4
+                                
+                                	Mac Address Block Size #4
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: manu_test_data
+                                
+                                	Manufacturing Test Data
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mfg_bits
+                                
+                                	MFG Bits
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mfg_deviation
+                                
+                                	MFG Deviation
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
                                 .. attribute:: oem_string
                                 
                                 	OEM String
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: product_id
-                                
-                                	Product ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: serial_number
-                                
-                                	Serial Number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -585,30 +517,70 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: mfg_deviation
+                                .. attribute:: pca_num
                                 
-                                	MFG Deviation
+                                	PCA number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: hw_version
+                                .. attribute:: pcavid
                                 
-                                	Hardware Version
+                                	PCA revision ID
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: mfg_bits
+                                .. attribute:: pcb_serial_num
                                 
-                                	MFG Bits
+                                	PCB Serial Number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: engineer_use
+                                .. attribute:: pid
                                 
-                                	Engineer Use
+                                	Product ID
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: power_consumption
+                                
+                                	Power Consumption
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: power_supply_type
+                                
+                                	Power Supply Type
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: product_id
+                                
+                                	Product ID
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: rma
+                                
+                                	RMA Data
+                                	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma>`
+                                
+                                .. attribute:: rma_code
+                                
+                                	RMA Code
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: serial_number
+                                
+                                	Serial Number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -620,9 +592,37 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: rma_code
+                                .. attribute:: top_assem_part_num
                                 
-                                	RMA Code
+                                	Top assembly part number
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: top_assem_vid
+                                
+                                	Top assembly revision number
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: udi_description
+                                
+                                	UDI description
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: udi_name
+                                
+                                	UDI name
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: vid
+                                
+                                	Version ID
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -636,24 +636,22 @@ class Diag(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.rma = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma()
-                                    self.rma.parent = self
-                                    self.description = None
-                                    self.idprom_format_rev = None
+                                    self.asset_alias = None
+                                    self.asset_id = None
+                                    self.base_mac_address1 = None
+                                    self.base_mac_address2 = None
+                                    self.base_mac_address3 = None
+                                    self.base_mac_address4 = None
+                                    self.block_checksum = None
+                                    self.block_count = None
+                                    self.block_length = None
+                                    self.block_signature = None
+                                    self.block_version = None
+                                    self.chassis_sid = None
+                                    self.clei = None
                                     self.controller_family = None
                                     self.controller_type = None
-                                    self.vid = None
-                                    self.hwid = None
-                                    self.pid = None
-                                    self.udi_description = None
-                                    self.udi_name = None
-                                    self.clei = None
-                                    self.eci = None
-                                    self.top_assem_part_num = None
-                                    self.top_assem_vid = None
-                                    self.pca_num = None
-                                    self.pcavid = None
-                                    self.chassis_sid = None
+                                    self.description = None
                                     self.dev_num1 = None
                                     self.dev_num2 = None
                                     self.dev_num3 = None
@@ -661,48 +659,50 @@ class Diag(object):
                                     self.dev_num5 = None
                                     self.dev_num6 = None
                                     self.dev_num7 = None
-                                    self.manu_test_data = None
-                                    self.asset_id = None
-                                    self.asset_alias = None
-                                    self.base_mac_address1 = None
-                                    self.mac_add_blk_size1 = None
-                                    self.base_mac_address2 = None
-                                    self.mac_add_blk_size2 = None
-                                    self.base_mac_address3 = None
-                                    self.mac_add_blk_size3 = None
-                                    self.base_mac_address4 = None
-                                    self.mac_add_blk_size4 = None
-                                    self.pcb_serial_num = None
-                                    self.power_supply_type = None
-                                    self.power_consumption = None
-                                    self.block_signature = None
-                                    self.block_version = None
-                                    self.block_length = None
-                                    self.block_checksum = None
+                                    self.eci = None
                                     self.eeprom_size = None
-                                    self.block_count = None
+                                    self.engineer_use = None
                                     self.fru_major_type = None
                                     self.fru_minor_type = None
+                                    self.hw_version = None
+                                    self.hwid = None
+                                    self.idprom_format_rev = None
+                                    self.mac_add_blk_size1 = None
+                                    self.mac_add_blk_size2 = None
+                                    self.mac_add_blk_size3 = None
+                                    self.mac_add_blk_size4 = None
+                                    self.manu_test_data = None
+                                    self.mfg_bits = None
+                                    self.mfg_deviation = None
                                     self.oem_string = None
-                                    self.product_id = None
-                                    self.serial_number = None
                                     self.part_number = None
                                     self.part_revision = None
-                                    self.mfg_deviation = None
-                                    self.hw_version = None
-                                    self.mfg_bits = None
-                                    self.engineer_use = None
-                                    self.snmpoid = None
+                                    self.pca_num = None
+                                    self.pcavid = None
+                                    self.pcb_serial_num = None
+                                    self.pid = None
+                                    self.power_consumption = None
+                                    self.power_supply_type = None
+                                    self.product_id = None
+                                    self.rma = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma()
+                                    self.rma.parent = self
                                     self.rma_code = None
+                                    self.serial_number = None
+                                    self.snmpoid = None
+                                    self.top_assem_part_num = None
+                                    self.top_assem_vid = None
+                                    self.udi_description = None
+                                    self.udi_name = None
+                                    self.vid = None
 
 
                                 class Rma(object):
                                     """
                                     RMA Data
                                     
-                                    .. attribute:: test_history
+                                    .. attribute:: rma_history
                                     
-                                    	Test history
+                                    	RMA history
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -714,9 +714,9 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: rma_history
+                                    .. attribute:: test_history
                                     
-                                    	RMA history
+                                    	Test history
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -730,14 +730,14 @@ class Diag(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.test_history = None
-                                        self.rma_number = None
                                         self.rma_history = None
+                                        self.rma_number = None
+                                        self.test_history = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:rma'
 
@@ -748,13 +748,13 @@ class Diag(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.test_history is not None:
+                                        if self.rma_history is not None:
                                             return True
 
                                         if self.rma_number is not None:
                                             return True
 
-                                        if self.rma_history is not None:
+                                        if self.test_history is not None:
                                             return True
 
                                         return False
@@ -767,7 +767,7 @@ class Diag(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:information'
 
@@ -778,13 +778,43 @@ class Diag(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.rma is not None and self.rma._has_data():
+                                    if self.asset_alias is not None:
                                         return True
 
-                                    if self.description is not None:
+                                    if self.asset_id is not None:
                                         return True
 
-                                    if self.idprom_format_rev is not None:
+                                    if self.base_mac_address1 is not None:
+                                        return True
+
+                                    if self.base_mac_address2 is not None:
+                                        return True
+
+                                    if self.base_mac_address3 is not None:
+                                        return True
+
+                                    if self.base_mac_address4 is not None:
+                                        return True
+
+                                    if self.block_checksum is not None:
+                                        return True
+
+                                    if self.block_count is not None:
+                                        return True
+
+                                    if self.block_length is not None:
+                                        return True
+
+                                    if self.block_signature is not None:
+                                        return True
+
+                                    if self.block_version is not None:
+                                        return True
+
+                                    if self.chassis_sid is not None:
+                                        return True
+
+                                    if self.clei is not None:
                                         return True
 
                                     if self.controller_family is not None:
@@ -793,40 +823,7 @@ class Diag(object):
                                     if self.controller_type is not None:
                                         return True
 
-                                    if self.vid is not None:
-                                        return True
-
-                                    if self.hwid is not None:
-                                        return True
-
-                                    if self.pid is not None:
-                                        return True
-
-                                    if self.udi_description is not None:
-                                        return True
-
-                                    if self.udi_name is not None:
-                                        return True
-
-                                    if self.clei is not None:
-                                        return True
-
-                                    if self.eci is not None:
-                                        return True
-
-                                    if self.top_assem_part_num is not None:
-                                        return True
-
-                                    if self.top_assem_vid is not None:
-                                        return True
-
-                                    if self.pca_num is not None:
-                                        return True
-
-                                    if self.pcavid is not None:
-                                        return True
-
-                                    if self.chassis_sid is not None:
+                                    if self.description is not None:
                                         return True
 
                                     if self.dev_num1 is not None:
@@ -850,64 +847,13 @@ class Diag(object):
                                     if self.dev_num7 is not None:
                                         return True
 
-                                    if self.manu_test_data is not None:
-                                        return True
-
-                                    if self.asset_id is not None:
-                                        return True
-
-                                    if self.asset_alias is not None:
-                                        return True
-
-                                    if self.base_mac_address1 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size1 is not None:
-                                        return True
-
-                                    if self.base_mac_address2 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size2 is not None:
-                                        return True
-
-                                    if self.base_mac_address3 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size3 is not None:
-                                        return True
-
-                                    if self.base_mac_address4 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size4 is not None:
-                                        return True
-
-                                    if self.pcb_serial_num is not None:
-                                        return True
-
-                                    if self.power_supply_type is not None:
-                                        return True
-
-                                    if self.power_consumption is not None:
-                                        return True
-
-                                    if self.block_signature is not None:
-                                        return True
-
-                                    if self.block_version is not None:
-                                        return True
-
-                                    if self.block_length is not None:
-                                        return True
-
-                                    if self.block_checksum is not None:
+                                    if self.eci is not None:
                                         return True
 
                                     if self.eeprom_size is not None:
                                         return True
 
-                                    if self.block_count is not None:
+                                    if self.engineer_use is not None:
                                         return True
 
                                     if self.fru_major_type is not None:
@@ -916,13 +862,37 @@ class Diag(object):
                                     if self.fru_minor_type is not None:
                                         return True
 
+                                    if self.hw_version is not None:
+                                        return True
+
+                                    if self.hwid is not None:
+                                        return True
+
+                                    if self.idprom_format_rev is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size1 is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size2 is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size3 is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size4 is not None:
+                                        return True
+
+                                    if self.manu_test_data is not None:
+                                        return True
+
+                                    if self.mfg_bits is not None:
+                                        return True
+
+                                    if self.mfg_deviation is not None:
+                                        return True
+
                                     if self.oem_string is not None:
-                                        return True
-
-                                    if self.product_id is not None:
-                                        return True
-
-                                    if self.serial_number is not None:
                                         return True
 
                                     if self.part_number is not None:
@@ -931,22 +901,52 @@ class Diag(object):
                                     if self.part_revision is not None:
                                         return True
 
-                                    if self.mfg_deviation is not None:
+                                    if self.pca_num is not None:
                                         return True
 
-                                    if self.hw_version is not None:
+                                    if self.pcavid is not None:
                                         return True
 
-                                    if self.mfg_bits is not None:
+                                    if self.pcb_serial_num is not None:
                                         return True
 
-                                    if self.engineer_use is not None:
+                                    if self.pid is not None:
+                                        return True
+
+                                    if self.power_consumption is not None:
+                                        return True
+
+                                    if self.power_supply_type is not None:
+                                        return True
+
+                                    if self.product_id is not None:
+                                        return True
+
+                                    if self.rma is not None and self.rma._has_data():
+                                        return True
+
+                                    if self.rma_code is not None:
+                                        return True
+
+                                    if self.serial_number is not None:
                                         return True
 
                                     if self.snmpoid is not None:
                                         return True
 
-                                    if self.rma_code is not None:
+                                    if self.top_assem_part_num is not None:
+                                        return True
+
+                                    if self.top_assem_vid is not None:
+                                        return True
+
+                                    if self.udi_description is not None:
+                                        return True
+
+                                    if self.udi_name is not None:
+                                        return True
+
+                                    if self.vid is not None:
                                         return True
 
                                     return False
@@ -959,9 +959,9 @@ class Diag(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.power_supply_name is None:
-                                    raise YPYDataValidationError('Key property power_supply_name is None')
+                                    raise YPYModelError('Key property power_supply_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:power-supply[Cisco-IOS-XR-sdr-invmgr-diag-oper:power-supply-name = ' + str(self.power_supply_name) + ']'
 
@@ -988,7 +988,7 @@ class Diag(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:power-supplies'
 
@@ -1014,9 +1014,9 @@ class Diag(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.power_shelf_name is None:
-                            raise YPYDataValidationError('Key property power_shelf_name is None')
+                            raise YPYModelError('Key property power_shelf_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:power-shelf[Cisco-IOS-XR-sdr-invmgr-diag-oper:power-shelf-name = ' + str(self.power_shelf_name) + ']'
 
@@ -1043,7 +1043,7 @@ class Diag(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:power-shelfs'
 
@@ -1177,21 +1177,93 @@ class Diag(object):
                                 """
                                 Basic information
                                 
-                                .. attribute:: rma
+                                .. attribute:: asset_alias
                                 
-                                	RMA Data
-                                	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma>`
-                                
-                                .. attribute:: description
-                                
-                                	A textual description of physical entity
+                                	Asset Alias
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: idprom_format_rev
+                                .. attribute:: asset_id
                                 
-                                	IDPROM Format Revision
+                                	Asset ID
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address1
+                                
+                                	Base Mac Address #1
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address2
+                                
+                                	Base Mac Address #2
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address3
+                                
+                                	Base Mac Address #3
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: base_mac_address4
+                                
+                                	Base Mac Address #4
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_checksum
+                                
+                                	Block Checksum
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_count
+                                
+                                	Block Count
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_length
+                                
+                                	Block Length
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_signature
+                                
+                                	Block Signature
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: block_version
+                                
+                                	Block Version
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_sid
+                                
+                                	Chassis serial number
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: clei
+                                
+                                	Common Language Equipment Identifier (CLEI) code
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1210,86 +1282,9 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: vid
+                                .. attribute:: description
                                 
-                                	Version ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: hwid
-                                
-                                	Hardware Revision
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pid
-                                
-                                	Product ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: udi_description
-                                
-                                	UDI description
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: udi_name
-                                
-                                	UDI name
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: clei
-                                
-                                	Common Language Equipment Identifier (CLEI) code
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: eci
-                                
-                                	Equipment Catalog Item (ECI) number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: top_assem_part_num
-                                
-                                	Top assembly part number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: top_assem_vid
-                                
-                                	Top assembly revision number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pca_num
-                                
-                                	PCA number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pcavid
-                                
-                                	PCA revision ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: chassis_sid
-                                
-                                	Chassis serial number
+                                	A textual description of physical entity
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1343,128 +1338,9 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: manu_test_data
+                                .. attribute:: eci
                                 
-                                	Manufacturing Test Data
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: asset_id
-                                
-                                	Asset ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: asset_alias
-                                
-                                	Asset Alias
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address1
-                                
-                                	Base Mac Address #1
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size1
-                                
-                                	Mac Address Block Size #1
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address2
-                                
-                                	Base Mac Address #2
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size2
-                                
-                                	Mac Address Block Size #2
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address3
-                                
-                                	Base Mac Address #3
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size3
-                                
-                                	Mac Address Block Size #3
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: base_mac_address4
-                                
-                                	Base Mac Address #4
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: mac_add_blk_size4
-                                
-                                	Mac Address Block Size #4
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pcb_serial_num
-                                
-                                	PCB Serial Number
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: power_supply_type
-                                
-                                	Power Supply Type
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: power_consumption
-                                
-                                	Power Consumption
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_signature
-                                
-                                	Block Signature
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_version
-                                
-                                	Block Version
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_length
-                                
-                                	Block Length
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: block_checksum
-                                
-                                	Block Checksum
+                                	Equipment Catalog Item (ECI) number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1476,9 +1352,9 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: block_count
+                                .. attribute:: engineer_use
                                 
-                                	Block Count
+                                	Engineer Use
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1497,23 +1373,79 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: hw_version
+                                
+                                	Hardware Version
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: hwid
+                                
+                                	Hardware Revision
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: idprom_format_rev
+                                
+                                	IDPROM Format Revision
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size1
+                                
+                                	Mac Address Block Size #1
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size2
+                                
+                                	Mac Address Block Size #2
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size3
+                                
+                                	Mac Address Block Size #3
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mac_add_blk_size4
+                                
+                                	Mac Address Block Size #4
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: manu_test_data
+                                
+                                	Manufacturing Test Data
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mfg_bits
+                                
+                                	MFG Bits
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: mfg_deviation
+                                
+                                	MFG Deviation
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
                                 .. attribute:: oem_string
                                 
                                 	OEM String
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: product_id
-                                
-                                	Product ID
-                                	**type**\: str
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: serial_number
-                                
-                                	Serial Number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1532,30 +1464,70 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: mfg_deviation
+                                .. attribute:: pca_num
                                 
-                                	MFG Deviation
+                                	PCA number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: hw_version
+                                .. attribute:: pcavid
                                 
-                                	Hardware Version
+                                	PCA revision ID
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: mfg_bits
+                                .. attribute:: pcb_serial_num
                                 
-                                	MFG Bits
+                                	PCB Serial Number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: engineer_use
+                                .. attribute:: pid
                                 
-                                	Engineer Use
+                                	Product ID
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: power_consumption
+                                
+                                	Power Consumption
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: power_supply_type
+                                
+                                	Power Supply Type
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: product_id
+                                
+                                	Product ID
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: rma
+                                
+                                	RMA Data
+                                	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma>`
+                                
+                                .. attribute:: rma_code
+                                
+                                	RMA Code
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: serial_number
+                                
+                                	Serial Number
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1567,9 +1539,37 @@ class Diag(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: rma_code
+                                .. attribute:: top_assem_part_num
                                 
-                                	RMA Code
+                                	Top assembly part number
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: top_assem_vid
+                                
+                                	Top assembly revision number
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: udi_description
+                                
+                                	UDI description
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: udi_name
+                                
+                                	UDI name
+                                	**type**\: str
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: vid
+                                
+                                	Version ID
                                 	**type**\: str
                                 
                                 	**range:** 0..255
@@ -1583,24 +1583,22 @@ class Diag(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.rma = Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma()
-                                    self.rma.parent = self
-                                    self.description = None
-                                    self.idprom_format_rev = None
+                                    self.asset_alias = None
+                                    self.asset_id = None
+                                    self.base_mac_address1 = None
+                                    self.base_mac_address2 = None
+                                    self.base_mac_address3 = None
+                                    self.base_mac_address4 = None
+                                    self.block_checksum = None
+                                    self.block_count = None
+                                    self.block_length = None
+                                    self.block_signature = None
+                                    self.block_version = None
+                                    self.chassis_sid = None
+                                    self.clei = None
                                     self.controller_family = None
                                     self.controller_type = None
-                                    self.vid = None
-                                    self.hwid = None
-                                    self.pid = None
-                                    self.udi_description = None
-                                    self.udi_name = None
-                                    self.clei = None
-                                    self.eci = None
-                                    self.top_assem_part_num = None
-                                    self.top_assem_vid = None
-                                    self.pca_num = None
-                                    self.pcavid = None
-                                    self.chassis_sid = None
+                                    self.description = None
                                     self.dev_num1 = None
                                     self.dev_num2 = None
                                     self.dev_num3 = None
@@ -1608,48 +1606,50 @@ class Diag(object):
                                     self.dev_num5 = None
                                     self.dev_num6 = None
                                     self.dev_num7 = None
-                                    self.manu_test_data = None
-                                    self.asset_id = None
-                                    self.asset_alias = None
-                                    self.base_mac_address1 = None
-                                    self.mac_add_blk_size1 = None
-                                    self.base_mac_address2 = None
-                                    self.mac_add_blk_size2 = None
-                                    self.base_mac_address3 = None
-                                    self.mac_add_blk_size3 = None
-                                    self.base_mac_address4 = None
-                                    self.mac_add_blk_size4 = None
-                                    self.pcb_serial_num = None
-                                    self.power_supply_type = None
-                                    self.power_consumption = None
-                                    self.block_signature = None
-                                    self.block_version = None
-                                    self.block_length = None
-                                    self.block_checksum = None
+                                    self.eci = None
                                     self.eeprom_size = None
-                                    self.block_count = None
+                                    self.engineer_use = None
                                     self.fru_major_type = None
                                     self.fru_minor_type = None
+                                    self.hw_version = None
+                                    self.hwid = None
+                                    self.idprom_format_rev = None
+                                    self.mac_add_blk_size1 = None
+                                    self.mac_add_blk_size2 = None
+                                    self.mac_add_blk_size3 = None
+                                    self.mac_add_blk_size4 = None
+                                    self.manu_test_data = None
+                                    self.mfg_bits = None
+                                    self.mfg_deviation = None
                                     self.oem_string = None
-                                    self.product_id = None
-                                    self.serial_number = None
                                     self.part_number = None
                                     self.part_revision = None
-                                    self.mfg_deviation = None
-                                    self.hw_version = None
-                                    self.mfg_bits = None
-                                    self.engineer_use = None
-                                    self.snmpoid = None
+                                    self.pca_num = None
+                                    self.pcavid = None
+                                    self.pcb_serial_num = None
+                                    self.pid = None
+                                    self.power_consumption = None
+                                    self.power_supply_type = None
+                                    self.product_id = None
+                                    self.rma = Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma()
+                                    self.rma.parent = self
                                     self.rma_code = None
+                                    self.serial_number = None
+                                    self.snmpoid = None
+                                    self.top_assem_part_num = None
+                                    self.top_assem_vid = None
+                                    self.udi_description = None
+                                    self.udi_name = None
+                                    self.vid = None
 
 
                                 class Rma(object):
                                     """
                                     RMA Data
                                     
-                                    .. attribute:: test_history
+                                    .. attribute:: rma_history
                                     
-                                    	Test history
+                                    	RMA history
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -1661,9 +1661,9 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: rma_history
+                                    .. attribute:: test_history
                                     
-                                    	RMA history
+                                    	Test history
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -1677,14 +1677,14 @@ class Diag(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.test_history = None
-                                        self.rma_number = None
                                         self.rma_history = None
+                                        self.rma_number = None
+                                        self.test_history = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:rma'
 
@@ -1695,13 +1695,13 @@ class Diag(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.test_history is not None:
+                                        if self.rma_history is not None:
                                             return True
 
                                         if self.rma_number is not None:
                                             return True
 
-                                        if self.rma_history is not None:
+                                        if self.test_history is not None:
                                             return True
 
                                         return False
@@ -1714,7 +1714,7 @@ class Diag(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:information'
 
@@ -1725,13 +1725,43 @@ class Diag(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.rma is not None and self.rma._has_data():
+                                    if self.asset_alias is not None:
                                         return True
 
-                                    if self.description is not None:
+                                    if self.asset_id is not None:
                                         return True
 
-                                    if self.idprom_format_rev is not None:
+                                    if self.base_mac_address1 is not None:
+                                        return True
+
+                                    if self.base_mac_address2 is not None:
+                                        return True
+
+                                    if self.base_mac_address3 is not None:
+                                        return True
+
+                                    if self.base_mac_address4 is not None:
+                                        return True
+
+                                    if self.block_checksum is not None:
+                                        return True
+
+                                    if self.block_count is not None:
+                                        return True
+
+                                    if self.block_length is not None:
+                                        return True
+
+                                    if self.block_signature is not None:
+                                        return True
+
+                                    if self.block_version is not None:
+                                        return True
+
+                                    if self.chassis_sid is not None:
+                                        return True
+
+                                    if self.clei is not None:
                                         return True
 
                                     if self.controller_family is not None:
@@ -1740,40 +1770,7 @@ class Diag(object):
                                     if self.controller_type is not None:
                                         return True
 
-                                    if self.vid is not None:
-                                        return True
-
-                                    if self.hwid is not None:
-                                        return True
-
-                                    if self.pid is not None:
-                                        return True
-
-                                    if self.udi_description is not None:
-                                        return True
-
-                                    if self.udi_name is not None:
-                                        return True
-
-                                    if self.clei is not None:
-                                        return True
-
-                                    if self.eci is not None:
-                                        return True
-
-                                    if self.top_assem_part_num is not None:
-                                        return True
-
-                                    if self.top_assem_vid is not None:
-                                        return True
-
-                                    if self.pca_num is not None:
-                                        return True
-
-                                    if self.pcavid is not None:
-                                        return True
-
-                                    if self.chassis_sid is not None:
+                                    if self.description is not None:
                                         return True
 
                                     if self.dev_num1 is not None:
@@ -1797,64 +1794,13 @@ class Diag(object):
                                     if self.dev_num7 is not None:
                                         return True
 
-                                    if self.manu_test_data is not None:
-                                        return True
-
-                                    if self.asset_id is not None:
-                                        return True
-
-                                    if self.asset_alias is not None:
-                                        return True
-
-                                    if self.base_mac_address1 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size1 is not None:
-                                        return True
-
-                                    if self.base_mac_address2 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size2 is not None:
-                                        return True
-
-                                    if self.base_mac_address3 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size3 is not None:
-                                        return True
-
-                                    if self.base_mac_address4 is not None:
-                                        return True
-
-                                    if self.mac_add_blk_size4 is not None:
-                                        return True
-
-                                    if self.pcb_serial_num is not None:
-                                        return True
-
-                                    if self.power_supply_type is not None:
-                                        return True
-
-                                    if self.power_consumption is not None:
-                                        return True
-
-                                    if self.block_signature is not None:
-                                        return True
-
-                                    if self.block_version is not None:
-                                        return True
-
-                                    if self.block_length is not None:
-                                        return True
-
-                                    if self.block_checksum is not None:
+                                    if self.eci is not None:
                                         return True
 
                                     if self.eeprom_size is not None:
                                         return True
 
-                                    if self.block_count is not None:
+                                    if self.engineer_use is not None:
                                         return True
 
                                     if self.fru_major_type is not None:
@@ -1863,13 +1809,37 @@ class Diag(object):
                                     if self.fru_minor_type is not None:
                                         return True
 
+                                    if self.hw_version is not None:
+                                        return True
+
+                                    if self.hwid is not None:
+                                        return True
+
+                                    if self.idprom_format_rev is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size1 is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size2 is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size3 is not None:
+                                        return True
+
+                                    if self.mac_add_blk_size4 is not None:
+                                        return True
+
+                                    if self.manu_test_data is not None:
+                                        return True
+
+                                    if self.mfg_bits is not None:
+                                        return True
+
+                                    if self.mfg_deviation is not None:
+                                        return True
+
                                     if self.oem_string is not None:
-                                        return True
-
-                                    if self.product_id is not None:
-                                        return True
-
-                                    if self.serial_number is not None:
                                         return True
 
                                     if self.part_number is not None:
@@ -1878,22 +1848,52 @@ class Diag(object):
                                     if self.part_revision is not None:
                                         return True
 
-                                    if self.mfg_deviation is not None:
+                                    if self.pca_num is not None:
                                         return True
 
-                                    if self.hw_version is not None:
+                                    if self.pcavid is not None:
                                         return True
 
-                                    if self.mfg_bits is not None:
+                                    if self.pcb_serial_num is not None:
                                         return True
 
-                                    if self.engineer_use is not None:
+                                    if self.pid is not None:
+                                        return True
+
+                                    if self.power_consumption is not None:
+                                        return True
+
+                                    if self.power_supply_type is not None:
+                                        return True
+
+                                    if self.product_id is not None:
+                                        return True
+
+                                    if self.rma is not None and self.rma._has_data():
+                                        return True
+
+                                    if self.rma_code is not None:
+                                        return True
+
+                                    if self.serial_number is not None:
                                         return True
 
                                     if self.snmpoid is not None:
                                         return True
 
-                                    if self.rma_code is not None:
+                                    if self.top_assem_part_num is not None:
+                                        return True
+
+                                    if self.top_assem_vid is not None:
+                                        return True
+
+                                    if self.udi_description is not None:
+                                        return True
+
+                                    if self.udi_name is not None:
+                                        return True
+
+                                    if self.vid is not None:
                                         return True
 
                                     return False
@@ -1906,9 +1906,9 @@ class Diag(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.fans_name is None:
-                                    raise YPYDataValidationError('Key property fans_name is None')
+                                    raise YPYModelError('Key property fans_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:fans[Cisco-IOS-XR-sdr-invmgr-diag-oper:fans-name = ' + str(self.fans_name) + ']'
 
@@ -1935,7 +1935,7 @@ class Diag(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:fanses'
 
@@ -1961,9 +1961,9 @@ class Diag(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.fan_tray_name is None:
-                            raise YPYDataValidationError('Key property fan_tray_name is None')
+                            raise YPYModelError('Key property fan_tray_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:fan-tray[Cisco-IOS-XR-sdr-invmgr-diag-oper:fan-tray-name = ' + str(self.fan_tray_name) + ']'
 
@@ -1990,7 +1990,7 @@ class Diag(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:fan-traies'
 
@@ -2154,21 +2154,93 @@ class Diag(object):
                                     """
                                     Card instance
                                     
-                                    .. attribute:: rma
+                                    .. attribute:: asset_alias
                                     
-                                    	RMA Data
-                                    	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma>`
-                                    
-                                    .. attribute:: description
-                                    
-                                    	A textual description of physical entity
+                                    	Asset Alias
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: idprom_format_rev
+                                    .. attribute:: asset_id
                                     
-                                    	IDPROM Format Revision
+                                    	Asset ID
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: base_mac_address1
+                                    
+                                    	Base Mac Address #1
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: base_mac_address2
+                                    
+                                    	Base Mac Address #2
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: base_mac_address3
+                                    
+                                    	Base Mac Address #3
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: base_mac_address4
+                                    
+                                    	Base Mac Address #4
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: block_checksum
+                                    
+                                    	Block Checksum
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: block_count
+                                    
+                                    	Block Count
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: block_length
+                                    
+                                    	Block Length
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: block_signature
+                                    
+                                    	Block Signature
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: block_version
+                                    
+                                    	Block Version
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: chassis_sid
+                                    
+                                    	Chassis serial number
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: clei
+                                    
+                                    	Common Language Equipment Identifier (CLEI) code
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2187,86 +2259,9 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: vid
+                                    .. attribute:: description
                                     
-                                    	Version ID
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: hwid
-                                    
-                                    	Hardware Revision
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: pid
-                                    
-                                    	Product ID
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: udi_description
-                                    
-                                    	UDI description
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: udi_name
-                                    
-                                    	UDI name
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: clei
-                                    
-                                    	Common Language Equipment Identifier (CLEI) code
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: eci
-                                    
-                                    	Equipment Catalog Item (ECI) number
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: top_assem_part_num
-                                    
-                                    	Top assembly part number
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: top_assem_vid
-                                    
-                                    	Top assembly revision number
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: pca_num
-                                    
-                                    	PCA number
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: pcavid
-                                    
-                                    	PCA revision ID
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: chassis_sid
-                                    
-                                    	Chassis serial number
+                                    	A textual description of physical entity
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2320,128 +2315,9 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: manu_test_data
+                                    .. attribute:: eci
                                     
-                                    	Manufacturing Test Data
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: asset_id
-                                    
-                                    	Asset ID
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: asset_alias
-                                    
-                                    	Asset Alias
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: base_mac_address1
-                                    
-                                    	Base Mac Address #1
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: mac_add_blk_size1
-                                    
-                                    	Mac Address Block Size #1
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: base_mac_address2
-                                    
-                                    	Base Mac Address #2
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: mac_add_blk_size2
-                                    
-                                    	Mac Address Block Size #2
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: base_mac_address3
-                                    
-                                    	Base Mac Address #3
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: mac_add_blk_size3
-                                    
-                                    	Mac Address Block Size #3
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: base_mac_address4
-                                    
-                                    	Base Mac Address #4
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: mac_add_blk_size4
-                                    
-                                    	Mac Address Block Size #4
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: pcb_serial_num
-                                    
-                                    	PCB Serial Number
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: power_supply_type
-                                    
-                                    	Power Supply Type
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: power_consumption
-                                    
-                                    	Power Consumption
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: block_signature
-                                    
-                                    	Block Signature
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: block_version
-                                    
-                                    	Block Version
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: block_length
-                                    
-                                    	Block Length
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: block_checksum
-                                    
-                                    	Block Checksum
+                                    	Equipment Catalog Item (ECI) number
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2453,9 +2329,9 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: block_count
+                                    .. attribute:: engineer_use
                                     
-                                    	Block Count
+                                    	Engineer Use
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2474,23 +2350,79 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
+                                    .. attribute:: hw_version
+                                    
+                                    	Hardware Version
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: hwid
+                                    
+                                    	Hardware Revision
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: idprom_format_rev
+                                    
+                                    	IDPROM Format Revision
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: mac_add_blk_size1
+                                    
+                                    	Mac Address Block Size #1
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: mac_add_blk_size2
+                                    
+                                    	Mac Address Block Size #2
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: mac_add_blk_size3
+                                    
+                                    	Mac Address Block Size #3
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: mac_add_blk_size4
+                                    
+                                    	Mac Address Block Size #4
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: manu_test_data
+                                    
+                                    	Manufacturing Test Data
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: mfg_bits
+                                    
+                                    	MFG Bits
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: mfg_deviation
+                                    
+                                    	MFG Deviation
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
                                     .. attribute:: oem_string
                                     
                                     	OEM String
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: product_id
-                                    
-                                    	Product ID
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: serial_number
-                                    
-                                    	Serial Number
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2509,30 +2441,70 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: mfg_deviation
+                                    .. attribute:: pca_num
                                     
-                                    	MFG Deviation
+                                    	PCA number
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: hw_version
+                                    .. attribute:: pcavid
                                     
-                                    	Hardware Version
+                                    	PCA revision ID
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: mfg_bits
+                                    .. attribute:: pcb_serial_num
                                     
-                                    	MFG Bits
+                                    	PCB Serial Number
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: engineer_use
+                                    .. attribute:: pid
                                     
-                                    	Engineer Use
+                                    	Product ID
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: power_consumption
+                                    
+                                    	Power Consumption
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: power_supply_type
+                                    
+                                    	Power Supply Type
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: product_id
+                                    
+                                    	Product ID
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: rma
+                                    
+                                    	RMA Data
+                                    	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma>`
+                                    
+                                    .. attribute:: rma_code
+                                    
+                                    	RMA Code
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: serial_number
+                                    
+                                    	Serial Number
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2544,9 +2516,37 @@ class Diag(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: rma_code
+                                    .. attribute:: top_assem_part_num
                                     
-                                    	RMA Code
+                                    	Top assembly part number
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: top_assem_vid
+                                    
+                                    	Top assembly revision number
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: udi_description
+                                    
+                                    	UDI description
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: udi_name
+                                    
+                                    	UDI name
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: vid
+                                    
+                                    	Version ID
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2560,24 +2560,22 @@ class Diag(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.rma = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma()
-                                        self.rma.parent = self
-                                        self.description = None
-                                        self.idprom_format_rev = None
+                                        self.asset_alias = None
+                                        self.asset_id = None
+                                        self.base_mac_address1 = None
+                                        self.base_mac_address2 = None
+                                        self.base_mac_address3 = None
+                                        self.base_mac_address4 = None
+                                        self.block_checksum = None
+                                        self.block_count = None
+                                        self.block_length = None
+                                        self.block_signature = None
+                                        self.block_version = None
+                                        self.chassis_sid = None
+                                        self.clei = None
                                         self.controller_family = None
                                         self.controller_type = None
-                                        self.vid = None
-                                        self.hwid = None
-                                        self.pid = None
-                                        self.udi_description = None
-                                        self.udi_name = None
-                                        self.clei = None
-                                        self.eci = None
-                                        self.top_assem_part_num = None
-                                        self.top_assem_vid = None
-                                        self.pca_num = None
-                                        self.pcavid = None
-                                        self.chassis_sid = None
+                                        self.description = None
                                         self.dev_num1 = None
                                         self.dev_num2 = None
                                         self.dev_num3 = None
@@ -2585,48 +2583,50 @@ class Diag(object):
                                         self.dev_num5 = None
                                         self.dev_num6 = None
                                         self.dev_num7 = None
-                                        self.manu_test_data = None
-                                        self.asset_id = None
-                                        self.asset_alias = None
-                                        self.base_mac_address1 = None
-                                        self.mac_add_blk_size1 = None
-                                        self.base_mac_address2 = None
-                                        self.mac_add_blk_size2 = None
-                                        self.base_mac_address3 = None
-                                        self.mac_add_blk_size3 = None
-                                        self.base_mac_address4 = None
-                                        self.mac_add_blk_size4 = None
-                                        self.pcb_serial_num = None
-                                        self.power_supply_type = None
-                                        self.power_consumption = None
-                                        self.block_signature = None
-                                        self.block_version = None
-                                        self.block_length = None
-                                        self.block_checksum = None
+                                        self.eci = None
                                         self.eeprom_size = None
-                                        self.block_count = None
+                                        self.engineer_use = None
                                         self.fru_major_type = None
                                         self.fru_minor_type = None
+                                        self.hw_version = None
+                                        self.hwid = None
+                                        self.idprom_format_rev = None
+                                        self.mac_add_blk_size1 = None
+                                        self.mac_add_blk_size2 = None
+                                        self.mac_add_blk_size3 = None
+                                        self.mac_add_blk_size4 = None
+                                        self.manu_test_data = None
+                                        self.mfg_bits = None
+                                        self.mfg_deviation = None
                                         self.oem_string = None
-                                        self.product_id = None
-                                        self.serial_number = None
                                         self.part_number = None
                                         self.part_revision = None
-                                        self.mfg_deviation = None
-                                        self.hw_version = None
-                                        self.mfg_bits = None
-                                        self.engineer_use = None
-                                        self.snmpoid = None
+                                        self.pca_num = None
+                                        self.pcavid = None
+                                        self.pcb_serial_num = None
+                                        self.pid = None
+                                        self.power_consumption = None
+                                        self.power_supply_type = None
+                                        self.product_id = None
+                                        self.rma = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma()
+                                        self.rma.parent = self
                                         self.rma_code = None
+                                        self.serial_number = None
+                                        self.snmpoid = None
+                                        self.top_assem_part_num = None
+                                        self.top_assem_vid = None
+                                        self.udi_description = None
+                                        self.udi_name = None
+                                        self.vid = None
 
 
                                     class Rma(object):
                                         """
                                         RMA Data
                                         
-                                        .. attribute:: test_history
+                                        .. attribute:: rma_history
                                         
-                                        	Test history
+                                        	RMA history
                                         	**type**\: str
                                         
                                         	**range:** 0..255
@@ -2638,9 +2638,9 @@ class Diag(object):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: rma_history
+                                        .. attribute:: test_history
                                         
-                                        	RMA history
+                                        	Test history
                                         	**type**\: str
                                         
                                         	**range:** 0..255
@@ -2654,14 +2654,14 @@ class Diag(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.test_history = None
-                                            self.rma_number = None
                                             self.rma_history = None
+                                            self.rma_number = None
+                                            self.test_history = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:rma'
 
@@ -2672,13 +2672,13 @@ class Diag(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.test_history is not None:
+                                            if self.rma_history is not None:
                                                 return True
 
                                             if self.rma_number is not None:
                                                 return True
 
-                                            if self.rma_history is not None:
+                                            if self.test_history is not None:
                                                 return True
 
                                             return False
@@ -2691,7 +2691,7 @@ class Diag(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:card-instance'
 
@@ -2702,13 +2702,43 @@ class Diag(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.rma is not None and self.rma._has_data():
+                                        if self.asset_alias is not None:
                                             return True
 
-                                        if self.description is not None:
+                                        if self.asset_id is not None:
                                             return True
 
-                                        if self.idprom_format_rev is not None:
+                                        if self.base_mac_address1 is not None:
+                                            return True
+
+                                        if self.base_mac_address2 is not None:
+                                            return True
+
+                                        if self.base_mac_address3 is not None:
+                                            return True
+
+                                        if self.base_mac_address4 is not None:
+                                            return True
+
+                                        if self.block_checksum is not None:
+                                            return True
+
+                                        if self.block_count is not None:
+                                            return True
+
+                                        if self.block_length is not None:
+                                            return True
+
+                                        if self.block_signature is not None:
+                                            return True
+
+                                        if self.block_version is not None:
+                                            return True
+
+                                        if self.chassis_sid is not None:
+                                            return True
+
+                                        if self.clei is not None:
                                             return True
 
                                         if self.controller_family is not None:
@@ -2717,40 +2747,7 @@ class Diag(object):
                                         if self.controller_type is not None:
                                             return True
 
-                                        if self.vid is not None:
-                                            return True
-
-                                        if self.hwid is not None:
-                                            return True
-
-                                        if self.pid is not None:
-                                            return True
-
-                                        if self.udi_description is not None:
-                                            return True
-
-                                        if self.udi_name is not None:
-                                            return True
-
-                                        if self.clei is not None:
-                                            return True
-
-                                        if self.eci is not None:
-                                            return True
-
-                                        if self.top_assem_part_num is not None:
-                                            return True
-
-                                        if self.top_assem_vid is not None:
-                                            return True
-
-                                        if self.pca_num is not None:
-                                            return True
-
-                                        if self.pcavid is not None:
-                                            return True
-
-                                        if self.chassis_sid is not None:
+                                        if self.description is not None:
                                             return True
 
                                         if self.dev_num1 is not None:
@@ -2774,64 +2771,13 @@ class Diag(object):
                                         if self.dev_num7 is not None:
                                             return True
 
-                                        if self.manu_test_data is not None:
-                                            return True
-
-                                        if self.asset_id is not None:
-                                            return True
-
-                                        if self.asset_alias is not None:
-                                            return True
-
-                                        if self.base_mac_address1 is not None:
-                                            return True
-
-                                        if self.mac_add_blk_size1 is not None:
-                                            return True
-
-                                        if self.base_mac_address2 is not None:
-                                            return True
-
-                                        if self.mac_add_blk_size2 is not None:
-                                            return True
-
-                                        if self.base_mac_address3 is not None:
-                                            return True
-
-                                        if self.mac_add_blk_size3 is not None:
-                                            return True
-
-                                        if self.base_mac_address4 is not None:
-                                            return True
-
-                                        if self.mac_add_blk_size4 is not None:
-                                            return True
-
-                                        if self.pcb_serial_num is not None:
-                                            return True
-
-                                        if self.power_supply_type is not None:
-                                            return True
-
-                                        if self.power_consumption is not None:
-                                            return True
-
-                                        if self.block_signature is not None:
-                                            return True
-
-                                        if self.block_version is not None:
-                                            return True
-
-                                        if self.block_length is not None:
-                                            return True
-
-                                        if self.block_checksum is not None:
+                                        if self.eci is not None:
                                             return True
 
                                         if self.eeprom_size is not None:
                                             return True
 
-                                        if self.block_count is not None:
+                                        if self.engineer_use is not None:
                                             return True
 
                                         if self.fru_major_type is not None:
@@ -2840,13 +2786,37 @@ class Diag(object):
                                         if self.fru_minor_type is not None:
                                             return True
 
+                                        if self.hw_version is not None:
+                                            return True
+
+                                        if self.hwid is not None:
+                                            return True
+
+                                        if self.idprom_format_rev is not None:
+                                            return True
+
+                                        if self.mac_add_blk_size1 is not None:
+                                            return True
+
+                                        if self.mac_add_blk_size2 is not None:
+                                            return True
+
+                                        if self.mac_add_blk_size3 is not None:
+                                            return True
+
+                                        if self.mac_add_blk_size4 is not None:
+                                            return True
+
+                                        if self.manu_test_data is not None:
+                                            return True
+
+                                        if self.mfg_bits is not None:
+                                            return True
+
+                                        if self.mfg_deviation is not None:
+                                            return True
+
                                         if self.oem_string is not None:
-                                            return True
-
-                                        if self.product_id is not None:
-                                            return True
-
-                                        if self.serial_number is not None:
                                             return True
 
                                         if self.part_number is not None:
@@ -2855,22 +2825,52 @@ class Diag(object):
                                         if self.part_revision is not None:
                                             return True
 
-                                        if self.mfg_deviation is not None:
+                                        if self.pca_num is not None:
                                             return True
 
-                                        if self.hw_version is not None:
+                                        if self.pcavid is not None:
                                             return True
 
-                                        if self.mfg_bits is not None:
+                                        if self.pcb_serial_num is not None:
                                             return True
 
-                                        if self.engineer_use is not None:
+                                        if self.pid is not None:
+                                            return True
+
+                                        if self.power_consumption is not None:
+                                            return True
+
+                                        if self.power_supply_type is not None:
+                                            return True
+
+                                        if self.product_id is not None:
+                                            return True
+
+                                        if self.rma is not None and self.rma._has_data():
+                                            return True
+
+                                        if self.rma_code is not None:
+                                            return True
+
+                                        if self.serial_number is not None:
                                             return True
 
                                         if self.snmpoid is not None:
                                             return True
 
-                                        if self.rma_code is not None:
+                                        if self.top_assem_part_num is not None:
+                                            return True
+
+                                        if self.top_assem_vid is not None:
+                                            return True
+
+                                        if self.udi_description is not None:
+                                            return True
+
+                                        if self.udi_name is not None:
+                                            return True
+
+                                        if self.vid is not None:
                                             return True
 
                                         return False
@@ -2883,7 +2883,7 @@ class Diag(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:detail'
 
@@ -2910,9 +2910,9 @@ class Diag(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.name is None:
-                                    raise YPYDataValidationError('Key property name is None')
+                                    raise YPYModelError('Key property name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:instance[Cisco-IOS-XR-sdr-invmgr-diag-oper:name = ' + str(self.name) + ']'
 
@@ -2939,7 +2939,7 @@ class Diag(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:instances'
 
@@ -2965,9 +2965,9 @@ class Diag(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.slot_name is None:
-                            raise YPYDataValidationError('Key property slot_name is None')
+                            raise YPYModelError('Key property slot_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:slot[Cisco-IOS-XR-sdr-invmgr-diag-oper:slot-name = ' + str(self.slot_name) + ']'
 
@@ -2994,7 +2994,7 @@ class Diag(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:slots'
 
@@ -3022,21 +3022,93 @@ class Diag(object):
                 """
                 Chassis information
                 
-                .. attribute:: rma
+                .. attribute:: asset_alias
                 
-                	RMA Data
-                	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis.Rma>`
-                
-                .. attribute:: description
-                
-                	A textual description of physical entity
+                	Asset Alias
                 	**type**\: str
                 
                 	**range:** 0..255
                 
-                .. attribute:: idprom_format_rev
+                .. attribute:: asset_id
                 
-                	IDPROM Format Revision
+                	Asset ID
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: base_mac_address1
+                
+                	Base Mac Address #1
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: base_mac_address2
+                
+                	Base Mac Address #2
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: base_mac_address3
+                
+                	Base Mac Address #3
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: base_mac_address4
+                
+                	Base Mac Address #4
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: block_checksum
+                
+                	Block Checksum
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: block_count
+                
+                	Block Count
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: block_length
+                
+                	Block Length
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: block_signature
+                
+                	Block Signature
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: block_version
+                
+                	Block Version
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: chassis_sid
+                
+                	Chassis serial number
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: clei
+                
+                	Common Language Equipment Identifier (CLEI) code
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3055,86 +3127,9 @@ class Diag(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: vid
+                .. attribute:: description
                 
-                	Version ID
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: hwid
-                
-                	Hardware Revision
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: pid
-                
-                	Product ID
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: udi_description
-                
-                	UDI description
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: udi_name
-                
-                	UDI name
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: clei
-                
-                	Common Language Equipment Identifier (CLEI) code
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: eci
-                
-                	Equipment Catalog Item (ECI) number
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: top_assem_part_num
-                
-                	Top assembly part number
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: top_assem_vid
-                
-                	Top assembly revision number
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: pca_num
-                
-                	PCA number
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: pcavid
-                
-                	PCA revision ID
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: chassis_sid
-                
-                	Chassis serial number
+                	A textual description of physical entity
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3188,128 +3183,9 @@ class Diag(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: manu_test_data
+                .. attribute:: eci
                 
-                	Manufacturing Test Data
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: asset_id
-                
-                	Asset ID
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: asset_alias
-                
-                	Asset Alias
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: base_mac_address1
-                
-                	Base Mac Address #1
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: mac_add_blk_size1
-                
-                	Mac Address Block Size #1
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: base_mac_address2
-                
-                	Base Mac Address #2
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: mac_add_blk_size2
-                
-                	Mac Address Block Size #2
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: base_mac_address3
-                
-                	Base Mac Address #3
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: mac_add_blk_size3
-                
-                	Mac Address Block Size #3
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: base_mac_address4
-                
-                	Base Mac Address #4
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: mac_add_blk_size4
-                
-                	Mac Address Block Size #4
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: pcb_serial_num
-                
-                	PCB Serial Number
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: power_supply_type
-                
-                	Power Supply Type
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: power_consumption
-                
-                	Power Consumption
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: block_signature
-                
-                	Block Signature
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: block_version
-                
-                	Block Version
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: block_length
-                
-                	Block Length
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: block_checksum
-                
-                	Block Checksum
+                	Equipment Catalog Item (ECI) number
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3321,9 +3197,9 @@ class Diag(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: block_count
+                .. attribute:: engineer_use
                 
-                	Block Count
+                	Engineer Use
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3342,23 +3218,79 @@ class Diag(object):
                 
                 	**range:** 0..255
                 
+                .. attribute:: hw_version
+                
+                	Hardware Version
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: hwid
+                
+                	Hardware Revision
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: idprom_format_rev
+                
+                	IDPROM Format Revision
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: mac_add_blk_size1
+                
+                	Mac Address Block Size #1
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: mac_add_blk_size2
+                
+                	Mac Address Block Size #2
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: mac_add_blk_size3
+                
+                	Mac Address Block Size #3
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: mac_add_blk_size4
+                
+                	Mac Address Block Size #4
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: manu_test_data
+                
+                	Manufacturing Test Data
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: mfg_bits
+                
+                	MFG Bits
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: mfg_deviation
+                
+                	MFG Deviation
+                	**type**\: str
+                
+                	**range:** 0..255
+                
                 .. attribute:: oem_string
                 
                 	OEM String
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: product_id
-                
-                	Product ID
-                	**type**\: str
-                
-                	**range:** 0..255
-                
-                .. attribute:: serial_number
-                
-                	Serial Number
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3377,30 +3309,70 @@ class Diag(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: mfg_deviation
+                .. attribute:: pca_num
                 
-                	MFG Deviation
+                	PCA number
                 	**type**\: str
                 
                 	**range:** 0..255
                 
-                .. attribute:: hw_version
+                .. attribute:: pcavid
                 
-                	Hardware Version
+                	PCA revision ID
                 	**type**\: str
                 
                 	**range:** 0..255
                 
-                .. attribute:: mfg_bits
+                .. attribute:: pcb_serial_num
                 
-                	MFG Bits
+                	PCB Serial Number
                 	**type**\: str
                 
                 	**range:** 0..255
                 
-                .. attribute:: engineer_use
+                .. attribute:: pid
                 
-                	Engineer Use
+                	Product ID
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: power_consumption
+                
+                	Power Consumption
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: power_supply_type
+                
+                	Power Supply Type
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: product_id
+                
+                	Product ID
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: rma
+                
+                	RMA Data
+                	**type**\: :py:class:`Rma <ydk.models.sdr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis.Rma>`
+                
+                .. attribute:: rma_code
+                
+                	RMA Code
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: serial_number
+                
+                	Serial Number
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3412,9 +3384,37 @@ class Diag(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: rma_code
+                .. attribute:: top_assem_part_num
                 
-                	RMA Code
+                	Top assembly part number
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: top_assem_vid
+                
+                	Top assembly revision number
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: udi_description
+                
+                	UDI description
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: udi_name
+                
+                	UDI name
+                	**type**\: str
+                
+                	**range:** 0..255
+                
+                .. attribute:: vid
+                
+                	Version ID
                 	**type**\: str
                 
                 	**range:** 0..255
@@ -3428,24 +3428,22 @@ class Diag(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.rma = Diag.Racks.Rack.Chassis.Rma()
-                    self.rma.parent = self
-                    self.description = None
-                    self.idprom_format_rev = None
+                    self.asset_alias = None
+                    self.asset_id = None
+                    self.base_mac_address1 = None
+                    self.base_mac_address2 = None
+                    self.base_mac_address3 = None
+                    self.base_mac_address4 = None
+                    self.block_checksum = None
+                    self.block_count = None
+                    self.block_length = None
+                    self.block_signature = None
+                    self.block_version = None
+                    self.chassis_sid = None
+                    self.clei = None
                     self.controller_family = None
                     self.controller_type = None
-                    self.vid = None
-                    self.hwid = None
-                    self.pid = None
-                    self.udi_description = None
-                    self.udi_name = None
-                    self.clei = None
-                    self.eci = None
-                    self.top_assem_part_num = None
-                    self.top_assem_vid = None
-                    self.pca_num = None
-                    self.pcavid = None
-                    self.chassis_sid = None
+                    self.description = None
                     self.dev_num1 = None
                     self.dev_num2 = None
                     self.dev_num3 = None
@@ -3453,48 +3451,50 @@ class Diag(object):
                     self.dev_num5 = None
                     self.dev_num6 = None
                     self.dev_num7 = None
-                    self.manu_test_data = None
-                    self.asset_id = None
-                    self.asset_alias = None
-                    self.base_mac_address1 = None
-                    self.mac_add_blk_size1 = None
-                    self.base_mac_address2 = None
-                    self.mac_add_blk_size2 = None
-                    self.base_mac_address3 = None
-                    self.mac_add_blk_size3 = None
-                    self.base_mac_address4 = None
-                    self.mac_add_blk_size4 = None
-                    self.pcb_serial_num = None
-                    self.power_supply_type = None
-                    self.power_consumption = None
-                    self.block_signature = None
-                    self.block_version = None
-                    self.block_length = None
-                    self.block_checksum = None
+                    self.eci = None
                     self.eeprom_size = None
-                    self.block_count = None
+                    self.engineer_use = None
                     self.fru_major_type = None
                     self.fru_minor_type = None
+                    self.hw_version = None
+                    self.hwid = None
+                    self.idprom_format_rev = None
+                    self.mac_add_blk_size1 = None
+                    self.mac_add_blk_size2 = None
+                    self.mac_add_blk_size3 = None
+                    self.mac_add_blk_size4 = None
+                    self.manu_test_data = None
+                    self.mfg_bits = None
+                    self.mfg_deviation = None
                     self.oem_string = None
-                    self.product_id = None
-                    self.serial_number = None
                     self.part_number = None
                     self.part_revision = None
-                    self.mfg_deviation = None
-                    self.hw_version = None
-                    self.mfg_bits = None
-                    self.engineer_use = None
-                    self.snmpoid = None
+                    self.pca_num = None
+                    self.pcavid = None
+                    self.pcb_serial_num = None
+                    self.pid = None
+                    self.power_consumption = None
+                    self.power_supply_type = None
+                    self.product_id = None
+                    self.rma = Diag.Racks.Rack.Chassis.Rma()
+                    self.rma.parent = self
                     self.rma_code = None
+                    self.serial_number = None
+                    self.snmpoid = None
+                    self.top_assem_part_num = None
+                    self.top_assem_vid = None
+                    self.udi_description = None
+                    self.udi_name = None
+                    self.vid = None
 
 
                 class Rma(object):
                     """
                     RMA Data
                     
-                    .. attribute:: test_history
+                    .. attribute:: rma_history
                     
-                    	Test history
+                    	RMA history
                     	**type**\: str
                     
                     	**range:** 0..255
@@ -3506,9 +3506,9 @@ class Diag(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: rma_history
+                    .. attribute:: test_history
                     
-                    	RMA history
+                    	Test history
                     	**type**\: str
                     
                     	**range:** 0..255
@@ -3522,14 +3522,14 @@ class Diag(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.test_history = None
-                        self.rma_number = None
                         self.rma_history = None
+                        self.rma_number = None
+                        self.test_history = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:rma'
 
@@ -3540,13 +3540,13 @@ class Diag(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.test_history is not None:
+                        if self.rma_history is not None:
                             return True
 
                         if self.rma_number is not None:
                             return True
 
-                        if self.rma_history is not None:
+                        if self.test_history is not None:
                             return True
 
                         return False
@@ -3559,7 +3559,7 @@ class Diag(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-sdr-invmgr-diag-oper:chassis'
 
@@ -3570,13 +3570,43 @@ class Diag(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.rma is not None and self.rma._has_data():
+                    if self.asset_alias is not None:
                         return True
 
-                    if self.description is not None:
+                    if self.asset_id is not None:
                         return True
 
-                    if self.idprom_format_rev is not None:
+                    if self.base_mac_address1 is not None:
+                        return True
+
+                    if self.base_mac_address2 is not None:
+                        return True
+
+                    if self.base_mac_address3 is not None:
+                        return True
+
+                    if self.base_mac_address4 is not None:
+                        return True
+
+                    if self.block_checksum is not None:
+                        return True
+
+                    if self.block_count is not None:
+                        return True
+
+                    if self.block_length is not None:
+                        return True
+
+                    if self.block_signature is not None:
+                        return True
+
+                    if self.block_version is not None:
+                        return True
+
+                    if self.chassis_sid is not None:
+                        return True
+
+                    if self.clei is not None:
                         return True
 
                     if self.controller_family is not None:
@@ -3585,40 +3615,7 @@ class Diag(object):
                     if self.controller_type is not None:
                         return True
 
-                    if self.vid is not None:
-                        return True
-
-                    if self.hwid is not None:
-                        return True
-
-                    if self.pid is not None:
-                        return True
-
-                    if self.udi_description is not None:
-                        return True
-
-                    if self.udi_name is not None:
-                        return True
-
-                    if self.clei is not None:
-                        return True
-
-                    if self.eci is not None:
-                        return True
-
-                    if self.top_assem_part_num is not None:
-                        return True
-
-                    if self.top_assem_vid is not None:
-                        return True
-
-                    if self.pca_num is not None:
-                        return True
-
-                    if self.pcavid is not None:
-                        return True
-
-                    if self.chassis_sid is not None:
+                    if self.description is not None:
                         return True
 
                     if self.dev_num1 is not None:
@@ -3642,64 +3639,13 @@ class Diag(object):
                     if self.dev_num7 is not None:
                         return True
 
-                    if self.manu_test_data is not None:
-                        return True
-
-                    if self.asset_id is not None:
-                        return True
-
-                    if self.asset_alias is not None:
-                        return True
-
-                    if self.base_mac_address1 is not None:
-                        return True
-
-                    if self.mac_add_blk_size1 is not None:
-                        return True
-
-                    if self.base_mac_address2 is not None:
-                        return True
-
-                    if self.mac_add_blk_size2 is not None:
-                        return True
-
-                    if self.base_mac_address3 is not None:
-                        return True
-
-                    if self.mac_add_blk_size3 is not None:
-                        return True
-
-                    if self.base_mac_address4 is not None:
-                        return True
-
-                    if self.mac_add_blk_size4 is not None:
-                        return True
-
-                    if self.pcb_serial_num is not None:
-                        return True
-
-                    if self.power_supply_type is not None:
-                        return True
-
-                    if self.power_consumption is not None:
-                        return True
-
-                    if self.block_signature is not None:
-                        return True
-
-                    if self.block_version is not None:
-                        return True
-
-                    if self.block_length is not None:
-                        return True
-
-                    if self.block_checksum is not None:
+                    if self.eci is not None:
                         return True
 
                     if self.eeprom_size is not None:
                         return True
 
-                    if self.block_count is not None:
+                    if self.engineer_use is not None:
                         return True
 
                     if self.fru_major_type is not None:
@@ -3708,13 +3654,37 @@ class Diag(object):
                     if self.fru_minor_type is not None:
                         return True
 
+                    if self.hw_version is not None:
+                        return True
+
+                    if self.hwid is not None:
+                        return True
+
+                    if self.idprom_format_rev is not None:
+                        return True
+
+                    if self.mac_add_blk_size1 is not None:
+                        return True
+
+                    if self.mac_add_blk_size2 is not None:
+                        return True
+
+                    if self.mac_add_blk_size3 is not None:
+                        return True
+
+                    if self.mac_add_blk_size4 is not None:
+                        return True
+
+                    if self.manu_test_data is not None:
+                        return True
+
+                    if self.mfg_bits is not None:
+                        return True
+
+                    if self.mfg_deviation is not None:
+                        return True
+
                     if self.oem_string is not None:
-                        return True
-
-                    if self.product_id is not None:
-                        return True
-
-                    if self.serial_number is not None:
                         return True
 
                     if self.part_number is not None:
@@ -3723,22 +3693,52 @@ class Diag(object):
                     if self.part_revision is not None:
                         return True
 
-                    if self.mfg_deviation is not None:
+                    if self.pca_num is not None:
                         return True
 
-                    if self.hw_version is not None:
+                    if self.pcavid is not None:
                         return True
 
-                    if self.mfg_bits is not None:
+                    if self.pcb_serial_num is not None:
                         return True
 
-                    if self.engineer_use is not None:
+                    if self.pid is not None:
+                        return True
+
+                    if self.power_consumption is not None:
+                        return True
+
+                    if self.power_supply_type is not None:
+                        return True
+
+                    if self.product_id is not None:
+                        return True
+
+                    if self.rma is not None and self.rma._has_data():
+                        return True
+
+                    if self.rma_code is not None:
+                        return True
+
+                    if self.serial_number is not None:
                         return True
 
                     if self.snmpoid is not None:
                         return True
 
-                    if self.rma_code is not None:
+                    if self.top_assem_part_num is not None:
+                        return True
+
+                    if self.top_assem_vid is not None:
+                        return True
+
+                    if self.udi_description is not None:
+                        return True
+
+                    if self.udi_name is not None:
+                        return True
+
+                    if self.vid is not None:
                         return True
 
                     return False
@@ -3751,7 +3751,7 @@ class Diag(object):
             @property
             def _common_path(self):
                 if self.rack_name is None:
-                    raise YPYDataValidationError('Key property rack_name is None')
+                    raise YPYModelError('Key property rack_name is None')
 
                 return '/Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/Cisco-IOS-XR-sdr-invmgr-diag-oper:racks/Cisco-IOS-XR-sdr-invmgr-diag-oper:rack[Cisco-IOS-XR-sdr-invmgr-diag-oper:rack-name = ' + str(self.rack_name) + ']'
 
@@ -3765,16 +3765,16 @@ class Diag(object):
                 if self.rack_name is not None:
                     return True
 
-                if self.power_shelfs is not None and self.power_shelfs._has_data():
+                if self.chassis is not None and self.chassis._has_data():
                     return True
 
                 if self.fan_traies is not None and self.fan_traies._has_data():
                     return True
 
-                if self.slots is not None and self.slots._has_data():
+                if self.power_shelfs is not None and self.power_shelfs._has_data():
                     return True
 
-                if self.chassis is not None and self.chassis._has_data():
+                if self.slots is not None and self.slots._has_data():
                     return True
 
                 return False

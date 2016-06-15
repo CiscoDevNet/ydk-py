@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -28,6 +28,16 @@ from ydk.errors import YPYError, YPYDataValidationError
 class RoutingPolicy(object):
     """
     Routing policy configuration
+    
+    .. attribute:: editor
+    
+    	'emacs' or 'vim' or 'nano'
+    	**type**\: str
+    
+    .. attribute:: limits
+    
+    	Limits for Routing Policy
+    	**type**\: :py:class:`Limits <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Limits>`
     
     .. attribute:: route_policies
     
@@ -39,16 +49,6 @@ class RoutingPolicy(object):
     	All configured sets
     	**type**\: :py:class:`Sets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets>`
     
-    .. attribute:: limits
-    
-    	Limits for Routing Policy
-    	**type**\: :py:class:`Limits <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Limits>`
-    
-    .. attribute:: editor
-    
-    	'emacs' or 'vim' or 'nano'
-    	**type**\: str
-    
     
 
     """
@@ -57,13 +57,13 @@ class RoutingPolicy(object):
     _revision = '2015-08-27'
 
     def __init__(self):
+        self.editor = None
+        self.limits = RoutingPolicy.Limits()
+        self.limits.parent = self
         self.route_policies = RoutingPolicy.RoutePolicies()
         self.route_policies.parent = self
         self.sets = RoutingPolicy.Sets()
         self.sets.parent = self
-        self.limits = RoutingPolicy.Limits()
-        self.limits.parent = self
-        self.editor = None
 
 
     class RoutePolicies(object):
@@ -120,7 +120,7 @@ class RoutingPolicy(object):
             @property
             def _common_path(self):
                 if self.route_policy_name is None:
-                    raise YPYDataValidationError('Key property route_policy_name is None')
+                    raise YPYModelError('Key property route_policy_name is None')
 
                 return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:route-policies/Cisco-IOS-XR-policy-repository-cfg:route-policy[Cisco-IOS-XR-policy-repository-cfg:route-policy-name = ' + str(self.route_policy_name) + ']'
 
@@ -173,11 +173,6 @@ class RoutingPolicy(object):
         """
         All configured sets
         
-        .. attribute:: prefix_sets
-        
-        	Information about Prefix sets
-        	**type**\: :py:class:`PrefixSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets>`
-        
         .. attribute:: append_extended_community_opaque_sets
         
         	Information about Opaque sets
@@ -187,81 +182,6 @@ class RoutingPolicy(object):
         
         	Information about SegNH sets
         	**type**\: :py:class:`AppendExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendExtendedCommunitySegNhSets>`
-        
-        .. attribute:: remove_extended_community_opaque_sets
-        
-        	Information about Opaque sets
-        	**type**\: :py:class:`RemoveExtendedCommunityOpaqueSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveExtendedCommunityOpaqueSets>`
-        
-        .. attribute:: extended_community_opaque_sets
-        
-        	Information about Opaque sets
-        	**type**\: :py:class:`ExtendedCommunityOpaqueSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets>`
-        
-        .. attribute:: remove_extended_community_seg_nh_sets
-        
-        	Information about SegNH sets
-        	**type**\: :py:class:`RemoveExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveExtendedCommunitySegNhSets>`
-        
-        .. attribute:: remove_ospf_area_sets
-        
-        	Information about OSPF Area sets
-        	**type**\: :py:class:`RemoveOspfAreaSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveOspfAreaSets>`
-        
-        .. attribute:: ospf_area_sets
-        
-        	Information about OSPF Area sets
-        	**type**\: :py:class:`OspfAreaSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets>`
-        
-        .. attribute:: extended_community_cost_sets
-        
-        	Information about Cost sets
-        	**type**\: :py:class:`ExtendedCommunityCostSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets>`
-        
-        .. attribute:: extended_community_soo_sets
-        
-        	Information about SOO sets
-        	**type**\: :py:class:`ExtendedCommunitySooSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets>`
-        
-        .. attribute:: prepend_extended_community_opaque_sets
-        
-        	Information about Opaque sets
-        	**type**\: :py:class:`PrependExtendedCommunityOpaqueSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependExtendedCommunityOpaqueSets>`
-        
-        .. attribute:: extended_community_seg_nh_sets
-        
-        	Information about SegNH sets
-        	**type**\: :py:class:`ExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySegNhSets>`
-        
-        .. attribute:: rd_sets
-        
-        	Information about RD sets
-        	**type**\: :py:class:`RdSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets>`
-        
-        .. attribute:: policy_global_set_table
-        
-        	Information about PolicyGlobal sets
-        	**type**\: :py:class:`PolicyGlobalSetTable <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PolicyGlobalSetTable>`
-        
-        .. attribute:: prepend_extended_community_seg_nh_sets
-        
-        	Information about SegNH sets
-        	**type**\: :py:class:`PrependExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependExtendedCommunitySegNhSets>`
-        
-        .. attribute:: extended_community_bandwidth_sets
-        
-        	Information about Bandwidth sets
-        	**type**\: :py:class:`ExtendedCommunityBandwidthSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityBandwidthSets>`
-        
-        .. attribute:: community_sets
-        
-        	Information about Community sets
-        	**type**\: :py:class:`CommunitySets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets>`
-        
-        .. attribute:: prepend_ospf_area_sets
-        
-        	Information about OSPF Area sets
-        	**type**\: :py:class:`PrependOspfAreaSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependOspfAreaSets>`
         
         .. attribute:: append_ospf_area_sets
         
@@ -273,15 +193,95 @@ class RoutingPolicy(object):
         	Information about AS Path sets
         	**type**\: :py:class:`AsPathSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AsPathSets>`
         
-        .. attribute:: tag_sets
+        .. attribute:: community_sets
         
-        	Information about Tag sets
-        	**type**\: :py:class:`TagSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.TagSets>`
+        	Information about Community sets
+        	**type**\: :py:class:`CommunitySets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets>`
+        
+        .. attribute:: extended_community_bandwidth_sets
+        
+        	Information about Bandwidth sets
+        	**type**\: :py:class:`ExtendedCommunityBandwidthSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityBandwidthSets>`
+        
+        .. attribute:: extended_community_cost_sets
+        
+        	Information about Cost sets
+        	**type**\: :py:class:`ExtendedCommunityCostSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets>`
+        
+        .. attribute:: extended_community_opaque_sets
+        
+        	Information about Opaque sets
+        	**type**\: :py:class:`ExtendedCommunityOpaqueSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets>`
         
         .. attribute:: extended_community_rt_sets
         
         	Information about RT sets
         	**type**\: :py:class:`ExtendedCommunityRtSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityRtSets>`
+        
+        .. attribute:: extended_community_seg_nh_sets
+        
+        	Information about SegNH sets
+        	**type**\: :py:class:`ExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySegNhSets>`
+        
+        .. attribute:: extended_community_soo_sets
+        
+        	Information about SOO sets
+        	**type**\: :py:class:`ExtendedCommunitySooSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets>`
+        
+        .. attribute:: ospf_area_sets
+        
+        	Information about OSPF Area sets
+        	**type**\: :py:class:`OspfAreaSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets>`
+        
+        .. attribute:: policy_global_set_table
+        
+        	Information about PolicyGlobal sets
+        	**type**\: :py:class:`PolicyGlobalSetTable <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PolicyGlobalSetTable>`
+        
+        .. attribute:: prefix_sets
+        
+        	Information about Prefix sets
+        	**type**\: :py:class:`PrefixSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets>`
+        
+        .. attribute:: prepend_extended_community_opaque_sets
+        
+        	Information about Opaque sets
+        	**type**\: :py:class:`PrependExtendedCommunityOpaqueSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependExtendedCommunityOpaqueSets>`
+        
+        .. attribute:: prepend_extended_community_seg_nh_sets
+        
+        	Information about SegNH sets
+        	**type**\: :py:class:`PrependExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependExtendedCommunitySegNhSets>`
+        
+        .. attribute:: prepend_ospf_area_sets
+        
+        	Information about OSPF Area sets
+        	**type**\: :py:class:`PrependOspfAreaSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependOspfAreaSets>`
+        
+        .. attribute:: rd_sets
+        
+        	Information about RD sets
+        	**type**\: :py:class:`RdSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets>`
+        
+        .. attribute:: remove_extended_community_opaque_sets
+        
+        	Information about Opaque sets
+        	**type**\: :py:class:`RemoveExtendedCommunityOpaqueSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveExtendedCommunityOpaqueSets>`
+        
+        .. attribute:: remove_extended_community_seg_nh_sets
+        
+        	Information about SegNH sets
+        	**type**\: :py:class:`RemoveExtendedCommunitySegNhSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveExtendedCommunitySegNhSets>`
+        
+        .. attribute:: remove_ospf_area_sets
+        
+        	Information about OSPF Area sets
+        	**type**\: :py:class:`RemoveOspfAreaSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveOspfAreaSets>`
+        
+        .. attribute:: tag_sets
+        
+        	Information about Tag sets
+        	**type**\: :py:class:`TagSets <ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.TagSets>`
         
         
 
@@ -292,50 +292,50 @@ class RoutingPolicy(object):
 
         def __init__(self):
             self.parent = None
-            self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
-            self.prefix_sets.parent = self
             self.append_extended_community_opaque_sets = RoutingPolicy.Sets.AppendExtendedCommunityOpaqueSets()
             self.append_extended_community_opaque_sets.parent = self
             self.append_extended_community_seg_nh_sets = RoutingPolicy.Sets.AppendExtendedCommunitySegNhSets()
             self.append_extended_community_seg_nh_sets.parent = self
-            self.remove_extended_community_opaque_sets = RoutingPolicy.Sets.RemoveExtendedCommunityOpaqueSets()
-            self.remove_extended_community_opaque_sets.parent = self
-            self.extended_community_opaque_sets = RoutingPolicy.Sets.ExtendedCommunityOpaqueSets()
-            self.extended_community_opaque_sets.parent = self
-            self.remove_extended_community_seg_nh_sets = RoutingPolicy.Sets.RemoveExtendedCommunitySegNhSets()
-            self.remove_extended_community_seg_nh_sets.parent = self
-            self.remove_ospf_area_sets = RoutingPolicy.Sets.RemoveOspfAreaSets()
-            self.remove_ospf_area_sets.parent = self
-            self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
-            self.ospf_area_sets.parent = self
-            self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
-            self.extended_community_cost_sets.parent = self
-            self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
-            self.extended_community_soo_sets.parent = self
-            self.prepend_extended_community_opaque_sets = RoutingPolicy.Sets.PrependExtendedCommunityOpaqueSets()
-            self.prepend_extended_community_opaque_sets.parent = self
-            self.extended_community_seg_nh_sets = RoutingPolicy.Sets.ExtendedCommunitySegNhSets()
-            self.extended_community_seg_nh_sets.parent = self
-            self.rd_sets = RoutingPolicy.Sets.RdSets()
-            self.rd_sets.parent = self
-            self.policy_global_set_table = RoutingPolicy.Sets.PolicyGlobalSetTable()
-            self.policy_global_set_table.parent = self
-            self.prepend_extended_community_seg_nh_sets = RoutingPolicy.Sets.PrependExtendedCommunitySegNhSets()
-            self.prepend_extended_community_seg_nh_sets.parent = self
-            self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
-            self.extended_community_bandwidth_sets.parent = self
-            self.community_sets = RoutingPolicy.Sets.CommunitySets()
-            self.community_sets.parent = self
-            self.prepend_ospf_area_sets = RoutingPolicy.Sets.PrependOspfAreaSets()
-            self.prepend_ospf_area_sets.parent = self
             self.append_ospf_area_sets = RoutingPolicy.Sets.AppendOspfAreaSets()
             self.append_ospf_area_sets.parent = self
             self.as_path_sets = RoutingPolicy.Sets.AsPathSets()
             self.as_path_sets.parent = self
-            self.tag_sets = RoutingPolicy.Sets.TagSets()
-            self.tag_sets.parent = self
+            self.community_sets = RoutingPolicy.Sets.CommunitySets()
+            self.community_sets.parent = self
+            self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
+            self.extended_community_bandwidth_sets.parent = self
+            self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
+            self.extended_community_cost_sets.parent = self
+            self.extended_community_opaque_sets = RoutingPolicy.Sets.ExtendedCommunityOpaqueSets()
+            self.extended_community_opaque_sets.parent = self
             self.extended_community_rt_sets = RoutingPolicy.Sets.ExtendedCommunityRtSets()
             self.extended_community_rt_sets.parent = self
+            self.extended_community_seg_nh_sets = RoutingPolicy.Sets.ExtendedCommunitySegNhSets()
+            self.extended_community_seg_nh_sets.parent = self
+            self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
+            self.extended_community_soo_sets.parent = self
+            self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
+            self.ospf_area_sets.parent = self
+            self.policy_global_set_table = RoutingPolicy.Sets.PolicyGlobalSetTable()
+            self.policy_global_set_table.parent = self
+            self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
+            self.prefix_sets.parent = self
+            self.prepend_extended_community_opaque_sets = RoutingPolicy.Sets.PrependExtendedCommunityOpaqueSets()
+            self.prepend_extended_community_opaque_sets.parent = self
+            self.prepend_extended_community_seg_nh_sets = RoutingPolicy.Sets.PrependExtendedCommunitySegNhSets()
+            self.prepend_extended_community_seg_nh_sets.parent = self
+            self.prepend_ospf_area_sets = RoutingPolicy.Sets.PrependOspfAreaSets()
+            self.prepend_ospf_area_sets.parent = self
+            self.rd_sets = RoutingPolicy.Sets.RdSets()
+            self.rd_sets.parent = self
+            self.remove_extended_community_opaque_sets = RoutingPolicy.Sets.RemoveExtendedCommunityOpaqueSets()
+            self.remove_extended_community_opaque_sets.parent = self
+            self.remove_extended_community_seg_nh_sets = RoutingPolicy.Sets.RemoveExtendedCommunitySegNhSets()
+            self.remove_extended_community_seg_nh_sets.parent = self
+            self.remove_ospf_area_sets = RoutingPolicy.Sets.RemoveOspfAreaSets()
+            self.remove_ospf_area_sets.parent = self
+            self.tag_sets = RoutingPolicy.Sets.TagSets()
+            self.tag_sets.parent = self
 
 
         class PrefixSets(object):
@@ -392,7 +392,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prefix-sets/Cisco-IOS-XR-policy-repository-cfg:prefix-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -495,7 +495,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-extended-community-opaque-sets/Cisco-IOS-XR-policy-repository-cfg:append-extended-community-opaque-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -598,7 +598,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-extended-community-seg-nh-sets/Cisco-IOS-XR-policy-repository-cfg:append-extended-community-seg-nh-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -701,7 +701,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-extended-community-opaque-sets/Cisco-IOS-XR-policy-repository-cfg:remove-extended-community-opaque-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -804,7 +804,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-opaque-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-opaque-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -907,7 +907,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-extended-community-seg-nh-sets/Cisco-IOS-XR-policy-repository-cfg:remove-extended-community-seg-nh-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1010,7 +1010,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-ospf-area-sets/Cisco-IOS-XR-policy-repository-cfg:remove-ospf-area-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1128,7 +1128,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:ospf-area-sets/Cisco-IOS-XR-policy-repository-cfg:ospf-area-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1231,7 +1231,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-cost-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-cost-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1334,7 +1334,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-soo-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-soo-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1437,7 +1437,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-extended-community-opaque-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-extended-community-opaque-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1540,7 +1540,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-seg-nh-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-seg-nh-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1643,7 +1643,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:rd-sets/Cisco-IOS-XR-policy-repository-cfg:rd-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1789,7 +1789,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-extended-community-seg-nh-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-extended-community-seg-nh-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1892,7 +1892,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-bandwidth-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-bandwidth-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -1995,7 +1995,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:community-sets/Cisco-IOS-XR-policy-repository-cfg:community-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -2098,7 +2098,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-ospf-area-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-ospf-area-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -2201,7 +2201,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-ospf-area-sets/Cisco-IOS-XR-policy-repository-cfg:append-ospf-area-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -2304,7 +2304,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:as-path-sets/Cisco-IOS-XR-policy-repository-cfg:as-path-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -2407,7 +2407,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:tag-sets/Cisco-IOS-XR-policy-repository-cfg:tag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -2510,7 +2510,7 @@ class RoutingPolicy(object):
                 @property
                 def _common_path(self):
                     if self.set_name is None:
-                        raise YPYDataValidationError('Key property set_name is None')
+                        raise YPYModelError('Key property set_name is None')
 
                     return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-rt-sets/Cisco-IOS-XR-policy-repository-cfg:extended-community-rt-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
 
@@ -2570,58 +2570,10 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.prefix_sets is not None and self.prefix_sets._has_data():
-                return True
-
             if self.append_extended_community_opaque_sets is not None and self.append_extended_community_opaque_sets._has_data():
                 return True
 
             if self.append_extended_community_seg_nh_sets is not None and self.append_extended_community_seg_nh_sets._has_data():
-                return True
-
-            if self.remove_extended_community_opaque_sets is not None and self.remove_extended_community_opaque_sets._has_data():
-                return True
-
-            if self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets._has_data():
-                return True
-
-            if self.remove_extended_community_seg_nh_sets is not None and self.remove_extended_community_seg_nh_sets._has_data():
-                return True
-
-            if self.remove_ospf_area_sets is not None and self.remove_ospf_area_sets._has_data():
-                return True
-
-            if self.ospf_area_sets is not None and self.ospf_area_sets._has_data():
-                return True
-
-            if self.extended_community_cost_sets is not None and self.extended_community_cost_sets._has_data():
-                return True
-
-            if self.extended_community_soo_sets is not None and self.extended_community_soo_sets._has_data():
-                return True
-
-            if self.prepend_extended_community_opaque_sets is not None and self.prepend_extended_community_opaque_sets._has_data():
-                return True
-
-            if self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets._has_data():
-                return True
-
-            if self.rd_sets is not None and self.rd_sets._has_data():
-                return True
-
-            if self.policy_global_set_table is not None and self.policy_global_set_table._has_data():
-                return True
-
-            if self.prepend_extended_community_seg_nh_sets is not None and self.prepend_extended_community_seg_nh_sets._has_data():
-                return True
-
-            if self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets._has_data():
-                return True
-
-            if self.community_sets is not None and self.community_sets._has_data():
-                return True
-
-            if self.prepend_ospf_area_sets is not None and self.prepend_ospf_area_sets._has_data():
                 return True
 
             if self.append_ospf_area_sets is not None and self.append_ospf_area_sets._has_data():
@@ -2630,10 +2582,58 @@ class RoutingPolicy(object):
             if self.as_path_sets is not None and self.as_path_sets._has_data():
                 return True
 
-            if self.tag_sets is not None and self.tag_sets._has_data():
+            if self.community_sets is not None and self.community_sets._has_data():
+                return True
+
+            if self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets._has_data():
+                return True
+
+            if self.extended_community_cost_sets is not None and self.extended_community_cost_sets._has_data():
+                return True
+
+            if self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets._has_data():
                 return True
 
             if self.extended_community_rt_sets is not None and self.extended_community_rt_sets._has_data():
+                return True
+
+            if self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets._has_data():
+                return True
+
+            if self.extended_community_soo_sets is not None and self.extended_community_soo_sets._has_data():
+                return True
+
+            if self.ospf_area_sets is not None and self.ospf_area_sets._has_data():
+                return True
+
+            if self.policy_global_set_table is not None and self.policy_global_set_table._has_data():
+                return True
+
+            if self.prefix_sets is not None and self.prefix_sets._has_data():
+                return True
+
+            if self.prepend_extended_community_opaque_sets is not None and self.prepend_extended_community_opaque_sets._has_data():
+                return True
+
+            if self.prepend_extended_community_seg_nh_sets is not None and self.prepend_extended_community_seg_nh_sets._has_data():
+                return True
+
+            if self.prepend_ospf_area_sets is not None and self.prepend_ospf_area_sets._has_data():
+                return True
+
+            if self.rd_sets is not None and self.rd_sets._has_data():
+                return True
+
+            if self.remove_extended_community_opaque_sets is not None and self.remove_extended_community_opaque_sets._has_data():
+                return True
+
+            if self.remove_extended_community_seg_nh_sets is not None and self.remove_extended_community_seg_nh_sets._has_data():
+                return True
+
+            if self.remove_ospf_area_sets is not None and self.remove_ospf_area_sets._has_data():
+                return True
+
+            if self.tag_sets is not None and self.tag_sets._has_data():
                 return True
 
             return False
@@ -2711,16 +2711,16 @@ class RoutingPolicy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.route_policies is not None and self.route_policies._has_data():
-            return True
-
-        if self.sets is not None and self.sets._has_data():
+        if self.editor is not None:
             return True
 
         if self.limits is not None and self.limits._has_data():
             return True
 
-        if self.editor is not None:
+        if self.route_policies is not None and self.route_policies._has_data():
+            return True
+
+        if self.sets is not None and self.sets._has_data():
             return True
 
         return False

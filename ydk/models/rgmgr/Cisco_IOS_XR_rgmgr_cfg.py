@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -56,15 +56,15 @@ class RedundancyGroupManager(object):
     	MR\-APS groups
     	**type**\: :py:class:`Aps <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
     
-    .. attribute:: iccp
-    
-    	ICCP configuration
-    	**type**\: :py:class:`Iccp <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
-    
     .. attribute:: enable
     
     	Enable redundancy group manager
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: iccp
+    
+    	ICCP configuration
+    	**type**\: :py:class:`Iccp <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
     
     
 
@@ -76,9 +76,9 @@ class RedundancyGroupManager(object):
     def __init__(self):
         self.aps = RedundancyGroupManager.Aps()
         self.aps.parent = self
+        self.enable = None
         self.iccp = RedundancyGroupManager.Iccp()
         self.iccp.parent = self
-        self.enable = None
 
 
     class Aps(object):
@@ -114,19 +114,19 @@ class RedundancyGroupManager(object):
             """
             Default SONET controller backup configuration
             
-            .. attribute:: next_hop_address
-            
-            	IPv4 address of remote peer
-            	**type**\: str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
             .. attribute:: backup_interface_name
             
             	Backup interface name
             	**type**\: str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: next_hop_address
+            
+            	IPv4 address of remote peer
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             
 
@@ -137,8 +137,8 @@ class RedundancyGroupManager(object):
 
             def __init__(self):
                 self.parent = None
-                self.next_hop_address = None
                 self.backup_interface_name = None
+                self.next_hop_address = None
 
             @property
             def _common_path(self):
@@ -152,10 +152,10 @@ class RedundancyGroupManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.next_hop_address is not None:
+                if self.backup_interface_name is not None:
                     return True
 
-                if self.backup_interface_name is not None:
+                if self.next_hop_address is not None:
                     return True
 
                 return False
@@ -253,19 +253,19 @@ class RedundancyGroupManager(object):
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: next_hop_address
-                        
-                        	IPv4 address of remote peer
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: backup_interface_name
                         
                         	Backup interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: next_hop_address
+                        
+                        	IPv4 address of remote peer
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -277,15 +277,15 @@ class RedundancyGroupManager(object):
                         def __init__(self):
                             self.parent = None
                             self.controller_name = None
-                            self.next_hop_address = None
                             self.backup_interface_name = None
+                            self.next_hop_address = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.controller_name is None:
-                                raise YPYDataValidationError('Key property controller_name is None')
+                                raise YPYModelError('Key property controller_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-rgmgr-cfg:controller[Cisco-IOS-XR-rgmgr-cfg:controller-name = ' + str(self.controller_name) + ']'
 
@@ -299,10 +299,10 @@ class RedundancyGroupManager(object):
                             if self.controller_name is not None:
                                 return True
 
-                            if self.next_hop_address is not None:
+                            if self.backup_interface_name is not None:
                                 return True
 
-                            if self.backup_interface_name is not None:
+                            if self.next_hop_address is not None:
                                 return True
 
                             return False
@@ -315,7 +315,7 @@ class RedundancyGroupManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-rgmgr-cfg:controllers'
 
@@ -341,7 +341,7 @@ class RedundancyGroupManager(object):
                 @property
                 def _common_path(self):
                     if self.group_id is None:
-                        raise YPYDataValidationError('Key property group_id is None')
+                        raise YPYModelError('Key property group_id is None')
 
                     return '/Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/Cisco-IOS-XR-rgmgr-cfg:aps/Cisco-IOS-XR-rgmgr-cfg:groups/Cisco-IOS-XR-rgmgr-cfg:group[Cisco-IOS-XR-rgmgr-cfg:group-id = ' + str(self.group_id) + ']'
 
@@ -476,17 +476,17 @@ class RedundancyGroupManager(object):
                 	ICCP backbone configuration
                 	**type**\: :py:class:`Backbones <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
                 
-                .. attribute:: members
-                
-                	ICCP member configuration
-                	**type**\: :py:class:`Members <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
-                
                 .. attribute:: isolation_recovery_delay
                 
                 	ICCP isolation recovery delay
                 	**type**\: int
                 
                 	**range:** 30..600
+                
+                .. attribute:: members
+                
+                	ICCP member configuration
+                	**type**\: :py:class:`Members <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
                 
                 .. attribute:: mode
                 
@@ -510,9 +510,9 @@ class RedundancyGroupManager(object):
                     self.group_number = None
                     self.backbones = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones()
                     self.backbones.parent = self
+                    self.isolation_recovery_delay = None
                     self.members = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members()
                     self.members.parent = self
-                    self.isolation_recovery_delay = None
                     self.mode = None
                     self.nv_satellite = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite()
                     self.nv_satellite.parent = self
@@ -566,9 +566,9 @@ class RedundancyGroupManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.backbone_name is None:
-                                raise YPYDataValidationError('Key property backbone_name is None')
+                                raise YPYModelError('Key property backbone_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-rgmgr-cfg:backbone[Cisco-IOS-XR-rgmgr-cfg:backbone-name = ' + str(self.backbone_name) + ']'
 
@@ -592,7 +592,7 @@ class RedundancyGroupManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-rgmgr-cfg:backbones'
 
@@ -664,9 +664,9 @@ class RedundancyGroupManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.neighbor_address is None:
-                                raise YPYDataValidationError('Key property neighbor_address is None')
+                                raise YPYModelError('Key property neighbor_address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-rgmgr-cfg:member[Cisco-IOS-XR-rgmgr-cfg:neighbor-address = ' + str(self.neighbor_address) + ']'
 
@@ -690,7 +690,7 @@ class RedundancyGroupManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-rgmgr-cfg:members'
 
@@ -739,7 +739,7 @@ class RedundancyGroupManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite'
 
@@ -763,7 +763,7 @@ class RedundancyGroupManager(object):
                 @property
                 def _common_path(self):
                     if self.group_number is None:
-                        raise YPYDataValidationError('Key property group_number is None')
+                        raise YPYModelError('Key property group_number is None')
 
                     return '/Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/Cisco-IOS-XR-rgmgr-cfg:iccp/Cisco-IOS-XR-rgmgr-cfg:iccp-groups/Cisco-IOS-XR-rgmgr-cfg:iccp-group[Cisco-IOS-XR-rgmgr-cfg:group-number = ' + str(self.group_number) + ']'
 
@@ -780,10 +780,10 @@ class RedundancyGroupManager(object):
                     if self.backbones is not None and self.backbones._has_data():
                         return True
 
-                    if self.members is not None and self.members._has_data():
+                    if self.isolation_recovery_delay is not None:
                         return True
 
-                    if self.isolation_recovery_delay is not None:
+                    if self.members is not None and self.members._has_data():
                         return True
 
                     if self.mode is not None:
@@ -860,10 +860,10 @@ class RedundancyGroupManager(object):
         if self.aps is not None and self.aps._has_data():
             return True
 
-        if self.iccp is not None and self.iccp._has_data():
+        if self.enable is not None:
             return True
 
-        if self.enable is not None:
+        if self.iccp is not None and self.iccp._has_data():
             return True
 
         return False

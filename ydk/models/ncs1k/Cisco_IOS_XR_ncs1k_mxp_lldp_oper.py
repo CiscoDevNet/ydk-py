@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -102,7 +102,7 @@ class LldpSnoopData(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:ethernet-controller-names/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:ethernet-controller-name[Cisco-IOS-XR-ncs1k-mxp-lldp-oper:name = ' + str(self.name) + ']'
 

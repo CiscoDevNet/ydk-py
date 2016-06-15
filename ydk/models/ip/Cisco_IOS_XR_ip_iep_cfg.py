@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -177,15 +177,15 @@ class IpExplicitPaths(object):
             	Path type
             	**type**\: :py:class:`IpIepPathEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepPathEnum>`
             
-            .. attribute:: name
-            
-            	name
-            	**type**\: list of :py:class:`Name <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name>`
-            
             .. attribute:: identifier
             
             	identifier
             	**type**\: list of :py:class:`Identifier <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier>`
+            
+            .. attribute:: name
+            
+            	name
+            	**type**\: list of :py:class:`Name <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name>`
             
             
 
@@ -197,12 +197,12 @@ class IpExplicitPaths(object):
             def __init__(self):
                 self.parent = None
                 self.type = None
-                self.name = YList()
-                self.name.parent = self
-                self.name.name = 'name'
                 self.identifier = YList()
                 self.identifier.parent = self
                 self.identifier.name = 'identifier'
+                self.name = YList()
+                self.name.parent = self
+                self.name.name = 'name'
 
 
             class Name(object):
@@ -216,15 +216,15 @@ class IpExplicitPaths(object):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: hops
-                
-                	List of Hops
-                	**type**\: :py:class:`Hops <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops>`
-                
                 .. attribute:: disable
                 
                 	Disable the explicit path
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: hops
+                
+                	List of Hops
+                	**type**\: :py:class:`Hops <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops>`
                 
                 
 
@@ -236,9 +236,9 @@ class IpExplicitPaths(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
+                    self.disable = None
                     self.hops = IpExplicitPaths.Paths.Path.Name.Hops()
                     self.hops.parent = self
-                    self.disable = None
 
 
                 class Hops(object):
@@ -275,13 +275,6 @@ class IpExplicitPaths(object):
                         
                         	**range:** 1..65535
                         
-                        .. attribute:: ip_address
-                        
-                        	IP address of the hop
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
@@ -294,10 +287,12 @@ class IpExplicitPaths(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: num_type
+                        .. attribute:: ip_address
                         
-                        	Number type Numbered or Unnumbered
-                        	**type**\: :py:class:`IpIepNumEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        	IP address of the hop
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: mpls_label
                         
@@ -305,6 +300,11 @@ class IpExplicitPaths(object):
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: num_type
+                        
+                        	Number type Numbered or Unnumbered
+                        	**type**\: :py:class:`IpIepNumEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
                         
                         
 
@@ -316,18 +316,18 @@ class IpExplicitPaths(object):
                         def __init__(self):
                             self.parent = None
                             self.index_number = None
-                            self.ip_address = None
                             self.hop_type = None
                             self.if_index = None
-                            self.num_type = None
+                            self.ip_address = None
                             self.mpls_label = None
+                            self.num_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.index_number is None:
-                                raise YPYDataValidationError('Key property index_number is None')
+                                raise YPYModelError('Key property index_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hop[Cisco-IOS-XR-ip-iep-cfg:index-number = ' + str(self.index_number) + ']'
 
@@ -341,19 +341,19 @@ class IpExplicitPaths(object):
                             if self.index_number is not None:
                                 return True
 
-                            if self.ip_address is not None:
-                                return True
-
                             if self.hop_type is not None:
                                 return True
 
                             if self.if_index is not None:
                                 return True
 
-                            if self.num_type is not None:
+                            if self.ip_address is not None:
                                 return True
 
                             if self.mpls_label is not None:
+                                return True
+
+                            if self.num_type is not None:
                                 return True
 
                             return False
@@ -366,7 +366,7 @@ class IpExplicitPaths(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hops'
 
@@ -392,9 +392,9 @@ class IpExplicitPaths(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:name[Cisco-IOS-XR-ip-iep-cfg:name = ' + str(self.name) + ']'
 
@@ -408,10 +408,10 @@ class IpExplicitPaths(object):
                     if self.name is not None:
                         return True
 
-                    if self.hops is not None and self.hops._has_data():
+                    if self.disable is not None:
                         return True
 
-                    if self.disable is not None:
+                    if self.hops is not None and self.hops._has_data():
                         return True
 
                     return False
@@ -433,15 +433,15 @@ class IpExplicitPaths(object):
                 
                 	**range:** 1..65535
                 
-                .. attribute:: hops
-                
-                	List of Hops
-                	**type**\: :py:class:`Hops <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops>`
-                
                 .. attribute:: disable
                 
                 	Disable the explicit path
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: hops
+                
+                	List of Hops
+                	**type**\: :py:class:`Hops <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops>`
                 
                 
 
@@ -453,9 +453,9 @@ class IpExplicitPaths(object):
                 def __init__(self):
                     self.parent = None
                     self.id = None
+                    self.disable = None
                     self.hops = IpExplicitPaths.Paths.Path.Identifier.Hops()
                     self.hops.parent = self
-                    self.disable = None
 
 
                 class Hops(object):
@@ -492,13 +492,6 @@ class IpExplicitPaths(object):
                         
                         	**range:** 1..65535
                         
-                        .. attribute:: ip_address
-                        
-                        	IP address of the hop
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
@@ -511,10 +504,12 @@ class IpExplicitPaths(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: num_type
+                        .. attribute:: ip_address
                         
-                        	Number type Numbered or Unnumbered
-                        	**type**\: :py:class:`IpIepNumEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        	IP address of the hop
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: mpls_label
                         
@@ -522,6 +517,11 @@ class IpExplicitPaths(object):
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: num_type
+                        
+                        	Number type Numbered or Unnumbered
+                        	**type**\: :py:class:`IpIepNumEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
                         
                         
 
@@ -533,18 +533,18 @@ class IpExplicitPaths(object):
                         def __init__(self):
                             self.parent = None
                             self.index_number = None
-                            self.ip_address = None
                             self.hop_type = None
                             self.if_index = None
-                            self.num_type = None
+                            self.ip_address = None
                             self.mpls_label = None
+                            self.num_type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.index_number is None:
-                                raise YPYDataValidationError('Key property index_number is None')
+                                raise YPYModelError('Key property index_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hop[Cisco-IOS-XR-ip-iep-cfg:index-number = ' + str(self.index_number) + ']'
 
@@ -558,19 +558,19 @@ class IpExplicitPaths(object):
                             if self.index_number is not None:
                                 return True
 
-                            if self.ip_address is not None:
-                                return True
-
                             if self.hop_type is not None:
                                 return True
 
                             if self.if_index is not None:
                                 return True
 
-                            if self.num_type is not None:
+                            if self.ip_address is not None:
                                 return True
 
                             if self.mpls_label is not None:
+                                return True
+
+                            if self.num_type is not None:
                                 return True
 
                             return False
@@ -583,7 +583,7 @@ class IpExplicitPaths(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hops'
 
@@ -609,9 +609,9 @@ class IpExplicitPaths(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.id is None:
-                        raise YPYDataValidationError('Key property id is None')
+                        raise YPYModelError('Key property id is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:identifier[Cisco-IOS-XR-ip-iep-cfg:id = ' + str(self.id) + ']'
 
@@ -625,10 +625,10 @@ class IpExplicitPaths(object):
                     if self.id is not None:
                         return True
 
-                    if self.hops is not None and self.hops._has_data():
+                    if self.disable is not None:
                         return True
 
-                    if self.disable is not None:
+                    if self.hops is not None and self.hops._has_data():
                         return True
 
                     return False
@@ -641,7 +641,7 @@ class IpExplicitPaths(object):
             @property
             def _common_path(self):
                 if self.type is None:
-                    raise YPYDataValidationError('Key property type is None')
+                    raise YPYModelError('Key property type is None')
 
                 return '/Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/Cisco-IOS-XR-ip-iep-cfg:paths/Cisco-IOS-XR-ip-iep-cfg:path[Cisco-IOS-XR-ip-iep-cfg:type = ' + str(self.type) + ']'
 
@@ -655,13 +655,13 @@ class IpExplicitPaths(object):
                 if self.type is not None:
                     return True
 
-                if self.name is not None:
-                    for child_ref in self.name:
+                if self.identifier is not None:
+                    for child_ref in self.identifier:
                         if child_ref._has_data():
                             return True
 
-                if self.identifier is not None:
-                    for child_ref in self.identifier:
+                if self.name is not None:
+                    for child_ref in self.name:
                         if child_ref._has_data():
                             return True
 

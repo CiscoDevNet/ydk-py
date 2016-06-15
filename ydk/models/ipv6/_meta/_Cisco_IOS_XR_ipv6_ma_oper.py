@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -44,12 +44,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -61,6 +55,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -85,12 +85,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -102,6 +96,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -126,11 +126,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-ma-oper', True),
-            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress', 
+            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address', 
                 [], [], 
-                '''                Link Local Address
+                '''                Address List
                 ''',
-                'link_local_address',
+                'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
                 [], [], 
@@ -138,11 +138,11 @@ _meta_table = {
                 ''',
                 'line_state',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address', 
+            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress', 
                 [], [], 
-                '''                Address List
+                '''                Link Local Address
                 ''',
-                'address',
+                'link_local_address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -179,12 +179,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -196,6 +190,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -214,18 +214,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList',
             False, 
             [
-            _MetaInfoClassMember('in-bound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to incoming packets
-                ''',
-                'in_bound',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('out-bound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to outgoing packets
-                ''',
-                'out_bound',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('common-in-bound', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Common ACL applied to incoming packets
@@ -238,6 +226,18 @@ _meta_table = {
                 ''',
                 'common_out_bound',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('in-bound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to incoming packets
+                ''',
+                'in_bound',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('out-bound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to outgoing packets
+                ''',
+                'out_bound',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
             'access-control-list',
@@ -249,6 +249,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList',
             False, 
             [
+            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Common ACLs
+                ''',
+                'common',
+                'Cisco-IOS-XR-ipv6-ma-oper', False, max_elements=5),
             _MetaInfoClassMember('inbound', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Inbound ACLs
@@ -261,12 +267,6 @@ _meta_table = {
                 ''',
                 'outbound',
                 'Cisco-IOS-XR-ipv6-ma-oper', False, max_elements=5),
-            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Common ACLs
-                ''',
-                'common',
-                'Cisco-IOS-XR-ipv6-ma-oper', False, max_elements=5),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
             'multi-access-control-list',
@@ -278,12 +278,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable RPF config
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('allow-default-route', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Allow Default Route
@@ -295,6 +289,12 @@ _meta_table = {
                 '''                Allow Self Ping
                 ''',
                 'allow_self_ping',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable RPF config
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('mode', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -313,6 +313,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -324,12 +330,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -342,6 +342,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -353,12 +359,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -472,12 +472,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -489,6 +483,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -513,29 +513,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-ma-oper', True),
-            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress', 
-                [], [], 
-                '''                Link Local Address
-                ''',
-                'link_local_address',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('access-control-list', REFERENCE_CLASS, 'AccessControlList' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList', 
                 [], [], 
                 '''                IPv6 Access Control List
                 ''',
                 'access_control_list',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('multi-access-control-list', REFERENCE_CLASS, 'MultiAccessControlList' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList', 
+            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address', 
                 [], [], 
-                '''                Multi IPv6 Access Control List
+                '''                Address List
                 ''',
-                'multi_access_control_list',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf', 
-                [], [], 
-                '''                RPF config on the interface
-                ''',
-                'rpf',
+                'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('bgp-pa', REFERENCE_CLASS, 'BgpPa' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa', 
                 [], [], 
@@ -543,77 +531,11 @@ _meta_table = {
                 ''',
                 'bgp_pa',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('utime', REFERENCE_CLASS, 'Utime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime', 
-                [], [], 
-                '''                Address Publish Time
-                ''',
-                'utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime', 
-                [], [], 
-                '''                IDB Create Time
-                ''',
-                'idb_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('caps-utime', REFERENCE_CLASS, 'CapsUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime', 
                 [], [], 
                 '''                CAPS Add Time
                 ''',
                 'caps_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime', 
-                [], [], 
-                '''                FWD ENABLE Time
-                ''',
-                'fwd_en_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('fwd-dis-utime', REFERENCE_CLASS, 'FwdDisUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime', 
-                [], [], 
-                '''                FWD DISABLE Time
-                ''',
-                'fwd_dis_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
-                [], [], 
-                '''                State of Interface Line
-                ''',
-                'line_state',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IPv6 MTU
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperStateEnum', 
-                [], [], 
-                '''                IPv6 Operation State
-                ''',
-                'operation_state',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('is-icmp-unreach-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                ICMP unreach Enable
-                ''',
-                'is_icmp_unreach_enabled',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Does ICCP RG ID exist on the interface?
-                ''',
-                'rg_id_exists',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is mLACP state Active (valid if RG ID exists)
-                ''',
-                'mlacp_active',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is BGP Flow Tag Source is enable
-                ''',
-                'flow_tag_src',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -621,17 +543,95 @@ _meta_table = {
                 ''',
                 'flow_tag_dst',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is BGP Flow Tag Source is enable
+                ''',
+                'flow_tag_src',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('fwd-dis-utime', REFERENCE_CLASS, 'FwdDisUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime', 
+                [], [], 
+                '''                FWD DISABLE Time
+                ''',
+                'fwd_dis_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime', 
+                [], [], 
+                '''                FWD ENABLE Time
+                ''',
+                'fwd_en_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime', 
+                [], [], 
+                '''                IDB Create Time
+                ''',
+                'idb_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('is-icmp-unreach-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                ICMP unreach Enable
+                ''',
+                'is_icmp_unreach_enabled',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
+                [], [], 
+                '''                State of Interface Line
+                ''',
+                'line_state',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress', 
+                [], [], 
+                '''                Link Local Address
+                ''',
+                'link_local_address',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is mLACP state Active (valid if RG ID exists)
+                ''',
+                'mlacp_active',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IPv6 MTU
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('multi-access-control-list', REFERENCE_CLASS, 'MultiAccessControlList' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList', 
+                [], [], 
+                '''                Multi IPv6 Access Control List
+                ''',
+                'multi_access_control_list',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('multicast-group', REFERENCE_LIST, 'MulticastGroup' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup', 
                 [], [], 
                 '''                IPv6 Multicast Group
                 ''',
                 'multicast_group',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address', 
+            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperStateEnum', 
                 [], [], 
-                '''                Address List
+                '''                IPv6 Operation State
                 ''',
-                'address',
+                'operation_state',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Does ICCP RG ID exist on the interface?
+                ''',
+                'rg_id_exists',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf', 
+                [], [], 
+                '''                RPF config on the interface
+                ''',
+                'rpf',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('utime', REFERENCE_CLASS, 'Utime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime', 
+                [], [], 
+                '''                Address Publish Time
+                ''',
+                'utime',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -668,12 +668,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -685,6 +679,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -709,12 +709,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -726,6 +720,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -750,11 +750,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-ma-oper', True),
-            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress', 
+            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address', 
                 [], [], 
-                '''                Link Local Address
+                '''                Address List
                 ''',
-                'link_local_address',
+                'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
                 [], [], 
@@ -762,11 +762,11 @@ _meta_table = {
                 ''',
                 'line_state',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address', 
+            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress', 
                 [], [], 
-                '''                Address List
+                '''                Link Local Address
                 ''',
-                'address',
+                'link_local_address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -803,12 +803,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -820,6 +814,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -838,18 +838,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList',
             False, 
             [
-            _MetaInfoClassMember('in-bound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to incoming packets
-                ''',
-                'in_bound',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('out-bound', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL applied to outgoing packets
-                ''',
-                'out_bound',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('common-in-bound', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Common ACL applied to incoming packets
@@ -862,6 +850,18 @@ _meta_table = {
                 ''',
                 'common_out_bound',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('in-bound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to incoming packets
+                ''',
+                'in_bound',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('out-bound', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL applied to outgoing packets
+                ''',
+                'out_bound',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
             'access-control-list',
@@ -873,6 +873,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList',
             False, 
             [
+            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Common ACLs
+                ''',
+                'common',
+                'Cisco-IOS-XR-ipv6-ma-oper', False, max_elements=5),
             _MetaInfoClassMember('inbound', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Inbound ACLs
@@ -885,12 +891,6 @@ _meta_table = {
                 ''',
                 'outbound',
                 'Cisco-IOS-XR-ipv6-ma-oper', False, max_elements=5),
-            _MetaInfoClassMember('common', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Common ACLs
-                ''',
-                'common',
-                'Cisco-IOS-XR-ipv6-ma-oper', False, max_elements=5),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
             'multi-access-control-list',
@@ -902,12 +902,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable RPF config
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('allow-default-route', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Allow Default Route
@@ -919,6 +913,12 @@ _meta_table = {
                 '''                Allow Self Ping
                 ''',
                 'allow_self_ping',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable RPF config
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('mode', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -937,6 +937,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -948,12 +954,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -966,6 +966,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output',
             False, 
             [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable destination accouting
+                ''',
+                'destination',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Enable BGP PA for ingress/egress
@@ -977,12 +983,6 @@ _meta_table = {
                 '''                Enable source accouting
                 ''',
                 'source',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable destination accouting
-                ''',
-                'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -1096,12 +1096,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Prefix Length of IPv6 Address
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
@@ -1113,6 +1107,12 @@ _meta_table = {
                 '''                Anycast address
                 ''',
                 'is_anycast',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix Length of IPv6 Address
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1137,29 +1137,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv6-ma-oper', True),
-            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress', 
-                [], [], 
-                '''                Link Local Address
-                ''',
-                'link_local_address',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('access-control-list', REFERENCE_CLASS, 'AccessControlList' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList', 
                 [], [], 
                 '''                IPv6 Access Control List
                 ''',
                 'access_control_list',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('multi-access-control-list', REFERENCE_CLASS, 'MultiAccessControlList' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList', 
+            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address', 
                 [], [], 
-                '''                Multi IPv6 Access Control List
+                '''                Address List
                 ''',
-                'multi_access_control_list',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf', 
-                [], [], 
-                '''                RPF config on the interface
-                ''',
-                'rpf',
+                'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('bgp-pa', REFERENCE_CLASS, 'BgpPa' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa', 
                 [], [], 
@@ -1167,77 +1155,11 @@ _meta_table = {
                 ''',
                 'bgp_pa',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('utime', REFERENCE_CLASS, 'Utime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime', 
-                [], [], 
-                '''                Address Publish Time
-                ''',
-                'utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime', 
-                [], [], 
-                '''                IDB Create Time
-                ''',
-                'idb_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('caps-utime', REFERENCE_CLASS, 'CapsUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime', 
                 [], [], 
                 '''                CAPS Add Time
                 ''',
                 'caps_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime', 
-                [], [], 
-                '''                FWD ENABLE Time
-                ''',
-                'fwd_en_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('fwd-dis-utime', REFERENCE_CLASS, 'FwdDisUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime', 
-                [], [], 
-                '''                FWD DISABLE Time
-                ''',
-                'fwd_dis_utime',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
-                [], [], 
-                '''                State of Interface Line
-                ''',
-                'line_state',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IPv6 MTU
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperStateEnum', 
-                [], [], 
-                '''                IPv6 Operation State
-                ''',
-                'operation_state',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('is-icmp-unreach-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                ICMP unreach Enable
-                ''',
-                'is_icmp_unreach_enabled',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Does ICCP RG ID exist on the interface?
-                ''',
-                'rg_id_exists',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is mLACP state Active (valid if RG ID exists)
-                ''',
-                'mlacp_active',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is BGP Flow Tag Source is enable
-                ''',
-                'flow_tag_src',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1245,17 +1167,95 @@ _meta_table = {
                 ''',
                 'flow_tag_dst',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('flow-tag-src', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is BGP Flow Tag Source is enable
+                ''',
+                'flow_tag_src',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('fwd-dis-utime', REFERENCE_CLASS, 'FwdDisUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime', 
+                [], [], 
+                '''                FWD DISABLE Time
+                ''',
+                'fwd_dis_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('fwd-en-utime', REFERENCE_CLASS, 'FwdEnUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime', 
+                [], [], 
+                '''                FWD ENABLE Time
+                ''',
+                'fwd_en_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('idb-utime', REFERENCE_CLASS, 'IdbUtime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime', 
+                [], [], 
+                '''                IDB Create Time
+                ''',
+                'idb_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('is-icmp-unreach-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                ICMP unreach Enable
+                ''',
+                'is_icmp_unreach_enabled',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
+                [], [], 
+                '''                State of Interface Line
+                ''',
+                'line_state',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('link-local-address', REFERENCE_CLASS, 'LinkLocalAddress' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress', 
+                [], [], 
+                '''                Link Local Address
+                ''',
+                'link_local_address',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('mlacp-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is mLACP state Active (valid if RG ID exists)
+                ''',
+                'mlacp_active',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IPv6 MTU
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('multi-access-control-list', REFERENCE_CLASS, 'MultiAccessControlList' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList', 
+                [], [], 
+                '''                Multi IPv6 Access Control List
+                ''',
+                'multi_access_control_list',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('multicast-group', REFERENCE_LIST, 'MulticastGroup' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup', 
                 [], [], 
                 '''                IPv6 Multicast Group
                 ''',
                 'multicast_group',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address', 
+            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperStateEnum', 
                 [], [], 
-                '''                Address List
+                '''                IPv6 Operation State
                 ''',
-                'address',
+                'operation_state',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('rg-id-exists', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Does ICCP RG ID exist on the interface?
+                ''',
+                'rg_id_exists',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf', 
+                [], [], 
+                '''                RPF config on the interface
+                ''',
+                'rpf',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('utime', REFERENCE_CLASS, 'Utime' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime', 
+                [], [], 
+                '''                Address Publish Time
+                ''',
+                'utime',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -1299,12 +1299,12 @@ _meta_table = {
                 ''',
                 'briefs',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('global-details', REFERENCE_CLASS, 'GlobalDetails' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails', 
+            _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details', 
                 [], [], 
                 '''                Detail interface IPv4 network operational
-                data for global data
+                data for a node
                 ''',
-                'global_details',
+                'details',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('global-briefs', REFERENCE_CLASS, 'GlobalBriefs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs', 
                 [], [], 
@@ -1313,12 +1313,12 @@ _meta_table = {
                 ''',
                 'global_briefs',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details', 
+            _MetaInfoClassMember('global-details', REFERENCE_CLASS, 'GlobalDetails' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails', 
                 [], [], 
                 '''                Detail interface IPv4 network operational
-                data for a node
+                data for global data
                 ''',
-                'details',
+                'global_details',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -1444,18 +1444,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Summary',
             False, 
             [
-            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp', 
-                [], [], 
-                '''                Number of interfaces (up,up)
-                ''',
-                'if_up_up',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown', 
-                [], [], 
-                '''                Number of interfaces (up,down)
-                ''',
-                'if_up_down',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('if-down-down', REFERENCE_CLASS, 'IfDownDown' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown', 
                 [], [], 
                 '''                Number of interfaces (down,down)
@@ -1468,11 +1456,23 @@ _meta_table = {
                 ''',
                 'if_shutdown_down',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown', 
+                [], [], 
+                '''                Number of interfaces (up,down)
+                ''',
+                'if_up_down',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('if-up-down-basecaps-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of interfaces (up,down) with basecaps up
                 ''',
                 'if_up_down_basecaps_up',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp', 
+                [], [], 
+                '''                Number of interfaces (up,up)
+                ''',
+                'if_up_up',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -1485,19 +1485,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData',
             False, 
             [
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs', 
-                [], [], 
-                '''                VRF specific IPv6 network operational
-                interface data
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Summary', 
                 [], [], 
                 '''                Summary of IPv6 network operational interface
                 data on a node
                 ''',
                 'summary',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs', 
+                [], [], 
+                '''                VRF specific IPv6 network operational
+                interface data
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -1647,18 +1647,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData.Summary',
             False, 
             [
-            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfUpUp', 
-                [], [], 
-                '''                Number of interfaces (up,up)
-                ''',
-                'if_up_up',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfUpDown', 
-                [], [], 
-                '''                Number of interfaces (up,down)
-                ''',
-                'if_up_down',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('if-down-down', REFERENCE_CLASS, 'IfDownDown' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfDownDown', 
                 [], [], 
                 '''                Number of interfaces (down,down)
@@ -1671,11 +1659,23 @@ _meta_table = {
                 ''',
                 'if_shutdown_down',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfUpDown', 
+                [], [], 
+                '''                Number of interfaces (up,down)
+                ''',
+                'if_up_down',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('if-up-down-basecaps-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of interfaces (up,down) with basecaps up
                 ''',
                 'if_up_down_basecaps_up',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfUpUp', 
+                [], [], 
+                '''                Number of interfaces (up,up)
+                ''',
+                'if_up_up',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',
@@ -1706,17 +1706,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Network',
             False, 
             [
-            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes', 
-                [], [], 
-                '''                Node-specific IPv6 network operational data
-                ''',
-                'nodes',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('interface-global-data', REFERENCE_CLASS, 'InterfaceGlobalData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData', 
                 [], [], 
                 '''                IPv6 network global operational interface data
                 ''',
                 'interface_global_data',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes', 
+                [], [], 
+                '''                Node-specific IPv6 network operational data
+                ''',
+                'nodes',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ma-oper',

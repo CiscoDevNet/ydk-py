@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,17 +18,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Clock.TimeZone',
             False, 
             [
-            _MetaInfoClassMember('time-zone-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of time zone
-                ''',
-                'time_zone_name',
-                'Cisco-IOS-XR-infra-infra-clock-linux-cfg', False),
             _MetaInfoClassMember('area-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Area File in zoneinfo package
                 ''',
                 'area_name',
+                'Cisco-IOS-XR-infra-infra-clock-linux-cfg', False),
+            _MetaInfoClassMember('time-zone-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of time zone
+                ''',
+                'time_zone_name',
                 'Cisco-IOS-XR-infra-infra-clock-linux-cfg', False),
             ],
             'Cisco-IOS-XR-infra-infra-clock-linux-cfg',

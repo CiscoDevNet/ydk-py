@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -222,17 +222,17 @@ _meta_table = {
                 ''',
                 'last_n_logs',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', True),
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary', 
-                [], [], 
-                '''                Show summary log file for last n operations
-                ''',
-                'summary',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail', 
                 [], [], 
                 '''                Show detailed log file for last n operations
                 ''',
                 'detail',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary', 
+                [], [], 
+                '''                Show summary log file for last n operations
+                ''',
+                'summary',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -279,6 +279,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Active.ActivePackageInfo',
             False, 
             [
+            _MetaInfoClassMember('active-packages', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ActivePackages
+                ''',
+                'active_packages',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('boot-partition-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                BootPartitionName
+                ''',
+                'boot_partition_name',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('error-message', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                ErrorMessage
@@ -297,23 +309,11 @@ _meta_table = {
                 ''',
                 'node_type',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('boot-partition-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                BootPartitionName
-                ''',
-                'boot_partition_name',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('number-of-active-packages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                NumberOfActivePackages
                 ''',
                 'number_of_active_packages',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('active-packages', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ActivePackages
-                ''',
-                'active_packages',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -394,11 +394,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Issu.Stage',
             False, 
             [
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsdStateEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdStateEtEnum', 
+            _MetaInfoClassMember('issu-error', REFERENCE_ENUM_CLASS, 'IsdErrorEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdErrorEtEnum', 
                 [], [], 
-                '''                State
+                '''                ISSU Error
                 ''',
-                'state',
+                'issu_error',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('issu-node-cnt', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -412,23 +412,23 @@ _meta_table = {
                 ''',
                 'issu_ready_node_cnt',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('percentage', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Percentage
-                ''',
-                'percentage',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('issu-status', REFERENCE_ENUM_CLASS, 'IsdIssuStatusEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdIssuStatusEtEnum', 
                 [], [], 
                 '''                Abort Status
                 ''',
                 'issu_status',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('issu-error', REFERENCE_ENUM_CLASS, 'IsdErrorEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdErrorEtEnum', 
-                [], [], 
-                '''                ISSU Error
+            _MetaInfoClassMember('percentage', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Percentage
                 ''',
-                'issu_error',
+                'percentage',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsdStateEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdStateEtEnum', 
+                [], [], 
+                '''                State
+                ''',
+                'state',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -441,23 +441,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Issu.Inventory.Invinfo',
             False, 
             [
+            _MetaInfoClassMember('issu-node-role', REFERENCE_ENUM_CLASS, 'IssuNodeRoleEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssuNodeRoleEtEnum', 
+                [], [], 
+                '''                ISSU Node Role
+                ''',
+                'issu_node_role',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Node ID
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'CardTypeEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'CardTypeEtEnum', 
+            _MetaInfoClassMember('node-role', REFERENCE_ENUM_CLASS, 'NodeRoleEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'NodeRoleEtEnum', 
                 [], [], 
-                '''                Node Type
+                '''                Node role
                 ''',
-                'node_type',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('issu-node-role', REFERENCE_ENUM_CLASS, 'IssuNodeRoleEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssuNodeRoleEtEnum', 
-                [], [], 
-                '''                ISSU Node Role
-                ''',
-                'issu_node_role',
+                'node_role',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'IssudirNodeStatusEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssudirNodeStatusEtEnum', 
                 [], [], 
@@ -465,11 +465,11 @@ _meta_table = {
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('node-role', REFERENCE_ENUM_CLASS, 'NodeRoleEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'NodeRoleEtEnum', 
+            _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'CardTypeEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'CardTypeEtEnum', 
                 [], [], 
-                '''                Node role
+                '''                Node Type
                 ''',
-                'node_role',
+                'node_type',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -499,17 +499,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Issu',
             False, 
             [
-            _MetaInfoClassMember('stage', REFERENCE_CLASS, 'Stage' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Issu.Stage', 
-                [], [], 
-                '''                Show XR install issu stage
-                ''',
-                'stage',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('inventory', REFERENCE_CLASS, 'Inventory' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Issu.Inventory', 
                 [], [], 
                 '''                Show XR install issu inventory
                 ''',
                 'inventory',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('stage', REFERENCE_CLASS, 'Stage' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Issu.Stage', 
+                [], [], 
+                '''                Show XR install issu stage
+                ''',
+                'stage',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -522,6 +522,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Committed.CommittedPackageInfo',
             False, 
             [
+            _MetaInfoClassMember('boot-partition-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                BootPartitionName
+                ''',
+                'boot_partition_name',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('committed-packages', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                CommittedPackages
+                ''',
+                'committed_packages',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('error-message', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                ErrorMessage
@@ -540,23 +552,11 @@ _meta_table = {
                 ''',
                 'node_type',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('boot-partition-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                BootPartitionName
-                ''',
-                'boot_partition_name',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('number-of-committed-packages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                NumberOfCommittedPackages
                 ''',
                 'number_of_committed_packages',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('committed-packages', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                CommittedPackages
-                ''',
-                'committed_packages',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -620,17 +620,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.AllOperationsLog',
             False, 
             [
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.AllOperationsLog.Summary', 
-                [], [], 
-                '''                Show summary log file for all operations
-                ''',
-                'summary',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.AllOperationsLog.Detail', 
                 [], [], 
                 '''                Show detailed log file for all operations
                 ''',
                 'detail',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.AllOperationsLog.Summary', 
+                [], [], 
+                '''                Show summary log file for all operations
+                ''',
+                'summary',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -700,12 +700,6 @@ _meta_table = {
                 ''',
                 'package_name',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', True),
-            _MetaInfoClassMember('verbose', REFERENCE_CLASS, 'Verbose' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Packages.Package.Verbose', 
-                [], [], 
-                '''                Show the verbose info for a installed package
-                ''',
-                'verbose',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('brief', REFERENCE_CLASS, 'Brief' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Packages.Package.Brief', 
                 [], [], 
                 '''                Show the info for a installed package
@@ -717,6 +711,12 @@ _meta_table = {
                 '''                Show the deatil info for a installed package
                 ''',
                 'detail',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('verbose', REFERENCE_CLASS, 'Verbose' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Packages.Package.Verbose', 
+                [], [], 
+                '''                Show the verbose info for a installed package
+                ''',
+                'verbose',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -786,19 +786,19 @@ _meta_table = {
                 ''',
                 'log_id',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', True),
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.OperationLogs.OperationLog.Summary', 
-                [], [], 
-                '''                Show summary log file for the specified
-                install ID
-                ''',
-                'summary',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.OperationLogs.OperationLog.Detail', 
                 [], [], 
                 '''                Show detailed log file for the specified
                 install ID
                 ''',
                 'detail',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.OperationLogs.OperationLog.Summary', 
+                [], [], 
+                '''                Show summary log file for the specified
+                install ID
+                ''',
+                'summary',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -862,18 +862,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Repository',
             False, 
             [
-            _MetaInfoClassMember('xr', REFERENCE_CLASS, 'Xr' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Repository.Xr', 
-                [], [], 
-                '''                Show install software repository for XR
-                ''',
-                'xr',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('all', REFERENCE_CLASS, 'All' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Repository.All', 
                 [], [], 
                 '''                Show contents of all install software
                 repositories
                 ''',
                 'all',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('xr', REFERENCE_CLASS, 'Xr' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Repository.Xr', 
+                [], [], 
+                '''                Show install software repository for XR
+                ''',
+                'xr',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -886,59 +886,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall',
             False, 
             [
-            _MetaInfoClassMember('files', REFERENCE_CLASS, 'Files' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Files', 
-                [], [], 
-                '''                Show information about an installed file
-                ''',
-                'files',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('last-n-operation-logs', REFERENCE_CLASS, 'LastNOperationLogs' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.LastNOperationLogs', 
-                [], [], 
-                '''                Show log file for last n operations
-                ''',
-                'last_n_operation_logs',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('prepare', REFERENCE_CLASS, 'Prepare' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Prepare', 
-                [], [], 
-                '''                Show prepared packages ready for activation
-                ''',
-                'prepare',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('active', REFERENCE_CLASS, 'Active' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Active', 
                 [], [], 
                 '''                Show active packages installed
                 ''',
                 'active',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('version', REFERENCE_CLASS, 'Version' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Version', 
-                [], [], 
-                '''                Show install version
-                ''',
-                'version',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('inactive', REFERENCE_CLASS, 'Inactive' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Inactive', 
-                [], [], 
-                '''                Show XR inactive packages
-                ''',
-                'inactive',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Request', 
-                [], [], 
-                '''                Show current request
-                ''',
-                'request',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('issu', REFERENCE_CLASS, 'Issu' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Issu', 
-                [], [], 
-                '''                ISSU operation
-                ''',
-                'issu',
-                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('committed', REFERENCE_CLASS, 'Committed' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Committed', 
-                [], [], 
-                '''                Show Committed packages installed
-                ''',
-                'committed',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('all-operations-log', REFERENCE_CLASS, 'AllOperationsLog' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.AllOperationsLog', 
                 [], [], 
@@ -946,11 +898,35 @@ _meta_table = {
                 ''',
                 'all_operations_log',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('packages', REFERENCE_CLASS, 'Packages' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Packages', 
+            _MetaInfoClassMember('committed', REFERENCE_CLASS, 'Committed' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Committed', 
                 [], [], 
-                '''                Show the list of installed packages
+                '''                Show Committed packages installed
                 ''',
-                'packages',
+                'committed',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('files', REFERENCE_CLASS, 'Files' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Files', 
+                [], [], 
+                '''                Show information about an installed file
+                ''',
+                'files',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('inactive', REFERENCE_CLASS, 'Inactive' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Inactive', 
+                [], [], 
+                '''                Show XR inactive packages
+                ''',
+                'inactive',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('issu', REFERENCE_CLASS, 'Issu' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Issu', 
+                [], [], 
+                '''                ISSU operation
+                ''',
+                'issu',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('last-n-operation-logs', REFERENCE_CLASS, 'LastNOperationLogs' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.LastNOperationLogs', 
+                [], [], 
+                '''                Show log file for last n operations
+                ''',
+                'last_n_operation_logs',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('operation-logs', REFERENCE_CLASS, 'OperationLogs' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.OperationLogs', 
                 [], [], 
@@ -958,12 +934,36 @@ _meta_table = {
                 ''',
                 'operation_logs',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('packages', REFERENCE_CLASS, 'Packages' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Packages', 
+                [], [], 
+                '''                Show the list of installed packages
+                ''',
+                'packages',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('prepare', REFERENCE_CLASS, 'Prepare' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Prepare', 
+                [], [], 
+                '''                Show prepared packages ready for activation
+                ''',
+                'prepare',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('repository', REFERENCE_CLASS, 'Repository' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Repository', 
                 [], [], 
                 '''                Show packages stored in install software
                 repositories
                 ''',
                 'repository',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Request', 
+                [], [], 
+                '''                Show current request
+                ''',
+                'request',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('version', REFERENCE_CLASS, 'Version' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Version', 
+                [], [], 
+                '''                Show install version
+                ''',
+                'version',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',

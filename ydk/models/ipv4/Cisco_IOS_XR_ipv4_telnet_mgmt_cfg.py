@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -124,7 +124,7 @@ class Telnet(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:ipv4'
 
@@ -148,7 +148,7 @@ class Telnet(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:vrfs/Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:vrf[Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -132,17 +132,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process',
             False, 
             [
-            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6', 
-                [], [], 
-                '''                Operational data for pfilter
-                ''',
-                'ipv6',
-                'Cisco-IOS-XR-ip-pfilter-oper', False),
             _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv4', 
                 [], [], 
                 '''                Operational data for pfilter
                 ''',
                 'ipv4',
+                'Cisco-IOS-XR-ip-pfilter-oper', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6', 
+                [], [], 
+                '''                Operational data for pfilter
+                ''',
+                'ipv6',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',

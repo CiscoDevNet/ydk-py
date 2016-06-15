@@ -20,12 +20,12 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolEnum
 from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolSelectEnum
-from ydk.models.tty.Cisco_IOS_XR_tty_management_oper import HostAfIdBase_Identity
+from ydk.models.tty.Cisco_IOS_XR_tty_management_oper import HostAfIdBaseIdentity
 from ydk.models.tty.Cisco_IOS_XR_tty_management_oper import TransportServiceEnum
 
 class LineStateEnum(Enum):
@@ -111,6 +111,11 @@ class Tty(object):
     """
     TTY Line Configuration
     
+    .. attribute:: auxiliary_nodes
+    
+    	List of Nodes attached with an auxiliary line
+    	**type**\: :py:class:`AuxiliaryNodes <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
+    
     .. attribute:: console_nodes
     
     	List of Nodes for console
@@ -121,11 +126,6 @@ class Tty(object):
     	List of VTY lines
     	**type**\: :py:class:`VtyLines <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines>`
     
-    .. attribute:: auxiliary_nodes
-    
-    	List of Nodes attached with an auxiliary line
-    	**type**\: :py:class:`AuxiliaryNodes <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
-    
     
 
     """
@@ -134,12 +134,12 @@ class Tty(object):
     _revision = '2015-07-30'
 
     def __init__(self):
+        self.auxiliary_nodes = Tty.AuxiliaryNodes()
+        self.auxiliary_nodes.parent = self
         self.console_nodes = Tty.ConsoleNodes()
         self.console_nodes.parent = self
         self.vty_lines = Tty.VtyLines()
         self.vty_lines.parent = self
-        self.auxiliary_nodes = Tty.AuxiliaryNodes()
-        self.auxiliary_nodes.parent = self
 
 
     class ConsoleNodes(object):
@@ -199,6 +199,11 @@ class Tty(object):
                 """
                 Console line
                 
+                .. attribute:: configuration
+                
+                	Configuration information of the line
+                	**type**\: :py:class:`Configuration <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
+                
                 .. attribute:: console_statistics
                 
                 	Statistics of the console line
@@ -209,11 +214,6 @@ class Tty(object):
                 	Line state information
                 	**type**\: :py:class:`State <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State>`
                 
-                .. attribute:: configuration
-                
-                	Configuration information of the line
-                	**type**\: :py:class:`Configuration <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
-                
                 
 
                 """
@@ -223,37 +223,37 @@ class Tty(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration()
+                    self.configuration.parent = self
                     self.console_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics()
                     self.console_statistics.parent = self
                     self.state = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State()
                     self.state.parent = self
-                    self.configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration()
-                    self.configuration.parent = self
 
 
                 class ConsoleStatistics(object):
                     """
                     Statistics of the console line
                     
-                    .. attribute:: rs232
+                    .. attribute:: aaa
                     
-                    	RS232 statistics of console line
-                    	**type**\: :py:class:`Rs232 <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
-                    
-                    .. attribute:: general_statistics
-                    
-                    	General statistics of line
-                    	**type**\: :py:class:`GeneralStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
+                    	AAA related statistics
+                    	**type**\: :py:class:`Aaa <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
                     	**type**\: :py:class:`Exec <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec>`
                     
-                    .. attribute:: aaa
+                    .. attribute:: general_statistics
                     
-                    	AAA related statistics
-                    	**type**\: :py:class:`Aaa <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
+                    	General statistics of line
+                    	**type**\: :py:class:`GeneralStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
+                    
+                    .. attribute:: rs232
+                    
+                    	RS232 statistics of console line
+                    	**type**\: :py:class:`Rs232 <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
                     
                     
 
@@ -264,19 +264,26 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rs232 = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232()
-                        self.rs232.parent = self
-                        self.general_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics()
-                        self.general_statistics.parent = self
-                        self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec()
-                        self.exec_.parent = self
                         self.aaa = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa()
                         self.aaa.parent = self
+                        self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec()
+                        self.exec_.parent = self
+                        self.general_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics()
+                        self.general_statistics.parent = self
+                        self.rs232 = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232()
+                        self.rs232.parent = self
 
 
                     class Rs232(object):
                         """
                         RS232 statistics of console line
+                        
+                        .. attribute:: baud_rate
+                        
+                        	Inbound/Outbound baud rate in bps
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: data_bits
                         
@@ -290,30 +297,16 @@ class Tty(object):
                         	Exec disabled on TTY
                         	**type**\: bool
                         
+                        .. attribute:: framing_error_count
+                        
+                        	Framing error count
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: hardware_flow_control_status
                         
                         	Hardware flow control status
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: parity_status
-                        
-                        	Parity status
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: baud_rate
-                        
-                        	Inbound/Outbound baud rate in bps
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: stop_bits
-                        
-                        	Number of stopbits
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -325,16 +318,23 @@ class Tty(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: framing_error_count
+                        .. attribute:: parity_error_count
                         
-                        	Framing error count
+                        	Parity error count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: parity_error_count
+                        .. attribute:: parity_status
                         
-                        	Parity error count
+                        	Parity status
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: stop_bits
+                        
+                        	Number of stopbits
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -348,20 +348,20 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.baud_rate = None
                             self.data_bits = None
                             self.exec_disabled = None
-                            self.hardware_flow_control_status = None
-                            self.parity_status = None
-                            self.baud_rate = None
-                            self.stop_bits = None
-                            self.overrun_error_count = None
                             self.framing_error_count = None
+                            self.hardware_flow_control_status = None
+                            self.overrun_error_count = None
                             self.parity_error_count = None
+                            self.parity_status = None
+                            self.stop_bits = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:rs232'
 
@@ -372,31 +372,31 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.baud_rate is not None:
+                                return True
+
                             if self.data_bits is not None:
                                 return True
 
                             if self.exec_disabled is not None:
                                 return True
 
+                            if self.framing_error_count is not None:
+                                return True
+
                             if self.hardware_flow_control_status is not None:
-                                return True
-
-                            if self.parity_status is not None:
-                                return True
-
-                            if self.baud_rate is not None:
-                                return True
-
-                            if self.stop_bits is not None:
                                 return True
 
                             if self.overrun_error_count is not None:
                                 return True
 
-                            if self.framing_error_count is not None:
+                            if self.parity_error_count is not None:
                                 return True
 
-                            if self.parity_error_count is not None:
+                            if self.parity_status is not None:
+                                return True
+
+                            if self.stop_bits is not None:
                                 return True
 
                             return False
@@ -411,16 +411,9 @@ class Tty(object):
                         """
                         General statistics of line
                         
-                        .. attribute:: terminal_length
+                        .. attribute:: absolute_timeout
                         
-                        	Terminal length
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: terminal_width
-                        
-                        	Line width
+                        	Absolute timeout period
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -428,6 +421,11 @@ class Tty(object):
                         .. attribute:: async_interface
                         
                         	Usable as async interface
+                        	**type**\: bool
+                        
+                        .. attribute:: domain_lookup_enabled
+                        
+                        	DNS resolution enabled
                         	**type**\: bool
                         
                         .. attribute:: flow_control_start_character
@@ -444,10 +442,12 @@ class Tty(object):
                         
                         	**range:** \-128..127
                         
-                        .. attribute:: domain_lookup_enabled
+                        .. attribute:: idle_time
                         
-                        	DNS resolution enabled
-                        	**type**\: bool
+                        	TTY idle time
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: motd_banner_enabled
                         
@@ -459,21 +459,21 @@ class Tty(object):
                         	TTY private flag
                         	**type**\: bool
                         
+                        .. attribute:: terminal_length
+                        
+                        	Terminal length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: terminal_type
                         
                         	Terminal type
                         	**type**\: str
                         
-                        .. attribute:: absolute_timeout
+                        .. attribute:: terminal_width
                         
-                        	Absolute timeout period
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: idle_time
-                        
-                        	TTY idle time
+                        	Line width
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -487,22 +487,22 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.terminal_length = None
-                            self.terminal_width = None
+                            self.absolute_timeout = None
                             self.async_interface = None
+                            self.domain_lookup_enabled = None
                             self.flow_control_start_character = None
                             self.flow_control_stop_character = None
-                            self.domain_lookup_enabled = None
+                            self.idle_time = None
                             self.motd_banner_enabled = None
                             self.private_flag = None
+                            self.terminal_length = None
                             self.terminal_type = None
-                            self.absolute_timeout = None
-                            self.idle_time = None
+                            self.terminal_width = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general-statistics'
 
@@ -513,13 +513,13 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.terminal_length is not None:
-                                return True
-
-                            if self.terminal_width is not None:
+                            if self.absolute_timeout is not None:
                                 return True
 
                             if self.async_interface is not None:
+                                return True
+
+                            if self.domain_lookup_enabled is not None:
                                 return True
 
                             if self.flow_control_start_character is not None:
@@ -528,7 +528,7 @@ class Tty(object):
                             if self.flow_control_stop_character is not None:
                                 return True
 
-                            if self.domain_lookup_enabled is not None:
+                            if self.idle_time is not None:
                                 return True
 
                             if self.motd_banner_enabled is not None:
@@ -537,13 +537,13 @@ class Tty(object):
                             if self.private_flag is not None:
                                 return True
 
+                            if self.terminal_length is not None:
+                                return True
+
                             if self.terminal_type is not None:
                                 return True
 
-                            if self.absolute_timeout is not None:
-                                return True
-
-                            if self.idle_time is not None:
+                            if self.terminal_width is not None:
                                 return True
 
                             return False
@@ -577,7 +577,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:exec'
 
@@ -622,7 +622,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:aaa'
 
@@ -646,7 +646,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:console-statistics'
 
@@ -657,16 +657,16 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.rs232 is not None and self.rs232._has_data():
-                            return True
-
-                        if self.general_statistics is not None and self.general_statistics._has_data():
+                        if self.aaa is not None and self.aaa._has_data():
                             return True
 
                         if self.exec_ is not None and self.exec_._has_data():
                             return True
 
-                        if self.aaa is not None and self.aaa._has_data():
+                        if self.general_statistics is not None and self.general_statistics._has_data():
+                            return True
+
+                        if self.rs232 is not None and self.rs232._has_data():
                             return True
 
                         return False
@@ -681,15 +681,15 @@ class Tty(object):
                     """
                     Line state information
                     
-                    .. attribute:: template
-                    
-                    	Information related to template applied to the line
-                    	**type**\: :py:class:`Template <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
-                    
                     .. attribute:: general
                     
                     	General information
                     	**type**\: :py:class:`General <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General>`
+                    
+                    .. attribute:: template
+                    
+                    	Information related to template applied to the line
+                    	**type**\: :py:class:`Template <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
                     
                     
 
@@ -700,10 +700,10 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.template = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template()
-                        self.template.parent = self
                         self.general = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General()
                         self.general.parent = self
+                        self.template = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template()
+                        self.template.parent = self
 
 
                     class Template(object):
@@ -730,7 +730,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:template'
 
@@ -756,15 +756,15 @@ class Tty(object):
                         """
                         General information
                         
-                        .. attribute:: operation
-                        
-                        	application running of on the tty line
-                        	**type**\: :py:class:`SessionOperationEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
-                        
                         .. attribute:: general_state
                         
                         	State of the line
                         	**type**\: :py:class:`LineStateEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                        
+                        .. attribute:: operation
+                        
+                        	application running of on the tty line
+                        	**type**\: :py:class:`SessionOperationEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
                         
                         
 
@@ -775,13 +775,13 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.operation = None
                             self.general_state = None
+                            self.operation = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general'
 
@@ -792,10 +792,10 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.operation is not None:
+                            if self.general_state is not None:
                                 return True
 
-                            if self.general_state is not None:
+                            if self.operation is not None:
                                 return True
 
                             return False
@@ -808,7 +808,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:state'
 
@@ -819,10 +819,10 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.template is not None and self.template._has_data():
+                        if self.general is not None and self.general._has_data():
                             return True
 
-                        if self.general is not None and self.general._has_data():
+                        if self.template is not None and self.template._has_data():
                             return True
 
                         return False
@@ -859,20 +859,20 @@ class Tty(object):
                         """
                         Conection configuration information
                         
-                        .. attribute:: transport_input
+                        .. attribute:: acl_in
                         
-                        	Protocols to use when connecting to the terminal server
-                        	**type**\: :py:class:`TransportInput <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
+                        	ACL for inbound traffic
+                        	**type**\: str
                         
                         .. attribute:: acl_out
                         
                         	ACL for outbound traffic
                         	**type**\: str
                         
-                        .. attribute:: acl_in
+                        .. attribute:: transport_input
                         
-                        	ACL for inbound traffic
-                        	**type**\: str
+                        	Protocols to use when connecting to the terminal server
+                        	**type**\: :py:class:`TransportInput <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
                         
 
@@ -883,10 +883,10 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.acl_in = None
+                            self.acl_out = None
                             self.transport_input = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput()
                             self.transport_input.parent = self
-                            self.acl_out = None
-                            self.acl_in = None
 
 
                         class TransportInput(object):
@@ -894,10 +894,12 @@ class Tty(object):
                             Protocols to use when connecting to the
                             terminal server
                             
-                            .. attribute:: select
+                            .. attribute:: none
                             
-                            	Choose transport protocols
-                            	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            	Not used
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
                             
                             .. attribute:: protocol1
                             
@@ -909,12 +911,10 @@ class Tty(object):
                             	Transport protocol2
                             	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                             
-                            .. attribute:: none
+                            .. attribute:: select
                             
-                            	Not used
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
+                            	Choose transport protocols
+                            	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
                             
                             
 
@@ -925,15 +925,15 @@ class Tty(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.select = None
+                                self.none = None
                                 self.protocol1 = None
                                 self.protocol2 = None
-                                self.none = None
+                                self.select = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:transport-input'
 
@@ -944,7 +944,7 @@ class Tty(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.select is not None:
+                                if self.none is not None:
                                     return True
 
                                 if self.protocol1 is not None:
@@ -953,7 +953,7 @@ class Tty(object):
                                 if self.protocol2 is not None:
                                     return True
 
-                                if self.none is not None:
+                                if self.select is not None:
                                     return True
 
                                 return False
@@ -966,7 +966,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection-configuration'
 
@@ -977,13 +977,13 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.transport_input is not None and self.transport_input._has_data():
+                            if self.acl_in is not None:
                                 return True
 
                             if self.acl_out is not None:
                                 return True
 
-                            if self.acl_in is not None:
+                            if self.transport_input is not None and self.transport_input._has_data():
                                 return True
 
                             return False
@@ -996,7 +996,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:configuration'
 
@@ -1020,7 +1020,7 @@ class Tty(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:console-line'
 
@@ -1031,13 +1031,13 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.configuration is not None and self.configuration._has_data():
+                        return True
+
                     if self.console_statistics is not None and self.console_statistics._has_data():
                         return True
 
                     if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.configuration is not None and self.configuration._has_data():
                         return True
 
                     return False
@@ -1050,7 +1050,7 @@ class Tty(object):
             @property
             def _common_path(self):
                 if self.id is None:
-                    raise YPYDataValidationError('Key property id is None')
+                    raise YPYModelError('Key property id is None')
 
                 return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:console-nodes/Cisco-IOS-XR-tty-server-oper:console-node[Cisco-IOS-XR-tty-server-oper:id = ' + str(self.id) + ']'
 
@@ -1133,16 +1133,6 @@ class Tty(object):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: vty_statistics
-            
-            	Statistics of the VTY line
-            	**type**\: :py:class:`VtyStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
-            
-            .. attribute:: state
-            
-            	Line state information
-            	**type**\: :py:class:`State <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
-            
             .. attribute:: configuration
             
             	Configuration information of the line
@@ -1152,6 +1142,16 @@ class Tty(object):
             
             	Outgoing sessions
             	**type**\: :py:class:`Sessions <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions>`
+            
+            .. attribute:: state
+            
+            	Line state information
+            	**type**\: :py:class:`State <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
+            
+            .. attribute:: vty_statistics
+            
+            	Statistics of the VTY line
+            	**type**\: :py:class:`VtyStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
             
             
 
@@ -1163,39 +1163,39 @@ class Tty(object):
             def __init__(self):
                 self.parent = None
                 self.line_number = None
-                self.vty_statistics = Tty.VtyLines.VtyLine.VtyStatistics()
-                self.vty_statistics.parent = self
-                self.state = Tty.VtyLines.VtyLine.State()
-                self.state.parent = self
                 self.configuration = Tty.VtyLines.VtyLine.Configuration()
                 self.configuration.parent = self
                 self.sessions = Tty.VtyLines.VtyLine.Sessions()
                 self.sessions.parent = self
+                self.state = Tty.VtyLines.VtyLine.State()
+                self.state.parent = self
+                self.vty_statistics = Tty.VtyLines.VtyLine.VtyStatistics()
+                self.vty_statistics.parent = self
 
 
             class VtyStatistics(object):
                 """
                 Statistics of the VTY line
                 
+                .. attribute:: aaa
+                
+                	AAA related statistics
+                	**type**\: :py:class:`Aaa <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
+                
                 .. attribute:: connection
                 
                 	Connection related statistics
                 	**type**\: :py:class:`Connection <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Connection>`
-                
-                .. attribute:: general_statistics
-                
-                	General statistics of line
-                	**type**\: :py:class:`GeneralStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
                 
                 .. attribute:: exec_
                 
                 	Exec related statistics
                 	**type**\: :py:class:`Exec <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec>`
                 
-                .. attribute:: aaa
+                .. attribute:: general_statistics
                 
-                	AAA related statistics
-                	**type**\: :py:class:`Aaa <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
+                	General statistics of line
+                	**type**\: :py:class:`GeneralStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
                 
                 
 
@@ -1206,26 +1206,19 @@ class Tty(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.connection = Tty.VtyLines.VtyLine.VtyStatistics.Connection()
-                    self.connection.parent = self
-                    self.general_statistics = Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics()
-                    self.general_statistics.parent = self
-                    self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec()
-                    self.exec_.parent = self
                     self.aaa = Tty.VtyLines.VtyLine.VtyStatistics.Aaa()
                     self.aaa.parent = self
+                    self.connection = Tty.VtyLines.VtyLine.VtyStatistics.Connection()
+                    self.connection.parent = self
+                    self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec()
+                    self.exec_.parent = self
+                    self.general_statistics = Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics()
+                    self.general_statistics.parent = self
 
 
                 class Connection(object):
                     """
                     Connection related statistics
-                    
-                    .. attribute:: incoming_host_address
-                    
-                    	Incoming host address(max)
-                    	**type**\: str
-                    
-                    	**range:** 0..46
                     
                     .. attribute:: host_address_family
                     
@@ -1233,6 +1226,13 @@ class Tty(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: incoming_host_address
+                    
+                    	Incoming host address(max)
+                    	**type**\: str
+                    
+                    	**range:** 0..46
                     
                     .. attribute:: service
                     
@@ -1250,14 +1250,14 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.incoming_host_address = None
                         self.host_address_family = None
+                        self.incoming_host_address = None
                         self.service = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection'
 
@@ -1268,10 +1268,10 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.incoming_host_address is not None:
+                        if self.host_address_family is not None:
                             return True
 
-                        if self.host_address_family is not None:
+                        if self.incoming_host_address is not None:
                             return True
 
                         if self.service is not None:
@@ -1289,16 +1289,9 @@ class Tty(object):
                     """
                     General statistics of line
                     
-                    .. attribute:: terminal_length
+                    .. attribute:: absolute_timeout
                     
-                    	Terminal length
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: terminal_width
-                    
-                    	Line width
+                    	Absolute timeout period
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1306,6 +1299,11 @@ class Tty(object):
                     .. attribute:: async_interface
                     
                     	Usable as async interface
+                    	**type**\: bool
+                    
+                    .. attribute:: domain_lookup_enabled
+                    
+                    	DNS resolution enabled
                     	**type**\: bool
                     
                     .. attribute:: flow_control_start_character
@@ -1322,10 +1320,12 @@ class Tty(object):
                     
                     	**range:** \-128..127
                     
-                    .. attribute:: domain_lookup_enabled
+                    .. attribute:: idle_time
                     
-                    	DNS resolution enabled
-                    	**type**\: bool
+                    	TTY idle time
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: motd_banner_enabled
                     
@@ -1337,21 +1337,21 @@ class Tty(object):
                     	TTY private flag
                     	**type**\: bool
                     
+                    .. attribute:: terminal_length
+                    
+                    	Terminal length
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: terminal_type
                     
                     	Terminal type
                     	**type**\: str
                     
-                    .. attribute:: absolute_timeout
+                    .. attribute:: terminal_width
                     
-                    	Absolute timeout period
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: idle_time
-                    
-                    	TTY idle time
+                    	Line width
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1365,22 +1365,22 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.terminal_length = None
-                        self.terminal_width = None
+                        self.absolute_timeout = None
                         self.async_interface = None
+                        self.domain_lookup_enabled = None
                         self.flow_control_start_character = None
                         self.flow_control_stop_character = None
-                        self.domain_lookup_enabled = None
+                        self.idle_time = None
                         self.motd_banner_enabled = None
                         self.private_flag = None
+                        self.terminal_length = None
                         self.terminal_type = None
-                        self.absolute_timeout = None
-                        self.idle_time = None
+                        self.terminal_width = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general-statistics'
 
@@ -1391,13 +1391,13 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.terminal_length is not None:
-                            return True
-
-                        if self.terminal_width is not None:
+                        if self.absolute_timeout is not None:
                             return True
 
                         if self.async_interface is not None:
+                            return True
+
+                        if self.domain_lookup_enabled is not None:
                             return True
 
                         if self.flow_control_start_character is not None:
@@ -1406,7 +1406,7 @@ class Tty(object):
                         if self.flow_control_stop_character is not None:
                             return True
 
-                        if self.domain_lookup_enabled is not None:
+                        if self.idle_time is not None:
                             return True
 
                         if self.motd_banner_enabled is not None:
@@ -1415,13 +1415,13 @@ class Tty(object):
                         if self.private_flag is not None:
                             return True
 
+                        if self.terminal_length is not None:
+                            return True
+
                         if self.terminal_type is not None:
                             return True
 
-                        if self.absolute_timeout is not None:
-                            return True
-
-                        if self.idle_time is not None:
+                        if self.terminal_width is not None:
                             return True
 
                         return False
@@ -1455,7 +1455,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:exec'
 
@@ -1500,7 +1500,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:aaa'
 
@@ -1524,7 +1524,7 @@ class Tty(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:vty-statistics'
 
@@ -1535,16 +1535,16 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.connection is not None and self.connection._has_data():
+                    if self.aaa is not None and self.aaa._has_data():
                         return True
 
-                    if self.general_statistics is not None and self.general_statistics._has_data():
+                    if self.connection is not None and self.connection._has_data():
                         return True
 
                     if self.exec_ is not None and self.exec_._has_data():
                         return True
 
-                    if self.aaa is not None and self.aaa._has_data():
+                    if self.general_statistics is not None and self.general_statistics._has_data():
                         return True
 
                     return False
@@ -1559,15 +1559,15 @@ class Tty(object):
                 """
                 Line state information
                 
-                .. attribute:: template
-                
-                	Information related to template applied to the line
-                	**type**\: :py:class:`Template <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
-                
                 .. attribute:: general
                 
                 	General information
                 	**type**\: :py:class:`General <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.General>`
+                
+                .. attribute:: template
+                
+                	Information related to template applied to the line
+                	**type**\: :py:class:`Template <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
                 
                 
 
@@ -1578,10 +1578,10 @@ class Tty(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.template = Tty.VtyLines.VtyLine.State.Template()
-                    self.template.parent = self
                     self.general = Tty.VtyLines.VtyLine.State.General()
                     self.general.parent = self
+                    self.template = Tty.VtyLines.VtyLine.State.Template()
+                    self.template.parent = self
 
 
                 class Template(object):
@@ -1608,7 +1608,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:template'
 
@@ -1634,15 +1634,15 @@ class Tty(object):
                     """
                     General information
                     
-                    .. attribute:: operation
-                    
-                    	application running of on the tty line
-                    	**type**\: :py:class:`SessionOperationEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
-                    
                     .. attribute:: general_state
                     
                     	State of the line
                     	**type**\: :py:class:`LineStateEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                    
+                    .. attribute:: operation
+                    
+                    	application running of on the tty line
+                    	**type**\: :py:class:`SessionOperationEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
                     
                     
 
@@ -1653,13 +1653,13 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.operation = None
                         self.general_state = None
+                        self.operation = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general'
 
@@ -1670,10 +1670,10 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.operation is not None:
+                        if self.general_state is not None:
                             return True
 
-                        if self.general_state is not None:
+                        if self.operation is not None:
                             return True
 
                         return False
@@ -1686,7 +1686,7 @@ class Tty(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:state'
 
@@ -1697,10 +1697,10 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.template is not None and self.template._has_data():
+                    if self.general is not None and self.general._has_data():
                         return True
 
-                    if self.general is not None and self.general._has_data():
+                    if self.template is not None and self.template._has_data():
                         return True
 
                     return False
@@ -1737,20 +1737,20 @@ class Tty(object):
                     """
                     Conection configuration information
                     
-                    .. attribute:: transport_input
+                    .. attribute:: acl_in
                     
-                    	Protocols to use when connecting to the terminal server
-                    	**type**\: :py:class:`TransportInput <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
+                    	ACL for inbound traffic
+                    	**type**\: str
                     
                     .. attribute:: acl_out
                     
                     	ACL for outbound traffic
                     	**type**\: str
                     
-                    .. attribute:: acl_in
+                    .. attribute:: transport_input
                     
-                    	ACL for inbound traffic
-                    	**type**\: str
+                    	Protocols to use when connecting to the terminal server
+                    	**type**\: :py:class:`TransportInput <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
                     
                     
 
@@ -1761,10 +1761,10 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.acl_in = None
+                        self.acl_out = None
                         self.transport_input = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput()
                         self.transport_input.parent = self
-                        self.acl_out = None
-                        self.acl_in = None
 
 
                     class TransportInput(object):
@@ -1772,10 +1772,12 @@ class Tty(object):
                         Protocols to use when connecting to the
                         terminal server
                         
-                        .. attribute:: select
+                        .. attribute:: none
                         
-                        	Choose transport protocols
-                        	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                        	Not used
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: protocol1
                         
@@ -1787,12 +1789,10 @@ class Tty(object):
                         	Transport protocol2
                         	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                         
-                        .. attribute:: none
+                        .. attribute:: select
                         
-                        	Not used
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
+                        	Choose transport protocols
+                        	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
                         
                         
 
@@ -1803,15 +1803,15 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.select = None
+                            self.none = None
                             self.protocol1 = None
                             self.protocol2 = None
-                            self.none = None
+                            self.select = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:transport-input'
 
@@ -1822,7 +1822,7 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.select is not None:
+                            if self.none is not None:
                                 return True
 
                             if self.protocol1 is not None:
@@ -1831,7 +1831,7 @@ class Tty(object):
                             if self.protocol2 is not None:
                                 return True
 
-                            if self.none is not None:
+                            if self.select is not None:
                                 return True
 
                             return False
@@ -1844,7 +1844,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection-configuration'
 
@@ -1855,13 +1855,13 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.transport_input is not None and self.transport_input._has_data():
+                        if self.acl_in is not None:
                             return True
 
                         if self.acl_out is not None:
                             return True
 
-                        if self.acl_in is not None:
+                        if self.transport_input is not None and self.transport_input._has_data():
                             return True
 
                         return False
@@ -1874,7 +1874,7 @@ class Tty(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:configuration'
 
@@ -1923,11 +1923,6 @@ class Tty(object):
                     """
                     List of outgoing sessions
                     
-                    .. attribute:: host_address
-                    
-                    	Host address
-                    	**type**\: :py:class:`HostAddress <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
-                    
                     .. attribute:: connection_id
                     
                     	Connection ID [1\-20]
@@ -1935,20 +1930,15 @@ class Tty(object):
                     
                     	**range:** 0..255
                     
+                    .. attribute:: host_address
+                    
+                    	Host address
+                    	**type**\: :py:class:`HostAddress <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
+                    
                     .. attribute:: host_name
                     
                     	Host name
                     	**type**\: str
-                    
-                    .. attribute:: transport_protocol
-                    
-                    	Session transport protocol
-                    	**type**\: :py:class:`TransportServiceEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_oper.TransportServiceEnum>`
-                    
-                    .. attribute:: is_last_active_session
-                    
-                    	True indicates last active session
-                    	**type**\: bool
                     
                     .. attribute:: idle_time
                     
@@ -1956,6 +1946,16 @@ class Tty(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: is_last_active_session
+                    
+                    	True indicates last active session
+                    	**type**\: bool
+                    
+                    .. attribute:: transport_protocol
+                    
+                    	Session transport protocol
+                    	**type**\: :py:class:`TransportServiceEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_oper.TransportServiceEnum>`
                     
                     
 
@@ -1966,13 +1966,13 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.connection_id = None
                         self.host_address = Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress()
                         self.host_address.parent = self
-                        self.connection_id = None
                         self.host_name = None
-                        self.transport_protocol = None
-                        self.is_last_active_session = None
                         self.idle_time = None
+                        self.is_last_active_session = None
+                        self.transport_protocol = None
 
 
                     class HostAddress(object):
@@ -1982,7 +1982,7 @@ class Tty(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\: :py:class:`HostAfIdBase_Identity <ydk.models.tty.Cisco_IOS_XR_tty_management_oper.HostAfIdBase_Identity>`
+                        	**type**\: :py:class:`HostAfIdBaseIdentity <ydk.models.tty.Cisco_IOS_XR_tty_management_oper.HostAfIdBaseIdentity>`
                         
                         .. attribute:: ipv4_address
                         
@@ -2014,7 +2014,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-management-oper:host-address'
 
@@ -2044,7 +2044,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-management-oper:outgoing-connection'
 
@@ -2055,22 +2055,22 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.host_address is not None and self.host_address._has_data():
+                        if self.connection_id is not None:
                             return True
 
-                        if self.connection_id is not None:
+                        if self.host_address is not None and self.host_address._has_data():
                             return True
 
                         if self.host_name is not None:
                             return True
 
-                        if self.transport_protocol is not None:
+                        if self.idle_time is not None:
                             return True
 
                         if self.is_last_active_session is not None:
                             return True
 
-                        if self.idle_time is not None:
+                        if self.transport_protocol is not None:
                             return True
 
                         return False
@@ -2083,7 +2083,7 @@ class Tty(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-tty-management-oper:sessions'
 
@@ -2109,7 +2109,7 @@ class Tty(object):
             @property
             def _common_path(self):
                 if self.line_number is None:
-                    raise YPYDataValidationError('Key property line_number is None')
+                    raise YPYModelError('Key property line_number is None')
 
                 return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:vty-lines/Cisco-IOS-XR-tty-server-oper:vty-line[Cisco-IOS-XR-tty-server-oper:line-number = ' + str(self.line_number) + ']'
 
@@ -2123,16 +2123,16 @@ class Tty(object):
                 if self.line_number is not None:
                     return True
 
-                if self.vty_statistics is not None and self.vty_statistics._has_data():
+                if self.configuration is not None and self.configuration._has_data():
+                    return True
+
+                if self.sessions is not None and self.sessions._has_data():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.configuration is not None and self.configuration._has_data():
-                    return True
-
-                if self.sessions is not None and self.sessions._has_data():
+                if self.vty_statistics is not None and self.vty_statistics._has_data():
                     return True
 
                 return False
@@ -2229,15 +2229,15 @@ class Tty(object):
                 	Statistics of the auxiliary line
                 	**type**\: :py:class:`AuxiliaryStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics>`
                 
-                .. attribute:: state
-                
-                	Line state information
-                	**type**\: :py:class:`State <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
-                
                 .. attribute:: configuration
                 
                 	Configuration information of the line
                 	**type**\: :py:class:`Configuration <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration>`
+                
+                .. attribute:: state
+                
+                	Line state information
+                	**type**\: :py:class:`State <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
                 
                 
 
@@ -2250,35 +2250,35 @@ class Tty(object):
                     self.parent = None
                     self.auxiliary_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics()
                     self.auxiliary_statistics.parent = self
-                    self.state = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State()
-                    self.state.parent = self
                     self.configuration = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration()
                     self.configuration.parent = self
+                    self.state = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State()
+                    self.state.parent = self
 
 
                 class AuxiliaryStatistics(object):
                     """
                     Statistics of the auxiliary line
                     
-                    .. attribute:: rs232
+                    .. attribute:: aaa
                     
-                    	RS232 statistics of console line
-                    	**type**\: :py:class:`Rs232 <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
-                    
-                    .. attribute:: general_statistics
-                    
-                    	General statistics of line
-                    	**type**\: :py:class:`GeneralStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
+                    	AAA related statistics
+                    	**type**\: :py:class:`Aaa <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
                     	**type**\: :py:class:`Exec <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec>`
                     
-                    .. attribute:: aaa
+                    .. attribute:: general_statistics
                     
-                    	AAA related statistics
-                    	**type**\: :py:class:`Aaa <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
+                    	General statistics of line
+                    	**type**\: :py:class:`GeneralStatistics <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
+                    
+                    .. attribute:: rs232
+                    
+                    	RS232 statistics of console line
+                    	**type**\: :py:class:`Rs232 <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
                     
                     
 
@@ -2289,19 +2289,26 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rs232 = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232()
-                        self.rs232.parent = self
-                        self.general_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics()
-                        self.general_statistics.parent = self
-                        self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec()
-                        self.exec_.parent = self
                         self.aaa = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa()
                         self.aaa.parent = self
+                        self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec()
+                        self.exec_.parent = self
+                        self.general_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics()
+                        self.general_statistics.parent = self
+                        self.rs232 = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232()
+                        self.rs232.parent = self
 
 
                     class Rs232(object):
                         """
                         RS232 statistics of console line
+                        
+                        .. attribute:: baud_rate
+                        
+                        	Inbound/Outbound baud rate in bps
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: data_bits
                         
@@ -2315,30 +2322,16 @@ class Tty(object):
                         	Exec disabled on TTY
                         	**type**\: bool
                         
+                        .. attribute:: framing_error_count
+                        
+                        	Framing error count
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: hardware_flow_control_status
                         
                         	Hardware flow control status
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: parity_status
-                        
-                        	Parity status
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: baud_rate
-                        
-                        	Inbound/Outbound baud rate in bps
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: stop_bits
-                        
-                        	Number of stopbits
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2350,16 +2343,23 @@ class Tty(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: framing_error_count
+                        .. attribute:: parity_error_count
                         
-                        	Framing error count
+                        	Parity error count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: parity_error_count
+                        .. attribute:: parity_status
                         
-                        	Parity error count
+                        	Parity status
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: stop_bits
+                        
+                        	Number of stopbits
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2373,20 +2373,20 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.baud_rate = None
                             self.data_bits = None
                             self.exec_disabled = None
-                            self.hardware_flow_control_status = None
-                            self.parity_status = None
-                            self.baud_rate = None
-                            self.stop_bits = None
-                            self.overrun_error_count = None
                             self.framing_error_count = None
+                            self.hardware_flow_control_status = None
+                            self.overrun_error_count = None
                             self.parity_error_count = None
+                            self.parity_status = None
+                            self.stop_bits = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:rs232'
 
@@ -2397,31 +2397,31 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.baud_rate is not None:
+                                return True
+
                             if self.data_bits is not None:
                                 return True
 
                             if self.exec_disabled is not None:
                                 return True
 
+                            if self.framing_error_count is not None:
+                                return True
+
                             if self.hardware_flow_control_status is not None:
-                                return True
-
-                            if self.parity_status is not None:
-                                return True
-
-                            if self.baud_rate is not None:
-                                return True
-
-                            if self.stop_bits is not None:
                                 return True
 
                             if self.overrun_error_count is not None:
                                 return True
 
-                            if self.framing_error_count is not None:
+                            if self.parity_error_count is not None:
                                 return True
 
-                            if self.parity_error_count is not None:
+                            if self.parity_status is not None:
+                                return True
+
+                            if self.stop_bits is not None:
                                 return True
 
                             return False
@@ -2436,16 +2436,9 @@ class Tty(object):
                         """
                         General statistics of line
                         
-                        .. attribute:: terminal_length
+                        .. attribute:: absolute_timeout
                         
-                        	Terminal length
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: terminal_width
-                        
-                        	Line width
+                        	Absolute timeout period
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2453,6 +2446,11 @@ class Tty(object):
                         .. attribute:: async_interface
                         
                         	Usable as async interface
+                        	**type**\: bool
+                        
+                        .. attribute:: domain_lookup_enabled
+                        
+                        	DNS resolution enabled
                         	**type**\: bool
                         
                         .. attribute:: flow_control_start_character
@@ -2469,10 +2467,12 @@ class Tty(object):
                         
                         	**range:** \-128..127
                         
-                        .. attribute:: domain_lookup_enabled
+                        .. attribute:: idle_time
                         
-                        	DNS resolution enabled
-                        	**type**\: bool
+                        	TTY idle time
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: motd_banner_enabled
                         
@@ -2484,21 +2484,21 @@ class Tty(object):
                         	TTY private flag
                         	**type**\: bool
                         
+                        .. attribute:: terminal_length
+                        
+                        	Terminal length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: terminal_type
                         
                         	Terminal type
                         	**type**\: str
                         
-                        .. attribute:: absolute_timeout
+                        .. attribute:: terminal_width
                         
-                        	Absolute timeout period
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: idle_time
-                        
-                        	TTY idle time
+                        	Line width
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2512,22 +2512,22 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.terminal_length = None
-                            self.terminal_width = None
+                            self.absolute_timeout = None
                             self.async_interface = None
+                            self.domain_lookup_enabled = None
                             self.flow_control_start_character = None
                             self.flow_control_stop_character = None
-                            self.domain_lookup_enabled = None
+                            self.idle_time = None
                             self.motd_banner_enabled = None
                             self.private_flag = None
+                            self.terminal_length = None
                             self.terminal_type = None
-                            self.absolute_timeout = None
-                            self.idle_time = None
+                            self.terminal_width = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general-statistics'
 
@@ -2538,13 +2538,13 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.terminal_length is not None:
-                                return True
-
-                            if self.terminal_width is not None:
+                            if self.absolute_timeout is not None:
                                 return True
 
                             if self.async_interface is not None:
+                                return True
+
+                            if self.domain_lookup_enabled is not None:
                                 return True
 
                             if self.flow_control_start_character is not None:
@@ -2553,7 +2553,7 @@ class Tty(object):
                             if self.flow_control_stop_character is not None:
                                 return True
 
-                            if self.domain_lookup_enabled is not None:
+                            if self.idle_time is not None:
                                 return True
 
                             if self.motd_banner_enabled is not None:
@@ -2562,13 +2562,13 @@ class Tty(object):
                             if self.private_flag is not None:
                                 return True
 
+                            if self.terminal_length is not None:
+                                return True
+
                             if self.terminal_type is not None:
                                 return True
 
-                            if self.absolute_timeout is not None:
-                                return True
-
-                            if self.idle_time is not None:
+                            if self.terminal_width is not None:
                                 return True
 
                             return False
@@ -2602,7 +2602,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:exec'
 
@@ -2647,7 +2647,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:aaa'
 
@@ -2671,7 +2671,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:auxiliary-statistics'
 
@@ -2682,16 +2682,16 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.rs232 is not None and self.rs232._has_data():
-                            return True
-
-                        if self.general_statistics is not None and self.general_statistics._has_data():
+                        if self.aaa is not None and self.aaa._has_data():
                             return True
 
                         if self.exec_ is not None and self.exec_._has_data():
                             return True
 
-                        if self.aaa is not None and self.aaa._has_data():
+                        if self.general_statistics is not None and self.general_statistics._has_data():
+                            return True
+
+                        if self.rs232 is not None and self.rs232._has_data():
                             return True
 
                         return False
@@ -2706,15 +2706,15 @@ class Tty(object):
                     """
                     Line state information
                     
-                    .. attribute:: template
-                    
-                    	Information related to template applied to the line
-                    	**type**\: :py:class:`Template <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
-                    
                     .. attribute:: general
                     
                     	General information
                     	**type**\: :py:class:`General <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General>`
+                    
+                    .. attribute:: template
+                    
+                    	Information related to template applied to the line
+                    	**type**\: :py:class:`Template <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
                     
                     
 
@@ -2725,10 +2725,10 @@ class Tty(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.template = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template()
-                        self.template.parent = self
                         self.general = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General()
                         self.general.parent = self
+                        self.template = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template()
+                        self.template.parent = self
 
 
                     class Template(object):
@@ -2755,7 +2755,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:template'
 
@@ -2781,15 +2781,15 @@ class Tty(object):
                         """
                         General information
                         
-                        .. attribute:: operation
-                        
-                        	application running of on the tty line
-                        	**type**\: :py:class:`SessionOperationEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
-                        
                         .. attribute:: general_state
                         
                         	State of the line
                         	**type**\: :py:class:`LineStateEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                        
+                        .. attribute:: operation
+                        
+                        	application running of on the tty line
+                        	**type**\: :py:class:`SessionOperationEnum <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
                         
                         
 
@@ -2800,13 +2800,13 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.operation = None
                             self.general_state = None
+                            self.operation = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general'
 
@@ -2817,10 +2817,10 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.operation is not None:
+                            if self.general_state is not None:
                                 return True
 
-                            if self.general_state is not None:
+                            if self.operation is not None:
                                 return True
 
                             return False
@@ -2833,7 +2833,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:state'
 
@@ -2844,10 +2844,10 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.template is not None and self.template._has_data():
+                        if self.general is not None and self.general._has_data():
                             return True
 
-                        if self.general is not None and self.general._has_data():
+                        if self.template is not None and self.template._has_data():
                             return True
 
                         return False
@@ -2884,20 +2884,20 @@ class Tty(object):
                         """
                         Conection configuration information
                         
-                        .. attribute:: transport_input
+                        .. attribute:: acl_in
                         
-                        	Protocols to use when connecting to the terminal server
-                        	**type**\: :py:class:`TransportInput <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
+                        	ACL for inbound traffic
+                        	**type**\: str
                         
                         .. attribute:: acl_out
                         
                         	ACL for outbound traffic
                         	**type**\: str
                         
-                        .. attribute:: acl_in
+                        .. attribute:: transport_input
                         
-                        	ACL for inbound traffic
-                        	**type**\: str
+                        	Protocols to use when connecting to the terminal server
+                        	**type**\: :py:class:`TransportInput <ydk.models.tty.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
                         
 
@@ -2908,10 +2908,10 @@ class Tty(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.acl_in = None
+                            self.acl_out = None
                             self.transport_input = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput()
                             self.transport_input.parent = self
-                            self.acl_out = None
-                            self.acl_in = None
 
 
                         class TransportInput(object):
@@ -2919,10 +2919,12 @@ class Tty(object):
                             Protocols to use when connecting to the
                             terminal server
                             
-                            .. attribute:: select
+                            .. attribute:: none
                             
-                            	Choose transport protocols
-                            	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            	Not used
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
                             
                             .. attribute:: protocol1
                             
@@ -2934,12 +2936,10 @@ class Tty(object):
                             	Transport protocol2
                             	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                             
-                            .. attribute:: none
+                            .. attribute:: select
                             
-                            	Not used
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
+                            	Choose transport protocols
+                            	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
                             
                             
 
@@ -2950,15 +2950,15 @@ class Tty(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.select = None
+                                self.none = None
                                 self.protocol1 = None
                                 self.protocol2 = None
-                                self.none = None
+                                self.select = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:transport-input'
 
@@ -2969,7 +2969,7 @@ class Tty(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.select is not None:
+                                if self.none is not None:
                                     return True
 
                                 if self.protocol1 is not None:
@@ -2978,7 +2978,7 @@ class Tty(object):
                                 if self.protocol2 is not None:
                                     return True
 
-                                if self.none is not None:
+                                if self.select is not None:
                                     return True
 
                                 return False
@@ -2991,7 +2991,7 @@ class Tty(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection-configuration'
 
@@ -3002,13 +3002,13 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.transport_input is not None and self.transport_input._has_data():
+                            if self.acl_in is not None:
                                 return True
 
                             if self.acl_out is not None:
                                 return True
 
-                            if self.acl_in is not None:
+                            if self.transport_input is not None and self.transport_input._has_data():
                                 return True
 
                             return False
@@ -3021,7 +3021,7 @@ class Tty(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:configuration'
 
@@ -3045,7 +3045,7 @@ class Tty(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:auxiliary-line'
 
@@ -3059,10 +3059,10 @@ class Tty(object):
                     if self.auxiliary_statistics is not None and self.auxiliary_statistics._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
+                    if self.configuration is not None and self.configuration._has_data():
                         return True
 
-                    if self.configuration is not None and self.configuration._has_data():
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -3075,7 +3075,7 @@ class Tty(object):
             @property
             def _common_path(self):
                 if self.id is None:
-                    raise YPYDataValidationError('Key property id is None')
+                    raise YPYModelError('Key property id is None')
 
                 return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:auxiliary-nodes/Cisco-IOS-XR-tty-server-oper:auxiliary-node[Cisco-IOS-XR-tty-server-oper:id = ' + str(self.id) + ']'
 
@@ -3135,13 +3135,13 @@ class Tty(object):
     def _has_data(self):
         if not self.is_config():
             return False
+        if self.auxiliary_nodes is not None and self.auxiliary_nodes._has_data():
+            return True
+
         if self.console_nodes is not None and self.console_nodes._has_data():
             return True
 
         if self.vty_lines is not None and self.vty_lines._has_data():
-            return True
-
-        if self.auxiliary_nodes is not None and self.auxiliary_nodes._has_data():
             return True
 
         return False

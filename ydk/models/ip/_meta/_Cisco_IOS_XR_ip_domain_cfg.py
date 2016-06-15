@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -112,18 +112,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpDomain.Vrfs.Vrf.Lists.List',
             False, 
             [
+            _MetaInfoClassMember('list-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                A domain name
+                ''',
+                'list_name',
+                'Cisco-IOS-XR-ip-domain-cfg', True),
             _MetaInfoClassMember('order', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                This is used to sort the names in the order
                 of precedence
                 ''',
                 'order',
-                'Cisco-IOS-XR-ip-domain-cfg', True),
-            _MetaInfoClassMember('list-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                A domain name
-                ''',
-                'list_name',
                 'Cisco-IOS-XR-ip-domain-cfg', True),
             ],
             'Cisco-IOS-XR-ip-domain-cfg',
@@ -200,17 +200,17 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ip-domain-cfg', True),
+            _MetaInfoClassMember('ipv4-hosts', REFERENCE_CLASS, 'Ipv4Hosts' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs.Vrf.Ipv4Hosts', 
+                [], [], 
+                '''                IPv4 host
+                ''',
+                'ipv4_hosts',
+                'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('ipv6-hosts', REFERENCE_CLASS, 'Ipv6Hosts' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs.Vrf.Ipv6Hosts', 
                 [], [], 
                 '''                IPv6 host
                 ''',
                 'ipv6_hosts',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
-            _MetaInfoClassMember('servers', REFERENCE_CLASS, 'Servers' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs.Vrf.Servers', 
-                [], [], 
-                '''                Name server addresses
-                ''',
-                'servers',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('lists', REFERENCE_CLASS, 'Lists' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs.Vrf.Lists', 
                 [], [], 
@@ -218,12 +218,6 @@ _meta_table = {
                 names
                 ''',
                 'lists',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
-            _MetaInfoClassMember('ipv4-hosts', REFERENCE_CLASS, 'Ipv4Hosts' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs.Vrf.Ipv4Hosts', 
-                [], [], 
-                '''                IPv4 host
-                ''',
-                'ipv4_hosts',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('lookup', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -238,18 +232,24 @@ _meta_table = {
                 ''',
                 'multicast_domain',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Default domain name
+                ''',
+                'name',
+                'Cisco-IOS-XR-ip-domain-cfg', False),
+            _MetaInfoClassMember('servers', REFERENCE_CLASS, 'Servers' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs.Vrf.Servers', 
+                [], [], 
+                '''                Name server addresses
+                ''',
+                'servers',
+                'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 connections
                 ''',
                 'source_interface',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Default domain name
-                ''',
-                'name',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
             ],
             'Cisco-IOS-XR-ip-domain-cfg',
@@ -301,11 +301,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpDomain',
             False, 
             [
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs', 
+            _MetaInfoClassMember('ipv4-host-table', REFERENCE_CLASS, 'Ipv4HostTable' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Ipv4HostTable', 
                 [], [], 
-                '''                VRF table
+                '''                IPv4 host
                 ''',
-                'vrfs',
+                'ipv4_host_table',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('ipv6-host-table', REFERENCE_CLASS, 'Ipv6HostTable' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Ipv6HostTable', 
                 [], [], 
@@ -313,11 +313,11 @@ _meta_table = {
                 ''',
                 'ipv6_host_table',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
-            _MetaInfoClassMember('ipv4-host-table', REFERENCE_CLASS, 'Ipv4HostTable' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Ipv4HostTable', 
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs', 
                 [], [], 
-                '''                IPv4 host
+                '''                VRF table
                 ''',
-                'ipv4_host_table',
+                'vrfs',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
             ],
             'Cisco-IOS-XR-ip-domain-cfg',

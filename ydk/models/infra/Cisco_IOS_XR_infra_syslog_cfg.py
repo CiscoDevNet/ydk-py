@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes import AlarmLoggerSeverityLevelEnum
@@ -745,11 +745,6 @@ class SyslogService(object):
         """
         Timestamp debug/log messages configuration
         
-        .. attribute:: log
-        
-        	Timestamp log messages
-        	**type**\: :py:class:`Log <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log>`
-        
         .. attribute:: debug
         
         	Timestamp debug messages
@@ -760,6 +755,11 @@ class SyslogService(object):
         	Enable timestamp debug/log messages
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: log
+        
+        	Timestamp log messages
+        	**type**\: :py:class:`Log <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log>`
+        
         
 
         """
@@ -769,11 +769,11 @@ class SyslogService(object):
 
         def __init__(self):
             self.parent = None
-            self.log = SyslogService.Timestamps.Log()
-            self.log.parent = self
             self.debug = SyslogService.Timestamps.Debug()
             self.debug.parent = self
             self.enable = None
+            self.log = SyslogService.Timestamps.Log()
+            self.log.parent = self
 
 
         class Log(object):
@@ -785,14 +785,14 @@ class SyslogService(object):
             	Timestamp with date and time
             	**type**\: :py:class:`LogDatetime <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime>`
             
-            .. attribute:: log_uptime
-            
-            	Timestamp with systime uptime
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: log_timestamp_disable
             
             	Disable timestamp log messages
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: log_uptime
+            
+            	Timestamp with systime uptime
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -806,8 +806,8 @@ class SyslogService(object):
                 self.parent = None
                 self.log_datetime = SyslogService.Timestamps.Log.LogDatetime()
                 self.log_datetime.parent = self
-                self.log_uptime = None
                 self.log_timestamp_disable = None
+                self.log_uptime = None
 
 
             class LogDatetime(object):
@@ -836,14 +836,14 @@ class SyslogService(object):
                     """
                     Set timestamp for log message
                     
-                    .. attribute:: time_stamp_value
-                    
-                    	Time
-                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
-                    
                     .. attribute:: msec
                     
                     	Seconds
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
+                    
+                    .. attribute:: time_stamp_value
+                    
+                    	Time
                     	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: time_zone
@@ -865,8 +865,8 @@ class SyslogService(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.time_stamp_value = None
                         self.msec = None
+                        self.time_stamp_value = None
                         self.time_zone = None
                         self.year = None
 
@@ -882,10 +882,10 @@ class SyslogService(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.time_stamp_value is not None:
+                        if self.msec is not None:
                             return True
 
-                        if self.msec is not None:
+                        if self.time_stamp_value is not None:
                             return True
 
                         if self.time_zone is not None:
@@ -938,10 +938,10 @@ class SyslogService(object):
                 if self.log_datetime is not None and self.log_datetime._has_data():
                     return True
 
-                if self.log_uptime is not None:
+                if self.log_timestamp_disable is not None:
                     return True
 
-                if self.log_timestamp_disable is not None:
+                if self.log_uptime is not None:
                     return True
 
                 return False
@@ -1012,14 +1012,14 @@ class SyslogService(object):
                     """
                     Set time format for debug msg
                     
-                    .. attribute:: time_stamp_value
-                    
-                    	Time
-                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
-                    
                     .. attribute:: msec
                     
                     	Seconds
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
+                    
+                    .. attribute:: time_stamp_value
+                    
+                    	Time
                     	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: time_zone
@@ -1041,8 +1041,8 @@ class SyslogService(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.time_stamp_value = None
                         self.msec = None
+                        self.time_stamp_value = None
                         self.time_zone = None
                         self.year = None
 
@@ -1058,10 +1058,10 @@ class SyslogService(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.time_stamp_value is not None:
+                        if self.msec is not None:
                             return True
 
-                        if self.msec is not None:
+                        if self.time_stamp_value is not None:
                             return True
 
                         if self.time_zone is not None:
@@ -1139,13 +1139,13 @@ class SyslogService(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.log is not None and self.log._has_data():
-                return True
-
             if self.debug is not None and self.debug._has_data():
                 return True
 
             if self.enable is not None:
+                return True
+
+            if self.log is not None and self.log._has_data():
                 return True
 
             return False
@@ -1182,70 +1182,60 @@ class Syslog(object):
     """
     syslog
     
-    .. attribute:: monitor_logging
+    .. attribute:: alarm_logger
     
-    	Set monitor logging
-    	**type**\: :py:class:`MonitorLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging>`
-    
-    .. attribute:: history_logging
-    
-    	Set history logging
-    	**type**\: :py:class:`HistoryLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HistoryLogging>`
-    
-    .. attribute:: logging_facilities
-    
-    	Modify message logging facilities
-    	**type**\: :py:class:`LoggingFacilities <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.LoggingFacilities>`
-    
-    .. attribute:: trap_logging
-    
-    	Set trap logging
-    	**type**\: :py:class:`TrapLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.TrapLogging>`
-    
-    .. attribute:: buffered_logging
-    
-    	Set buffered logging parameters
-    	**type**\: :py:class:`BufferedLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging>`
-    
-    .. attribute:: host_server
-    
-    	Configure logging host
-    	**type**\: :py:class:`HostServer <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer>`
-    
-    .. attribute:: console_logging
-    
-    	Set console logging
-    	**type**\: :py:class:`ConsoleLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging>`
-    
-    .. attribute:: files
-    
-    	Configure logging file destination
-    	**type**\: :py:class:`Files <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files>`
-    
-    .. attribute:: ipv4
-    
-    	Syslog TOS bit for outgoing messages
-    	**type**\: :py:class:`Ipv4 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4>`
+    	Alarm Logger Properties
+    	**type**\: :py:class:`AlarmLogger <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
     
     .. attribute:: archive
     
     	Archive attributes configuration
     	**type**\: :py:class:`Archive <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Archive>`
     
-    .. attribute:: ipv6
+    .. attribute:: buffered_logging
     
-    	Syslog traffic class bit for outgoing messages
-    	**type**\: :py:class:`Ipv6 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6>`
+    	Set buffered logging parameters
+    	**type**\: :py:class:`BufferedLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging>`
     
-    .. attribute:: source_interface_table
+    .. attribute:: console_logging
     
-    	Configure source interface
-    	**type**\: :py:class:`SourceInterfaceTable <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable>`
+    	Set console logging
+    	**type**\: :py:class:`ConsoleLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging>`
+    
+    .. attribute:: enable_console_logging
+    
+    	Enabled or disabled
+    	**type**\: bool
+    
+    .. attribute:: files
+    
+    	Configure logging file destination
+    	**type**\: :py:class:`Files <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files>`
+    
+    .. attribute:: history_logging
+    
+    	Set history logging
+    	**type**\: :py:class:`HistoryLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HistoryLogging>`
     
     .. attribute:: host_name_prefix
     
     	Hostname prefix to add on msgs to servers
     	**type**\: str
+    
+    .. attribute:: host_server
+    
+    	Configure logging host
+    	**type**\: :py:class:`HostServer <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer>`
+    
+    .. attribute:: ipv4
+    
+    	Syslog TOS bit for outgoing messages
+    	**type**\: :py:class:`Ipv4 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4>`
+    
+    .. attribute:: ipv6
+    
+    	Syslog traffic class bit for outgoing messages
+    	**type**\: :py:class:`Ipv6 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6>`
     
     .. attribute:: local_log_file_size
     
@@ -1254,20 +1244,30 @@ class Syslog(object):
     
     	**range:** 0..4294967295
     
-    .. attribute:: enable_console_logging
+    .. attribute:: logging_facilities
     
-    	Enabled or disabled
-    	**type**\: bool
+    	Modify message logging facilities
+    	**type**\: :py:class:`LoggingFacilities <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.LoggingFacilities>`
+    
+    .. attribute:: monitor_logging
+    
+    	Set monitor logging
+    	**type**\: :py:class:`MonitorLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging>`
+    
+    .. attribute:: source_interface_table
+    
+    	Configure source interface
+    	**type**\: :py:class:`SourceInterfaceTable <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable>`
     
     .. attribute:: suppress_duplicates
     
     	Suppress consecutive duplicate messages
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    .. attribute:: alarm_logger
+    .. attribute:: trap_logging
     
-    	Alarm Logger Properties
-    	**type**\: :py:class:`AlarmLogger <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
+    	Set trap logging
+    	**type**\: :py:class:`TrapLogging <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.TrapLogging>`
     
     
 
@@ -1277,51 +1277,51 @@ class Syslog(object):
     _revision = '2015-10-08'
 
     def __init__(self):
-        self.monitor_logging = Syslog.MonitorLogging()
-        self.monitor_logging.parent = self
-        self.history_logging = Syslog.HistoryLogging()
-        self.history_logging.parent = self
-        self.logging_facilities = Syslog.LoggingFacilities()
-        self.logging_facilities.parent = self
-        self.trap_logging = Syslog.TrapLogging()
-        self.trap_logging.parent = self
-        self.buffered_logging = Syslog.BufferedLogging()
-        self.buffered_logging.parent = self
-        self.host_server = Syslog.HostServer()
-        self.host_server.parent = self
-        self.console_logging = Syslog.ConsoleLogging()
-        self.console_logging.parent = self
-        self.files = Syslog.Files()
-        self.files.parent = self
-        self.ipv4 = Syslog.Ipv4()
-        self.ipv4.parent = self
-        self.archive = Syslog.Archive()
-        self.archive.parent = self
-        self.ipv6 = Syslog.Ipv6()
-        self.ipv6.parent = self
-        self.source_interface_table = Syslog.SourceInterfaceTable()
-        self.source_interface_table.parent = self
-        self.host_name_prefix = None
-        self.local_log_file_size = None
-        self.enable_console_logging = None
-        self.suppress_duplicates = None
         self.alarm_logger = Syslog.AlarmLogger()
         self.alarm_logger.parent = self
+        self.archive = Syslog.Archive()
+        self.archive.parent = self
+        self.buffered_logging = Syslog.BufferedLogging()
+        self.buffered_logging.parent = self
+        self.console_logging = Syslog.ConsoleLogging()
+        self.console_logging.parent = self
+        self.enable_console_logging = None
+        self.files = Syslog.Files()
+        self.files.parent = self
+        self.history_logging = Syslog.HistoryLogging()
+        self.history_logging.parent = self
+        self.host_name_prefix = None
+        self.host_server = Syslog.HostServer()
+        self.host_server.parent = self
+        self.ipv4 = Syslog.Ipv4()
+        self.ipv4.parent = self
+        self.ipv6 = Syslog.Ipv6()
+        self.ipv6.parent = self
+        self.local_log_file_size = None
+        self.logging_facilities = Syslog.LoggingFacilities()
+        self.logging_facilities.parent = self
+        self.monitor_logging = Syslog.MonitorLogging()
+        self.monitor_logging.parent = self
+        self.source_interface_table = Syslog.SourceInterfaceTable()
+        self.source_interface_table.parent = self
+        self.suppress_duplicates = None
+        self.trap_logging = Syslog.TrapLogging()
+        self.trap_logging.parent = self
 
 
     class MonitorLogging(object):
         """
         Set monitor logging
         
-        .. attribute:: monitor_discriminator
-        
-        	Set monitor logging discriminators
-        	**type**\: :py:class:`MonitorDiscriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging.MonitorDiscriminator>`
-        
         .. attribute:: logging_level
         
         	Monitor Logging Level
         	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
+        
+        .. attribute:: monitor_discriminator
+        
+        	Set monitor logging discriminators
+        	**type**\: :py:class:`MonitorDiscriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging.MonitorDiscriminator>`
         
         
 
@@ -1332,33 +1332,23 @@ class Syslog(object):
 
         def __init__(self):
             self.parent = None
+            self.logging_level = None
             self.monitor_discriminator = Syslog.MonitorLogging.MonitorDiscriminator()
             self.monitor_discriminator.parent = self
-            self.logging_level = None
 
 
         class MonitorDiscriminator(object):
             """
             Set monitor logging discriminators
             
-            .. attribute:: match2
-            
-            	Set monitor logging match2 discriminator
-            	**type**\: str
-            
-            .. attribute:: nomatch1
-            
-            	Set monitor logging no\-match1 discriminator
-            	**type**\: str
-            
             .. attribute:: match1
             
             	Set monitor logging match1 discriminator
             	**type**\: str
             
-            .. attribute:: nomatch3
+            .. attribute:: match2
             
-            	Set monitor logging no\-match3 discriminator
+            	Set monitor logging match2 discriminator
             	**type**\: str
             
             .. attribute:: match3
@@ -1366,9 +1356,19 @@ class Syslog(object):
             	Set monitor logging match3 discriminator
             	**type**\: str
             
+            .. attribute:: nomatch1
+            
+            	Set monitor logging no\-match1 discriminator
+            	**type**\: str
+            
             .. attribute:: nomatch2
             
             	Set monitor logging no\-match2 discriminator
+            	**type**\: str
+            
+            .. attribute:: nomatch3
+            
+            	Set monitor logging no\-match3 discriminator
             	**type**\: str
             
             
@@ -1380,12 +1380,12 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.match2 = None
-                self.nomatch1 = None
                 self.match1 = None
-                self.nomatch3 = None
+                self.match2 = None
                 self.match3 = None
+                self.nomatch1 = None
                 self.nomatch2 = None
+                self.nomatch3 = None
 
             @property
             def _common_path(self):
@@ -1399,22 +1399,22 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.match2 is not None:
-                    return True
-
-                if self.nomatch1 is not None:
-                    return True
-
                 if self.match1 is not None:
                     return True
 
-                if self.nomatch3 is not None:
+                if self.match2 is not None:
                     return True
 
                 if self.match3 is not None:
                     return True
 
+                if self.nomatch1 is not None:
+                    return True
+
                 if self.nomatch2 is not None:
+                    return True
+
+                if self.nomatch3 is not None:
                     return True
 
                 return False
@@ -1436,10 +1436,10 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.monitor_discriminator is not None and self.monitor_discriminator._has_data():
+            if self.logging_level is not None:
                 return True
 
-            if self.logging_level is not None:
+            if self.monitor_discriminator is not None and self.monitor_discriminator._has_data():
                 return True
 
             return False
@@ -1594,6 +1594,13 @@ class Syslog(object):
         """
         Set buffered logging parameters
         
+        .. attribute:: buffer_size
+        
+        	Logging buffered size
+        	**type**\: int
+        
+        	**range:** 4096..4294967295
+        
         .. attribute:: buffered_discriminator
         
         	Set buffered logging discriminators
@@ -1604,13 +1611,6 @@ class Syslog(object):
         	Logging level for Buffered logging
         	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
         
-        .. attribute:: buffer_size
-        
-        	Logging buffered size
-        	**type**\: int
-        
-        	**range:** 4096..4294967295
-        
         
 
         """
@@ -1620,34 +1620,24 @@ class Syslog(object):
 
         def __init__(self):
             self.parent = None
+            self.buffer_size = None
             self.buffered_discriminator = Syslog.BufferedLogging.BufferedDiscriminator()
             self.buffered_discriminator.parent = self
             self.logging_level = None
-            self.buffer_size = None
 
 
         class BufferedDiscriminator(object):
             """
             Set buffered logging discriminators
             
-            .. attribute:: match2
-            
-            	Set buffered logging match2 discriminator
-            	**type**\: str
-            
-            .. attribute:: nomatch1
-            
-            	Set buffered logging no\-match1 discriminator
-            	**type**\: str
-            
             .. attribute:: match1
             
             	Set buffered logging match1 discriminator
             	**type**\: str
             
-            .. attribute:: nomatch3
+            .. attribute:: match2
             
-            	Set buffered logging no\-match3 discriminator
+            	Set buffered logging match2 discriminator
             	**type**\: str
             
             .. attribute:: match3
@@ -1655,9 +1645,19 @@ class Syslog(object):
             	Set buffered logging match3 discriminator
             	**type**\: str
             
+            .. attribute:: nomatch1
+            
+            	Set buffered logging no\-match1 discriminator
+            	**type**\: str
+            
             .. attribute:: nomatch2
             
             	Set buffered logging no\-match2 discriminator
+            	**type**\: str
+            
+            .. attribute:: nomatch3
+            
+            	Set buffered logging no\-match3 discriminator
             	**type**\: str
             
             
@@ -1669,12 +1669,12 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.match2 = None
-                self.nomatch1 = None
                 self.match1 = None
-                self.nomatch3 = None
+                self.match2 = None
                 self.match3 = None
+                self.nomatch1 = None
                 self.nomatch2 = None
+                self.nomatch3 = None
 
             @property
             def _common_path(self):
@@ -1688,22 +1688,22 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.match2 is not None:
-                    return True
-
-                if self.nomatch1 is not None:
-                    return True
-
                 if self.match1 is not None:
                     return True
 
-                if self.nomatch3 is not None:
+                if self.match2 is not None:
                     return True
 
                 if self.match3 is not None:
                     return True
 
+                if self.nomatch1 is not None:
+                    return True
+
                 if self.nomatch2 is not None:
+                    return True
+
+                if self.nomatch3 is not None:
                     return True
 
                 return False
@@ -1725,13 +1725,13 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.buffer_size is not None:
+                return True
+
             if self.buffered_discriminator is not None and self.buffered_discriminator._has_data():
                 return True
 
             if self.logging_level is not None:
-                return True
-
-            if self.buffer_size is not None:
                 return True
 
             return False
@@ -1798,11 +1798,6 @@ class Syslog(object):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: ipv6s
-                
-                	List of the IPv6 logging host
-                	**type**\: :py:class:`Ipv6S <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
-                
                 .. attribute:: hosts
                 
                 	List of the logging host
@@ -1812,6 +1807,11 @@ class Syslog(object):
                 
                 	List of the IPv4 logging host
                 	**type**\: :py:class:`Ipv4S <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S>`
+                
+                .. attribute:: ipv6s
+                
+                	List of the IPv6 logging host
+                	**type**\: :py:class:`Ipv6S <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
                 
                 
 
@@ -1823,12 +1823,12 @@ class Syslog(object):
                 def __init__(self):
                     self.parent = None
                     self.vrf_name = None
-                    self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6S()
-                    self.ipv6s.parent = self
                     self.hosts = Syslog.HostServer.Vrfs.Vrf.Hosts()
                     self.hosts.parent = self
                     self.ipv4s = Syslog.HostServer.Vrfs.Vrf.Ipv4S()
                     self.ipv4s.parent = self
+                    self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6S()
+                    self.ipv6s.parent = self
 
 
                 class Ipv6S(object):
@@ -1865,11 +1865,6 @@ class Syslog(object):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: ipv6_severity_port
-                        
-                        	Severity/Port for the logging host
-                        	**type**\: :py:class:`Ipv6SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
-                        
                         .. attribute:: ipv6_discriminator
                         
                         	Set IPv6 logging discriminators
@@ -1879,6 +1874,11 @@ class Syslog(object):
                         
                         	Severity container of the logging host
                         	**type**\: :py:class:`Ipv6SeverityLevels <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels>`
+                        
+                        .. attribute:: ipv6_severity_port
+                        
+                        	Severity/Port for the logging host
+                        	**type**\: :py:class:`Ipv6SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
                         
                         
 
@@ -1890,28 +1890,28 @@ class Syslog(object):
                         def __init__(self):
                             self.parent = None
                             self.address = None
-                            self.ipv6_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort()
-                            self.ipv6_severity_port.parent = self
                             self.ipv6_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator()
                             self.ipv6_discriminator.parent = self
                             self.ipv6_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels()
                             self.ipv6_severity_levels.parent = self
+                            self.ipv6_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort()
+                            self.ipv6_severity_port.parent = self
 
 
                         class Ipv6SeverityPort(object):
                             """
                             Severity/Port for the logging host
                             
-                            .. attribute:: severity
+                            .. attribute:: port
                             
-                            	Severity for the logging host
+                            	Port for the logging host
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: port
+                            .. attribute:: severity
                             
-                            	Port for the logging host
+                            	Severity for the logging host
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -1925,13 +1925,13 @@ class Syslog(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.severity = None
                                 self.port = None
+                                self.severity = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv6-severity-port'
 
@@ -1942,10 +1942,10 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.severity is not None:
+                                if self.port is not None:
                                     return True
 
-                                if self.port is not None:
+                                if self.severity is not None:
                                     return True
 
                                 return False
@@ -1960,9 +1960,14 @@ class Syslog(object):
                             """
                             Set IPv6 logging discriminators
                             
-                            .. attribute:: nomatch2
+                            .. attribute:: match1
                             
-                            	Set IPv6 logging no\-match2 discriminator
+                            	Set IPv6 logging match1 discriminator
+                            	**type**\: str
+                            
+                            .. attribute:: match2
+                            
+                            	Set IPv6 logging match2 discriminator
                             	**type**\: str
                             
                             .. attribute:: match3
@@ -1970,24 +1975,19 @@ class Syslog(object):
                             	Set IPv6 logging match3 discriminator
                             	**type**\: str
                             
-                            .. attribute:: nomatch3
-                            
-                            	Set IPv6 logging no\-match3 discriminator
-                            	**type**\: str
-                            
-                            .. attribute:: match1
-                            
-                            	Set IPv6 logging match1 discriminator
-                            	**type**\: str
-                            
                             .. attribute:: nomatch1
                             
                             	Set IPv6 logging no\-match1 discriminator
                             	**type**\: str
                             
-                            .. attribute:: match2
+                            .. attribute:: nomatch2
                             
-                            	Set IPv6 logging match2 discriminator
+                            	Set IPv6 logging no\-match2 discriminator
+                            	**type**\: str
+                            
+                            .. attribute:: nomatch3
+                            
+                            	Set IPv6 logging no\-match3 discriminator
                             	**type**\: str
                             
                             
@@ -1999,17 +1999,17 @@ class Syslog(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.nomatch2 = None
-                                self.match3 = None
-                                self.nomatch3 = None
                                 self.match1 = None
-                                self.nomatch1 = None
                                 self.match2 = None
+                                self.match3 = None
+                                self.nomatch1 = None
+                                self.nomatch2 = None
+                                self.nomatch3 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv6-discriminator'
 
@@ -2020,22 +2020,22 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.nomatch2 is not None:
+                                if self.match1 is not None:
+                                    return True
+
+                                if self.match2 is not None:
                                     return True
 
                                 if self.match3 is not None:
                                     return True
 
-                                if self.nomatch3 is not None:
-                                    return True
-
-                                if self.match1 is not None:
-                                    return True
-
                                 if self.nomatch1 is not None:
                                     return True
 
-                                if self.match2 is not None:
+                                if self.nomatch2 is not None:
+                                    return True
+
+                                if self.nomatch3 is not None:
                                     return True
 
                                 return False
@@ -2092,9 +2092,9 @@ class Syslog(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.severity is None:
-                                        raise YPYDataValidationError('Key property severity is None')
+                                        raise YPYModelError('Key property severity is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv6-severity-level[Cisco-IOS-XR-infra-syslog-cfg:severity = ' + str(self.severity) + ']'
 
@@ -2118,7 +2118,7 @@ class Syslog(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv6-severity-levels'
 
@@ -2144,9 +2144,9 @@ class Syslog(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.address is None:
-                                raise YPYDataValidationError('Key property address is None')
+                                raise YPYModelError('Key property address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv6[Cisco-IOS-XR-infra-syslog-cfg:address = ' + str(self.address) + ']'
 
@@ -2160,13 +2160,13 @@ class Syslog(object):
                             if self.address is not None:
                                 return True
 
-                            if self.ipv6_severity_port is not None and self.ipv6_severity_port._has_data():
-                                return True
-
                             if self.ipv6_discriminator is not None and self.ipv6_discriminator._has_data():
                                 return True
 
                             if self.ipv6_severity_levels is not None and self.ipv6_severity_levels._has_data():
+                                return True
+
+                            if self.ipv6_severity_port is not None and self.ipv6_severity_port._has_data():
                                 return True
 
                             return False
@@ -2179,7 +2179,7 @@ class Syslog(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv6s'
 
@@ -2235,15 +2235,15 @@ class Syslog(object):
                         	Name of the logging host
                         	**type**\: str
                         
-                        .. attribute:: host_name_severities
-                        
-                        	Severity container of the logging host
-                        	**type**\: :py:class:`HostNameSeverities <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities>`
-                        
                         .. attribute:: host_name_discriminator
                         
                         	Set Hostname logging discriminators
                         	**type**\: :py:class:`HostNameDiscriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator>`
+                        
+                        .. attribute:: host_name_severities
+                        
+                        	Severity container of the logging host
+                        	**type**\: :py:class:`HostNameSeverities <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities>`
                         
                         .. attribute:: host_severity_port
                         
@@ -2260,10 +2260,10 @@ class Syslog(object):
                         def __init__(self):
                             self.parent = None
                             self.host_name = None
-                            self.host_name_severities = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities()
-                            self.host_name_severities.parent = self
                             self.host_name_discriminator = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator()
                             self.host_name_discriminator.parent = self
+                            self.host_name_severities = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities()
+                            self.host_name_severities.parent = self
                             self.host_severity_port = Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort()
                             self.host_severity_port.parent = self
 
@@ -2314,9 +2314,9 @@ class Syslog(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.severity is None:
-                                        raise YPYDataValidationError('Key property severity is None')
+                                        raise YPYModelError('Key property severity is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:host-name-severity[Cisco-IOS-XR-infra-syslog-cfg:severity = ' + str(self.severity) + ']'
 
@@ -2340,7 +2340,7 @@ class Syslog(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:host-name-severities'
 
@@ -2368,9 +2368,14 @@ class Syslog(object):
                             """
                             Set Hostname logging discriminators
                             
-                            .. attribute:: nomatch2
+                            .. attribute:: match1
                             
-                            	Set hostname logging no\-match2 discriminator
+                            	Set hostname logging match1 discriminator
+                            	**type**\: str
+                            
+                            .. attribute:: match2
+                            
+                            	Set hostname logging match2 discriminator
                             	**type**\: str
                             
                             .. attribute:: match3
@@ -2378,24 +2383,19 @@ class Syslog(object):
                             	Set hostname logging match3 discriminator
                             	**type**\: str
                             
-                            .. attribute:: nomatch3
-                            
-                            	Set hostname logging no\-match3 discriminator
-                            	**type**\: str
-                            
-                            .. attribute:: match1
-                            
-                            	Set hostname logging match1 discriminator
-                            	**type**\: str
-                            
                             .. attribute:: nomatch1
                             
                             	Set hostname logging no\-match1 discriminator
                             	**type**\: str
                             
-                            .. attribute:: match2
+                            .. attribute:: nomatch2
                             
-                            	Set hostname logging match2 discriminator
+                            	Set hostname logging no\-match2 discriminator
+                            	**type**\: str
+                            
+                            .. attribute:: nomatch3
+                            
+                            	Set hostname logging no\-match3 discriminator
                             	**type**\: str
                             
                             
@@ -2407,17 +2407,17 @@ class Syslog(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.nomatch2 = None
-                                self.match3 = None
-                                self.nomatch3 = None
                                 self.match1 = None
-                                self.nomatch1 = None
                                 self.match2 = None
+                                self.match3 = None
+                                self.nomatch1 = None
+                                self.nomatch2 = None
+                                self.nomatch3 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:host-name-discriminator'
 
@@ -2428,22 +2428,22 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.nomatch2 is not None:
+                                if self.match1 is not None:
+                                    return True
+
+                                if self.match2 is not None:
                                     return True
 
                                 if self.match3 is not None:
                                     return True
 
-                                if self.nomatch3 is not None:
-                                    return True
-
-                                if self.match1 is not None:
-                                    return True
-
                                 if self.nomatch1 is not None:
                                     return True
 
-                                if self.match2 is not None:
+                                if self.nomatch2 is not None:
+                                    return True
+
+                                if self.nomatch3 is not None:
                                     return True
 
                                 return False
@@ -2458,16 +2458,16 @@ class Syslog(object):
                             """
                             Severity/Port for the logging host
                             
-                            .. attribute:: severity
+                            .. attribute:: port
                             
-                            	Severity for the logging host
+                            	Port for the logging host
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: port
+                            .. attribute:: severity
                             
-                            	Port for the logging host
+                            	Severity for the logging host
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -2481,13 +2481,13 @@ class Syslog(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.severity = None
                                 self.port = None
+                                self.severity = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:host-severity-port'
 
@@ -2498,10 +2498,10 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.severity is not None:
+                                if self.port is not None:
                                     return True
 
-                                if self.port is not None:
+                                if self.severity is not None:
                                     return True
 
                                 return False
@@ -2514,9 +2514,9 @@ class Syslog(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.host_name is None:
-                                raise YPYDataValidationError('Key property host_name is None')
+                                raise YPYModelError('Key property host_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:host[Cisco-IOS-XR-infra-syslog-cfg:host-name = ' + str(self.host_name) + ']'
 
@@ -2530,10 +2530,10 @@ class Syslog(object):
                             if self.host_name is not None:
                                 return True
 
-                            if self.host_name_severities is not None and self.host_name_severities._has_data():
+                            if self.host_name_discriminator is not None and self.host_name_discriminator._has_data():
                                 return True
 
-                            if self.host_name_discriminator is not None and self.host_name_discriminator._has_data():
+                            if self.host_name_severities is not None and self.host_name_severities._has_data():
                                 return True
 
                             if self.host_severity_port is not None and self.host_severity_port._has_data():
@@ -2549,7 +2549,7 @@ class Syslog(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:hosts'
 
@@ -2607,6 +2607,11 @@ class Syslog(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: ipv4_discriminator
+                        
+                        	Set IPv4 logging discriminators
+                        	**type**\: :py:class:`Ipv4Discriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
+                        
                         .. attribute:: ipv4_severity_levels
                         
                         	Severity container of the logging host
@@ -2616,11 +2621,6 @@ class Syslog(object):
                         
                         	Severity/Port for the logging host
                         	**type**\: :py:class:`Ipv4SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort>`
-                        
-                        .. attribute:: ipv4_discriminator
-                        
-                        	Set IPv4 logging discriminators
-                        	**type**\: :py:class:`Ipv4Discriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
                         
                         
 
@@ -2632,12 +2632,12 @@ class Syslog(object):
                         def __init__(self):
                             self.parent = None
                             self.address = None
+                            self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator()
+                            self.ipv4_discriminator.parent = self
                             self.ipv4_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels()
                             self.ipv4_severity_levels.parent = self
                             self.ipv4_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort()
                             self.ipv4_severity_port.parent = self
-                            self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator()
-                            self.ipv4_discriminator.parent = self
 
 
                         class Ipv4SeverityLevels(object):
@@ -2686,9 +2686,9 @@ class Syslog(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.severity is None:
-                                        raise YPYDataValidationError('Key property severity is None')
+                                        raise YPYModelError('Key property severity is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv4-severity-level[Cisco-IOS-XR-infra-syslog-cfg:severity = ' + str(self.severity) + ']'
 
@@ -2712,7 +2712,7 @@ class Syslog(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv4-severity-levels'
 
@@ -2740,16 +2740,16 @@ class Syslog(object):
                             """
                             Severity/Port for the logging host
                             
-                            .. attribute:: severity
+                            .. attribute:: port
                             
-                            	Severity for the logging host
+                            	Port for the logging host
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: port
+                            .. attribute:: severity
                             
-                            	Port for the logging host
+                            	Severity for the logging host
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -2763,13 +2763,13 @@ class Syslog(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.severity = None
                                 self.port = None
+                                self.severity = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv4-severity-port'
 
@@ -2780,10 +2780,10 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.severity is not None:
+                                if self.port is not None:
                                     return True
 
-                                if self.port is not None:
+                                if self.severity is not None:
                                     return True
 
                                 return False
@@ -2798,9 +2798,14 @@ class Syslog(object):
                             """
                             Set IPv4 logging discriminators
                             
-                            .. attribute:: nomatch2
+                            .. attribute:: match1
                             
-                            	Set IPv4 logging no\-match2 discriminator
+                            	Set IPv4 logging match1 discriminator
+                            	**type**\: str
+                            
+                            .. attribute:: match2
+                            
+                            	Set IPv4 logging match2 discriminator
                             	**type**\: str
                             
                             .. attribute:: match3
@@ -2808,24 +2813,19 @@ class Syslog(object):
                             	Set IPv4 logging match3 discriminator
                             	**type**\: str
                             
-                            .. attribute:: nomatch3
-                            
-                            	Set IPv4 logging no\-match3 discriminator
-                            	**type**\: str
-                            
-                            .. attribute:: match1
-                            
-                            	Set IPv4 logging match1 discriminator
-                            	**type**\: str
-                            
                             .. attribute:: nomatch1
                             
                             	Set IPv4 logging no\-match1 discriminator
                             	**type**\: str
                             
-                            .. attribute:: match2
+                            .. attribute:: nomatch2
                             
-                            	Set IPv4 logging match2 discriminator
+                            	Set IPv4 logging no\-match2 discriminator
+                            	**type**\: str
+                            
+                            .. attribute:: nomatch3
+                            
+                            	Set IPv4 logging no\-match3 discriminator
                             	**type**\: str
                             
                             
@@ -2837,17 +2837,17 @@ class Syslog(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.nomatch2 = None
-                                self.match3 = None
-                                self.nomatch3 = None
                                 self.match1 = None
-                                self.nomatch1 = None
                                 self.match2 = None
+                                self.match3 = None
+                                self.nomatch1 = None
+                                self.nomatch2 = None
+                                self.nomatch3 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv4-discriminator'
 
@@ -2858,22 +2858,22 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.nomatch2 is not None:
+                                if self.match1 is not None:
+                                    return True
+
+                                if self.match2 is not None:
                                     return True
 
                                 if self.match3 is not None:
                                     return True
 
-                                if self.nomatch3 is not None:
-                                    return True
-
-                                if self.match1 is not None:
-                                    return True
-
                                 if self.nomatch1 is not None:
                                     return True
 
-                                if self.match2 is not None:
+                                if self.nomatch2 is not None:
+                                    return True
+
+                                if self.nomatch3 is not None:
                                     return True
 
                                 return False
@@ -2886,9 +2886,9 @@ class Syslog(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.address is None:
-                                raise YPYDataValidationError('Key property address is None')
+                                raise YPYModelError('Key property address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv4[Cisco-IOS-XR-infra-syslog-cfg:address = ' + str(self.address) + ']'
 
@@ -2902,13 +2902,13 @@ class Syslog(object):
                             if self.address is not None:
                                 return True
 
+                            if self.ipv4_discriminator is not None and self.ipv4_discriminator._has_data():
+                                return True
+
                             if self.ipv4_severity_levels is not None and self.ipv4_severity_levels._has_data():
                                 return True
 
                             if self.ipv4_severity_port is not None and self.ipv4_severity_port._has_data():
-                                return True
-
-                            if self.ipv4_discriminator is not None and self.ipv4_discriminator._has_data():
                                 return True
 
                             return False
@@ -2921,7 +2921,7 @@ class Syslog(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:ipv4s'
 
@@ -2947,7 +2947,7 @@ class Syslog(object):
                 @property
                 def _common_path(self):
                     if self.vrf_name is None:
-                        raise YPYDataValidationError('Key property vrf_name is None')
+                        raise YPYModelError('Key property vrf_name is None')
 
                     return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-syslog-cfg:host-server/Cisco-IOS-XR-infra-syslog-cfg:vrfs/Cisco-IOS-XR-infra-syslog-cfg:vrf[Cisco-IOS-XR-infra-syslog-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -2961,13 +2961,13 @@ class Syslog(object):
                     if self.vrf_name is not None:
                         return True
 
-                    if self.ipv6s is not None and self.ipv6s._has_data():
-                        return True
-
                     if self.hosts is not None and self.hosts._has_data():
                         return True
 
                     if self.ipv4s is not None and self.ipv4s._has_data():
+                        return True
+
+                    if self.ipv6s is not None and self.ipv6s._has_data():
                         return True
 
                     return False
@@ -3056,24 +3056,14 @@ class Syslog(object):
             """
             Set console logging discriminators
             
-            .. attribute:: match2
-            
-            	Set console logging match2 discriminator
-            	**type**\: str
-            
-            .. attribute:: nomatch1
-            
-            	Set console logging no\-match1 discriminator
-            	**type**\: str
-            
             .. attribute:: match1
             
             	Set console logging match1 discriminator
             	**type**\: str
             
-            .. attribute:: nomatch3
+            .. attribute:: match2
             
-            	Set console logging no\-match3 discriminator
+            	Set console logging match2 discriminator
             	**type**\: str
             
             .. attribute:: match3
@@ -3081,9 +3071,19 @@ class Syslog(object):
             	Set console logging match3 discriminator
             	**type**\: str
             
+            .. attribute:: nomatch1
+            
+            	Set console logging no\-match1 discriminator
+            	**type**\: str
+            
             .. attribute:: nomatch2
             
             	Set console logging no\-match2 discriminator
+            	**type**\: str
+            
+            .. attribute:: nomatch3
+            
+            	Set console logging no\-match3 discriminator
             	**type**\: str
             
             
@@ -3095,12 +3095,12 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.match2 = None
-                self.nomatch1 = None
                 self.match1 = None
-                self.nomatch3 = None
+                self.match2 = None
                 self.match3 = None
+                self.nomatch1 = None
                 self.nomatch2 = None
+                self.nomatch3 = None
 
             @property
             def _common_path(self):
@@ -3114,22 +3114,22 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.match2 is not None:
-                    return True
-
-                if self.nomatch1 is not None:
-                    return True
-
                 if self.match1 is not None:
                     return True
 
-                if self.nomatch3 is not None:
+                if self.match2 is not None:
                     return True
 
                 if self.match3 is not None:
                     return True
 
+                if self.nomatch1 is not None:
+                    return True
+
                 if self.nomatch2 is not None:
+                    return True
+
+                if self.nomatch3 is not None:
                     return True
 
                 return False
@@ -3199,15 +3199,15 @@ class Syslog(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: file_specification
-            
-            	Specifications of the logging file destination
-            	**type**\: :py:class:`FileSpecification <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileSpecification>`
-            
             .. attribute:: file_log_discriminator
             
             	Set File logging discriminators
             	**type**\: :py:class:`FileLogDiscriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogDiscriminator>`
+            
+            .. attribute:: file_specification
+            
+            	Specifications of the logging file destination
+            	**type**\: :py:class:`FileSpecification <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileSpecification>`
             
             
 
@@ -3219,20 +3219,15 @@ class Syslog(object):
             def __init__(self):
                 self.parent = None
                 self.file_name = None
-                self.file_specification = Syslog.Files.File.FileSpecification()
-                self.file_specification.parent = self
                 self.file_log_discriminator = Syslog.Files.File.FileLogDiscriminator()
                 self.file_log_discriminator.parent = self
+                self.file_specification = Syslog.Files.File.FileSpecification()
+                self.file_specification.parent = self
 
 
             class FileSpecification(object):
                 """
                 Specifications of the logging file destination
-                
-                .. attribute:: path
-                
-                	File path
-                	**type**\: str
                 
                 .. attribute:: max_file_size
                 
@@ -3240,6 +3235,11 @@ class Syslog(object):
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                .. attribute:: path
+                
+                	File path
+                	**type**\: str
                 
                 .. attribute:: severity
                 
@@ -3257,14 +3257,14 @@ class Syslog(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.path = None
                     self.max_file_size = None
+                    self.path = None
                     self.severity = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:file-specification'
 
@@ -3275,10 +3275,10 @@ class Syslog(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.path is not None:
+                    if self.max_file_size is not None:
                         return True
 
-                    if self.max_file_size is not None:
+                    if self.path is not None:
                         return True
 
                     if self.severity is not None:
@@ -3296,9 +3296,14 @@ class Syslog(object):
                 """
                 Set File logging discriminators
                 
-                .. attribute:: nomatch2
+                .. attribute:: match1
                 
-                	Set file logging no match discriminator 2
+                	Set file logging match discriminator 1
+                	**type**\: str
+                
+                .. attribute:: match2
+                
+                	Set file logging match discriminator 2
                 	**type**\: str
                 
                 .. attribute:: match3
@@ -3306,24 +3311,19 @@ class Syslog(object):
                 	Set file logging match discriminator 3
                 	**type**\: str
                 
-                .. attribute:: nomatch3
-                
-                	Set file logging no match discriminator 3
-                	**type**\: str
-                
-                .. attribute:: match1
-                
-                	Set file logging match discriminator 1
-                	**type**\: str
-                
                 .. attribute:: nomatch1
                 
                 	Set file logging no match discriminator 1
                 	**type**\: str
                 
-                .. attribute:: match2
+                .. attribute:: nomatch2
                 
-                	Set file logging match discriminator 2
+                	Set file logging no match discriminator 2
+                	**type**\: str
+                
+                .. attribute:: nomatch3
+                
+                	Set file logging no match discriminator 3
                 	**type**\: str
                 
                 
@@ -3335,17 +3335,17 @@ class Syslog(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.nomatch2 = None
-                    self.match3 = None
-                    self.nomatch3 = None
                     self.match1 = None
-                    self.nomatch1 = None
                     self.match2 = None
+                    self.match3 = None
+                    self.nomatch1 = None
+                    self.nomatch2 = None
+                    self.nomatch3 = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:file-log-discriminator'
 
@@ -3356,22 +3356,22 @@ class Syslog(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.nomatch2 is not None:
+                    if self.match1 is not None:
+                        return True
+
+                    if self.match2 is not None:
                         return True
 
                     if self.match3 is not None:
                         return True
 
-                    if self.nomatch3 is not None:
-                        return True
-
-                    if self.match1 is not None:
-                        return True
-
                     if self.nomatch1 is not None:
                         return True
 
-                    if self.match2 is not None:
+                    if self.nomatch2 is not None:
+                        return True
+
+                    if self.nomatch3 is not None:
                         return True
 
                     return False
@@ -3384,7 +3384,7 @@ class Syslog(object):
             @property
             def _common_path(self):
                 if self.file_name is None:
-                    raise YPYDataValidationError('Key property file_name is None')
+                    raise YPYModelError('Key property file_name is None')
 
                 return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-syslog-cfg:files/Cisco-IOS-XR-infra-syslog-cfg:file[Cisco-IOS-XR-infra-syslog-cfg:file-name = ' + str(self.file_name) + ']'
 
@@ -3398,10 +3398,10 @@ class Syslog(object):
                 if self.file_name is not None:
                     return True
 
-                if self.file_specification is not None and self.file_specification._has_data():
+                if self.file_log_discriminator is not None and self.file_log_discriminator._has_data():
                     return True
 
-                if self.file_log_discriminator is not None and self.file_log_discriminator._has_data():
+                if self.file_specification is not None and self.file_specification._has_data():
                     return True
 
                 return False
@@ -3445,15 +3445,15 @@ class Syslog(object):
         	DSCP value
         	**type**\: :py:class:`Dscp <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Dscp>`
         
-        .. attribute:: tos
-        
-        	Type of service
-        	**type**\: :py:class:`Tos <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Tos>`
-        
         .. attribute:: precedence
         
         	Precedence value
         	**type**\: :py:class:`Precedence <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Precedence>`
+        
+        .. attribute:: tos
+        
+        	Type of service
+        	**type**\: :py:class:`Tos <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Tos>`
         
         
 
@@ -3465,9 +3465,9 @@ class Syslog(object):
         def __init__(self):
             self.parent = None
             self.dscp = None
+            self.precedence = None
             self.tos = Syslog.Ipv4.Tos()
             self.tos.parent = self
-            self.precedence = None
 
 
         class Dscp(object):
@@ -3572,26 +3572,6 @@ class Syslog(object):
             """
             Type of service
             
-            .. attribute:: type
-            
-            	Logging TOS type DSCP or precedence
-            	**type**\: :py:class:`LoggingTosEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTosEnum>`
-            
-            .. attribute:: precedence
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
-            
-            
-            ----
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	Logging DSCP value
@@ -3607,6 +3587,26 @@ class Syslog(object):
             
             
             ----
+            .. attribute:: precedence
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
+            
+            
+            ----
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: type
+            
+            	Logging TOS type DSCP or precedence
+            	**type**\: :py:class:`LoggingTosEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTosEnum>`
+            
             
 
             """
@@ -3616,9 +3616,9 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
-                self.precedence = None
                 self.dscp = None
+                self.precedence = None
+                self.type = None
 
             @property
             def _common_path(self):
@@ -3632,13 +3632,13 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.dscp is not None:
                     return True
 
                 if self.precedence is not None:
                     return True
 
-                if self.dscp is not None:
+                if self.type is not None:
                     return True
 
                 return False
@@ -3658,26 +3658,6 @@ class Syslog(object):
             	Logging TOS type precedence
             	**type**\: :py:class:`LoggingPrecedenceEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceEnum>`
             
-            .. attribute:: _is_presence
-            
-            	Is present if this instance represents presence container else not
-            	**type**\: bool
-            
-            .. attribute:: value
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
-            
-            
-            ----
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: _is_presence
             
             	Is present if this instance represents presence container else not
@@ -3703,6 +3683,26 @@ class Syslog(object):
             	Is present if this instance represents presence container else not
             	**type**\: bool
             
+            .. attribute:: value
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
+            
+            
+            ----
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -3715,8 +3715,8 @@ class Syslog(object):
             def __init__(self):
                 self.parent = None
                 self.type = None
-                self.value = None
                 self.unused = None
+                self.value = None
 
             @property
             def _common_path(self):
@@ -3733,10 +3733,10 @@ class Syslog(object):
                 if self.type is not None:
                     return True
 
-                if self.value is not None:
+                if self.unused is not None:
                     return True
 
-                if self.unused is not None:
+                if self.value is not None:
                     return True
 
                 return False
@@ -3761,10 +3761,10 @@ class Syslog(object):
             if self.dscp is not None and self.dscp._has_data():
                 return True
 
-            if self.tos is not None and self.tos._has_data():
+            if self.precedence is not None and self.precedence._has_data():
                 return True
 
-            if self.precedence is not None and self.precedence._has_data():
+            if self.tos is not None and self.tos._has_data():
                 return True
 
             return False
@@ -3779,12 +3779,10 @@ class Syslog(object):
         """
         Archive attributes configuration
         
-        .. attribute:: size
+        .. attribute:: device
         
-        	The total size of the archive
-        	**type**\: int
-        
-        	**range:** 1..2047
+        	'/disk0\:' or '/disk1\:' or '/harddisk\:'
+        	**type**\: str
         
         .. attribute:: file_size
         
@@ -3793,27 +3791,10 @@ class Syslog(object):
         
         	**range:** 1..2047
         
-        .. attribute:: device
-        
-        	'/disk0\:' or '/disk1\:' or '/harddisk\:'
-        	**type**\: str
-        
-        .. attribute:: threshold
-        
-        	The size threshold at which a syslog is generated
-        	**type**\: int
-        
-        	**range:** 1..99
-        
         .. attribute:: frequency
         
         	The collection interval for logs
         	**type**\: :py:class:`LogCollectFrequencyEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogCollectFrequencyEnum>`
-        
-        .. attribute:: severity
-        
-        	The minimum severity of log messages to archive
-        	**type**\: :py:class:`LogMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogMessageSeverityEnum>`
         
         .. attribute:: length
         
@@ -3821,6 +3802,25 @@ class Syslog(object):
         	**type**\: int
         
         	**range:** 1..256
+        
+        .. attribute:: severity
+        
+        	The minimum severity of log messages to archive
+        	**type**\: :py:class:`LogMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogMessageSeverityEnum>`
+        
+        .. attribute:: size
+        
+        	The total size of the archive
+        	**type**\: int
+        
+        	**range:** 1..2047
+        
+        .. attribute:: threshold
+        
+        	The size threshold at which a syslog is generated
+        	**type**\: int
+        
+        	**range:** 1..99
         
         
 
@@ -3831,13 +3831,13 @@ class Syslog(object):
 
         def __init__(self):
             self.parent = None
-            self.size = None
-            self.file_size = None
             self.device = None
-            self.threshold = None
+            self.file_size = None
             self.frequency = None
-            self.severity = None
             self.length = None
+            self.severity = None
+            self.size = None
+            self.threshold = None
 
         @property
         def _common_path(self):
@@ -3851,25 +3851,25 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.size is not None:
+            if self.device is not None:
                 return True
 
             if self.file_size is not None:
                 return True
 
-            if self.device is not None:
-                return True
-
-            if self.threshold is not None:
-                return True
-
             if self.frequency is not None:
+                return True
+
+            if self.length is not None:
                 return True
 
             if self.severity is not None:
                 return True
 
-            if self.length is not None:
+            if self.size is not None:
+                return True
+
+            if self.threshold is not None:
                 return True
 
             return False
@@ -3889,15 +3889,15 @@ class Syslog(object):
         	DSCP value
         	**type**\: :py:class:`Dscp <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Dscp>`
         
-        .. attribute:: traffic_class
-        
-        	Type of traffic class
-        	**type**\: :py:class:`TrafficClass <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.TrafficClass>`
-        
         .. attribute:: precedence
         
         	Precedence value
         	**type**\: :py:class:`Precedence <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Precedence>`
+        
+        .. attribute:: traffic_class
+        
+        	Type of traffic class
+        	**type**\: :py:class:`TrafficClass <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.TrafficClass>`
         
         
 
@@ -3909,9 +3909,9 @@ class Syslog(object):
         def __init__(self):
             self.parent = None
             self.dscp = None
+            self.precedence = None
             self.traffic_class = Syslog.Ipv6.TrafficClass()
             self.traffic_class.parent = self
-            self.precedence = None
 
 
         class Dscp(object):
@@ -4016,26 +4016,6 @@ class Syslog(object):
             """
             Type of traffic class
             
-            .. attribute:: type
-            
-            	Logging TOS type DSCP or precedence
-            	**type**\: :py:class:`LoggingTosEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTosEnum>`
-            
-            .. attribute:: precedence
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
-            
-            
-            ----
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	Logging DSCP value
@@ -4051,6 +4031,26 @@ class Syslog(object):
             
             
             ----
+            .. attribute:: precedence
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
+            
+            
+            ----
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: type
+            
+            	Logging TOS type DSCP or precedence
+            	**type**\: :py:class:`LoggingTosEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTosEnum>`
+            
             
 
             """
@@ -4060,9 +4060,9 @@ class Syslog(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
-                self.precedence = None
                 self.dscp = None
+                self.precedence = None
+                self.type = None
 
             @property
             def _common_path(self):
@@ -4076,13 +4076,13 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.dscp is not None:
                     return True
 
                 if self.precedence is not None:
                     return True
 
-                if self.dscp is not None:
+                if self.type is not None:
                     return True
 
                 return False
@@ -4102,26 +4102,6 @@ class Syslog(object):
             	Logging TOS type precedence
             	**type**\: :py:class:`LoggingPrecedenceEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceEnum>`
             
-            .. attribute:: _is_presence
-            
-            	Is present if this instance represents presence container else not
-            	**type**\: bool
-            
-            .. attribute:: value
-            
-            	Logging precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
-            
-            
-            ----
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: _is_presence
             
             	Is present if this instance represents presence container else not
@@ -4147,6 +4127,26 @@ class Syslog(object):
             	Is present if this instance represents presence container else not
             	**type**\: bool
             
+            .. attribute:: value
+            
+            	Logging precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>`
+            
+            
+            ----
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -4159,8 +4159,8 @@ class Syslog(object):
             def __init__(self):
                 self.parent = None
                 self.type = None
-                self.value = None
                 self.unused = None
+                self.value = None
 
             @property
             def _common_path(self):
@@ -4177,10 +4177,10 @@ class Syslog(object):
                 if self.type is not None:
                     return True
 
-                if self.value is not None:
+                if self.unused is not None:
                     return True
 
-                if self.unused is not None:
+                if self.value is not None:
                     return True
 
                 return False
@@ -4205,10 +4205,10 @@ class Syslog(object):
             if self.dscp is not None and self.dscp._has_data():
                 return True
 
-            if self.traffic_class is not None and self.traffic_class._has_data():
+            if self.precedence is not None and self.precedence._has_data():
                 return True
 
-            if self.precedence is not None and self.precedence._has_data():
+            if self.traffic_class is not None and self.traffic_class._has_data():
                 return True
 
             return False
@@ -4343,9 +4343,9 @@ class Syslog(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:source-interface-vrf[Cisco-IOS-XR-infra-syslog-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -4369,7 +4369,7 @@ class Syslog(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:source-interface-vrfs'
 
@@ -4395,7 +4395,7 @@ class Syslog(object):
                 @property
                 def _common_path(self):
                     if self.src_interface_name_value is None:
-                        raise YPYDataValidationError('Key property src_interface_name_value is None')
+                        raise YPYModelError('Key property src_interface_name_value is None')
 
                     return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-syslog-cfg:source-interface-table/Cisco-IOS-XR-infra-syslog-cfg:source-interface-values/Cisco-IOS-XR-infra-syslog-cfg:source-interface-value[Cisco-IOS-XR-infra-syslog-cfg:src-interface-name-value = ' + str(self.src_interface_name_value) + ']'
 
@@ -4470,17 +4470,17 @@ class Syslog(object):
         """
         Alarm Logger Properties
         
-        .. attribute:: severity_level
-        
-        	Log all events with equal or higher (lower level) severity than this
-        	**type**\: :py:class:`AlarmLoggerSeverityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevelEnum>`
-        
         .. attribute:: buffer_size
         
         	Set size of the local event buffer
         	**type**\: int
         
         	**range:** 1024..1024000
+        
+        .. attribute:: severity_level
+        
+        	Log all events with equal or higher (lower level) severity than this
+        	**type**\: :py:class:`AlarmLoggerSeverityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevelEnum>`
         
         .. attribute:: source_location
         
@@ -4503,8 +4503,8 @@ class Syslog(object):
 
         def __init__(self):
             self.parent = None
-            self.severity_level = None
             self.buffer_size = None
+            self.severity_level = None
             self.source_location = None
             self.threshold = None
 
@@ -4520,10 +4520,10 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.severity_level is not None:
+            if self.buffer_size is not None:
                 return True
 
-            if self.buffer_size is not None:
+            if self.severity_level is not None:
                 return True
 
             if self.source_location is not None:
@@ -4551,55 +4551,55 @@ class Syslog(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.monitor_logging is not None and self.monitor_logging._has_data():
-            return True
-
-        if self.history_logging is not None and self.history_logging._has_data():
-            return True
-
-        if self.logging_facilities is not None and self.logging_facilities._has_data():
-            return True
-
-        if self.trap_logging is not None and self.trap_logging._has_data():
-            return True
-
-        if self.buffered_logging is not None and self.buffered_logging._has_data():
-            return True
-
-        if self.host_server is not None and self.host_server._has_data():
-            return True
-
-        if self.console_logging is not None and self.console_logging._has_data():
-            return True
-
-        if self.files is not None and self.files._has_data():
-            return True
-
-        if self.ipv4 is not None and self.ipv4._has_data():
+        if self.alarm_logger is not None and self.alarm_logger._has_data():
             return True
 
         if self.archive is not None and self.archive._has_data():
             return True
 
-        if self.ipv6 is not None and self.ipv6._has_data():
+        if self.buffered_logging is not None and self.buffered_logging._has_data():
             return True
 
-        if self.source_interface_table is not None and self.source_interface_table._has_data():
-            return True
-
-        if self.host_name_prefix is not None:
-            return True
-
-        if self.local_log_file_size is not None:
+        if self.console_logging is not None and self.console_logging._has_data():
             return True
 
         if self.enable_console_logging is not None:
             return True
 
+        if self.files is not None and self.files._has_data():
+            return True
+
+        if self.history_logging is not None and self.history_logging._has_data():
+            return True
+
+        if self.host_name_prefix is not None:
+            return True
+
+        if self.host_server is not None and self.host_server._has_data():
+            return True
+
+        if self.ipv4 is not None and self.ipv4._has_data():
+            return True
+
+        if self.ipv6 is not None and self.ipv6._has_data():
+            return True
+
+        if self.local_log_file_size is not None:
+            return True
+
+        if self.logging_facilities is not None and self.logging_facilities._has_data():
+            return True
+
+        if self.monitor_logging is not None and self.monitor_logging._has_data():
+            return True
+
+        if self.source_interface_table is not None and self.source_interface_table._has_data():
+            return True
+
         if self.suppress_duplicates is not None:
             return True
 
-        if self.alarm_logger is not None and self.alarm_logger._has_data():
+        if self.trap_logging is not None and self.trap_logging._has_data():
             return True
 
         return False

@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAdjacencyChangeBooleanEnum
@@ -699,21 +699,6 @@ class Snmp(object):
     The heirarchy point for all the SNMP
     configurations
     
-    .. attribute:: encrypted_community_maps
-    
-    	Container class to hold clear/encrypted communitie maps
-    	**type**\: :py:class:`EncryptedCommunityMaps <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.EncryptedCommunityMaps>`
-    
-    .. attribute:: views
-    
-    	Class to configure a SNMPv2 MIB view
-    	**type**\: :py:class:`Views <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Views>`
-    
-    .. attribute:: logging
-    
-    	SNMP logging
-    	**type**\: :py:class:`Logging <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Logging>`
-    
     .. attribute:: administration
     
     	Container class for SNMP administration
@@ -724,20 +709,98 @@ class Snmp(object):
     	The heirarchy point for SNMP Agent configurations
     	**type**\: :py:class:`Agent <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent>`
     
-    .. attribute:: trap
+    .. attribute:: bulk_stats
     
-    	Class to hold trap configurations
-    	**type**\: :py:class:`Trap <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Trap>`
+    	SNMP bulk stats configuration commands
+    	**type**\: :py:class:`BulkStats <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats>`
+    
+    .. attribute:: context_mappings
+    
+    	List of context names
+    	**type**\: :py:class:`ContextMappings <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.ContextMappings>`
+    
+    .. attribute:: contexts
+    
+    	List of Context Names
+    	**type**\: :py:class:`Contexts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Contexts>`
+    
+    .. attribute:: correlator
+    
+    	Configure properties of the trap correlator
+    	**type**\: :py:class:`Correlator <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator>`
+    
+    .. attribute:: default_community_maps
+    
+    	Container class to hold unencrpted community map
+    	**type**\: :py:class:`DefaultCommunityMaps <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.DefaultCommunityMaps>`
+    
+    .. attribute:: encrypted_community_maps
+    
+    	Container class to hold clear/encrypted communitie maps
+    	**type**\: :py:class:`EncryptedCommunityMaps <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.EncryptedCommunityMaps>`
+    
+    .. attribute:: groups
+    
+    	Define a User Security Model group
+    	**type**\: :py:class:`Groups <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Groups>`
+    
+    .. attribute:: inform_pending
+    
+    	Max nmber of informs to hold in queue, (default 25)
+    	**type**\: int
+    
+    	**range:** 0..4294967295
+    
+    .. attribute:: inform_retries
+    
+    	Number of times to retry an Inform request (default 3)
+    	**type**\: int
+    
+    	**range:** 0..100
+    
+    .. attribute:: inform_timeout
+    
+    	Timeout value in seconds for Inform request (default 15 sec)
+    	**type**\: int
+    
+    	**range:** 1..42949671
+    
+    .. attribute:: ipv4
+    
+    	SNMP TOS bit for outgoing packets
+    	**type**\: :py:class:`Ipv4 <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv4>`
     
     .. attribute:: ipv6
     
     	SNMP TOS bit for outgoing packets
     	**type**\: :py:class:`Ipv6 <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv6>`
     
-    .. attribute:: ipv4
+    .. attribute:: logging
     
-    	SNMP TOS bit for outgoing packets
-    	**type**\: :py:class:`Ipv4 <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv4>`
+    	SNMP logging
+    	**type**\: :py:class:`Logging <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Logging>`
+    
+    .. attribute:: notification
+    
+    	Enable SNMP notifications
+    	**type**\: :py:class:`Notification <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification>`
+    
+    .. attribute:: oid_poll_stats
+    
+    	Enable Poll OID statistics
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: overload_control
+    
+    	Set overload control params for handling incoming messages
+    	**type**\: :py:class:`OverloadControl <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.OverloadControl>`
+    
+    .. attribute:: packet_size
+    
+    	Largest SNMP packet size
+    	**type**\: int
+    
+    	**range:** 484..65500
     
     .. attribute:: system
     
@@ -749,57 +812,27 @@ class Snmp(object):
     	SNMP target configurations
     	**type**\: :py:class:`Target <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target>`
     
-    .. attribute:: notification
+    .. attribute:: throttle_time
     
-    	Enable SNMP notifications
-    	**type**\: :py:class:`Notification <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification>`
+    	Throttle time for incoming queue (default 0 msec)
+    	**type**\: int
     
-    .. attribute:: correlator
-    
-    	Configure properties of the trap correlator
-    	**type**\: :py:class:`Correlator <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator>`
-    
-    .. attribute:: bulk_stats
-    
-    	SNMP bulk stats configuration commands
-    	**type**\: :py:class:`BulkStats <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats>`
-    
-    .. attribute:: default_community_maps
-    
-    	Container class to hold unencrpted community map
-    	**type**\: :py:class:`DefaultCommunityMaps <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.DefaultCommunityMaps>`
-    
-    .. attribute:: overload_control
-    
-    	Set overload control params for handling incoming messages
-    	**type**\: :py:class:`OverloadControl <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.OverloadControl>`
+    	**range:** 50..1000
     
     .. attribute:: timeouts
     
     	SNMP timeouts
     	**type**\: :py:class:`Timeouts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Timeouts>`
     
-    .. attribute:: users
+    .. attribute:: trap
     
-    	Define a user who can access the SNMP engine
-    	**type**\: :py:class:`Users <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Users>`
+    	Class to hold trap configurations
+    	**type**\: :py:class:`Trap <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Trap>`
     
-    .. attribute:: vrfs
+    .. attribute:: trap_hosts
     
-    	SNMP VRF configuration commands
-    	**type**\: :py:class:`Vrfs <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs>`
-    
-    .. attribute:: groups
-    
-    	Define a User Security Model group
-    	**type**\: :py:class:`Groups <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Groups>`
-    
-    .. attribute:: inform_retries
-    
-    	Number of times to retry an Inform request (default 3)
-    	**type**\: int
-    
-    	**range:** 0..100
+    	Specify hosts to receive SNMP notifications
+    	**type**\: :py:class:`TrapHosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts>`
     
     .. attribute:: trap_port
     
@@ -808,29 +841,12 @@ class Snmp(object):
     
     	**range:** 1024..65535
     
-    .. attribute:: oid_poll_stats
-    
-    	Enable Poll OID statistics
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
     .. attribute:: trap_source
     
     	Assign an interface for the source address of all traps
     	**type**\: str
     
     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-    
-    .. attribute:: vrf_authentication_trap_disable
-    
-    	Disable authentication traps for packets on a vrf
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: inform_timeout
-    
-    	Timeout value in seconds for Inform request (default 15 sec)
-    	**type**\: int
-    
-    	**range:** 1..42949671
     
     .. attribute:: trap_source_ipv6
     
@@ -839,41 +855,25 @@ class Snmp(object):
     
     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
     
-    .. attribute:: packet_size
+    .. attribute:: users
     
-    	Largest SNMP packet size
-    	**type**\: int
+    	Define a user who can access the SNMP engine
+    	**type**\: :py:class:`Users <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Users>`
     
-    	**range:** 484..65500
+    .. attribute:: views
     
-    .. attribute:: throttle_time
+    	Class to configure a SNMPv2 MIB view
+    	**type**\: :py:class:`Views <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Views>`
     
-    	Throttle time for incoming queue (default 0 msec)
-    	**type**\: int
+    .. attribute:: vrf_authentication_trap_disable
     
-    	**range:** 50..1000
+    	Disable authentication traps for packets on a vrf
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    .. attribute:: inform_pending
+    .. attribute:: vrfs
     
-    	Max nmber of informs to hold in queue, (default 25)
-    	**type**\: int
-    
-    	**range:** 0..4294967295
-    
-    .. attribute:: trap_hosts
-    
-    	Specify hosts to receive SNMP notifications
-    	**type**\: :py:class:`TrapHosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts>`
-    
-    .. attribute:: contexts
-    
-    	List of Context Names
-    	**type**\: :py:class:`Contexts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Contexts>`
-    
-    .. attribute:: context_mappings
-    
-    	List of context names
-    	**type**\: :py:class:`ContextMappings <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.ContextMappings>`
+    	SNMP VRF configuration commands
+    	**type**\: :py:class:`Vrfs <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs>`
     
     
 
@@ -883,59 +883,59 @@ class Snmp(object):
     _revision = '2015-10-27'
 
     def __init__(self):
-        self.encrypted_community_maps = Snmp.EncryptedCommunityMaps()
-        self.encrypted_community_maps.parent = self
-        self.views = Snmp.Views()
-        self.views.parent = self
-        self.logging = Snmp.Logging()
-        self.logging.parent = self
         self.administration = Snmp.Administration()
         self.administration.parent = self
         self.agent = Snmp.Agent()
         self.agent.parent = self
-        self.trap = Snmp.Trap()
-        self.trap.parent = self
-        self.ipv6 = Snmp.Ipv6()
-        self.ipv6.parent = self
+        self.bulk_stats = Snmp.BulkStats()
+        self.bulk_stats.parent = self
+        self.context_mappings = Snmp.ContextMappings()
+        self.context_mappings.parent = self
+        self.contexts = Snmp.Contexts()
+        self.contexts.parent = self
+        self.correlator = Snmp.Correlator()
+        self.correlator.parent = self
+        self.default_community_maps = Snmp.DefaultCommunityMaps()
+        self.default_community_maps.parent = self
+        self.encrypted_community_maps = Snmp.EncryptedCommunityMaps()
+        self.encrypted_community_maps.parent = self
+        self.groups = Snmp.Groups()
+        self.groups.parent = self
+        self.inform_pending = None
+        self.inform_retries = None
+        self.inform_timeout = None
         self.ipv4 = Snmp.Ipv4()
         self.ipv4.parent = self
+        self.ipv6 = Snmp.Ipv6()
+        self.ipv6.parent = self
+        self.logging = Snmp.Logging()
+        self.logging.parent = self
+        self.notification = Snmp.Notification()
+        self.notification.parent = self
+        self.oid_poll_stats = None
+        self.overload_control = None
+        self.packet_size = None
         self.system = Snmp.System()
         self.system.parent = self
         self.target = Snmp.Target()
         self.target.parent = self
-        self.notification = Snmp.Notification()
-        self.notification.parent = self
-        self.correlator = Snmp.Correlator()
-        self.correlator.parent = self
-        self.bulk_stats = Snmp.BulkStats()
-        self.bulk_stats.parent = self
-        self.default_community_maps = Snmp.DefaultCommunityMaps()
-        self.default_community_maps.parent = self
-        self.overload_control = None
+        self.throttle_time = None
         self.timeouts = Snmp.Timeouts()
         self.timeouts.parent = self
-        self.users = Snmp.Users()
-        self.users.parent = self
-        self.vrfs = Snmp.Vrfs()
-        self.vrfs.parent = self
-        self.groups = Snmp.Groups()
-        self.groups.parent = self
-        self.inform_retries = None
-        self.trap_port = None
-        self.oid_poll_stats = None
-        self.trap_source = None
-        self.vrf_authentication_trap_disable = None
-        self.inform_timeout = None
-        self.trap_source_ipv6 = None
-        self.packet_size = None
-        self.throttle_time = None
-        self.inform_pending = None
+        self.trap = Snmp.Trap()
+        self.trap.parent = self
         self.trap_hosts = Snmp.TrapHosts()
         self.trap_hosts.parent = self
-        self.contexts = Snmp.Contexts()
-        self.contexts.parent = self
-        self.context_mappings = Snmp.ContextMappings()
-        self.context_mappings.parent = self
+        self.trap_port = None
+        self.trap_source = None
+        self.trap_source_ipv6 = None
+        self.users = Snmp.Users()
+        self.users.parent = self
+        self.views = Snmp.Views()
+        self.views.parent = self
+        self.vrf_authentication_trap_disable = None
+        self.vrfs = Snmp.Vrfs()
+        self.vrfs.parent = self
 
 
     class EncryptedCommunityMaps(object):
@@ -1005,7 +1005,7 @@ class Snmp(object):
             @property
             def _common_path(self):
                 if self.community_name is None:
-                    raise YPYDataValidationError('Key property community_name is None')
+                    raise YPYModelError('Key property community_name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:encrypted-community-maps/Cisco-IOS-XR-snmp-agent-cfg:encrypted-community-map[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -1087,17 +1087,17 @@ class Snmp(object):
             """
             Name of the view
             
+            .. attribute:: family  <key>
+            
+            	MIB view family name
+            	**type**\: str
+            
             .. attribute:: view_name  <key>
             
             	Name of the view
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: family  <key>
-            
-            	MIB view family name
-            	**type**\: str
             
             .. attribute:: view_inclusion
             
@@ -1113,18 +1113,18 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.view_name = None
                 self.family = None
+                self.view_name = None
                 self.view_inclusion = None
 
             @property
             def _common_path(self):
-                if self.view_name is None:
-                    raise YPYDataValidationError('Key property view_name is None')
                 if self.family is None:
-                    raise YPYDataValidationError('Key property family is None')
+                    raise YPYModelError('Key property family is None')
+                if self.view_name is None:
+                    raise YPYModelError('Key property view_name is None')
 
-                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:views/Cisco-IOS-XR-snmp-agent-cfg:view[Cisco-IOS-XR-snmp-agent-cfg:view-name = ' + str(self.view_name) + '][Cisco-IOS-XR-snmp-agent-cfg:family = ' + str(self.family) + ']'
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:views/Cisco-IOS-XR-snmp-agent-cfg:view[Cisco-IOS-XR-snmp-agent-cfg:family = ' + str(self.family) + '][Cisco-IOS-XR-snmp-agent-cfg:view-name = ' + str(self.view_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -1133,10 +1133,10 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.view_name is not None:
+                if self.family is not None:
                     return True
 
-                if self.family is not None:
+                if self.view_name is not None:
                     return True
 
                 if self.view_inclusion is not None:
@@ -1338,27 +1338,22 @@ class Snmp(object):
                 
                 	**range:** 0..128
                 
+                .. attribute:: owner
+                
+                	Logical Router or System owner access
+                	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
+                
                 .. attribute:: priviledge
                 
                 	Read/Write Access
                 	**type**\: :py:class:`SnmpAccessLevelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevelEnum>`
-                
-                .. attribute:: view_name
-                
-                	MIB view to which the community has access
-                	**type**\: str
-                
-                .. attribute:: v4acl_type
-                
-                	Access\-list type
-                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
                 
                 .. attribute:: v4_access_list
                 
                 	Ipv4 Access\-list name
                 	**type**\: str
                 
-                .. attribute:: v6acl_type
+                .. attribute:: v4acl_type
                 
                 	Access\-list type
                 	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
@@ -1368,10 +1363,15 @@ class Snmp(object):
                 	Ipv6 Access\-list name
                 	**type**\: str
                 
-                .. attribute:: owner
+                .. attribute:: v6acl_type
                 
-                	Logical Router or System owner access
-                	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
+                	Access\-list type
+                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
+                
+                .. attribute:: view_name
+                
+                	MIB view to which the community has access
+                	**type**\: str
                 
                 
 
@@ -1383,18 +1383,18 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.community_name = None
-                    self.priviledge = None
-                    self.view_name = None
-                    self.v4acl_type = None
-                    self.v4_access_list = None
-                    self.v6acl_type = None
-                    self.v6_access_list = None
                     self.owner = None
+                    self.priviledge = None
+                    self.v4_access_list = None
+                    self.v4acl_type = None
+                    self.v6_access_list = None
+                    self.v6acl_type = None
+                    self.view_name = None
 
                 @property
                 def _common_path(self):
                     if self.community_name is None:
-                        raise YPYDataValidationError('Key property community_name is None')
+                        raise YPYModelError('Key property community_name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:administration/Cisco-IOS-XR-snmp-agent-cfg:default-communities/Cisco-IOS-XR-snmp-agent-cfg:default-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -1408,25 +1408,25 @@ class Snmp(object):
                     if self.community_name is not None:
                         return True
 
+                    if self.owner is not None:
+                        return True
+
                     if self.priviledge is not None:
-                        return True
-
-                    if self.view_name is not None:
-                        return True
-
-                    if self.v4acl_type is not None:
                         return True
 
                     if self.v4_access_list is not None:
                         return True
 
-                    if self.v6acl_type is not None:
+                    if self.v4acl_type is not None:
                         return True
 
                     if self.v6_access_list is not None:
                         return True
 
-                    if self.owner is not None:
+                    if self.v6acl_type is not None:
+                        return True
+
+                    if self.view_name is not None:
                         return True
 
                     return False
@@ -1497,27 +1497,22 @@ class Snmp(object):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                .. attribute:: owner
+                
+                	Logical Router or System owner access
+                	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
+                
                 .. attribute:: priviledge
                 
                 	Read/Write Access
                 	**type**\: :py:class:`SnmpAccessLevelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevelEnum>`
-                
-                .. attribute:: view_name
-                
-                	MIB view to which the community has access
-                	**type**\: str
-                
-                .. attribute:: v4acl_type
-                
-                	Access\-list type
-                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
                 
                 .. attribute:: v4_access_list
                 
                 	Ipv4 Access\-list name
                 	**type**\: str
                 
-                .. attribute:: v6acl_type
+                .. attribute:: v4acl_type
                 
                 	Access\-list type
                 	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
@@ -1527,10 +1522,15 @@ class Snmp(object):
                 	Ipv6 Access\-list name
                 	**type**\: str
                 
-                .. attribute:: owner
+                .. attribute:: v6acl_type
                 
-                	Logical Router or System owner access
-                	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
+                	Access\-list type
+                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
+                
+                .. attribute:: view_name
+                
+                	MIB view to which the community has access
+                	**type**\: str
                 
                 
 
@@ -1542,18 +1542,18 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.community_name = None
-                    self.priviledge = None
-                    self.view_name = None
-                    self.v4acl_type = None
-                    self.v4_access_list = None
-                    self.v6acl_type = None
-                    self.v6_access_list = None
                     self.owner = None
+                    self.priviledge = None
+                    self.v4_access_list = None
+                    self.v4acl_type = None
+                    self.v6_access_list = None
+                    self.v6acl_type = None
+                    self.view_name = None
 
                 @property
                 def _common_path(self):
                     if self.community_name is None:
-                        raise YPYDataValidationError('Key property community_name is None')
+                        raise YPYModelError('Key property community_name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:administration/Cisco-IOS-XR-snmp-agent-cfg:encrypted-communities/Cisco-IOS-XR-snmp-agent-cfg:encrypted-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -1567,25 +1567,25 @@ class Snmp(object):
                     if self.community_name is not None:
                         return True
 
+                    if self.owner is not None:
+                        return True
+
                     if self.priviledge is not None:
-                        return True
-
-                    if self.view_name is not None:
-                        return True
-
-                    if self.v4acl_type is not None:
                         return True
 
                     if self.v4_access_list is not None:
                         return True
 
-                    if self.v6acl_type is not None:
+                    if self.v4acl_type is not None:
                         return True
 
                     if self.v6_access_list is not None:
                         return True
 
-                    if self.owner is not None:
+                    if self.v6acl_type is not None:
+                        return True
+
+                    if self.view_name is not None:
                         return True
 
                     return False
@@ -1672,15 +1672,15 @@ class Snmp(object):
             """
             SNMPv3 engineID
             
-            .. attribute:: remotes
-            
-            	SNMPv3 remote SNMP Entity
-            	**type**\: :py:class:`Remotes <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId.Remotes>`
-            
             .. attribute:: local
             
             	engineID of the local agent
             	**type**\: str
+            
+            .. attribute:: remotes
+            
+            	SNMPv3 remote SNMP Entity
+            	**type**\: :py:class:`Remotes <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId.Remotes>`
             
             
 
@@ -1691,9 +1691,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
+                self.local = None
                 self.remotes = Snmp.Agent.EngineId.Remotes()
                 self.remotes.parent = self
-                self.local = None
 
 
             class Remotes(object):
@@ -1740,17 +1740,17 @@ class Snmp(object):
                     
                     
                     ----
-                    .. attribute:: remote_engine_id
-                    
-                    	engine ID octet string
-                    	**type**\: str
-                    
                     .. attribute:: port
                     
                     	UDP port number
                     	**type**\: int
                     
                     	**range:** 1..65535
+                    
+                    .. attribute:: remote_engine_id
+                    
+                    	engine ID octet string
+                    	**type**\: str
                     
                     
 
@@ -1762,13 +1762,13 @@ class Snmp(object):
                     def __init__(self):
                         self.parent = None
                         self.remote_address = None
-                        self.remote_engine_id = None
                         self.port = None
+                        self.remote_engine_id = None
 
                     @property
                     def _common_path(self):
                         if self.remote_address is None:
-                            raise YPYDataValidationError('Key property remote_address is None')
+                            raise YPYModelError('Key property remote_address is None')
 
                         return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:agent/Cisco-IOS-XR-snmp-agent-cfg:engine-id/Cisco-IOS-XR-snmp-agent-cfg:remotes/Cisco-IOS-XR-snmp-agent-cfg:remote[Cisco-IOS-XR-snmp-agent-cfg:remote-address = ' + str(self.remote_address) + ']'
 
@@ -1782,10 +1782,10 @@ class Snmp(object):
                         if self.remote_address is not None:
                             return True
 
-                        if self.remote_engine_id is not None:
+                        if self.port is not None:
                             return True
 
-                        if self.port is not None:
+                        if self.remote_engine_id is not None:
                             return True
 
                         return False
@@ -1831,10 +1831,10 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.remotes is not None and self.remotes._has_data():
+                if self.local is not None:
                     return True
 
-                if self.local is not None:
+                if self.remotes is not None and self.remotes._has_data():
                     return True
 
                 return False
@@ -1871,12 +1871,12 @@ class Snmp(object):
         """
         Class to hold trap configurations
         
-        .. attribute:: timeout
+        .. attribute:: queue_length
         
-        	Timeout for TRAP message retransmissions
+        	Message queue length for each TRAP host
         	**type**\: int
         
-        	**range:** 1..1000
+        	**range:** 1..5000
         
         .. attribute:: throttle_time
         
@@ -1885,12 +1885,12 @@ class Snmp(object):
         
         	**range:** 10..500
         
-        .. attribute:: queue_length
+        .. attribute:: timeout
         
-        	Message queue length for each TRAP host
+        	Timeout for TRAP message retransmissions
         	**type**\: int
         
-        	**range:** 1..5000
+        	**range:** 1..1000
         
         
 
@@ -1901,9 +1901,9 @@ class Snmp(object):
 
         def __init__(self):
             self.parent = None
-            self.timeout = None
-            self.throttle_time = None
             self.queue_length = None
+            self.throttle_time = None
+            self.timeout = None
 
         @property
         def _common_path(self):
@@ -1917,13 +1917,13 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.timeout is not None:
+            if self.queue_length is not None:
                 return True
 
             if self.throttle_time is not None:
                 return True
 
-            if self.queue_length is not None:
+            if self.timeout is not None:
                 return True
 
             return False
@@ -1960,26 +1960,6 @@ class Snmp(object):
             """
             Type of TOS
             
-            .. attribute:: type
-            
-            	SNMP TOS type DSCP or Precedence
-            	**type**\: :py:class:`SnmpTosEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTosEnum>`
-            
-            .. attribute:: precedence
-            
-            	SNMP Precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`SnmpPrecedenceValue1Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1Enum>`
-            
-            
-            ----
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	SNMP DSCP value
@@ -1995,6 +1975,26 @@ class Snmp(object):
             
             
             ----
+            .. attribute:: precedence
+            
+            	SNMP Precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`SnmpPrecedenceValue1Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1Enum>`
+            
+            
+            ----
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: type
+            
+            	SNMP TOS type DSCP or Precedence
+            	**type**\: :py:class:`SnmpTosEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTosEnum>`
+            
             
 
             """
@@ -2004,9 +2004,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
-                self.precedence = None
                 self.dscp = None
+                self.precedence = None
+                self.type = None
 
             @property
             def _common_path(self):
@@ -2020,13 +2020,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.dscp is not None:
                     return True
 
                 if self.precedence is not None:
                     return True
 
-                if self.dscp is not None:
+                if self.type is not None:
                     return True
 
                 return False
@@ -2085,26 +2085,6 @@ class Snmp(object):
             """
             Type of TOS
             
-            .. attribute:: type
-            
-            	SNMP TOS type DSCP or Precedence
-            	**type**\: :py:class:`SnmpTosEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTosEnum>`
-            
-            .. attribute:: precedence
-            
-            	SNMP Precedence value
-            	**type**\: one of the below types:
-            
-            	**type**\: :py:class:`SnmpPrecedenceValue1Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1Enum>`
-            
-            
-            ----
-            	**type**\: int
-            
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	SNMP DSCP value
@@ -2120,6 +2100,26 @@ class Snmp(object):
             
             
             ----
+            .. attribute:: precedence
+            
+            	SNMP Precedence value
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`SnmpPrecedenceValue1Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1Enum>`
+            
+            
+            ----
+            	**type**\: int
+            
+            	**range:** 0..7
+            
+            
+            ----
+            .. attribute:: type
+            
+            	SNMP TOS type DSCP or Precedence
+            	**type**\: :py:class:`SnmpTosEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTosEnum>`
+            
             
 
             """
@@ -2129,9 +2129,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
-                self.precedence = None
                 self.dscp = None
+                self.precedence = None
+                self.type = None
 
             @property
             def _common_path(self):
@@ -2145,13 +2145,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.dscp is not None:
                     return True
 
                 if self.precedence is not None:
                     return True
 
-                if self.dscp is not None:
+                if self.type is not None:
                     return True
 
                 return False
@@ -2195,16 +2195,16 @@ class Snmp(object):
         
         	**range:** 0..255
         
-        .. attribute:: location
+        .. attribute:: contact
         
-        	The physical location of this node
+        	identification of the contact person for this managed node
         	**type**\: str
         
         	**range:** 0..255
         
-        .. attribute:: contact
+        .. attribute:: location
         
-        	identification of the contact person for this managed node
+        	The physical location of this node
         	**type**\: str
         
         	**range:** 0..255
@@ -2219,8 +2219,8 @@ class Snmp(object):
         def __init__(self):
             self.parent = None
             self.chassis_id = None
-            self.location = None
             self.contact = None
+            self.location = None
 
         @property
         def _common_path(self):
@@ -2237,10 +2237,10 @@ class Snmp(object):
             if self.chassis_id is not None:
                 return True
 
-            if self.location is not None:
+            if self.contact is not None:
                 return True
 
-            if self.contact is not None:
+            if self.location is not None:
                 return True
 
             return False
@@ -2307,15 +2307,15 @@ class Snmp(object):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: vrf_names
-                
-                	List of VRF Name for a target list
-                	**type**\: :py:class:`VrfNames <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.VrfNames>`
-                
                 .. attribute:: target_addresses
                 
                 	SNMP Target address configurations
                 	**type**\: :py:class:`TargetAddresses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.TargetAddresses>`
+                
+                .. attribute:: vrf_names
+                
+                	List of VRF Name for a target list
+                	**type**\: :py:class:`VrfNames <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.VrfNames>`
                 
                 
 
@@ -2327,10 +2327,10 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.target_list_name = None
-                    self.vrf_names = Snmp.Target.Targets.Target.VrfNames()
-                    self.vrf_names.parent = self
                     self.target_addresses = Snmp.Target.Targets.Target.TargetAddresses()
                     self.target_addresses.parent = self
+                    self.vrf_names = Snmp.Target.Targets.Target.VrfNames()
+                    self.vrf_names.parent = self
 
 
                 class VrfNames(object):
@@ -2381,9 +2381,9 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.name is None:
-                                raise YPYDataValidationError('Key property name is None')
+                                raise YPYModelError('Key property name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:vrf-name[Cisco-IOS-XR-snmp-agent-cfg:name = ' + str(self.name) + ']'
 
@@ -2407,7 +2407,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:vrf-names'
 
@@ -2489,9 +2489,9 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip_address is None:
-                                raise YPYDataValidationError('Key property ip_address is None')
+                                raise YPYModelError('Key property ip_address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:target-address[Cisco-IOS-XR-snmp-agent-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -2515,7 +2515,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:target-addresses'
 
@@ -2541,7 +2541,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.target_list_name is None:
-                        raise YPYDataValidationError('Key property target_list_name is None')
+                        raise YPYModelError('Key property target_list_name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:target/Cisco-IOS-XR-snmp-agent-cfg:targets/Cisco-IOS-XR-snmp-agent-cfg:target[Cisco-IOS-XR-snmp-agent-cfg:target-list-name = ' + str(self.target_list_name) + ']'
 
@@ -2555,10 +2555,10 @@ class Snmp(object):
                     if self.target_list_name is not None:
                         return True
 
-                    if self.vrf_names is not None and self.vrf_names._has_data():
+                    if self.target_addresses is not None and self.target_addresses._has_data():
                         return True
 
-                    if self.target_addresses is not None and self.target_addresses._has_data():
+                    if self.vrf_names is not None and self.vrf_names._has_data():
                         return True
 
                     return False
@@ -2619,110 +2619,35 @@ class Snmp(object):
         """
         Enable SNMP notifications
         
-        .. attribute:: snmp
-        
-        	SNMP notification configuration
-        	**type**\: :py:class:`Snmp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Snmp>`
-        
-        .. attribute:: vpls
-        
-        	CISCO\-IETF\-VPLS\-GENERIC\-MIB notification configuration
-        	**type**\: :py:class:`Vpls <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vpls>`
-        
-        .. attribute:: l2vpn
-        
-        	CISCO\-IETF\-PW\-MIB notification configuration
-        	**type**\: :py:class:`L2Vpn <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Vpn>`
-        
-        .. attribute:: isis
-        
-        	Enable ISIS\-MIB notifications
-        	**type**\: :py:class:`Isis <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Isis>`
-        
-        .. attribute:: config_man
-        
-        	CISCO\-CONFIG\-MAN\-MIB notification configurations
-        	**type**\: :py:class:`ConfigMan <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigMan>`
-        
-        .. attribute:: cfm
-        
-        	802.1ag Connectivity Fault Management MIB notification configuration
-        	**type**\: :py:class:`Cfm <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Cfm>`
-        
-        .. attribute:: oam
-        
-        	802.3 OAM MIB notification configuration
-        	**type**\: :py:class:`Oam <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Oam>`
-        
-        .. attribute:: entity_redundancy
-        
-        	CISCO\-ENTITY\-REDUNDANCY\-MIB notification configuration
-        	**type**\: :py:class:`EntityRedundancy <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityRedundancy>`
-        
-        .. attribute:: selective_vrf_download
-        
-        	CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification configuration
-        	**type**\: :py:class:`SelectiveVrfDownload <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
-        
-        .. attribute:: system
-        
-        	CISCO\-SYSTEM\-MIB notification configuration
-        	**type**\: :py:class:`System <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.System>`
-        
         .. attribute:: bfd
         
         	CISCO\-IETF\-BFD\-MIB notification configuration
         	**type**\: :py:class:`Bfd <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bfd>`
-        
-        .. attribute:: ntp
-        
-        	CISCO\-NTP\-MIB notification configuration
-        	**type**\: :py:class:`Ntp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ntp>`
-        
-        .. attribute:: rsvp
-        
-        	Enable RSVP\-MIB notifications
-        	**type**\: :py:class:`Rsvp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rsvp>`
         
         .. attribute:: bgp
         
         	BGP4\-MIB and CISCO\-BGP4\-MIB notification configuration
         	**type**\: :py:class:`Bgp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp>`
         
-        .. attribute:: ospf
+        .. attribute:: cfm
         
-        	OSPF\-MIB notification configuration
-        	**type**\: :py:class:`Ospf <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf>`
+        	802.1ag Connectivity Fault Management MIB notification configuration
+        	**type**\: :py:class:`Cfm <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Cfm>`
         
-        .. attribute:: ospfv3
+        .. attribute:: config_man
         
-        	OSPFv3\-MIB notification configuration
-        	**type**\: :py:class:`Ospfv3 <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
-        
-        .. attribute:: mpls_ldp
-        
-        	MPLS\-LDP\-STD\-MIB notification configuration
-        	**type**\: :py:class:`MplsLdp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsLdp>`
-        
-        .. attribute:: mpls_te_p2mp
-        
-        	CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification configuration
-        	**type**\: :py:class:`MplsTeP2Mp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTeP2Mp>`
-        
-        .. attribute:: mpls_te
-        
-        	MPLS\-TE\-STD\-MIB notification configuration
-        	**type**\: :py:class:`MplsTe <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe>`
-        
-        .. attribute:: mpls_frr
-        
-        	CISCO\-IETF\-FRR\-MIB notification configuration
-        	**type**\: :py:class:`MplsFrr <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsFrr>`
+        	CISCO\-CONFIG\-MAN\-MIB notification configurations
+        	**type**\: :py:class:`ConfigMan <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigMan>`
         
         .. attribute:: entity
         
         	Enable ENTITY\-MIB notifications
         	**type**\: :py:class:`Entity <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Entity>`
+        
+        .. attribute:: entity_redundancy
+        
+        	CISCO\-ENTITY\-REDUNDANCY\-MIB notification configuration
+        	**type**\: :py:class:`EntityRedundancy <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityRedundancy>`
         
         .. attribute:: entity_state
         
@@ -2734,10 +2659,85 @@ class Snmp(object):
         	CISCO\-ENTITY\-FRU\-CONTROL\-MIB notification configuration
         	**type**\: :py:class:`FruControl <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FruControl>`
         
+        .. attribute:: isis
+        
+        	Enable ISIS\-MIB notifications
+        	**type**\: :py:class:`Isis <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Isis>`
+        
+        .. attribute:: l2vpn
+        
+        	CISCO\-IETF\-PW\-MIB notification configuration
+        	**type**\: :py:class:`L2Vpn <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Vpn>`
+        
+        .. attribute:: mpls_frr
+        
+        	CISCO\-IETF\-FRR\-MIB notification configuration
+        	**type**\: :py:class:`MplsFrr <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsFrr>`
+        
+        .. attribute:: mpls_ldp
+        
+        	MPLS\-LDP\-STD\-MIB notification configuration
+        	**type**\: :py:class:`MplsLdp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsLdp>`
+        
+        .. attribute:: mpls_te
+        
+        	MPLS\-TE\-STD\-MIB notification configuration
+        	**type**\: :py:class:`MplsTe <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe>`
+        
+        .. attribute:: mpls_te_p2mp
+        
+        	CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification configuration
+        	**type**\: :py:class:`MplsTeP2Mp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTeP2Mp>`
+        
+        .. attribute:: ntp
+        
+        	CISCO\-NTP\-MIB notification configuration
+        	**type**\: :py:class:`Ntp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ntp>`
+        
+        .. attribute:: oam
+        
+        	802.3 OAM MIB notification configuration
+        	**type**\: :py:class:`Oam <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Oam>`
+        
+        .. attribute:: ospf
+        
+        	OSPF\-MIB notification configuration
+        	**type**\: :py:class:`Ospf <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf>`
+        
+        .. attribute:: ospfv3
+        
+        	OSPFv3\-MIB notification configuration
+        	**type**\: :py:class:`Ospfv3 <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
+        
+        .. attribute:: rsvp
+        
+        	Enable RSVP\-MIB notifications
+        	**type**\: :py:class:`Rsvp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rsvp>`
+        
+        .. attribute:: selective_vrf_download
+        
+        	CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification configuration
+        	**type**\: :py:class:`SelectiveVrfDownload <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
+        
+        .. attribute:: snmp
+        
+        	SNMP notification configuration
+        	**type**\: :py:class:`Snmp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Snmp>`
+        
         .. attribute:: syslog
         
         	CISCO\-SYSLOG\-MIB notification configuration
         	**type**\: :py:class:`Syslog <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Syslog>`
+        
+        .. attribute:: system
+        
+        	CISCO\-SYSTEM\-MIB notification configuration
+        	**type**\: :py:class:`System <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.System>`
+        
+        .. attribute:: vpls
+        
+        	CISCO\-IETF\-VPLS\-GENERIC\-MIB notification configuration
+        	**type**\: :py:class:`Vpls <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vpls>`
         
         
 
@@ -2748,54 +2748,54 @@ class Snmp(object):
 
         def __init__(self):
             self.parent = None
-            self.snmp = Snmp.Notification.Snmp()
-            self.snmp.parent = self
-            self.vpls = Snmp.Notification.Vpls()
-            self.vpls.parent = self
-            self.l2vpn = Snmp.Notification.L2Vpn()
-            self.l2vpn.parent = self
-            self.isis = Snmp.Notification.Isis()
-            self.isis.parent = self
-            self.config_man = Snmp.Notification.ConfigMan()
-            self.config_man.parent = self
-            self.cfm = Snmp.Notification.Cfm()
-            self.cfm.parent = self
-            self.oam = Snmp.Notification.Oam()
-            self.oam.parent = self
-            self.entity_redundancy = Snmp.Notification.EntityRedundancy()
-            self.entity_redundancy.parent = self
-            self.selective_vrf_download = Snmp.Notification.SelectiveVrfDownload()
-            self.selective_vrf_download.parent = self
-            self.system = Snmp.Notification.System()
-            self.system.parent = self
             self.bfd = Snmp.Notification.Bfd()
             self.bfd.parent = self
-            self.ntp = Snmp.Notification.Ntp()
-            self.ntp.parent = self
-            self.rsvp = Snmp.Notification.Rsvp()
-            self.rsvp.parent = self
             self.bgp = Snmp.Notification.Bgp()
             self.bgp.parent = self
-            self.ospf = Snmp.Notification.Ospf()
-            self.ospf.parent = self
-            self.ospfv3 = Snmp.Notification.Ospfv3()
-            self.ospfv3.parent = self
-            self.mpls_ldp = Snmp.Notification.MplsLdp()
-            self.mpls_ldp.parent = self
-            self.mpls_te_p2mp = Snmp.Notification.MplsTeP2Mp()
-            self.mpls_te_p2mp.parent = self
-            self.mpls_te = Snmp.Notification.MplsTe()
-            self.mpls_te.parent = self
-            self.mpls_frr = Snmp.Notification.MplsFrr()
-            self.mpls_frr.parent = self
+            self.cfm = Snmp.Notification.Cfm()
+            self.cfm.parent = self
+            self.config_man = Snmp.Notification.ConfigMan()
+            self.config_man.parent = self
             self.entity = Snmp.Notification.Entity()
             self.entity.parent = self
+            self.entity_redundancy = Snmp.Notification.EntityRedundancy()
+            self.entity_redundancy.parent = self
             self.entity_state = Snmp.Notification.EntityState()
             self.entity_state.parent = self
             self.fru_control = Snmp.Notification.FruControl()
             self.fru_control.parent = self
+            self.isis = Snmp.Notification.Isis()
+            self.isis.parent = self
+            self.l2vpn = Snmp.Notification.L2Vpn()
+            self.l2vpn.parent = self
+            self.mpls_frr = Snmp.Notification.MplsFrr()
+            self.mpls_frr.parent = self
+            self.mpls_ldp = Snmp.Notification.MplsLdp()
+            self.mpls_ldp.parent = self
+            self.mpls_te = Snmp.Notification.MplsTe()
+            self.mpls_te.parent = self
+            self.mpls_te_p2mp = Snmp.Notification.MplsTeP2Mp()
+            self.mpls_te_p2mp.parent = self
+            self.ntp = Snmp.Notification.Ntp()
+            self.ntp.parent = self
+            self.oam = Snmp.Notification.Oam()
+            self.oam.parent = self
+            self.ospf = Snmp.Notification.Ospf()
+            self.ospf.parent = self
+            self.ospfv3 = Snmp.Notification.Ospfv3()
+            self.ospfv3.parent = self
+            self.rsvp = Snmp.Notification.Rsvp()
+            self.rsvp.parent = self
+            self.selective_vrf_download = Snmp.Notification.SelectiveVrfDownload()
+            self.selective_vrf_download.parent = self
+            self.snmp = Snmp.Notification.Snmp()
+            self.snmp.parent = self
             self.syslog = Snmp.Notification.Syslog()
             self.syslog.parent = self
+            self.system = Snmp.Notification.System()
+            self.system.parent = self
+            self.vpls = Snmp.Notification.Vpls()
+            self.vpls.parent = self
 
 
         class Snmp(object):
@@ -2810,11 +2810,6 @@ class Snmp(object):
             .. attribute:: cold_start
             
             	Enable cold start notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: warm_start
-            
-            	Enable warm start notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: enable
@@ -2832,6 +2827,11 @@ class Snmp(object):
             	Enable link up notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: warm_start
+            
+            	Enable warm start notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             
 
             """
@@ -2843,10 +2843,10 @@ class Snmp(object):
                 self.parent = None
                 self.authentication = None
                 self.cold_start = None
-                self.warm_start = None
                 self.enable = None
                 self.link_down = None
                 self.link_up = None
+                self.warm_start = None
 
             @property
             def _common_path(self):
@@ -2866,9 +2866,6 @@ class Snmp(object):
                 if self.cold_start is not None:
                     return True
 
-                if self.warm_start is not None:
-                    return True
-
                 if self.enable is not None:
                     return True
 
@@ -2876,6 +2873,9 @@ class Snmp(object):
                     return True
 
                 if self.link_up is not None:
+                    return True
+
+                if self.warm_start is not None:
                     return True
 
                 return False
@@ -2891,24 +2891,24 @@ class Snmp(object):
             CISCO\-IETF\-VPLS\-GENERIC\-MIB notification
             configuration
             
-            .. attribute:: full_clear
-            
-            	Enable cvplsFwdFullAlarmCleared notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: status
-            
-            	Enable cvplsStatusChanged notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: enable
             
             	Enable CISCO\-IETF\-VPLS\-GENERIC\-MIB notifications
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: full_clear
+            
+            	Enable cvplsFwdFullAlarmCleared notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: full_raise
             
             	Enable cvplsFwdFullAlarmRaised notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: status
+            
+            	Enable cvplsStatusChanged notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -2920,10 +2920,10 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.full_clear = None
-                self.status = None
                 self.enable = None
+                self.full_clear = None
                 self.full_raise = None
+                self.status = None
 
             @property
             def _common_path(self):
@@ -2937,16 +2937,16 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.full_clear is not None:
-                    return True
-
-                if self.status is not None:
-                    return True
-
                 if self.enable is not None:
                     return True
 
+                if self.full_clear is not None:
+                    return True
+
                 if self.full_raise is not None:
+                    return True
+
+                if self.status is not None:
                     return True
 
                 return False
@@ -3031,100 +3031,100 @@ class Snmp(object):
             """
             Enable ISIS\-MIB notifications
             
-            .. attribute:: database_overflow
+            .. attribute:: adjacency_change
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibDatabaseOverFlowBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibDatabaseOverFlowBooleanEnum>`
+            	**type**\: :py:class:`IsisMibAdjacencyChangeBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAdjacencyChangeBooleanEnum>`
             
-            .. attribute:: manual_address_drops
+            .. attribute:: all
             
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibManualAddressDropsBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibManualAddressDropsBooleanEnum>`
-            
-            .. attribute:: corrupted_lsp_detected
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibCorruptedLspDetectedBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibCorruptedLspDetectedBooleanEnum>`
-            
-            .. attribute:: attempt_to_exceed_max_sequence
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibAttemptToExceedMaxSequenceBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAttemptToExceedMaxSequenceBooleanEnum>`
-            
-            .. attribute:: id_length_mismatch
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibIdLengthMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibIdLengthMismatchBooleanEnum>`
-            
-            .. attribute:: max_area_address_mismatch
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibMaxAreaAddressMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibMaxAreaAddressMismatchBooleanEnum>`
-            
-            .. attribute:: own_lsp_purge
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibOwnLspPurgeBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOwnLspPurgeBooleanEnum>`
-            
-            .. attribute:: sequence_number_skip
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibSequenceNumberSkipBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibSequenceNumberSkipBooleanEnum>`
-            
-            .. attribute:: authentication_type_failure
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibAuthenticationTypeFailureBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationTypeFailureBooleanEnum>`
-            
-            .. attribute:: authentication_failure
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibAuthenticationFailureBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationFailureBooleanEnum>`
-            
-            .. attribute:: version_skew
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibVersionSkewBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibVersionSkewBooleanEnum>`
+            	Enable all isisMIB notifications
+            	**type**\: :py:class:`IsisMibAllBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAllBooleanEnum>`
             
             .. attribute:: area_mismatch
             
             	Enable or disable
             	**type**\: :py:class:`IsisMibAreaMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAreaMismatchBooleanEnum>`
             
-            .. attribute:: rejected_adjacency
+            .. attribute:: attempt_to_exceed_max_sequence
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibRejectedAdjacencyBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibRejectedAdjacencyBooleanEnum>`
+            	**type**\: :py:class:`IsisMibAttemptToExceedMaxSequenceBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAttemptToExceedMaxSequenceBooleanEnum>`
             
-            .. attribute:: lsp_too_large_to_propagate
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibLspTooLargeToPropagateBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspTooLargeToPropagateBooleanEnum>`
-            
-            .. attribute:: originated_lsp_buffer_size_mismatch
+            .. attribute:: authentication_failure
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibOriginatedLspBufferSizeMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOriginatedLspBufferSizeMismatchBooleanEnum>`
+            	**type**\: :py:class:`IsisMibAuthenticationFailureBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationFailureBooleanEnum>`
             
-            .. attribute:: protocols_supported_mismatch
-            
-            	Enable or disable
-            	**type**\: :py:class:`IsisMibProtocolsSupportedMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibProtocolsSupportedMismatchBooleanEnum>`
-            
-            .. attribute:: adjacency_change
+            .. attribute:: authentication_type_failure
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibAdjacencyChangeBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAdjacencyChangeBooleanEnum>`
+            	**type**\: :py:class:`IsisMibAuthenticationTypeFailureBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationTypeFailureBooleanEnum>`
+            
+            .. attribute:: corrupted_lsp_detected
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibCorruptedLspDetectedBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibCorruptedLspDetectedBooleanEnum>`
+            
+            .. attribute:: database_overflow
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibDatabaseOverFlowBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibDatabaseOverFlowBooleanEnum>`
+            
+            .. attribute:: id_length_mismatch
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibIdLengthMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibIdLengthMismatchBooleanEnum>`
             
             .. attribute:: lsp_error_detected
             
             	Enable or disable
             	**type**\: :py:class:`IsisMibLspErrorDetectedBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspErrorDetectedBooleanEnum>`
             
-            .. attribute:: all
+            .. attribute:: lsp_too_large_to_propagate
             
-            	Enable all isisMIB notifications
-            	**type**\: :py:class:`IsisMibAllBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAllBooleanEnum>`
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibLspTooLargeToPropagateBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspTooLargeToPropagateBooleanEnum>`
+            
+            .. attribute:: manual_address_drops
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibManualAddressDropsBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibManualAddressDropsBooleanEnum>`
+            
+            .. attribute:: max_area_address_mismatch
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibMaxAreaAddressMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibMaxAreaAddressMismatchBooleanEnum>`
+            
+            .. attribute:: originated_lsp_buffer_size_mismatch
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibOriginatedLspBufferSizeMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOriginatedLspBufferSizeMismatchBooleanEnum>`
+            
+            .. attribute:: own_lsp_purge
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibOwnLspPurgeBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOwnLspPurgeBooleanEnum>`
+            
+            .. attribute:: protocols_supported_mismatch
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibProtocolsSupportedMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibProtocolsSupportedMismatchBooleanEnum>`
+            
+            .. attribute:: rejected_adjacency
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibRejectedAdjacencyBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibRejectedAdjacencyBooleanEnum>`
+            
+            .. attribute:: sequence_number_skip
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibSequenceNumberSkipBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibSequenceNumberSkipBooleanEnum>`
+            
+            .. attribute:: version_skew
+            
+            	Enable or disable
+            	**type**\: :py:class:`IsisMibVersionSkewBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibVersionSkewBooleanEnum>`
             
             
 
@@ -3135,25 +3135,25 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.database_overflow = None
-                self.manual_address_drops = None
-                self.corrupted_lsp_detected = None
-                self.attempt_to_exceed_max_sequence = None
-                self.id_length_mismatch = None
-                self.max_area_address_mismatch = None
-                self.own_lsp_purge = None
-                self.sequence_number_skip = None
-                self.authentication_type_failure = None
-                self.authentication_failure = None
-                self.version_skew = None
-                self.area_mismatch = None
-                self.rejected_adjacency = None
-                self.lsp_too_large_to_propagate = None
-                self.originated_lsp_buffer_size_mismatch = None
-                self.protocols_supported_mismatch = None
                 self.adjacency_change = None
-                self.lsp_error_detected = None
                 self.all = None
+                self.area_mismatch = None
+                self.attempt_to_exceed_max_sequence = None
+                self.authentication_failure = None
+                self.authentication_type_failure = None
+                self.corrupted_lsp_detected = None
+                self.database_overflow = None
+                self.id_length_mismatch = None
+                self.lsp_error_detected = None
+                self.lsp_too_large_to_propagate = None
+                self.manual_address_drops = None
+                self.max_area_address_mismatch = None
+                self.originated_lsp_buffer_size_mismatch = None
+                self.own_lsp_purge = None
+                self.protocols_supported_mismatch = None
+                self.rejected_adjacency = None
+                self.sequence_number_skip = None
+                self.version_skew = None
 
             @property
             def _common_path(self):
@@ -3167,61 +3167,61 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.database_overflow is not None:
+                if self.adjacency_change is not None:
                     return True
 
-                if self.manual_address_drops is not None:
-                    return True
-
-                if self.corrupted_lsp_detected is not None:
-                    return True
-
-                if self.attempt_to_exceed_max_sequence is not None:
-                    return True
-
-                if self.id_length_mismatch is not None:
-                    return True
-
-                if self.max_area_address_mismatch is not None:
-                    return True
-
-                if self.own_lsp_purge is not None:
-                    return True
-
-                if self.sequence_number_skip is not None:
-                    return True
-
-                if self.authentication_type_failure is not None:
-                    return True
-
-                if self.authentication_failure is not None:
-                    return True
-
-                if self.version_skew is not None:
+                if self.all is not None:
                     return True
 
                 if self.area_mismatch is not None:
                     return True
 
-                if self.rejected_adjacency is not None:
+                if self.attempt_to_exceed_max_sequence is not None:
                     return True
 
-                if self.lsp_too_large_to_propagate is not None:
+                if self.authentication_failure is not None:
                     return True
 
-                if self.originated_lsp_buffer_size_mismatch is not None:
+                if self.authentication_type_failure is not None:
                     return True
 
-                if self.protocols_supported_mismatch is not None:
+                if self.corrupted_lsp_detected is not None:
                     return True
 
-                if self.adjacency_change is not None:
+                if self.database_overflow is not None:
+                    return True
+
+                if self.id_length_mismatch is not None:
                     return True
 
                 if self.lsp_error_detected is not None:
                     return True
 
-                if self.all is not None:
+                if self.lsp_too_large_to_propagate is not None:
+                    return True
+
+                if self.manual_address_drops is not None:
+                    return True
+
+                if self.max_area_address_mismatch is not None:
+                    return True
+
+                if self.originated_lsp_buffer_size_mismatch is not None:
+                    return True
+
+                if self.own_lsp_purge is not None:
+                    return True
+
+                if self.protocols_supported_mismatch is not None:
+                    return True
+
+                if self.rejected_adjacency is not None:
+                    return True
+
+                if self.sequence_number_skip is not None:
+                    return True
+
+                if self.version_skew is not None:
                     return True
 
                 return False
@@ -3367,11 +3367,6 @@ class Snmp(object):
             CISCO\-ENTITY\-REDUNDANCY\-MIB notification
             configuration
             
-            .. attribute:: switchover
-            
-            	Enable switchover notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: enable
             
             	Enable CISCO\-ENTITY\-REDUNDANCY\-MIB notification
@@ -3380,6 +3375,11 @@ class Snmp(object):
             .. attribute:: status
             
             	Enable status change notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: switchover
+            
+            	Enable switchover notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -3391,9 +3391,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.switchover = None
                 self.enable = None
                 self.status = None
+                self.switchover = None
 
             @property
             def _common_path(self):
@@ -3407,13 +3407,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.switchover is not None:
-                    return True
-
                 if self.enable is not None:
                     return True
 
                 if self.status is not None:
+                    return True
+
+                if self.switchover is not None:
                     return True
 
                 return False
@@ -3601,6 +3601,11 @@ class Snmp(object):
             """
             Enable RSVP\-MIB notifications
             
+            .. attribute:: enable
+            
+            	Enable all RSVP notifications
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: lost_flow
             
             	Enable lostFlow notification
@@ -3609,11 +3614,6 @@ class Snmp(object):
             .. attribute:: new_flow
             
             	Enable newFlow notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: enable
-            
-            	Enable all RSVP notifications
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -3625,9 +3625,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
+                self.enable = None
                 self.lost_flow = None
                 self.new_flow = None
-                self.enable = None
 
             @property
             def _common_path(self):
@@ -3641,13 +3641,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.enable is not None:
+                    return True
+
                 if self.lost_flow is not None:
                     return True
 
                 if self.new_flow is not None:
-                    return True
-
-                if self.enable is not None:
                     return True
 
                 return False
@@ -3832,25 +3832,25 @@ class Snmp(object):
             """
             OSPF\-MIB notification configuration
             
+            .. attribute:: error
+            
+            	SNMP notifications for OSPF errors
+            	**type**\: :py:class:`Error <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Error>`
+            
             .. attribute:: lsa
             
             	SNMP notifications related to LSAs
             	**type**\: :py:class:`Lsa <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Lsa>`
-            
-            .. attribute:: state_change
-            
-            	SNMP notifications for OSPF state change
-            	**type**\: :py:class:`StateChange <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.StateChange>`
             
             .. attribute:: retransmit
             
             	SNMP notifications for packet retransmissions
             	**type**\: :py:class:`Retransmit <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Retransmit>`
             
-            .. attribute:: error
+            .. attribute:: state_change
             
-            	SNMP notifications for OSPF errors
-            	**type**\: :py:class:`Error <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Error>`
+            	SNMP notifications for OSPF state change
+            	**type**\: :py:class:`StateChange <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.StateChange>`
             
             
 
@@ -3861,14 +3861,14 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.lsa = Snmp.Notification.Ospf.Lsa()
-                self.lsa.parent = self
-                self.state_change = Snmp.Notification.Ospf.StateChange()
-                self.state_change.parent = self
-                self.retransmit = Snmp.Notification.Ospf.Retransmit()
-                self.retransmit.parent = self
                 self.error = Snmp.Notification.Ospf.Error()
                 self.error.parent = self
+                self.lsa = Snmp.Notification.Ospf.Lsa()
+                self.lsa.parent = self
+                self.retransmit = Snmp.Notification.Ospf.Retransmit()
+                self.retransmit.parent = self
+                self.state_change = Snmp.Notification.Ospf.StateChange()
+                self.state_change.parent = self
 
 
             class Lsa(object):
@@ -3932,6 +3932,11 @@ class Snmp(object):
                 	Enable ospfIfStateChange notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
+                .. attribute:: neighbor
+                
+                	Enable ospfNbrStateChange notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
                 .. attribute:: virtual_interface
                 
                 	Enable ospfVirtIfStateChange notification
@@ -3940,11 +3945,6 @@ class Snmp(object):
                 .. attribute:: virtual_neighbor
                 
                 	Enable ospfVirtNbrStateChange notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: neighbor
-                
-                	Enable ospfNbrStateChange notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -3957,9 +3957,9 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.interface = None
+                    self.neighbor = None
                     self.virtual_interface = None
                     self.virtual_neighbor = None
-                    self.neighbor = None
 
                 @property
                 def _common_path(self):
@@ -3976,13 +3976,13 @@ class Snmp(object):
                     if self.interface is not None:
                         return True
 
+                    if self.neighbor is not None:
+                        return True
+
                     if self.virtual_interface is not None:
                         return True
 
                     if self.virtual_neighbor is not None:
-                        return True
-
-                    if self.neighbor is not None:
                         return True
 
                     return False
@@ -3997,14 +3997,14 @@ class Snmp(object):
                 """
                 SNMP notifications for packet retransmissions
                 
-                .. attribute:: virtual_packet
-                
-                	Enable ospfVirtIfTxRetransmit notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: packet
                 
                 	Enable ospfTxRetransmit notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: virtual_packet
+                
+                	Enable ospfVirtIfTxRetransmit notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -4016,8 +4016,8 @@ class Snmp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.virtual_packet = None
                     self.packet = None
+                    self.virtual_packet = None
 
                 @property
                 def _common_path(self):
@@ -4031,10 +4031,10 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.virtual_packet is not None:
+                    if self.packet is not None:
                         return True
 
-                    if self.packet is not None:
+                    if self.virtual_packet is not None:
                         return True
 
                     return False
@@ -4049,24 +4049,9 @@ class Snmp(object):
                 """
                 SNMP notifications for OSPF errors
                 
-                .. attribute:: config_error
-                
-                	Enable ospfIfConfigError notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: authentication_failure
                 
                 	Enable ospfIfAuthFailure notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: virtual_config_error
-                
-                	Enable ospfVirtIfConfigError notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: virtual_authentication_failure
-                
-                	Enable ospfVirtIfAuthFailure notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: bad_packet
@@ -4074,9 +4059,24 @@ class Snmp(object):
                 	Enable ospfIfRxBadPacket notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
+                .. attribute:: config_error
+                
+                	Enable ospfIfConfigError notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: virtual_authentication_failure
+                
+                	Enable ospfVirtIfAuthFailure notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
                 .. attribute:: virtual_bad_packet
                 
                 	Enable ospfVirtIfRxBadPacket notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: virtual_config_error
+                
+                	Enable ospfVirtIfConfigError notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -4088,12 +4088,12 @@ class Snmp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.config_error = None
                     self.authentication_failure = None
-                    self.virtual_config_error = None
-                    self.virtual_authentication_failure = None
                     self.bad_packet = None
+                    self.config_error = None
+                    self.virtual_authentication_failure = None
                     self.virtual_bad_packet = None
+                    self.virtual_config_error = None
 
                 @property
                 def _common_path(self):
@@ -4107,22 +4107,22 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.config_error is not None:
-                        return True
-
                     if self.authentication_failure is not None:
-                        return True
-
-                    if self.virtual_config_error is not None:
-                        return True
-
-                    if self.virtual_authentication_failure is not None:
                         return True
 
                     if self.bad_packet is not None:
                         return True
 
+                    if self.config_error is not None:
+                        return True
+
+                    if self.virtual_authentication_failure is not None:
+                        return True
+
                     if self.virtual_bad_packet is not None:
+                        return True
+
+                    if self.virtual_config_error is not None:
                         return True
 
                     return False
@@ -4144,16 +4144,16 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.lsa is not None and self.lsa._has_data():
+                if self.error is not None and self.error._has_data():
                     return True
 
-                if self.state_change is not None and self.state_change._has_data():
+                if self.lsa is not None and self.lsa._has_data():
                     return True
 
                 if self.retransmit is not None and self.retransmit._has_data():
                     return True
 
-                if self.error is not None and self.error._has_data():
+                if self.state_change is not None and self.state_change._has_data():
                     return True
 
                 return False
@@ -4197,14 +4197,14 @@ class Snmp(object):
                 """
                 SNMP notifications for OSPF errors
                 
-                .. attribute:: config_error
-                
-                	Enable ospfv3IfConfigError notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: bad_packet
                 
                 	Enable ospfv3IfRxBadPacket notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: config_error
+                
+                	Enable ospfv3IfConfigError notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: virtual_bad_packet
@@ -4226,8 +4226,8 @@ class Snmp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.config_error = None
                     self.bad_packet = None
+                    self.config_error = None
                     self.virtual_bad_packet = None
                     self.virtual_config_error = None
 
@@ -4243,10 +4243,10 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.config_error is not None:
+                    if self.bad_packet is not None:
                         return True
 
-                    if self.bad_packet is not None:
+                    if self.config_error is not None:
                         return True
 
                     if self.virtual_bad_packet is not None:
@@ -4267,24 +4267,9 @@ class Snmp(object):
                 """
                 SNMP notifications for OSPF state change
                 
-                .. attribute:: restart_virtual_helper
-                
-                	Enable ospfv3VirtNbrRestartHelperStatusChange notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: nssa_translator
-                
-                	Enable ospfv3NssaTranslatorStatusChange notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: interface
                 
                 	Enable ospfv3IfStateChange notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: restart
-                
-                	Enable ospfv3RestartStatusChange notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: neighbor
@@ -4292,14 +4277,29 @@ class Snmp(object):
                 	Enable ospfv3NbrStateChange notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: virtual_interface
+                .. attribute:: nssa_translator
                 
-                	Enable ospfv3VirtIfStateChange notification
+                	Enable ospfv3NssaTranslatorStatusChange notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: restart
+                
+                	Enable ospfv3RestartStatusChange notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: restart_helper
                 
                 	Enable ospfv3NbrRestartHelperStatusChange notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: restart_virtual_helper
+                
+                	Enable ospfv3VirtNbrRestartHelperStatusChange notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: virtual_interface
+                
+                	Enable ospfv3VirtIfStateChange notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: virtual_neighbor
@@ -4316,13 +4316,13 @@ class Snmp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.restart_virtual_helper = None
-                    self.nssa_translator = None
                     self.interface = None
-                    self.restart = None
                     self.neighbor = None
-                    self.virtual_interface = None
+                    self.nssa_translator = None
+                    self.restart = None
                     self.restart_helper = None
+                    self.restart_virtual_helper = None
+                    self.virtual_interface = None
                     self.virtual_neighbor = None
 
                 @property
@@ -4337,25 +4337,25 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.restart_virtual_helper is not None:
-                        return True
-
-                    if self.nssa_translator is not None:
-                        return True
-
                     if self.interface is not None:
-                        return True
-
-                    if self.restart is not None:
                         return True
 
                     if self.neighbor is not None:
                         return True
 
-                    if self.virtual_interface is not None:
+                    if self.nssa_translator is not None:
+                        return True
+
+                    if self.restart is not None:
                         return True
 
                     if self.restart_helper is not None:
+                        return True
+
+                    if self.restart_virtual_helper is not None:
+                        return True
+
+                    if self.virtual_interface is not None:
                         return True
 
                     if self.virtual_neighbor is not None:
@@ -4398,11 +4398,6 @@ class Snmp(object):
             """
             MPLS\-LDP\-STD\-MIB notification configuration
             
-            .. attribute:: session_up
-            
-            	Enable mplsLdpSessionUp notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: init_session_threshold_exceeded
             
             	Enable mplsLdpInitSessionThresholdExceeded notification
@@ -4411,6 +4406,11 @@ class Snmp(object):
             .. attribute:: session_down
             
             	Enable mplsLdpSessionDown notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: session_up
+            
+            	Enable mplsLdpSessionUp notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -4422,9 +4422,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.session_up = None
                 self.init_session_threshold_exceeded = None
                 self.session_down = None
+                self.session_up = None
 
             @property
             def _common_path(self):
@@ -4438,13 +4438,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.session_up is not None:
-                    return True
-
                 if self.init_session_threshold_exceeded is not None:
                     return True
 
                 if self.session_down is not None:
+                    return True
+
+                if self.session_up is not None:
                     return True
 
                 return False
@@ -4460,14 +4460,14 @@ class Snmp(object):
             CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification
             configuration
             
-            .. attribute:: up
-            
-            	Enable cmplsTeP2mpTunnelDestUp notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: down
             
             	Enable cmplsTeP2mpTunnelDestDown notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: up
+            
+            	Enable cmplsTeP2mpTunnelDestUp notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -4479,8 +4479,8 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.up = None
                 self.down = None
+                self.up = None
 
             @property
             def _common_path(self):
@@ -4494,10 +4494,10 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.up is not None:
+                if self.down is not None:
                     return True
 
-                if self.down is not None:
+                if self.up is not None:
                     return True
 
                 return False
@@ -4512,19 +4512,19 @@ class Snmp(object):
             """
             MPLS\-TE\-STD\-MIB notification configuration
             
-            .. attribute:: cisco_extension
-            
-            	CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification configuration
-            	**type**\: :py:class:`CiscoExtension <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe.CiscoExtension>`
-            
             .. attribute:: cisco
             
             	Enable MPLS TE tunnel Cisco format (default IETF) notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: up
+            .. attribute:: cisco_extension
             
-            	Enable mplsTunnelUp notification
+            	CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification configuration
+            	**type**\: :py:class:`CiscoExtension <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe.CiscoExtension>`
+            
+            .. attribute:: down
+            
+            	Enable mplsTunnelDown notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: reoptimize
@@ -4537,9 +4537,9 @@ class Snmp(object):
             	Enable mplsTunnelRerouted notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: down
+            .. attribute:: up
             
-            	Enable mplsTunnelDown notification
+            	Enable mplsTunnelUp notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -4551,13 +4551,13 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
+                self.cisco = None
                 self.cisco_extension = Snmp.Notification.MplsTe.CiscoExtension()
                 self.cisco_extension.parent = self
-                self.cisco = None
-                self.up = None
+                self.down = None
                 self.reoptimize = None
                 self.reroute = None
-                self.down = None
+                self.up = None
 
 
             class CiscoExtension(object):
@@ -4565,9 +4565,9 @@ class Snmp(object):
                 CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification
                 configuration
                 
-                .. attribute:: preempt
+                .. attribute:: bringup_fail
                 
-                	Enable cmplsTunnelPreempt notification
+                	Enable cmplsTunnelBringupFail notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: insufficient_bandwidth
@@ -4575,19 +4575,19 @@ class Snmp(object):
                 	Enable cmplsTunnelInsuffBW notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: re_route_pending_clear
+                .. attribute:: preempt
                 
-                	Enable cmplsTunnelReRoutePendingClear notification
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: bringup_fail
-                
-                	Enable cmplsTunnelBringupFail notification
+                	Enable cmplsTunnelPreempt notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: re_route_pending
                 
                 	Enable cmplsTunnelReRoutePending notification
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: re_route_pending_clear
+                
+                	Enable cmplsTunnelReRoutePendingClear notification
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -4599,11 +4599,11 @@ class Snmp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.preempt = None
-                    self.insufficient_bandwidth = None
-                    self.re_route_pending_clear = None
                     self.bringup_fail = None
+                    self.insufficient_bandwidth = None
+                    self.preempt = None
                     self.re_route_pending = None
+                    self.re_route_pending_clear = None
 
                 @property
                 def _common_path(self):
@@ -4617,19 +4617,19 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.preempt is not None:
+                    if self.bringup_fail is not None:
                         return True
 
                     if self.insufficient_bandwidth is not None:
                         return True
 
-                    if self.re_route_pending_clear is not None:
-                        return True
-
-                    if self.bringup_fail is not None:
+                    if self.preempt is not None:
                         return True
 
                     if self.re_route_pending is not None:
+                        return True
+
+                    if self.re_route_pending_clear is not None:
                         return True
 
                     return False
@@ -4651,13 +4651,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.cisco_extension is not None and self.cisco_extension._has_data():
-                    return True
-
                 if self.cisco is not None:
                     return True
 
-                if self.up is not None:
+                if self.cisco_extension is not None and self.cisco_extension._has_data():
+                    return True
+
+                if self.down is not None:
                     return True
 
                 if self.reoptimize is not None:
@@ -4666,7 +4666,7 @@ class Snmp(object):
                 if self.reroute is not None:
                     return True
 
-                if self.down is not None:
+                if self.up is not None:
                     return True
 
                 return False
@@ -4681,11 +4681,6 @@ class Snmp(object):
             """
             CISCO\-IETF\-FRR\-MIB notification configuration
             
-            .. attribute:: unprotected
-            
-            	Enable cmplsFrrUnProtected notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: enable
             
             	Enable cmplsFrrMIB notifications
@@ -4694,6 +4689,11 @@ class Snmp(object):
             .. attribute:: protected
             
             	Enable cmplsFrrProtected notification
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: unprotected
+            
+            	Enable cmplsFrrUnProtected notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -4705,9 +4705,9 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.unprotected = None
                 self.enable = None
                 self.protected = None
+                self.unprotected = None
 
             @property
             def _common_path(self):
@@ -4721,13 +4721,13 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.unprotected is not None:
-                    return True
-
                 if self.enable is not None:
                     return True
 
                 if self.protected is not None:
+                    return True
+
+                if self.unprotected is not None:
                     return True
 
                 return False
@@ -4785,14 +4785,14 @@ class Snmp(object):
             """
             ENTITY\-STATE\-MIB notification configuration
             
-            .. attribute:: switchover
-            
-            	Enable ceStateExtStandbySwitchover notification
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: oper_status
             
             	Enable entStateOperEnable and entStateOperDisable notifications
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: switchover
+            
+            	Enable ceStateExtStandbySwitchover notification
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -4804,8 +4804,8 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.switchover = None
                 self.oper_status = None
+                self.switchover = None
 
             @property
             def _common_path(self):
@@ -4819,10 +4819,10 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.switchover is not None:
+                if self.oper_status is not None:
                     return True
 
-                if self.oper_status is not None:
+                if self.switchover is not None:
                     return True
 
                 return False
@@ -4931,67 +4931,22 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.snmp is not None and self.snmp._has_data():
-                return True
-
-            if self.vpls is not None and self.vpls._has_data():
-                return True
-
-            if self.l2vpn is not None and self.l2vpn._has_data():
-                return True
-
-            if self.isis is not None and self.isis._has_data():
-                return True
-
-            if self.config_man is not None and self.config_man._has_data():
-                return True
-
-            if self.cfm is not None and self.cfm._has_data():
-                return True
-
-            if self.oam is not None and self.oam._has_data():
-                return True
-
-            if self.entity_redundancy is not None and self.entity_redundancy._has_data():
-                return True
-
-            if self.selective_vrf_download is not None and self.selective_vrf_download._has_data():
-                return True
-
-            if self.system is not None and self.system._has_data():
-                return True
-
             if self.bfd is not None and self.bfd._has_data():
-                return True
-
-            if self.ntp is not None and self.ntp._has_data():
-                return True
-
-            if self.rsvp is not None and self.rsvp._has_data():
                 return True
 
             if self.bgp is not None and self.bgp._has_data():
                 return True
 
-            if self.ospf is not None and self.ospf._has_data():
+            if self.cfm is not None and self.cfm._has_data():
                 return True
 
-            if self.ospfv3 is not None and self.ospfv3._has_data():
-                return True
-
-            if self.mpls_ldp is not None and self.mpls_ldp._has_data():
-                return True
-
-            if self.mpls_te_p2mp is not None and self.mpls_te_p2mp._has_data():
-                return True
-
-            if self.mpls_te is not None and self.mpls_te._has_data():
-                return True
-
-            if self.mpls_frr is not None and self.mpls_frr._has_data():
+            if self.config_man is not None and self.config_man._has_data():
                 return True
 
             if self.entity is not None and self.entity._has_data():
+                return True
+
+            if self.entity_redundancy is not None and self.entity_redundancy._has_data():
                 return True
 
             if self.entity_state is not None and self.entity_state._has_data():
@@ -5000,7 +4955,52 @@ class Snmp(object):
             if self.fru_control is not None and self.fru_control._has_data():
                 return True
 
+            if self.isis is not None and self.isis._has_data():
+                return True
+
+            if self.l2vpn is not None and self.l2vpn._has_data():
+                return True
+
+            if self.mpls_frr is not None and self.mpls_frr._has_data():
+                return True
+
+            if self.mpls_ldp is not None and self.mpls_ldp._has_data():
+                return True
+
+            if self.mpls_te is not None and self.mpls_te._has_data():
+                return True
+
+            if self.mpls_te_p2mp is not None and self.mpls_te_p2mp._has_data():
+                return True
+
+            if self.ntp is not None and self.ntp._has_data():
+                return True
+
+            if self.oam is not None and self.oam._has_data():
+                return True
+
+            if self.ospf is not None and self.ospf._has_data():
+                return True
+
+            if self.ospfv3 is not None and self.ospfv3._has_data():
+                return True
+
+            if self.rsvp is not None and self.rsvp._has_data():
+                return True
+
+            if self.selective_vrf_download is not None and self.selective_vrf_download._has_data():
+                return True
+
+            if self.snmp is not None and self.snmp._has_data():
+                return True
+
             if self.syslog is not None and self.syslog._has_data():
+                return True
+
+            if self.system is not None and self.system._has_data():
+                return True
+
+            if self.vpls is not None and self.vpls._has_data():
                 return True
 
             return False
@@ -5015,22 +5015,22 @@ class Snmp(object):
         """
         Configure properties of the trap correlator
         
-        .. attribute:: rules
-        
-        	Table of configured rules
-        	**type**\: :py:class:`Rules <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules>`
-        
-        .. attribute:: rule_sets
-        
-        	Table of configured rulesets
-        	**type**\: :py:class:`RuleSets <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets>`
-        
         .. attribute:: buffer_size
         
         	Configure size of the correlator buffer
         	**type**\: int
         
         	**range:** 1024..52428800
+        
+        .. attribute:: rule_sets
+        
+        	Table of configured rulesets
+        	**type**\: :py:class:`RuleSets <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets>`
+        
+        .. attribute:: rules
+        
+        	Table of configured rules
+        	**type**\: :py:class:`Rules <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules>`
         
         
 
@@ -5041,11 +5041,11 @@ class Snmp(object):
 
         def __init__(self):
             self.parent = None
-            self.rules = Snmp.Correlator.Rules()
-            self.rules.parent = self
+            self.buffer_size = None
             self.rule_sets = Snmp.Correlator.RuleSets()
             self.rule_sets.parent = self
-            self.buffer_size = None
+            self.rules = Snmp.Correlator.Rules()
+            self.rules.parent = self
 
 
         class Rules(object):
@@ -5082,15 +5082,15 @@ class Snmp(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: non_stateful
-                
-                	The Non\-Stateful Rule Type
-                	**type**\: :py:class:`NonStateful <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful>`
-                
                 .. attribute:: applied_to
                 
                 	Applied to the Rule or Ruleset
                 	**type**\: :py:class:`AppliedTo <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo>`
+                
+                .. attribute:: non_stateful
+                
+                	The Non\-Stateful Rule Type
+                	**type**\: :py:class:`NonStateful <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful>`
                 
                 
 
@@ -5102,29 +5102,29 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.non_stateful = None
                     self.applied_to = Snmp.Correlator.Rules.Rule.AppliedTo()
                     self.applied_to.parent = self
+                    self.non_stateful = None
 
 
                 class NonStateful(object):
                     """
                     The Non\-Stateful Rule Type
                     
-                    .. attribute:: root_causes
+                    .. attribute:: non_root_causes
                     
-                    	Table of configured rootcause (only one entry allowed)
-                    	**type**\: :py:class:`RootCauses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses>`
+                    	Table of configured non\-rootcause
+                    	**type**\: :py:class:`NonRootCauses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: non_root_causes
+                    .. attribute:: root_causes
                     
-                    	Table of configured non\-rootcause
-                    	**type**\: :py:class:`NonRootCauses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
+                    	Table of configured rootcause (only one entry allowed)
+                    	**type**\: :py:class:`RootCauses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses>`
                     
                     .. attribute:: _is_presence
                     
@@ -5154,10 +5154,10 @@ class Snmp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.root_causes = Snmp.Correlator.Rules.Rule.NonStateful.RootCauses()
-                        self.root_causes.parent = self
                         self.non_root_causes = Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses()
                         self.non_root_causes.parent = self
+                        self.root_causes = Snmp.Correlator.Rules.Rule.NonStateful.RootCauses()
+                        self.root_causes.parent = self
                         self.timeout = None
 
 
@@ -5275,14 +5275,14 @@ class Snmp(object):
                                         """
                                         VarBind match conditions
                                         
-                                        .. attribute:: value
-                                        
-                                        	Regular Expression to match value
-                                        	**type**\: str
-                                        
                                         .. attribute:: index
                                         
                                         	Regular Expression to match index
+                                        	**type**\: str
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Regular Expression to match value
                                         	**type**\: str
                                         
                                         
@@ -5294,13 +5294,13 @@ class Snmp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.value = None
                                             self.index = None
+                                            self.value = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:match'
 
@@ -5311,10 +5311,10 @@ class Snmp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.value is not None:
+                                            if self.index is not None:
                                                 return True
 
-                                            if self.index is not None:
+                                            if self.value is not None:
                                                 return True
 
                                             return False
@@ -5327,9 +5327,9 @@ class Snmp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.oid is None:
-                                            raise YPYDataValidationError('Key property oid is None')
+                                            raise YPYModelError('Key property oid is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:var-bind[Cisco-IOS-XR-snmp-agent-cfg:oid = ' + str(self.oid) + ']'
 
@@ -5356,7 +5356,7 @@ class Snmp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:var-binds'
 
@@ -5382,9 +5382,9 @@ class Snmp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.oid is None:
-                                    raise YPYDataValidationError('Key property oid is None')
+                                    raise YPYModelError('Key property oid is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:root-cause[Cisco-IOS-XR-snmp-agent-cfg:oid = ' + str(self.oid) + ']'
 
@@ -5414,7 +5414,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:root-causes'
 
@@ -5550,14 +5550,14 @@ class Snmp(object):
                                         """
                                         VarBind match conditions
                                         
-                                        .. attribute:: value
-                                        
-                                        	Regular Expression to match value
-                                        	**type**\: str
-                                        
                                         .. attribute:: index
                                         
                                         	Regular Expression to match index
+                                        	**type**\: str
+                                        
+                                        .. attribute:: value
+                                        
+                                        	Regular Expression to match value
                                         	**type**\: str
                                         
                                         
@@ -5569,13 +5569,13 @@ class Snmp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.value = None
                                             self.index = None
+                                            self.value = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:match'
 
@@ -5586,10 +5586,10 @@ class Snmp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.value is not None:
+                                            if self.index is not None:
                                                 return True
 
-                                            if self.index is not None:
+                                            if self.value is not None:
                                                 return True
 
                                             return False
@@ -5602,9 +5602,9 @@ class Snmp(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.oid is None:
-                                            raise YPYDataValidationError('Key property oid is None')
+                                            raise YPYModelError('Key property oid is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:var-bind[Cisco-IOS-XR-snmp-agent-cfg:oid = ' + str(self.oid) + ']'
 
@@ -5631,7 +5631,7 @@ class Snmp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:var-binds'
 
@@ -5657,9 +5657,9 @@ class Snmp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.oid is None:
-                                    raise YPYDataValidationError('Key property oid is None')
+                                    raise YPYModelError('Key property oid is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:non-root-cause[Cisco-IOS-XR-snmp-agent-cfg:oid = ' + str(self.oid) + ']'
 
@@ -5689,7 +5689,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:non-root-causes'
 
@@ -5715,7 +5715,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:non-stateful'
 
@@ -5726,10 +5726,10 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.root_causes is not None and self.root_causes._has_data():
+                        if self.non_root_causes is not None and self.non_root_causes._has_data():
                             return True
 
-                        if self.non_root_causes is not None and self.non_root_causes._has_data():
+                        if self.root_causes is not None and self.root_causes._has_data():
                             return True
 
                         if self.timeout is not None:
@@ -5747,15 +5747,15 @@ class Snmp(object):
                     """
                     Applied to the Rule or Ruleset
                     
-                    .. attribute:: hosts
-                    
-                    	Table of configured hosts to apply rules to
-                    	**type**\: :py:class:`Hosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo.Hosts>`
-                    
                     .. attribute:: all
                     
                     	Apply to all of the device
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: hosts
+                    
+                    	Table of configured hosts to apply rules to
+                    	**type**\: :py:class:`Hosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo.Hosts>`
                     
                     
 
@@ -5766,9 +5766,9 @@ class Snmp(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.all = None
                         self.hosts = Snmp.Correlator.Rules.Rule.AppliedTo.Hosts()
                         self.hosts.parent = self
-                        self.all = None
 
 
                     class Hosts(object):
@@ -5837,11 +5837,11 @@ class Snmp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ip_address is None:
-                                    raise YPYDataValidationError('Key property ip_address is None')
+                                    raise YPYModelError('Key property ip_address is None')
                                 if self.port is None:
-                                    raise YPYDataValidationError('Key property port is None')
+                                    raise YPYModelError('Key property port is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:host[Cisco-IOS-XR-snmp-agent-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-snmp-agent-cfg:port = ' + str(self.port) + ']'
 
@@ -5868,7 +5868,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:hosts'
 
@@ -5894,7 +5894,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:applied-to'
 
@@ -5905,10 +5905,10 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.hosts is not None and self.hosts._has_data():
+                        if self.all is not None:
                             return True
 
-                        if self.all is not None:
+                        if self.hosts is not None and self.hosts._has_data():
                             return True
 
                         return False
@@ -5921,7 +5921,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:correlator/Cisco-IOS-XR-snmp-agent-cfg:rules/Cisco-IOS-XR-snmp-agent-cfg:rule[Cisco-IOS-XR-snmp-agent-cfg:name = ' + str(self.name) + ']'
 
@@ -5935,10 +5935,10 @@ class Snmp(object):
                     if self.name is not None:
                         return True
 
-                    if self.non_stateful is not None and self.non_stateful._has_data():
+                    if self.applied_to is not None and self.applied_to._has_data():
                         return True
 
-                    if self.applied_to is not None and self.applied_to._has_data():
+                    if self.non_stateful is not None and self.non_stateful._has_data():
                         return True
 
                     return False
@@ -6007,15 +6007,15 @@ class Snmp(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: rulenames
-                
-                	Table of configured rulenames
-                	**type**\: :py:class:`Rulenames <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.Rulenames>`
-                
                 .. attribute:: applied_to
                 
                 	Applied to the Rule or Ruleset
                 	**type**\: :py:class:`AppliedTo <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo>`
+                
+                .. attribute:: rulenames
+                
+                	Table of configured rulenames
+                	**type**\: :py:class:`Rulenames <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.Rulenames>`
                 
                 
 
@@ -6027,10 +6027,10 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.rulenames = Snmp.Correlator.RuleSets.RuleSet.Rulenames()
-                    self.rulenames.parent = self
                     self.applied_to = Snmp.Correlator.RuleSets.RuleSet.AppliedTo()
                     self.applied_to.parent = self
+                    self.rulenames = Snmp.Correlator.RuleSets.RuleSet.Rulenames()
+                    self.rulenames.parent = self
 
 
                 class Rulenames(object):
@@ -6081,9 +6081,9 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.rulename is None:
-                                raise YPYDataValidationError('Key property rulename is None')
+                                raise YPYModelError('Key property rulename is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:rulename[Cisco-IOS-XR-snmp-agent-cfg:rulename = ' + str(self.rulename) + ']'
 
@@ -6107,7 +6107,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:rulenames'
 
@@ -6135,15 +6135,15 @@ class Snmp(object):
                     """
                     Applied to the Rule or Ruleset
                     
-                    .. attribute:: hosts
-                    
-                    	Table of configured hosts to apply rules to
-                    	**type**\: :py:class:`Hosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts>`
-                    
                     .. attribute:: all
                     
                     	Apply to all of the device
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: hosts
+                    
+                    	Table of configured hosts to apply rules to
+                    	**type**\: :py:class:`Hosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts>`
                     
                     
 
@@ -6154,9 +6154,9 @@ class Snmp(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.all = None
                         self.hosts = Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts()
                         self.hosts.parent = self
-                        self.all = None
 
 
                     class Hosts(object):
@@ -6225,11 +6225,11 @@ class Snmp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ip_address is None:
-                                    raise YPYDataValidationError('Key property ip_address is None')
+                                    raise YPYModelError('Key property ip_address is None')
                                 if self.port is None:
-                                    raise YPYDataValidationError('Key property port is None')
+                                    raise YPYModelError('Key property port is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:host[Cisco-IOS-XR-snmp-agent-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-snmp-agent-cfg:port = ' + str(self.port) + ']'
 
@@ -6256,7 +6256,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:hosts'
 
@@ -6282,7 +6282,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:applied-to'
 
@@ -6293,10 +6293,10 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.hosts is not None and self.hosts._has_data():
+                        if self.all is not None:
                             return True
 
-                        if self.all is not None:
+                        if self.hosts is not None and self.hosts._has_data():
                             return True
 
                         return False
@@ -6309,7 +6309,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.name is None:
-                        raise YPYDataValidationError('Key property name is None')
+                        raise YPYModelError('Key property name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:correlator/Cisco-IOS-XR-snmp-agent-cfg:rule-sets/Cisco-IOS-XR-snmp-agent-cfg:rule-set[Cisco-IOS-XR-snmp-agent-cfg:name = ' + str(self.name) + ']'
 
@@ -6323,10 +6323,10 @@ class Snmp(object):
                     if self.name is not None:
                         return True
 
-                    if self.rulenames is not None and self.rulenames._has_data():
+                    if self.applied_to is not None and self.applied_to._has_data():
                         return True
 
-                    if self.applied_to is not None and self.applied_to._has_data():
+                    if self.rulenames is not None and self.rulenames._has_data():
                         return True
 
                     return False
@@ -6372,13 +6372,13 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.rules is not None and self.rules._has_data():
+            if self.buffer_size is not None:
                 return True
 
             if self.rule_sets is not None and self.rule_sets._has_data():
                 return True
 
-            if self.buffer_size is not None:
+            if self.rules is not None and self.rules._has_data():
                 return True
 
             return False
@@ -6393,27 +6393,27 @@ class Snmp(object):
         """
         SNMP bulk stats configuration commands
         
-        .. attribute:: schemas
-        
-        	Configure schema definition
-        	**type**\: :py:class:`Schemas <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas>`
-        
-        .. attribute:: objects
-        
-        	Configure an Object List 
-        	**type**\: :py:class:`Objects <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects>`
-        
-        .. attribute:: transfers
-        
-        	Periodicity for the transfer of bulk data in minutes
-        	**type**\: :py:class:`Transfers <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers>`
-        
         .. attribute:: memory
         
         	per process memory limit in kilo bytes
         	**type**\: int
         
         	**range:** 100..200000
+        
+        .. attribute:: objects
+        
+        	Configure an Object List 
+        	**type**\: :py:class:`Objects <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects>`
+        
+        .. attribute:: schemas
+        
+        	Configure schema definition
+        	**type**\: :py:class:`Schemas <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas>`
+        
+        .. attribute:: transfers
+        
+        	Periodicity for the transfer of bulk data in minutes
+        	**type**\: :py:class:`Transfers <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers>`
         
         
 
@@ -6424,13 +6424,13 @@ class Snmp(object):
 
         def __init__(self):
             self.parent = None
-            self.schemas = Snmp.BulkStats.Schemas()
-            self.schemas.parent = self
+            self.memory = None
             self.objects = Snmp.BulkStats.Objects()
             self.objects.parent = self
+            self.schemas = Snmp.BulkStats.Schemas()
+            self.schemas.parent = self
             self.transfers = Snmp.BulkStats.Transfers()
             self.transfers.parent = self
-            self.memory = None
 
 
         class Schemas(object):
@@ -6472,10 +6472,12 @@ class Snmp(object):
                 	Object instance information
                 	**type**\: :py:class:`Instance <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas.Schema.Instance>`
                 
-                .. attribute:: type
+                .. attribute:: poll_interval
                 
-                	Configure schema name
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Periodicity for polling of objects in this schema in minutes
+                	**type**\: int
+                
+                	**range:** 1..20000
                 
                 .. attribute:: schema_object_list
                 
@@ -6484,12 +6486,10 @@ class Snmp(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: poll_interval
+                .. attribute:: type
                 
-                	Periodicity for polling of objects in this schema in minutes
-                	**type**\: int
-                
-                	**range:** 1..20000
+                	Configure schema name
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -6502,19 +6502,19 @@ class Snmp(object):
                     self.parent = None
                     self.schema_name = None
                     self.instance = None
-                    self.type = None
-                    self.schema_object_list = None
                     self.poll_interval = None
+                    self.schema_object_list = None
+                    self.type = None
 
 
                 class Instance(object):
                     """
                     Object instance information
                     
-                    .. attribute:: type
+                    .. attribute:: end
                     
-                    	Type of the instance
-                    	**type**\: :py:class:`SnmpBulkstatSchemaEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatSchemaEnum>`
+                    	End Instance OID for repetition
+                    	**type**\: str
                     
                     .. attribute:: _is_presence
                     
@@ -6533,26 +6533,6 @@ class Snmp(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: start
-                    
-                    	Start Instance OID for repetition
-                    	**type**\: str
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    .. attribute:: end
-                    
-                    	End Instance OID for repetition
-                    	**type**\: str
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     .. attribute:: max
                     
                     	Max value of Instance repetition
@@ -6565,10 +6545,30 @@ class Snmp(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
+                    .. attribute:: start
+                    
+                    	Start Instance OID for repetition
+                    	**type**\: str
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: sub_interface
                     
                     	Include all the subinterface
                     	**type**\: bool
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    .. attribute:: type
+                    
+                    	Type of the instance
+                    	**type**\: :py:class:`SnmpBulkstatSchemaEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatSchemaEnum>`
                     
                     .. attribute:: _is_presence
                     
@@ -6586,17 +6586,17 @@ class Snmp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.type = None
-                        self.instance = None
-                        self.start = None
                         self.end = None
+                        self.instance = None
                         self.max = None
+                        self.start = None
                         self.sub_interface = None
+                        self.type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:instance'
 
@@ -6607,22 +6607,22 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.type is not None:
+                        if self.end is not None:
                             return True
 
                         if self.instance is not None:
                             return True
 
-                        if self.start is not None:
-                            return True
-
-                        if self.end is not None:
-                            return True
-
                         if self.max is not None:
                             return True
 
+                        if self.start is not None:
+                            return True
+
                         if self.sub_interface is not None:
+                            return True
+
+                        if self.type is not None:
                             return True
 
                         return False
@@ -6635,7 +6635,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.schema_name is None:
-                        raise YPYDataValidationError('Key property schema_name is None')
+                        raise YPYModelError('Key property schema_name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:bulk-stats/Cisco-IOS-XR-snmp-agent-cfg:schemas/Cisco-IOS-XR-snmp-agent-cfg:schema[Cisco-IOS-XR-snmp-agent-cfg:schema-name = ' + str(self.schema_name) + ']'
 
@@ -6652,13 +6652,13 @@ class Snmp(object):
                     if self.instance is not None and self.instance._has_data():
                         return True
 
-                    if self.type is not None:
+                    if self.poll_interval is not None:
                         return True
 
                     if self.schema_object_list is not None:
                         return True
 
-                    if self.poll_interval is not None:
+                    if self.type is not None:
                         return True
 
                     return False
@@ -6798,9 +6798,9 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.oid is None:
-                                raise YPYDataValidationError('Key property oid is None')
+                                raise YPYModelError('Key property oid is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:object[Cisco-IOS-XR-snmp-agent-cfg:oid = ' + str(self.oid) + ']'
 
@@ -6824,7 +6824,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:objects'
 
@@ -6850,7 +6850,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.object_list_name is None:
-                        raise YPYDataValidationError('Key property object_list_name is None')
+                        raise YPYModelError('Key property object_list_name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:bulk-stats/Cisco-IOS-XR-snmp-agent-cfg:objects/Cisco-IOS-XR-snmp-agent-cfg:object[Cisco-IOS-XR-snmp-agent-cfg:object-list-name = ' + str(self.object_list_name) + ']'
 
@@ -6937,27 +6937,34 @@ class Snmp(object):
                 
                 	**range:** 0..32
                 
-                .. attribute:: transfer_schemas
-                
-                	Schema that contains objects to be collected
-                	**type**\: :py:class:`TransferSchemas <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer.TransferSchemas>`
-                
-                .. attribute:: secondary
-                
-                	FTP or rcp or TFTP can be used for file transfer
-                	**type**\: str
-                
-                .. attribute:: type
-                
-                	Configure transfer list name
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: buffer_size
                 
                 	Bulkstat data file maximum size in bytes
                 	**type**\: int
                 
                 	**range:** 1024..2147483647
+                
+                .. attribute:: enable
+                
+                	Start Data Collection for this Configuration
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: format
+                
+                	Format of the bulk data file
+                	**type**\: :py:class:`SnmpBulkstatFileFormatEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatFileFormatEnum>`
+                
+                .. attribute:: interval
+                
+                	Periodicity for the transfer of bulk data in minutes
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: primary
+                
+                	FTP or rcp or TFTP can be used for file transfer
+                	**type**\: str
                 
                 .. attribute:: retain
                 
@@ -6966,11 +6973,6 @@ class Snmp(object):
                 
                 	**range:** 0..20000
                 
-                .. attribute:: format
-                
-                	Format of the bulk data file
-                	**type**\: :py:class:`SnmpBulkstatFileFormatEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatFileFormatEnum>`
-                
                 .. attribute:: retry
                 
                 	Number of transmission retries
@@ -6978,22 +6980,20 @@ class Snmp(object):
                 
                 	**range:** 0..100
                 
-                .. attribute:: enable
-                
-                	Start Data Collection for this Configuration
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: primary
+                .. attribute:: secondary
                 
                 	FTP or rcp or TFTP can be used for file transfer
                 	**type**\: str
                 
-                .. attribute:: interval
+                .. attribute:: transfer_schemas
                 
-                	Periodicity for the transfer of bulk data in minutes
-                	**type**\: int
+                	Schema that contains objects to be collected
+                	**type**\: :py:class:`TransferSchemas <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer.TransferSchemas>`
                 
-                	**range:** \-2147483648..2147483647
+                .. attribute:: type
+                
+                	Configure transfer list name
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -7005,17 +7005,17 @@ class Snmp(object):
                 def __init__(self):
                     self.parent = None
                     self.transfer_name = None
+                    self.buffer_size = None
+                    self.enable = None
+                    self.format = None
+                    self.interval = None
+                    self.primary = None
+                    self.retain = None
+                    self.retry = None
+                    self.secondary = None
                     self.transfer_schemas = Snmp.BulkStats.Transfers.Transfer.TransferSchemas()
                     self.transfer_schemas.parent = self
-                    self.secondary = None
                     self.type = None
-                    self.buffer_size = None
-                    self.retain = None
-                    self.format = None
-                    self.retry = None
-                    self.enable = None
-                    self.primary = None
-                    self.interval = None
 
 
                 class TransferSchemas(object):
@@ -7066,9 +7066,9 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.schema_name is None:
-                                raise YPYDataValidationError('Key property schema_name is None')
+                                raise YPYModelError('Key property schema_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:transfer-schema[Cisco-IOS-XR-snmp-agent-cfg:schema-name = ' + str(self.schema_name) + ']'
 
@@ -7092,7 +7092,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:transfer-schemas'
 
@@ -7118,7 +7118,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.transfer_name is None:
-                        raise YPYDataValidationError('Key property transfer_name is None')
+                        raise YPYModelError('Key property transfer_name is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:bulk-stats/Cisco-IOS-XR-snmp-agent-cfg:transfers/Cisco-IOS-XR-snmp-agent-cfg:transfer[Cisco-IOS-XR-snmp-agent-cfg:transfer-name = ' + str(self.transfer_name) + ']'
 
@@ -7132,34 +7132,34 @@ class Snmp(object):
                     if self.transfer_name is not None:
                         return True
 
-                    if self.transfer_schemas is not None and self.transfer_schemas._has_data():
-                        return True
-
-                    if self.secondary is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
                     if self.buffer_size is not None:
-                        return True
-
-                    if self.retain is not None:
-                        return True
-
-                    if self.format is not None:
-                        return True
-
-                    if self.retry is not None:
                         return True
 
                     if self.enable is not None:
                         return True
 
-                    if self.primary is not None:
+                    if self.format is not None:
                         return True
 
                     if self.interval is not None:
+                        return True
+
+                    if self.primary is not None:
+                        return True
+
+                    if self.retain is not None:
+                        return True
+
+                    if self.retry is not None:
+                        return True
+
+                    if self.secondary is not None:
+                        return True
+
+                    if self.transfer_schemas is not None and self.transfer_schemas._has_data():
+                        return True
+
+                    if self.type is not None:
                         return True
 
                     return False
@@ -7205,16 +7205,16 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.schemas is not None and self.schemas._has_data():
+            if self.memory is not None:
                 return True
 
             if self.objects is not None and self.objects._has_data():
                 return True
 
-            if self.transfers is not None and self.transfers._has_data():
+            if self.schemas is not None and self.schemas._has_data():
                 return True
 
-            if self.memory is not None:
+            if self.transfers is not None and self.transfers._has_data():
                 return True
 
             return False
@@ -7291,7 +7291,7 @@ class Snmp(object):
             @property
             def _common_path(self):
                 if self.community_name is None:
-                    raise YPYDataValidationError('Key property community_name is None')
+                    raise YPYModelError('Key property community_name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:default-community-maps/Cisco-IOS-XR-snmp-agent-cfg:default-community-map[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -7433,19 +7433,19 @@ class Snmp(object):
         
         	**range:** 0..20
         
-        .. attribute:: subagent
-        
-        	Sub\-Agent Request timeout
-        	**type**\: int
-        
-        	**range:** 1..20
-        
         .. attribute:: pdu_stats
         
         	SNMP pdu statistics timeout
         	**type**\: int
         
         	**range:** 1..10
+        
+        .. attribute:: subagent
+        
+        	Sub\-Agent Request timeout
+        	**type**\: int
+        
+        	**range:** 1..20
         
         
 
@@ -7458,8 +7458,8 @@ class Snmp(object):
             self.parent = None
             self.duplicates = None
             self.in_qdrop = None
-            self.subagent = None
             self.pdu_stats = None
+            self.subagent = None
 
         @property
         def _common_path(self):
@@ -7479,10 +7479,10 @@ class Snmp(object):
             if self.in_qdrop is not None:
                 return True
 
-            if self.subagent is not None:
+            if self.pdu_stats is not None:
                 return True
 
-            if self.pdu_stats is not None:
+            if self.subagent is not None:
                 return True
 
             return False
@@ -7525,21 +7525,6 @@ class Snmp(object):
             	Name of the user
             	**type**\: str
             
-            .. attribute:: group_name
-            
-            	Group to which the user belongs
-            	**type**\: str
-            
-            .. attribute:: version
-            
-            	SNMP version to be used. v1,v2c or v3
-            	**type**\: :py:class:`UserSnmpVersionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.UserSnmpVersionEnum>`
-            
-            .. attribute:: authentication_password_configured
-            
-            	Flag to indicate that authentication password is configred for version 3
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: algorithm
             
             	The algorithm used md5 or sha
@@ -7552,10 +7537,27 @@ class Snmp(object):
             
             	**pattern:** (!.+)\|([^!].+)
             
-            .. attribute:: privacy_password_configured
+            .. attribute:: authentication_password_configured
             
-            	Flag to indicate that the privacy password is configured for version 3
+            	Flag to indicate that authentication password is configred for version 3
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: group_name
+            
+            	Group to which the user belongs
+            	**type**\: str
+            
+            .. attribute:: owner
+            
+            	The system access either SDROwner or SystemOwner
+            	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
+            
+            .. attribute:: port
+            
+            	UDP port number
+            	**type**\: int
+            
+            	**range:** 1..65535
             
             .. attribute:: priv_algorithm
             
@@ -7569,30 +7571,10 @@ class Snmp(object):
             
             	**pattern:** (!.+)\|([^!].+)
             
-            .. attribute:: v4acl_type
+            .. attribute:: privacy_password_configured
             
-            	Access\-list type
-            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
-            
-            .. attribute:: v4_access_list
-            
-            	Ipv4 Access\-list name
-            	**type**\: str
-            
-            .. attribute:: v6acl_type
-            
-            	Access\-list type
-            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
-            
-            .. attribute:: v6_access_list
-            
-            	Ipv6 Access\-list name
-            	**type**\: str
-            
-            .. attribute:: owner
-            
-            	The system access either SDROwner or SystemOwner
-            	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
+            	Flag to indicate that the privacy password is configured for version 3
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: remote_address
             
@@ -7611,12 +7593,30 @@ class Snmp(object):
             
             
             ----
-            .. attribute:: port
+            .. attribute:: v4_access_list
             
-            	UDP port number
-            	**type**\: int
+            	Ipv4 Access\-list name
+            	**type**\: str
             
-            	**range:** 1..65535
+            .. attribute:: v4acl_type
+            
+            	Access\-list type
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
+            
+            .. attribute:: v6_access_list
+            
+            	Ipv6 Access\-list name
+            	**type**\: str
+            
+            .. attribute:: v6acl_type
+            
+            	Access\-list type
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
+            
+            .. attribute:: version
+            
+            	SNMP version to be used. v1,v2c or v3
+            	**type**\: :py:class:`UserSnmpVersionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.UserSnmpVersionEnum>`
             
             
 
@@ -7628,26 +7628,26 @@ class Snmp(object):
             def __init__(self):
                 self.parent = None
                 self.user_name = None
-                self.group_name = None
-                self.version = None
-                self.authentication_password_configured = None
                 self.algorithm = None
                 self.authentication_password = None
-                self.privacy_password_configured = None
+                self.authentication_password_configured = None
+                self.group_name = None
+                self.owner = None
+                self.port = None
                 self.priv_algorithm = None
                 self.privacy_password = None
-                self.v4acl_type = None
-                self.v4_access_list = None
-                self.v6acl_type = None
-                self.v6_access_list = None
-                self.owner = None
+                self.privacy_password_configured = None
                 self.remote_address = None
-                self.port = None
+                self.v4_access_list = None
+                self.v4acl_type = None
+                self.v6_access_list = None
+                self.v6acl_type = None
+                self.version = None
 
             @property
             def _common_path(self):
                 if self.user_name is None:
-                    raise YPYDataValidationError('Key property user_name is None')
+                    raise YPYModelError('Key property user_name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:users/Cisco-IOS-XR-snmp-agent-cfg:user[Cisco-IOS-XR-snmp-agent-cfg:user-name = ' + str(self.user_name) + ']'
 
@@ -7661,22 +7661,22 @@ class Snmp(object):
                 if self.user_name is not None:
                     return True
 
-                if self.group_name is not None:
-                    return True
-
-                if self.version is not None:
-                    return True
-
-                if self.authentication_password_configured is not None:
-                    return True
-
                 if self.algorithm is not None:
                     return True
 
                 if self.authentication_password is not None:
                     return True
 
-                if self.privacy_password_configured is not None:
+                if self.authentication_password_configured is not None:
+                    return True
+
+                if self.group_name is not None:
+                    return True
+
+                if self.owner is not None:
+                    return True
+
+                if self.port is not None:
                     return True
 
                 if self.priv_algorithm is not None:
@@ -7685,25 +7685,25 @@ class Snmp(object):
                 if self.privacy_password is not None:
                     return True
 
-                if self.v4acl_type is not None:
-                    return True
-
-                if self.v4_access_list is not None:
-                    return True
-
-                if self.v6acl_type is not None:
-                    return True
-
-                if self.v6_access_list is not None:
-                    return True
-
-                if self.owner is not None:
+                if self.privacy_password_configured is not None:
                     return True
 
                 if self.remote_address is not None:
                     return True
 
-                if self.port is not None:
+                if self.v4_access_list is not None:
+                    return True
+
+                if self.v4acl_type is not None:
+                    return True
+
+                if self.v6_access_list is not None:
+                    return True
+
+                if self.v6acl_type is not None:
+                    return True
+
+                if self.version is not None:
                     return True
 
                 return False
@@ -7772,20 +7772,20 @@ class Snmp(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: trap_hosts
+            .. attribute:: context_mappings
             
-            	Specify hosts to receive SNMP notifications
-            	**type**\: :py:class:`TrapHosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts>`
+            	List of context names
+            	**type**\: :py:class:`ContextMappings <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.ContextMappings>`
             
             .. attribute:: contexts
             
             	List of Context Names
             	**type**\: :py:class:`Contexts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.Contexts>`
             
-            .. attribute:: context_mappings
+            .. attribute:: trap_hosts
             
-            	List of context names
-            	**type**\: :py:class:`ContextMappings <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.ContextMappings>`
+            	Specify hosts to receive SNMP notifications
+            	**type**\: :py:class:`TrapHosts <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts>`
             
             
 
@@ -7797,12 +7797,12 @@ class Snmp(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
-                self.trap_hosts = Snmp.Vrfs.Vrf.TrapHosts()
-                self.trap_hosts.parent = self
-                self.contexts = Snmp.Vrfs.Vrf.Contexts()
-                self.contexts.parent = self
                 self.context_mappings = Snmp.Vrfs.Vrf.ContextMappings()
                 self.context_mappings.parent = self
+                self.contexts = Snmp.Vrfs.Vrf.Contexts()
+                self.contexts.parent = self
+                self.trap_hosts = Snmp.Vrfs.Vrf.TrapHosts()
+                self.trap_hosts.parent = self
 
 
             class TrapHosts(object):
@@ -7849,6 +7849,11 @@ class Snmp(object):
                     
                     
                     ----
+                    .. attribute:: default_user_communities
+                    
+                    	Container class for defining communities for a trap host
+                    	**type**\: :py:class:`DefaultUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities>`
+                    
                     .. attribute:: encrypted_user_communities
                     
                     	Container class for defining Clear/encrypt communities for a trap host
@@ -7858,11 +7863,6 @@ class Snmp(object):
                     
                     	Container class for defining notification type for a Inform host
                     	**type**\: :py:class:`InformHost <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost>`
-                    
-                    .. attribute:: default_user_communities
-                    
-                    	Container class for defining communities for a trap host
-                    	**type**\: :py:class:`DefaultUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities>`
                     
                     
 
@@ -7874,12 +7874,12 @@ class Snmp(object):
                     def __init__(self):
                         self.parent = None
                         self.ip_address = None
+                        self.default_user_communities = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities()
+                        self.default_user_communities.parent = self
                         self.encrypted_user_communities = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities()
                         self.encrypted_user_communities.parent = self
                         self.inform_host = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost()
                         self.inform_host.parent = self
-                        self.default_user_communities = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities()
-                        self.default_user_communities.parent = self
 
 
                     class EncryptedUserCommunities(object):
@@ -7918,30 +7918,6 @@ class Snmp(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: port
-                            
-                            	UDP port number
-                            	**type**\: int
-                            
-                            	**range:** 1..65535
-                            
-                            .. attribute:: version
-                            
-                            	SNMP Version to be used v1/v2c/v3
-                            	**type**\: str
-                            
-                            .. attribute:: security_level
-                            
-                            	Security level to be used noauth/auth/priv
-                            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                            
-                            .. attribute:: basic_trap_types
-                            
-                            	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
                             .. attribute:: advanced_trap_types1
                             
                             	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -7956,6 +7932,30 @@ class Snmp(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: basic_trap_types
+                            
+                            	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: port
+                            
+                            	UDP port number
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            .. attribute:: security_level
+                            
+                            	Security level to be used noauth/auth/priv
+                            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                            
+                            .. attribute:: version
+                            
+                            	SNMP Version to be used v1/v2c/v3
+                            	**type**\: str
+                            
                             
 
                             """
@@ -7966,19 +7966,19 @@ class Snmp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.community_name = None
-                                self.port = None
-                                self.version = None
-                                self.security_level = None
-                                self.basic_trap_types = None
                                 self.advanced_trap_types1 = None
                                 self.advanced_trap_types2 = None
+                                self.basic_trap_types = None
+                                self.port = None
+                                self.security_level = None
+                                self.version = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.community_name is None:
-                                    raise YPYDataValidationError('Key property community_name is None')
+                                    raise YPYModelError('Key property community_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:encrypted-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -7992,22 +7992,22 @@ class Snmp(object):
                                 if self.community_name is not None:
                                     return True
 
-                                if self.port is not None:
+                                if self.advanced_trap_types1 is not None:
                                     return True
 
-                                if self.version is not None:
-                                    return True
-
-                                if self.security_level is not None:
+                                if self.advanced_trap_types2 is not None:
                                     return True
 
                                 if self.basic_trap_types is not None:
                                     return True
 
-                                if self.advanced_trap_types1 is not None:
+                                if self.port is not None:
                                     return True
 
-                                if self.advanced_trap_types2 is not None:
+                                if self.security_level is not None:
+                                    return True
+
+                                if self.version is not None:
                                     return True
 
                                 return False
@@ -8020,7 +8020,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:encrypted-user-communities'
 
@@ -8049,15 +8049,15 @@ class Snmp(object):
                         Container class for defining notification type
                         for a Inform host
                         
-                        .. attribute:: inform_user_communities
-                        
-                        	Container class for defining communities for a inform host
-                        	**type**\: :py:class:`InformUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
-                        
                         .. attribute:: inform_encrypted_user_communities
                         
                         	Container class for defining Clear/encrypt communities for a inform host
                         	**type**\: :py:class:`InformEncryptedUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities>`
+                        
+                        .. attribute:: inform_user_communities
+                        
+                        	Container class for defining communities for a inform host
+                        	**type**\: :py:class:`InformUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
                         
                         
 
@@ -8068,10 +8068,10 @@ class Snmp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.inform_user_communities = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities()
-                            self.inform_user_communities.parent = self
                             self.inform_encrypted_user_communities = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities()
                             self.inform_encrypted_user_communities.parent = self
+                            self.inform_user_communities = Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities()
+                            self.inform_user_communities.parent = self
 
 
                         class InformUserCommunities(object):
@@ -8110,30 +8110,6 @@ class Snmp(object):
                                 
                                 	**range:** 0..128
                                 
-                                .. attribute:: port
-                                
-                                	UDP port number
-                                	**type**\: int
-                                
-                                	**range:** 1..65535
-                                
-                                .. attribute:: version
-                                
-                                	SNMP Version to be used v2c/v3
-                                	**type**\: str
-                                
-                                .. attribute:: security_level
-                                
-                                	Security level to be used noauth/auth/priv
-                                	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                                
-                                .. attribute:: basic_trap_types
-                                
-                                	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
                                 .. attribute:: advanced_trap_types1
                                 
                                 	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -8148,6 +8124,30 @@ class Snmp(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                .. attribute:: basic_trap_types
+                                
+                                	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: port
+                                
+                                	UDP port number
+                                	**type**\: int
+                                
+                                	**range:** 1..65535
+                                
+                                .. attribute:: security_level
+                                
+                                	Security level to be used noauth/auth/priv
+                                	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                                
+                                .. attribute:: version
+                                
+                                	SNMP Version to be used v2c/v3
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -8158,19 +8158,19 @@ class Snmp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.community_name = None
-                                    self.port = None
-                                    self.version = None
-                                    self.security_level = None
-                                    self.basic_trap_types = None
                                     self.advanced_trap_types1 = None
                                     self.advanced_trap_types2 = None
+                                    self.basic_trap_types = None
+                                    self.port = None
+                                    self.security_level = None
+                                    self.version = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.community_name is None:
-                                        raise YPYDataValidationError('Key property community_name is None')
+                                        raise YPYModelError('Key property community_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -8184,22 +8184,22 @@ class Snmp(object):
                                     if self.community_name is not None:
                                         return True
 
-                                    if self.port is not None:
+                                    if self.advanced_trap_types1 is not None:
                                         return True
 
-                                    if self.version is not None:
-                                        return True
-
-                                    if self.security_level is not None:
+                                    if self.advanced_trap_types2 is not None:
                                         return True
 
                                     if self.basic_trap_types is not None:
                                         return True
 
-                                    if self.advanced_trap_types1 is not None:
+                                    if self.port is not None:
                                         return True
 
-                                    if self.advanced_trap_types2 is not None:
+                                    if self.security_level is not None:
+                                        return True
+
+                                    if self.version is not None:
                                         return True
 
                                     return False
@@ -8212,7 +8212,7 @@ class Snmp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-user-communities'
 
@@ -8272,30 +8272,6 @@ class Snmp(object):
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
-                                .. attribute:: port
-                                
-                                	UDP port number
-                                	**type**\: int
-                                
-                                	**range:** 1..65535
-                                
-                                .. attribute:: version
-                                
-                                	SNMP Version to be used v2c/v3
-                                	**type**\: str
-                                
-                                .. attribute:: security_level
-                                
-                                	Security level to be used noauth/auth/priv
-                                	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                                
-                                .. attribute:: basic_trap_types
-                                
-                                	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
                                 .. attribute:: advanced_trap_types1
                                 
                                 	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -8310,6 +8286,30 @@ class Snmp(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                .. attribute:: basic_trap_types
+                                
+                                	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: port
+                                
+                                	UDP port number
+                                	**type**\: int
+                                
+                                	**range:** 1..65535
+                                
+                                .. attribute:: security_level
+                                
+                                	Security level to be used noauth/auth/priv
+                                	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                                
+                                .. attribute:: version
+                                
+                                	SNMP Version to be used v2c/v3
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -8320,19 +8320,19 @@ class Snmp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.community_name = None
-                                    self.port = None
-                                    self.version = None
-                                    self.security_level = None
-                                    self.basic_trap_types = None
                                     self.advanced_trap_types1 = None
                                     self.advanced_trap_types2 = None
+                                    self.basic_trap_types = None
+                                    self.port = None
+                                    self.security_level = None
+                                    self.version = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.community_name is None:
-                                        raise YPYDataValidationError('Key property community_name is None')
+                                        raise YPYModelError('Key property community_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-encrypted-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -8346,22 +8346,22 @@ class Snmp(object):
                                     if self.community_name is not None:
                                         return True
 
-                                    if self.port is not None:
+                                    if self.advanced_trap_types1 is not None:
                                         return True
 
-                                    if self.version is not None:
-                                        return True
-
-                                    if self.security_level is not None:
+                                    if self.advanced_trap_types2 is not None:
                                         return True
 
                                     if self.basic_trap_types is not None:
                                         return True
 
-                                    if self.advanced_trap_types1 is not None:
+                                    if self.port is not None:
                                         return True
 
-                                    if self.advanced_trap_types2 is not None:
+                                    if self.security_level is not None:
+                                        return True
+
+                                    if self.version is not None:
                                         return True
 
                                     return False
@@ -8374,7 +8374,7 @@ class Snmp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-encrypted-user-communities'
 
@@ -8400,7 +8400,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-host'
 
@@ -8411,10 +8411,10 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.inform_user_communities is not None and self.inform_user_communities._has_data():
+                            if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities._has_data():
                                 return True
 
-                            if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities._has_data():
+                            if self.inform_user_communities is not None and self.inform_user_communities._has_data():
                                 return True
 
                             return False
@@ -8461,30 +8461,6 @@ class Snmp(object):
                             
                             	**range:** 0..128
                             
-                            .. attribute:: port
-                            
-                            	UDP port number
-                            	**type**\: int
-                            
-                            	**range:** 1..65535
-                            
-                            .. attribute:: version
-                            
-                            	SNMP Version to be used v1/v2c/v3
-                            	**type**\: str
-                            
-                            .. attribute:: security_level
-                            
-                            	Security level to be used noauth/auth/priv
-                            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                            
-                            .. attribute:: basic_trap_types
-                            
-                            	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
                             .. attribute:: advanced_trap_types1
                             
                             	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -8499,6 +8475,30 @@ class Snmp(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: basic_trap_types
+                            
+                            	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: port
+                            
+                            	UDP port number
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            .. attribute:: security_level
+                            
+                            	Security level to be used noauth/auth/priv
+                            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                            
+                            .. attribute:: version
+                            
+                            	SNMP Version to be used v1/v2c/v3
+                            	**type**\: str
+                            
                             
 
                             """
@@ -8509,19 +8509,19 @@ class Snmp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.community_name = None
-                                self.port = None
-                                self.version = None
-                                self.security_level = None
-                                self.basic_trap_types = None
                                 self.advanced_trap_types1 = None
                                 self.advanced_trap_types2 = None
+                                self.basic_trap_types = None
+                                self.port = None
+                                self.security_level = None
+                                self.version = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.community_name is None:
-                                    raise YPYDataValidationError('Key property community_name is None')
+                                    raise YPYModelError('Key property community_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:default-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -8535,22 +8535,22 @@ class Snmp(object):
                                 if self.community_name is not None:
                                     return True
 
-                                if self.port is not None:
+                                if self.advanced_trap_types1 is not None:
                                     return True
 
-                                if self.version is not None:
-                                    return True
-
-                                if self.security_level is not None:
+                                if self.advanced_trap_types2 is not None:
                                     return True
 
                                 if self.basic_trap_types is not None:
                                     return True
 
-                                if self.advanced_trap_types1 is not None:
+                                if self.port is not None:
                                     return True
 
-                                if self.advanced_trap_types2 is not None:
+                                if self.security_level is not None:
+                                    return True
+
+                                if self.version is not None:
                                     return True
 
                                 return False
@@ -8563,7 +8563,7 @@ class Snmp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:default-user-communities'
 
@@ -8589,9 +8589,9 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.ip_address is None:
-                            raise YPYDataValidationError('Key property ip_address is None')
+                            raise YPYModelError('Key property ip_address is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:trap-host[Cisco-IOS-XR-snmp-agent-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -8605,13 +8605,13 @@ class Snmp(object):
                         if self.ip_address is not None:
                             return True
 
+                        if self.default_user_communities is not None and self.default_user_communities._has_data():
+                            return True
+
                         if self.encrypted_user_communities is not None and self.encrypted_user_communities._has_data():
                             return True
 
                         if self.inform_host is not None and self.inform_host._has_data():
-                            return True
-
-                        if self.default_user_communities is not None and self.default_user_communities._has_data():
                             return True
 
                         return False
@@ -8624,7 +8624,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:trap-hosts'
 
@@ -8696,9 +8696,9 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.context_name is None:
-                            raise YPYDataValidationError('Key property context_name is None')
+                            raise YPYModelError('Key property context_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:context[Cisco-IOS-XR-snmp-agent-cfg:context-name = ' + str(self.context_name) + ']'
 
@@ -8722,7 +8722,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:contexts'
 
@@ -8790,14 +8790,14 @@ class Snmp(object):
                     	OSPF protocol instance
                     	**type**\: str
                     
-                    .. attribute:: vrf_name
-                    
-                    	VRF name associated with the context
-                    	**type**\: str
-                    
                     .. attribute:: topology_name
                     
                     	Topology name associated with the context
+                    	**type**\: str
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF name associated with the context
                     	**type**\: str
                     
                     
@@ -8812,15 +8812,15 @@ class Snmp(object):
                         self.context_mapping_name = None
                         self.context = None
                         self.instance_name = None
-                        self.vrf_name = None
                         self.topology_name = None
+                        self.vrf_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.context_mapping_name is None:
-                            raise YPYDataValidationError('Key property context_mapping_name is None')
+                            raise YPYModelError('Key property context_mapping_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:context-mapping[Cisco-IOS-XR-snmp-agent-cfg:context-mapping-name = ' + str(self.context_mapping_name) + ']'
 
@@ -8840,10 +8840,10 @@ class Snmp(object):
                         if self.instance_name is not None:
                             return True
 
-                        if self.vrf_name is not None:
+                        if self.topology_name is not None:
                             return True
 
-                        if self.topology_name is not None:
+                        if self.vrf_name is not None:
                             return True
 
                         return False
@@ -8856,7 +8856,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:context-mappings'
 
@@ -8882,7 +8882,7 @@ class Snmp(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:vrfs/Cisco-IOS-XR-snmp-agent-cfg:vrf[Cisco-IOS-XR-snmp-agent-cfg:name = ' + str(self.name) + ']'
 
@@ -8896,13 +8896,13 @@ class Snmp(object):
                 if self.name is not None:
                     return True
 
-                if self.trap_hosts is not None and self.trap_hosts._has_data():
+                if self.context_mappings is not None and self.context_mappings._has_data():
                     return True
 
                 if self.contexts is not None and self.contexts._has_data():
                     return True
 
-                if self.context_mappings is not None and self.context_mappings._has_data():
+                if self.trap_hosts is not None and self.trap_hosts._has_data():
                     return True
 
                 return False
@@ -8971,15 +8971,10 @@ class Snmp(object):
             
             	**range:** 0..128
             
-            .. attribute:: snmp_version
+            .. attribute:: context_name
             
-            	snmp version
-            	**type**\: :py:class:`GroupSnmpVersionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.GroupSnmpVersionEnum>`
-            
-            .. attribute:: security_model
-            
-            	security model like auth/noAuth/Priv applicable for v3
-            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+            	Context name
+            	**type**\: str
             
             .. attribute:: notify_view
             
@@ -8991,22 +8986,22 @@ class Snmp(object):
             	read view name
             	**type**\: str
             
-            .. attribute:: write_view
+            .. attribute:: security_model
             
-            	write view name
-            	**type**\: str
+            	security model like auth/noAuth/Priv applicable for v3
+            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
             
-            .. attribute:: v4acl_type
+            .. attribute:: snmp_version
             
-            	Access\-list type
-            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
+            	snmp version
+            	**type**\: :py:class:`GroupSnmpVersionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.GroupSnmpVersionEnum>`
             
             .. attribute:: v4_access_list
             
             	Ipv4 Access\-list name
             	**type**\: str
             
-            .. attribute:: v6acl_type
+            .. attribute:: v4acl_type
             
             	Access\-list type
             	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
@@ -9016,9 +9011,14 @@ class Snmp(object):
             	Ipv6 Access\-list name
             	**type**\: str
             
-            .. attribute:: context_name
+            .. attribute:: v6acl_type
             
-            	Context name
+            	Access\-list type
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
+            
+            .. attribute:: write_view
+            
+            	write view name
             	**type**\: str
             
             
@@ -9031,21 +9031,21 @@ class Snmp(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
-                self.snmp_version = None
-                self.security_model = None
+                self.context_name = None
                 self.notify_view = None
                 self.read_view = None
-                self.write_view = None
-                self.v4acl_type = None
+                self.security_model = None
+                self.snmp_version = None
                 self.v4_access_list = None
-                self.v6acl_type = None
+                self.v4acl_type = None
                 self.v6_access_list = None
-                self.context_name = None
+                self.v6acl_type = None
+                self.write_view = None
 
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:groups/Cisco-IOS-XR-snmp-agent-cfg:group[Cisco-IOS-XR-snmp-agent-cfg:name = ' + str(self.name) + ']'
 
@@ -9059,10 +9059,7 @@ class Snmp(object):
                 if self.name is not None:
                     return True
 
-                if self.snmp_version is not None:
-                    return True
-
-                if self.security_model is not None:
+                if self.context_name is not None:
                     return True
 
                 if self.notify_view is not None:
@@ -9071,22 +9068,25 @@ class Snmp(object):
                 if self.read_view is not None:
                     return True
 
-                if self.write_view is not None:
+                if self.security_model is not None:
                     return True
 
-                if self.v4acl_type is not None:
+                if self.snmp_version is not None:
                     return True
 
                 if self.v4_access_list is not None:
                     return True
 
-                if self.v6acl_type is not None:
+                if self.v4acl_type is not None:
                     return True
 
                 if self.v6_access_list is not None:
                     return True
 
-                if self.context_name is not None:
+                if self.v6acl_type is not None:
+                    return True
+
+                if self.write_view is not None:
                     return True
 
                 return False
@@ -9165,6 +9165,11 @@ class Snmp(object):
             
             
             ----
+            .. attribute:: default_user_communities
+            
+            	Container class for defining communities for a trap host
+            	**type**\: :py:class:`DefaultUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.DefaultUserCommunities>`
+            
             .. attribute:: encrypted_user_communities
             
             	Container class for defining Clear/encrypt communities for a trap host
@@ -9174,11 +9179,6 @@ class Snmp(object):
             
             	Container class for defining notification type for a Inform host
             	**type**\: :py:class:`InformHost <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost>`
-            
-            .. attribute:: default_user_communities
-            
-            	Container class for defining communities for a trap host
-            	**type**\: :py:class:`DefaultUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.DefaultUserCommunities>`
             
             
 
@@ -9190,12 +9190,12 @@ class Snmp(object):
             def __init__(self):
                 self.parent = None
                 self.ip_address = None
+                self.default_user_communities = Snmp.TrapHosts.TrapHost.DefaultUserCommunities()
+                self.default_user_communities.parent = self
                 self.encrypted_user_communities = Snmp.TrapHosts.TrapHost.EncryptedUserCommunities()
                 self.encrypted_user_communities.parent = self
                 self.inform_host = Snmp.TrapHosts.TrapHost.InformHost()
                 self.inform_host.parent = self
-                self.default_user_communities = Snmp.TrapHosts.TrapHost.DefaultUserCommunities()
-                self.default_user_communities.parent = self
 
 
             class EncryptedUserCommunities(object):
@@ -9234,30 +9234,6 @@ class Snmp(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: port
-                    
-                    	UDP port number
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: version
-                    
-                    	SNMP Version to be used v1/v2c/v3
-                    	**type**\: str
-                    
-                    .. attribute:: security_level
-                    
-                    	Security level to be used noauth/auth/priv
-                    	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                    
-                    .. attribute:: basic_trap_types
-                    
-                    	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
                     .. attribute:: advanced_trap_types1
                     
                     	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -9272,6 +9248,30 @@ class Snmp(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: basic_trap_types
+                    
+                    	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: port
+                    
+                    	UDP port number
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: security_level
+                    
+                    	Security level to be used noauth/auth/priv
+                    	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                    
+                    .. attribute:: version
+                    
+                    	SNMP Version to be used v1/v2c/v3
+                    	**type**\: str
+                    
                     
 
                     """
@@ -9282,19 +9282,19 @@ class Snmp(object):
                     def __init__(self):
                         self.parent = None
                         self.community_name = None
-                        self.port = None
-                        self.version = None
-                        self.security_level = None
-                        self.basic_trap_types = None
                         self.advanced_trap_types1 = None
                         self.advanced_trap_types2 = None
+                        self.basic_trap_types = None
+                        self.port = None
+                        self.security_level = None
+                        self.version = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.community_name is None:
-                            raise YPYDataValidationError('Key property community_name is None')
+                            raise YPYModelError('Key property community_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:encrypted-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -9308,22 +9308,22 @@ class Snmp(object):
                         if self.community_name is not None:
                             return True
 
-                        if self.port is not None:
+                        if self.advanced_trap_types1 is not None:
                             return True
 
-                        if self.version is not None:
-                            return True
-
-                        if self.security_level is not None:
+                        if self.advanced_trap_types2 is not None:
                             return True
 
                         if self.basic_trap_types is not None:
                             return True
 
-                        if self.advanced_trap_types1 is not None:
+                        if self.port is not None:
                             return True
 
-                        if self.advanced_trap_types2 is not None:
+                        if self.security_level is not None:
+                            return True
+
+                        if self.version is not None:
                             return True
 
                         return False
@@ -9336,7 +9336,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:encrypted-user-communities'
 
@@ -9365,15 +9365,15 @@ class Snmp(object):
                 Container class for defining notification type
                 for a Inform host
                 
-                .. attribute:: inform_user_communities
-                
-                	Container class for defining communities for a inform host
-                	**type**\: :py:class:`InformUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
-                
                 .. attribute:: inform_encrypted_user_communities
                 
                 	Container class for defining Clear/encrypt communities for a inform host
                 	**type**\: :py:class:`InformEncryptedUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities>`
+                
+                .. attribute:: inform_user_communities
+                
+                	Container class for defining communities for a inform host
+                	**type**\: :py:class:`InformUserCommunities <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
                 
                 
 
@@ -9384,10 +9384,10 @@ class Snmp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.inform_user_communities = Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities()
-                    self.inform_user_communities.parent = self
                     self.inform_encrypted_user_communities = Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities()
                     self.inform_encrypted_user_communities.parent = self
+                    self.inform_user_communities = Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities()
+                    self.inform_user_communities.parent = self
 
 
                 class InformUserCommunities(object):
@@ -9426,30 +9426,6 @@ class Snmp(object):
                         
                         	**range:** 0..128
                         
-                        .. attribute:: port
-                        
-                        	UDP port number
-                        	**type**\: int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: version
-                        
-                        	SNMP Version to be used v2c/v3
-                        	**type**\: str
-                        
-                        .. attribute:: security_level
-                        
-                        	Security level to be used noauth/auth/priv
-                        	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                        
-                        .. attribute:: basic_trap_types
-                        
-                        	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
                         .. attribute:: advanced_trap_types1
                         
                         	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -9464,6 +9440,30 @@ class Snmp(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: basic_trap_types
+                        
+                        	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: port
+                        
+                        	UDP port number
+                        	**type**\: int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: security_level
+                        
+                        	Security level to be used noauth/auth/priv
+                        	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                        
+                        .. attribute:: version
+                        
+                        	SNMP Version to be used v2c/v3
+                        	**type**\: str
+                        
                         
 
                         """
@@ -9474,19 +9474,19 @@ class Snmp(object):
                         def __init__(self):
                             self.parent = None
                             self.community_name = None
-                            self.port = None
-                            self.version = None
-                            self.security_level = None
-                            self.basic_trap_types = None
                             self.advanced_trap_types1 = None
                             self.advanced_trap_types2 = None
+                            self.basic_trap_types = None
+                            self.port = None
+                            self.security_level = None
+                            self.version = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.community_name is None:
-                                raise YPYDataValidationError('Key property community_name is None')
+                                raise YPYModelError('Key property community_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -9500,22 +9500,22 @@ class Snmp(object):
                             if self.community_name is not None:
                                 return True
 
-                            if self.port is not None:
+                            if self.advanced_trap_types1 is not None:
                                 return True
 
-                            if self.version is not None:
-                                return True
-
-                            if self.security_level is not None:
+                            if self.advanced_trap_types2 is not None:
                                 return True
 
                             if self.basic_trap_types is not None:
                                 return True
 
-                            if self.advanced_trap_types1 is not None:
+                            if self.port is not None:
                                 return True
 
-                            if self.advanced_trap_types2 is not None:
+                            if self.security_level is not None:
+                                return True
+
+                            if self.version is not None:
                                 return True
 
                             return False
@@ -9528,7 +9528,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-user-communities'
 
@@ -9588,30 +9588,6 @@ class Snmp(object):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
-                        .. attribute:: port
-                        
-                        	UDP port number
-                        	**type**\: int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: version
-                        
-                        	SNMP Version to be used v2c/v3
-                        	**type**\: str
-                        
-                        .. attribute:: security_level
-                        
-                        	Security level to be used noauth/auth/priv
-                        	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                        
-                        .. attribute:: basic_trap_types
-                        
-                        	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
                         .. attribute:: advanced_trap_types1
                         
                         	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -9626,6 +9602,30 @@ class Snmp(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: basic_trap_types
+                        
+                        	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: port
+                        
+                        	UDP port number
+                        	**type**\: int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: security_level
+                        
+                        	Security level to be used noauth/auth/priv
+                        	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                        
+                        .. attribute:: version
+                        
+                        	SNMP Version to be used v2c/v3
+                        	**type**\: str
+                        
                         
 
                         """
@@ -9636,19 +9636,19 @@ class Snmp(object):
                         def __init__(self):
                             self.parent = None
                             self.community_name = None
-                            self.port = None
-                            self.version = None
-                            self.security_level = None
-                            self.basic_trap_types = None
                             self.advanced_trap_types1 = None
                             self.advanced_trap_types2 = None
+                            self.basic_trap_types = None
+                            self.port = None
+                            self.security_level = None
+                            self.version = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.community_name is None:
-                                raise YPYDataValidationError('Key property community_name is None')
+                                raise YPYModelError('Key property community_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-encrypted-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -9662,22 +9662,22 @@ class Snmp(object):
                             if self.community_name is not None:
                                 return True
 
-                            if self.port is not None:
+                            if self.advanced_trap_types1 is not None:
                                 return True
 
-                            if self.version is not None:
-                                return True
-
-                            if self.security_level is not None:
+                            if self.advanced_trap_types2 is not None:
                                 return True
 
                             if self.basic_trap_types is not None:
                                 return True
 
-                            if self.advanced_trap_types1 is not None:
+                            if self.port is not None:
                                 return True
 
-                            if self.advanced_trap_types2 is not None:
+                            if self.security_level is not None:
+                                return True
+
+                            if self.version is not None:
                                 return True
 
                             return False
@@ -9690,7 +9690,7 @@ class Snmp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-encrypted-user-communities'
 
@@ -9716,7 +9716,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:inform-host'
 
@@ -9727,10 +9727,10 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.inform_user_communities is not None and self.inform_user_communities._has_data():
+                    if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities._has_data():
                         return True
 
-                    if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities._has_data():
+                    if self.inform_user_communities is not None and self.inform_user_communities._has_data():
                         return True
 
                     return False
@@ -9777,30 +9777,6 @@ class Snmp(object):
                     
                     	**range:** 0..128
                     
-                    .. attribute:: port
-                    
-                    	UDP port number
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: version
-                    
-                    	SNMP Version to be used v1/v2c/v3
-                    	**type**\: str
-                    
-                    .. attribute:: security_level
-                    
-                    	Security level to be used noauth/auth/priv
-                    	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
-                    
-                    .. attribute:: basic_trap_types
-                    
-                    	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
                     .. attribute:: advanced_trap_types1
                     
                     	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
@@ -9815,6 +9791,30 @@ class Snmp(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: basic_trap_types
+                    
+                    	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: port
+                    
+                    	UDP port number
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: security_level
+                    
+                    	Security level to be used noauth/auth/priv
+                    	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
+                    
+                    .. attribute:: version
+                    
+                    	SNMP Version to be used v1/v2c/v3
+                    	**type**\: str
+                    
                     
 
                     """
@@ -9825,19 +9825,19 @@ class Snmp(object):
                     def __init__(self):
                         self.parent = None
                         self.community_name = None
-                        self.port = None
-                        self.version = None
-                        self.security_level = None
-                        self.basic_trap_types = None
                         self.advanced_trap_types1 = None
                         self.advanced_trap_types2 = None
+                        self.basic_trap_types = None
+                        self.port = None
+                        self.security_level = None
+                        self.version = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.community_name is None:
-                            raise YPYDataValidationError('Key property community_name is None')
+                            raise YPYModelError('Key property community_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:default-user-community[Cisco-IOS-XR-snmp-agent-cfg:community-name = ' + str(self.community_name) + ']'
 
@@ -9851,22 +9851,22 @@ class Snmp(object):
                         if self.community_name is not None:
                             return True
 
-                        if self.port is not None:
+                        if self.advanced_trap_types1 is not None:
                             return True
 
-                        if self.version is not None:
-                            return True
-
-                        if self.security_level is not None:
+                        if self.advanced_trap_types2 is not None:
                             return True
 
                         if self.basic_trap_types is not None:
                             return True
 
-                        if self.advanced_trap_types1 is not None:
+                        if self.port is not None:
                             return True
 
-                        if self.advanced_trap_types2 is not None:
+                        if self.security_level is not None:
+                            return True
+
+                        if self.version is not None:
                             return True
 
                         return False
@@ -9879,7 +9879,7 @@ class Snmp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-snmp-agent-cfg:default-user-communities'
 
@@ -9905,7 +9905,7 @@ class Snmp(object):
             @property
             def _common_path(self):
                 if self.ip_address is None:
-                    raise YPYDataValidationError('Key property ip_address is None')
+                    raise YPYModelError('Key property ip_address is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:trap-hosts/Cisco-IOS-XR-snmp-agent-cfg:trap-host[Cisco-IOS-XR-snmp-agent-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -9919,13 +9919,13 @@ class Snmp(object):
                 if self.ip_address is not None:
                     return True
 
+                if self.default_user_communities is not None and self.default_user_communities._has_data():
+                    return True
+
                 if self.encrypted_user_communities is not None and self.encrypted_user_communities._has_data():
                     return True
 
                 if self.inform_host is not None and self.inform_host._has_data():
-                    return True
-
-                if self.default_user_communities is not None and self.default_user_communities._has_data():
                     return True
 
                 return False
@@ -10008,7 +10008,7 @@ class Snmp(object):
             @property
             def _common_path(self):
                 if self.context_name is None:
-                    raise YPYDataValidationError('Key property context_name is None')
+                    raise YPYModelError('Key property context_name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:contexts/Cisco-IOS-XR-snmp-agent-cfg:context[Cisco-IOS-XR-snmp-agent-cfg:context-name = ' + str(self.context_name) + ']'
 
@@ -10098,14 +10098,14 @@ class Snmp(object):
             	OSPF protocol instance
             	**type**\: str
             
-            .. attribute:: vrf_name
-            
-            	VRF name associated with the context
-            	**type**\: str
-            
             .. attribute:: topology_name
             
             	Topology name associated with the context
+            	**type**\: str
+            
+            .. attribute:: vrf_name
+            
+            	VRF name associated with the context
             	**type**\: str
             
             
@@ -10120,13 +10120,13 @@ class Snmp(object):
                 self.context_mapping_name = None
                 self.context = None
                 self.instance_name = None
-                self.vrf_name = None
                 self.topology_name = None
+                self.vrf_name = None
 
             @property
             def _common_path(self):
                 if self.context_mapping_name is None:
-                    raise YPYDataValidationError('Key property context_mapping_name is None')
+                    raise YPYModelError('Key property context_mapping_name is None')
 
                 return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:context-mappings/Cisco-IOS-XR-snmp-agent-cfg:context-mapping[Cisco-IOS-XR-snmp-agent-cfg:context-mapping-name = ' + str(self.context_mapping_name) + ']'
 
@@ -10146,10 +10146,10 @@ class Snmp(object):
                 if self.instance_name is not None:
                     return True
 
-                if self.vrf_name is not None:
+                if self.topology_name is not None:
                     return True
 
-                if self.topology_name is not None:
+                if self.vrf_name is not None:
                     return True
 
                 return False
@@ -10195,28 +10195,61 @@ class Snmp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.encrypted_community_maps is not None and self.encrypted_community_maps._has_data():
-            return True
-
-        if self.views is not None and self.views._has_data():
-            return True
-
-        if self.logging is not None and self.logging._has_data():
-            return True
-
         if self.administration is not None and self.administration._has_data():
             return True
 
         if self.agent is not None and self.agent._has_data():
             return True
 
-        if self.trap is not None and self.trap._has_data():
+        if self.bulk_stats is not None and self.bulk_stats._has_data():
+            return True
+
+        if self.context_mappings is not None and self.context_mappings._has_data():
+            return True
+
+        if self.contexts is not None and self.contexts._has_data():
+            return True
+
+        if self.correlator is not None and self.correlator._has_data():
+            return True
+
+        if self.default_community_maps is not None and self.default_community_maps._has_data():
+            return True
+
+        if self.encrypted_community_maps is not None and self.encrypted_community_maps._has_data():
+            return True
+
+        if self.groups is not None and self.groups._has_data():
+            return True
+
+        if self.inform_pending is not None:
+            return True
+
+        if self.inform_retries is not None:
+            return True
+
+        if self.inform_timeout is not None:
+            return True
+
+        if self.ipv4 is not None and self.ipv4._has_data():
             return True
 
         if self.ipv6 is not None and self.ipv6._has_data():
             return True
 
-        if self.ipv4 is not None and self.ipv4._has_data():
+        if self.logging is not None and self.logging._has_data():
+            return True
+
+        if self.notification is not None and self.notification._has_data():
+            return True
+
+        if self.oid_poll_stats is not None:
+            return True
+
+        if self.overload_control is not None and self.overload_control._has_data():
+            return True
+
+        if self.packet_size is not None:
             return True
 
         if self.system is not None and self.system._has_data():
@@ -10225,70 +10258,37 @@ class Snmp(object):
         if self.target is not None and self.target._has_data():
             return True
 
-        if self.notification is not None and self.notification._has_data():
-            return True
-
-        if self.correlator is not None and self.correlator._has_data():
-            return True
-
-        if self.bulk_stats is not None and self.bulk_stats._has_data():
-            return True
-
-        if self.default_community_maps is not None and self.default_community_maps._has_data():
-            return True
-
-        if self.overload_control is not None and self.overload_control._has_data():
+        if self.throttle_time is not None:
             return True
 
         if self.timeouts is not None and self.timeouts._has_data():
             return True
 
-        if self.users is not None and self.users._has_data():
-            return True
-
-        if self.vrfs is not None and self.vrfs._has_data():
-            return True
-
-        if self.groups is not None and self.groups._has_data():
-            return True
-
-        if self.inform_retries is not None:
-            return True
-
-        if self.trap_port is not None:
-            return True
-
-        if self.oid_poll_stats is not None:
-            return True
-
-        if self.trap_source is not None:
-            return True
-
-        if self.vrf_authentication_trap_disable is not None:
-            return True
-
-        if self.inform_timeout is not None:
-            return True
-
-        if self.trap_source_ipv6 is not None:
-            return True
-
-        if self.packet_size is not None:
-            return True
-
-        if self.throttle_time is not None:
-            return True
-
-        if self.inform_pending is not None:
+        if self.trap is not None and self.trap._has_data():
             return True
 
         if self.trap_hosts is not None and self.trap_hosts._has_data():
             return True
 
-        if self.contexts is not None and self.contexts._has_data():
+        if self.trap_port is not None:
             return True
 
-        if self.context_mappings is not None and self.context_mappings._has_data():
+        if self.trap_source is not None:
+            return True
+
+        if self.trap_source_ipv6 is not None:
+            return True
+
+        if self.users is not None and self.users._has_data():
+            return True
+
+        if self.views is not None and self.views._has_data():
+            return True
+
+        if self.vrf_authentication_trap_disable is not None:
+            return True
+
+        if self.vrfs is not None and self.vrfs._has_data():
             return True
 
         return False
@@ -10303,31 +10303,6 @@ class Mib(object):
     """
     mib
     
-    .. attribute:: mpls_te_mib
-    
-    	MPLS TE MIB configuration
-    	**type**\: :py:class:`MplsTeMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeMib>`
-    
-    .. attribute:: mpls_p2mp_mib
-    
-    	MPLS P2MP MIB configuration
-    	**type**\: :py:class:`MplsP2MpMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsP2MpMib>`
-    
-    .. attribute:: mpls_te_ext_std_mib
-    
-    	MPLS TE EXT STD MIB configuration
-    	**type**\: :py:class:`MplsTeExtStdMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtStdMib>`
-    
-    .. attribute:: mpls_te_ext_mib
-    
-    	MPLS TE EXT MIB configuration
-    	**type**\: :py:class:`MplsTeExtMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtMib>`
-    
-    .. attribute:: mpls_frr_mib
-    
-    	FRR MIB configuration
-    	**type**\: :py:class:`MplsFrrMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsFrrMib>`
-    
     .. attribute:: entity_mib
     
     	Entity MIB
@@ -10338,6 +10313,31 @@ class Mib(object):
     	Interface MIB configuration
     	**type**\: :py:class:`InterfaceMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib>`
     
+    .. attribute:: mpls_frr_mib
+    
+    	FRR MIB configuration
+    	**type**\: :py:class:`MplsFrrMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsFrrMib>`
+    
+    .. attribute:: mpls_p2mp_mib
+    
+    	MPLS P2MP MIB configuration
+    	**type**\: :py:class:`MplsP2MpMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsP2MpMib>`
+    
+    .. attribute:: mpls_te_ext_mib
+    
+    	MPLS TE EXT MIB configuration
+    	**type**\: :py:class:`MplsTeExtMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtMib>`
+    
+    .. attribute:: mpls_te_ext_std_mib
+    
+    	MPLS TE EXT STD MIB configuration
+    	**type**\: :py:class:`MplsTeExtStdMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtStdMib>`
+    
+    .. attribute:: mpls_te_mib
+    
+    	MPLS TE MIB configuration
+    	**type**\: :py:class:`MplsTeMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeMib>`
+    
     
 
     """
@@ -10346,20 +10346,20 @@ class Mib(object):
     _revision = '2015-10-27'
 
     def __init__(self):
-        self.mpls_te_mib = Mib.MplsTeMib()
-        self.mpls_te_mib.parent = self
-        self.mpls_p2mp_mib = Mib.MplsP2MpMib()
-        self.mpls_p2mp_mib.parent = self
-        self.mpls_te_ext_std_mib = Mib.MplsTeExtStdMib()
-        self.mpls_te_ext_std_mib.parent = self
-        self.mpls_te_ext_mib = Mib.MplsTeExtMib()
-        self.mpls_te_ext_mib.parent = self
-        self.mpls_frr_mib = Mib.MplsFrrMib()
-        self.mpls_frr_mib.parent = self
         self.entity_mib = Mib.EntityMib()
         self.entity_mib.parent = self
         self.interface_mib = Mib.InterfaceMib()
         self.interface_mib.parent = self
+        self.mpls_frr_mib = Mib.MplsFrrMib()
+        self.mpls_frr_mib.parent = self
+        self.mpls_p2mp_mib = Mib.MplsP2MpMib()
+        self.mpls_p2mp_mib.parent = self
+        self.mpls_te_ext_mib = Mib.MplsTeExtMib()
+        self.mpls_te_ext_mib.parent = self
+        self.mpls_te_ext_std_mib = Mib.MplsTeExtStdMib()
+        self.mpls_te_ext_std_mib.parent = self
+        self.mpls_te_mib = Mib.MplsTeMib()
+        self.mpls_te_mib.parent = self
 
 
     class MplsTeMib(object):
@@ -10645,15 +10645,15 @@ class Mib(object):
         """
         Interface MIB configuration
         
-        .. attribute:: notification
+        .. attribute:: interface_alias_long
         
-        	MIB notification configuration
-        	**type**\: :py:class:`Notification <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Notification>`
+        	Enable support for ifAlias values longer than 64 characters
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
-        .. attribute:: subsets
+        .. attribute:: interface_index_persistence
         
-        	Add configuration for an interface subset
-        	**type**\: :py:class:`Subsets <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets>`
+        	Enable ifindex persistence
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: internal_cache
         
@@ -10662,25 +10662,25 @@ class Mib(object):
         
         	**range:** 0..60
         
-        .. attribute:: interface_alias_long
-        
-        	Enable support for ifAlias values longer than 64 characters
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
         .. attribute:: ip_subscriber
         
         	Enable IP subscriber interfaces in IFMIB
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
-        .. attribute:: interface_index_persistence
+        .. attribute:: notification
         
-        	Enable ifindex persistence
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	MIB notification configuration
+        	**type**\: :py:class:`Notification <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Notification>`
         
         .. attribute:: statistics_cache
         
         	Enable cached interface statistics
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: subsets
+        
+        	Add configuration for an interface subset
+        	**type**\: :py:class:`Subsets <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets>`
         
         
 
@@ -10691,15 +10691,15 @@ class Mib(object):
 
         def __init__(self):
             self.parent = None
+            self.interface_alias_long = None
+            self.interface_index_persistence = None
+            self.internal_cache = None
+            self.ip_subscriber = None
             self.notification = Mib.InterfaceMib.Notification()
             self.notification.parent = self
+            self.statistics_cache = None
             self.subsets = Mib.InterfaceMib.Subsets()
             self.subsets.parent = self
-            self.internal_cache = None
-            self.interface_alias_long = None
-            self.ip_subscriber = None
-            self.interface_index_persistence = None
-            self.statistics_cache = None
 
 
         class Notification(object):
@@ -10828,7 +10828,7 @@ class Mib(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-snmp-ifmib-cfg:link-up-down'
 
@@ -10855,7 +10855,7 @@ class Mib(object):
                 @property
                 def _common_path(self):
                     if self.subset_id is None:
-                        raise YPYDataValidationError('Key property subset_id is None')
+                        raise YPYModelError('Key property subset_id is None')
 
                     return '/Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/Cisco-IOS-XR-snmp-ifmib-cfg:subsets/Cisco-IOS-XR-snmp-ifmib-cfg:subset[Cisco-IOS-XR-snmp-ifmib-cfg:subset-id = ' + str(self.subset_id) + ']'
 
@@ -10915,25 +10915,25 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.notification is not None and self.notification._has_data():
-                return True
-
-            if self.subsets is not None and self.subsets._has_data():
-                return True
-
-            if self.internal_cache is not None:
-                return True
-
             if self.interface_alias_long is not None:
-                return True
-
-            if self.ip_subscriber is not None:
                 return True
 
             if self.interface_index_persistence is not None:
                 return True
 
+            if self.internal_cache is not None:
+                return True
+
+            if self.ip_subscriber is not None:
+                return True
+
+            if self.notification is not None and self.notification._has_data():
+                return True
+
             if self.statistics_cache is not None:
+                return True
+
+            if self.subsets is not None and self.subsets._has_data():
                 return True
 
             return False
@@ -10955,25 +10955,25 @@ class Mib(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.mpls_te_mib is not None and self.mpls_te_mib._has_data():
+        if self.entity_mib is not None and self.entity_mib._has_data():
             return True
 
-        if self.mpls_p2mp_mib is not None and self.mpls_p2mp_mib._has_data():
-            return True
-
-        if self.mpls_te_ext_std_mib is not None and self.mpls_te_ext_std_mib._has_data():
-            return True
-
-        if self.mpls_te_ext_mib is not None and self.mpls_te_ext_mib._has_data():
+        if self.interface_mib is not None and self.interface_mib._has_data():
             return True
 
         if self.mpls_frr_mib is not None and self.mpls_frr_mib._has_data():
             return True
 
-        if self.entity_mib is not None and self.entity_mib._has_data():
+        if self.mpls_p2mp_mib is not None and self.mpls_p2mp_mib._has_data():
             return True
 
-        if self.interface_mib is not None and self.interface_mib._has_data():
+        if self.mpls_te_ext_mib is not None and self.mpls_te_ext_mib._has_data():
+            return True
+
+        if self.mpls_te_ext_std_mib is not None and self.mpls_te_ext_std_mib._has_data():
+            return True
+
+        if self.mpls_te_mib is not None and self.mpls_te_mib._has_data():
             return True
 
         return False

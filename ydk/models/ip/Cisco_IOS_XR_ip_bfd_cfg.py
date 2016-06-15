@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -147,10 +147,10 @@ class Bfd(object):
     """
     BFD Configuration
     
-    .. attribute:: flap_damp
+    .. attribute:: bundle
     
-    	Flapping class container
-    	**type**\: :py:class:`FlapDamp <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp>`
+    	Configuration related to BFD over Bundle
+    	**type**\: :py:class:`Bundle <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Bundle>`
     
     .. attribute:: echo_latency
     
@@ -162,30 +162,10 @@ class Bfd(object):
     	BFD echo startup feature class container
     	**type**\: :py:class:`EchoStartup <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoStartup>`
     
-    .. attribute:: interfaces
+    .. attribute:: flap_damp
     
-    	Interface configuration
-    	**type**\: :py:class:`Interfaces <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Interfaces>`
-    
-    .. attribute:: multi_path_includes
-    
-    	Multipath Include configuration
-    	**type**\: :py:class:`MultiPathIncludes <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.MultiPathIncludes>`
-    
-    .. attribute:: bundle
-    
-    	Configuration related to BFD over Bundle
-    	**type**\: :py:class:`Bundle <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Bundle>`
-    
-    .. attribute:: global_echo_usage
-    
-    	Echo configuration
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: ipv6_checksum_disable
-    
-    	To disable IPv6 checksum configuration
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	Flapping class container
+    	**type**\: :py:class:`FlapDamp <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp>`
     
     .. attribute:: global_echo_min_interval
     
@@ -194,16 +174,9 @@ class Bfd(object):
     
     	**range:** 15..2000
     
-    .. attribute:: ttl_drop_threshold
+    .. attribute:: global_echo_usage
     
-    	Multihop TTL Drop Threshold
-    	**type**\: int
-    
-    	**range:** 0..254
-    
-    .. attribute:: single_hop_trap
-    
-    	Single hop trap configuration
+    	Echo configuration
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: global_ipv4_echo_source
@@ -223,6 +196,33 @@ class Bfd(object):
     
     
     ----
+    .. attribute:: interfaces
+    
+    	Interface configuration
+    	**type**\: :py:class:`Interfaces <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Interfaces>`
+    
+    .. attribute:: ipv6_checksum_disable
+    
+    	To disable IPv6 checksum configuration
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: multi_path_includes
+    
+    	Multipath Include configuration
+    	**type**\: :py:class:`MultiPathIncludes <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.MultiPathIncludes>`
+    
+    .. attribute:: single_hop_trap
+    
+    	Single hop trap configuration
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: ttl_drop_threshold
+    
+    	Multihop TTL Drop Threshold
+    	**type**\: int
+    
+    	**range:** 0..254
+    
     
 
     """
@@ -231,24 +231,24 @@ class Bfd(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.flap_damp = Bfd.FlapDamp()
-        self.flap_damp.parent = self
+        self.bundle = Bfd.Bundle()
+        self.bundle.parent = self
         self.echo_latency = Bfd.EchoLatency()
         self.echo_latency.parent = self
         self.echo_startup = Bfd.EchoStartup()
         self.echo_startup.parent = self
+        self.flap_damp = Bfd.FlapDamp()
+        self.flap_damp.parent = self
+        self.global_echo_min_interval = None
+        self.global_echo_usage = None
+        self.global_ipv4_echo_source = None
         self.interfaces = Bfd.Interfaces()
         self.interfaces.parent = self
+        self.ipv6_checksum_disable = None
         self.multi_path_includes = Bfd.MultiPathIncludes()
         self.multi_path_includes.parent = self
-        self.bundle = Bfd.Bundle()
-        self.bundle.parent = self
-        self.global_echo_usage = None
-        self.ipv6_checksum_disable = None
-        self.global_echo_min_interval = None
-        self.ttl_drop_threshold = None
         self.single_hop_trap = None
-        self.global_ipv4_echo_source = None
+        self.ttl_drop_threshold = None
 
 
     class FlapDamp(object):
@@ -264,13 +264,6 @@ class Bfd(object):
         
         	Extensions to the BFD dampening feature
         	**type**\: :py:class:`Extensions <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp.Extensions>`
-        
-        .. attribute:: threshold
-        
-        	Stability threshold to enable dampening
-        	**type**\: int
-        
-        	**range:** 60000..3600000
         
         .. attribute:: initial_delay
         
@@ -293,6 +286,13 @@ class Bfd(object):
         
         	**range:** 1..3600000
         
+        .. attribute:: threshold
+        
+        	Stability threshold to enable dampening
+        	**type**\: int
+        
+        	**range:** 60000..3600000
+        
         
 
         """
@@ -306,10 +306,10 @@ class Bfd(object):
             self.bundle_member.parent = self
             self.extensions = Bfd.FlapDamp.Extensions()
             self.extensions.parent = self
-            self.threshold = None
             self.initial_delay = None
             self.maximum_delay = None
             self.secondary_delay = None
+            self.threshold = None
 
 
         class BundleMember(object):
@@ -322,6 +322,11 @@ class Bfd(object):
             	**type**\: int
             
             	**range:** 1..518400000
+            
+            .. attribute:: l3_only_mode
+            
+            	Apply immediate dampening and only when failure is L3 specific
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: maximum_delay
             
@@ -337,11 +342,6 @@ class Bfd(object):
             
             	**range:** 1..518400000
             
-            .. attribute:: l3_only_mode
-            
-            	Apply immediate dampening and only when failure is L3 specific
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             
 
             """
@@ -352,9 +352,9 @@ class Bfd(object):
             def __init__(self):
                 self.parent = None
                 self.initial_delay = None
+                self.l3_only_mode = None
                 self.maximum_delay = None
                 self.secondary_delay = None
-                self.l3_only_mode = None
 
             @property
             def _common_path(self):
@@ -371,13 +371,13 @@ class Bfd(object):
                 if self.initial_delay is not None:
                     return True
 
+                if self.l3_only_mode is not None:
+                    return True
+
                 if self.maximum_delay is not None:
                     return True
 
                 if self.secondary_delay is not None:
-                    return True
-
-                if self.l3_only_mode is not None:
                     return True
 
                 return False
@@ -448,9 +448,6 @@ class Bfd(object):
             if self.extensions is not None and self.extensions._has_data():
                 return True
 
-            if self.threshold is not None:
-                return True
-
             if self.initial_delay is not None:
                 return True
 
@@ -458,6 +455,9 @@ class Bfd(object):
                 return True
 
             if self.secondary_delay is not None:
+                return True
+
+            if self.threshold is not None:
                 return True
 
             return False
@@ -494,6 +494,13 @@ class Bfd(object):
             """
             BFD echo latency detection
             
+            .. attribute:: latency_detect_count
+            
+            	Echo latency detect count
+            	**type**\: int
+            
+            	**range:** 1..10
+            
             .. attribute:: latency_detect_enabled
             
             	If set, echo latency detect is enabled
@@ -506,13 +513,6 @@ class Bfd(object):
             
             	**range:** 100..250
             
-            .. attribute:: latency_detect_count
-            
-            	Echo latency detect count
-            	**type**\: int
-            
-            	**range:** 1..10
-            
             
 
             """
@@ -522,9 +522,9 @@ class Bfd(object):
 
             def __init__(self):
                 self.parent = None
+                self.latency_detect_count = None
                 self.latency_detect_enabled = None
                 self.latency_detect_percentage = None
-                self.latency_detect_count = None
 
             @property
             def _common_path(self):
@@ -538,13 +538,13 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.latency_detect_count is not None:
+                    return True
+
                 if self.latency_detect_enabled is not None:
                     return True
 
                 if self.latency_detect_percentage is not None:
-                    return True
-
-                if self.latency_detect_count is not None:
                     return True
 
                 return False
@@ -659,11 +659,6 @@ class Bfd(object):
             	Echo usage for this interface
             	**type**\: :py:class:`BfdIfEchoUsageEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfEchoUsageEnum>`
             
-            .. attribute:: ipv6_checksum
-            
-            	IPv6 checksum usage for this interface \- Interface config will always take precedence over global config
-            	**type**\: :py:class:`BfdIfIpv6ChecksumUsageEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfIpv6ChecksumUsageEnum>`
-            
             .. attribute:: interface_ipv4_echo_source
             
             	Interface IPv4 echo source address configuration
@@ -681,6 +676,11 @@ class Bfd(object):
             
             
             ----
+            .. attribute:: ipv6_checksum
+            
+            	IPv6 checksum usage for this interface \- Interface config will always take precedence over global config
+            	**type**\: :py:class:`BfdIfIpv6ChecksumUsageEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfIpv6ChecksumUsageEnum>`
+            
             
 
             """
@@ -692,13 +692,13 @@ class Bfd(object):
                 self.parent = None
                 self.interface_name = None
                 self.interface_echo_usage = None
-                self.ipv6_checksum = None
                 self.interface_ipv4_echo_source = None
+                self.ipv6_checksum = None
 
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-ip-bfd-cfg:bfd/Cisco-IOS-XR-ip-bfd-cfg:interfaces/Cisco-IOS-XR-ip-bfd-cfg:interface[Cisco-IOS-XR-ip-bfd-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -715,10 +715,10 @@ class Bfd(object):
                 if self.interface_echo_usage is not None:
                     return True
 
-                if self.ipv6_checksum is not None:
+                if self.interface_ipv4_echo_source is not None:
                     return True
 
-                if self.interface_ipv4_echo_source is not None:
+                if self.ipv6_checksum is not None:
                     return True
 
                 return False
@@ -801,7 +801,7 @@ class Bfd(object):
             @property
             def _common_path(self):
                 if self.location is None:
-                    raise YPYDataValidationError('Key property location is None')
+                    raise YPYModelError('Key property location is None')
 
                 return '/Cisco-IOS-XR-ip-bfd-cfg:bfd/Cisco-IOS-XR-ip-bfd-cfg:multi-path-includes/Cisco-IOS-XR-ip-bfd-cfg:multi-path-include[Cisco-IOS-XR-ip-bfd-cfg:location = ' + str(self.location) + ']'
 
@@ -945,7 +945,7 @@ class Bfd(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.flap_damp is not None and self.flap_damp._has_data():
+        if self.bundle is not None and self.bundle._has_data():
             return True
 
         if self.echo_latency is not None and self.echo_latency._has_data():
@@ -954,31 +954,31 @@ class Bfd(object):
         if self.echo_startup is not None and self.echo_startup._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.multi_path_includes is not None and self.multi_path_includes._has_data():
-            return True
-
-        if self.bundle is not None and self.bundle._has_data():
-            return True
-
-        if self.global_echo_usage is not None:
-            return True
-
-        if self.ipv6_checksum_disable is not None:
+        if self.flap_damp is not None and self.flap_damp._has_data():
             return True
 
         if self.global_echo_min_interval is not None:
             return True
 
-        if self.ttl_drop_threshold is not None:
+        if self.global_echo_usage is not None:
+            return True
+
+        if self.global_ipv4_echo_source is not None:
+            return True
+
+        if self.interfaces is not None and self.interfaces._has_data():
+            return True
+
+        if self.ipv6_checksum_disable is not None:
+            return True
+
+        if self.multi_path_includes is not None and self.multi_path_includes._has_data():
             return True
 
         if self.single_hop_trap is not None:
             return True
 
-        if self.global_ipv4_echo_source is not None:
+        if self.ttl_drop_threshold is not None:
             return True
 
         return False

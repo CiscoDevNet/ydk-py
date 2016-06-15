@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -430,51 +430,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -489,6 +455,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -500,17 +500,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Data.ActorBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -519,12 +520,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -533,56 +558,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -590,6 +571,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -604,117 +658,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -723,18 +672,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -750,11 +730,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -813,23 +813,23 @@ _meta_table = {
                 ''',
                 'actor_bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.BundleSystemId', 
-                [], [], 
-                '''                System ID for the bundle
-                ''',
-                'bundle_system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Operational key of the interface
                 ''',
                 'actor_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the partner system
+            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Data.BundleSystemId', 
+                [], [], 
+                '''                System ID for the bundle
                 ''',
-                'partner_system_priority',
+                'bundle_system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Operational key of the partner
+                ''',
+                'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -837,11 +837,11 @@ _meta_table = {
                 ''',
                 'partner_system_mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                Operational key of the partner
+                '''                Priority of the partner system
                 ''',
-                'partner_operational_key',
+                'partner_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -877,19 +877,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData', 
-                [], [], 
-                '''                Data regarding the reason for last Mux state
-                change
-                ''',
-                'member_mux_state_reason_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                Current state of this bundle member
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Internal value indicating if an error occurred
@@ -903,11 +890,24 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData', 
+                [], [], 
+                '''                Data regarding the reason for last Mux state
+                change
+                ''',
+                'member_mux_state_reason_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                Current state of this bundle member
+                ''',
+                'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
@@ -949,53 +949,11 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData', 
-                [], [], 
-                '''                Mux state machine data
-                ''',
-                'member_mux_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Members.Member.MacAddress', 
-                [], [], 
-                '''                MAC address of this member (deprecated)
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The priority of this member
-                ''',
-                'port_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link number
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface name
-                ''',
-                'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1003,17 +961,59 @@ _meta_table = {
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
-                [], [], 
-                '''                Member's type (local/foreign)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface name
                 ''',
-                'member_type',
+                'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Members.Member.MacAddress', 
+                [], [], 
+                '''                MAC address of this member (deprecated)
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData', 
+                [], [], 
+                '''                Mux state machine data
+                ''',
+                'member_mux_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Member's (short form) name
                 ''',
                 'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
+                [], [], 
+                '''                Member's type (local/foreign)
+                ''',
+                'member_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link number
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The priority of this member
+                ''',
+                'port_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -1123,36 +1123,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BfdCounter',
             False, 
             [
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the member this information is for
+            _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to down
                 ''',
-                'member_name',
+                'down',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Timestamp when counters were last cleared
                 (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('starting', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to starting
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the member this information is for
                 ''',
-                'starting',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to up
-                ''',
-                'up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to down
-                ''',
-                'down',
+                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('neighbor-unconfigured', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1161,12 +1149,6 @@ _meta_table = {
                 ''',
                 'neighbor_unconfigured',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of timeouts waiting for BFD to start
-                ''',
-                'start_timeouts',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('neighbor-unconfigured-timeouts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of timeouts waiting for neighbor to
@@ -1174,12 +1156,30 @@ _meta_table = {
                 ''',
                 'neighbor_unconfigured_timeouts',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('start-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of timeouts waiting for BFD to start
+                ''',
+                'start_timeouts',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('starting', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to starting
+                ''',
+                'starting',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to up
+                ''',
+                'up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -1192,17 +1192,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant',
             False, 
             [
-            _MetaInfoClassMember('bundle-name', REFERENCE_CLASS, 'BundleName' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BundleName', 
-                [], [], 
-                '''                Name of the bundle this information is for
-                ''',
-                'bundle_name',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bfd-counter', REFERENCE_LIST, 'BfdCounter' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BfdCounter', 
                 [], [], 
                 '''                BFD event counters
                 ''',
                 'bfd_counter',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-name', REFERENCE_CLASS, 'BundleName' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BundleName', 
+                [], [], 
+                '''                Name of the bundle this information is for
+                ''',
+                'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -1221,36 +1221,24 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the member this information is for
+            _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to down
                 ''',
-                'member_name',
+                'down',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Timestamp when counters were last cleared
                 (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('starting', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to starting
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the member this information is for
                 ''',
-                'starting',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to up
-                ''',
-                'up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to down
-                ''',
-                'down',
+                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('neighbor-unconfigured', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1259,12 +1247,6 @@ _meta_table = {
                 ''',
                 'neighbor_unconfigured',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of timeouts waiting for BFD to start
-                ''',
-                'start_timeouts',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('neighbor-unconfigured-timeouts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of timeouts waiting for neighbor to
@@ -1272,12 +1254,30 @@ _meta_table = {
                 ''',
                 'neighbor_unconfigured_timeouts',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('start-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of timeouts waiting for BFD to start
+                ''',
+                'start_timeouts',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('starting', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to starting
+                ''',
+                'starting',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to up
+                ''',
+                'up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -1331,18 +1331,18 @@ _meta_table = {
                 ''',
                 'bundle_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('bfd-counters-bundle-descendant', REFERENCE_CLASS, 'BfdCountersBundleDescendant' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant', 
-                [], [], 
-                '''                Data for this item and all its members
-                ''',
-                'bfd_counters_bundle_descendant',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bfd-counters-bundle-children-members', REFERENCE_CLASS, 'BfdCountersBundleChildrenMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers', 
                 [], [], 
                 '''                Children of bundle with BFD counters
                 information
                 ''',
                 'bfd_counters_bundle_children_members',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bfd-counters-bundle-descendant', REFERENCE_CLASS, 'BfdCountersBundleDescendant' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant', 
+                [], [], 
+                '''                Data for this item and all its members
+                ''',
+                'bfd_counters_bundle_descendant',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bfd-counters-bundle-item', REFERENCE_CLASS, 'BfdCountersBundleItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleItem', 
                 [], [], 
@@ -1378,36 +1378,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember.BfdCountersMemberItem',
             False, 
             [
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the member this information is for
+            _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to down
                 ''',
-                'member_name',
+                'down',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Timestamp when counters were last cleared
                 (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('starting', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to starting
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the member this information is for
                 ''',
-                'starting',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to up
-                ''',
-                'up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of times member state changed to down
-                ''',
-                'down',
+                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('neighbor-unconfigured', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1416,12 +1404,6 @@ _meta_table = {
                 ''',
                 'neighbor_unconfigured',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of timeouts waiting for BFD to start
-                ''',
-                'start_timeouts',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('neighbor-unconfigured-timeouts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of timeouts waiting for neighbor to
@@ -1429,12 +1411,30 @@ _meta_table = {
                 ''',
                 'neighbor_unconfigured_timeouts',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('start-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of timeouts waiting for BFD to start
+                ''',
+                'start_timeouts',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('starting', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to starting
+                ''',
+                'starting',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of times member state changed to up
+                ''',
+                'up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -1510,23 +1510,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem.ScheduledAction',
             False, 
             [
+            _MetaInfoClassMember('action-state', REFERENCE_ENUM_CLASS, 'BmdSwitchReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdSwitchReasonEnum', 
+                [], [], 
+                '''                Details whether the switch action is viable
+                ''',
+                'action_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-action', REFERENCE_ENUM_CLASS, 'BmdBagMlacpSchActionItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagMlacpSchActionItemEnum', 
                 [], [], 
                 '''                Type of mLACP scheduled action for a bundle
                 ''',
                 'mlacp_action',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Seconds left before action
                 ''',
                 'time_remaining',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('action-state', REFERENCE_ENUM_CLASS, 'BmdSwitchReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdSwitchReasonEnum', 
-                [], [], 
-                '''                Details whether the switch action is viable
-                ''',
-                'action_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -1665,51 +1665,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1724,6 +1690,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -1735,17 +1735,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1754,12 +1755,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1768,56 +1793,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1825,6 +1806,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -1839,117 +1893,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1958,18 +1907,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1985,11 +1965,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -2025,19 +2025,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData.MemberMuxStateReasonData', 
-                [], [], 
-                '''                Data regarding the reason for last Mux state
-                change
-                ''',
-                'member_mux_state_reason_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                Current state of this bundle member
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Internal value indicating if an error occurred
@@ -2051,11 +2038,24 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData.MemberMuxStateReasonData', 
+                [], [], 
+                '''                Data regarding the reason for last Mux state
+                change
+                ''',
+                'member_mux_state_reason_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                Current state of this bundle member
+                ''',
+                'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
@@ -2091,53 +2091,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData', 
-                [], [], 
-                '''                Mux state machine data
-                ''',
-                'member_mux_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member (deprecated)
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The priority of this member
-                ''',
-                'port_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link number
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface name
-                ''',
-                'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2145,17 +2103,59 @@ _meta_table = {
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
-                [], [], 
-                '''                Member's type (local/foreign)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface name
                 ''',
-                'member_type',
+                'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member (deprecated)
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData', 
+                [], [], 
+                '''                Mux state machine data
+                ''',
+                'member_mux_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Member's (short form) name
                 ''',
                 'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
+                [], [], 
+                '''                Member's type (local/foreign)
+                ''',
+                'member_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link number
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The priority of this member
+                ''',
+                'port_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -2214,19 +2214,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData.MemberMuxStateReasonData', 
-                [], [], 
-                '''                Data regarding the reason for last Mux state
-                change
-                ''',
-                'member_mux_state_reason_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                Current state of this bundle member
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Internal value indicating if an error occurred
@@ -2240,11 +2227,24 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData.MemberMuxStateReasonData', 
+                [], [], 
+                '''                Data regarding the reason for last Mux state
+                change
+                ''',
+                'member_mux_state_reason_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                Current state of this bundle member
+                ''',
+                'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
@@ -2286,53 +2286,11 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData', 
-                [], [], 
-                '''                Mux state machine data
-                ''',
-                'member_mux_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MacAddress', 
-                [], [], 
-                '''                MAC address of this member (deprecated)
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The priority of this member
-                ''',
-                'port_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link number
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface name
-                ''',
-                'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2340,17 +2298,59 @@ _meta_table = {
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
-                [], [], 
-                '''                Member's type (local/foreign)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface name
                 ''',
-                'member_type',
+                'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MacAddress', 
+                [], [], 
+                '''                MAC address of this member (deprecated)
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData', 
+                [], [], 
+                '''                Mux state machine data
+                ''',
+                'member_mux_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Member's (short form) name
                 ''',
                 'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
+                [], [], 
+                '''                Member's type (local/foreign)
+                ''',
+                'member_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link number
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The priority of this member
+                ''',
+                'port_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -2427,51 +2427,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2486,6 +2452,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -2497,17 +2497,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2516,12 +2517,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2530,56 +2555,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -2587,6 +2568,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -2601,117 +2655,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2720,18 +2669,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -2747,11 +2727,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -2770,18 +2770,18 @@ _meta_table = {
                 ''',
                 'bundle_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('bundle-bundle-descendant', REFERENCE_CLASS, 'BundleBundleDescendant' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant', 
-                [], [], 
-                '''                Data for this item and all its members
-                ''',
-                'bundle_bundle_descendant',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-bundle-children-members', REFERENCE_CLASS, 'BundleBundleChildrenMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers', 
                 [], [], 
                 '''                Children of bundle with common bundle
                 information
                 ''',
                 'bundle_bundle_children_members',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-bundle-descendant', REFERENCE_CLASS, 'BundleBundleDescendant' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant', 
+                [], [], 
+                '''                Data for this item and all its members
+                ''',
+                'bundle_bundle_descendant',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-bundle-item', REFERENCE_CLASS, 'BundleBundleItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem', 
                 [], [], 
@@ -2863,51 +2863,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2922,6 +2888,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -2933,17 +2933,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2952,12 +2953,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2966,56 +2991,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -3023,6 +3004,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -3037,117 +3091,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3156,18 +3105,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -3183,11 +3163,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -3223,19 +3223,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData.MemberMuxStateReasonData', 
-                [], [], 
-                '''                Data regarding the reason for last Mux state
-                change
-                ''',
-                'member_mux_state_reason_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                Current state of this bundle member
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Internal value indicating if an error occurred
@@ -3249,11 +3236,24 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData.MemberMuxStateReasonData', 
+                [], [], 
+                '''                Data regarding the reason for last Mux state
+                change
+                ''',
+                'member_mux_state_reason_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                Current state of this bundle member
+                ''',
+                'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
@@ -3289,53 +3289,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData', 
-                [], [], 
-                '''                Mux state machine data
-                ''',
-                'member_mux_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member (deprecated)
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The priority of this member
-                ''',
-                'port_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link number
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface name
-                ''',
-                'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3343,17 +3301,59 @@ _meta_table = {
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
-                [], [], 
-                '''                Member's type (local/foreign)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface name
                 ''',
-                'member_type',
+                'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member (deprecated)
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData', 
+                [], [], 
+                '''                Mux state machine data
+                ''',
+                'member_mux_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Member's (short form) name
                 ''',
                 'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
+                [], [], 
+                '''                Member's type (local/foreign)
+                ''',
+                'member_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link number
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The priority of this member
+                ''',
+                'port_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -3412,19 +3412,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData.MemberMuxStateReasonData', 
-                [], [], 
-                '''                Data regarding the reason for last Mux state
-                change
-                ''',
-                'member_mux_state_reason_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                Current state of this bundle member
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Internal value indicating if an error occurred
@@ -3438,11 +3425,24 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData.MemberMuxStateReasonData', 
+                [], [], 
+                '''                Data regarding the reason for last Mux state
+                change
+                ''',
+                'member_mux_state_reason_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                Current state of this bundle member
+                ''',
+                'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
@@ -3478,53 +3478,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem',
             False, 
             [
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData', 
-                [], [], 
-                '''                Mux state machine data
-                ''',
-                'member_mux_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MacAddress', 
-                [], [], 
-                '''                MAC address of this member (deprecated)
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The priority of this member
-                ''',
-                'port_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link number
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface name
-                ''',
-                'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3532,17 +3490,59 @@ _meta_table = {
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
-                [], [], 
-                '''                Member's type (local/foreign)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface name
                 ''',
-                'member_type',
+                'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MacAddress', 
+                [], [], 
+                '''                MAC address of this member (deprecated)
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData', 
+                [], [], 
+                '''                Mux state machine data
+                ''',
+                'member_mux_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Member's (short form) name
                 ''',
                 'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
+                [], [], 
+                '''                Member's type (local/foreign)
+                ''',
+                'member_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link number
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The priority of this member
+                ''',
+                'port_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -3632,17 +3632,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3673,7 +3673,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -3696,17 +3696,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3725,19 +3725,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -3760,17 +3760,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3801,7 +3801,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -3818,29 +3818,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -3922,17 +3922,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3963,7 +3963,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -3986,17 +3986,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4015,19 +4015,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -4050,17 +4050,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4091,7 +4091,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -4108,29 +4108,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -4212,17 +4212,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4253,7 +4253,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -4276,17 +4276,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4305,19 +4305,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -4340,17 +4340,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4381,7 +4381,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -4398,29 +4398,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -4496,12 +4496,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg',
             False, 
             [
-            _MetaInfoClassMember('events-rg-members', REFERENCE_CLASS, 'EventsRgMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers', 
+            _MetaInfoClassMember('events-rg-bundles', REFERENCE_CLASS, 'EventsRgBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles', 
                 [], [], 
-                '''                Bundle Member interfaces with ICCP events
-                information
+                '''                Bundle interfaces with ICCP events information
                 ''',
-                'events_rg_members',
+                'events_rg_bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-rg-iccp-groups', REFERENCE_CLASS, 'EventsRgIccpGroups' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgIccpGroups', 
                 [], [], 
@@ -4509,11 +4508,12 @@ _meta_table = {
                 ''',
                 'events_rg_iccp_groups',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('events-rg-bundles', REFERENCE_CLASS, 'EventsRgBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgBundles', 
+            _MetaInfoClassMember('events-rg-members', REFERENCE_CLASS, 'EventsRgMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg.EventsRgMembers', 
                 [], [], 
-                '''                Bundle interfaces with ICCP events information
+                '''                Bundle Member interfaces with ICCP events
+                information
                 ''',
-                'events_rg_bundles',
+                'events_rg_members',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -4572,51 +4572,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4631,6 +4597,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -4642,17 +4642,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4661,12 +4662,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4675,56 +4700,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -4732,6 +4713,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -4746,117 +4800,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4865,18 +4814,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -4892,11 +4872,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -4955,23 +4955,23 @@ _meta_table = {
                 ''',
                 'actor_bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId', 
-                [], [], 
-                '''                System ID for the bundle
-                ''',
-                'bundle_system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Operational key of the interface
                 ''',
                 'actor_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the partner system
+            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId', 
+                [], [], 
+                '''                System ID for the bundle
                 ''',
-                'partner_system_priority',
+                'bundle_system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Operational key of the partner
+                ''',
+                'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -4979,11 +4979,11 @@ _meta_table = {
                 ''',
                 'partner_system_mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                Operational key of the partner
+                '''                Priority of the partner system
                 ''',
-                'partner_operational_key',
+                'partner_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5042,51 +5042,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5101,6 +5067,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -5112,17 +5112,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -5131,12 +5132,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -5145,56 +5170,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -5202,6 +5183,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -5216,117 +5270,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -5335,18 +5284,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -5362,11 +5342,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5425,23 +5425,23 @@ _meta_table = {
                 ''',
                 'actor_bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId', 
-                [], [], 
-                '''                System ID for the bundle
-                ''',
-                'bundle_system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Operational key of the interface
                 ''',
                 'actor_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the partner system
+            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId', 
+                [], [], 
+                '''                System ID for the bundle
                 ''',
-                'partner_system_priority',
+                'bundle_system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Operational key of the partner
+                ''',
+                'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -5449,11 +5449,11 @@ _meta_table = {
                 ''',
                 'partner_system_mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                Operational key of the partner
+                '''                Priority of the partner system
                 ''',
-                'partner_operational_key',
+                'partner_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5506,17 +5506,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5529,11 +5529,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.Port', 
                 [], [], 
@@ -5541,17 +5541,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5627,17 +5627,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5650,11 +5650,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.Port', 
                 [], [], 
@@ -5662,17 +5662,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5725,18 +5725,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Foreign',
             False, 
             [
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Member's (short form) name
+                ''',
+                'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
                 'peer_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Member's (short form) name
-                ''',
-                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5749,17 +5749,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo',
             False, 
             [
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Local', 
-                [], [], 
-                '''                Information for a local port
-                ''',
-                'local',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('foreign', REFERENCE_CLASS, 'Foreign' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Foreign', 
                 [], [], 
                 '''                Information for a foreign port
                 ''',
                 'foreign',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Local', 
+                [], [], 
+                '''                Information for a local port
+                ''',
+                'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
@@ -5778,17 +5778,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData',
             False, 
             [
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Actor
+                ''',
+                'actor_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-info', REFERENCE_CLASS, 'ActorInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo', 
                 [], [], 
                 '''                LACP information for the port from the actor
                 ''',
                 'actor_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo', 
-                [], [], 
-                '''                LACP information for the port from the partner
-                ''',
-                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('additional-info', REFERENCE_CLASS, 'AdditionalInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo', 
                 [], [], 
@@ -5796,23 +5796,36 @@ _meta_table = {
                 ''',
                 'additional_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MIB ifindex of selected bundle
-                ''',
-                'selected_aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MIB ifindex of attached bundle
                 ''',
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
-                [], [], 
-                '''                State of the Selection Logic state machine
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The ID of the ICCP group that the link is
+                configured on
                 ''',
-                'selection_state',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                State of the Mux state machine
+                ''',
+                'mux_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Partner
+                ''',
+                'partner_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo', 
+                [], [], 
+                '''                LACP information for the port from the partner
+                ''',
+                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
@@ -5826,30 +5839,17 @@ _meta_table = {
                 ''',
                 'receive_machine_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                State of the Mux state machine
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Actor
-                ''',
-                'actor_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Partner
-                ''',
-                'partner_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The ID of the ICCP group that the link is
-                configured on
+                '''                MIB ifindex of selected bundle
                 ''',
-                'iccp_group_id',
+                'selected_aggregator_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
+                [], [], 
+                '''                State of the Selection Logic state machine
+                ''',
+                'selection_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5925,17 +5925,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -5948,11 +5948,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.Port', 
                 [], [], 
@@ -5960,17 +5960,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6046,17 +6046,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6069,11 +6069,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.Port', 
                 [], [], 
@@ -6081,17 +6081,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6144,18 +6144,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Foreign',
             False, 
             [
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Member's (short form) name
+                ''',
+                'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
                 'peer_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Member's (short form) name
-                ''',
-                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6168,17 +6168,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo',
             False, 
             [
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Local', 
-                [], [], 
-                '''                Information for a local port
-                ''',
-                'local',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('foreign', REFERENCE_CLASS, 'Foreign' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Foreign', 
                 [], [], 
                 '''                Information for a foreign port
                 ''',
                 'foreign',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Local', 
+                [], [], 
+                '''                Information for a local port
+                ''',
+                'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
@@ -6203,17 +6203,17 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Actor
+                ''',
+                'actor_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-info', REFERENCE_CLASS, 'ActorInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo', 
                 [], [], 
                 '''                LACP information for the port from the actor
                 ''',
                 'actor_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo', 
-                [], [], 
-                '''                LACP information for the port from the partner
-                ''',
-                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('additional-info', REFERENCE_CLASS, 'AdditionalInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo', 
                 [], [], 
@@ -6221,23 +6221,36 @@ _meta_table = {
                 ''',
                 'additional_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MIB ifindex of selected bundle
-                ''',
-                'selected_aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MIB ifindex of attached bundle
                 ''',
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
-                [], [], 
-                '''                State of the Selection Logic state machine
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The ID of the ICCP group that the link is
+                configured on
                 ''',
-                'selection_state',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                State of the Mux state machine
+                ''',
+                'mux_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Partner
+                ''',
+                'partner_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo', 
+                [], [], 
+                '''                LACP information for the port from the partner
+                ''',
+                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
@@ -6251,30 +6264,17 @@ _meta_table = {
                 ''',
                 'receive_machine_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                State of the Mux state machine
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Actor
-                ''',
-                'actor_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Partner
-                ''',
-                'partner_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The ID of the ICCP group that the link is
-                configured on
+                '''                MIB ifindex of selected bundle
                 ''',
-                'iccp_group_id',
+                'selected_aggregator_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
+                [], [], 
+                '''                State of the Selection Logic state machine
+                ''',
+                'selection_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6310,11 +6310,11 @@ _meta_table = {
                 ''',
                 'bundle_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('lacp-bundle-item', REFERENCE_CLASS, 'LacpBundleItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem', 
+            _MetaInfoClassMember('lacp-bundle-children-members', REFERENCE_CLASS, 'LacpBundleChildrenMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers', 
                 [], [], 
-                '''                Data for this item
+                '''                Children of bundle with LACP information
                 ''',
-                'lacp_bundle_item',
+                'lacp_bundle_children_members',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('lacp-bundle-descendant', REFERENCE_CLASS, 'LacpBundleDescendant' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant', 
                 [], [], 
@@ -6322,11 +6322,11 @@ _meta_table = {
                 ''',
                 'lacp_bundle_descendant',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-bundle-children-members', REFERENCE_CLASS, 'LacpBundleChildrenMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers', 
+            _MetaInfoClassMember('lacp-bundle-item', REFERENCE_CLASS, 'LacpBundleItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem', 
                 [], [], 
-                '''                Children of bundle with LACP information
+                '''                Data for this item
                 ''',
-                'lacp_bundle_children_members',
+                'lacp_bundle_item',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6402,51 +6402,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6461,6 +6427,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -6472,17 +6472,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6491,12 +6492,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6505,56 +6530,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -6562,6 +6543,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -6576,117 +6630,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6695,18 +6644,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -6722,11 +6702,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6785,23 +6785,23 @@ _meta_table = {
                 ''',
                 'actor_bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId', 
-                [], [], 
-                '''                System ID for the bundle
-                ''',
-                'bundle_system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Operational key of the interface
                 ''',
                 'actor_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the partner system
+            _MetaInfoClassMember('bundle-system-id', REFERENCE_CLASS, 'BundleSystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId', 
+                [], [], 
+                '''                System ID for the bundle
                 ''',
-                'partner_system_priority',
+                'bundle_system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Operational key of the partner
+                ''',
+                'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -6809,11 +6809,11 @@ _meta_table = {
                 ''',
                 'partner_system_mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                Operational key of the partner
+                '''                Priority of the partner system
                 ''',
-                'partner_operational_key',
+                'partner_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6866,17 +6866,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6889,11 +6889,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.Port', 
                 [], [], 
@@ -6901,17 +6901,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -6987,17 +6987,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7010,11 +7010,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.Port', 
                 [], [], 
@@ -7022,17 +7022,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7085,18 +7085,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Foreign',
             False, 
             [
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Member's (short form) name
+                ''',
+                'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
                 'peer_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Member's (short form) name
-                ''',
-                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7109,17 +7109,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo',
             False, 
             [
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Local', 
-                [], [], 
-                '''                Information for a local port
-                ''',
-                'local',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('foreign', REFERENCE_CLASS, 'Foreign' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Foreign', 
                 [], [], 
                 '''                Information for a foreign port
                 ''',
                 'foreign',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Local', 
+                [], [], 
+                '''                Information for a local port
+                ''',
+                'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
@@ -7138,17 +7138,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData',
             False, 
             [
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Actor
+                ''',
+                'actor_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-info', REFERENCE_CLASS, 'ActorInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo', 
                 [], [], 
                 '''                LACP information for the port from the actor
                 ''',
                 'actor_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo', 
-                [], [], 
-                '''                LACP information for the port from the partner
-                ''',
-                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('additional-info', REFERENCE_CLASS, 'AdditionalInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo', 
                 [], [], 
@@ -7156,23 +7156,36 @@ _meta_table = {
                 ''',
                 'additional_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MIB ifindex of selected bundle
-                ''',
-                'selected_aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MIB ifindex of attached bundle
                 ''',
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
-                [], [], 
-                '''                State of the Selection Logic state machine
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The ID of the ICCP group that the link is
+                configured on
                 ''',
-                'selection_state',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                State of the Mux state machine
+                ''',
+                'mux_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Partner
+                ''',
+                'partner_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo', 
+                [], [], 
+                '''                LACP information for the port from the partner
+                ''',
+                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
@@ -7186,30 +7199,17 @@ _meta_table = {
                 ''',
                 'receive_machine_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                State of the Mux state machine
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Actor
-                ''',
-                'actor_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Partner
-                ''',
-                'partner_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The ID of the ICCP group that the link is
-                configured on
+                '''                MIB ifindex of selected bundle
                 ''',
-                'iccp_group_id',
+                'selected_aggregator_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
+                [], [], 
+                '''                State of the Selection Logic state machine
+                ''',
+                'selection_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7285,17 +7285,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7308,11 +7308,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.Port', 
                 [], [], 
@@ -7320,17 +7320,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7406,17 +7406,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.Port',
             False, 
             [
-            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                link priority
-                ''',
-                'link_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('link-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                link number
                 ''',
                 'link_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                link priority
+                ''',
+                'link_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7429,11 +7429,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo',
             False, 
             [
-            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System', 
-                [], [], 
-                '''                system
+            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                key
                 ''',
-                'system',
+                'key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.Port', 
                 [], [], 
@@ -7441,17 +7441,17 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                key
-                ''',
-                'key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                state
                 ''',
                 'state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system', REFERENCE_CLASS, 'System' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System', 
+                [], [], 
+                '''                system
+                ''',
+                'system',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7504,18 +7504,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Foreign',
             False, 
             [
+            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Member's (short form) name
+                ''',
+                'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
                 'peer_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Member's (short form) name
-                ''',
-                'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7528,17 +7528,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo',
             False, 
             [
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Local', 
-                [], [], 
-                '''                Information for a local port
-                ''',
-                'local',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('foreign', REFERENCE_CLASS, 'Foreign' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Foreign', 
                 [], [], 
                 '''                Information for a foreign port
                 ''',
                 'foreign',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Local', 
+                [], [], 
+                '''                Information for a local port
+                ''',
+                'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
@@ -7557,17 +7557,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem',
             False, 
             [
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Actor
+                ''',
+                'actor_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-info', REFERENCE_CLASS, 'ActorInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo', 
                 [], [], 
                 '''                LACP information for the port from the actor
                 ''',
                 'actor_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo', 
-                [], [], 
-                '''                LACP information for the port from the partner
-                ''',
-                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('additional-info', REFERENCE_CLASS, 'AdditionalInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo', 
                 [], [], 
@@ -7575,23 +7575,36 @@ _meta_table = {
                 ''',
                 'additional_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MIB ifindex of selected bundle
-                ''',
-                'selected_aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MIB ifindex of attached bundle
                 ''',
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
-                [], [], 
-                '''                State of the Selection Logic state machine
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The ID of the ICCP group that the link is
+                configured on
                 ''',
-                'selection_state',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                State of the Mux state machine
+                ''',
+                'mux_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
+                [], [], 
+                '''                State of the Churn state machine for the Partner
+                ''',
+                'partner_churn_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-info', REFERENCE_CLASS, 'PartnerInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo', 
+                [], [], 
+                '''                LACP information for the port from the partner
+                ''',
+                'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
@@ -7605,30 +7618,17 @@ _meta_table = {
                 ''',
                 'receive_machine_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                State of the Mux state machine
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Actor
-                ''',
-                'actor_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
-                [], [], 
-                '''                State of the Churn state machine for the Partner
-                ''',
-                'partner_churn_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The ID of the ICCP group that the link is
-                configured on
+                '''                MIB ifindex of selected bundle
                 ''',
-                'iccp_group_id',
+                'selected_aggregator_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
+                [], [], 
+                '''                State of the Selection Logic state machine
+                ''',
+                'selection_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7739,20 +7739,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -7799,20 +7799,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -7859,6 +7859,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -7871,50 +7897,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7927,17 +7927,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters', 
-                [], [], 
-                '''                Counts of mLACP TLVs sent and received
-                ''',
-                'mlacp_tlv_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Bundle name
                 ''',
                 'bundle_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters', 
+                [], [], 
+                '''                Counts of mLACP TLVs sent and received
+                ''',
+                'mlacp_tlv_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -7950,17 +7950,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts', 
+            _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData', 
                 [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
+                '''                Local device bundle mLACP counter information
                 ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all bundles
-                ''',
-                'mlacp_sync_requests_on_all_local_bundles',
+                'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7968,11 +7962,17 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles', 
                 [], [], 
-                '''                Local device bundle mLACP counter information
+                '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
-                'bundle_data',
+                'mlacp_sync_requests_on_all_local_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8014,20 +8014,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -8074,20 +8074,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -8105,17 +8105,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_foreign_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
                 'mlacp_sync_requests_on_all_foreign_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8163,6 +8163,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -8175,50 +8201,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8231,17 +8231,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters', 
-                [], [], 
-                '''                Counts of mLACP TLVs sent and received
-                ''',
-                'mlacp_tlv_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Bundle name
                 ''',
                 'bundle_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters', 
+                [], [], 
+                '''                Counts of mLACP TLVs sent and received
+                ''',
+                'mlacp_tlv_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8254,17 +8254,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData', 
                 [], [], 
                 '''                Peer device bundle mLACP TLV counter information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8369,20 +8369,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -8429,20 +8429,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -8489,6 +8489,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -8501,50 +8527,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8557,17 +8557,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters', 
-                [], [], 
-                '''                Counts of mLACP TLVs sent and received
-                ''',
-                'mlacp_tlv_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Bundle name
                 ''',
                 'bundle_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters', 
+                [], [], 
+                '''                Counts of mLACP TLVs sent and received
+                ''',
+                'mlacp_tlv_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8580,17 +8580,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts', 
+            _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData', 
                 [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
+                '''                Local device bundle mLACP counter information
                 ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all bundles
-                ''',
-                'mlacp_sync_requests_on_all_local_bundles',
+                'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8598,11 +8592,17 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles', 
                 [], [], 
-                '''                Local device bundle mLACP counter information
+                '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
-                'bundle_data',
+                'mlacp_sync_requests_on_all_local_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8644,20 +8644,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -8704,20 +8704,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -8735,17 +8735,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_foreign_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
                 'mlacp_sync_requests_on_all_foreign_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8793,6 +8793,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -8805,50 +8831,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8861,17 +8861,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters', 
-                [], [], 
-                '''                Counts of mLACP TLVs sent and received
-                ''',
-                'mlacp_tlv_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Bundle name
                 ''',
                 'bundle_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters', 
+                [], [], 
+                '''                Counts of mLACP TLVs sent and received
+                ''',
+                'mlacp_tlv_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -8884,17 +8884,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData', 
                 [], [], 
                 '''                Peer device bundle mLACP TLV counter information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9016,20 +9016,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -9076,20 +9076,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -9136,6 +9136,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -9148,50 +9174,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9204,17 +9204,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters', 
-                [], [], 
-                '''                Counts of mLACP TLVs sent and received
-                ''',
-                'mlacp_tlv_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Bundle name
                 ''',
                 'bundle_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters', 
+                [], [], 
+                '''                Counts of mLACP TLVs sent and received
+                ''',
+                'mlacp_tlv_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9227,17 +9227,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts', 
+            _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData', 
                 [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
+                '''                Local device bundle mLACP counter information
                 ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all bundles
-                ''',
-                'mlacp_sync_requests_on_all_local_bundles',
+                'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -9245,11 +9239,17 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles', 
                 [], [], 
-                '''                Local device bundle mLACP counter information
+                '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
-                'bundle_data',
+                'mlacp_sync_requests_on_all_local_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9291,20 +9291,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -9351,20 +9351,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -9382,17 +9382,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_foreign_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
                 'mlacp_sync_requests_on_all_foreign_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -9440,6 +9440,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -9452,50 +9478,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9508,17 +9508,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters', 
-                [], [], 
-                '''                Counts of mLACP TLVs sent and received
-                ''',
-                'mlacp_tlv_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Bundle name
                 ''',
                 'bundle_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-tlv-counters', REFERENCE_CLASS, 'MlacpTlvCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters', 
+                [], [], 
+                '''                Counts of mLACP TLVs sent and received
+                ''',
+                'mlacp_tlv_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9531,17 +9531,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData', 
                 [], [], 
                 '''                Peer device bundle mLACP TLV counter information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9620,18 +9620,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters',
             False, 
             [
+            _MetaInfoClassMember('bundles', REFERENCE_CLASS, 'Bundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles', 
+                [], [], 
+                '''                Bundle interfaces with counters of mLACP events
+                ''',
+                'bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-groups', REFERENCE_CLASS, 'IccpGroups' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups', 
                 [], [], 
                 '''                ICCP Groups with counters of their bundle's
                 mLACP events
                 ''',
                 'iccp_groups',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundles', REFERENCE_CLASS, 'Bundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles', 
-                [], [], 
-                '''                Bundle interfaces with counters of mLACP events
-                ''',
-                'bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes', 
                 [], [], 
@@ -9651,23 +9651,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem.MemberInfo',
             False, 
             [
-            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface handle
+            _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Member is active within its bundle
                 ''',
-                'interface_handle',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
+                'active',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -9675,17 +9663,23 @@ _meta_table = {
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface handle
+                ''',
+                'interface_handle',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
                 [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Member's node ID
                 ''',
                 'node',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Member is active within its bundle
-                ''',
-                'active',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('notification-received', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9699,11 +9693,17 @@ _meta_table = {
                 ''',
                 'slow_path_up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Last event for the member
                 ''',
                 'time_stamp',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9722,31 +9722,23 @@ _meta_table = {
                 ''',
                 'bundle_interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
+                [], [], 
+                '''                Scope of the last event that impacted the bundle
+                ''',
+                'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-up', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Whether the bundle interface is up
                 ''',
                 'interface_up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('registered', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('member-info', REFERENCE_LIST, 'MemberInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem.MemberInfo', 
                 [], [], 
-                '''                Whether there is a client protect registration
-                on the bundle interface
+                '''                Information about the members
                 ''',
-                'registered',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('slow-path-up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Bundle is up in the slow path
-                ''',
-                'slow_path_up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('slow-path-trigger', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the last protect trigger originated in
-                the slow path
-                ''',
-                'slow_path_trigger',
+                'member_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -9760,23 +9752,31 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
+            _MetaInfoClassMember('registered', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Scope of the last event that impacted the bundle
+                '''                Whether there is a client protect registration
+                on the bundle interface
                 ''',
-                'event_type',
+                'registered',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('slow-path-trigger', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the last protect trigger originated in
+                the slow path
+                ''',
+                'slow_path_trigger',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('slow-path-up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Bundle is up in the slow path
+                ''',
+                'slow_path_up',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Last event for the bundle
                 ''',
                 'time_stamp',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-info', REFERENCE_LIST, 'MemberInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem.MemberInfo', 
-                [], [], 
-                '''                Information about the members
-                ''',
-                'member_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9887,17 +9887,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
-                '''                System ID for the ICCP Group
+                '''                Node synchronization state
                 ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
+                'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -9905,11 +9899,11 @@ _meta_table = {
                 ''',
                 'ldp_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Version of the protocol being used
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
                 ''',
-                'version_number',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
@@ -9917,11 +9911,17 @@ _meta_table = {
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId', 
                 [], [], 
-                '''                Node synchronization state
+                '''                System ID for the ICCP Group
                 ''',
-                'iccp_group_state',
+                'system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Version of the protocol being used
+                ''',
+                'version_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9934,24 +9934,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData',
             False, 
             [
+            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time remaining on connect timer innsecs
+                ''',
+                'connect_timer_running',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the mLACP information is for
                 ''',
                 'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the ICCP group in singleton mode (1 =
-                singleton; 0 = not singleton)
-                ''',
-                'singleton',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time remaining on connect timer innsecs
-                ''',
-                'connect_timer_running',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData', 
                 [], [], 
@@ -9959,6 +9952,13 @@ _meta_table = {
                 devices
                 ''',
                 'node_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the ICCP group in singleton mode (1 =
+                singleton; 0 = not singleton)
+                ''',
+                'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -9988,11 +9988,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData.MacAddress', 
-                [], [], 
-                '''                Bundle MAC address
+            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Bundle aggregrator ID
                 ''',
-                'mac_address',
+                'aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10000,23 +10000,23 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Bundle aggregrator ID
-                ''',
-                'aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
                 'bundle_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData.MacAddress', 
+                [], [], 
+                '''                Bundle MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
+                ''',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10035,11 +10035,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpMemberData',
             False, 
             [
-            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Port Name
+            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Configured priority of the member in the bundle
                 ''',
-                'port_name',
+                'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -10048,17 +10048,17 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+                [], [], 
+                '''                Member state
+                ''',
+                'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                mLACP Device ID
                 ''',
                 'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Port number of the member
-                ''',
-                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('operational-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10066,17 +10066,17 @@ _meta_table = {
                 ''',
                 'operational_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Configured priority of the member in the bundle
-                ''',
-                'configured_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Member state
+                '''                Port Name
                 ''',
-                'member_state',
+                'port_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Port number of the member
+                ''',
+                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10101,12 +10101,6 @@ _meta_table = {
                 ''',
                 'media_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Redundancy Object ID of the bundle
-                ''',
-                'redundancy_object_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-bundle-data', REFERENCE_LIST, 'MlacpBundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData', 
                 [], [], 
                 '''                mLACP information for the bundle
@@ -10119,6 +10113,12 @@ _meta_table = {
                 ''',
                 'mlacp_member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Redundancy Object ID of the bundle
+                ''',
+                'redundancy_object_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -10130,17 +10130,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData', 
-                [], [], 
-                '''                ICCP Group information
-                ''',
-                'iccp_group_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData', 
                 [], [], 
                 '''                Bundle information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData', 
+                [], [], 
+                '''                ICCP Group information
+                ''',
+                'iccp_group_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10250,17 +10250,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
-                '''                System ID for the ICCP Group
+                '''                Node synchronization state
                 ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
+                'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -10268,11 +10262,11 @@ _meta_table = {
                 ''',
                 'ldp_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Version of the protocol being used
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
                 ''',
-                'version_number',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
@@ -10280,11 +10274,17 @@ _meta_table = {
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId', 
                 [], [], 
-                '''                Node synchronization state
+                '''                System ID for the ICCP Group
                 ''',
-                'iccp_group_state',
+                'system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Version of the protocol being used
+                ''',
+                'version_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10297,24 +10297,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData',
             False, 
             [
+            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time remaining on connect timer innsecs
+                ''',
+                'connect_timer_running',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the mLACP information is for
                 ''',
                 'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the ICCP group in singleton mode (1 =
-                singleton; 0 = not singleton)
-                ''',
-                'singleton',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time remaining on connect timer innsecs
-                ''',
-                'connect_timer_running',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData', 
                 [], [], 
@@ -10322,6 +10315,13 @@ _meta_table = {
                 devices
                 ''',
                 'node_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the ICCP group in singleton mode (1 =
+                singleton; 0 = not singleton)
+                ''',
+                'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10351,11 +10351,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData.MacAddress', 
-                [], [], 
-                '''                Bundle MAC address
+            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Bundle aggregrator ID
                 ''',
-                'mac_address',
+                'aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10363,23 +10363,23 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Bundle aggregrator ID
-                ''',
-                'aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
                 'bundle_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData.MacAddress', 
+                [], [], 
+                '''                Bundle MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
+                ''',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10398,11 +10398,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpMemberData',
             False, 
             [
-            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Port Name
+            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Configured priority of the member in the bundle
                 ''',
-                'port_name',
+                'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -10411,17 +10411,17 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+                [], [], 
+                '''                Member state
+                ''',
+                'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                mLACP Device ID
                 ''',
                 'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Port number of the member
-                ''',
-                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('operational-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10429,17 +10429,17 @@ _meta_table = {
                 ''',
                 'operational_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Configured priority of the member in the bundle
-                ''',
-                'configured_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Member state
+                '''                Port Name
                 ''',
-                'member_state',
+                'port_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Port number of the member
+                ''',
+                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10464,12 +10464,6 @@ _meta_table = {
                 ''',
                 'media_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Redundancy Object ID of the bundle
-                ''',
-                'redundancy_object_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-bundle-data', REFERENCE_LIST, 'MlacpBundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData', 
                 [], [], 
                 '''                mLACP information for the bundle
@@ -10482,6 +10476,12 @@ _meta_table = {
                 ''',
                 'mlacp_member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Redundancy Object ID of the bundle
+                ''',
+                'redundancy_object_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -10493,17 +10493,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData', 
-                [], [], 
-                '''                ICCP Group information
-                ''',
-                'iccp_group_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData', 
                 [], [], 
                 '''                Bundle information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData', 
+                [], [], 
+                '''                ICCP Group information
+                ''',
+                'iccp_group_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10556,17 +10556,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief',
             False, 
             [
-            _MetaInfoClassMember('mlacp-bundle-briefs', REFERENCE_CLASS, 'MlacpBundleBriefs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs', 
-                [], [], 
-                '''                Bundle interfaces with brief mLACP information
-                ''',
-                'mlacp_bundle_briefs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-brief-iccp-groups', REFERENCE_CLASS, 'MlacpBriefIccpGroups' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBriefIccpGroups', 
                 [], [], 
                 '''                ICCP Groups with brief mLACP information
                 ''',
                 'mlacp_brief_iccp_groups',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-bundle-briefs', REFERENCE_CLASS, 'MlacpBundleBriefs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief.MlacpBundleBriefs', 
+                [], [], 
+                '''                Bundle interfaces with brief mLACP information
+                ''',
+                'mlacp_bundle_briefs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10619,17 +10619,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
-                '''                System ID for the ICCP Group
+                '''                Node synchronization state
                 ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
+                'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -10637,11 +10631,11 @@ _meta_table = {
                 ''',
                 'ldp_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Version of the protocol being used
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
                 ''',
-                'version_number',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
@@ -10649,11 +10643,17 @@ _meta_table = {
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId', 
                 [], [], 
-                '''                Node synchronization state
+                '''                System ID for the ICCP Group
                 ''',
-                'iccp_group_state',
+                'system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Version of the protocol being used
+                ''',
+                'version_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10666,24 +10666,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData',
             False, 
             [
+            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time remaining on connect timer innsecs
+                ''',
+                'connect_timer_running',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the mLACP information is for
                 ''',
                 'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the ICCP group in singleton mode (1 =
-                singleton; 0 = not singleton)
-                ''',
-                'singleton',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time remaining on connect timer innsecs
-                ''',
-                'connect_timer_running',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData', 
                 [], [], 
@@ -10691,6 +10684,13 @@ _meta_table = {
                 devices
                 ''',
                 'node_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the ICCP group in singleton mode (1 =
+                singleton; 0 = not singleton)
+                ''',
+                'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10720,11 +10720,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData.MacAddress', 
-                [], [], 
-                '''                Bundle MAC address
+            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Bundle aggregrator ID
                 ''',
-                'mac_address',
+                'aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10732,23 +10732,23 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Bundle aggregrator ID
-                ''',
-                'aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
                 'bundle_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData.MacAddress', 
+                [], [], 
+                '''                Bundle MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
+                ''',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10767,11 +10767,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpMemberData',
             False, 
             [
-            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Port Name
+            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Configured priority of the member in the bundle
                 ''',
-                'port_name',
+                'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -10780,17 +10780,17 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+                [], [], 
+                '''                Member state
+                ''',
+                'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                mLACP Device ID
                 ''',
                 'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Port number of the member
-                ''',
-                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('operational-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10798,17 +10798,17 @@ _meta_table = {
                 ''',
                 'operational_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Configured priority of the member in the bundle
-                ''',
-                'configured_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Member state
+                '''                Port Name
                 ''',
-                'member_state',
+                'port_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Port number of the member
+                ''',
+                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10833,12 +10833,6 @@ _meta_table = {
                 ''',
                 'media_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Redundancy Object ID of the bundle
-                ''',
-                'redundancy_object_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-bundle-data', REFERENCE_LIST, 'MlacpBundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData', 
                 [], [], 
                 '''                mLACP information for the bundle
@@ -10851,6 +10845,12 @@ _meta_table = {
                 ''',
                 'mlacp_member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Redundancy Object ID of the bundle
+                ''',
+                'redundancy_object_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -10862,17 +10862,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData', 
-                [], [], 
-                '''                ICCP Group information
-                ''',
-                'iccp_group_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData', 
                 [], [], 
                 '''                Bundle information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData', 
+                [], [], 
+                '''                ICCP Group information
+                ''',
+                'iccp_group_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -10982,17 +10982,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
-                '''                System ID for the ICCP Group
+                '''                Node synchronization state
                 ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
+                'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -11000,11 +10994,11 @@ _meta_table = {
                 ''',
                 'ldp_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Version of the protocol being used
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
                 ''',
-                'version_number',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
@@ -11012,11 +11006,17 @@ _meta_table = {
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId', 
                 [], [], 
-                '''                Node synchronization state
+                '''                System ID for the ICCP Group
                 ''',
-                'iccp_group_state',
+                'system_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Version of the protocol being used
+                ''',
+                'version_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11029,24 +11029,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData',
             False, 
             [
+            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time remaining on connect timer innsecs
+                ''',
+                'connect_timer_running',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the mLACP information is for
                 ''',
                 'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the ICCP group in singleton mode (1 =
-                singleton; 0 = not singleton)
-                ''',
-                'singleton',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('connect-timer-running', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time remaining on connect timer innsecs
-                ''',
-                'connect_timer_running',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData', 
                 [], [], 
@@ -11054,6 +11047,13 @@ _meta_table = {
                 devices
                 ''',
                 'node_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('singleton', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the ICCP group in singleton mode (1 =
+                singleton; 0 = not singleton)
+                ''',
+                'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11083,11 +11083,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData.MacAddress', 
-                [], [], 
-                '''                Bundle MAC address
+            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Bundle aggregrator ID
                 ''',
-                'mac_address',
+                'aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11095,23 +11095,23 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                mLACP Device ID
-                ''',
-                'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Bundle aggregrator ID
-                ''',
-                'aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
                 'bundle_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData.MacAddress', 
+                [], [], 
+                '''                Bundle MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                mLACP Device ID
+                ''',
+                'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -11130,11 +11130,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpMemberData',
             False, 
             [
-            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Port Name
+            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Configured priority of the member in the bundle
                 ''',
-                'port_name',
+                'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -11143,17 +11143,17 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+                [], [], 
+                '''                Member state
+                ''',
+                'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                mLACP Device ID
                 ''',
                 'mlacp_node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Port number of the member
-                ''',
-                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('operational-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -11161,17 +11161,17 @@ _meta_table = {
                 ''',
                 'operational_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Configured priority of the member in the bundle
-                ''',
-                'configured_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
+            _MetaInfoClassMember('port-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Member state
+                '''                Port Name
                 ''',
-                'member_state',
+                'port_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Port number of the member
+                ''',
+                'port_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11196,12 +11196,6 @@ _meta_table = {
                 ''',
                 'media_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Redundancy Object ID of the bundle
-                ''',
-                'redundancy_object_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-bundle-data', REFERENCE_LIST, 'MlacpBundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData', 
                 [], [], 
                 '''                mLACP information for the bundle
@@ -11214,6 +11208,12 @@ _meta_table = {
                 ''',
                 'mlacp_member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('redundancy-object-id', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Redundancy Object ID of the bundle
+                ''',
+                'redundancy_object_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -11225,17 +11225,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData', 
-                [], [], 
-                '''                ICCP Group information
-                ''',
-                'iccp_group_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-data', REFERENCE_LIST, 'BundleData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData', 
                 [], [], 
                 '''                Bundle information
                 ''',
                 'bundle_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-data', REFERENCE_CLASS, 'IccpGroupData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData', 
+                [], [], 
+                '''                ICCP Group information
+                ''',
+                'iccp_group_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11386,17 +11386,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11427,7 +11427,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11450,17 +11450,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11479,19 +11479,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11514,17 +11514,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11555,7 +11555,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11572,29 +11572,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11636,17 +11636,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11677,7 +11677,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11700,17 +11700,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11729,19 +11729,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11764,17 +11764,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11805,7 +11805,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11822,29 +11822,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11886,17 +11886,17 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('events-member-item', REFERENCE_CLASS, 'EventsMemberItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem', 
-                [], [], 
-                '''                Data for this item
-                ''',
-                'events_member_item',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-member-ancestor', REFERENCE_CLASS, 'EventsMemberAncestor' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor', 
                 [], [], 
                 '''                Data for this item and its parent bundle
                 ''',
                 'events_member_ancestor',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('events-member-item', REFERENCE_CLASS, 'EventsMemberItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem', 
+                [], [], 
+                '''                Data for this item
+                ''',
+                'events_member_item',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -11932,17 +11932,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11973,7 +11973,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -11996,17 +11996,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12025,19 +12025,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12060,17 +12060,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12101,7 +12101,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12118,29 +12118,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -12182,17 +12182,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12223,7 +12223,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12246,17 +12246,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12275,19 +12275,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12310,17 +12310,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12351,7 +12351,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12368,29 +12368,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -12432,17 +12432,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12473,7 +12473,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12496,17 +12496,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12525,19 +12525,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12560,17 +12560,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12601,7 +12601,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12618,29 +12618,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -12699,17 +12699,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12740,7 +12740,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12763,17 +12763,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12792,19 +12792,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12827,17 +12827,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12868,7 +12868,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -12885,29 +12885,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -12978,11 +12978,11 @@ _meta_table = {
                 ''',
                 'events_bundle_ancestor',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('events-bundle-item', REFERENCE_CLASS, 'EventsBundleItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem', 
+            _MetaInfoClassMember('events-bundle-children-members', REFERENCE_CLASS, 'EventsBundleChildrenMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers', 
                 [], [], 
-                '''                Data for this item
+                '''                Children of bundle with events information
                 ''',
-                'events_bundle_item',
+                'events_bundle_children_members',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-bundle-descendant', REFERENCE_CLASS, 'EventsBundleDescendant' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant', 
                 [], [], 
@@ -12990,11 +12990,11 @@ _meta_table = {
                 ''',
                 'events_bundle_descendant',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('events-bundle-children-members', REFERENCE_CLASS, 'EventsBundleChildrenMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers', 
+            _MetaInfoClassMember('events-bundle-item', REFERENCE_CLASS, 'EventsBundleItem' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem', 
                 [], [], 
-                '''                Children of bundle with events information
+                '''                Data for this item
                 ''',
-                'events_bundle_children_members',
+                'events_bundle_item',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -13024,17 +13024,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events',
             False, 
             [
-            _MetaInfoClassMember('events-members', REFERENCE_CLASS, 'EventsMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers', 
-                [], [], 
-                '''                Member interfaces with events information
-                ''',
-                'events_members',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-bundles', REFERENCE_CLASS, 'EventsBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsBundles', 
                 [], [], 
                 '''                Bundle interfaces with events information
                 ''',
                 'events_bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('events-members', REFERENCE_CLASS, 'EventsMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events.EventsMembers', 
+                [], [], 
+                '''                Member interfaces with events information
+                ''',
+                'events_members',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -13053,17 +13053,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13094,7 +13094,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13117,17 +13117,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13146,19 +13146,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13181,17 +13181,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13222,7 +13222,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13239,29 +13239,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -13343,17 +13343,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13384,7 +13384,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13407,17 +13407,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13436,19 +13436,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13471,17 +13471,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13512,7 +13512,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13529,29 +13529,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -13633,17 +13633,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13674,7 +13674,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13697,17 +13697,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13726,19 +13726,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13761,17 +13761,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13802,7 +13802,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -13819,29 +13819,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -13934,13 +13934,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl',
             False, 
             [
-            _MetaInfoClassMember('events-bdl-members', REFERENCE_CLASS, 'EventsBdlMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers', 
-                [], [], 
-                '''                Member interfaces with bundle events
-                information
-                ''',
-                'events_bdl_members',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-bdl-bundles', REFERENCE_CLASS, 'EventsBdlBundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlBundles', 
                 [], [], 
                 '''                Bundle interfaces with bundle events
@@ -13953,6 +13946,13 @@ _meta_table = {
                 '''                Bundle events for all ICCP Groups
                 ''',
                 'events_bdl_iccp_groups',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('events-bdl-members', REFERENCE_CLASS, 'EventsBdlMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsBdl.EventsBdlMembers', 
+                [], [], 
+                '''                Member interfaces with bundle events
+                information
+                ''',
+                'events_bdl_members',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -14011,51 +14011,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -14070,6 +14036,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -14081,17 +14081,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -14100,12 +14101,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -14114,56 +14139,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -14171,6 +14152,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -14185,117 +14239,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -14304,18 +14253,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -14331,11 +14311,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -14394,17 +14394,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -14435,7 +14435,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -14458,17 +14458,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -14487,19 +14487,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -14522,17 +14522,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -14563,7 +14563,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -14580,29 +14580,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -14668,17 +14668,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -14709,7 +14709,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -14732,17 +14732,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -14761,19 +14761,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -14796,17 +14796,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -14837,7 +14837,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -14854,29 +14854,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -14982,17 +14982,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15023,7 +15023,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15046,17 +15046,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15075,19 +15075,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15110,17 +15110,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15151,7 +15151,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15168,29 +15168,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -15272,17 +15272,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15313,7 +15313,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15336,17 +15336,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15365,19 +15365,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15400,17 +15400,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15441,7 +15441,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15458,29 +15458,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -15546,17 +15546,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15587,7 +15587,7 @@ _meta_table = {
                 ''',
                 'member_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15610,17 +15610,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15639,19 +15639,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data', 
-                [], [], 
-                '''                Additional data for the event
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
                 'bundle_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data', 
+                [], [], 
+                '''                Additional data for the event
+                ''',
+                'data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15674,17 +15674,17 @@ _meta_table = {
                 ''',
                 'data_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                NoData
-                ''',
-                'no_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Error
                 ''',
                 'error',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('no-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                NoData
+                ''',
+                'no_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('string-data', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15715,7 +15715,7 @@ _meta_table = {
                 ''',
                 'rg_event_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time stamp of the event
                 ''',
@@ -15732,29 +15732,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items',
             False, 
             [
-            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo', 
-                [], [], 
-                '''                Event information for a member
-                ''',
-                'member_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-evt-info', REFERENCE_CLASS, 'BundleEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo', 
                 [], [], 
                 '''                Event information for a bundle
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo', 
-                [], [], 
-                '''                Event information for an RG
-                ''',
-                'rg_evt_info',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
                 'event_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-evt-info', REFERENCE_CLASS, 'MemberEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo', 
+                [], [], 
+                '''                Event information for a member
+                ''',
+                'member_evt_info',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('rg-evt-info', REFERENCE_CLASS, 'RgEvtInfo' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo', 
+                [], [], 
+                '''                Event information for an RG
+                ''',
+                'rg_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -15861,18 +15861,18 @@ _meta_table = {
                 ''',
                 'events_mbr_bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('events-mbr-iccp-groups', REFERENCE_CLASS, 'EventsMbrIccpGroups' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups', 
+                [], [], 
+                '''                Member events for all ICCP Groups
+                ''',
+                'events_mbr_iccp_groups',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-mbr-members', REFERENCE_CLASS, 'EventsMbrMembers' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrMembers', 
                 [], [], 
                 '''                Member interfaces with bundle member events
                 information
                 ''',
                 'events_mbr_members',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('events-mbr-iccp-groups', REFERENCE_CLASS, 'EventsMbrIccpGroups' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr.EventsMbrIccpGroups', 
-                [], [], 
-                '''                Member events for all ICCP Groups
-                ''',
-                'events_mbr_iccp_groups',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -15885,24 +15885,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.Connection',
             False, 
             [
-            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs sent
-                ''',
-                'sent_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs received
-                ''',
-                'received_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP connects
-                ''',
-                'iccp_invalid_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-config-connect-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of ICCP connection errors due to config
@@ -15916,23 +15898,23 @@ _meta_table = {
                 ''',
                 'iccp_count_connect_errors',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs sent
+                '''                Number of invalid ICCP connects
                 ''',
-                'sent_wrong_versions',
+                'iccp_invalid_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs received
+                '''                Number of invalid ICCP disconnects
                 ''',
-                'received_wrong_versions',
+                'iccp_invalid_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of disconnect TLVs sent
+                '''                Number of connect TLVs received
                 ''',
-                'sent_disconnects',
+                'received_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -15940,11 +15922,29 @@ _meta_table = {
                 ''',
                 'received_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP disconnects
+                '''                Number of wrong version TLVs received
                 ''',
-                'iccp_invalid_disconnects',
+                'received_wrong_versions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of connect TLVs sent
+                ''',
+                'sent_connects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of disconnect TLVs sent
+                ''',
+                'sent_disconnects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of wrong version TLVs sent
+                ''',
+                'sent_wrong_versions',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -15957,71 +15957,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.TlVs',
             False, 
             [
-            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config TLVs sent
-                ''',
-                'sent_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of config TLVs received
                 ''',
                 'received_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs sent
-                ''',
-                'sent_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs received
-                ''',
-                'received_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs sent
-                ''',
-                'sent_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs received
-                ''',
-                'received_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs sent
-                ''',
-                'sent_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs sent
-                ''',
-                'sent_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs received
-                ''',
-                'received_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config sync request TLVs sent
-                ''',
-                'sent_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16029,11 +15969,11 @@ _meta_table = {
                 ''',
                 'received_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of solicited sync data TLVs sent
+                '''                Number of NAK TLVs received
                 ''',
-                'sent_solicited_sync_data',
+                'received_na_ks',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16041,17 +15981,77 @@ _meta_table = {
                 ''',
                 'received_solicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of unsolicited sync data TLVs sent
+                '''                Number of state TLVs received
                 ''',
-                'sent_unsolicited_sync_data',
+                'received_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs received
+                ''',
+                'received_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs received
+                ''',
+                'received_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of unsolicited sync data TLVs received
                 ''',
                 'received_unsolicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config TLVs sent
+                ''',
+                'sent_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config sync request TLVs sent
+                ''',
+                'sent_config_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of NAK TLVs sent
+                ''',
+                'sent_na_ks',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of solicited sync data TLVs sent
+                ''',
+                'sent_solicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state TLVs sent
+                ''',
+                'sent_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs sent
+                ''',
+                'sent_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs sent
+                ''',
+                'sent_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of unsolicited sync data TLVs sent
+                ''',
+                'sent_unsolicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16071,19 +16071,19 @@ _meta_table = {
                 ''',
                 'incorrect_length',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of messages received with an invalid
-                mLACP TLV type
-                ''',
-                'invalid_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('invalid-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of messages received containing invalid
                 data
                 ''',
                 'invalid_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of messages received with an invalid
+                mLACP TLV type
+                ''',
+                'invalid_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('unknown-bundle', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16109,11 +16109,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpMessages',
             False, 
             [
-            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages sent
+                '''                Number of messages received
                 ''',
-                'sent_messages',
+                'received_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-buffer-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16122,11 +16122,11 @@ _meta_table = {
                 ''',
                 'sent_buffer_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages received
+                '''                Number of messages sent
                 ''',
-                'received_messages',
+                'sent_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transmission-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16145,11 +16145,53 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpEvents',
             False, 
             [
-            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of transport up events
+                '''                Number of unconfigure events
                 ''',
-                'transport_up',
+                'configured_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of configure events
+                ''',
+                'configured_set',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status down events
+                ''',
+                'member_status_down',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status up events
+                ''',
+                'member_status_up',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation events
+                ''',
+                'pe_isolated',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation cleared events
+                ''',
+                'pe_isolated_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability cleared events
+                ''',
+                'reachability_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability events
+                ''',
+                'reachability_set',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transport-down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16163,53 +16205,11 @@ _meta_table = {
                 ''',
                 'transport_unavailable',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of configure events
+                '''                Number of transport up events
                 ''',
-                'configured_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unconfigure events
-                ''',
-                'configured_clear',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability events
-                ''',
-                'reachability_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability cleared events
-                ''',
-                'reachability_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status up events
-                ''',
-                'member_status_up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status down events
-                ''',
-                'member_status_down',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation events
-                ''',
-                'pe_isolated',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation cleared events
-                ''',
-                'pe_isolated_clear',
+                'transport_up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16228,17 +16228,11 @@ _meta_table = {
                 ''',
                 'connection',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.TlVs', 
+            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpEvents', 
                 [], [], 
-                '''                Number TLVs sent and received
+                '''                Number of ICCP events
                 ''',
-                'tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.InvalidTlVs', 
-                [], [], 
-                '''                Number invalid TLVs received
-                ''',
-                'invalid_tl_vs',
+                'iccp_events',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-messages', REFERENCE_CLASS, 'IccpMessages' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpMessages', 
                 [], [], 
@@ -16246,32 +16240,38 @@ _meta_table = {
                 ''',
                 'iccp_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpEvents', 
+            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.InvalidTlVs', 
                 [], [], 
-                '''                Number of ICCP events
+                '''                Number invalid TLVs received
                 ''',
-                'iccp_events',
+                'invalid_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
+            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.TlVs', 
+                [], [], 
+                '''                Number TLVs sent and received
                 ''',
-                'last_unexpected_event',
+                'tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16307,24 +16307,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.Connection',
             False, 
             [
-            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs sent
-                ''',
-                'sent_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs received
-                ''',
-                'received_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP connects
-                ''',
-                'iccp_invalid_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-config-connect-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of ICCP connection errors due to config
@@ -16338,23 +16320,23 @@ _meta_table = {
                 ''',
                 'iccp_count_connect_errors',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs sent
+                '''                Number of invalid ICCP connects
                 ''',
-                'sent_wrong_versions',
+                'iccp_invalid_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs received
+                '''                Number of invalid ICCP disconnects
                 ''',
-                'received_wrong_versions',
+                'iccp_invalid_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of disconnect TLVs sent
+                '''                Number of connect TLVs received
                 ''',
-                'sent_disconnects',
+                'received_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16362,11 +16344,29 @@ _meta_table = {
                 ''',
                 'received_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP disconnects
+                '''                Number of wrong version TLVs received
                 ''',
-                'iccp_invalid_disconnects',
+                'received_wrong_versions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of connect TLVs sent
+                ''',
+                'sent_connects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of disconnect TLVs sent
+                ''',
+                'sent_disconnects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of wrong version TLVs sent
+                ''',
+                'sent_wrong_versions',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16379,71 +16379,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.TlVs',
             False, 
             [
-            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config TLVs sent
-                ''',
-                'sent_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of config TLVs received
                 ''',
                 'received_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs sent
-                ''',
-                'sent_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs received
-                ''',
-                'received_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs sent
-                ''',
-                'sent_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs received
-                ''',
-                'received_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs sent
-                ''',
-                'sent_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs sent
-                ''',
-                'sent_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs received
-                ''',
-                'received_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config sync request TLVs sent
-                ''',
-                'sent_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16451,11 +16391,11 @@ _meta_table = {
                 ''',
                 'received_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of solicited sync data TLVs sent
+                '''                Number of NAK TLVs received
                 ''',
-                'sent_solicited_sync_data',
+                'received_na_ks',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16463,17 +16403,77 @@ _meta_table = {
                 ''',
                 'received_solicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of unsolicited sync data TLVs sent
+                '''                Number of state TLVs received
                 ''',
-                'sent_unsolicited_sync_data',
+                'received_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs received
+                ''',
+                'received_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs received
+                ''',
+                'received_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of unsolicited sync data TLVs received
                 ''',
                 'received_unsolicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config TLVs sent
+                ''',
+                'sent_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config sync request TLVs sent
+                ''',
+                'sent_config_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of NAK TLVs sent
+                ''',
+                'sent_na_ks',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of solicited sync data TLVs sent
+                ''',
+                'sent_solicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state TLVs sent
+                ''',
+                'sent_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs sent
+                ''',
+                'sent_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs sent
+                ''',
+                'sent_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of unsolicited sync data TLVs sent
+                ''',
+                'sent_unsolicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16493,19 +16493,19 @@ _meta_table = {
                 ''',
                 'incorrect_length',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of messages received with an invalid
-                mLACP TLV type
-                ''',
-                'invalid_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('invalid-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of messages received containing invalid
                 data
                 ''',
                 'invalid_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of messages received with an invalid
+                mLACP TLV type
+                ''',
+                'invalid_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('unknown-bundle', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16531,11 +16531,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpMessages',
             False, 
             [
-            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages sent
+                '''                Number of messages received
                 ''',
-                'sent_messages',
+                'received_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-buffer-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16544,11 +16544,11 @@ _meta_table = {
                 ''',
                 'sent_buffer_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages received
+                '''                Number of messages sent
                 ''',
-                'received_messages',
+                'sent_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transmission-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16567,11 +16567,53 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpEvents',
             False, 
             [
-            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of transport up events
+                '''                Number of unconfigure events
                 ''',
-                'transport_up',
+                'configured_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of configure events
+                ''',
+                'configured_set',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status down events
+                ''',
+                'member_status_down',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status up events
+                ''',
+                'member_status_up',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation events
+                ''',
+                'pe_isolated',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation cleared events
+                ''',
+                'pe_isolated_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability cleared events
+                ''',
+                'reachability_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability events
+                ''',
+                'reachability_set',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transport-down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16585,53 +16627,11 @@ _meta_table = {
                 ''',
                 'transport_unavailable',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of configure events
+                '''                Number of transport up events
                 ''',
-                'configured_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unconfigure events
-                ''',
-                'configured_clear',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability events
-                ''',
-                'reachability_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability cleared events
-                ''',
-                'reachability_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status up events
-                ''',
-                'member_status_up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status down events
-                ''',
-                'member_status_down',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation events
-                ''',
-                'pe_isolated',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation cleared events
-                ''',
-                'pe_isolated_clear',
+                'transport_up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16650,17 +16650,11 @@ _meta_table = {
                 ''',
                 'connection',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.TlVs', 
+            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpEvents', 
                 [], [], 
-                '''                Number TLVs sent and received
+                '''                Number of ICCP events
                 ''',
-                'tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.InvalidTlVs', 
-                [], [], 
-                '''                Number invalid TLVs received
-                ''',
-                'invalid_tl_vs',
+                'iccp_events',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-messages', REFERENCE_CLASS, 'IccpMessages' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpMessages', 
                 [], [], 
@@ -16668,32 +16662,38 @@ _meta_table = {
                 ''',
                 'iccp_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpEvents', 
+            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.InvalidTlVs', 
                 [], [], 
-                '''                Number of ICCP events
+                '''                Number invalid TLVs received
                 ''',
-                'iccp_events',
+                'invalid_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
+            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.TlVs', 
+                [], [], 
+                '''                Number TLVs sent and received
                 ''',
-                'last_unexpected_event',
+                'tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16729,24 +16729,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.Connection',
             False, 
             [
-            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs sent
-                ''',
-                'sent_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs received
-                ''',
-                'received_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP connects
-                ''',
-                'iccp_invalid_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-config-connect-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of ICCP connection errors due to config
@@ -16760,23 +16742,23 @@ _meta_table = {
                 ''',
                 'iccp_count_connect_errors',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs sent
+                '''                Number of invalid ICCP connects
                 ''',
-                'sent_wrong_versions',
+                'iccp_invalid_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs received
+                '''                Number of invalid ICCP disconnects
                 ''',
-                'received_wrong_versions',
+                'iccp_invalid_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of disconnect TLVs sent
+                '''                Number of connect TLVs received
                 ''',
-                'sent_disconnects',
+                'received_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16784,11 +16766,29 @@ _meta_table = {
                 ''',
                 'received_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP disconnects
+                '''                Number of wrong version TLVs received
                 ''',
-                'iccp_invalid_disconnects',
+                'received_wrong_versions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of connect TLVs sent
+                ''',
+                'sent_connects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of disconnect TLVs sent
+                ''',
+                'sent_disconnects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of wrong version TLVs sent
+                ''',
+                'sent_wrong_versions',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16801,71 +16801,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.TlVs',
             False, 
             [
-            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config TLVs sent
-                ''',
-                'sent_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of config TLVs received
                 ''',
                 'received_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs sent
-                ''',
-                'sent_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs received
-                ''',
-                'received_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs sent
-                ''',
-                'sent_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs received
-                ''',
-                'received_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs sent
-                ''',
-                'sent_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs sent
-                ''',
-                'sent_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs received
-                ''',
-                'received_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config sync request TLVs sent
-                ''',
-                'sent_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16873,11 +16813,11 @@ _meta_table = {
                 ''',
                 'received_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of solicited sync data TLVs sent
+                '''                Number of NAK TLVs received
                 ''',
-                'sent_solicited_sync_data',
+                'received_na_ks',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16885,17 +16825,77 @@ _meta_table = {
                 ''',
                 'received_solicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of unsolicited sync data TLVs sent
+                '''                Number of state TLVs received
                 ''',
-                'sent_unsolicited_sync_data',
+                'received_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs received
+                ''',
+                'received_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs received
+                ''',
+                'received_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of unsolicited sync data TLVs received
                 ''',
                 'received_unsolicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config TLVs sent
+                ''',
+                'sent_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config sync request TLVs sent
+                ''',
+                'sent_config_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of NAK TLVs sent
+                ''',
+                'sent_na_ks',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of solicited sync data TLVs sent
+                ''',
+                'sent_solicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state TLVs sent
+                ''',
+                'sent_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs sent
+                ''',
+                'sent_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs sent
+                ''',
+                'sent_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of unsolicited sync data TLVs sent
+                ''',
+                'sent_unsolicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -16915,19 +16915,19 @@ _meta_table = {
                 ''',
                 'incorrect_length',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of messages received with an invalid
-                mLACP TLV type
-                ''',
-                'invalid_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('invalid-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of messages received containing invalid
                 data
                 ''',
                 'invalid_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of messages received with an invalid
+                mLACP TLV type
+                ''',
+                'invalid_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('unknown-bundle', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16953,11 +16953,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpMessages',
             False, 
             [
-            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages sent
+                '''                Number of messages received
                 ''',
-                'sent_messages',
+                'received_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-buffer-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16966,11 +16966,11 @@ _meta_table = {
                 ''',
                 'sent_buffer_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages received
+                '''                Number of messages sent
                 ''',
-                'received_messages',
+                'sent_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transmission-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -16989,11 +16989,53 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpEvents',
             False, 
             [
-            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of transport up events
+                '''                Number of unconfigure events
                 ''',
-                'transport_up',
+                'configured_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of configure events
+                ''',
+                'configured_set',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status down events
+                ''',
+                'member_status_down',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status up events
+                ''',
+                'member_status_up',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation events
+                ''',
+                'pe_isolated',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation cleared events
+                ''',
+                'pe_isolated_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability cleared events
+                ''',
+                'reachability_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability events
+                ''',
+                'reachability_set',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transport-down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17007,53 +17049,11 @@ _meta_table = {
                 ''',
                 'transport_unavailable',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of configure events
+                '''                Number of transport up events
                 ''',
-                'configured_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unconfigure events
-                ''',
-                'configured_clear',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability events
-                ''',
-                'reachability_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability cleared events
-                ''',
-                'reachability_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status up events
-                ''',
-                'member_status_up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status down events
-                ''',
-                'member_status_down',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation events
-                ''',
-                'pe_isolated',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation cleared events
-                ''',
-                'pe_isolated_clear',
+                'transport_up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17072,17 +17072,11 @@ _meta_table = {
                 ''',
                 'connection',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.TlVs', 
+            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpEvents', 
                 [], [], 
-                '''                Number TLVs sent and received
+                '''                Number of ICCP events
                 ''',
-                'tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.InvalidTlVs', 
-                [], [], 
-                '''                Number invalid TLVs received
-                ''',
-                'invalid_tl_vs',
+                'iccp_events',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-messages', REFERENCE_CLASS, 'IccpMessages' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpMessages', 
                 [], [], 
@@ -17090,32 +17084,38 @@ _meta_table = {
                 ''',
                 'iccp_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpEvents', 
+            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.InvalidTlVs', 
                 [], [], 
-                '''                Number of ICCP events
+                '''                Number invalid TLVs received
                 ''',
-                'iccp_events',
+                'invalid_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
+            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.TlVs', 
+                [], [], 
+                '''                Number TLVs sent and received
                 ''',
-                'last_unexpected_event',
+                'tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17151,24 +17151,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.Connection',
             False, 
             [
-            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs sent
-                ''',
-                'sent_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of connect TLVs received
-                ''',
-                'received_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP connects
-                ''',
-                'iccp_invalid_connects',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-config-connect-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of ICCP connection errors due to config
@@ -17182,23 +17164,23 @@ _meta_table = {
                 ''',
                 'iccp_count_connect_errors',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs sent
+                '''                Number of invalid ICCP connects
                 ''',
-                'sent_wrong_versions',
+                'iccp_invalid_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of wrong version TLVs received
+                '''                Number of invalid ICCP disconnects
                 ''',
-                'received_wrong_versions',
+                'iccp_invalid_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-connects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of disconnect TLVs sent
+                '''                Number of connect TLVs received
                 ''',
-                'sent_disconnects',
+                'received_connects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-disconnects', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17206,11 +17188,29 @@ _meta_table = {
                 ''',
                 'received_disconnects',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-invalid-disconnects', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-wrong-versions', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of invalid ICCP disconnects
+                '''                Number of wrong version TLVs received
                 ''',
-                'iccp_invalid_disconnects',
+                'received_wrong_versions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-connects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of connect TLVs sent
+                ''',
+                'sent_connects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-disconnects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of disconnect TLVs sent
+                ''',
+                'sent_disconnects',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-wrong-versions', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of wrong version TLVs sent
+                ''',
+                'sent_wrong_versions',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17223,71 +17223,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.TlVs',
             False, 
             [
-            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config TLVs sent
-                ''',
-                'sent_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of config TLVs received
                 ''',
                 'received_config',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs sent
-                ''',
-                'sent_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state TLVs received
-                ''',
-                'received_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs sent
-                ''',
-                'sent_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of NAK TLVs received
-                ''',
-                'received_na_ks',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs sent
-                ''',
-                'sent_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs sent
-                ''',
-                'sent_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of state sync request TLVs received
-                ''',
-                'received_state_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of config sync request TLVs sent
-                ''',
-                'sent_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17295,11 +17235,11 @@ _meta_table = {
                 ''',
                 'received_config_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-na-ks', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of solicited sync data TLVs sent
+                '''                Number of NAK TLVs received
                 ''',
-                'sent_solicited_sync_data',
+                'received_na_ks',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17307,17 +17247,77 @@ _meta_table = {
                 ''',
                 'received_solicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of unsolicited sync data TLVs sent
+                '''                Number of state TLVs received
                 ''',
-                'sent_unsolicited_sync_data',
+                'received_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs received
+                ''',
+                'received_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs received
+                ''',
+                'received_sync_requests',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of unsolicited sync data TLVs received
                 ''',
                 'received_unsolicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config TLVs sent
+                ''',
+                'sent_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-config-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of config sync request TLVs sent
+                ''',
+                'sent_config_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-na-ks', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of NAK TLVs sent
+                ''',
+                'sent_na_ks',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-solicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of solicited sync data TLVs sent
+                ''',
+                'sent_solicited_sync_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state TLVs sent
+                ''',
+                'sent_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-state-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of state sync request TLVs sent
+                ''',
+                'sent_state_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-sync-requests', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sync request TLVs sent
+                ''',
+                'sent_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sent-unsolicited-sync-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of unsolicited sync data TLVs sent
+                ''',
+                'sent_unsolicited_sync_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17337,19 +17337,19 @@ _meta_table = {
                 ''',
                 'incorrect_length',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of messages received with an invalid
-                mLACP TLV type
-                ''',
-                'invalid_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('invalid-data', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of messages received containing invalid
                 data
                 ''',
                 'invalid_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('invalid-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of messages received with an invalid
+                mLACP TLV type
+                ''',
+                'invalid_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('unknown-bundle', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17375,11 +17375,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpMessages',
             False, 
             [
-            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages sent
+                '''                Number of messages received
                 ''',
-                'sent_messages',
+                'received_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-buffer-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17388,11 +17388,11 @@ _meta_table = {
                 ''',
                 'sent_buffer_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of messages received
+                '''                Number of messages sent
                 ''',
-                'received_messages',
+                'sent_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transmission-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17411,11 +17411,53 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpEvents',
             False, 
             [
-            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of transport up events
+                '''                Number of unconfigure events
                 ''',
-                'transport_up',
+                'configured_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of configure events
+                ''',
+                'configured_set',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status down events
+                ''',
+                'member_status_down',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of member status up events
+                ''',
+                'member_status_up',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation events
+                ''',
+                'pe_isolated',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of PE isolation cleared events
+                ''',
+                'pe_isolated_clear',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability cleared events
+                ''',
+                'reachability_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of reachability events
+                ''',
+                'reachability_set',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('transport-down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -17429,53 +17471,11 @@ _meta_table = {
                 ''',
                 'transport_unavailable',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-set', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('transport-up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of configure events
+                '''                Number of transport up events
                 ''',
-                'configured_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unconfigure events
-                ''',
-                'configured_clear',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-set', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability events
-                ''',
-                'reachability_set',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('reachability-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of reachability cleared events
-                ''',
-                'reachability_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status up events
-                ''',
-                'member_status_up',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-status-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of member status down events
-                ''',
-                'member_status_down',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation events
-                ''',
-                'pe_isolated',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pe-isolated-clear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of PE isolation cleared events
-                ''',
-                'pe_isolated_clear',
+                'transport_up',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17494,17 +17494,11 @@ _meta_table = {
                 ''',
                 'connection',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.TlVs', 
+            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpEvents', 
                 [], [], 
-                '''                Number TLVs sent and received
+                '''                Number of ICCP events
                 ''',
-                'tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.InvalidTlVs', 
-                [], [], 
-                '''                Number invalid TLVs received
-                ''',
-                'invalid_tl_vs',
+                'iccp_events',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-messages', REFERENCE_CLASS, 'IccpMessages' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpMessages', 
                 [], [], 
@@ -17512,32 +17506,38 @@ _meta_table = {
                 ''',
                 'iccp_messages',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-events', REFERENCE_CLASS, 'IccpEvents' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpEvents', 
+            _MetaInfoClassMember('invalid-tl-vs', REFERENCE_CLASS, 'InvalidTlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.InvalidTlVs', 
                 [], [], 
-                '''                Number of ICCP events
+                '''                Number invalid TLVs received
                 ''',
-                'iccp_events',
+                'invalid_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
+            _MetaInfoClassMember('tl-vs', REFERENCE_CLASS, 'TlVs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.TlVs', 
+                [], [], 
+                '''                Number TLVs sent and received
                 ''',
-                'last_unexpected_event',
+                'tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17688,23 +17688,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId', 
-                [], [], 
-                '''                System ID
-                ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the system ID is for
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the system (deprecated)
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId', 
+                [], [], 
+                '''                System ID
                 ''',
-                'system_priority',
+                'system_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -17712,6 +17706,12 @@ _meta_table = {
                 (deprecated)
                 ''',
                 'system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Priority of the system (deprecated)
+                ''',
+                'system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17781,23 +17781,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId', 
-                [], [], 
-                '''                System ID
-                ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the system ID is for
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the system (deprecated)
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId', 
+                [], [], 
+                '''                System ID
                 ''',
-                'system_priority',
+                'system_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -17805,6 +17799,12 @@ _meta_table = {
                 (deprecated)
                 ''',
                 'system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Priority of the system (deprecated)
+                ''',
+                'system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -17909,20 +17909,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -17940,12 +17940,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the bundle
@@ -17958,6 +17952,12 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -17969,17 +17969,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Device ID
-                ''',
-                'node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group ID
                 ''',
                 'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Device ID
+                ''',
+                'node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18021,20 +18021,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -18081,6 +18081,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -18093,50 +18119,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18172,11 +18172,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData', 
+            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData', 
                 [], [], 
-                '''                Peer device mLACP TLV counter information
+                '''                Member mLACP TLV counter information
                 ''',
-                'node_data',
+                'member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
@@ -18184,11 +18184,11 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData', 
                 [], [], 
-                '''                Member mLACP TLV counter information
+                '''                Peer device mLACP TLV counter information
                 ''',
-                'member_data',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18230,6 +18230,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -18242,50 +18268,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18327,17 +18327,17 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData', 
                 [], [], 
                 '''                Local member mLACP TLV counter information
                 ''',
                 'member_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18436,20 +18436,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -18467,12 +18467,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the bundle
@@ -18485,6 +18479,12 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -18496,17 +18496,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Device ID
-                ''',
-                'node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group ID
                 ''',
                 'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Device ID
+                ''',
+                'node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18548,20 +18548,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -18608,6 +18608,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -18620,50 +18646,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18699,11 +18699,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData', 
+            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData', 
                 [], [], 
-                '''                Peer device mLACP TLV counter information
+                '''                Member mLACP TLV counter information
                 ''',
-                'node_data',
+                'member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
@@ -18711,11 +18711,11 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData', 
                 [], [], 
-                '''                Member mLACP TLV counter information
+                '''                Peer device mLACP TLV counter information
                 ''',
-                'member_data',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18757,6 +18757,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -18769,50 +18795,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18854,17 +18854,17 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData', 
                 [], [], 
                 '''                Local member mLACP TLV counter information
                 ''',
                 'member_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -18963,20 +18963,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -18994,12 +18994,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the bundle
@@ -19012,6 +19006,12 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -19023,17 +19023,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Device ID
-                ''',
-                'node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group ID
                 ''',
                 'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Device ID
+                ''',
+                'node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19075,20 +19075,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -19135,6 +19135,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -19147,50 +19173,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19226,11 +19226,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData', 
+            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData', 
                 [], [], 
-                '''                Peer device mLACP TLV counter information
+                '''                Member mLACP TLV counter information
                 ''',
-                'node_data',
+                'member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
@@ -19238,11 +19238,11 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData', 
                 [], [], 
-                '''                Member mLACP TLV counter information
+                '''                Peer device mLACP TLV counter information
                 ''',
-                'member_data',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19284,6 +19284,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -19296,50 +19322,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19381,17 +19381,17 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData', 
                 [], [], 
                 '''                Local member mLACP TLV counter information
                 ''',
                 'member_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19473,20 +19473,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -19504,12 +19504,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
-                [], [], 
-                '''                Counts of mLACP sync request TLVs on all ports
-                ''',
-                'mlacp_sync_requests_on_all_local_ports',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the bundle
@@ -19522,6 +19516,12 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-local-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllLocalPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts', 
+                [], [], 
+                '''                Counts of mLACP sync request TLVs on all ports
+                ''',
+                'mlacp_sync_requests_on_all_local_ports',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bundle-data',
@@ -19533,17 +19533,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Device ID
-                ''',
-                'node_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group ID
                 ''',
                 'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Device ID
+                ''',
+                'node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19585,20 +19585,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
-                [], [], 
-                '''                Number of mLACP sync request TLVs received
-                ''',
-                'received_sync_requests',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in nsecs from boot when counters were last
                 cleared (deprecated)
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+                [], [], 
+                '''                Number of mLACP sync request TLVs received
+                ''',
+                'received_sync_requests',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
@@ -19645,6 +19645,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -19657,50 +19683,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19736,11 +19736,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData',
             False, 
             [
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData', 
+            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData', 
                 [], [], 
-                '''                Peer device mLACP TLV counter information
+                '''                Member mLACP TLV counter information
                 ''',
-                'node_data',
+                'member_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
@@ -19748,11 +19748,11 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData', 
                 [], [], 
-                '''                Member mLACP TLV counter information
+                '''                Peer device mLACP TLV counter information
                 ''',
-                'member_data',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19794,6 +19794,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters',
             False, 
             [
+            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time in nsecs from boot when counters were last
+                cleared (deprecated)
+                ''',
+                'last_time_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Elapsed time in nsecs since last unexpected
+                event
+                ''',
+                'last_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP NAK TLVs received
+                ''',
+                'received_nak_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of mLACP priority TLVs received
+                ''',
+                'received_priority_tl_vs',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
@@ -19806,50 +19832,24 @@ _meta_table = {
                 ''',
                 'sent_config_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP state TLVs sent
-                ''',
-                'sent_state_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sent-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of mLACP priority TLVs sent
                 ''',
                 'sent_priority_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-priority-tl-vs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-state-tl-vs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of mLACP priority TLVs received
+                '''                Number of mLACP state TLVs sent
                 ''',
-                'received_priority_tl_vs',
+                'sent_state_tl_vs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-nak-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of mLACP NAK TLVs received
-                ''',
-                'received_nak_tl_vs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time in nsecs from boot when counters were last
-                cleared (deprecated)
-                ''',
-                'last_time_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Elapsed time in nsecs since counters were last
                 cleared
                 ''',
                 'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Elapsed time in nsecs since last unexpected
-                event
-                ''',
-                'last_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19891,17 +19891,17 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData', 
-                [], [], 
-                '''                Peer device mLACP TLV counter information
-                ''',
-                'node_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-data', REFERENCE_LIST, 'MemberData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData', 
                 [], [], 
                 '''                Local member mLACP TLV counter information
                 ''',
                 'member_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('node-data', REFERENCE_LIST, 'NodeData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData', 
+                [], [], 
+                '''                Peer device mLACP TLV counter information
+                ''',
+                'node_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -19974,6 +19974,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters',
             False, 
             [
+            _MetaInfoClassMember('bundles', REFERENCE_CLASS, 'Bundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles', 
+                [], [], 
+                '''                Bundle interfaces with counters of their
+                member's mLACP events
+                ''',
+                'bundles',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-groups', REFERENCE_CLASS, 'IccpGroups' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups', 
                 [], [], 
                 '''                ICCP Groups with counters of their member's
@@ -19986,13 +19993,6 @@ _meta_table = {
                 '''                Member interfaces with counters of mLACP events
                 ''',
                 'members',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundles', REFERENCE_CLASS, 'Bundles' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles', 
-                [], [], 
-                '''                Bundle interfaces with counters of their
-                member's mLACP events
-                ''',
-                'bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes', 
                 [], [], 
@@ -20018,64 +20018,17 @@ _meta_table = {
                 ''',
                 'bfd_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('scheduled-actions', REFERENCE_CLASS, 'ScheduledActions' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.ScheduledActions', 
-                [], [], 
-                '''                Scheduled actions on a bundle
-                ''',
-                'scheduled_actions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle', REFERENCE_CLASS, 'Bundle' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Bundle', 
                 [], [], 
                 '''                Generic information for bundles and members
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('events-rg', REFERENCE_CLASS, 'EventsRg' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg', 
+            _MetaInfoClassMember('bundle-briefs', REFERENCE_CLASS, 'BundleBriefs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs', 
                 [], [], 
-                '''                Bundle ICCP events information for bundles and
-                members
+                '''                Bundle interfaces with common bundle information
                 ''',
-                'events_rg',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp', REFERENCE_CLASS, 'Lacp' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp', 
-                [], [], 
-                '''                LACP information for bundles and members
-                ''',
-                'lacp',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-bundle-counters', REFERENCE_CLASS, 'MlacpBundleCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters', 
-                [], [], 
-                '''                Bundle specific counters of mLACP events
-                ''',
-                'mlacp_bundle_counters',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('protect', REFERENCE_CLASS, 'Protect' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Protect', 
-                [], [], 
-                '''                Information for bundles and members that are in
-                the protect database
-                ''',
-                'protect',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-brief', REFERENCE_CLASS, 'MlacpBrief' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief', 
-                [], [], 
-                '''                mLACP Information for Interchassis Groups and
-                bundles
-                ''',
-                'mlacp_brief',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp', REFERENCE_CLASS, 'Mlacp' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp', 
-                [], [], 
-                '''                mLACP Information for Interchassis Groups and
-                bundles
-                ''',
-                'mlacp',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-allocation', REFERENCE_CLASS, 'MacAllocation' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MacAllocation', 
-                [], [], 
-                '''                Information about allocated MAC addresses that
-                are not in use
-                ''',
-                'mac_allocation',
+                'bundle_briefs',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events', REFERENCE_CLASS, 'Events' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Events', 
                 [], [], 
@@ -20090,12 +20043,6 @@ _meta_table = {
                 ''',
                 'events_bdl',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-briefs', REFERENCE_CLASS, 'BundleBriefs' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.BundleBriefs', 
-                [], [], 
-                '''                Bundle interfaces with common bundle information
-                ''',
-                'bundle_briefs',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('events-mbr', REFERENCE_CLASS, 'EventsMbr' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsMbr', 
                 [], [], 
                 '''                Bundle member events information for bundles and
@@ -20103,11 +20050,70 @@ _meta_table = {
                 ''',
                 'events_mbr',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('events-rg', REFERENCE_CLASS, 'EventsRg' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.EventsRg', 
+                [], [], 
+                '''                Bundle ICCP events information for bundles and
+                members
+                ''',
+                'events_rg',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp', REFERENCE_CLASS, 'Lacp' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Lacp', 
+                [], [], 
+                '''                LACP information for bundles and members
+                ''',
+                'lacp',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-allocation', REFERENCE_CLASS, 'MacAllocation' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MacAllocation', 
+                [], [], 
+                '''                Information about allocated MAC addresses that
+                are not in use
+                ''',
+                'mac_allocation',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp', REFERENCE_CLASS, 'Mlacp' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Mlacp', 
+                [], [], 
+                '''                mLACP Information for Interchassis Groups and
+                bundles
+                ''',
+                'mlacp',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-brief', REFERENCE_CLASS, 'MlacpBrief' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBrief', 
+                [], [], 
+                '''                mLACP Information for Interchassis Groups and
+                bundles
+                ''',
+                'mlacp_brief',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-bundle-counters', REFERENCE_CLASS, 'MlacpBundleCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters', 
+                [], [], 
+                '''                Bundle specific counters of mLACP events
+                ''',
+                'mlacp_bundle_counters',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-iccp-group-counters', REFERENCE_CLASS, 'MlacpIccpGroupCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpIccpGroupCounters', 
                 [], [], 
                 '''                ICCP Group specific counters of mLACP events
                 ''',
                 'mlacp_iccp_group_counters',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-member-counters', REFERENCE_CLASS, 'MlacpMemberCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters', 
+                [], [], 
+                '''                Member specific counters of mLACP events
+                ''',
+                'mlacp_member_counters',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('protect', REFERENCE_CLASS, 'Protect' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.Protect', 
+                [], [], 
+                '''                Information for bundles and members that are in
+                the protect database
+                ''',
+                'protect',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('scheduled-actions', REFERENCE_CLASS, 'ScheduledActions' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.ScheduledActions', 
+                [], [], 
+                '''                Scheduled actions on a bundle
+                ''',
+                'scheduled_actions',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId', 
                 [], [], 
@@ -20115,12 +20121,6 @@ _meta_table = {
                 ICCP Groups
                 ''',
                 'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-member-counters', REFERENCE_CLASS, 'MlacpMemberCounters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters', 
-                [], [], 
-                '''                Member specific counters of mLACP events
-                ''',
-                'mlacp_member_counters',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -20173,23 +20173,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpData.Global.SystemId',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global.SystemId.SystemId', 
-                [], [], 
-                '''                System ID
-                ''',
-                'system_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                ICCP Group that the system ID is for
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Priority of the system (deprecated)
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global.SystemId.SystemId', 
+                [], [], 
+                '''                System ID
                 ''',
-                'system_priority',
+                'system_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -20197,6 +20191,12 @@ _meta_table = {
                 (deprecated)
                 ''',
                 'system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Priority of the system (deprecated)
+                ''',
+                'system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -20289,51 +20289,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress', 
-                [], [], 
-                '''                Configured destination address for BFD session
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session start before declaring
-                DOWN
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress', 
+                [], [], 
+                '''                Configured destination address for BFD session
                 ''',
-                'start_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time to wait on session NBR_UNCONFIG before
-                declaring DOWN
-                ''',
-                'nbr_unconfig_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Preferred multiplier for the BFD session
-                ''',
-                'pref_multiplier',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred minimum interval for the BFD session
-                (ms)
-                ''',
-                'pref_min_interval',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Preferred echo minimum interval for the BFD
-                session (ms)
-                ''',
-                'pref_echo_min_interval',
+                'destination_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -20348,6 +20314,40 @@ _meta_table = {
                 ''',
                 'mode_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('nbr-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session NBR_UNCONFIG before
+                declaring DOWN
+                ''',
+                'nbr_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred echo minimum interval for the BFD
+                session (ms)
+                ''',
+                'pref_echo_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-min-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Preferred minimum interval for the BFD session
+                (ms)
+                ''',
+                'pref_min_interval',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('pref-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Preferred multiplier for the BFD session
+                ''',
+                'pref_multiplier',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time to wait on session start before declaring
+                DOWN
+                ''',
+                'start_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'bfd-config',
@@ -20359,17 +20359,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data',
             False, 
             [
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.MacAddress', 
-                [], [], 
-                '''                MAC address of this member
+            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active foreign members on the
+                bundle
                 ''',
-                'mac_address',
+                'active_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Bundle interface name
+            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of active local members on the bundle
                 ''',
-                'bundle_interface_name',
+                'active_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -20378,12 +20379,36 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Effective bandwidth on the bundle interface
-                (kbps)
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.BfdConfig', 
+                [], [], 
+                '''                Configuration values for BFD on bundle members
                 ''',
-                'effective_bandwidth',
+                'bfd_config',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Bundle interface name
+                ''',
+                'bundle_interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
+                [], [], 
+                '''                The state of the bundle
+                ''',
+                'bundle_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the Cisco Extensions feature (1 =
+                enabled, 0 = not enabled)
+                ''',
+                'cisco_extensions',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Collector Max Delay
+                ''',
+                'collector_max_delay',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -20392,56 +20417,12 @@ _meta_table = {
                 ''',
                 'configured_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Minimum number of active links for bundle to go
-                up
-                ''',
-                'minimum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum number of active links in the bundle
-                ''',
-                'maximum_active_links',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
-                [], [], 
-                '''                Source of maximum active links value
-                ''',
-                'maximum_active_links_source',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bundle bandwidth for bundle to go up
-                (kbps)
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Primary bundle member (no longer applicable)
-                ''',
-                'primary_member',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
-                [], [], 
-                '''                The state of the bundle
-                ''',
-                'bundle_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-member-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                The number of active local members on the bundle
-                ''',
-                'active_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of standby local members on the
+                '''                The number of configured local members on the
                 bundle
                 ''',
-                'standby_member_count',
+                'configured_foreign_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('configured-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -20449,6 +20430,79 @@ _meta_table = {
                 bundle
                 ''',
                 'configured_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('effective-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Effective bandwidth on the bundle interface
+                (kbps)
+                ''',
+                'effective_bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ICCP Group that the bundle is configured to
+                ''',
+                'iccp_group_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates if this bundle is operating as an
+                inter-chassis link (1 = I-C link, 0 = normal)
+                ''',
+                'inter_chassis',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the BFD (IPv4) feature on the
+                bundle
+                ''',
+                'ipv4bfd_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates the active/standby redundancy state of
+                the device for the bundle
+                ''',
+                'is_active',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The status of the LACP nonrevertive feature (1 =
+                enable, 0 = not enabled)
+                ''',
+                'lacp_nonrevertive',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the LACP feature on the bundle
+                ''',
+                'lacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the link order signaling feature
+                on the bundle
+                ''',
+                'link_order_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of links required per rack for
+                localized load balancing
+                ''',
+                'load_balance_locality_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                The type of hash to use for load balancing
+                ''',
+                'load_balance_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.MacAddress', 
+                [], [], 
+                '''                MAC address of this member
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
@@ -20463,117 +20517,12 @@ _meta_table = {
                 ''',
                 'mac_source_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('inter-chassis', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if this bundle is operating as an
-                inter-chassis link (1 = I-C link, 0 = normal)
-                ''',
-                'inter_chassis',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('is-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates the active/standby redundancy state of
-                the device for the bundle
-                ''',
-                'is_active',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the LACP feature on the bundle
-                ''',
-                'lacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the mLACP feature on the bundle
-                ''',
-                'mlacp_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the BFD (IPv4) feature on the
-                bundle
-                ''',
-                'ipv4bfd_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
-                [], [], 
-                '''                The status of the link order signaling feature
-                on the bundle
-                ''',
-                'link_order_status',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                The type of hash to use for load balancing
-                ''',
-                'load_balance_type',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('load-balance-locality-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of links required per rack for
-                localized load balancing
-                ''',
-                'load_balance_locality_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Timer for suppressing bundle state flaps
-                ''',
-                'suppression_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The wait while time used for member ports
-                ''',
-                'wait_while_timer',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Collector Max Delay
-                ''',
-                'collector_max_delay',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('cisco-extensions', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the Cisco Extensions feature (1 =
-                enabled, 0 = not enabled)
-                ''',
-                'cisco_extensions',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-nonrevertive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The status of the LACP nonrevertive feature (1 =
-                enable, 0 = not enabled)
-                ''',
-                'lacp_nonrevertive',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                ICCP Group that the bundle is configured to
+                '''                Attempt to maximize the bundle if bandwidth is
+                below this value
                 ''',
-                'iccp_group_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of active foreign members on the
-                bundle
-                ''',
-                'active_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('configured-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The number of configured local members on the
-                bundle
-                ''',
-                'configured_foreign_member_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
-                [], [], 
-                '''                How a switchover of the bundle from this device
-                will occur
-                ''',
-                'switchover_type',
+                'maximize_threshold_value_band_width',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('maximize-threshold-value-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -20582,18 +20531,49 @@ _meta_table = {
                 ''',
                 'maximize_threshold_value_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximize-threshold-value-band-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Attempt to maximize the bundle if bandwidth is
-                below this value
+            _MetaInfoClassMember('maximum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum number of active links in the bundle
                 ''',
-                'maximize_threshold_value_band_width',
+                'maximum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
+                [], [], 
+                '''                Source of maximum active links value
+                ''',
+                'maximum_active_links_source',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-active-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Minimum number of active links for bundle to go
+                up
+                ''',
+                'minimum_active_links',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bundle bandwidth for bundle to go up
+                (kbps)
+                ''',
+                'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
+                [], [], 
+                '''                The status of the mLACP feature on the bundle
+                ''',
+                'mlacp_status',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Primary bundle member (no longer applicable)
+                ''',
+                'primary_member',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -20609,11 +20589,31 @@ _meta_table = {
                 ''',
                 'singleton',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.BfdConfig', 
-                [], [], 
-                '''                Configuration values for BFD on bundle members
+            _MetaInfoClassMember('standby-member-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The number of standby local members on the
+                bundle
                 ''',
-                'bfd_config',
+                'standby_member_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('suppression-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Timer for suppressing bundle state flaps
+                ''',
+                'suppression_timer',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
+                [], [], 
+                '''                How a switchover of the bundle from this device
+                will occur
+                ''',
+                'switchover_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('wait-while-timer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The wait while time used for member ports
+                ''',
+                'wait_while_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -20649,19 +20649,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.MemberMuxData',
             False, 
             [
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData', 
-                [], [], 
-                '''                Data regarding the reason for last Mux state
-                change
-                ''',
-                'member_mux_state_reason_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
-                [], [], 
-                '''                Current state of this bundle member
-                ''',
-                'mux_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Internal value indicating if an error occurred
@@ -20675,11 +20662,24 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData', 
+                [], [], 
+                '''                Data regarding the reason for last Mux state
+                change
+                ''',
+                'member_mux_state_reason_data',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
+                [], [], 
+                '''                Current state of this bundle member
+                ''',
+                'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
@@ -20721,53 +20721,11 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MemberMuxData', 
-                [], [], 
-                '''                Mux state machine data
-                ''',
-                'member_mux_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MacAddress', 
-                [], [], 
-                '''                MAC address of this member (deprecated)
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The priority of this member
-                ''',
-                'port_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link number
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's underlying link ID
-                ''',
-                'underlying_link_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Member's link order number
-                ''',
-                'link_order_number',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface name
-                ''',
-                'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -20775,17 +20733,59 @@ _meta_table = {
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
-                [], [], 
-                '''                Member's type (local/foreign)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface name
                 ''',
-                'member_type',
+                'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link order number
+                ''',
+                'link_order_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MacAddress', 
+                [], [], 
+                '''                MAC address of this member (deprecated)
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MemberMuxData', 
+                [], [], 
+                '''                Mux state machine data
+                ''',
+                'member_mux_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Member's (short form) name
                 ''',
                 'member_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
+                [], [], 
+                '''                Member's type (local/foreign)
+                ''',
+                'member_type',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's link number
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The priority of this member
+                ''',
+                'port_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Member's underlying link ID
+                ''',
+                'underlying_link_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -20878,19 +20878,39 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundleMembers.Nodes.Node.Counters',
             False, 
             [
-            _MetaInfoClassMember('wrong-port-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LACP protocol packets received on ports with
-                LACP inactive/off
-                ''',
-                'wrong_port_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('last-wrong-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Last unrecognized port on which a packet was
                 received
                 ''',
                 'last_wrong_port',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time elapsed since counters were last cleared
+                (in nanoseconds)
+                ''',
+                'time_since_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-last-updated', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time elapsed since statistics were last updated
+                (in nanoseconds)
+                ''',
+                'time_since_last_updated',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time elapsed since last unexpected event (in
+                nanoseconds)
+                ''',
+                'time_since_unexpected_event',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('undecodable-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Packets received which could not be decoded
+                ''',
+                'undecodable_packets',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('unknown-port-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -20899,32 +20919,12 @@ _meta_table = {
                 ''',
                 'unknown_port_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('undecodable-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('wrong-port-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Packets received which could not be decoded
+                '''                LACP protocol packets received on ports with
+                LACP inactive/off
                 ''',
-                'undecodable_packets',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time elapsed since counters were last cleared
-                (in nanoseconds)
-                ''',
-                'time_since_cleared',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time elapsed since last unexpected event (in
-                nanoseconds)
-                ''',
-                'time_since_unexpected_event',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-last-updated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time elapsed since statistics were last updated
-                (in nanoseconds)
-                ''',
-                'time_since_last_updated',
+                'wrong_port_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -20979,47 +20979,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundleMembers.Members.Member.Data',
             False, 
             [
-            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Member's interface handle
-                ''',
-                'interface_handle',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Operational key for this port
                 ''',
                 'actor_operational_key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                System priority of partner system
-                ''',
-                'partner_system_priority',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC Address used to identify the partner system
-                ''',
-                'partner_system_mac_address',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Operational key for partner port
-                ''',
-                'partner_operational_key',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MIB ifindex of selected bundle
-                ''',
-                'selected_aggregator_id',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MIB ifindex of attached bundle
-                ''',
-                'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-port-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -21033,6 +20997,30 @@ _meta_table = {
                 ''',
                 'actor_port_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-port-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                LACP state of this port
+                ''',
+                'actor_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                MIB ifindex of attached bundle
+                ''',
+                'attached_aggregator_id',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface handle
+                ''',
+                'interface_handle',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Operational key for partner port
+                ''',
+                'partner_operational_key',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-port-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Port number of the partner's port
@@ -21045,17 +21033,29 @@ _meta_table = {
                 ''',
                 'partner_port_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('actor-port-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                LACP state of this port
-                ''',
-                'actor_port_state',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-port-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                LACP state of the partner's port
                 ''',
                 'partner_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address used to identify the partner system
+                ''',
+                'partner_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                System priority of partner system
+                ''',
+                'partner_system_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                MIB ifindex of selected bundle
+                ''',
+                'selected_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21068,35 +21068,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundleMembers.Members.Member.Counters',
             False, 
             [
-            _MetaInfoClassMember('lacpd-us-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('defaulted', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                LACPDUs received
+                '''                State flag set to Defaulted
                 ''',
-                'lacpd_us_received',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacpd-us-transmitted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LACPDUs transmitted
-                ''',
-                'lacpd_us_transmitted',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('marker-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Marker packets received
-                ''',
-                'marker_packets_received',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('marker-responses-transmitted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Marker response packets transmitted
-                ''',
-                'marker_responses_transmitted',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('illegal-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Illegal and unknown packets received
-                ''',
-                'illegal_packets_received',
+                'defaulted',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('excess-lacpd-us-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -21111,35 +21087,35 @@ _meta_table = {
                 ''',
                 'excess_marker_packets_received',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('defaulted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                State flag set to Defaulted
-                ''',
-                'defaulted',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('expired', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                State flag set to Expired
                 ''',
                 'expired',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-last-lacpdu-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time elapsed since last LACPDU received (nsec)
+            _MetaInfoClassMember('illegal-packets-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Illegal and unknown packets received
                 ''',
-                'time_since_last_lacpdu_received',
+                'illegal_packets_received',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time elapsed since counters last cleared (nsec)
+            _MetaInfoClassMember('lacpd-us-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LACPDUs received
                 ''',
-                'time_since_cleared',
+                'lacpd_us_received',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('time-since-unexpected-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Time elapsed since last unexpected event (nsec)
+            _MetaInfoClassMember('lacpd-us-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LACPDUs transmitted
                 ''',
-                'time_since_unexpected_event',
+                'lacpd_us_transmitted',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('last-cleared-nsec', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last time counters cleared (nsec) (deprecated)
+                ''',
+                'last_cleared_nsec',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('last-cleared-sec', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -21147,11 +21123,35 @@ _meta_table = {
                 ''',
                 'last_cleared_sec',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('last-cleared-nsec', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('marker-packets-received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Last time counters cleared (nsec) (deprecated)
+                '''                Marker packets received
                 ''',
-                'last_cleared_nsec',
+                'marker_packets_received',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('marker-responses-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Marker response packets transmitted
+                ''',
+                'marker_responses_transmitted',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-cleared', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time elapsed since counters last cleared (nsec)
+                ''',
+                'time_since_cleared',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-last-lacpdu-received', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time elapsed since last LACPDU received (nsec)
+                ''',
+                'time_since_last_lacpdu_received',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('time-since-unexpected-event', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Time elapsed since last unexpected event (nsec)
+                ''',
+                'time_since_unexpected_event',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21170,17 +21170,17 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundleMembers.Members.Member.Data', 
-                [], [], 
-                '''                Link data for LACP bundle members
-                ''',
-                'data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundleMembers.Members.Member.Counters', 
                 [], [], 
                 '''                Link counters for LACP bundle members
                 ''',
                 'counters',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundleMembers.Members.Member.Data', 
+                [], [], 
+                '''                Link data for LACP bundle members
+                ''',
+                'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21210,18 +21210,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundleMembers',
             False, 
             [
+            _MetaInfoClassMember('members', REFERENCE_CLASS, 'Members' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundleMembers.Members', 
+                [], [], 
+                '''                Table of LACP bundle member interfaces
+                ''',
+                'members',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundleMembers.Nodes', 
                 [], [], 
                 '''                Table of devices with their LACP bundle member
                 interfaces
                 ''',
                 'nodes',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('members', REFERENCE_CLASS, 'Members' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpBundleMembers.Members', 
-                [], [], 
-                '''                Table of LACP bundle member interfaces
-                ''',
-                'members',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21234,6 +21234,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData',
             False, 
             [
+            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Threshold below which rack-local balancing is
+                disabled
+                ''',
+                'local_link_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
@@ -21246,13 +21253,6 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Threshold below which rack-local balancing is
-                disabled
-                ''',
-                'local_link_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'load-balance-data',
@@ -21264,17 +21264,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface',
             False, 
             [
-            _MetaInfoClassMember('load-balance-data', REFERENCE_CLASS, 'LoadBalanceData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData', 
-                [], [], 
-                '''                Load balance data
-                ''',
-                'load_balance_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub interface
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-data', REFERENCE_CLASS, 'LoadBalanceData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData', 
+                [], [], 
+                '''                Load balance data
+                ''',
+                'load_balance_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21293,29 +21293,29 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sub-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sub-interfaces on the bundle
-                ''',
-                'sub_interface_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of members configured to the bundle
                 ''',
                 'member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('total-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total weighting (relative bandwidth) of bundle
-                ''',
-                'total_weight',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sub-interface', REFERENCE_LIST, 'SubInterface' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface', 
                 [], [], 
                 '''                Sub-interfaces of the bundle
                 ''',
                 'sub_interface',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sub-interface-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sub-interfaces on the bundle
+                ''',
+                'sub_interface_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('total-weight', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total weighting (relative bandwidth) of bundle
+                ''',
+                'total_weight',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21345,6 +21345,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData',
             False, 
             [
+            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Threshold below which rack-local balancing is
+                disabled
+                ''',
+                'local_link_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
@@ -21357,13 +21364,6 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Threshold below which rack-local balancing is
-                disabled
-                ''',
-                'local_link_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'load-balance-data',
@@ -21375,17 +21375,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface',
             False, 
             [
-            _MetaInfoClassMember('load-balance-data', REFERENCE_CLASS, 'LoadBalanceData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData', 
-                [], [], 
-                '''                Load balance data
-                ''',
-                'load_balance_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub interface
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-data', REFERENCE_CLASS, 'LoadBalanceData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData', 
+                [], [], 
+                '''                Load balance data
+                ''',
+                'load_balance_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21404,29 +21404,29 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('sub-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of sub-interfaces on the bundle
-                ''',
-                'sub_interface_count',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of members configured to the bundle
                 ''',
                 'member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('total-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total weighting (relative bandwidth) of bundle
-                ''',
-                'total_weight',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('sub-interface', REFERENCE_LIST, 'SubInterface' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface', 
                 [], [], 
                 '''                Sub-interfaces of the bundle
                 ''',
                 'sub_interface',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('sub-interface-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of sub-interfaces on the bundle
+                ''',
+                'sub_interface_count',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('total-weight', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total weighting (relative bandwidth) of bundle
+                ''',
+                'total_weight',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21439,6 +21439,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.LoadBalanceData',
             False, 
             [
+            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Threshold below which rack-local balancing is
+                disabled
+                ''',
+                'local_link_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
@@ -21451,13 +21458,6 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Threshold below which rack-local balancing is
-                disabled
-                ''',
-                'local_link_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'load-balance-data',
@@ -21469,6 +21469,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member',
             False, 
             [
+            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Member's relative bandwidth
+                ''',
+                'bandwidth',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member interface
@@ -21487,12 +21493,6 @@ _meta_table = {
                 ''',
                 'link_order_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Member's relative bandwidth
-                ''',
-                'bandwidth',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'member',
@@ -21504,6 +21504,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData',
             False, 
             [
+            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Threshold below which rack-local balancing is
+                disabled
+                ''',
+                'local_link_threshold',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
@@ -21516,13 +21523,6 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('local-link-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Threshold below which rack-local balancing is
-                disabled
-                ''',
-                'local_link_threshold',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
             'load-balance-data',
@@ -21534,17 +21534,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface',
             False, 
             [
-            _MetaInfoClassMember('load-balance-data', REFERENCE_CLASS, 'LoadBalanceData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData', 
-                [], [], 
-                '''                Load balance data
-                ''',
-                'load_balance_data',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub interface
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('load-balance-data', REFERENCE_CLASS, 'LoadBalanceData' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData', 
+                [], [], 
+                '''                Load balance data
+                ''',
+                'load_balance_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             ],
             'Cisco-IOS-XR-bundlemgr-oper',
@@ -21557,6 +21557,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo',
             False, 
             [
+            _MetaInfoClassMember('avoid-rebalance', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Avoid rebalancing traffic flows
+                ''',
+                'avoid_rebalance',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('brief', REFERENCE_CLASS, 'Brief' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief', 
                 [], [], 
                 '''                Brief bundle data
@@ -21569,23 +21575,17 @@ _meta_table = {
                 ''',
                 'load_balance_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('media', REFERENCE_ENUM_CLASS, 'BundleMedia1Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia1Enum', 
-                [], [], 
-                '''                Media type of bundle
-                ''',
-                'media',
-                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('max-member-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Maximum number of members for the bundle
                 ''',
                 'max_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('avoid-rebalance', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('media', REFERENCE_ENUM_CLASS, 'BundleMedia1Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia1Enum', 
                 [], [], 
-                '''                Avoid rebalancing traffic flows
+                '''                Media type of bundle
                 ''',
-                'avoid_rebalance',
+                'media',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('member', REFERENCE_LIST, 'Member' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member', 
                 [], [], 

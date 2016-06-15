@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -149,16 +149,6 @@ class MplsStatic(object):
     """
     MPLS Static Configuration Data
     
-    .. attribute:: vrfs
-    
-    	VRF table
-    	**type**\: :py:class:`Vrfs <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs>`
-    
-    .. attribute:: interfaces
-    
-    	MPLS Static Interface Table
-    	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces>`
-    
     .. attribute:: default_vrf
     
     	Default VRF
@@ -169,6 +159,16 @@ class MplsStatic(object):
     	MPLS Static Apply Enable
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
+    .. attribute:: interfaces
+    
+    	MPLS Static Interface Table
+    	**type**\: :py:class:`Interfaces <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces>`
+    
+    .. attribute:: vrfs
+    
+    	VRF table
+    	**type**\: :py:class:`Vrfs <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs>`
+    
     
 
     """
@@ -177,13 +177,13 @@ class MplsStatic(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.vrfs = MplsStatic.Vrfs()
-        self.vrfs.parent = self
-        self.interfaces = MplsStatic.Interfaces()
-        self.interfaces.parent = self
         self.default_vrf = MplsStatic.DefaultVrf()
         self.default_vrf.parent = self
         self.enable = None
+        self.interfaces = MplsStatic.Interfaces()
+        self.interfaces.parent = self
+        self.vrfs = MplsStatic.Vrfs()
+        self.vrfs.parent = self
 
 
     class Vrfs(object):
@@ -277,20 +277,20 @@ class MplsStatic(object):
                     	Address Family
                     	**type**\: :py:class:`MplsStaticAddressFamilyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamilyEnum>`
                     
-                    .. attribute:: top_label_hash
+                    .. attribute:: enable
                     
-                    	Top Label Hash
-                    	**type**\: :py:class:`TopLabelHash <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash>`
+                    	MPLS Static Apply Enable
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: local_labels
                     
                     	Local Label
                     	**type**\: :py:class:`LocalLabels <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels>`
                     
-                    .. attribute:: enable
+                    .. attribute:: top_label_hash
                     
-                    	MPLS Static Apply Enable
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	Top Label Hash
+                    	**type**\: :py:class:`TopLabelHash <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash>`
                     
                     
 
@@ -302,11 +302,11 @@ class MplsStatic(object):
                     def __init__(self):
                         self.parent = None
                         self.afi = None
-                        self.top_label_hash = MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash()
-                        self.top_label_hash.parent = self
+                        self.enable = None
                         self.local_labels = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels()
                         self.local_labels.parent = self
-                        self.enable = None
+                        self.top_label_hash = MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash()
+                        self.top_label_hash.parent = self
 
 
                     class TopLabelHash(object):
@@ -440,7 +440,7 @@ class MplsStatic(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:label-type'
 
@@ -502,22 +502,17 @@ class MplsStatic(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: path_type
+                                        .. attribute:: interface_name
                                         
-                                        	Type of Path (PopAndLookup, CrossConnect)
-                                        	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
+                                        	Next hop Interface with form <Interface>R/S/I/P
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                         
                                         .. attribute:: label_type
                                         
                                         	Type of label (Outlabel, ExpNull or Pop)
                                         	**type**\: :py:class:`MplsStaticOutLabelTypesEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypesEnum>`
-                                        
-                                        .. attribute:: next_hop_label
-                                        
-                                        	NH Label
-                                        	**type**\: int
-                                        
-                                        	**range:** 16..1048575
                                         
                                         .. attribute:: next_hop_address
                                         
@@ -536,12 +531,17 @@ class MplsStatic(object):
                                         
                                         
                                         ----
-                                        .. attribute:: interface_name
+                                        .. attribute:: next_hop_label
                                         
-                                        	Next hop Interface with form <Interface>R/S/I/P
-                                        	**type**\: str
+                                        	NH Label
+                                        	**type**\: int
                                         
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        	**range:** 16..1048575
+                                        
+                                        .. attribute:: path_type
+                                        
+                                        	Type of Path (PopAndLookup, CrossConnect)
+                                        	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
                                         
                                         
 
@@ -553,18 +553,18 @@ class MplsStatic(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.path_id = None
-                                            self.path_type = None
-                                            self.label_type = None
-                                            self.next_hop_label = None
-                                            self.next_hop_address = None
                                             self.interface_name = None
+                                            self.label_type = None
+                                            self.next_hop_address = None
+                                            self.next_hop_label = None
+                                            self.path_type = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.path_id is None:
-                                                raise YPYDataValidationError('Key property path_id is None')
+                                                raise YPYModelError('Key property path_id is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:path[Cisco-IOS-XR-mpls-static-cfg:path-id = ' + str(self.path_id) + ']'
 
@@ -578,19 +578,19 @@ class MplsStatic(object):
                                             if self.path_id is not None:
                                                 return True
 
-                                            if self.path_type is not None:
+                                            if self.interface_name is not None:
                                                 return True
 
                                             if self.label_type is not None:
                                                 return True
 
-                                            if self.next_hop_label is not None:
-                                                return True
-
                                             if self.next_hop_address is not None:
                                                 return True
 
-                                            if self.interface_name is not None:
+                                            if self.next_hop_label is not None:
+                                                return True
+
+                                            if self.path_type is not None:
                                                 return True
 
                                             return False
@@ -603,7 +603,7 @@ class MplsStatic(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:paths'
 
@@ -629,9 +629,9 @@ class MplsStatic(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.local_label_id is None:
-                                        raise YPYDataValidationError('Key property local_label_id is None')
+                                        raise YPYModelError('Key property local_label_id is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-label[Cisco-IOS-XR-mpls-static-cfg:local-label-id = ' + str(self.local_label_id) + ']'
 
@@ -661,7 +661,7 @@ class MplsStatic(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-labels'
 
@@ -687,7 +687,7 @@ class MplsStatic(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:top-label-hash'
 
@@ -818,7 +818,7 @@ class MplsStatic(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:label-type'
 
@@ -880,22 +880,17 @@ class MplsStatic(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: path_type
+                                    .. attribute:: interface_name
                                     
-                                    	Type of Path (PopAndLookup, CrossConnect)
-                                    	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
+                                    	Next hop Interface with form <Interface>R/S/I/P
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: label_type
                                     
                                     	Type of label (Outlabel, ExpNull or Pop)
                                     	**type**\: :py:class:`MplsStaticOutLabelTypesEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypesEnum>`
-                                    
-                                    .. attribute:: next_hop_label
-                                    
-                                    	NH Label
-                                    	**type**\: int
-                                    
-                                    	**range:** 16..1048575
                                     
                                     .. attribute:: next_hop_address
                                     
@@ -914,12 +909,17 @@ class MplsStatic(object):
                                     
                                     
                                     ----
-                                    .. attribute:: interface_name
+                                    .. attribute:: next_hop_label
                                     
-                                    	Next hop Interface with form <Interface>R/S/I/P
-                                    	**type**\: str
+                                    	NH Label
+                                    	**type**\: int
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**range:** 16..1048575
+                                    
+                                    .. attribute:: path_type
+                                    
+                                    	Type of Path (PopAndLookup, CrossConnect)
+                                    	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
                                     
                                     
 
@@ -931,18 +931,18 @@ class MplsStatic(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.path_id = None
-                                        self.path_type = None
-                                        self.label_type = None
-                                        self.next_hop_label = None
-                                        self.next_hop_address = None
                                         self.interface_name = None
+                                        self.label_type = None
+                                        self.next_hop_address = None
+                                        self.next_hop_label = None
+                                        self.path_type = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.path_id is None:
-                                            raise YPYDataValidationError('Key property path_id is None')
+                                            raise YPYModelError('Key property path_id is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:path[Cisco-IOS-XR-mpls-static-cfg:path-id = ' + str(self.path_id) + ']'
 
@@ -956,19 +956,19 @@ class MplsStatic(object):
                                         if self.path_id is not None:
                                             return True
 
-                                        if self.path_type is not None:
+                                        if self.interface_name is not None:
                                             return True
 
                                         if self.label_type is not None:
                                             return True
 
-                                        if self.next_hop_label is not None:
-                                            return True
-
                                         if self.next_hop_address is not None:
                                             return True
 
-                                        if self.interface_name is not None:
+                                        if self.next_hop_label is not None:
+                                            return True
+
+                                        if self.path_type is not None:
                                             return True
 
                                         return False
@@ -981,7 +981,7 @@ class MplsStatic(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:paths'
 
@@ -1007,9 +1007,9 @@ class MplsStatic(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.local_label_id is None:
-                                    raise YPYDataValidationError('Key property local_label_id is None')
+                                    raise YPYModelError('Key property local_label_id is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-label[Cisco-IOS-XR-mpls-static-cfg:local-label-id = ' + str(self.local_label_id) + ']'
 
@@ -1039,7 +1039,7 @@ class MplsStatic(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-labels'
 
@@ -1065,9 +1065,9 @@ class MplsStatic(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.afi is None:
-                            raise YPYDataValidationError('Key property afi is None')
+                            raise YPYModelError('Key property afi is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:af[Cisco-IOS-XR-mpls-static-cfg:afi = ' + str(self.afi) + ']'
 
@@ -1081,13 +1081,13 @@ class MplsStatic(object):
                         if self.afi is not None:
                             return True
 
-                        if self.top_label_hash is not None and self.top_label_hash._has_data():
+                        if self.enable is not None:
                             return True
 
                         if self.local_labels is not None and self.local_labels._has_data():
                             return True
 
-                        if self.enable is not None:
+                        if self.top_label_hash is not None and self.top_label_hash._has_data():
                             return True
 
                         return False
@@ -1100,7 +1100,7 @@ class MplsStatic(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:afs'
 
@@ -1126,7 +1126,7 @@ class MplsStatic(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-mpls-static-cfg:mpls-static/Cisco-IOS-XR-mpls-static-cfg:vrfs/Cisco-IOS-XR-mpls-static-cfg:vrf[Cisco-IOS-XR-mpls-static-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1226,7 +1226,7 @@ class MplsStatic(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-mpls-static-cfg:mpls-static/Cisco-IOS-XR-mpls-static-cfg:interfaces/Cisco-IOS-XR-mpls-static-cfg:interface[Cisco-IOS-XR-mpls-static-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1332,20 +1332,20 @@ class MplsStatic(object):
                 	Address Family
                 	**type**\: :py:class:`MplsStaticAddressFamilyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamilyEnum>`
                 
-                .. attribute:: top_label_hash
+                .. attribute:: enable
                 
-                	Top Label Hash
-                	**type**\: :py:class:`TopLabelHash <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash>`
+                	MPLS Static Apply Enable
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: local_labels
                 
                 	Local Label
                 	**type**\: :py:class:`LocalLabels <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels>`
                 
-                .. attribute:: enable
+                .. attribute:: top_label_hash
                 
-                	MPLS Static Apply Enable
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Top Label Hash
+                	**type**\: :py:class:`TopLabelHash <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash>`
                 
                 
 
@@ -1357,11 +1357,11 @@ class MplsStatic(object):
                 def __init__(self):
                     self.parent = None
                     self.afi = None
-                    self.top_label_hash = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash()
-                    self.top_label_hash.parent = self
+                    self.enable = None
                     self.local_labels = MplsStatic.DefaultVrf.Afs.Af.LocalLabels()
                     self.local_labels.parent = self
-                    self.enable = None
+                    self.top_label_hash = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash()
+                    self.top_label_hash.parent = self
 
 
                 class TopLabelHash(object):
@@ -1495,7 +1495,7 @@ class MplsStatic(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:label-type'
 
@@ -1557,22 +1557,17 @@ class MplsStatic(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: path_type
+                                    .. attribute:: interface_name
                                     
-                                    	Type of Path (PopAndLookup, CrossConnect)
-                                    	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
+                                    	Next hop Interface with form <Interface>R/S/I/P
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: label_type
                                     
                                     	Type of label (Outlabel, ExpNull or Pop)
                                     	**type**\: :py:class:`MplsStaticOutLabelTypesEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypesEnum>`
-                                    
-                                    .. attribute:: next_hop_label
-                                    
-                                    	NH Label
-                                    	**type**\: int
-                                    
-                                    	**range:** 16..1048575
                                     
                                     .. attribute:: next_hop_address
                                     
@@ -1591,12 +1586,17 @@ class MplsStatic(object):
                                     
                                     
                                     ----
-                                    .. attribute:: interface_name
+                                    .. attribute:: next_hop_label
                                     
-                                    	Next hop Interface with form <Interface>R/S/I/P
-                                    	**type**\: str
+                                    	NH Label
+                                    	**type**\: int
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**range:** 16..1048575
+                                    
+                                    .. attribute:: path_type
+                                    
+                                    	Type of Path (PopAndLookup, CrossConnect)
+                                    	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
                                     
                                     
 
@@ -1608,18 +1608,18 @@ class MplsStatic(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.path_id = None
-                                        self.path_type = None
-                                        self.label_type = None
-                                        self.next_hop_label = None
-                                        self.next_hop_address = None
                                         self.interface_name = None
+                                        self.label_type = None
+                                        self.next_hop_address = None
+                                        self.next_hop_label = None
+                                        self.path_type = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.path_id is None:
-                                            raise YPYDataValidationError('Key property path_id is None')
+                                            raise YPYModelError('Key property path_id is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:path[Cisco-IOS-XR-mpls-static-cfg:path-id = ' + str(self.path_id) + ']'
 
@@ -1633,19 +1633,19 @@ class MplsStatic(object):
                                         if self.path_id is not None:
                                             return True
 
-                                        if self.path_type is not None:
+                                        if self.interface_name is not None:
                                             return True
 
                                         if self.label_type is not None:
                                             return True
 
-                                        if self.next_hop_label is not None:
-                                            return True
-
                                         if self.next_hop_address is not None:
                                             return True
 
-                                        if self.interface_name is not None:
+                                        if self.next_hop_label is not None:
+                                            return True
+
+                                        if self.path_type is not None:
                                             return True
 
                                         return False
@@ -1658,7 +1658,7 @@ class MplsStatic(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:paths'
 
@@ -1684,9 +1684,9 @@ class MplsStatic(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.local_label_id is None:
-                                    raise YPYDataValidationError('Key property local_label_id is None')
+                                    raise YPYModelError('Key property local_label_id is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-label[Cisco-IOS-XR-mpls-static-cfg:local-label-id = ' + str(self.local_label_id) + ']'
 
@@ -1716,7 +1716,7 @@ class MplsStatic(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-labels'
 
@@ -1742,7 +1742,7 @@ class MplsStatic(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:top-label-hash'
 
@@ -1873,7 +1873,7 @@ class MplsStatic(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:label-type'
 
@@ -1935,22 +1935,17 @@ class MplsStatic(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: path_type
+                                .. attribute:: interface_name
                                 
-                                	Type of Path (PopAndLookup, CrossConnect)
-                                	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
+                                	Next hop Interface with form <Interface>R/S/I/P
+                                	**type**\: str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: label_type
                                 
                                 	Type of label (Outlabel, ExpNull or Pop)
                                 	**type**\: :py:class:`MplsStaticOutLabelTypesEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypesEnum>`
-                                
-                                .. attribute:: next_hop_label
-                                
-                                	NH Label
-                                	**type**\: int
-                                
-                                	**range:** 16..1048575
                                 
                                 .. attribute:: next_hop_address
                                 
@@ -1969,12 +1964,17 @@ class MplsStatic(object):
                                 
                                 
                                 ----
-                                .. attribute:: interface_name
+                                .. attribute:: next_hop_label
                                 
-                                	Next hop Interface with form <Interface>R/S/I/P
-                                	**type**\: str
+                                	NH Label
+                                	**type**\: int
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**range:** 16..1048575
+                                
+                                .. attribute:: path_type
+                                
+                                	Type of Path (PopAndLookup, CrossConnect)
+                                	**type**\: :py:class:`MplsStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
                                 
                                 
 
@@ -1986,18 +1986,18 @@ class MplsStatic(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.path_id = None
-                                    self.path_type = None
-                                    self.label_type = None
-                                    self.next_hop_label = None
-                                    self.next_hop_address = None
                                     self.interface_name = None
+                                    self.label_type = None
+                                    self.next_hop_address = None
+                                    self.next_hop_label = None
+                                    self.path_type = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.path_id is None:
-                                        raise YPYDataValidationError('Key property path_id is None')
+                                        raise YPYModelError('Key property path_id is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:path[Cisco-IOS-XR-mpls-static-cfg:path-id = ' + str(self.path_id) + ']'
 
@@ -2011,19 +2011,19 @@ class MplsStatic(object):
                                     if self.path_id is not None:
                                         return True
 
-                                    if self.path_type is not None:
+                                    if self.interface_name is not None:
                                         return True
 
                                     if self.label_type is not None:
                                         return True
 
-                                    if self.next_hop_label is not None:
-                                        return True
-
                                     if self.next_hop_address is not None:
                                         return True
 
-                                    if self.interface_name is not None:
+                                    if self.next_hop_label is not None:
+                                        return True
+
+                                    if self.path_type is not None:
                                         return True
 
                                     return False
@@ -2036,7 +2036,7 @@ class MplsStatic(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:paths'
 
@@ -2062,9 +2062,9 @@ class MplsStatic(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.local_label_id is None:
-                                raise YPYDataValidationError('Key property local_label_id is None')
+                                raise YPYModelError('Key property local_label_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-label[Cisco-IOS-XR-mpls-static-cfg:local-label-id = ' + str(self.local_label_id) + ']'
 
@@ -2094,7 +2094,7 @@ class MplsStatic(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:local-labels'
 
@@ -2120,7 +2120,7 @@ class MplsStatic(object):
                 @property
                 def _common_path(self):
                     if self.afi is None:
-                        raise YPYDataValidationError('Key property afi is None')
+                        raise YPYModelError('Key property afi is None')
 
                     return '/Cisco-IOS-XR-mpls-static-cfg:mpls-static/Cisco-IOS-XR-mpls-static-cfg:default-vrf/Cisco-IOS-XR-mpls-static-cfg:afs/Cisco-IOS-XR-mpls-static-cfg:af[Cisco-IOS-XR-mpls-static-cfg:afi = ' + str(self.afi) + ']'
 
@@ -2134,13 +2134,13 @@ class MplsStatic(object):
                     if self.afi is not None:
                         return True
 
-                    if self.top_label_hash is not None and self.top_label_hash._has_data():
+                    if self.enable is not None:
                         return True
 
                     if self.local_labels is not None and self.local_labels._has_data():
                         return True
 
-                    if self.enable is not None:
+                    if self.top_label_hash is not None and self.top_label_hash._has_data():
                         return True
 
                     return False
@@ -2211,16 +2211,16 @@ class MplsStatic(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.vrfs is not None and self.vrfs._has_data():
+        if self.default_vrf is not None and self.default_vrf._has_data():
+            return True
+
+        if self.enable is not None:
             return True
 
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.default_vrf is not None and self.default_vrf._has_data():
-            return True
-
-        if self.enable is not None:
+        if self.vrfs is not None and self.vrfs._has_data():
             return True
 
         return False

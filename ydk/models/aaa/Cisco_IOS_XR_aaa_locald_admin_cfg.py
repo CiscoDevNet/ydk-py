@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -78,17 +78,17 @@ class Aaa(object):
             	Username
             	**type**\: str
             
-            .. attribute:: usergroup_under_usernames
-            
-            	Specify the usergroup to which this admin user belongs
-            	**type**\: :py:class:`UsergroupUnderUsernames <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
-            
             .. attribute:: secret
             
             	Specify the secret for the admin user
             	**type**\: str
             
             	**pattern:** (!.+)\|([^!].+)
+            
+            .. attribute:: usergroup_under_usernames
+            
+            	Specify the usergroup to which this admin user belongs
+            	**type**\: :py:class:`UsergroupUnderUsernames <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             
 
@@ -100,9 +100,9 @@ class Aaa(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
+                self.secret = None
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
-                self.secret = None
 
 
             class UsergroupUnderUsernames(object):
@@ -154,9 +154,9 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-admin-cfg:usergroup-under-username[Cisco-IOS-XR-aaa-locald-admin-cfg:name = ' + str(self.name) + ']'
 
@@ -180,7 +180,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-admin-cfg:usergroup-under-usernames'
 
@@ -206,7 +206,7 @@ class Aaa(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/Cisco-IOS-XR-aaa-locald-admin-cfg:usernames/Cisco-IOS-XR-aaa-locald-admin-cfg:username[Cisco-IOS-XR-aaa-locald-admin-cfg:name = ' + str(self.name) + ']'
 
@@ -220,10 +220,10 @@ class Aaa(object):
                 if self.name is not None:
                     return True
 
-                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
+                if self.secret is not None:
                     return True
 
-                if self.secret is not None:
+                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
                     return True
 
                 return False

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -204,29 +204,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Priority
+                '''                Covearge is below Configured Threshold
                 ''',
-                'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
-                ''',
-                'total_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Fully Protected Routes
-                ''',
-                'fully_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Partially Protected Routes
-                ''',
-                'partially_protected_routes',
+                'below_threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -234,11 +216,29 @@ _meta_table = {
                 ''',
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('local-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Local LFA Coverage in percentage
                 ''',
                 'local_lfa_coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Partially Protected Routes
+                ''',
+                'partially_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+                [], [], 
+                '''                Priority
+                ''',
+                'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -246,11 +246,11 @@ _meta_table = {
                 ''',
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Covearge is below Configured Threshold
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'below_threshold',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -286,11 +286,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode',
             False, 
             [
-            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote-LFA Node ID
+            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
+                :04.961)
                 ''',
-                'remote_node_id',
+                'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -310,18 +311,17 @@ _meta_table = {
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
-                :04.961)
-                ''',
-                'in_use_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('primary-path', REFERENCE_LIST, 'PrimaryPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath', 
                 [], [], 
                 '''                Protected Primary Paths
                 ''',
                 'primary_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote-LFA Node ID
+                ''',
+                'remote_node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -340,29 +340,53 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP-Frr Completed reference SPF Run Number
+                ''',
+                'completed_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage for all priorities
+                ''',
+                'coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duration for the calculation (in milliseconds)
+                ''',
+                'duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cumulative Number of Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic', 
                 [], [], 
-                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                '''                IP-Frr Statistics categorized by priority
                 ''',
-                'trigger_time',
+                'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                IP-Frr Triggered reference SPF Run Number
+                '''                Cumulative Number of Partially Protected Routes
                 ''',
-                'trigger_spf_run',
+                'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Waiting Time (in milliseconds)
+            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode', 
+                [], [], 
+                '''                Remote Node Information
                 ''',
-                'wait_time',
+                'remote_node',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time-offset', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -371,53 +395,29 @@ _meta_table = {
                 ''',
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duration for the calculation (in milliseconds)
-                ''',
-                'duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP-Frr Completed reference SPF Run Number
-                ''',
-                'completed_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Fully Protected Routes
+                '''                IP-Frr Triggered reference SPF Run Number
                 ''',
-                'fully_protected_routes',
+                'trigger_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                ''',
+                'trigger_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Partially Protected Routes
+                '''                Waiting Time (in milliseconds)
                 ''',
-                'partially_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage for all priorities
-                ''',
-                'coverage',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic', 
-                [], [], 
-                '''                IP-Frr Statistics categorized by priority
-                ''',
-                'ipfrr_statistic',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode', 
-                [], [], 
-                '''                Remote Node Information
-                ''',
-                'remote_node',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -466,17 +466,41 @@ _meta_table = {
                         'prefix_info',
                         'Cisco-IOS-XR-infra-rcmd-oper', True),
                 ]),
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Prefix
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('add-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Prefix length
+                '''                No. of times route gets Added
                 ''',
-                'prefix_lenth',
+                'add_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('critical-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of times processed under Critical Priority
+                ''',
+                'critical_priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('delete-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of times route gets Deleted
+                ''',
+                'delete_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('high-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of times processed under High Priority
+                ''',
+                'high_priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Last event Add/Delete
+                ''',
+                'last_change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last Known Cost
+                ''',
+                'last_cost',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-event-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -496,29 +520,11 @@ _meta_table = {
                 ''',
                 'last_route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Last event Add/Delete
-                ''',
-                'last_change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('low-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Last Known Cost
+                '''                No. of times processed under Low Priority
                 ''',
-                'last_cost',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('critical-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times processed under Critical Priority
-                ''',
-                'critical_priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('high-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times processed under High Priority
-                ''',
-                'high_priority',
+                'low_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('medium-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -526,29 +532,23 @@ _meta_table = {
                 ''',
                 'medium_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('low-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times processed under Low Priority
-                ''',
-                'low_priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('add-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times route gets Added
-                ''',
-                'add_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modify-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                No. of times route gets Deleted
                 ''',
                 'modify_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('delete-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times route gets Deleted
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Prefix
                 ''',
-                'delete_count',
+                'prefix',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix length
+                ''',
+                'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceed-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -608,17 +608,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -631,11 +631,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -643,17 +643,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -666,11 +666,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -678,17 +678,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -701,11 +701,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -719,11 +719,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -736,11 +736,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -748,29 +748,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -783,11 +783,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary',
             False, 
             [
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                SPF state
+                '''                Duration of complete SPF calculation (in ss
+                .msec)
                 ''',
-                'state',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('is-data-complete', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -795,17 +796,12 @@ _meta_table = {
                 ''',
                 'is_data_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('priority-summary', REFERENCE_LIST, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary', 
                 [], [], 
-                '''                Threshold exceeded
+                '''                Convergence information summary on per-priority
+                basis
                 ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Trigger time (in hh:mm:ss.msec)
-                ''',
-                'trigger_time',
+                'priority_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -814,12 +810,17 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
                 [], [], 
-                '''                Duration of complete SPF calculation (in ss
-                .msec)
+                '''                SPF state
                 ''',
-                'duration',
+                'state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Threshold exceeded
+                ''',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-dijkstra-runs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -846,12 +847,11 @@ _meta_table = {
                 ''',
                 'total_type357lsa_changes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority-summary', REFERENCE_LIST, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary', 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Convergence information summary on per-priority
-                basis
+                '''                Trigger time (in hh:mm:ss.msec)
                 ''',
-                'priority_summary',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -864,17 +864,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -888,17 +888,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -935,17 +935,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -958,11 +958,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -970,17 +970,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -993,11 +993,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1005,17 +1005,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1028,11 +1028,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1046,11 +1046,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1063,11 +1063,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -1075,29 +1075,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1110,12 +1110,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1124,11 +1123,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1141,12 +1141,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1155,11 +1154,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1172,12 +1172,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1186,11 +1185,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1203,12 +1203,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1217,11 +1216,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1234,12 +1234,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1248,11 +1247,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1265,12 +1265,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1279,11 +1278,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1296,12 +1296,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1310,11 +1309,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1327,12 +1327,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1341,11 +1340,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1358,12 +1358,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1372,11 +1371,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1418,12 +1418,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1432,11 +1431,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1478,29 +1478,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline',
             False, 
             [
-            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin', 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter', 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit', 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute', 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', REFERENCE_CLASS, 'LdpEnter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter', 
                 [], [], 
@@ -1526,19 +1516,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter', 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit', 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute', 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin', 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1597,12 +1597,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary', 
-                [], [], 
-                '''                Summary of the priority
-                ''',
-                'priority_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('convergence-timeline', REFERENCE_LIST, 'ConvergenceTimeline' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline', 
                 [], [], 
                 '''                Convergence timeline details
@@ -1621,6 +1615,12 @@ _meta_table = {
                 ''',
                 'leaf_networks_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary', 
+                [], [], 
+                '''                Summary of the priority
+                ''',
+                'priority_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'priority',
@@ -1632,17 +1632,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -1656,17 +1656,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1679,29 +1679,35 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun',
             False, 
             [
-            _MetaInfoClassMember('dijkstra-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Area Dijkstra run number
-                ''',
-                'dijkstra_run_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Area ID
                 ''',
                 'area_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
+            _MetaInfoClassMember('dijkstra-run-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Area Dijkstra run number
                 ''',
-                'threshold_exceeded',
+                'dijkstra_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Trigger time (in hh:mm:ss.msec)
+                '''                Duration of Dijktra calculation (in ss.msec)
                 ''',
-                'trigger_time',
+                'duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed', 
+                [], [], 
+                '''                List of type 1/2 LSA changes processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority', 
+                [], [], 
+                '''                Convergence information on per-priority basis
+                ''',
+                'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1710,18 +1716,11 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Wait time (offset from event trigger time in ss
-                .msec)
-                ''',
-                'wait_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Duration of Dijktra calculation (in ss.msec)
+                '''                Threshold exceeded
                 ''',
-                'duration',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa', 
                 [], [], 
@@ -1729,17 +1728,18 @@ _meta_table = {
                 ''',
                 'trigger_lsa',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority', 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Convergence information on per-priority basis
+                '''                Trigger time (in hh:mm:ss.msec)
                 ''',
-                'priority',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed', 
-                [], [], 
-                '''                List of type 1/2 LSA changes processed
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Wait time (offset from event trigger time in ss
+                .msec)
                 ''',
-                'lsa_processed',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1776,17 +1776,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1799,11 +1799,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1811,17 +1811,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1834,11 +1834,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1846,17 +1846,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1869,17 +1869,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics', 
-                [], [], 
-                '''                Route statistics
-                ''',
-                'route_statistics',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+                [], [], 
+                '''                Critical, High, Medium or Low
+                ''',
+                'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime', 
                 [], [], 
@@ -1887,11 +1887,11 @@ _meta_table = {
                 ''',
                 'mpls_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics', 
                 [], [], 
-                '''                Critical, High, Medium or Low
+                '''                Route statistics
                 ''',
-                'level',
+                'route_statistics',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1928,12 +1928,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1942,11 +1941,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1959,12 +1959,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1973,11 +1972,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -1990,12 +1990,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2004,11 +2003,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2021,12 +2021,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2035,11 +2034,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2052,12 +2052,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2066,11 +2065,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2083,12 +2083,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2097,11 +2096,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2114,12 +2114,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2128,11 +2127,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2145,12 +2145,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2159,11 +2158,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2176,12 +2176,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2190,11 +2189,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2236,12 +2236,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2250,11 +2249,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2296,29 +2296,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline',
             False, 
             [
-            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin', 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter', 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit', 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute', 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', REFERENCE_CLASS, 'LdpEnter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter', 
                 [], [], 
@@ -2344,19 +2334,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter', 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit', 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute', 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin', 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2415,12 +2415,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary', 
-                [], [], 
-                '''                Summary of the priority
-                ''',
-                'priority_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('convergence-timeline', REFERENCE_LIST, 'ConvergenceTimeline' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline', 
                 [], [], 
                 '''                Convergence timeline details
@@ -2438,6 +2432,12 @@ _meta_table = {
                 '''                List of Leaf Networks Deleted
                 ''',
                 'leaf_networks_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary', 
+                [], [], 
+                '''                Summary of the priority
+                ''',
+                'priority_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2473,12 +2473,6 @@ _meta_table = {
                 ''',
                 'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary', 
-                [], [], 
-                '''                SPF summary information
-                ''',
-                'spf_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('dijkstra-run', REFERENCE_LIST, 'DijkstraRun' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun', 
                 [], [], 
                 '''                List of Dijkstra runs
@@ -2490,6 +2484,12 @@ _meta_table = {
                 '''                Inter-area & external calculation information
                 ''',
                 'inter_area_and_external',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary', 
+                [], [], 
+                '''                SPF summary information
+                ''',
+                'spf_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2519,29 +2519,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Priority
+                '''                Covearge is below Configured Threshold
                 ''',
-                'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
-                ''',
-                'total_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Fully Protected Routes
-                ''',
-                'fully_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Partially Protected Routes
-                ''',
-                'partially_protected_routes',
+                'below_threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2549,11 +2531,29 @@ _meta_table = {
                 ''',
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('local-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Local LFA Coverage in percentage
                 ''',
                 'local_lfa_coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Partially Protected Routes
+                ''',
+                'partially_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+                [], [], 
+                '''                Priority
+                ''',
+                'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2561,11 +2561,11 @@ _meta_table = {
                 ''',
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Covearge is below Configured Threshold
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'below_threshold',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2601,11 +2601,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode',
             False, 
             [
-            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote-LFA Node ID
+            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
+                :04.961)
                 ''',
-                'remote_node_id',
+                'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2625,18 +2626,17 @@ _meta_table = {
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
-                :04.961)
-                ''',
-                'in_use_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('primary-path', REFERENCE_LIST, 'PrimaryPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath', 
                 [], [], 
                 '''                Protected Primary Paths
                 ''',
                 'primary_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote-LFA Node ID
+                ''',
+                'remote_node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2655,29 +2655,53 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP-Frr Completed reference SPF Run Number
+                ''',
+                'completed_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage for all priorities
+                ''',
+                'coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duration for the calculation (in milliseconds)
+                ''',
+                'duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cumulative Number of Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic', 
                 [], [], 
-                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                '''                IP-Frr Statistics categorized by priority
                 ''',
-                'trigger_time',
+                'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                IP-Frr Triggered reference SPF Run Number
+                '''                Cumulative Number of Partially Protected Routes
                 ''',
-                'trigger_spf_run',
+                'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Waiting Time (in milliseconds)
+            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode', 
+                [], [], 
+                '''                Remote Node Information
                 ''',
-                'wait_time',
+                'remote_node',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time-offset', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2686,53 +2710,29 @@ _meta_table = {
                 ''',
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duration for the calculation (in milliseconds)
-                ''',
-                'duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP-Frr Completed reference SPF Run Number
-                ''',
-                'completed_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Fully Protected Routes
+                '''                IP-Frr Triggered reference SPF Run Number
                 ''',
-                'fully_protected_routes',
+                'trigger_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                ''',
+                'trigger_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Partially Protected Routes
+                '''                Waiting Time (in milliseconds)
                 ''',
-                'partially_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage for all priorities
-                ''',
-                'coverage',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic', 
-                [], [], 
-                '''                IP-Frr Statistics categorized by priority
-                ''',
-                'ipfrr_statistic',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode', 
-                [], [], 
-                '''                Remote Node Information
-                ''',
-                'remote_node',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2787,17 +2787,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2810,11 +2810,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2822,17 +2822,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2845,11 +2845,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2857,17 +2857,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2880,11 +2880,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2898,11 +2898,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2915,11 +2915,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -2927,29 +2927,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -2962,11 +2962,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary',
             False, 
             [
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                SPF state
+                '''                Duration of complete SPF calculation (in ss
+                .msec)
                 ''',
-                'state',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('is-data-complete', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2974,17 +2975,12 @@ _meta_table = {
                 ''',
                 'is_data_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('priority-summary', REFERENCE_LIST, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary', 
                 [], [], 
-                '''                Threshold exceeded
+                '''                Convergence information summary on per-priority
+                basis
                 ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Trigger time (in hh:mm:ss.msec)
-                ''',
-                'trigger_time',
+                'priority_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2993,12 +2989,17 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
                 [], [], 
-                '''                Duration of complete SPF calculation (in ss
-                .msec)
+                '''                SPF state
                 ''',
-                'duration',
+                'state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Threshold exceeded
+                ''',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-dijkstra-runs', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -3025,12 +3026,11 @@ _meta_table = {
                 ''',
                 'total_type357lsa_changes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority-summary', REFERENCE_LIST, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary', 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Convergence information summary on per-priority
-                basis
+                '''                Trigger time (in hh:mm:ss.msec)
                 ''',
-                'priority_summary',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3043,17 +3043,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -3067,17 +3067,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3114,17 +3114,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3137,11 +3137,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3149,17 +3149,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3172,11 +3172,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3184,17 +3184,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3207,11 +3207,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3225,11 +3225,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3242,11 +3242,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -3254,29 +3254,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3289,12 +3289,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3303,11 +3302,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3320,12 +3320,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3334,11 +3333,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3351,12 +3351,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3365,11 +3364,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3382,12 +3382,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3396,11 +3395,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3413,12 +3413,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3427,11 +3426,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3444,12 +3444,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3458,11 +3457,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3475,12 +3475,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3489,11 +3488,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3506,12 +3506,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3520,11 +3519,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3537,12 +3537,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3551,11 +3550,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3597,12 +3597,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3611,11 +3610,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3657,29 +3657,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline',
             False, 
             [
-            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin', 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter', 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit', 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute', 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', REFERENCE_CLASS, 'LdpEnter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter', 
                 [], [], 
@@ -3705,19 +3695,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter', 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit', 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute', 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin', 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3776,12 +3776,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary', 
-                [], [], 
-                '''                Summary of the priority
-                ''',
-                'priority_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('convergence-timeline', REFERENCE_LIST, 'ConvergenceTimeline' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline', 
                 [], [], 
                 '''                Convergence timeline details
@@ -3800,6 +3794,12 @@ _meta_table = {
                 ''',
                 'leaf_networks_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary', 
+                [], [], 
+                '''                Summary of the priority
+                ''',
+                'priority_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'priority',
@@ -3811,17 +3811,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -3835,17 +3835,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3858,29 +3858,35 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun',
             False, 
             [
-            _MetaInfoClassMember('dijkstra-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Area Dijkstra run number
-                ''',
-                'dijkstra_run_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Area ID
                 ''',
                 'area_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
+            _MetaInfoClassMember('dijkstra-run-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Area Dijkstra run number
                 ''',
-                'threshold_exceeded',
+                'dijkstra_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Trigger time (in hh:mm:ss.msec)
+                '''                Duration of Dijktra calculation (in ss.msec)
                 ''',
-                'trigger_time',
+                'duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed', 
+                [], [], 
+                '''                List of type 1/2 LSA changes processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority', 
+                [], [], 
+                '''                Convergence information on per-priority basis
+                ''',
+                'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3889,18 +3895,11 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Wait time (offset from event trigger time in ss
-                .msec)
-                ''',
-                'wait_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Duration of Dijktra calculation (in ss.msec)
+                '''                Threshold exceeded
                 ''',
-                'duration',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa', 
                 [], [], 
@@ -3908,17 +3907,18 @@ _meta_table = {
                 ''',
                 'trigger_lsa',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority', 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Convergence information on per-priority basis
+                '''                Trigger time (in hh:mm:ss.msec)
                 ''',
-                'priority',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed', 
-                [], [], 
-                '''                List of type 1/2 LSA changes processed
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Wait time (offset from event trigger time in ss
+                .msec)
                 ''',
-                'lsa_processed',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3955,17 +3955,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -3978,11 +3978,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3990,17 +3990,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4013,11 +4013,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4025,17 +4025,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4048,17 +4048,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics', 
-                [], [], 
-                '''                Route statistics
-                ''',
-                'route_statistics',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+                [], [], 
+                '''                Critical, High, Medium or Low
+                ''',
+                'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime', 
                 [], [], 
@@ -4066,11 +4066,11 @@ _meta_table = {
                 ''',
                 'mpls_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics', 
                 [], [], 
-                '''                Critical, High, Medium or Low
+                '''                Route statistics
                 ''',
-                'level',
+                'route_statistics',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4107,12 +4107,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4121,11 +4120,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4138,12 +4138,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4152,11 +4151,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4169,12 +4169,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4183,11 +4182,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4200,12 +4200,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4214,11 +4213,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4231,12 +4231,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4245,11 +4244,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4262,12 +4262,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4276,11 +4275,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4293,12 +4293,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4307,11 +4306,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4324,12 +4324,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4338,11 +4337,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4355,12 +4355,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4369,11 +4368,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4415,12 +4415,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4429,11 +4428,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4475,29 +4475,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline',
             False, 
             [
-            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin', 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter', 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit', 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute', 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', REFERENCE_CLASS, 'LdpEnter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter', 
                 [], [], 
@@ -4523,19 +4513,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter', 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit', 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute', 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin', 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4594,12 +4594,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary', 
-                [], [], 
-                '''                Summary of the priority
-                ''',
-                'priority_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('convergence-timeline', REFERENCE_LIST, 'ConvergenceTimeline' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline', 
                 [], [], 
                 '''                Convergence timeline details
@@ -4617,6 +4611,12 @@ _meta_table = {
                 '''                List of Leaf Networks Deleted
                 ''',
                 'leaf_networks_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary', 
+                [], [], 
+                '''                Summary of the priority
+                ''',
+                'priority_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4652,12 +4652,6 @@ _meta_table = {
                 ''',
                 'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary', 
-                [], [], 
-                '''                SPF summary information
-                ''',
-                'spf_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('dijkstra-run', REFERENCE_LIST, 'DijkstraRun' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun', 
                 [], [], 
                 '''                List of Dijkstra runs
@@ -4669,6 +4663,12 @@ _meta_table = {
                 '''                Inter-area & external calculation information
                 ''',
                 'inter_area_and_external',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary', 
+                [], [], 
+                '''                SPF summary information
+                ''',
+                'spf_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4699,11 +4699,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4711,17 +4711,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4734,11 +4734,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4746,17 +4746,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4769,11 +4769,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
-                '''                Type of LFA
+                '''                Event Add/Delete
                 ''',
-                'lfa_type',
+                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4781,17 +4781,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+                [], [], 
+                '''                Type of LFA
+                ''',
+                'lfa_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4816,11 +4816,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface Name
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath', 
+                [], [], 
+                '''                Backup Path Informatoin
+                ''',
+                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -4828,23 +4840,11 @@ _meta_table = {
                 ''',
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath', 
-                [], [], 
-                '''                Backup Path Informatoin
-                ''',
-                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4857,17 +4857,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -4881,17 +4881,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4904,6 +4904,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -4915,12 +4921,6 @@ _meta_table = {
                 '''                Relative convergence speed
                 ''',
                 'speed',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -4933,6 +4933,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -4945,12 +4951,6 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'lc-mpls',
@@ -4962,29 +4962,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine',
             False, 
             [
-            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5010,19 +5000,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5035,17 +5035,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -5059,17 +5059,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5088,17 +5088,47 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Protocol route cost
+                ''',
+                'cost',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
+                ''',
+                'ipfrr_event_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed', 
+                [], [], 
+                '''                List of LSAs processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime', 
                 [], [], 
                 '''                Convergence time for MPLS label programming
                 ''',
                 'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path', 
+                [], [], 
+                '''                Path information
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -5112,41 +5142,11 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced SPF Run No (0 - Not Applicable)
-                ''',
-                'spf_run_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
-                ''',
-                'ipfrr_event_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
-                [], [], 
-                '''                Route Type intra/inter/l1/l2
-                ''',
-                'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
@@ -5154,29 +5154,23 @@ _meta_table = {
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
+                [], [], 
+                '''                Route Type intra/inter/l1/l2
+                ''',
+                'route_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protocol route cost
+                '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
-                'cost',
+                'spf_run_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Event trigger time
+                '''                Threshold exceeded
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path', 
-                [], [], 
-                '''                Path information
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa', 
-                [], [], 
-                '''                LSA that triggered this event
-                ''',
-                'trigger_lsa',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('time-line', REFERENCE_LIST, 'TimeLine' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine', 
                 [], [], 
@@ -5184,11 +5178,17 @@ _meta_table = {
                 ''',
                 'time_line',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed', 
+            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa', 
                 [], [], 
-                '''                List of LSAs processed
+                '''                LSA that triggered this event
                 ''',
-                'lsa_processed',
+                'trigger_lsa',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event trigger time
+                ''',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5218,11 +5218,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5230,17 +5230,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5253,11 +5253,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5265,17 +5265,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5288,11 +5288,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
-                '''                Type of LFA
+                '''                Event Add/Delete
                 ''',
-                'lfa_type',
+                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5300,17 +5300,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+                [], [], 
+                '''                Type of LFA
+                ''',
+                'lfa_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -5335,11 +5335,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface Name
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath', 
+                [], [], 
+                '''                Backup Path Informatoin
+                ''',
+                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -5347,23 +5359,11 @@ _meta_table = {
                 ''',
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath', 
-                [], [], 
-                '''                Backup Path Informatoin
-                ''',
-                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5376,17 +5376,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -5400,17 +5400,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5423,6 +5423,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -5434,12 +5440,6 @@ _meta_table = {
                 '''                Relative convergence speed
                 ''',
                 'speed',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5452,6 +5452,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -5464,12 +5470,6 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'lc-mpls',
@@ -5481,29 +5481,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine',
             False, 
             [
-            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5529,19 +5519,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5554,17 +5554,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -5578,17 +5578,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5607,17 +5607,47 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Protocol route cost
+                ''',
+                'cost',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
+                ''',
+                'ipfrr_event_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed', 
+                [], [], 
+                '''                List of LSAs processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime', 
                 [], [], 
                 '''                Convergence time for MPLS label programming
                 ''',
                 'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path', 
+                [], [], 
+                '''                Path information
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -5631,41 +5661,11 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced SPF Run No (0 - Not Applicable)
-                ''',
-                'spf_run_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
-                ''',
-                'ipfrr_event_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
-                [], [], 
-                '''                Route Type intra/inter/l1/l2
-                ''',
-                'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
@@ -5673,29 +5673,23 @@ _meta_table = {
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
+                [], [], 
+                '''                Route Type intra/inter/l1/l2
+                ''',
+                'route_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protocol route cost
+                '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
-                'cost',
+                'spf_run_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Event trigger time
+                '''                Threshold exceeded
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path', 
-                [], [], 
-                '''                Path information
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa', 
-                [], [], 
-                '''                LSA that triggered this event
-                ''',
-                'trigger_lsa',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('time-line', REFERENCE_LIST, 'TimeLine' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine', 
                 [], [], 
@@ -5703,11 +5697,17 @@ _meta_table = {
                 ''',
                 'time_line',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed', 
+            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa', 
                 [], [], 
-                '''                List of LSAs processed
+                '''                LSA that triggered this event
                 ''',
-                'lsa_processed',
+                'trigger_lsa',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event trigger time
+                ''',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5737,11 +5737,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5749,17 +5749,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5772,11 +5772,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5784,17 +5784,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5807,11 +5807,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
-                '''                Type of LFA
+                '''                Event Add/Delete
                 ''',
-                'lfa_type',
+                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5819,17 +5819,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+                [], [], 
+                '''                Type of LFA
+                ''',
+                'lfa_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -5854,11 +5854,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface Name
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath', 
+                [], [], 
+                '''                Backup Path Informatoin
+                ''',
+                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -5866,23 +5878,11 @@ _meta_table = {
                 ''',
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath', 
-                [], [], 
-                '''                Backup Path Informatoin
-                ''',
-                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5895,17 +5895,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -5919,17 +5919,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5942,6 +5942,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -5953,12 +5959,6 @@ _meta_table = {
                 '''                Relative convergence speed
                 ''',
                 'speed',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -5971,6 +5971,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -5983,12 +5989,6 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'lc-mpls',
@@ -6000,29 +6000,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine',
             False, 
             [
-            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -6048,19 +6038,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6073,17 +6073,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -6097,17 +6097,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6126,17 +6126,47 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Protocol route cost
+                ''',
+                'cost',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
+                ''',
+                'ipfrr_event_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed', 
+                [], [], 
+                '''                List of LSAs processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime', 
                 [], [], 
                 '''                Convergence time for MPLS label programming
                 ''',
                 'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path', 
+                [], [], 
+                '''                Path information
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -6150,41 +6180,11 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced SPF Run No (0 - Not Applicable)
-                ''',
-                'spf_run_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
-                ''',
-                'ipfrr_event_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
-                [], [], 
-                '''                Route Type intra/inter/l1/l2
-                ''',
-                'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
@@ -6192,29 +6192,23 @@ _meta_table = {
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
+                [], [], 
+                '''                Route Type intra/inter/l1/l2
+                ''',
+                'route_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protocol route cost
+                '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
-                'cost',
+                'spf_run_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Event trigger time
+                '''                Threshold exceeded
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path', 
-                [], [], 
-                '''                Path information
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa', 
-                [], [], 
-                '''                LSA that triggered this event
-                ''',
-                'trigger_lsa',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('time-line', REFERENCE_LIST, 'TimeLine' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine', 
                 [], [], 
@@ -6222,11 +6216,17 @@ _meta_table = {
                 ''',
                 'time_line',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed', 
+            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa', 
                 [], [], 
-                '''                List of LSAs processed
+                '''                LSA that triggered this event
                 ''',
-                'lsa_processed',
+                'trigger_lsa',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event trigger time
+                ''',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6257,11 +6257,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -6269,17 +6269,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6292,11 +6292,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -6304,17 +6304,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6327,11 +6327,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
-                '''                Type of LFA
+                '''                Event Add/Delete
                 ''',
-                'lfa_type',
+                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -6339,17 +6339,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+                [], [], 
+                '''                Type of LFA
+                ''',
+                'lfa_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6374,11 +6374,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface Name
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath', 
+                [], [], 
+                '''                Backup Path Informatoin
+                ''',
+                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -6386,23 +6398,11 @@ _meta_table = {
                 ''',
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath', 
-                [], [], 
-                '''                Backup Path Informatoin
-                ''',
-                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6415,17 +6415,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -6439,17 +6439,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6462,6 +6462,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -6473,12 +6479,6 @@ _meta_table = {
                 '''                Relative convergence speed
                 ''',
                 'speed',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6491,6 +6491,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -6503,12 +6509,6 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'lc-mpls',
@@ -6520,29 +6520,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine',
             False, 
             [
-            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -6568,19 +6558,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6593,17 +6593,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -6617,17 +6617,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6646,17 +6646,47 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Protocol route cost
+                ''',
+                'cost',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
+                ''',
+                'ipfrr_event_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed', 
+                [], [], 
+                '''                List of LSAs processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime', 
                 [], [], 
                 '''                Convergence time for MPLS label programming
                 ''',
                 'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path', 
+                [], [], 
+                '''                Path information
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -6670,41 +6700,11 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced SPF Run No (0 - Not Applicable)
-                ''',
-                'spf_run_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
-                ''',
-                'ipfrr_event_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
-                [], [], 
-                '''                Route Type intra/inter/l1/l2
-                ''',
-                'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
@@ -6712,29 +6712,23 @@ _meta_table = {
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
+                [], [], 
+                '''                Route Type intra/inter/l1/l2
+                ''',
+                'route_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protocol route cost
+                '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
-                'cost',
+                'spf_run_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Event trigger time
+                '''                Threshold exceeded
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path', 
-                [], [], 
-                '''                Path information
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa', 
-                [], [], 
-                '''                LSA that triggered this event
-                ''',
-                'trigger_lsa',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('time-line', REFERENCE_LIST, 'TimeLine' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine', 
                 [], [], 
@@ -6742,11 +6736,17 @@ _meta_table = {
                 ''',
                 'time_line',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed', 
+            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa', 
                 [], [], 
-                '''                List of LSAs processed
+                '''                LSA that triggered this event
                 ''',
-                'lsa_processed',
+                'trigger_lsa',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event trigger time
+                ''',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6777,77 +6777,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics',
             False, 
             [
-            _MetaInfoClassMember('inter-area-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Inter-Area Routes
-                ''',
-                'inter_area_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-added', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes Added
-                ''',
-                'inter_area_added',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-modified', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes Modified
-                ''',
-                'inter_area_modified',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-deleted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes Deleted
-                ''',
-                'inter_area_deleted',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes Critical
-                ''',
-                'inter_area_critical',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes High
-                ''',
-                'inter_area_high',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes Medium
-                ''',
-                'inter_area_medium',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('inter-area-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total IA Routes Low
-                ''',
-                'inter_area_low',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total External Routes
-                ''',
-                'external_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-added', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Ext Routes Added
                 ''',
                 'external_added',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('external-modified', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Ext Routes Modified
-                ''',
-                'external_modified',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('external-deleted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Ext Routes Deleted
-                ''',
-                'external_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-critical', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6855,11 +6789,23 @@ _meta_table = {
                 ''',
                 'external_critical',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('external-deleted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Ext Routes Deleted
+                ''',
+                'external_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-high', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Ext Routes High
                 ''',
                 'external_high',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('external-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Ext Routes Low
+                ''',
+                'external_low',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-medium', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6867,11 +6813,65 @@ _meta_table = {
                 ''',
                 'external_medium',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('external-low', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('external-modified', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Total Ext Routes Low
+                '''                Total Ext Routes Modified
                 ''',
-                'external_low',
+                'external_modified',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total External Routes
+                ''',
+                'external_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-added', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes Added
+                ''',
+                'inter_area_added',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-critical', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes Critical
+                ''',
+                'inter_area_critical',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-deleted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes Deleted
+                ''',
+                'inter_area_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes High
+                ''',
+                'inter_area_high',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes Low
+                ''',
+                'inter_area_low',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-medium', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes Medium
+                ''',
+                'inter_area_medium',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-modified', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total IA Routes Modified
+                ''',
+                'inter_area_modified',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('inter-area-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Inter-Area Routes
+                ''',
+                'inter_area_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6890,11 +6890,23 @@ _meta_table = {
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('ipfrr-event-offlines', REFERENCE_CLASS, 'IpfrrEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines', 
+                [], [], 
+                '''                OSPF IP-FRR Event offline data
+                ''',
+                'ipfrr_event_offlines',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-summaries', REFERENCE_CLASS, 'IpfrrEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries', 
                 [], [], 
                 '''                OSPF IP-FRR events summary data
                 ''',
                 'ipfrr_event_summaries',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('prefix-event-offlines', REFERENCE_CLASS, 'PrefixEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines', 
+                [], [], 
+                '''                OSPF Prefix events offline data
+                ''',
+                'prefix_event_offlines',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-event-statistics', REFERENCE_CLASS, 'PrefixEventStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventStatistics', 
                 [], [], 
@@ -6902,17 +6914,11 @@ _meta_table = {
                 ''',
                 'prefix_event_statistics',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-summaries', REFERENCE_CLASS, 'SpfRunSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries', 
+            _MetaInfoClassMember('prefix-event-summaries', REFERENCE_CLASS, 'PrefixEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries', 
                 [], [], 
-                '''                OSPF SPF run summary data
+                '''                OSPF Prefix events summary data
                 ''',
-                'spf_run_summaries',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-offlines', REFERENCE_CLASS, 'IpfrrEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines', 
-                [], [], 
-                '''                OSPF IP-FRR Event offline data
-                ''',
-                'ipfrr_event_offlines',
+                'prefix_event_summaries',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-offlines', REFERENCE_CLASS, 'SpfRunOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunOfflines', 
                 [], [], 
@@ -6920,18 +6926,11 @@ _meta_table = {
                 ''',
                 'spf_run_offlines',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('summary-external-event-summaries', REFERENCE_CLASS, 'SummaryExternalEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries', 
+            _MetaInfoClassMember('spf-run-summaries', REFERENCE_CLASS, 'SpfRunSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SpfRunSummaries', 
                 [], [], 
-                '''                OSPF Summary-External Prefix events summary
-                data
+                '''                OSPF SPF run summary data
                 ''',
-                'summary_external_event_summaries',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('prefix-event-summaries', REFERENCE_CLASS, 'PrefixEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventSummaries', 
-                [], [], 
-                '''                OSPF Prefix events summary data
-                ''',
-                'prefix_event_summaries',
+                'spf_run_summaries',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('summary-external-event-offlines', REFERENCE_CLASS, 'SummaryExternalEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines', 
                 [], [], 
@@ -6940,17 +6939,18 @@ _meta_table = {
                 ''',
                 'summary_external_event_offlines',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('prefix-event-offlines', REFERENCE_CLASS, 'PrefixEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.PrefixEventOfflines', 
-                [], [], 
-                '''                OSPF Prefix events offline data
-                ''',
-                'prefix_event_offlines',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('summary-external-event-statistics', REFERENCE_CLASS, 'SummaryExternalEventStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics', 
                 [], [], 
                 '''                Summary-External prefix monitoring statistics
                 ''',
                 'summary_external_event_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('summary-external-event-summaries', REFERENCE_CLASS, 'SummaryExternalEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries', 
+                [], [], 
+                '''                OSPF Summary-External Prefix events summary
+                data
+                ''',
+                'summary_external_event_summaries',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -6997,6 +6997,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Normal.ProtocolConfig.Priority',
             False, 
             [
+            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Enable/Disable cfg
+                ''',
+                'disable',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority-name', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority Level
@@ -7009,12 +7015,6 @@ _meta_table = {
                 ''',
                 'threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Enable/Disable cfg
-                ''',
-                'disable',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'priority',
@@ -7026,17 +7026,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Normal.ProtocolConfig',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Protocol Name
-                ''',
-                'protocol_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Normal.ProtocolConfig.Priority', 
                 [], [], 
                 '''                Priority level configuration
                 ''',
                 'priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('protocol-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol Name
+                ''',
+                'protocol_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7049,17 +7049,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Normal.ServerDetail.TraceInformation',
             False, 
             [
-            _MetaInfoClassMember('trace-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configured Hostname
-                ''',
-                'trace_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-stats', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('error-stats', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Server Total Status
+                '''                Server Error Status
                 ''',
-                'total_stats',
+                'error_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-run-stats', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7067,11 +7061,17 @@ _meta_table = {
                 ''',
                 'last_run_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('error-stats', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total-stats', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Server Error Status
+                '''                Server Total Status
                 ''',
-                'error_stats',
+                'total_stats',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trace-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configured Hostname
+                ''',
+                'trace_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7084,17 +7084,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Normal.ServerDetail',
             False, 
             [
-            _MetaInfoClassMember('overload-suspend', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Overload suspend
-                ''',
-                'overload_suspend',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('memory-suspend', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Memory Suspend
                 ''',
                 'memory_suspend',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('overload-suspend', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Overload suspend
+                ''',
+                'overload_suspend',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trace-information', REFERENCE_LIST, 'TraceInformation' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Normal.ServerDetail.TraceInformation', 
                 [], [], 
@@ -7113,65 +7113,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Normal',
             False, 
             [
-            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configured Hostname
-                ''',
-                'host_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisableEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisableEnum', 
-                [], [], 
-                '''                Server Status
-                ''',
-                'status',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('max-events', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('archive-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Maximum Events
+                '''                Archive Count
                 ''',
-                'max_events',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Event Buffer Size
-                ''',
-                'event_buffer_size',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured Monitor Interval
-                ''',
-                'monitoring_interval',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('next-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time for next processing
-                ''',
-                'next_interval',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('max-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Max Interface events count
-                ''',
-                'max_interface_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface events count
-                ''',
-                'interface_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-rp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                RP count
-                ''',
-                'node_rp_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-lc-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LC count
-                ''',
-                'node_lc_count',
+                'archive_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('diag-node-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7179,11 +7125,36 @@ _meta_table = {
                 ''',
                 'diag_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('diagnostics-archive-node', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Diagnostics Archival Node (Applicable for local
+                location)
+                ''',
+                'diagnostics_archive_node',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('diagnostics-archive-path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Diagnostics Archival Path
+                ''',
+                'diagnostics_archive_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('disabled-node-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Disabled Node count
                 ''',
                 'disabled_node_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Event Buffer Size
+                ''',
+                'event_buffer_size',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configured Hostname
+                ''',
+                'host_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('in-active-node-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7191,54 +7162,11 @@ _meta_table = {
                 ''',
                 'in_active_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-start-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last Processing Start Time
-                ''',
-                'last_process_start_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last Processing Duration
-                ''',
-                'last_process_duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsStateEnum', 
-                [], [], 
-                '''                Process state
-                ''',
-                'last_process_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('process-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Post Processing count
+                '''                Interface events count
                 ''',
-                'process_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-process-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SPF Processing count
-                ''',
-                'spf_process_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reports-archive-path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reports Archival Path
-                ''',
-                'reports_archive_path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reports-archive-node', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reports Archival Node (Applicable for local
-                location)
-                ''',
-                'reports_archive_node',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-archival-status', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last Archival Status
-                ''',
-                'last_archival_status',
+                'interface_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-archival-error', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -7252,24 +7180,71 @@ _meta_table = {
                 ''',
                 'last_archival_error_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('archive-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-archival-status', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Archival Status
+                ''',
+                'last_archival_status',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-process-duration', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Processing Duration
+                ''',
+                'last_process_duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-process-start-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Processing Start Time
+                ''',
+                'last_process_start_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsStateEnum', 
+                [], [], 
+                '''                Process state
+                ''',
+                'last_process_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('max-events', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Archive Count
+                '''                Maximum Events
                 ''',
-                'archive_count',
+                'max_events',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('diagnostics-archive-path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Diagnostics Archival Path
+            _MetaInfoClassMember('max-interface-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Max Interface events count
                 ''',
-                'diagnostics_archive_path',
+                'max_interface_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('diagnostics-archive-node', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Diagnostics Archival Node (Applicable for local
-                location)
+            _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Configured Monitor Interval
                 ''',
-                'diagnostics_archive_node',
+                'monitoring_interval',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('next-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time for next processing
+                ''',
+                'next_interval',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node-lc-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LC count
+                ''',
+                'node_lc_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node-rp-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                RP count
+                ''',
+                'node_rp_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('process-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Post Processing count
+                ''',
+                'process_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protocol-config', REFERENCE_LIST, 'ProtocolConfig' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Normal.ProtocolConfig', 
                 [], [], 
@@ -7277,11 +7252,36 @@ _meta_table = {
                 ''',
                 'protocol_config',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reports-archive-node', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reports Archival Node (Applicable for local
+                location)
+                ''',
+                'reports_archive_node',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reports-archive-path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reports Archival Path
+                ''',
+                'reports_archive_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('server-detail', REFERENCE_LIST, 'ServerDetail' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Normal.ServerDetail', 
                 [], [], 
                 '''                Detailed Information
                 ''',
                 'server_detail',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-process-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SPF Processing count
+                ''',
+                'spf_process_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisableEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisableEnum', 
+                [], [], 
+                '''                Server Status
+                ''',
+                'status',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7294,6 +7294,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Detail.ProtocolConfig.Priority',
             False, 
             [
+            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Enable/Disable cfg
+                ''',
+                'disable',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority-name', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority Level
@@ -7306,12 +7312,6 @@ _meta_table = {
                 ''',
                 'threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Enable/Disable cfg
-                ''',
-                'disable',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'priority',
@@ -7323,17 +7323,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Detail.ProtocolConfig',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Protocol Name
-                ''',
-                'protocol_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Detail.ProtocolConfig.Priority', 
                 [], [], 
                 '''                Priority level configuration
                 ''',
                 'priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('protocol-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol Name
+                ''',
+                'protocol_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7346,17 +7346,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Detail.ServerDetail.TraceInformation',
             False, 
             [
-            _MetaInfoClassMember('trace-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configured Hostname
-                ''',
-                'trace_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-stats', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('error-stats', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Server Total Status
+                '''                Server Error Status
                 ''',
-                'total_stats',
+                'error_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-run-stats', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7364,11 +7358,17 @@ _meta_table = {
                 ''',
                 'last_run_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('error-stats', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total-stats', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Server Error Status
+                '''                Server Total Status
                 ''',
-                'error_stats',
+                'total_stats',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trace-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configured Hostname
+                ''',
+                'trace_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7381,17 +7381,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Detail.ServerDetail',
             False, 
             [
-            _MetaInfoClassMember('overload-suspend', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Overload suspend
-                ''',
-                'overload_suspend',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('memory-suspend', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Memory Suspend
                 ''',
                 'memory_suspend',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('overload-suspend', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Overload suspend
+                ''',
+                'overload_suspend',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trace-information', REFERENCE_LIST, 'TraceInformation' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Detail.ServerDetail.TraceInformation', 
                 [], [], 
@@ -7410,65 +7410,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Detail',
             False, 
             [
-            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configured Hostname
-                ''',
-                'host_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisableEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisableEnum', 
-                [], [], 
-                '''                Server Status
-                ''',
-                'status',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('max-events', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('archive-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Maximum Events
+                '''                Archive Count
                 ''',
-                'max_events',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Event Buffer Size
-                ''',
-                'event_buffer_size',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured Monitor Interval
-                ''',
-                'monitoring_interval',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('next-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time for next processing
-                ''',
-                'next_interval',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('max-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Max Interface events count
-                ''',
-                'max_interface_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface events count
-                ''',
-                'interface_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-rp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                RP count
-                ''',
-                'node_rp_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-lc-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LC count
-                ''',
-                'node_lc_count',
+                'archive_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('diag-node-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7476,11 +7422,36 @@ _meta_table = {
                 ''',
                 'diag_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('diagnostics-archive-node', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Diagnostics Archival Node (Applicable for local
+                location)
+                ''',
+                'diagnostics_archive_node',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('diagnostics-archive-path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Diagnostics Archival Path
+                ''',
+                'diagnostics_archive_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('disabled-node-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Disabled Node count
                 ''',
                 'disabled_node_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Event Buffer Size
+                ''',
+                'event_buffer_size',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configured Hostname
+                ''',
+                'host_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('in-active-node-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -7488,54 +7459,11 @@ _meta_table = {
                 ''',
                 'in_active_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-start-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last Processing Start Time
-                ''',
-                'last_process_start_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last Processing Duration
-                ''',
-                'last_process_duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsStateEnum', 
-                [], [], 
-                '''                Process state
-                ''',
-                'last_process_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('process-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Post Processing count
+                '''                Interface events count
                 ''',
-                'process_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-process-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SPF Processing count
-                ''',
-                'spf_process_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reports-archive-path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reports Archival Path
-                ''',
-                'reports_archive_path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reports-archive-node', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reports Archival Node (Applicable for local
-                location)
-                ''',
-                'reports_archive_node',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-archival-status', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last Archival Status
-                ''',
-                'last_archival_status',
+                'interface_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-archival-error', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -7549,24 +7477,71 @@ _meta_table = {
                 ''',
                 'last_archival_error_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('archive-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-archival-status', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Archival Status
+                ''',
+                'last_archival_status',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-process-duration', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Processing Duration
+                ''',
+                'last_process_duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-process-start-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Processing Start Time
+                ''',
+                'last_process_start_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsStateEnum', 
+                [], [], 
+                '''                Process state
+                ''',
+                'last_process_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('max-events', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Archive Count
+                '''                Maximum Events
                 ''',
-                'archive_count',
+                'max_events',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('diagnostics-archive-path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Diagnostics Archival Path
+            _MetaInfoClassMember('max-interface-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Max Interface events count
                 ''',
-                'diagnostics_archive_path',
+                'max_interface_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('diagnostics-archive-node', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Diagnostics Archival Node (Applicable for local
-                location)
+            _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Configured Monitor Interval
                 ''',
-                'diagnostics_archive_node',
+                'monitoring_interval',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('next-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time for next processing
+                ''',
+                'next_interval',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node-lc-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LC count
+                ''',
+                'node_lc_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node-rp-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                RP count
+                ''',
+                'node_rp_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('process-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Post Processing count
+                ''',
+                'process_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protocol-config', REFERENCE_LIST, 'ProtocolConfig' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Detail.ProtocolConfig', 
                 [], [], 
@@ -7574,11 +7549,36 @@ _meta_table = {
                 ''',
                 'protocol_config',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reports-archive-node', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reports Archival Node (Applicable for local
+                location)
+                ''',
+                'reports_archive_node',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reports-archive-path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reports Archival Path
+                ''',
+                'reports_archive_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('server-detail', REFERENCE_LIST, 'ServerDetail' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Detail.ServerDetail', 
                 [], [], 
                 '''                Detailed Information
                 ''',
                 'server_detail',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-process-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SPF Processing count
+                ''',
+                'spf_process_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisableEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisableEnum', 
+                [], [], 
+                '''                Server Status
+                ''',
+                'status',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7591,17 +7591,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server',
             False, 
             [
-            _MetaInfoClassMember('normal', REFERENCE_CLASS, 'Normal' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Normal', 
-                [], [], 
-                '''                Server Info
-                ''',
-                'normal',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Detail', 
                 [], [], 
                 '''                Server Info
                 ''',
                 'detail',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('normal', REFERENCE_CLASS, 'Normal' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server.Normal', 
+                [], [], 
+                '''                Server Info
+                ''',
+                'normal',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7614,6 +7614,30 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Node.NodeInformation',
             False, 
             [
+            _MetaInfoClassMember('card-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Card State
+                ''',
+                'card_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('diag-mode', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Diag Mode
+                ''',
+                'diag_mode',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Forward Referenced
+                ''',
+                'fwd_referenced',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last Updated Time
+                ''',
+                'last_update_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Node Id
@@ -7626,23 +7650,11 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('rack-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Rack Id
-                ''',
-                'rack_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
-                '''                Last Updated Time
+                '''                Node State
                 ''',
-                'last_update_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Forward Referenced
-                ''',
-                'fwd_referenced',
+                'node_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'RcmdShowNodeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowNodeEnum', 
                 [], [], 
@@ -7650,41 +7662,29 @@ _meta_table = {
                 ''',
                 'node_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('software-state', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rack-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Software State
+                '''                Rack Id
                 ''',
-                'software_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('card-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Card State
-                ''',
-                'card_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Node State
-                ''',
-                'node_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnblDsblEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnblDsblEnum', 
-                [], [], 
-                '''                Status
-                ''',
-                'status',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('diag-mode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Diag Mode
-                ''',
-                'diag_mode',
+                'rack_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('redundancy-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Redundancy State
                 ''',
                 'redundancy_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('software-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Software State
+                ''',
+                'software_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnblDsblEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnblDsblEnum', 
+                [], [], 
+                '''                Status
+                ''',
+                'status',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7714,29 +7714,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Priority
+                '''                Covearge is below Configured Threshold
                 ''',
-                'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
-                ''',
-                'total_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Fully Protected Routes
-                ''',
-                'fully_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Partially Protected Routes
-                ''',
-                'partially_protected_routes',
+                'below_threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -7744,11 +7726,29 @@ _meta_table = {
                 ''',
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('local-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Local LFA Coverage in percentage
                 ''',
                 'local_lfa_coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Partially Protected Routes
+                ''',
+                'partially_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+                [], [], 
+                '''                Priority
+                ''',
+                'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -7756,11 +7756,11 @@ _meta_table = {
                 ''',
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Covearge is below Configured Threshold
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'below_threshold',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7796,11 +7796,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode',
             False, 
             [
-            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote-LFA Node ID
+            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
+                :04.961)
                 ''',
-                'remote_node_id',
+                'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -7820,18 +7821,17 @@ _meta_table = {
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
-                :04.961)
-                ''',
-                'in_use_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('primary-path', REFERENCE_LIST, 'PrimaryPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath', 
                 [], [], 
                 '''                Protected Primary Paths
                 ''',
                 'primary_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote-LFA Node ID
+                ''',
+                'remote_node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7850,29 +7850,53 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP-Frr Completed reference SPF Run Number
+                ''',
+                'completed_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage for all priorities
+                ''',
+                'coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duration for the calculation (in milliseconds)
+                ''',
+                'duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cumulative Number of Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic', 
                 [], [], 
-                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                '''                IP-Frr Statistics categorized by priority
                 ''',
-                'trigger_time',
+                'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                IP-Frr Triggered reference SPF Run Number
+                '''                Cumulative Number of Partially Protected Routes
                 ''',
-                'trigger_spf_run',
+                'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Waiting Time (in milliseconds)
+            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode', 
+                [], [], 
+                '''                Remote Node Information
                 ''',
-                'wait_time',
+                'remote_node',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time-offset', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -7881,53 +7905,29 @@ _meta_table = {
                 ''',
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duration for the calculation (in milliseconds)
-                ''',
-                'duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP-Frr Completed reference SPF Run Number
-                ''',
-                'completed_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Fully Protected Routes
+                '''                IP-Frr Triggered reference SPF Run Number
                 ''',
-                'fully_protected_routes',
+                'trigger_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                ''',
+                'trigger_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Partially Protected Routes
+                '''                Waiting Time (in milliseconds)
                 ''',
-                'partially_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage for all priorities
-                ''',
-                'coverage',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic', 
-                [], [], 
-                '''                IP-Frr Statistics categorized by priority
-                ''',
-                'ipfrr_statistic',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode', 
-                [], [], 
-                '''                Remote Node Information
-                ''',
-                'remote_node',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -7976,17 +7976,41 @@ _meta_table = {
                         'prefix_info',
                         'Cisco-IOS-XR-infra-rcmd-oper', True),
                 ]),
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Prefix
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('add-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Prefix length
+                '''                No. of times route gets Added
                 ''',
-                'prefix_lenth',
+                'add_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('critical-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of times processed under Critical Priority
+                ''',
+                'critical_priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('delete-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of times route gets Deleted
+                ''',
+                'delete_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('high-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No. of times processed under High Priority
+                ''',
+                'high_priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Last event Add/Delete
+                ''',
+                'last_change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('last-cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last Known Cost
+                ''',
+                'last_cost',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-event-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8006,29 +8030,11 @@ _meta_table = {
                 ''',
                 'last_route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Last event Add/Delete
-                ''',
-                'last_change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('low-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Last Known Cost
+                '''                No. of times processed under Low Priority
                 ''',
-                'last_cost',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('critical-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times processed under Critical Priority
-                ''',
-                'critical_priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('high-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times processed under High Priority
-                ''',
-                'high_priority',
+                'low_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('medium-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8036,29 +8042,23 @@ _meta_table = {
                 ''',
                 'medium_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('low-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times processed under Low Priority
-                ''',
-                'low_priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('add-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times route gets Added
-                ''',
-                'add_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modify-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                No. of times route gets Deleted
                 ''',
                 'modify_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('delete-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No. of times route gets Deleted
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Prefix
                 ''',
-                'delete_count',
+                'prefix',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Prefix length
+                ''',
+                'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceed-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8118,17 +8118,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8141,11 +8141,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8153,17 +8153,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8176,11 +8176,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8188,17 +8188,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8211,11 +8211,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8229,11 +8229,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8246,11 +8246,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -8258,29 +8258,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8293,35 +8293,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary',
             False, 
             [
-            _MetaInfoClassMember('topology', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Topology index (multi-topology)
-                ''',
-                'topology',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                ISIS Level
+                '''                Duration of SPF calculation (in ss.msec)
                 ''',
-                'isis_level',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpfEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpfEnum', 
-                [], [], 
-                '''                Type of SPF
-                ''',
-                'type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
-                [], [], 
-                '''                SPF state
-                ''',
-                'state',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('is-data-complete', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8329,23 +8305,11 @@ _meta_table = {
                 ''',
                 'is_data_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
-                '''                Trigger time (in hh:mm:ss.msec)
+                '''                ISIS Level
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duration of SPF calculation (in ss.msec)
-                ''',
-                'duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-lsp-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Total number of LSP changes processed
-                ''',
-                'total_lsp_changes',
+                'isis_level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority-summary', REFERENCE_LIST, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary', 
                 [], [], 
@@ -8353,6 +8317,42 @@ _meta_table = {
                 basis
                 ''',
                 'priority_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
+                [], [], 
+                '''                SPF state
+                ''',
+                'state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Threshold exceeded
+                ''',
+                'threshold_exceeded',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('topology', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Topology index (multi-topology)
+                ''',
+                'topology',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('total-lsp-changes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Total number of LSP changes processed
+                ''',
+                'total_lsp_changes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger time (in hh:mm:ss.msec)
+                ''',
+                'trigger_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpfEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpfEnum', 
+                [], [], 
+                '''                Type of SPF
+                ''',
+                'type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8389,17 +8389,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8412,29 +8412,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp',
             False, 
             [
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
+                ''',
+                'lsp_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8471,17 +8471,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8494,11 +8494,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8506,17 +8506,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8529,11 +8529,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8541,17 +8541,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8564,11 +8564,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -8582,11 +8582,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8599,11 +8599,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -8611,29 +8611,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8646,12 +8646,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8660,11 +8659,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8677,12 +8677,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8691,11 +8690,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8708,12 +8708,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8722,11 +8721,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8739,12 +8739,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8753,11 +8752,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8770,12 +8770,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8784,11 +8783,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8801,12 +8801,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8815,11 +8814,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8832,12 +8832,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8846,11 +8845,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8863,12 +8863,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8877,11 +8876,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8894,12 +8894,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8908,11 +8907,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -8954,12 +8954,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8968,11 +8967,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9014,29 +9014,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline',
             False, 
             [
-            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin', 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter', 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit', 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute', 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', REFERENCE_CLASS, 'LdpEnter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter', 
                 [], [], 
@@ -9062,19 +9052,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter', 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit', 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute', 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin', 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9133,12 +9133,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary', 
-                [], [], 
-                '''                Summary of the priority
-                ''',
-                'priority_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('convergence-timeline', REFERENCE_LIST, 'ConvergenceTimeline' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline', 
                 [], [], 
                 '''                Convergence timeline details
@@ -9157,6 +9151,12 @@ _meta_table = {
                 ''',
                 'leaf_networks_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary', 
+                [], [], 
+                '''                Summary of the priority
+                ''',
+                'priority_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'priority',
@@ -9168,29 +9168,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed',
             False, 
             [
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
+                ''',
+                'lsp_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9203,41 +9203,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated',
             False, 
             [
-            _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Serial Number of the session event
-                ''',
-                'serial_number_xr',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reception Time on router (in hh:mm:ss.msec)
-                ''',
-                'reception_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
                 'isis_level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SPF Run Number
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
                 ''',
-                'spf_run_number',
+                'lsp_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9246,6 +9222,30 @@ _meta_table = {
                 documentation for the entire list)
                 ''',
                 'reason',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reception Time on router (in hh:mm:ss.msec)
+                ''',
+                'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Serial Number of the session event
+                ''',
+                'serial_number_xr',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SPF Run Number
+                ''',
+                'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9264,51 +9264,6 @@ _meta_table = {
                 ''',
                 'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary', 
-                [], [], 
-                '''                SPF summary information
-                ''',
-                'spf_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-statistics', REFERENCE_CLASS, 'NodeStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics', 
-                [], [], 
-                '''                SPF Node statistics
-                ''',
-                'node_statistics',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Start time (offset from event trigger time in ss
-                .msec)
-                ''',
-                'start_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Wait time applied at SPF schedule (in msec)
-                ''',
-                'wait_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Trigger reasons for SPF run. Example: pr^ -
-                periodic, cr^ - clear (Check the documentation
-                for the entire list)
-                ''',
-                'reason',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsp', REFERENCE_LIST, 'TriggerLsp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp', 
-                [], [], 
-                '''                Trigger LSP
-                ''',
-                'trigger_lsp',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority', 
-                [], [], 
-                '''                Convergence information on per-priority basis
-                ''',
-                'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-processed', REFERENCE_LIST, 'LspProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed', 
                 [], [], 
                 '''                List of LSP changes processed
@@ -9320,6 +9275,51 @@ _meta_table = {
                 '''                List of LSP regenerated
                 ''',
                 'lsp_regenerated',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node-statistics', REFERENCE_CLASS, 'NodeStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics', 
+                [], [], 
+                '''                SPF Node statistics
+                ''',
+                'node_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority', 
+                [], [], 
+                '''                Convergence information on per-priority basis
+                ''',
+                'priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger reasons for SPF run. Example: pr^ -
+                periodic, cr^ - clear (Check the documentation
+                for the entire list)
+                ''',
+                'reason',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary', 
+                [], [], 
+                '''                SPF summary information
+                ''',
+                'spf_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Start time (offset from event trigger time in ss
+                .msec)
+                ''',
+                'start_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-lsp', REFERENCE_LIST, 'TriggerLsp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp', 
+                [], [], 
+                '''                Trigger LSP
+                ''',
+                'trigger_lsp',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Wait time applied at SPF schedule (in msec)
+                ''',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9349,29 +9349,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Priority
+                '''                Covearge is below Configured Threshold
                 ''',
-                'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
-                ''',
-                'total_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Fully Protected Routes
-                ''',
-                'fully_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Partially Protected Routes
-                ''',
-                'partially_protected_routes',
+                'below_threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9379,11 +9361,29 @@ _meta_table = {
                 ''',
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('local-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Local LFA Coverage in percentage
                 ''',
                 'local_lfa_coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Partially Protected Routes
+                ''',
+                'partially_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
+                [], [], 
+                '''                Priority
+                ''',
+                'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-lfa-coverage', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9391,11 +9391,11 @@ _meta_table = {
                 ''',
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Covearge is below Configured Threshold
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'below_threshold',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9431,11 +9431,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode',
             False, 
             [
-            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote-LFA Node ID
+            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
+                :04.961)
                 ''',
-                'remote_node_id',
+                'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9455,18 +9456,17 @@ _meta_table = {
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inuse time of the Remote Node (eg: Apr 24 13:16
-                :04.961)
-                ''',
-                'in_use_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('primary-path', REFERENCE_LIST, 'PrimaryPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath', 
                 [], [], 
                 '''                Protected Primary Paths
                 ''',
                 'primary_path',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote-LFA Node ID
+                ''',
+                'remote_node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9485,29 +9485,53 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IP-Frr Completed reference SPF Run Number
+                ''',
+                'completed_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage for all priorities
+                ''',
+                'coverage',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Duration for the calculation (in milliseconds)
+                ''',
+                'duration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cumulative Number of Fully Protected Routes
+                ''',
+                'fully_protected_routes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic', 
                 [], [], 
-                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                '''                IP-Frr Statistics categorized by priority
                 ''',
-                'trigger_time',
+                'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                IP-Frr Triggered reference SPF Run Number
+                '''                Cumulative Number of Partially Protected Routes
                 ''',
-                'trigger_spf_run',
+                'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Waiting Time (in milliseconds)
+            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode', 
+                [], [], 
+                '''                Remote Node Information
                 ''',
-                'wait_time',
+                'remote_node',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('start-time-offset', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9516,53 +9540,29 @@ _meta_table = {
                 ''',
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duration for the calculation (in milliseconds)
-                ''',
-                'duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IP-Frr Completed reference SPF Run Number
-                ''',
-                'completed_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Fully Protected Routes
+                '''                IP-Frr Triggered reference SPF Run Number
                 ''',
-                'fully_protected_routes',
+                'trigger_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger time  (eg: Apr 24 13:16:04.961)
+                ''',
+                'trigger_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cumulative Number of Partially Protected Routes
+                '''                Waiting Time (in milliseconds)
                 ''',
-                'partially_protected_routes',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage for all priorities
-                ''',
-                'coverage',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-statistic', REFERENCE_LIST, 'IpfrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic', 
-                [], [], 
-                '''                IP-Frr Statistics categorized by priority
-                ''',
-                'ipfrr_statistic',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode', 
-                [], [], 
-                '''                Remote Node Information
-                ''',
-                'remote_node',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9617,17 +9617,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9640,11 +9640,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9652,17 +9652,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9675,11 +9675,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -9687,17 +9687,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9710,11 +9710,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -9728,11 +9728,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9745,11 +9745,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -9757,29 +9757,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9792,35 +9792,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary',
             False, 
             [
-            _MetaInfoClassMember('topology', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Topology index (multi-topology)
-                ''',
-                'topology',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                ISIS Level
+                '''                Duration of SPF calculation (in ss.msec)
                 ''',
-                'isis_level',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpfEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpfEnum', 
-                [], [], 
-                '''                Type of SPF
-                ''',
-                'type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
-                [], [], 
-                '''                SPF state
-                ''',
-                'state',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('is-data-complete', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9828,23 +9804,11 @@ _meta_table = {
                 ''',
                 'is_data_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
-                '''                Trigger time (in hh:mm:ss.msec)
+                '''                ISIS Level
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Duration of SPF calculation (in ss.msec)
-                ''',
-                'duration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-lsp-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Total number of LSP changes processed
-                ''',
-                'total_lsp_changes',
+                'isis_level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority-summary', REFERENCE_LIST, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary', 
                 [], [], 
@@ -9852,6 +9816,42 @@ _meta_table = {
                 basis
                 ''',
                 'priority_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
+                [], [], 
+                '''                SPF state
+                ''',
+                'state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Threshold exceeded
+                ''',
+                'threshold_exceeded',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('topology', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Topology index (multi-topology)
+                ''',
+                'topology',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('total-lsp-changes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Total number of LSP changes processed
+                ''',
+                'total_lsp_changes',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger time (in hh:mm:ss.msec)
+                ''',
+                'trigger_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpfEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpfEnum', 
+                [], [], 
+                '''                Type of SPF
+                ''',
+                'type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9888,17 +9888,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9911,29 +9911,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp',
             False, 
             [
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
+                ''',
+                'lsp_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9970,17 +9970,17 @@ _meta_table = {
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unreachable
-                ''',
-                'unreachables',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Touched
                 ''',
                 'touches',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unreachable
+                ''',
+                'unreachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -9993,11 +9993,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10005,17 +10005,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10028,11 +10028,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10040,17 +10040,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10063,11 +10063,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic',
             False, 
             [
-            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Number of Routes
+            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Coverage in percentage
                 ''',
-                'total_routes',
+                'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -10081,11 +10081,11 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('coverage', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Coverage in percentage
+            _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Number of Routes
                 ''',
-                'coverage',
+                'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10098,11 +10098,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary',
             False, 
             [
-            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics', 
+            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic', 
                 [], [], 
-                '''                Route statistics
+                '''                Fast Re-Route Statistics
                 ''',
-                'route_statistics',
+                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime', 
                 [], [], 
@@ -10110,29 +10110,29 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime', 
-                [], [], 
-                '''                Convergence time for MPLS label programming
-                ''',
-                'mpls_convergence_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
                 'level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime', 
+                [], [], 
+                '''                Convergence time for MPLS label programming
+                ''',
+                'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-statistics', REFERENCE_CLASS, 'RouteStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics', 
+                [], [], 
+                '''                Route statistics
+                ''',
+                'route_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Threshold exceeded
                 ''',
                 'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('frr-statistic', REFERENCE_LIST, 'FrrStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic', 
-                [], [], 
-                '''                Fast Re-Route Statistics
-                ''',
-                'frr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10145,12 +10145,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10159,11 +10158,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10176,12 +10176,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10190,11 +10189,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10207,12 +10207,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10221,11 +10220,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10238,12 +10238,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10252,11 +10251,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10269,12 +10269,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10283,11 +10282,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10300,12 +10300,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10314,11 +10313,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10331,12 +10331,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10345,11 +10344,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10362,12 +10362,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10376,11 +10375,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10393,12 +10393,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10407,11 +10406,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10453,12 +10453,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete',
             False, 
             [
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                First route process time relative to event
-                trigger time (in ss.msec)
+                '''                Duration of processing (in ss.msec)
                 ''',
-                'start_time',
+                'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10467,11 +10466,12 @@ _meta_table = {
                 ''',
                 'end_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Duration of processing (in ss.msec)
+                '''                First route process time relative to event
+                trigger time (in ss.msec)
                 ''',
-                'duration',
+                'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10513,29 +10513,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline',
             False, 
             [
-            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin', 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter', 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit', 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute', 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', REFERENCE_CLASS, 'LdpEnter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter', 
                 [], [], 
@@ -10561,19 +10551,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', REFERENCE_CLASS, 'RiBv4Enter' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter', 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', REFERENCE_CLASS, 'RiBv4Exit' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit', 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', REFERENCE_CLASS, 'RiBv4Redistribute' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute', 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', REFERENCE_CLASS, 'RouteOrigin' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin', 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10632,12 +10632,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary', 
-                [], [], 
-                '''                Summary of the priority
-                ''',
-                'priority_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('convergence-timeline', REFERENCE_LIST, 'ConvergenceTimeline' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline', 
                 [], [], 
                 '''                Convergence timeline details
@@ -10656,6 +10650,12 @@ _meta_table = {
                 ''',
                 'leaf_networks_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority-summary', REFERENCE_CLASS, 'PrioritySummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary', 
+                [], [], 
+                '''                Summary of the priority
+                ''',
+                'priority_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'priority',
@@ -10667,29 +10667,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed',
             False, 
             [
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
+                ''',
+                'lsp_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10702,41 +10702,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated',
             False, 
             [
-            _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Serial Number of the session event
-                ''',
-                'serial_number_xr',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reception Time on router (in hh:mm:ss.msec)
-                ''',
-                'reception_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
                 'isis_level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SPF Run Number
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
                 ''',
-                'spf_run_number',
+                'lsp_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10745,6 +10721,30 @@ _meta_table = {
                 documentation for the entire list)
                 ''',
                 'reason',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reception Time on router (in hh:mm:ss.msec)
+                ''',
+                'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Serial Number of the session event
+                ''',
+                'serial_number_xr',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SPF Run Number
+                ''',
+                'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10763,51 +10763,6 @@ _meta_table = {
                 ''',
                 'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary', 
-                [], [], 
-                '''                SPF summary information
-                ''',
-                'spf_summary',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-statistics', REFERENCE_CLASS, 'NodeStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics', 
-                [], [], 
-                '''                SPF Node statistics
-                ''',
-                'node_statistics',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Start time (offset from event trigger time in ss
-                .msec)
-                ''',
-                'start_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Wait time applied at SPF schedule (in msec)
-                ''',
-                'wait_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Trigger reasons for SPF run. Example: pr^ -
-                periodic, cr^ - clear (Check the documentation
-                for the entire list)
-                ''',
-                'reason',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsp', REFERENCE_LIST, 'TriggerLsp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp', 
-                [], [], 
-                '''                Trigger LSP
-                ''',
-                'trigger_lsp',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority', 
-                [], [], 
-                '''                Convergence information on per-priority basis
-                ''',
-                'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-processed', REFERENCE_LIST, 'LspProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed', 
                 [], [], 
                 '''                List of LSP changes processed
@@ -10819,6 +10774,51 @@ _meta_table = {
                 '''                List of LSP regenerated
                 ''',
                 'lsp_regenerated',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node-statistics', REFERENCE_CLASS, 'NodeStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics', 
+                [], [], 
+                '''                SPF Node statistics
+                ''',
+                'node_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_LIST, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority', 
+                [], [], 
+                '''                Convergence information on per-priority basis
+                ''',
+                'priority',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trigger reasons for SPF run. Example: pr^ -
+                periodic, cr^ - clear (Check the documentation
+                for the entire list)
+                ''',
+                'reason',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-summary', REFERENCE_CLASS, 'SpfSummary' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary', 
+                [], [], 
+                '''                SPF summary information
+                ''',
+                'spf_summary',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Start time (offset from event trigger time in ss
+                .msec)
+                ''',
+                'start_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-lsp', REFERENCE_LIST, 'TriggerLsp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp', 
+                [], [], 
+                '''                Trigger LSP
+                ''',
+                'trigger_lsp',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Wait time applied at SPF schedule (in msec)
+                ''',
+                'wait_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10849,11 +10849,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10861,17 +10861,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10884,11 +10884,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10896,17 +10896,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -10919,11 +10919,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
-                '''                Type of LFA
+                '''                Event Add/Delete
                 ''',
-                'lfa_type',
+                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -10931,17 +10931,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+                [], [], 
+                '''                Type of LFA
+                ''',
+                'lfa_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -10966,11 +10966,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface Name
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath', 
+                [], [], 
+                '''                Backup Path Informatoin
+                ''',
+                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -10978,23 +10990,11 @@ _meta_table = {
                 ''',
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath', 
-                [], [], 
-                '''                Backup Path Informatoin
-                ''',
-                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11007,17 +11007,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -11031,17 +11031,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11054,6 +11054,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -11065,12 +11071,6 @@ _meta_table = {
                 '''                Relative convergence speed
                 ''',
                 'speed',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11083,6 +11083,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -11095,12 +11101,6 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'lc-mpls',
@@ -11112,29 +11112,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine',
             False, 
             [
-            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11160,19 +11150,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11185,17 +11185,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -11209,17 +11209,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11238,17 +11238,47 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Protocol route cost
+                ''',
+                'cost',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
+                ''',
+                'ipfrr_event_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed', 
+                [], [], 
+                '''                List of LSAs processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime', 
                 [], [], 
                 '''                Convergence time for MPLS label programming
                 ''',
                 'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path', 
+                [], [], 
+                '''                Path information
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -11262,41 +11292,11 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced SPF Run No (0 - Not Applicable)
-                ''',
-                'spf_run_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
-                ''',
-                'ipfrr_event_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
-                [], [], 
-                '''                Route Type intra/inter/l1/l2
-                ''',
-                'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
@@ -11304,29 +11304,23 @@ _meta_table = {
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
+                [], [], 
+                '''                Route Type intra/inter/l1/l2
+                ''',
+                'route_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protocol route cost
+                '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
-                'cost',
+                'spf_run_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Event trigger time
+                '''                Threshold exceeded
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path', 
-                [], [], 
-                '''                Path information
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa', 
-                [], [], 
-                '''                LSA that triggered this event
-                ''',
-                'trigger_lsa',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('time-line', REFERENCE_LIST, 'TimeLine' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine', 
                 [], [], 
@@ -11334,11 +11328,17 @@ _meta_table = {
                 ''',
                 'time_line',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed', 
+            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa', 
                 [], [], 
-                '''                List of LSAs processed
+                '''                LSA that triggered this event
                 ''',
-                'lsa_processed',
+                'trigger_lsa',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event trigger time
+                ''',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11368,11 +11368,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11380,17 +11380,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11403,11 +11403,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime',
             False, 
             [
-            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Minimum time(in seconds.milliseconds)
+                '''                Linecard node name which took the minimum time
                 ''',
-                'minimum_time',
+                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('maximum-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11415,17 +11415,17 @@ _meta_table = {
                 ''',
                 'maximum_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('minimum-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Minimum time(in seconds.milliseconds)
+                ''',
+                'minimum_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('slowest-node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name which took the maximum time
                 ''',
                 'slowest_node_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fastest-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Linecard node name which took the minimum time
-                ''',
-                'fastest_node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11438,11 +11438,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
-                '''                Type of LFA
+                '''                Event Add/Delete
                 ''',
-                'lfa_type',
+                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11450,17 +11450,17 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
+                [], [], 
+                '''                Type of LFA
+                ''',
+                'lfa_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -11485,11 +11485,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface Name
                 ''',
                 'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath', 
+                [], [], 
+                '''                Backup Path Informatoin
+                ''',
+                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -11497,23 +11509,11 @@ _meta_table = {
                 ''',
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-path', REFERENCE_LIST, 'LfaPath' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath', 
-                [], [], 
-                '''                Backup Path Informatoin
-                ''',
-                'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11526,17 +11526,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -11550,17 +11550,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11573,6 +11573,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -11584,12 +11590,6 @@ _meta_table = {
                 '''                Relative convergence speed
                 ''',
                 'speed',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11602,6 +11602,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls',
             False, 
             [
+            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Completion point of FIB
+                ''',
+                'fib_complete',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Linecard node name
@@ -11614,12 +11620,6 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fib-complete', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Completion point of FIB
-                ''',
-                'fib_complete',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'lc-mpls',
@@ -11631,29 +11631,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine',
             False, 
             [
-            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp', 
                 [], [], 
-                '''                Route origin (routing protocol)
+                '''                List of Linecards' completion point for IP
+                routes
                 ''',
-                'route_origin',
+                'lc_ip',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls', 
                 [], [], 
-                '''                Entry point of IPv4 RIB
+                '''                List of Linecards' completion point for MPLS
+                labels
                 ''',
-                'ri_bv4_enter',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exit point from IPv4 RIB to FIBs
-                ''',
-                'ri_bv4_exit',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route Redistribute point from IPv4 RIB to LDP
-                ''',
-                'ri_bv4_redistribute',
+                'lc_mpls',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11679,19 +11669,29 @@ _meta_table = {
                 ''',
                 'lsd_exit',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-ip', REFERENCE_LIST, 'LcIp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp', 
+            _MetaInfoClassMember('ri-bv4-enter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for IP
-                routes
+                '''                Entry point of IPv4 RIB
                 ''',
-                'lc_ip',
+                'ri_bv4_enter',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lc-mpls', REFERENCE_LIST, 'LcMpls' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls', 
+            _MetaInfoClassMember('ri-bv4-exit', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                List of Linecards' completion point for MPLS
-                labels
+                '''                Exit point from IPv4 RIB to FIBs
                 ''',
-                'lc_mpls',
+                'ri_bv4_exit',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ri-bv4-redistribute', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route Redistribute point from IPv4 RIB to LDP
+                ''',
+                'ri_bv4_redistribute',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-origin', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route origin (routing protocol)
+                ''',
+                'route_origin',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11704,17 +11704,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed',
             False, 
             [
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
+                [], [], 
+                '''                Add, Delete, Modify
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
@@ -11728,17 +11728,17 @@ _meta_table = {
                 ''',
                 'origin_router_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
-                [], [], 
-                '''                Add, Delete, Modify
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reception Time on router (in hh:mm:ss.msec)
                 ''',
                 'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11757,17 +11757,47 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
+                [], [], 
+                '''                Event Add/Delete
+                ''',
+                'change_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Protocol route cost
+                ''',
+                'cost',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ip-convergence-time', REFERENCE_CLASS, 'IpConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime', 
                 [], [], 
                 '''                Convergence time for IP route programming
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
+                ''',
+                'ipfrr_event_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed', 
+                [], [], 
+                '''                List of LSAs processed
+                ''',
+                'lsa_processed',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('mpls-convergence-time', REFERENCE_CLASS, 'MplsConvergenceTime' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime', 
                 [], [], 
                 '''                Convergence time for MPLS label programming
                 ''',
                 'mpls_convergence_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path', 
+                [], [], 
+                '''                Path information
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -11781,41 +11811,11 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced SPF Run No (0 - Not Applicable)
-                ''',
-                'spf_run_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Referenced IP-FRR Event ID (0 - Not Applicable)
-                ''',
-                'ipfrr_event_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Threshold exceeded
-                ''',
-                'threshold_exceeded',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
-                [], [], 
-                '''                Event Add/Delete
-                ''',
-                'change_type',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
-                [], [], 
-                '''                Route Type intra/inter/l1/l2
-                ''',
-                'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
@@ -11823,29 +11823,23 @@ _meta_table = {
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
+                [], [], 
+                '''                Route Type intra/inter/l1/l2
+                ''',
+                'route_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protocol route cost
+                '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
-                'cost',
+                'spf_run_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Event trigger time
+                '''                Threshold exceeded
                 ''',
-                'trigger_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path', 
-                [], [], 
-                '''                Path information
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa', 
-                [], [], 
-                '''                LSA that triggered this event
-                ''',
-                'trigger_lsa',
+                'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('time-line', REFERENCE_LIST, 'TimeLine' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine', 
                 [], [], 
@@ -11853,11 +11847,17 @@ _meta_table = {
                 ''',
                 'time_line',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-processed', REFERENCE_LIST, 'LsaProcessed' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed', 
+            _MetaInfoClassMember('trigger-lsa', REFERENCE_LIST, 'TriggerLsa' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa', 
                 [], [], 
-                '''                List of LSAs processed
+                '''                LSA that triggered this event
                 ''',
-                'lsa_processed',
+                'trigger_lsa',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('trigger-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event trigger time
+                ''',
+                'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11894,41 +11894,17 @@ _meta_table = {
                 ''',
                 'serial_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Serial Number of the session event
-                ''',
-                'serial_number_xr',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                LSP ID
-                ''',
-                'lsp_id',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence Number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reception Time on router (in hh:mm:ss.msec)
-                ''',
-                'reception_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
                 'isis_level',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SPF Run Number
+            _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                LSP ID
                 ''',
-                'spf_run_number',
+                'lsp_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -11937,6 +11913,30 @@ _meta_table = {
                 documentation for the entire list)
                 ''',
                 'reason',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('reception-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reception Time on router (in hh:mm:ss.msec)
+                ''',
+                'reception_time',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence Number
+                ''',
+                'sequence_number',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Serial Number of the session event
+                ''',
+                'serial_number_xr',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SPF Run Number
+                ''',
+                'spf_run_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -11972,41 +11972,23 @@ _meta_table = {
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('ipfrr-event-summaries', REFERENCE_CLASS, 'IpfrrEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries', 
-                [], [], 
-                '''                ISIS IP-FRR events summary data
-                ''',
-                'ipfrr_event_summaries',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('prefix-event-statistics', REFERENCE_CLASS, 'PrefixEventStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventStatistics', 
-                [], [], 
-                '''                ISIS Prefix events statistics data
-                ''',
-                'prefix_event_statistics',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-summaries', REFERENCE_CLASS, 'SpfRunSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries', 
-                [], [], 
-                '''                ISIS SPF run summary data
-                ''',
-                'spf_run_summaries',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-offlines', REFERENCE_CLASS, 'IpfrrEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventOfflines', 
                 [], [], 
                 '''                ISIS IP-FRR Event offline data
                 ''',
                 'ipfrr_event_offlines',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('spf-run-offlines', REFERENCE_CLASS, 'SpfRunOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines', 
+            _MetaInfoClassMember('ipfrr-event-summaries', REFERENCE_CLASS, 'IpfrrEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.IpfrrEventSummaries', 
                 [], [], 
-                '''                ISIS SPF run offline data
+                '''                ISIS IP-FRR events summary data
                 ''',
-                'spf_run_offlines',
+                'ipfrr_event_summaries',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('prefix-event-summaries', REFERENCE_CLASS, 'PrefixEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries', 
+            _MetaInfoClassMember('lsp-regenerateds', REFERENCE_CLASS, 'LspRegenerateds' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.LspRegenerateds', 
                 [], [], 
-                '''                ISIS Prefix events summary data
+                '''                Regenerated LSP data
                 ''',
-                'prefix_event_summaries',
+                'lsp_regenerateds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-event-offlines', REFERENCE_CLASS, 'PrefixEventOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventOfflines', 
                 [], [], 
@@ -12014,11 +11996,29 @@ _meta_table = {
                 ''',
                 'prefix_event_offlines',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsp-regenerateds', REFERENCE_CLASS, 'LspRegenerateds' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.LspRegenerateds', 
+            _MetaInfoClassMember('prefix-event-statistics', REFERENCE_CLASS, 'PrefixEventStatistics' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventStatistics', 
                 [], [], 
-                '''                Regenerated LSP data
+                '''                ISIS Prefix events statistics data
                 ''',
-                'lsp_regenerateds',
+                'prefix_event_statistics',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('prefix-event-summaries', REFERENCE_CLASS, 'PrefixEventSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.PrefixEventSummaries', 
+                [], [], 
+                '''                ISIS Prefix events summary data
+                ''',
+                'prefix_event_summaries',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-offlines', REFERENCE_CLASS, 'SpfRunOfflines' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunOfflines', 
+                [], [], 
+                '''                ISIS SPF run offline data
+                ''',
+                'spf_run_offlines',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('spf-run-summaries', REFERENCE_CLASS, 'SpfRunSummaries' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis.Instances.Instance.SpfRunSummaries', 
+                [], [], 
+                '''                ISIS SPF run summary data
+                ''',
+                'spf_run_summaries',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12065,23 +12065,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Memory.MemoryInfo',
             False, 
             [
-            _MetaInfoClassMember('structure-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Structure Name
-                ''',
-                'structure_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('alloc-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Size of the datastructure
+                '''                Allocated count
                 ''',
-                'size',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('current-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current Count
-                ''',
-                'current_count',
+                'alloc_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('alloc-fails', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12089,11 +12077,11 @@ _meta_table = {
                 ''',
                 'alloc_fails',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('alloc-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('current-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Allocated count
+                '''                Current Count
                 ''',
-                'alloc_count',
+                'current_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('freed-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12107,6 +12095,18 @@ _meta_table = {
                 ''',
                 'memory_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Size of the datastructure
+                ''',
+                'size',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('structure-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Structure Name
+                ''',
+                'structure_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
             'memory-info',
@@ -12118,17 +12118,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Memory.EdmMemoryInfo',
             False, 
             [
+            _MetaInfoClassMember('failure', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cache-hit failure
+                ''',
+                'failure',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Size of the block
                 ''',
                 'size',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total request
-                ''',
-                'total',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('success', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12136,11 +12136,11 @@ _meta_table = {
                 ''',
                 'success',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('failure', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cache-hit failure
+                '''                Total request
                 ''',
-                'failure',
+                'total',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12153,17 +12153,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Memory.StringMemoryInfo',
             False, 
             [
+            _MetaInfoClassMember('failure', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cache-hit failure
+                ''',
+                'failure',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Size of the block
                 ''',
                 'size',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total request
-                ''',
-                'total',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('success', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12171,11 +12171,11 @@ _meta_table = {
                 ''',
                 'success',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('failure', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Cache-hit failure
+                '''                Total request
                 ''',
-                'failure',
+                'total',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12188,17 +12188,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Memory',
             False, 
             [
-            _MetaInfoClassMember('memory-info', REFERENCE_LIST, 'MemoryInfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Memory.MemoryInfo', 
-                [], [], 
-                '''                Memory Info
-                ''',
-                'memory_info',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('edm-memory-info', REFERENCE_LIST, 'EdmMemoryInfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Memory.EdmMemoryInfo', 
                 [], [], 
                 '''                Memory Info
                 ''',
                 'edm_memory_info',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('memory-info', REFERENCE_LIST, 'MemoryInfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Memory.MemoryInfo', 
+                [], [], 
+                '''                Memory Info
+                ''',
+                'memory_info',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('string-memory-info', REFERENCE_LIST, 'StringMemoryInfo' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Memory.StringMemoryInfo', 
                 [], [], 
@@ -12223,17 +12223,17 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                transport address or adjacency address
+                ''',
+                'address',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Event ID
                 ''',
                 'event_id_xr',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdLdpEventEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLdpEventEnum', 
-                [], [], 
-                '''                Type of event
-                ''',
-                'event_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12241,11 +12241,11 @@ _meta_table = {
                 ''',
                 'event_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Label Space Router ID
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdLdpEventEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLdpEventEnum', 
+                [], [], 
+                '''                Type of event
                 ''',
-                'lsr_id',
+                'event_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12253,11 +12253,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                transport address or adjacency address
+                '''                Label Space Router ID
                 ''',
-                'address',
+                'lsr_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpNeighbourStatusEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpNeighbourStatusEnum', 
                 [], [], 
@@ -12293,35 +12293,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic',
             False, 
             [
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
-                [], [], 
-                '''                Session State
-                ''',
-                'session_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LDP Session Count
-                ''',
-                'session_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Route Count
-                ''',
-                'route_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Remote Label Count
+                '''                Protected Path Count
                 ''',
-                'remote_label_count',
+                'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12329,11 +12311,29 @@ _meta_table = {
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protected Path Count
+                '''                Remote Label Count
                 ''',
-                'protected_path_count',
+                'remote_label_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Route Count
+                ''',
+                'route_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LDP Session Count
+                ''',
+                'session_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
+                [], [], 
+                '''                Session State
+                ''',
+                'session_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12346,11 +12346,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode',
             False, 
             [
-            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote Node ID
+            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inuse time of the Session
                 ''',
-                'remote_node_id',
+                'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -12358,41 +12358,17 @@ _meta_table = {
                 ''',
                 'lsr_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Transport Address
-                ''',
-                'transport_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inuse time of the Session
-                ''',
-                'in_use_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
-                [], [], 
-                '''                Session State
-                ''',
-                'session_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Route Count
-                ''',
-                'route_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Remote Label Count
+                '''                Protected Path Count
                 ''',
-                'remote_label_count',
+                'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12400,11 +12376,35 @@ _meta_table = {
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protected Path Count
+                '''                Remote Label Count
                 ''',
-                'protected_path_count',
+                'remote_label_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote Node ID
+                ''',
+                'remote_node_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Route Count
+                ''',
+                'route_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
+                [], [], 
+                '''                Session State
+                ''',
+                'session_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Transport Address
+                ''',
+                'transport_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12417,29 +12417,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs',
             False, 
             [
-            _MetaInfoClassMember('log-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Event Time (eg: Apr 24 13:16:04.961)
-                ''',
-                'log_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('label-coverage-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpConvStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpConvStateEnum', 
                 [], [], 
                 '''                Label Coverage State
                 ''',
                 'label_coverage_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Route Count
+            _MetaInfoClassMember('log-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event Time (eg: Apr 24 13:16:04.961)
                 ''',
-                'route_count',
+                'log_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Route Count
+                ''',
+                'route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12458,11 +12458,11 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LDP-rLFA Event ID
+            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Coverage Below Threshold
                 ''',
-                'event_id_xr',
+                'below_threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-of-calculation-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12471,17 +12471,17 @@ _meta_table = {
                 ''',
                 'end_of_calculation_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LDP-rLFA Event ID
+                ''',
+                'event_id_xr',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('igp-protocol', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                IGP Protocol
                 ''',
                 'igp_protocol',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Process Name
-                ''',
-                'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12490,17 +12490,17 @@ _meta_table = {
                 ''',
                 'ipfrr_event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('logs', REFERENCE_LIST, 'Logs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs', 
                 [], [], 
-                '''                Coverage Below Threshold
+                '''                Logs Information
                 ''',
-                'below_threshold',
+                'logs',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-statistic', REFERENCE_LIST, 'SessionStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic', 
+            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                RLFA Statistics categorized by session state
+                '''                Process Name
                 ''',
-                'session_statistic',
+                'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode', 
                 [], [], 
@@ -12508,11 +12508,11 @@ _meta_table = {
                 ''',
                 'remote_node',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('logs', REFERENCE_LIST, 'Logs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs', 
+            _MetaInfoClassMember('session-statistic', REFERENCE_LIST, 'SessionStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic', 
                 [], [], 
-                '''                Logs Information
+                '''                RLFA Statistics categorized by session state
                 ''',
-                'logs',
+                'session_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12542,35 +12542,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic',
             False, 
             [
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
-                [], [], 
-                '''                Session State
-                ''',
-                'session_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LDP Session Count
-                ''',
-                'session_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Route Count
-                ''',
-                'route_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Remote Label Count
+                '''                Protected Path Count
                 ''',
-                'remote_label_count',
+                'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12578,11 +12560,29 @@ _meta_table = {
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protected Path Count
+                '''                Remote Label Count
                 ''',
-                'protected_path_count',
+                'remote_label_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Route Count
+                ''',
+                'route_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LDP Session Count
+                ''',
+                'session_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
+                [], [], 
+                '''                Session State
+                ''',
+                'session_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12595,11 +12595,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode',
             False, 
             [
-            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote Node ID
+            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inuse time of the Session
                 ''',
-                'remote_node_id',
+                'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -12607,41 +12607,17 @@ _meta_table = {
                 ''',
                 'lsr_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Transport Address
-                ''',
-                'transport_address',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('in-use-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inuse time of the Session
-                ''',
-                'in_use_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
-                [], [], 
-                '''                Session State
-                ''',
-                'session_state',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Route Count
-                ''',
-                'route_count',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Remote Label Count
+                '''                Protected Path Count
                 ''',
-                'remote_label_count',
+                'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12649,11 +12625,35 @@ _meta_table = {
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Protected Path Count
+                '''                Remote Label Count
                 ''',
-                'protected_path_count',
+                'remote_label_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote Node ID
+                ''',
+                'remote_node_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Route Count
+                ''',
+                'route_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
+                [], [], 
+                '''                Session State
+                ''',
+                'session_state',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Transport Address
+                ''',
+                'transport_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12666,29 +12666,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs',
             False, 
             [
-            _MetaInfoClassMember('log-time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Event Time (eg: Apr 24 13:16:04.961)
-                ''',
-                'log_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('label-coverage-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpConvStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpConvStateEnum', 
                 [], [], 
                 '''                Label Coverage State
                 ''',
                 'label_coverage_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total Route Count
+            _MetaInfoClassMember('log-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Event Time (eg: Apr 24 13:16:04.961)
                 ''',
-                'route_count',
+                'log_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total Route Count
+                ''',
+                'route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12707,11 +12707,11 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                LDP-rLFA Event ID
+            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Coverage Below Threshold
                 ''',
-                'event_id_xr',
+                'below_threshold',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('end-of-calculation-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12720,17 +12720,17 @@ _meta_table = {
                 ''',
                 'end_of_calculation_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                LDP-rLFA Event ID
+                ''',
+                'event_id_xr',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('igp-protocol', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                IGP Protocol
                 ''',
                 'igp_protocol',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Process Name
-                ''',
-                'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12739,17 +12739,17 @@ _meta_table = {
                 ''',
                 'ipfrr_event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('below-threshold', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('logs', REFERENCE_LIST, 'Logs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs', 
                 [], [], 
-                '''                Coverage Below Threshold
+                '''                Logs Information
                 ''',
-                'below_threshold',
+                'logs',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-statistic', REFERENCE_LIST, 'SessionStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic', 
+            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                RLFA Statistics categorized by session state
+                '''                Process Name
                 ''',
-                'session_statistic',
+                'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node', REFERENCE_LIST, 'RemoteNode' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode', 
                 [], [], 
@@ -12757,11 +12757,11 @@ _meta_table = {
                 ''',
                 'remote_node',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('logs', REFERENCE_LIST, 'Logs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs', 
+            _MetaInfoClassMember('session-statistic', REFERENCE_LIST, 'SessionStatistic' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic', 
                 [], [], 
-                '''                Logs Information
+                '''                RLFA Statistics categorized by session state
                 ''',
-                'logs',
+                'session_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12791,12 +12791,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp',
             False, 
             [
-            _MetaInfoClassMember('sessions', REFERENCE_CLASS, 'Sessions' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.Sessions', 
-                [], [], 
-                '''                Session Events
-                ''',
-                'sessions',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-lfa-s', REFERENCE_CLASS, 'RemoteLfaS' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.RemoteLfaS', 
                 [], [], 
                 '''                Remote LFA Coverage Events
@@ -12808,6 +12802,12 @@ _meta_table = {
                 '''                Remote LFA Coverage Events
                 ''',
                 'remote_lfa_summaries',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sessions', REFERENCE_CLASS, 'Sessions' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp.Sessions', 
+                [], [], 
+                '''                Session Events
+                ''',
+                'sessions',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12826,29 +12826,11 @@ _meta_table = {
                 ''',
                 'event_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('sequence-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sequence No
-                ''',
-                'sequence_no',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Interface Name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('component', REFERENCE_ENUM_CLASS, 'RcmdShowCompIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowCompIdEnum', 
                 [], [], 
                 '''                Component info
                 ''',
                 'component',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdShowIntfEventEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIntfEventEnum', 
-                [], [], 
-                '''                Event Info
-                ''',
-                'event_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -12856,11 +12838,29 @@ _meta_table = {
                 ''',
                 'event_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdShowIntfEventEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIntfEventEnum', 
+                [], [], 
+                '''                Event Info
+                ''',
+                'event_type',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface Name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Primary Address
                 ''',
                 'primary_address',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('sequence-no', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sequence No
+                ''',
+                'sequence_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -12907,6 +12907,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process.InstanceName.Instance',
             False, 
             [
+            _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                spf run can be archived
+                ''',
+                'arch_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Forward Referenced
+                ''',
+                'fwd_referenced',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Instance Deleted
+                ''',
+                'instance_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Instance Id
@@ -12919,29 +12937,35 @@ _meta_table = {
                 ''',
                 'instance_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Instance Deleted
-                ''',
-                'instance_deleted',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Forward Referenced
-                ''',
-                'fwd_referenced',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Updated Time
                 ''',
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Route change spf nos
+                ''',
+                'no_route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Node Id
                 ''',
                 'node_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Not Interested SPF nos
+                ''',
+                'not_interested_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Route change spf nos
+                ''',
+                'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-offset', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12954,30 +12978,6 @@ _meta_table = {
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                spf run can be archived
-                ''',
-                'arch_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Route change spf nos
-                ''',
-                'route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Route change spf nos
-                ''',
-                'no_route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Not Interested SPF nos
-                ''',
-                'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spt-nos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -12996,41 +12996,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process.InstanceName',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Instance Name
+            _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Archive Lsp regen
                 ''',
-                'name',
+                'arch_lsp_regeneration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Archive SPF event
+                ''',
+                'arch_spf_event',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process.InstanceName.Instance', 
+                [], [], 
+                '''                Instance Information
+                ''',
+                'instance',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Updated Time
                 ''',
                 'last_update_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total spf nos
-                ''',
-                'total_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Route change spf nos
-                ''',
-                'route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Route change spf nos
-                ''',
-                'no_route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Not Interested SPF nos
-                ''',
-                'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13044,23 +13032,35 @@ _meta_table = {
                 ''',
                 'lsp_regeneration_serial',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Archive SPF event
-                ''',
-                'arch_spf_event',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Archive Lsp regen
-                ''',
-                'arch_lsp_regeneration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process.InstanceName.Instance', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Instance Information
+                '''                Instance Name
                 ''',
-                'instance',
+                'name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Route change spf nos
+                ''',
+                'no_route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Not Interested SPF nos
+                ''',
+                'not_interested_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Route change spf nos
+                ''',
+                'route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total spf nos
+                ''',
+                'total_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13073,11 +13073,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process',
             False, 
             [
-            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
+            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process.InstanceName', 
                 [], [], 
-                '''                Protocol id
+                '''                Instance/VRF Name
                 ''',
-                'protocol_id',
+                'instance_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13085,11 +13085,11 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process.InstanceName', 
+            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
-                '''                Instance/VRF Name
+                '''                Protocol id
                 ''',
-                'instance_name',
+                'protocol_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13119,6 +13119,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process.InstanceName.Instance',
             False, 
             [
+            _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                spf run can be archived
+                ''',
+                'arch_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Forward Referenced
+                ''',
+                'fwd_referenced',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Instance Deleted
+                ''',
+                'instance_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Instance Id
@@ -13131,29 +13149,35 @@ _meta_table = {
                 ''',
                 'instance_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Instance Deleted
-                ''',
-                'instance_deleted',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Forward Referenced
-                ''',
-                'fwd_referenced',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Updated Time
                 ''',
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Route change spf nos
+                ''',
+                'no_route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Node Id
                 ''',
                 'node_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Not Interested SPF nos
+                ''',
+                'not_interested_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Route change spf nos
+                ''',
+                'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-offset', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13166,30 +13190,6 @@ _meta_table = {
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                spf run can be archived
-                ''',
-                'arch_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Route change spf nos
-                ''',
-                'route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Route change spf nos
-                ''',
-                'no_route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Not Interested SPF nos
-                ''',
-                'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spt-nos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13208,41 +13208,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process.InstanceName',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Instance Name
+            _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Archive Lsp regen
                 ''',
-                'name',
+                'arch_lsp_regeneration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Archive SPF event
+                ''',
+                'arch_spf_event',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process.InstanceName.Instance', 
+                [], [], 
+                '''                Instance Information
+                ''',
+                'instance',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Updated Time
                 ''',
                 'last_update_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total spf nos
-                ''',
-                'total_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Route change spf nos
-                ''',
-                'route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Route change spf nos
-                ''',
-                'no_route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Not Interested SPF nos
-                ''',
-                'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13256,23 +13244,35 @@ _meta_table = {
                 ''',
                 'lsp_regeneration_serial',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Archive SPF event
-                ''',
-                'arch_spf_event',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Archive Lsp regen
-                ''',
-                'arch_lsp_regeneration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process.InstanceName.Instance', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Instance Information
+                '''                Instance Name
                 ''',
-                'instance',
+                'name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Route change spf nos
+                ''',
+                'no_route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Not Interested SPF nos
+                ''',
+                'not_interested_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Route change spf nos
+                ''',
+                'route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total spf nos
+                ''',
+                'total_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13285,11 +13285,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process',
             False, 
             [
-            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
+            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process.InstanceName', 
                 [], [], 
-                '''                Protocol id
+                '''                Instance/VRF Name
                 ''',
-                'protocol_id',
+                'instance_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13297,11 +13297,11 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process.InstanceName', 
+            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
-                '''                Instance/VRF Name
+                '''                Protocol id
                 ''',
-                'instance_name',
+                'protocol_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13331,6 +13331,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process.InstanceName.Instance',
             False, 
             [
+            _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                spf run can be archived
+                ''',
+                'arch_spf_run',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Forward Referenced
+                ''',
+                'fwd_referenced',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
+                [], [], 
+                '''                Instance Deleted
+                ''',
+                'instance_deleted',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Instance Id
@@ -13343,29 +13361,35 @@ _meta_table = {
                 ''',
                 'instance_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Instance Deleted
-                ''',
-                'instance_deleted',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
-                [], [], 
-                '''                Forward Referenced
-                ''',
-                'fwd_referenced',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Updated Time
                 ''',
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Route change spf nos
+                ''',
+                'no_route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Node Id
                 ''',
                 'node_id',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Not Interested SPF nos
+                ''',
+                'not_interested_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Route change spf nos
+                ''',
+                'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-offset', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13378,30 +13402,6 @@ _meta_table = {
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                spf run can be archived
-                ''',
-                'arch_spf_run',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Route change spf nos
-                ''',
-                'route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Route change spf nos
-                ''',
-                'no_route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Not Interested SPF nos
-                ''',
-                'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spt-nos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13420,41 +13420,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process.InstanceName',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Instance Name
+            _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Archive Lsp regen
                 ''',
-                'name',
+                'arch_lsp_regeneration',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Archive SPF event
+                ''',
+                'arch_spf_event',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process.InstanceName.Instance', 
+                [], [], 
+                '''                Instance Information
+                ''',
+                'instance',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-update-time', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Last Updated Time
                 ''',
                 'last_update_time',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total spf nos
-                ''',
-                'total_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Route change spf nos
-                ''',
-                'route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                No Route change spf nos
-                ''',
-                'no_route_change_spf_nos',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Not Interested SPF nos
-                ''',
-                'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -13468,23 +13456,35 @@ _meta_table = {
                 ''',
                 'lsp_regeneration_serial',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Archive SPF event
-                ''',
-                'arch_spf_event',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Archive Lsp regen
-                ''',
-                'arch_lsp_regeneration',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process.InstanceName.Instance', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Instance Information
+                '''                Instance Name
                 ''',
-                'instance',
+                'name',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                No Route change spf nos
+                ''',
+                'no_route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Not Interested SPF nos
+                ''',
+                'not_interested_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Route change spf nos
+                ''',
+                'route_change_spf_nos',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total spf nos
+                ''',
+                'total_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13497,11 +13497,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process',
             False, 
             [
-            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
+            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process.InstanceName', 
                 [], [], 
-                '''                Protocol id
+                '''                Instance/VRF Name
                 ''',
-                'protocol_id',
+                'instance_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -13509,11 +13509,11 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process.InstanceName', 
+            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
-                '''                Instance/VRF Name
+                '''                Protocol id
                 ''',
-                'instance_name',
+                'protocol_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13549,17 +13549,17 @@ _meta_table = {
                 ''',
                 'isis',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('ospf', REFERENCE_CLASS, 'Ospf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf', 
-                [], [], 
-                '''                OSPF Process Information
-                ''',
-                'ospf',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp', REFERENCE_CLASS, 'Ldp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp', 
                 [], [], 
                 '''                LDP Process Information
                 ''',
                 'ldp',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ospf', REFERENCE_CLASS, 'Ospf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf', 
+                [], [], 
+                '''                OSPF Process Information
+                ''',
+                'ospf',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',
@@ -13572,23 +13572,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd',
             False, 
             [
-            _MetaInfoClassMember('ospf', REFERENCE_CLASS, 'Ospf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf', 
+            _MetaInfoClassMember('intf', REFERENCE_CLASS, 'Intf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Intf', 
                 [], [], 
-                '''                Operational data for OSPF
+                '''                Interface data
                 ''',
-                'ospf',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('server', REFERENCE_CLASS, 'Server' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server', 
-                [], [], 
-                '''                Server Info
-                ''',
-                'server',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node', REFERENCE_CLASS, 'Node' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Node', 
-                [], [], 
-                '''                Node Info
-                ''',
-                'node',
+                'intf',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('isis', REFERENCE_CLASS, 'Isis' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Isis', 
                 [], [], 
@@ -13596,29 +13584,41 @@ _meta_table = {
                 ''',
                 'isis',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('memory', REFERENCE_CLASS, 'Memory' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Memory', 
-                [], [], 
-                '''                Memory Info
-                ''',
-                'memory',
-                'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ldp', REFERENCE_CLASS, 'Ldp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ldp', 
                 [], [], 
                 '''                LDP data
                 ''',
                 'ldp',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('intf', REFERENCE_CLASS, 'Intf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Intf', 
+            _MetaInfoClassMember('memory', REFERENCE_CLASS, 'Memory' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Memory', 
                 [], [], 
-                '''                Interface data
+                '''                Memory Info
                 ''',
-                'intf',
+                'memory',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('node', REFERENCE_CLASS, 'Node' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Node', 
+                [], [], 
+                '''                Node Info
+                ''',
+                'node',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('ospf', REFERENCE_CLASS, 'Ospf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Ospf', 
+                [], [], 
+                '''                Operational data for OSPF
+                ''',
+                'ospf',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('process', REFERENCE_CLASS, 'Process' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process', 
                 [], [], 
                 '''                Process information
                 ''',
                 'process',
+                'Cisco-IOS-XR-infra-rcmd-oper', False),
+            _MetaInfoClassMember('server', REFERENCE_CLASS, 'Server' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Server', 
+                [], [], 
+                '''                Server Info
+                ''',
+                'server',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             ],
             'Cisco-IOS-XR-infra-rcmd-oper',

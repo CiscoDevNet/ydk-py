@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -87,6 +87,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule',
             False, 
             [
+            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Duration of a probe for the operation in seconds
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between the start times of consecutive
+                probes,  in seconds.
+                ''',
+                'schedule_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Start time of the first probe, in seconds since
@@ -101,19 +114,6 @@ _meta_table = {
                 ''',
                 'start_time_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Duration of a probe for the operation in seconds
-                ''',
-                'schedule_duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between the start times of consecutive
-                probes,  in seconds.
-                ''',
-                'schedule_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'operation-schedule',
@@ -125,13 +125,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config',
             False, 
             [
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
-                [], [], 
-                '''                Type of metric to which this configuration
-                applies
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total number of bins into which to aggregate. 0
@@ -168,6 +161,13 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
+                [], [], 
+                '''                Type of metric to which this configuration
+                applies
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'config',
@@ -179,6 +179,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins',
             False, 
             [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The total number of results in the bin
+                ''',
+                'count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Lower bound (inclusive) of the bin, in
@@ -186,14 +192,6 @@ _meta_table = {
                 field is not used for LMM measurements
                 ''',
                 'lower_bound',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in
-                milliseconds or single units of percent. This
-                field is not used for LMM measurements
-                ''',
-                'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -203,14 +201,6 @@ _meta_table = {
                 ''',
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in tenths of
-                percent. This field is only used for LMM
-                measurements
-                ''',
-                'upper_bound_tenths',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
                 [(-9223372036854775808, 9223372036854775807)], [], 
                 '''                The sum of the results in the bin, in
@@ -218,11 +208,21 @@ _meta_table = {
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The total number of results in the bin
+            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in
+                milliseconds or single units of percent. This
+                field is not used for LMM measurements
                 ''',
-                'count',
+                'upper_bound',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in tenths of
+                percent. This field is only used for LMM
+                measurements
+                ''',
+                'upper_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -252,37 +252,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample',
             False, 
             [
-            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The time (in milliseconds relative to the start
-                time of the bucket) that the sample was sent at
-                ''',
-                'sent_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was sucessfully sent
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet timed out
-                ''',
-                'timed_out',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Whether the sample packet was corrupt
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was received
-                out-of-order
+            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames lost,
+                if available
                 ''',
-                'out_of_order',
+                'frames_lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames sent,
+                if available
+                ''',
+                'frames_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('no-data-packets', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -292,6 +280,13 @@ _meta_table = {
                 ''',
                 'no_data_packets',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was received
+                out-of-order
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                The result (in microseconds or millionths of a
@@ -299,19 +294,24 @@ _meta_table = {
                 ''',
                 'result',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames sent,
-                if available
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was sucessfully sent
                 ''',
-                'frames_sent',
+                'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames lost,
-                if available
+                '''                The time (in milliseconds relative to the start
+                time of the bucket) that the sample was sent at
                 ''',
-                'frames_lost',
+                'sent_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet timed out
+                ''',
+                'timed_out',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -347,17 +347,17 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated', 
-                [], [], 
-                '''                Result samples in an SLA metric bucket
-                ''',
-                'unaggregated',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
                 'bucket_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated', 
+                [], [], 
+                '''                Result samples in an SLA metric bucket
+                ''',
+                'unaggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -370,86 +370,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket',
             False, 
             [
-            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents', 
-                [], [], 
-                '''                The contents of the bucket; bins or samples
-                ''',
-                'contents',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the bucket started being
-                filled at
-                ''',
-                'start_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Length of time for which the bucket is being
-                filled in seconds
-                ''',
-                'duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets sent in the probe
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of lost packets in the probe
-                ''',
-                'lost',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of corrupt packets in the probe
-                ''',
-                'corrupt',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets recieved out-of-order in the
-                probe
-                ''',
-                'out_of_order',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of duplicate packets received in the
-                probe
-                ''',
-                'duplicates',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the minimum value was
-                recorded
-                ''',
-                'time_of_minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the maximum value was
-                recorded
-                ''',
-                'time_of_maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Mean of the results in the probe, in
@@ -457,25 +377,17 @@ _meta_table = {
                 ''',
                 'average',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Standard deviation of the results in the probe,
-                in microseconds or millionths of a percent
+            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents', 
+                [], [], 
+                '''                The contents of the bucket; bins or samples
                 ''',
-                'standard_deviation',
+                'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The count of samples collected in the bucket.
+                '''                Number of corrupt packets in the probe
                 ''',
-                'result_count',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of data packets sent across the
-                bucket, used in the calculation of overall FLR.
-                ''',
-                'data_sent_count',
+                'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -484,96 +396,60 @@ _meta_table = {
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of data packets sent across the
+                bucket, used in the calculation of overall FLR.
+                ''',
+                'data_sent_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of duplicate packets received in the
+                probe
+                ''',
+                'duplicates',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Length of time for which the bucket is being
+                filled in seconds
+                ''',
+                'duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of lost packets in the probe
+                ''',
+                'lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets recieved out-of-order in the
+                probe
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe starting mid-way
-                through a bucket
-                ''',
-                'suspect_start_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to scheduling latency
-                causing one or more packets to not be sent
-                ''',
-                'suspect_schedule_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to failure to send one or
-                more packets
-                ''',
-                'suspect_send_fail',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe ending
-                prematurely
-                ''',
-                'suspect_premature_end',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as more than 10 seconds time
-                drift detected
-                ''',
-                'suspect_clock_drift',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a memory allocation
-                failure
-                ''',
-                'suspect_memory_allocation_failed',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as bucket was cleared mid-way
-                through being filled
-                ''',
-                'suspect_cleared_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as probe restarted mid-way
-                through the bucket
-                ''',
-                'suspect_probe_restarted',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as processing of results has
-                been delayed
-                ''',
-                'suspect_management_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as the probe has been configured
-                across multiple buckets
-                ''',
-                'suspect_multiple_buckets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as misordering has been detected
-                , affecting results
-                ''',
-                'suspect_misordering',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as FLR calculated based on a low
-                packet count
-                ''',
-                'suspect_flr_low_packet_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -590,6 +466,130 @@ _meta_table = {
                 ''',
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The count of samples collected in the bucket.
+                ''',
+                'result_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets sent in the probe
+                ''',
+                'sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Standard deviation of the results in the probe,
+                in microseconds or millionths of a percent
+                ''',
+                'standard_deviation',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the bucket started being
+                filled at
+                ''',
+                'start_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as bucket was cleared mid-way
+                through being filled
+                ''',
+                'suspect_cleared_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as more than 10 seconds time
+                drift detected
+                ''',
+                'suspect_clock_drift',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as FLR calculated based on a low
+                packet count
+                ''',
+                'suspect_flr_low_packet_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as processing of results has
+                been delayed
+                ''',
+                'suspect_management_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a memory allocation
+                failure
+                ''',
+                'suspect_memory_allocation_failed',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as misordering has been detected
+                , affecting results
+                ''',
+                'suspect_misordering',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as the probe has been configured
+                across multiple buckets
+                ''',
+                'suspect_multiple_buckets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe ending
+                prematurely
+                ''',
+                'suspect_premature_end',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as probe restarted mid-way
+                through the bucket
+                ''',
+                'suspect_probe_restarted',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to scheduling latency
+                causing one or more packets to not be sent
+                ''',
+                'suspect_schedule_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to failure to send one or
+                more packets
+                ''',
+                'suspect_send_fail',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe starting mid-way
+                through a bucket
+                ''',
+                'suspect_start_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the maximum value was
+                recorded
+                ''',
+                'time_of_maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the minimum value was
+                recorded
+                ''',
+                'time_of_minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'bucket',
@@ -601,17 +601,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config', 
-                [], [], 
-                '''                Configuration of the metric
-                ''',
-                'config',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket', REFERENCE_LIST, 'Bucket' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket', 
                 [], [], 
                 '''                Buckets stored for the metric
                 ''',
                 'bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config', 
+                [], [], 
+                '''                Configuration of the metric
+                ''',
+                'config',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -624,11 +624,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent',
             False, 
             [
-            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Operation ID
+            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Long display name used by the operation
                 ''',
-                'operation_id',
+                'display_long',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
+                ''',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -636,18 +642,18 @@ _meta_table = {
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between FLR calculations for SLM, in
+                milliseconds
+                ''',
+                'flr_calculation_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191. Either MEP ID
-                or MAC address must be specified.
-                ''',
-                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -657,11 +663,24 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions', 
-                [], [], 
-                '''                Options specific to the type of operation
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191. Either MEP ID
+                or MAC address must be specified.
                 ''',
-                'specific_options',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Operation ID
+                ''',
+                'operation_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric', 
+                [], [], 
+                '''                Metrics gathered for the operation
+                ''',
+                'operation_metric',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule', 
                 [], [], 
@@ -675,30 +694,11 @@ _meta_table = {
                 ''',
                 'probe_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions', 
                 [], [], 
-                '''                Short display name used by the operation
+                '''                Options specific to the type of operation
                 ''',
-                'display_short',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Long display name used by the operation
-                ''',
-                'display_long',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between FLR calculations for SLM, in
-                milliseconds
-                ''',
-                'flr_calculation_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric', 
-                [], [], 
-                '''                Metrics gathered for the operation
-                ''',
-                'operation_metric',
+                'specific_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -735,18 +735,18 @@ _meta_table = {
                 ''',
                 'packet_pad_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('test-pattern-pad-hex-string', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Hex string that is used in the packet padding
+                ''',
+                'test_pattern_pad_hex_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('test-pattern-pad-scheme', REFERENCE_ENUM_CLASS, 'SlaOperTestPatternSchemeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperTestPatternSchemeEnum', 
                 [], [], 
                 '''                Test pattern scheme that is used in the packet
                 padding
                 ''',
                 'test_pattern_pad_scheme',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('test-pattern-pad-hex-string', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Hex string that is used in the packet padding
-                ''',
-                'test_pattern_pad_hex_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -759,17 +759,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriorityEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriorityEnum', 
-                [], [], 
-                '''                PriorityType
-                ''',
-                'priority_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                3-bit COS priority value applied to packets
                 ''',
                 'cos',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriorityEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriorityEnum', 
+                [], [], 
+                '''                PriorityType
+                ''',
+                'priority_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -782,6 +782,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule',
             False, 
             [
+            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Duration of a probe for the operation in seconds
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between the start times of consecutive
+                probes,  in seconds.
+                ''',
+                'schedule_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Start time of the first probe, in seconds since
@@ -796,19 +809,6 @@ _meta_table = {
                 ''',
                 'start_time_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Duration of a probe for the operation in seconds
-                ''',
-                'schedule_duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between the start times of consecutive
-                probes,  in seconds.
-                ''',
-                'schedule_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'operation-schedule',
@@ -820,13 +820,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig',
             False, 
             [
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
-                [], [], 
-                '''                Type of metric to which this configuration
-                applies
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total number of bins into which to aggregate. 0
@@ -863,6 +856,13 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
+                [], [], 
+                '''                Type of metric to which this configuration
+                applies
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'metric-config',
@@ -874,18 +874,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric',
             False, 
             [
-            _MetaInfoClassMember('metric-config', REFERENCE_CLASS, 'MetricConfig' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig', 
-                [], [], 
-                '''                Configuration of the metric
-                ''',
-                'metric_config',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('current-buckets-archive', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of valid buckets currently in the buckets
                 archive
                 ''',
                 'current_buckets_archive',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-config', REFERENCE_CLASS, 'MetricConfig' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig', 
+                [], [], 
+                '''                Configuration of the metric
+                ''',
+                'metric_config',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -898,56 +898,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions',
             False, 
             [
-            _MetaInfoClassMember('packet-padding', REFERENCE_CLASS, 'PacketPadding' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding', 
-                [], [], 
-                '''                Configuration of the packet padding
-                ''',
-                'packet_padding',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority', 
-                [], [], 
-                '''                Priority at which to send the packet, if
-                configured
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule', 
-                [], [], 
-                '''                Operation schedule
-                ''',
-                'operation_schedule',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('probe-type', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Type of probe used by the operation
-                ''',
-                'probe_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('packets-per-burst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Number of packets sent per burst
-                ''',
-                'packets_per_burst',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('inter-packet-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Interval between packets within a burst in
-                milliseconds
-                ''',
-                'inter_packet_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bursts-per-probe', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of bursts sent per probe
                 ''',
                 'bursts_per_probe',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('inter-burst-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between bursts within a probe in
-                milliseconds
-                ''',
-                'inter_burst_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -956,12 +911,57 @@ _meta_table = {
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('inter-burst-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between bursts within a probe in
+                milliseconds
+                ''',
+                'inter_burst_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('inter-packet-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Interval between packets within a burst in
+                milliseconds
+                ''',
+                'inter_packet_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric', 
                 [], [], 
                 '''                Array of the metrics that are measured by the
                 operation
                 ''',
                 'operation_metric',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule', 
+                [], [], 
+                '''                Operation schedule
+                ''',
+                'operation_schedule',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('packet-padding', REFERENCE_CLASS, 'PacketPadding' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding', 
+                [], [], 
+                '''                Configuration of the packet padding
+                ''',
+                'packet_padding',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('packets-per-burst', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Number of packets sent per burst
+                ''',
+                'packets_per_burst',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority', 
+                [], [], 
+                '''                Priority at which to send the packet, if
+                configured
+                ''',
+                'priority',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('probe-type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Type of probe used by the operation
+                ''',
+                'probe_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1043,11 +1043,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Operations.Operation',
             False, 
             [
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Profile Name
+            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Long display name used by the operation
                 ''',
-                'profile_name',
+                'display_long',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
+                ''',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1061,12 +1067,12 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191. Either MEP ID
-                or MAC address must be specified.
+            _MetaInfoClassMember('last-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time that the last probe for the operation was
+                run, NULL if never run.
                 ''',
-                'mep_id',
+                'last_run',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -1075,6 +1081,19 @@ _meta_table = {
                 specified.
                 ''',
                 'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191. Either MEP ID
+                or MAC address must be specified.
+                ''',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Profile Name
+                ''',
+                'profile_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('profile-options', REFERENCE_CLASS, 'ProfileOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions', 
                 [], [], 
@@ -1088,25 +1107,6 @@ _meta_table = {
                 '''                Options specific to the type of operation
                 ''',
                 'specific_options',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Short display name used by the operation
-                ''',
-                'display_short',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Long display name used by the operation
-                ''',
-                'display_long',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time that the last probe for the operation was
-                run, NULL if never run.
-                ''',
-                'last_run',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1205,6 +1205,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule',
             False, 
             [
+            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Duration of a probe for the operation in seconds
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between the start times of consecutive
+                probes,  in seconds.
+                ''',
+                'schedule_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Start time of the first probe, in seconds since
@@ -1219,19 +1232,6 @@ _meta_table = {
                 ''',
                 'start_time_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Duration of a probe for the operation in seconds
-                ''',
-                'schedule_duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between the start times of consecutive
-                probes,  in seconds.
-                ''',
-                'schedule_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'operation-schedule',
@@ -1243,13 +1243,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config',
             False, 
             [
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
-                [], [], 
-                '''                Type of metric to which this configuration
-                applies
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total number of bins into which to aggregate. 0
@@ -1286,6 +1279,13 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
+                [], [], 
+                '''                Type of metric to which this configuration
+                applies
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'config',
@@ -1297,6 +1297,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins',
             False, 
             [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The total number of results in the bin
+                ''',
+                'count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Lower bound (inclusive) of the bin, in
@@ -1304,14 +1310,6 @@ _meta_table = {
                 field is not used for LMM measurements
                 ''',
                 'lower_bound',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in
-                milliseconds or single units of percent. This
-                field is not used for LMM measurements
-                ''',
-                'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -1321,14 +1319,6 @@ _meta_table = {
                 ''',
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in tenths of
-                percent. This field is only used for LMM
-                measurements
-                ''',
-                'upper_bound_tenths',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
                 [(-9223372036854775808, 9223372036854775807)], [], 
                 '''                The sum of the results in the bin, in
@@ -1336,11 +1326,21 @@ _meta_table = {
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The total number of results in the bin
+            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in
+                milliseconds or single units of percent. This
+                field is not used for LMM measurements
                 ''',
-                'count',
+                'upper_bound',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in tenths of
+                percent. This field is only used for LMM
+                measurements
+                ''',
+                'upper_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1370,37 +1370,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample',
             False, 
             [
-            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The time (in milliseconds relative to the start
-                time of the bucket) that the sample was sent at
-                ''',
-                'sent_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was sucessfully sent
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet timed out
-                ''',
-                'timed_out',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Whether the sample packet was corrupt
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was received
-                out-of-order
+            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames lost,
+                if available
                 ''',
-                'out_of_order',
+                'frames_lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames sent,
+                if available
+                ''',
+                'frames_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('no-data-packets', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1410,6 +1398,13 @@ _meta_table = {
                 ''',
                 'no_data_packets',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was received
+                out-of-order
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                The result (in microseconds or millionths of a
@@ -1417,19 +1412,24 @@ _meta_table = {
                 ''',
                 'result',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames sent,
-                if available
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was sucessfully sent
                 ''',
-                'frames_sent',
+                'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames lost,
-                if available
+                '''                The time (in milliseconds relative to the start
+                time of the bucket) that the sample was sent at
                 ''',
-                'frames_lost',
+                'sent_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet timed out
+                ''',
+                'timed_out',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1465,17 +1465,17 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated', 
-                [], [], 
-                '''                Result samples in an SLA metric bucket
-                ''',
-                'unaggregated',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
                 'bucket_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated', 
+                [], [], 
+                '''                Result samples in an SLA metric bucket
+                ''',
+                'unaggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1488,86 +1488,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket',
             False, 
             [
-            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents', 
-                [], [], 
-                '''                The contents of the bucket; bins or samples
-                ''',
-                'contents',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the bucket started being
-                filled at
-                ''',
-                'start_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Length of time for which the bucket is being
-                filled in seconds
-                ''',
-                'duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets sent in the probe
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of lost packets in the probe
-                ''',
-                'lost',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of corrupt packets in the probe
-                ''',
-                'corrupt',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets recieved out-of-order in the
-                probe
-                ''',
-                'out_of_order',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of duplicate packets received in the
-                probe
-                ''',
-                'duplicates',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the minimum value was
-                recorded
-                ''',
-                'time_of_minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the maximum value was
-                recorded
-                ''',
-                'time_of_maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Mean of the results in the probe, in
@@ -1575,25 +1495,17 @@ _meta_table = {
                 ''',
                 'average',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Standard deviation of the results in the probe,
-                in microseconds or millionths of a percent
+            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents', 
+                [], [], 
+                '''                The contents of the bucket; bins or samples
                 ''',
-                'standard_deviation',
+                'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The count of samples collected in the bucket.
+                '''                Number of corrupt packets in the probe
                 ''',
-                'result_count',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of data packets sent across the
-                bucket, used in the calculation of overall FLR.
-                ''',
-                'data_sent_count',
+                'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1602,96 +1514,60 @@ _meta_table = {
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of data packets sent across the
+                bucket, used in the calculation of overall FLR.
+                ''',
+                'data_sent_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of duplicate packets received in the
+                probe
+                ''',
+                'duplicates',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Length of time for which the bucket is being
+                filled in seconds
+                ''',
+                'duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of lost packets in the probe
+                ''',
+                'lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets recieved out-of-order in the
+                probe
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe starting mid-way
-                through a bucket
-                ''',
-                'suspect_start_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to scheduling latency
-                causing one or more packets to not be sent
-                ''',
-                'suspect_schedule_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to failure to send one or
-                more packets
-                ''',
-                'suspect_send_fail',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe ending
-                prematurely
-                ''',
-                'suspect_premature_end',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as more than 10 seconds time
-                drift detected
-                ''',
-                'suspect_clock_drift',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a memory allocation
-                failure
-                ''',
-                'suspect_memory_allocation_failed',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as bucket was cleared mid-way
-                through being filled
-                ''',
-                'suspect_cleared_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as probe restarted mid-way
-                through the bucket
-                ''',
-                'suspect_probe_restarted',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as processing of results has
-                been delayed
-                ''',
-                'suspect_management_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as the probe has been configured
-                across multiple buckets
-                ''',
-                'suspect_multiple_buckets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as misordering has been detected
-                , affecting results
-                ''',
-                'suspect_misordering',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as FLR calculated based on a low
-                packet count
-                ''',
-                'suspect_flr_low_packet_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1708,6 +1584,130 @@ _meta_table = {
                 ''',
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The count of samples collected in the bucket.
+                ''',
+                'result_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets sent in the probe
+                ''',
+                'sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Standard deviation of the results in the probe,
+                in microseconds or millionths of a percent
+                ''',
+                'standard_deviation',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the bucket started being
+                filled at
+                ''',
+                'start_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as bucket was cleared mid-way
+                through being filled
+                ''',
+                'suspect_cleared_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as more than 10 seconds time
+                drift detected
+                ''',
+                'suspect_clock_drift',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as FLR calculated based on a low
+                packet count
+                ''',
+                'suspect_flr_low_packet_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as processing of results has
+                been delayed
+                ''',
+                'suspect_management_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a memory allocation
+                failure
+                ''',
+                'suspect_memory_allocation_failed',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as misordering has been detected
+                , affecting results
+                ''',
+                'suspect_misordering',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as the probe has been configured
+                across multiple buckets
+                ''',
+                'suspect_multiple_buckets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe ending
+                prematurely
+                ''',
+                'suspect_premature_end',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as probe restarted mid-way
+                through the bucket
+                ''',
+                'suspect_probe_restarted',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to scheduling latency
+                causing one or more packets to not be sent
+                ''',
+                'suspect_schedule_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to failure to send one or
+                more packets
+                ''',
+                'suspect_send_fail',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe starting mid-way
+                through a bucket
+                ''',
+                'suspect_start_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the maximum value was
+                recorded
+                ''',
+                'time_of_maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the minimum value was
+                recorded
+                ''',
+                'time_of_minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'bucket',
@@ -1719,17 +1719,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config', 
-                [], [], 
-                '''                Configuration of the metric
-                ''',
-                'config',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket', REFERENCE_LIST, 'Bucket' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket', 
                 [], [], 
                 '''                Buckets stored for the metric
                 ''',
                 'bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config', 
+                [], [], 
+                '''                Configuration of the metric
+                ''',
+                'config',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1742,11 +1742,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical',
             False, 
             [
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Profile Name
+            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Long display name used by the operation
                 ''',
-                'profile_name',
+                'display_long',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
+                ''',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1754,18 +1760,18 @@ _meta_table = {
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between FLR calculations for SLM, in
+                milliseconds
+                ''',
+                'flr_calculation_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191. Either MEP ID
-                or MAC address must be specified.
-                ''',
-                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -1775,11 +1781,18 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions', 
-                [], [], 
-                '''                Options specific to the type of operation
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191. Either MEP ID
+                or MAC address must be specified.
                 ''',
-                'specific_options',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric', 
+                [], [], 
+                '''                Metrics gathered for the operation
+                ''',
+                'operation_metric',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule', 
                 [], [], 
@@ -1793,30 +1806,17 @@ _meta_table = {
                 ''',
                 'probe_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Short display name used by the operation
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Profile Name
                 ''',
-                'display_short',
+                'profile_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions', 
                 [], [], 
-                '''                Long display name used by the operation
+                '''                Options specific to the type of operation
                 ''',
-                'display_long',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between FLR calculations for SLM, in
-                milliseconds
-                ''',
-                'flr_calculation_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric', 
-                [], [], 
-                '''                Metrics gathered for the operation
-                ''',
-                'operation_metric',
+                'specific_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1916,6 +1916,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule',
             False, 
             [
+            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Duration of a probe for the operation in seconds
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between the start times of consecutive
+                probes,  in seconds.
+                ''',
+                'schedule_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Start time of the first probe, in seconds since
@@ -1930,19 +1943,6 @@ _meta_table = {
                 ''',
                 'start_time_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Duration of a probe for the operation in seconds
-                ''',
-                'schedule_duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between the start times of consecutive
-                probes,  in seconds.
-                ''',
-                'schedule_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'operation-schedule',
@@ -1954,13 +1954,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config',
             False, 
             [
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
-                [], [], 
-                '''                Type of metric to which this configuration
-                applies
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total number of bins into which to aggregate. 0
@@ -1997,6 +1990,13 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
+                [], [], 
+                '''                Type of metric to which this configuration
+                applies
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'config',
@@ -2008,6 +2008,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins',
             False, 
             [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The total number of results in the bin
+                ''',
+                'count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Lower bound (inclusive) of the bin, in
@@ -2015,14 +2021,6 @@ _meta_table = {
                 field is not used for LMM measurements
                 ''',
                 'lower_bound',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in
-                milliseconds or single units of percent. This
-                field is not used for LMM measurements
-                ''',
-                'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -2032,14 +2030,6 @@ _meta_table = {
                 ''',
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in tenths of
-                percent. This field is only used for LMM
-                measurements
-                ''',
-                'upper_bound_tenths',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
                 [(-9223372036854775808, 9223372036854775807)], [], 
                 '''                The sum of the results in the bin, in
@@ -2047,11 +2037,21 @@ _meta_table = {
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The total number of results in the bin
+            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in
+                milliseconds or single units of percent. This
+                field is not used for LMM measurements
                 ''',
-                'count',
+                'upper_bound',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in tenths of
+                percent. This field is only used for LMM
+                measurements
+                ''',
+                'upper_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2081,37 +2081,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample',
             False, 
             [
-            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The time (in milliseconds relative to the start
-                time of the bucket) that the sample was sent at
-                ''',
-                'sent_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was sucessfully sent
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet timed out
-                ''',
-                'timed_out',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Whether the sample packet was corrupt
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was received
-                out-of-order
+            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames lost,
+                if available
                 ''',
-                'out_of_order',
+                'frames_lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames sent,
+                if available
+                ''',
+                'frames_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('no-data-packets', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2121,6 +2109,13 @@ _meta_table = {
                 ''',
                 'no_data_packets',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was received
+                out-of-order
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                The result (in microseconds or millionths of a
@@ -2128,19 +2123,24 @@ _meta_table = {
                 ''',
                 'result',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames sent,
-                if available
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was sucessfully sent
                 ''',
-                'frames_sent',
+                'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames lost,
-                if available
+                '''                The time (in milliseconds relative to the start
+                time of the bucket) that the sample was sent at
                 ''',
-                'frames_lost',
+                'sent_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet timed out
+                ''',
+                'timed_out',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2176,17 +2176,17 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated', 
-                [], [], 
-                '''                Result samples in an SLA metric bucket
-                ''',
-                'unaggregated',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
                 'bucket_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated', 
+                [], [], 
+                '''                Result samples in an SLA metric bucket
+                ''',
+                'unaggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2199,86 +2199,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket',
             False, 
             [
-            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents', 
-                [], [], 
-                '''                The contents of the bucket; bins or samples
-                ''',
-                'contents',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the bucket started being
-                filled at
-                ''',
-                'start_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Length of time for which the bucket is being
-                filled in seconds
-                ''',
-                'duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets sent in the probe
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of lost packets in the probe
-                ''',
-                'lost',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of corrupt packets in the probe
-                ''',
-                'corrupt',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets recieved out-of-order in the
-                probe
-                ''',
-                'out_of_order',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of duplicate packets received in the
-                probe
-                ''',
-                'duplicates',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the minimum value was
-                recorded
-                ''',
-                'time_of_minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the maximum value was
-                recorded
-                ''',
-                'time_of_maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Mean of the results in the probe, in
@@ -2286,25 +2206,17 @@ _meta_table = {
                 ''',
                 'average',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Standard deviation of the results in the probe,
-                in microseconds or millionths of a percent
+            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents', 
+                [], [], 
+                '''                The contents of the bucket; bins or samples
                 ''',
-                'standard_deviation',
+                'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The count of samples collected in the bucket.
+                '''                Number of corrupt packets in the probe
                 ''',
-                'result_count',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of data packets sent across the
-                bucket, used in the calculation of overall FLR.
-                ''',
-                'data_sent_count',
+                'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2313,96 +2225,60 @@ _meta_table = {
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of data packets sent across the
+                bucket, used in the calculation of overall FLR.
+                ''',
+                'data_sent_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of duplicate packets received in the
+                probe
+                ''',
+                'duplicates',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Length of time for which the bucket is being
+                filled in seconds
+                ''',
+                'duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of lost packets in the probe
+                ''',
+                'lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets recieved out-of-order in the
+                probe
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe starting mid-way
-                through a bucket
-                ''',
-                'suspect_start_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to scheduling latency
-                causing one or more packets to not be sent
-                ''',
-                'suspect_schedule_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to failure to send one or
-                more packets
-                ''',
-                'suspect_send_fail',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe ending
-                prematurely
-                ''',
-                'suspect_premature_end',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as more than 10 seconds time
-                drift detected
-                ''',
-                'suspect_clock_drift',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a memory allocation
-                failure
-                ''',
-                'suspect_memory_allocation_failed',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as bucket was cleared mid-way
-                through being filled
-                ''',
-                'suspect_cleared_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as probe restarted mid-way
-                through the bucket
-                ''',
-                'suspect_probe_restarted',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as processing of results has
-                been delayed
-                ''',
-                'suspect_management_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as the probe has been configured
-                across multiple buckets
-                ''',
-                'suspect_multiple_buckets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as misordering has been detected
-                , affecting results
-                ''',
-                'suspect_misordering',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as FLR calculated based on a low
-                packet count
-                ''',
-                'suspect_flr_low_packet_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2419,6 +2295,130 @@ _meta_table = {
                 ''',
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The count of samples collected in the bucket.
+                ''',
+                'result_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets sent in the probe
+                ''',
+                'sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Standard deviation of the results in the probe,
+                in microseconds or millionths of a percent
+                ''',
+                'standard_deviation',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the bucket started being
+                filled at
+                ''',
+                'start_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as bucket was cleared mid-way
+                through being filled
+                ''',
+                'suspect_cleared_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as more than 10 seconds time
+                drift detected
+                ''',
+                'suspect_clock_drift',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as FLR calculated based on a low
+                packet count
+                ''',
+                'suspect_flr_low_packet_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as processing of results has
+                been delayed
+                ''',
+                'suspect_management_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a memory allocation
+                failure
+                ''',
+                'suspect_memory_allocation_failed',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as misordering has been detected
+                , affecting results
+                ''',
+                'suspect_misordering',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as the probe has been configured
+                across multiple buckets
+                ''',
+                'suspect_multiple_buckets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe ending
+                prematurely
+                ''',
+                'suspect_premature_end',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as probe restarted mid-way
+                through the bucket
+                ''',
+                'suspect_probe_restarted',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to scheduling latency
+                causing one or more packets to not be sent
+                ''',
+                'suspect_schedule_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to failure to send one or
+                more packets
+                ''',
+                'suspect_send_fail',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe starting mid-way
+                through a bucket
+                ''',
+                'suspect_start_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the maximum value was
+                recorded
+                ''',
+                'time_of_maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the minimum value was
+                recorded
+                ''',
+                'time_of_minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'bucket',
@@ -2430,17 +2430,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config', 
-                [], [], 
-                '''                Configuration of the metric
-                ''',
-                'config',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket', REFERENCE_LIST, 'Bucket' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket', 
                 [], [], 
                 '''                Buckets stored for the metric
                 ''',
                 'bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config', 
+                [], [], 
+                '''                Configuration of the metric
+                ''',
+                'config',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2453,11 +2453,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical',
             False, 
             [
-            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Operation ID
+            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Long display name used by the operation
                 ''',
-                'operation_id',
+                'display_long',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
+                ''',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2465,18 +2471,18 @@ _meta_table = {
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between FLR calculations for SLM, in
+                milliseconds
+                ''',
+                'flr_calculation_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191. Either MEP ID
-                or MAC address must be specified.
-                ''',
-                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -2486,11 +2492,24 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions', 
-                [], [], 
-                '''                Options specific to the type of operation
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191. Either MEP ID
+                or MAC address must be specified.
                 ''',
-                'specific_options',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Operation ID
+                ''',
+                'operation_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric', 
+                [], [], 
+                '''                Metrics gathered for the operation
+                ''',
+                'operation_metric',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule', 
                 [], [], 
@@ -2504,30 +2523,11 @@ _meta_table = {
                 ''',
                 'probe_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions', 
                 [], [], 
-                '''                Short display name used by the operation
+                '''                Options specific to the type of operation
                 ''',
-                'display_short',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Long display name used by the operation
-                ''',
-                'display_long',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between FLR calculations for SLM, in
-                milliseconds
-                ''',
-                'flr_calculation_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric', 
-                [], [], 
-                '''                Metrics gathered for the operation
-                ''',
-                'operation_metric',
+                'specific_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2558,11 +2558,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.ConfigErrors.ConfigError',
             False, 
             [
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Profile Name
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
                 ''',
-                'profile_name',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2570,17 +2570,19 @@ _meta_table = {
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('error-string', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Displays other issues not indicated from the
+                flags above, for example MIB incompatibility
+                issues.
+                ''',
+                'error_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191
-                ''',
-                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -2588,31 +2590,18 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('profile-name-xr', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The name of the operation profile.
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191
                 ''',
-                'profile_name_xr',
+                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('min-packet-interval-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Short display name used by the operation
+                '''                Is the profile configured to send packets more
+                frequently than the protocol allows?
                 ''',
-                'display_short',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('rt-delay-inconsistent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the profile configured to collect RT Delay
-                but the packet type doesn't support it?
-                ''',
-                'rt_delay_inconsistent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ow-delay-sd-inconsistent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the profile configured to collect OW Delay
-                (SD) but the packet type doesn't support it?
-                ''',
-                'ow_delay_sd_inconsistent',
+                'min_packet_interval_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ow-delay-ds-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2621,19 +2610,12 @@ _meta_table = {
                 ''',
                 'ow_delay_ds_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('rt-jitter-inconsistent', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ow-delay-sd-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Is the profile configured to collect RT Jitter
-                but the packet type doesn't support it?
-                ''',
-                'rt_jitter_inconsistent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ow-jitter-sd-inconsistent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the profile configured to collect OW Jitter
+                '''                Is the profile configured to collect OW Delay
                 (SD) but the packet type doesn't support it?
                 ''',
-                'ow_jitter_sd_inconsistent',
+                'ow_delay_sd_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ow-jitter-ds-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2642,13 +2624,12 @@ _meta_table = {
                 ''',
                 'ow_jitter_ds_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ow-loss-sd-inconsistent', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ow-jitter-sd-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Is the profile configured to collect OW Frame
-                Loss (SD) but the packet type doesn't support it
-                ?
+                '''                Is the profile configured to collect OW Jitter
+                (SD) but the packet type doesn't support it?
                 ''',
-                'ow_loss_sd_inconsistent',
+                'ow_jitter_sd_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ow-loss-ds-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2657,6 +2638,14 @@ _meta_table = {
                 ?
                 ''',
                 'ow_loss_ds_inconsistent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ow-loss-sd-inconsistent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the profile configured to collect OW Frame
+                Loss (SD) but the packet type doesn't support it
+                ?
+                ''',
+                'ow_loss_sd_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('packet-pad-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2673,12 +2662,12 @@ _meta_table = {
                 ''',
                 'packet_rand_pad_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('min-packet-interval-inconsistent', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('packet-type-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Is the profile configured to send packets more
-                frequently than the protocol allows?
+                '''                Is the profile configured to use a packet type
+                that isn't supported by any protocols?
                 ''',
-                'min_packet_interval_inconsistent',
+                'packet_type_inconsistent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('priority-inconsistent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2687,29 +2676,6 @@ _meta_table = {
                 support?
                 ''',
                 'priority_inconsistent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('packet-type-inconsistent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the profile configured to use a packet type
-                that isn't supported by any protocols?
-                ''',
-                'packet_type_inconsistent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('profile-doesnt-exist', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is the operation configured to use a profile
-                that is not currently defined for the protocol?
-                ''',
-                'profile_doesnt_exist',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('synthetic-loss-not-supported', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The profile is configured to use a packet type
-                which doesn't support synthetic loss measurement
-                and the number of packets per FLR calculation
-                has been configured
-                ''',
-                'synthetic_loss_not_supported',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-too-big', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2720,13 +2686,47 @@ _meta_table = {
                 ''',
                 'probe_too_big',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('error-string', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('profile-doesnt-exist', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Displays other issues not indicated from the
-                flags above, for example MIB incompatibility
-                issues.
+                '''                Is the operation configured to use a profile
+                that is not currently defined for the protocol?
                 ''',
-                'error_string',
+                'profile_doesnt_exist',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Profile Name
+                ''',
+                'profile_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('profile-name-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The name of the operation profile.
+                ''',
+                'profile_name_xr',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('rt-delay-inconsistent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the profile configured to collect RT Delay
+                but the packet type doesn't support it?
+                ''',
+                'rt_delay_inconsistent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('rt-jitter-inconsistent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the profile configured to collect RT Jitter
+                but the packet type doesn't support it?
+                ''',
+                'rt_jitter_inconsistent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('synthetic-loss-not-supported', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The profile is configured to use a packet type
+                which doesn't support synthetic loss measurement
+                and the number of packets per FLR calculation
+                has been configured
+                ''',
+                'synthetic_loss_not_supported',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2763,18 +2763,18 @@ _meta_table = {
                 ''',
                 'packet_pad_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('test-pattern-pad-hex-string', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Hex string that is used in the packet padding
+                ''',
+                'test_pattern_pad_hex_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('test-pattern-pad-scheme', REFERENCE_ENUM_CLASS, 'SlaOperTestPatternSchemeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperTestPatternSchemeEnum', 
                 [], [], 
                 '''                Test pattern scheme that is used in the packet
                 padding
                 ''',
                 'test_pattern_pad_scheme',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('test-pattern-pad-hex-string', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Hex string that is used in the packet padding
-                ''',
-                'test_pattern_pad_hex_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2787,17 +2787,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority',
             False, 
             [
-            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriorityEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriorityEnum', 
-                [], [], 
-                '''                PriorityType
-                ''',
-                'priority_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                3-bit COS priority value applied to packets
                 ''',
                 'cos',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriorityEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriorityEnum', 
+                [], [], 
+                '''                PriorityType
+                ''',
+                'priority_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2810,6 +2810,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule',
             False, 
             [
+            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Duration of a probe for the operation in seconds
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between the start times of consecutive
+                probes,  in seconds.
+                ''',
+                'schedule_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Start time of the first probe, in seconds since
@@ -2824,19 +2837,6 @@ _meta_table = {
                 ''',
                 'start_time_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Duration of a probe for the operation in seconds
-                ''',
-                'schedule_duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between the start times of consecutive
-                probes,  in seconds.
-                ''',
-                'schedule_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'operation-schedule',
@@ -2848,13 +2848,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig',
             False, 
             [
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
-                [], [], 
-                '''                Type of metric to which this configuration
-                applies
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total number of bins into which to aggregate. 0
@@ -2891,6 +2884,13 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
+                [], [], 
+                '''                Type of metric to which this configuration
+                applies
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'metric-config',
@@ -2902,18 +2902,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric',
             False, 
             [
-            _MetaInfoClassMember('metric-config', REFERENCE_CLASS, 'MetricConfig' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig', 
-                [], [], 
-                '''                Configuration of the metric
-                ''',
-                'metric_config',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('current-buckets-archive', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of valid buckets currently in the buckets
                 archive
                 ''',
                 'current_buckets_archive',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-config', REFERENCE_CLASS, 'MetricConfig' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig', 
+                [], [], 
+                '''                Configuration of the metric
+                ''',
+                'metric_config',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2926,56 +2926,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions',
             False, 
             [
-            _MetaInfoClassMember('packet-padding', REFERENCE_CLASS, 'PacketPadding' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding', 
-                [], [], 
-                '''                Configuration of the packet padding
-                ''',
-                'packet_padding',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority', 
-                [], [], 
-                '''                Priority at which to send the packet, if
-                configured
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule', 
-                [], [], 
-                '''                Operation schedule
-                ''',
-                'operation_schedule',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('probe-type', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Type of probe used by the operation
-                ''',
-                'probe_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('packets-per-burst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Number of packets sent per burst
-                ''',
-                'packets_per_burst',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('inter-packet-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Interval between packets within a burst in
-                milliseconds
-                ''',
-                'inter_packet_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bursts-per-probe', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of bursts sent per probe
                 ''',
                 'bursts_per_probe',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('inter-burst-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between bursts within a probe in
-                milliseconds
-                ''',
-                'inter_burst_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2984,12 +2939,57 @@ _meta_table = {
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('inter-burst-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between bursts within a probe in
+                milliseconds
+                ''',
+                'inter_burst_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('inter-packet-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Interval between packets within a burst in
+                milliseconds
+                ''',
+                'inter_packet_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric', 
                 [], [], 
                 '''                Array of the metrics that are measured by the
                 operation
                 ''',
                 'operation_metric',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule', 
+                [], [], 
+                '''                Operation schedule
+                ''',
+                'operation_schedule',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('packet-padding', REFERENCE_CLASS, 'PacketPadding' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding', 
+                [], [], 
+                '''                Configuration of the packet padding
+                ''',
+                'packet_padding',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('packets-per-burst', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Number of packets sent per burst
+                ''',
+                'packets_per_burst',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority', 
+                [], [], 
+                '''                Priority at which to send the packet, if
+                configured
+                ''',
+                'priority',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('probe-type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Type of probe used by the operation
+                ''',
+                'probe_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3071,11 +3071,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation',
             False, 
             [
-            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Operation ID
+            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Long display name used by the operation
                 ''',
-                'operation_id',
+                'display_long',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
+                ''',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3089,12 +3095,12 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191. Either MEP ID
-                or MAC address must be specified.
+            _MetaInfoClassMember('last-run', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time that the last probe for the operation was
+                run, NULL if never run.
                 ''',
-                'mep_id',
+                'last_run',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -3103,6 +3109,19 @@ _meta_table = {
                 specified.
                 ''',
                 'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191. Either MEP ID
+                or MAC address must be specified.
+                ''',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Operation ID
+                ''',
+                'operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('profile-options', REFERENCE_CLASS, 'ProfileOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions', 
                 [], [], 
@@ -3116,25 +3135,6 @@ _meta_table = {
                 '''                Options specific to the type of operation
                 ''',
                 'specific_options',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Short display name used by the operation
-                ''',
-                'display_short',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Long display name used by the operation
-                ''',
-                'display_long',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time that the last probe for the operation was
-                run, NULL if never run.
-                ''',
-                'last_run',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3234,6 +3234,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule',
             False, 
             [
+            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Duration of a probe for the operation in seconds
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between the start times of consecutive
+                probes,  in seconds.
+                ''',
+                'schedule_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Start time of the first probe, in seconds since
@@ -3248,19 +3261,6 @@ _meta_table = {
                 ''',
                 'start_time_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Duration of a probe for the operation in seconds
-                ''',
-                'schedule_duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between the start times of consecutive
-                probes,  in seconds.
-                ''',
-                'schedule_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'operation-schedule',
@@ -3272,13 +3272,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config',
             False, 
             [
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
-                [], [], 
-                '''                Type of metric to which this configuration
-                applies
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total number of bins into which to aggregate. 0
@@ -3315,6 +3308,13 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
+                [], [], 
+                '''                Type of metric to which this configuration
+                applies
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'config',
@@ -3326,6 +3326,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins',
             False, 
             [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The total number of results in the bin
+                ''',
+                'count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Lower bound (inclusive) of the bin, in
@@ -3333,14 +3339,6 @@ _meta_table = {
                 field is not used for LMM measurements
                 ''',
                 'lower_bound',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in
-                milliseconds or single units of percent. This
-                field is not used for LMM measurements
-                ''',
-                'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -3350,14 +3348,6 @@ _meta_table = {
                 ''',
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Upper bound (exclusive) of the bin, in tenths of
-                percent. This field is only used for LMM
-                measurements
-                ''',
-                'upper_bound_tenths',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
                 [(-9223372036854775808, 9223372036854775807)], [], 
                 '''                The sum of the results in the bin, in
@@ -3365,11 +3355,21 @@ _meta_table = {
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The total number of results in the bin
+            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in
+                milliseconds or single units of percent. This
+                field is not used for LMM measurements
                 ''',
-                'count',
+                'upper_bound',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Upper bound (exclusive) of the bin, in tenths of
+                percent. This field is only used for LMM
+                measurements
+                ''',
+                'upper_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3399,37 +3399,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample',
             False, 
             [
-            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The time (in milliseconds relative to the start
-                time of the bucket) that the sample was sent at
-                ''',
-                'sent_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was sucessfully sent
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet timed out
-                ''',
-                'timed_out',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Whether the sample packet was corrupt
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the sample packet was received
-                out-of-order
+            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames lost,
+                if available
                 ''',
-                'out_of_order',
+                'frames_lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                For FLR measurements, the number of frames sent,
+                if available
+                ''',
+                'frames_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('no-data-packets', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3439,6 +3427,13 @@ _meta_table = {
                 ''',
                 'no_data_packets',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was received
+                out-of-order
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                The result (in microseconds or millionths of a
@@ -3446,19 +3441,24 @@ _meta_table = {
                 ''',
                 'result',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames sent,
-                if available
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet was sucessfully sent
                 ''',
-                'frames_sent',
+                'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                For FLR measurements, the number of frames lost,
-                if available
+                '''                The time (in milliseconds relative to the start
+                time of the bucket) that the sample was sent at
                 ''',
-                'frames_lost',
+                'sent_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('timed-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the sample packet timed out
+                ''',
+                'timed_out',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3494,17 +3494,17 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated', 
-                [], [], 
-                '''                Result samples in an SLA metric bucket
-                ''',
-                'unaggregated',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
                 'bucket_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unaggregated', REFERENCE_CLASS, 'Unaggregated' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated', 
+                [], [], 
+                '''                Result samples in an SLA metric bucket
+                ''',
+                'unaggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3517,86 +3517,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket',
             False, 
             [
-            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents', 
-                [], [], 
-                '''                The contents of the bucket; bins or samples
-                ''',
-                'contents',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the bucket started being
-                filled at
-                ''',
-                'start_at',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Length of time for which the bucket is being
-                filled in seconds
-                ''',
-                'duration',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets sent in the probe
-                ''',
-                'sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of lost packets in the probe
-                ''',
-                'lost',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of corrupt packets in the probe
-                ''',
-                'corrupt',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of packets recieved out-of-order in the
-                probe
-                ''',
-                'out_of_order',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of duplicate packets received in the
-                probe
-                ''',
-                'duplicates',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Overall minimum result in the probe, in
-                microseconds or millionths of a percent
-                ''',
-                'maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the minimum value was
-                recorded
-                ''',
-                'time_of_minimum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Absolute time that the maximum value was
-                recorded
-                ''',
-                'time_of_maximum',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Mean of the results in the probe, in
@@ -3604,25 +3524,17 @@ _meta_table = {
                 ''',
                 'average',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Standard deviation of the results in the probe,
-                in microseconds or millionths of a percent
+            _MetaInfoClassMember('contents', REFERENCE_CLASS, 'Contents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents', 
+                [], [], 
+                '''                The contents of the bucket; bins or samples
                 ''',
-                'standard_deviation',
+                'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The count of samples collected in the bucket.
+                '''                Number of corrupt packets in the probe
                 ''',
-                'result_count',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of data packets sent across the
-                bucket, used in the calculation of overall FLR.
-                ''',
-                'data_sent_count',
+                'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3631,96 +3543,60 @@ _meta_table = {
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of data packets sent across the
+                bucket, used in the calculation of overall FLR.
+                ''',
+                'data_sent_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of duplicate packets received in the
+                probe
+                ''',
+                'duplicates',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Length of time for which the bucket is being
+                filled in seconds
+                ''',
+                'duration',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of lost packets in the probe
+                ''',
+                'lost',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Overall minimum result in the probe, in
+                microseconds or millionths of a percent
+                ''',
+                'minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets recieved out-of-order in the
+                probe
+                ''',
+                'out_of_order',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe starting mid-way
-                through a bucket
-                ''',
-                'suspect_start_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to scheduling latency
-                causing one or more packets to not be sent
-                ''',
-                'suspect_schedule_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to failure to send one or
-                more packets
-                ''',
-                'suspect_send_fail',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a probe ending
-                prematurely
-                ''',
-                'suspect_premature_end',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as more than 10 seconds time
-                drift detected
-                ''',
-                'suspect_clock_drift',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect due to a memory allocation
-                failure
-                ''',
-                'suspect_memory_allocation_failed',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as bucket was cleared mid-way
-                through being filled
-                ''',
-                'suspect_cleared_mid_bucket',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as probe restarted mid-way
-                through the bucket
-                ''',
-                'suspect_probe_restarted',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as processing of results has
-                been delayed
-                ''',
-                'suspect_management_latency',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as the probe has been configured
-                across multiple buckets
-                ''',
-                'suspect_multiple_buckets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as misordering has been detected
-                , affecting results
-                ''',
-                'suspect_misordering',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Results suspect as FLR calculated based on a low
-                packet count
-                ''',
-                'suspect_flr_low_packet_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3737,6 +3613,130 @@ _meta_table = {
                 ''',
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The count of samples collected in the bucket.
+                ''',
+                'result_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of packets sent in the probe
+                ''',
+                'sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Standard deviation of the results in the probe,
+                in microseconds or millionths of a percent
+                ''',
+                'standard_deviation',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the bucket started being
+                filled at
+                ''',
+                'start_at',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-cleared-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as bucket was cleared mid-way
+                through being filled
+                ''',
+                'suspect_cleared_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-clock-drift', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as more than 10 seconds time
+                drift detected
+                ''',
+                'suspect_clock_drift',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-flr-low-packet-count', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as FLR calculated based on a low
+                packet count
+                ''',
+                'suspect_flr_low_packet_count',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-management-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as processing of results has
+                been delayed
+                ''',
+                'suspect_management_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-memory-allocation-failed', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a memory allocation
+                failure
+                ''',
+                'suspect_memory_allocation_failed',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-misordering', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as misordering has been detected
+                , affecting results
+                ''',
+                'suspect_misordering',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-multiple-buckets', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as the probe has been configured
+                across multiple buckets
+                ''',
+                'suspect_multiple_buckets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-premature-end', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe ending
+                prematurely
+                ''',
+                'suspect_premature_end',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-probe-restarted', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect as probe restarted mid-way
+                through the bucket
+                ''',
+                'suspect_probe_restarted',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-schedule-latency', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to scheduling latency
+                causing one or more packets to not be sent
+                ''',
+                'suspect_schedule_latency',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-send-fail', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to failure to send one or
+                more packets
+                ''',
+                'suspect_send_fail',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('suspect-start-mid-bucket', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Results suspect due to a probe starting mid-way
+                through a bucket
+                ''',
+                'suspect_start_mid_bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the maximum value was
+                recorded
+                ''',
+                'time_of_maximum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Absolute time that the minimum value was
+                recorded
+                ''',
+                'time_of_minimum',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'bucket',
@@ -3748,17 +3748,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config', 
-                [], [], 
-                '''                Configuration of the metric
-                ''',
-                'config',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket', REFERENCE_LIST, 'Bucket' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket', 
                 [], [], 
                 '''                Buckets stored for the metric
                 ''',
                 'bucket',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config', 
+                [], [], 
+                '''                Configuration of the metric
+                ''',
+                'config',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3771,11 +3771,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent',
             False, 
             [
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Profile Name
+            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Long display name used by the operation
                 ''',
-                'profile_name',
+                'display_long',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Short display name used by the operation
+                ''',
+                'display_short',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3783,18 +3789,18 @@ _meta_table = {
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interval between FLR calculations for SLM, in
+                milliseconds
+                ''',
+                'flr_calculation_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID in the range 1 to 8191. Either MEP ID
-                or MAC address must be specified.
-                ''',
-                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -3804,11 +3810,18 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions', 
-                [], [], 
-                '''                Options specific to the type of operation
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID in the range 1 to 8191. Either MEP ID
+                or MAC address must be specified.
                 ''',
-                'specific_options',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric', 
+                [], [], 
+                '''                Metrics gathered for the operation
+                ''',
+                'operation_metric',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-schedule', REFERENCE_CLASS, 'OperationSchedule' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule', 
                 [], [], 
@@ -3822,30 +3835,17 @@ _meta_table = {
                 ''',
                 'probe_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-short', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Short display name used by the operation
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Profile Name
                 ''',
-                'display_short',
+                'profile_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('display-long', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('specific-options', REFERENCE_CLASS, 'SpecificOptions' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions', 
                 [], [], 
-                '''                Long display name used by the operation
+                '''                Options specific to the type of operation
                 ''',
-                'display_long',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interval between FLR calculations for SLM, in
-                milliseconds
-                ''',
-                'flr_calculation_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operation-metric', REFERENCE_LIST, 'OperationMetric' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric', 
-                [], [], 
-                '''                Metrics gathered for the operation
-                ''',
-                'operation_metric',
+                'specific_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -3876,33 +3876,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet',
             False, 
             [
-            _MetaInfoClassMember('statistics-on-demand-currents', REFERENCE_CLASS, 'StatisticsOnDemandCurrents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents', 
-                [], [], 
-                '''                Table of current statistics for SLA on-demand
-                operations
-                ''',
-                'statistics_on_demand_currents',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operations', REFERENCE_CLASS, 'Operations' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations', 
-                [], [], 
-                '''                Table of SLA operations
-                ''',
-                'operations',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('statistics-historicals', REFERENCE_CLASS, 'StatisticsHistoricals' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals', 
-                [], [], 
-                '''                Table of historical statistics for SLA
-                operations
-                ''',
-                'statistics_historicals',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('statistics-on-demand-historicals', REFERENCE_CLASS, 'StatisticsOnDemandHistoricals' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals', 
-                [], [], 
-                '''                Table of historical statistics for SLA
-                on-demand operations
-                ''',
-                'statistics_on_demand_historicals',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('config-errors', REFERENCE_CLASS, 'ConfigErrors' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.ConfigErrors', 
                 [], [], 
                 '''                Table of SLA configuration errors on configured
@@ -3916,11 +3889,38 @@ _meta_table = {
                 ''',
                 'on_demand_operations',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operations', REFERENCE_CLASS, 'Operations' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.Operations', 
+                [], [], 
+                '''                Table of SLA operations
+                ''',
+                'operations',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('statistics-currents', REFERENCE_CLASS, 'StatisticsCurrents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsCurrents', 
                 [], [], 
                 '''                Table of current statistics for SLA operations
                 ''',
                 'statistics_currents',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('statistics-historicals', REFERENCE_CLASS, 'StatisticsHistoricals' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsHistoricals', 
+                [], [], 
+                '''                Table of historical statistics for SLA
+                operations
+                ''',
+                'statistics_historicals',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('statistics-on-demand-currents', REFERENCE_CLASS, 'StatisticsOnDemandCurrents' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandCurrents', 
+                [], [], 
+                '''                Table of current statistics for SLA on-demand
+                operations
+                ''',
+                'statistics_on_demand_currents',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('statistics-on-demand-historicals', REFERENCE_CLASS, 'StatisticsOnDemandHistoricals' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_oper', 'Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals', 
+                [], [], 
+                '''                Table of historical statistics for SLA
+                on-demand operations
+                ''',
+                'statistics_on_demand_historicals',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',

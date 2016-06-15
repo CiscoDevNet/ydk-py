@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.common.Cisco_IOS_XR_common_acl_datatypes import AclUsageAppIdEnumEnum
@@ -548,6 +548,11 @@ class Ipv6AclAndPrefixList(object):
         AccessListManager containing ACLs and prefix
         lists
         
+        .. attribute:: accesses
+        
+        	ACL class displaying Usage and Entries
+        	**type**\: :py:class:`Accesses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses>`
+        
         .. attribute:: prefixes
         
         	Table of prefix lists
@@ -558,11 +563,6 @@ class Ipv6AclAndPrefixList(object):
         	Table of Usage statistics of ACLs at different nodes
         	**type**\: :py:class:`Usages <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Usages>`
         
-        .. attribute:: accesses
-        
-        	ACL class displaying Usage and Entries
-        	**type**\: :py:class:`Accesses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses>`
-        
         
 
         """
@@ -572,12 +572,12 @@ class Ipv6AclAndPrefixList(object):
 
         def __init__(self):
             self.parent = None
+            self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
+            self.accesses.parent = self
             self.prefixes = Ipv6AclAndPrefixList.AccessListManager.Prefixes()
             self.prefixes.parent = self
             self.usages = Ipv6AclAndPrefixList.AccessListManager.Usages()
             self.usages.parent = self
-            self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
-            self.accesses.parent = self
 
 
         class Prefixes(object):
@@ -668,10 +668,17 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 1..2147483646
                         
-                        .. attribute:: is_ace_type
+                        .. attribute:: acl_name
                         
-                        	ACE type (acl, remark)
-                        	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAce1Enum>`
+                        	ACL Name
+                        	**type**\: str
+                        
+                        .. attribute:: hits
+                        
+                        	Number of hits
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: is_ace_sequence_number
                         
@@ -680,10 +687,10 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_packet_allow_or_deny
+                        .. attribute:: is_ace_type
                         
-                        	Grant value permit/deny 
-                        	**type**\: :py:class:`AclActionEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclActionEnum>`
+                        	ACE type (acl, remark)
+                        	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAce1Enum>`
                         
                         .. attribute:: is_address_in_numbers
                         
@@ -699,17 +706,20 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: is_comment_for_entry
+                        
+                        	Remark String
+                        	**type**\: str
+                        
                         .. attribute:: is_length_operator
                         
                         	Port Operator
                         	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
                         
-                        .. attribute:: is_packet_minimum_length
+                        .. attribute:: is_packet_allow_or_deny
                         
-                        	Min length
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	Grant value permit/deny 
+                        	**type**\: :py:class:`AclActionEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclActionEnum>`
                         
                         .. attribute:: is_packet_maximum_length
                         
@@ -718,22 +728,12 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: hits
+                        .. attribute:: is_packet_minimum_length
                         
-                        	Number of hits
+                        	Min length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: is_comment_for_entry
-                        
-                        	Remark String
-                        	**type**\: str
-                        
-                        .. attribute:: acl_name
-                        
-                        	ACL Name
-                        	**type**\: str
                         
                         
 
@@ -745,24 +745,24 @@ class Ipv6AclAndPrefixList(object):
                         def __init__(self):
                             self.parent = None
                             self.sequence_number = None
-                            self.is_ace_type = None
+                            self.acl_name = None
+                            self.hits = None
                             self.is_ace_sequence_number = None
-                            self.is_packet_allow_or_deny = None
+                            self.is_ace_type = None
                             self.is_address_in_numbers = None
                             self.is_address_mask_length = None
-                            self.is_length_operator = None
-                            self.is_packet_minimum_length = None
-                            self.is_packet_maximum_length = None
-                            self.hits = None
                             self.is_comment_for_entry = None
-                            self.acl_name = None
+                            self.is_length_operator = None
+                            self.is_packet_allow_or_deny = None
+                            self.is_packet_maximum_length = None
+                            self.is_packet_minimum_length = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.sequence_number is None:
-                                raise YPYDataValidationError('Key property sequence_number is None')
+                                raise YPYModelError('Key property sequence_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-sequence[Cisco-IOS-XR-ipv6-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
 
@@ -776,13 +776,16 @@ class Ipv6AclAndPrefixList(object):
                             if self.sequence_number is not None:
                                 return True
 
-                            if self.is_ace_type is not None:
+                            if self.acl_name is not None:
+                                return True
+
+                            if self.hits is not None:
                                 return True
 
                             if self.is_ace_sequence_number is not None:
                                 return True
 
-                            if self.is_packet_allow_or_deny is not None:
+                            if self.is_ace_type is not None:
                                 return True
 
                             if self.is_address_in_numbers is not None:
@@ -791,22 +794,19 @@ class Ipv6AclAndPrefixList(object):
                             if self.is_address_mask_length is not None:
                                 return True
 
+                            if self.is_comment_for_entry is not None:
+                                return True
+
                             if self.is_length_operator is not None:
                                 return True
 
-                            if self.is_packet_minimum_length is not None:
+                            if self.is_packet_allow_or_deny is not None:
                                 return True
 
                             if self.is_packet_maximum_length is not None:
                                 return True
 
-                            if self.hits is not None:
-                                return True
-
-                            if self.is_comment_for_entry is not None:
-                                return True
-
-                            if self.acl_name is not None:
+                            if self.is_packet_minimum_length is not None:
                                 return True
 
                             return False
@@ -819,7 +819,7 @@ class Ipv6AclAndPrefixList(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-sequences'
 
@@ -845,7 +845,7 @@ class Ipv6AclAndPrefixList(object):
                 @property
                 def _common_path(self):
                     if self.prefix_list_name is None:
-                        raise YPYDataValidationError('Key property prefix_list_name is None')
+                        raise YPYModelError('Key property prefix_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:prefixes/Cisco-IOS-XR-ipv6-acl-oper:prefix[Cisco-IOS-XR-ipv6-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
 
@@ -922,24 +922,24 @@ class Ipv6AclAndPrefixList(object):
                 """
                 Usage statistics of an ACL at a node
                 
-                .. attribute:: node_name
-                
-                	Node where ACL is applied
-                	**type**\: str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: application_id
-                
-                	Application ID
-                	**type**\: :py:class:`AclUsageAppIdEnumEnum <ydk.models.common.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
-                
                 .. attribute:: access_list_name
                 
                 	Name of the ACL
                 	**type**\: str
                 
                 	**range:** 0..65
+                
+                .. attribute:: application_id
+                
+                	Application ID
+                	**type**\: :py:class:`AclUsageAppIdEnumEnum <ydk.models.common.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
+                
+                .. attribute:: node_name
+                
+                	Node where ACL is applied
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: usage_details
                 
@@ -955,9 +955,9 @@ class Ipv6AclAndPrefixList(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.node_name = None
-                    self.application_id = None
                     self.access_list_name = None
+                    self.application_id = None
+                    self.node_name = None
                     self.usage_details = None
 
                 @property
@@ -972,13 +972,13 @@ class Ipv6AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.node_name is not None:
+                    if self.access_list_name is not None:
                         return True
 
                     if self.application_id is not None:
                         return True
 
-                    if self.access_list_name is not None:
+                    if self.node_name is not None:
                         return True
 
                     if self.usage_details is not None:
@@ -1103,15 +1103,49 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 1..2147483646
                         
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        .. attribute:: capture
+                        
+                        	Capture option, TRUE if enabled
+                        	**type**\: bool
+                        
+                        .. attribute:: counter_name
+                        
+                        	Counter name
+                        	**type**\: str
+                        
+                        .. attribute:: destination_mask
+                        
+                        	Destination Mask
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: destination_port_group
+                        
+                        	Destination port object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: destination_prefix_group
+                        
+                        	Destination prefix object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: hits
+                        
+                        	hits
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         .. attribute:: hw_next_hop_info
                         
                         	HW Next hop info
                         	**type**\: :py:class:`HwNextHopInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
-                        
-                        .. attribute:: is_ace_type
-                        
-                        	ACE type (acl, remark)
-                        	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAce1Enum>`
                         
                         .. attribute:: is_ace_sequence_number
                         
@@ -1120,38 +1154,15 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_packet_allow_or_deny
+                        .. attribute:: is_ace_type
                         
-                        	Grant value permit/deny 
-                        	**type**\: :py:class:`AclActionEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclActionEnum>`
+                        	ACE type (acl, remark)
+                        	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAce1Enum>`
                         
-                        .. attribute:: is_ipv6_protocol_type
+                        .. attribute:: is_comment_for_entry
                         
-                        	IsIPV6ProtocolType
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_source_address_in_numbers
-                        
-                        	IsSourceAddressInNumbers
+                        	IsCommentForEntry
                         	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: is_source_address_prefix_length
-                        
-                        	IsSourceAddressPrefixLength
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: source_mask
-                        
-                        	Source Mask
-                        	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: is_destination_address_in_numbers
                         
@@ -1163,32 +1174,6 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_destination_address_prefix_length
                         
                         	IsDestinationAddressPrefixLength
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: destination_mask
-                        
-                        	Destination Mask
-                        	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: is_source_operator
-                        
-                        	eq, ne, lt, etc..
-                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
-                        
-                        .. attribute:: is_source_port1
-                        
-                        	IsSourcePort1
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_source_port2
-                        
-                        	IsSourcePort2
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1212,35 +1197,6 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_log_option
-                        
-                        	IsLogOption
-                        	**type**\: :py:class:`AclLogEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclLogEnum>`
-                        
-                        .. attribute:: counter_name
-                        
-                        	Counter name
-                        	**type**\: str
-                        
-                        .. attribute:: is_tcp_bits_operator
-                        
-                        	IsTCPBitsOperator
-                        	**type**\: :py:class:`AclTcpflagsOperatorEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperatorEnum>`
-                        
-                        .. attribute:: is_tcp_bits
-                        
-                        	IsTCPBits
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_tcp_bits_mask
-                        
-                        	IsTCPBitsMask
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: is_dscp_present
                         
                         	IsDSCPPresent
@@ -1251,6 +1207,63 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_dscp_valu
                         
                         	IsDSCPValu
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_flow_id
+                        
+                        	IsFlowId
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_header_matches
+                        
+                        	Match if routing header is presant
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_icmp_message_off
+                        
+                        	Don't generate the icmp message
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_ipv6_protocol_type
+                        
+                        	IsIPV6ProtocolType
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_log_option
+                        
+                        	IsLogOption
+                        	**type**\: :py:class:`AclLogEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclLogEnum>`
+                        
+                        .. attribute:: is_packet_allow_or_deny
+                        
+                        	Grant value permit/deny 
+                        	**type**\: :py:class:`AclActionEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclActionEnum>`
+                        
+                        .. attribute:: is_packet_length_end
+                        
+                        	IsPacketLengthEnd
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_length_operator
+                        
+                        	Match if routing header is presant
+                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        
+                        .. attribute:: is_packet_length_start
+                        
+                        	IsPacketLengthStart
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1269,28 +1282,61 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_header_matches
+                        .. attribute:: is_source_address_in_numbers
                         
-                        	Match if routing header is presant
+                        	IsSourceAddressInNumbers
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: is_source_address_prefix_length
+                        
+                        	IsSourceAddressPrefixLength
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_packet_length_operator
+                        .. attribute:: is_source_operator
                         
-                        	Match if routing header is presant
+                        	eq, ne, lt, etc..
                         	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
                         
-                        .. attribute:: is_packet_length_start
+                        .. attribute:: is_source_port1
                         
-                        	IsPacketLengthStart
+                        	IsSourcePort1
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_packet_length_end
+                        .. attribute:: is_source_port2
                         
-                        	IsPacketLengthEnd
+                        	IsSourcePort2
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits
+                        
+                        	IsTCPBits
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits_mask
+                        
+                        	IsTCPBitsMask
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits_operator
+                        
+                        	IsTCPBitsOperator
+                        	**type**\: :py:class:`AclTcpflagsOperatorEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperatorEnum>`
+                        
+                        .. attribute:: is_time_to_live_end
+                        
+                        	IsTimeToLiveEnd
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1307,12 +1353,15 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: is_time_to_live_end
+                        .. attribute:: next_hop_info
                         
-                        	IsTimeToLiveEnd
-                        	**type**\: int
+                        	Next hop info
+                        	**type**\: list of :py:class:`NextHopInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
                         
-                        	**range:** 0..4294967295
+                        .. attribute:: next_hop_type
+                        
+                        	Next hop type
+                        	**type**\: :py:class:`BagAclNhEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhEnum>`
                         
                         .. attribute:: no_stats
                         
@@ -1321,71 +1370,22 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: hits
+                        .. attribute:: source_mask
                         
-                        	hits
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: capture
-                        
-                        	Capture option, TRUE if enabled
-                        	**type**\: bool
-                        
-                        .. attribute:: is_icmp_message_off
-                        
-                        	Don't generate the icmp message
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: is_comment_for_entry
-                        
-                        	IsCommentForEntry
+                        	Source Mask
                         	**type**\: str
                         
-                        .. attribute:: next_hop_type
-                        
-                        	Next hop type
-                        	**type**\: :py:class:`BagAclNhEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhEnum>`
-                        
-                        .. attribute:: is_flow_id
-                        
-                        	IsFlowId
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: source_prefix_group
-                        
-                        	Source prefix object\-group
-                        	**type**\: str
-                        
-                        .. attribute:: destination_prefix_group
-                        
-                        	Destination prefix object\-group
-                        	**type**\: str
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: source_port_group
                         
                         	Source port object\-group
                         	**type**\: str
                         
-                        .. attribute:: destination_port_group
+                        .. attribute:: source_prefix_group
                         
-                        	Destination port object\-group
+                        	Source prefix object\-group
                         	**type**\: str
-                        
-                        .. attribute:: acl_name
-                        
-                        	ACL Name
-                        	**type**\: str
-                        
-                        .. attribute:: next_hop_info
-                        
-                        	Next hop info
-                        	**type**\: list of :py:class:`NextHopInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
                         
                         
 
@@ -1397,65 +1397,60 @@ class Ipv6AclAndPrefixList(object):
                         def __init__(self):
                             self.parent = None
                             self.sequence_number = None
+                            self.acl_name = None
+                            self.capture = None
+                            self.counter_name = None
+                            self.destination_mask = None
+                            self.destination_port_group = None
+                            self.destination_prefix_group = None
+                            self.hits = None
                             self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
                             self.hw_next_hop_info.parent = self
-                            self.is_ace_type = None
                             self.is_ace_sequence_number = None
-                            self.is_packet_allow_or_deny = None
-                            self.is_ipv6_protocol_type = None
-                            self.is_source_address_in_numbers = None
-                            self.is_source_address_prefix_length = None
-                            self.source_mask = None
+                            self.is_ace_type = None
+                            self.is_comment_for_entry = None
                             self.is_destination_address_in_numbers = None
                             self.is_destination_address_prefix_length = None
-                            self.destination_mask = None
-                            self.is_source_operator = None
-                            self.is_source_port1 = None
-                            self.is_source_port2 = None
                             self.is_destination_operator = None
                             self.is_destination_port1 = None
                             self.is_destination_port2 = None
-                            self.is_log_option = None
-                            self.counter_name = None
-                            self.is_tcp_bits_operator = None
-                            self.is_tcp_bits = None
-                            self.is_tcp_bits_mask = None
                             self.is_dscp_present = None
                             self.is_dscp_valu = None
-                            self.is_precedence_present = None
-                            self.is_precedence_value = None
+                            self.is_flow_id = None
                             self.is_header_matches = None
+                            self.is_icmp_message_off = None
+                            self.is_ipv6_protocol_type = None
+                            self.is_log_option = None
+                            self.is_packet_allow_or_deny = None
+                            self.is_packet_length_end = None
                             self.is_packet_length_operator = None
                             self.is_packet_length_start = None
-                            self.is_packet_length_end = None
+                            self.is_precedence_present = None
+                            self.is_precedence_value = None
+                            self.is_source_address_in_numbers = None
+                            self.is_source_address_prefix_length = None
+                            self.is_source_operator = None
+                            self.is_source_port1 = None
+                            self.is_source_port2 = None
+                            self.is_tcp_bits = None
+                            self.is_tcp_bits_mask = None
+                            self.is_tcp_bits_operator = None
+                            self.is_time_to_live_end = None
                             self.is_time_to_live_operator = None
                             self.is_time_to_live_start = None
-                            self.is_time_to_live_end = None
-                            self.no_stats = None
-                            self.hits = None
-                            self.capture = None
-                            self.is_icmp_message_off = None
-                            self.is_comment_for_entry = None
-                            self.next_hop_type = None
-                            self.is_flow_id = None
-                            self.source_prefix_group = None
-                            self.destination_prefix_group = None
-                            self.source_port_group = None
-                            self.destination_port_group = None
-                            self.acl_name = None
                             self.next_hop_info = YList()
                             self.next_hop_info.parent = self
                             self.next_hop_info.name = 'next_hop_info'
+                            self.next_hop_type = None
+                            self.no_stats = None
+                            self.source_mask = None
+                            self.source_port_group = None
+                            self.source_prefix_group = None
 
 
                         class HwNextHopInfo(object):
                             """
                             HW Next hop info
-                            
-                            .. attribute:: type
-                            
-                            	The next\-hop type
-                            	**type**\: :py:class:`BagAclNhEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhEnum>`
                             
                             .. attribute:: next_hop
                             
@@ -1470,6 +1465,11 @@ class Ipv6AclAndPrefixList(object):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: type
+                            
+                            	The next\-hop type
+                            	**type**\: :py:class:`BagAclNhEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhEnum>`
                             
                             .. attribute:: vrf_name
                             
@@ -1487,15 +1487,15 @@ class Ipv6AclAndPrefixList(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.type = None
                                 self.next_hop = None
                                 self.table_id = None
+                                self.type = None
                                 self.vrf_name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:hw-next-hop-info'
 
@@ -1506,13 +1506,13 @@ class Ipv6AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.type is not None:
-                                    return True
-
                                 if self.next_hop is not None:
                                     return True
 
                                 if self.table_id is not None:
+                                    return True
+
+                                if self.type is not None:
                                     return True
 
                                 if self.vrf_name is not None:
@@ -1530,6 +1530,18 @@ class Ipv6AclAndPrefixList(object):
                             """
                             Next hop info
                             
+                            .. attribute:: acl_nh_exist
+                            
+                            	The nexthop exist
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: at_status
+                            
+                            	The next hop at status
+                            	**type**\: :py:class:`BagAclNhAtStatusEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatusEnum>`
+                            
                             .. attribute:: next_hop
                             
                             	The next hop
@@ -1537,12 +1549,10 @@ class Ipv6AclAndPrefixList(object):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: vrf_name
+                            .. attribute:: status
                             
-                            	Vrf Name
-                            	**type**\: str
-                            
-                            	**range:** 0..32
+                            	The next hop status
+                            	**type**\: :py:class:`BagAclNhStatusEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatusEnum>`
                             
                             .. attribute:: track_name
                             
@@ -1551,22 +1561,12 @@ class Ipv6AclAndPrefixList(object):
                             
                             	**range:** 0..33
                             
-                            .. attribute:: status
+                            .. attribute:: vrf_name
                             
-                            	The next hop status
-                            	**type**\: :py:class:`BagAclNhStatusEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatusEnum>`
+                            	Vrf Name
+                            	**type**\: str
                             
-                            .. attribute:: at_status
-                            
-                            	The next hop at status
-                            	**type**\: :py:class:`BagAclNhAtStatusEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatusEnum>`
-                            
-                            .. attribute:: acl_nh_exist
-                            
-                            	The nexthop exist
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..32
                             
                             
 
@@ -1577,17 +1577,17 @@ class Ipv6AclAndPrefixList(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.next_hop = None
-                                self.vrf_name = None
-                                self.track_name = None
-                                self.status = None
-                                self.at_status = None
                                 self.acl_nh_exist = None
+                                self.at_status = None
+                                self.next_hop = None
+                                self.status = None
+                                self.track_name = None
+                                self.vrf_name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:next-hop-info'
 
@@ -1598,22 +1598,22 @@ class Ipv6AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.next_hop is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                if self.track_name is not None:
-                                    return True
-
-                                if self.status is not None:
+                                if self.acl_nh_exist is not None:
                                     return True
 
                                 if self.at_status is not None:
                                     return True
 
-                                if self.acl_nh_exist is not None:
+                                if self.next_hop is not None:
+                                    return True
+
+                                if self.status is not None:
+                                    return True
+
+                                if self.track_name is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
                                     return True
 
                                 return False
@@ -1626,9 +1626,9 @@ class Ipv6AclAndPrefixList(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.sequence_number is None:
-                                raise YPYDataValidationError('Key property sequence_number is None')
+                                raise YPYModelError('Key property sequence_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:access-list-sequence[Cisco-IOS-XR-ipv6-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
 
@@ -1642,46 +1642,43 @@ class Ipv6AclAndPrefixList(object):
                             if self.sequence_number is not None:
                                 return True
 
-                            if self.hw_next_hop_info is not None and self.hw_next_hop_info._has_data():
+                            if self.acl_name is not None:
                                 return True
 
-                            if self.is_ace_type is not None:
+                            if self.capture is not None:
+                                return True
+
+                            if self.counter_name is not None:
+                                return True
+
+                            if self.destination_mask is not None:
+                                return True
+
+                            if self.destination_port_group is not None:
+                                return True
+
+                            if self.destination_prefix_group is not None:
+                                return True
+
+                            if self.hits is not None:
+                                return True
+
+                            if self.hw_next_hop_info is not None and self.hw_next_hop_info._has_data():
                                 return True
 
                             if self.is_ace_sequence_number is not None:
                                 return True
 
-                            if self.is_packet_allow_or_deny is not None:
+                            if self.is_ace_type is not None:
                                 return True
 
-                            if self.is_ipv6_protocol_type is not None:
-                                return True
-
-                            if self.is_source_address_in_numbers is not None:
-                                return True
-
-                            if self.is_source_address_prefix_length is not None:
-                                return True
-
-                            if self.source_mask is not None:
+                            if self.is_comment_for_entry is not None:
                                 return True
 
                             if self.is_destination_address_in_numbers is not None:
                                 return True
 
                             if self.is_destination_address_prefix_length is not None:
-                                return True
-
-                            if self.destination_mask is not None:
-                                return True
-
-                            if self.is_source_operator is not None:
-                                return True
-
-                            if self.is_source_port1 is not None:
-                                return True
-
-                            if self.is_source_port2 is not None:
                                 return True
 
                             if self.is_destination_operator is not None:
@@ -1693,34 +1690,31 @@ class Ipv6AclAndPrefixList(object):
                             if self.is_destination_port2 is not None:
                                 return True
 
-                            if self.is_log_option is not None:
-                                return True
-
-                            if self.counter_name is not None:
-                                return True
-
-                            if self.is_tcp_bits_operator is not None:
-                                return True
-
-                            if self.is_tcp_bits is not None:
-                                return True
-
-                            if self.is_tcp_bits_mask is not None:
-                                return True
-
                             if self.is_dscp_present is not None:
                                 return True
 
                             if self.is_dscp_valu is not None:
                                 return True
 
-                            if self.is_precedence_present is not None:
-                                return True
-
-                            if self.is_precedence_value is not None:
+                            if self.is_flow_id is not None:
                                 return True
 
                             if self.is_header_matches is not None:
+                                return True
+
+                            if self.is_icmp_message_off is not None:
+                                return True
+
+                            if self.is_ipv6_protocol_type is not None:
+                                return True
+
+                            if self.is_log_option is not None:
+                                return True
+
+                            if self.is_packet_allow_or_deny is not None:
+                                return True
+
+                            if self.is_packet_length_end is not None:
                                 return True
 
                             if self.is_packet_length_operator is not None:
@@ -1729,7 +1723,37 @@ class Ipv6AclAndPrefixList(object):
                             if self.is_packet_length_start is not None:
                                 return True
 
-                            if self.is_packet_length_end is not None:
+                            if self.is_precedence_present is not None:
+                                return True
+
+                            if self.is_precedence_value is not None:
+                                return True
+
+                            if self.is_source_address_in_numbers is not None:
+                                return True
+
+                            if self.is_source_address_prefix_length is not None:
+                                return True
+
+                            if self.is_source_operator is not None:
+                                return True
+
+                            if self.is_source_port1 is not None:
+                                return True
+
+                            if self.is_source_port2 is not None:
+                                return True
+
+                            if self.is_tcp_bits is not None:
+                                return True
+
+                            if self.is_tcp_bits_mask is not None:
+                                return True
+
+                            if self.is_tcp_bits_operator is not None:
+                                return True
+
+                            if self.is_time_to_live_end is not None:
                                 return True
 
                             if self.is_time_to_live_operator is not None:
@@ -1738,49 +1762,25 @@ class Ipv6AclAndPrefixList(object):
                             if self.is_time_to_live_start is not None:
                                 return True
 
-                            if self.is_time_to_live_end is not None:
+                            if self.next_hop_info is not None:
+                                for child_ref in self.next_hop_info:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.next_hop_type is not None:
                                 return True
 
                             if self.no_stats is not None:
                                 return True
 
-                            if self.hits is not None:
-                                return True
-
-                            if self.capture is not None:
-                                return True
-
-                            if self.is_icmp_message_off is not None:
-                                return True
-
-                            if self.is_comment_for_entry is not None:
-                                return True
-
-                            if self.next_hop_type is not None:
-                                return True
-
-                            if self.is_flow_id is not None:
-                                return True
-
-                            if self.source_prefix_group is not None:
-                                return True
-
-                            if self.destination_prefix_group is not None:
+                            if self.source_mask is not None:
                                 return True
 
                             if self.source_port_group is not None:
                                 return True
 
-                            if self.destination_port_group is not None:
+                            if self.source_prefix_group is not None:
                                 return True
-
-                            if self.acl_name is not None:
-                                return True
-
-                            if self.next_hop_info is not None:
-                                for child_ref in self.next_hop_info:
-                                    if child_ref._has_data():
-                                        return True
 
                             return False
 
@@ -1792,7 +1792,7 @@ class Ipv6AclAndPrefixList(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:access-list-sequences'
 
@@ -1818,7 +1818,7 @@ class Ipv6AclAndPrefixList(object):
                 @property
                 def _common_path(self):
                     if self.access_list_name is None:
-                        raise YPYDataValidationError('Key property access_list_name is None')
+                        raise YPYModelError('Key property access_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:accesses/Cisco-IOS-XR-ipv6-acl-oper:access[Cisco-IOS-XR-ipv6-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
 
@@ -1878,13 +1878,13 @@ class Ipv6AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.accesses is not None and self.accesses._has_data():
+                return True
+
             if self.prefixes is not None and self.prefixes._has_data():
                 return True
 
             if self.usages is not None and self.usages._has_data():
-                return True
-
-            if self.accesses is not None and self.accesses._has_data():
                 return True
 
             return False
@@ -1900,15 +1900,15 @@ class Ipv6AclAndPrefixList(object):
         Out Of Resources, Limits to the resources
         allocatable
         
+        .. attribute:: access_list_summary
+        
+        	Resource Limits pertaining to ACLs only
+        	**type**\: :py:class:`AccessListSummary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary>`
+        
         .. attribute:: details
         
         	Details of the overall out of resource limit
         	**type**\: :py:class:`Details <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.Details>`
-        
-        .. attribute:: prefix_list_summary
-        
-        	Summary of the prefix Lists resource utilization
-        	**type**\: :py:class:`PrefixListSummary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary>`
         
         .. attribute:: oor_accesses
         
@@ -1920,10 +1920,10 @@ class Ipv6AclAndPrefixList(object):
         	Resource occupation details for prefix lists
         	**type**\: :py:class:`OorPrefixes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.OorPrefixes>`
         
-        .. attribute:: access_list_summary
+        .. attribute:: prefix_list_summary
         
-        	Resource Limits pertaining to ACLs only
-        	**type**\: :py:class:`AccessListSummary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary>`
+        	Summary of the prefix Lists resource utilization
+        	**type**\: :py:class:`PrefixListSummary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary>`
         
         
 
@@ -1934,35 +1934,21 @@ class Ipv6AclAndPrefixList(object):
 
         def __init__(self):
             self.parent = None
+            self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
+            self.access_list_summary.parent = self
             self.details = Ipv6AclAndPrefixList.Oor.Details()
             self.details.parent = self
-            self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
-            self.prefix_list_summary.parent = self
             self.oor_accesses = Ipv6AclAndPrefixList.Oor.OorAccesses()
             self.oor_accesses.parent = self
             self.oor_prefixes = Ipv6AclAndPrefixList.Oor.OorPrefixes()
             self.oor_prefixes.parent = self
-            self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
-            self.access_list_summary.parent = self
+            self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
+            self.prefix_list_summary.parent = self
 
 
         class Details(object):
             """
             Details of the overall out of resource limit
-            
-            .. attribute:: is_default_maximum_configurable_ac_ls
-            
-            	default max configurable acls
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: is_default_maximum_configurable_ac_es
-            
-            	default max configurable aces
-            	**type**\: int
-            
-            	**range:** 0..4294967295
             
             .. attribute:: is_current_configured_ac_ls
             
@@ -1978,13 +1964,6 @@ class Ipv6AclAndPrefixList(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: is_current_maximum_configurable_acls
-            
-            	Current max configurable acls
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: is_current_maximum_configurable_aces
             
             	Current max configurable aces
@@ -1992,9 +1971,23 @@ class Ipv6AclAndPrefixList(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: is_maximum_configurable_ac_ls
+            .. attribute:: is_current_maximum_configurable_acls
             
-            	max configurable acls
+            	Current max configurable acls
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_default_maximum_configurable_ac_es
+            
+            	default max configurable aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_default_maximum_configurable_ac_ls
+            
+            	default max configurable acls
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2002,6 +1995,13 @@ class Ipv6AclAndPrefixList(object):
             .. attribute:: is_maximum_configurable_ac_es
             
             	max configurable aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_maximum_configurable_ac_ls
+            
+            	max configurable acls
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2015,14 +2015,14 @@ class Ipv6AclAndPrefixList(object):
 
             def __init__(self):
                 self.parent = None
-                self.is_default_maximum_configurable_ac_ls = None
-                self.is_default_maximum_configurable_ac_es = None
                 self.is_current_configured_ac_ls = None
                 self.is_current_configured_aces = None
-                self.is_current_maximum_configurable_acls = None
                 self.is_current_maximum_configurable_aces = None
-                self.is_maximum_configurable_ac_ls = None
+                self.is_current_maximum_configurable_acls = None
+                self.is_default_maximum_configurable_ac_es = None
+                self.is_default_maximum_configurable_ac_ls = None
                 self.is_maximum_configurable_ac_es = None
+                self.is_maximum_configurable_ac_ls = None
 
             @property
             def _common_path(self):
@@ -2036,28 +2036,28 @@ class Ipv6AclAndPrefixList(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_default_maximum_configurable_ac_ls is not None:
-                    return True
-
-                if self.is_default_maximum_configurable_ac_es is not None:
-                    return True
-
                 if self.is_current_configured_ac_ls is not None:
                     return True
 
                 if self.is_current_configured_aces is not None:
                     return True
 
-                if self.is_current_maximum_configurable_acls is not None:
-                    return True
-
                 if self.is_current_maximum_configurable_aces is not None:
                     return True
 
-                if self.is_maximum_configurable_ac_ls is not None:
+                if self.is_current_maximum_configurable_acls is not None:
+                    return True
+
+                if self.is_default_maximum_configurable_ac_es is not None:
+                    return True
+
+                if self.is_default_maximum_configurable_ac_ls is not None:
                     return True
 
                 if self.is_maximum_configurable_ac_es is not None:
+                    return True
+
+                if self.is_maximum_configurable_ac_ls is not None:
                     return True
 
                 return False
@@ -2096,20 +2096,6 @@ class Ipv6AclAndPrefixList(object):
                 Summary Detail of the prefix list Resource
                 Utilisation
                 
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_es
-                
-                	default max configurable aces
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_configured_ac_ls
                 
                 	Current configured acls
@@ -2124,13 +2110,6 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_acls
-                
-                	Current max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_aces
                 
                 	Current max configurable aces
@@ -2138,9 +2117,23 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_maximum_configurable_ac_ls
+                .. attribute:: is_current_maximum_configurable_acls
                 
-                	max configurable acls
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2148,6 +2141,13 @@ class Ipv6AclAndPrefixList(object):
                 .. attribute:: is_maximum_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2161,14 +2161,14 @@ class Ipv6AclAndPrefixList(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_default_maximum_configurable_ac_es = None
                     self.is_current_configured_ac_ls = None
                     self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_acls = None
                     self.is_current_maximum_configurable_aces = None
-                    self.is_maximum_configurable_ac_ls = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
                     self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
@@ -2182,28 +2182,28 @@ class Ipv6AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
-
                     if self.is_current_configured_ac_ls is not None:
                         return True
 
                     if self.is_current_configured_aces is not None:
                         return True
 
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
-
                     if self.is_current_maximum_configurable_aces is not None:
                         return True
 
-                    if self.is_maximum_configurable_ac_ls is not None:
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
                         return True
 
                     if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2271,20 +2271,6 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..65
                 
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_es
-                
-                	default max configurable aces
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_configured_ac_ls
                 
                 	Current configured acls
@@ -2299,13 +2285,6 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_acls
-                
-                	Current max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_aces
                 
                 	Current max configurable aces
@@ -2313,9 +2292,23 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_maximum_configurable_ac_ls
+                .. attribute:: is_current_maximum_configurable_acls
                 
-                	max configurable acls
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2323,6 +2316,13 @@ class Ipv6AclAndPrefixList(object):
                 .. attribute:: is_maximum_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2337,19 +2337,19 @@ class Ipv6AclAndPrefixList(object):
                 def __init__(self):
                     self.parent = None
                     self.access_list_name = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_default_maximum_configurable_ac_es = None
                     self.is_current_configured_ac_ls = None
                     self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_acls = None
                     self.is_current_maximum_configurable_aces = None
-                    self.is_maximum_configurable_ac_ls = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
                     self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
                     if self.access_list_name is None:
-                        raise YPYDataValidationError('Key property access_list_name is None')
+                        raise YPYModelError('Key property access_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-accesses/Cisco-IOS-XR-ipv6-acl-oper:oor-access[Cisco-IOS-XR-ipv6-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
 
@@ -2363,28 +2363,28 @@ class Ipv6AclAndPrefixList(object):
                     if self.access_list_name is not None:
                         return True
 
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
-
                     if self.is_current_configured_ac_ls is not None:
                         return True
 
                     if self.is_current_configured_aces is not None:
                         return True
 
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
-
                     if self.is_current_maximum_configurable_aces is not None:
                         return True
 
-                    if self.is_maximum_configurable_ac_ls is not None:
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
                         return True
 
                     if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2454,20 +2454,6 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..65
                 
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_es
-                
-                	default max configurable aces
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_configured_ac_ls
                 
                 	Current configured acls
@@ -2482,13 +2468,6 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_acls
-                
-                	Current max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_aces
                 
                 	Current max configurable aces
@@ -2496,9 +2475,23 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_maximum_configurable_ac_ls
+                .. attribute:: is_current_maximum_configurable_acls
                 
-                	max configurable acls
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2506,6 +2499,13 @@ class Ipv6AclAndPrefixList(object):
                 .. attribute:: is_maximum_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2520,19 +2520,19 @@ class Ipv6AclAndPrefixList(object):
                 def __init__(self):
                     self.parent = None
                     self.prefix_list_name = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_default_maximum_configurable_ac_es = None
                     self.is_current_configured_ac_ls = None
                     self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_acls = None
                     self.is_current_maximum_configurable_aces = None
-                    self.is_maximum_configurable_ac_ls = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
                     self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
                     if self.prefix_list_name is None:
-                        raise YPYDataValidationError('Key property prefix_list_name is None')
+                        raise YPYModelError('Key property prefix_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-prefixes/Cisco-IOS-XR-ipv6-acl-oper:oor-prefix[Cisco-IOS-XR-ipv6-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
 
@@ -2546,28 +2546,28 @@ class Ipv6AclAndPrefixList(object):
                     if self.prefix_list_name is not None:
                         return True
 
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
-
                     if self.is_current_configured_ac_ls is not None:
                         return True
 
                     if self.is_current_configured_aces is not None:
                         return True
 
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
-
                     if self.is_current_maximum_configurable_aces is not None:
                         return True
 
-                    if self.is_maximum_configurable_ac_ls is not None:
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
                         return True
 
                     if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2629,20 +2629,6 @@ class Ipv6AclAndPrefixList(object):
                 Details containing the resource limits of the
                 ACLs
                 
-                .. attribute:: is_default_maximum_configurable_ac_ls
-                
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_default_maximum_configurable_ac_es
-                
-                	default max configurable aces
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_configured_ac_ls
                 
                 	Current configured acls
@@ -2657,13 +2643,6 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_current_maximum_configurable_acls
-                
-                	Current max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: is_current_maximum_configurable_aces
                 
                 	Current max configurable aces
@@ -2671,9 +2650,23 @@ class Ipv6AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_maximum_configurable_ac_ls
+                .. attribute:: is_current_maximum_configurable_acls
                 
-                	max configurable acls
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2681,6 +2674,13 @@ class Ipv6AclAndPrefixList(object):
                 .. attribute:: is_maximum_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2694,14 +2694,14 @@ class Ipv6AclAndPrefixList(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_default_maximum_configurable_ac_es = None
                     self.is_current_configured_ac_ls = None
                     self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_acls = None
                     self.is_current_maximum_configurable_aces = None
-                    self.is_maximum_configurable_ac_ls = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
                     self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
@@ -2715,28 +2715,28 @@ class Ipv6AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
-
                     if self.is_current_configured_ac_ls is not None:
                         return True
 
                     if self.is_current_configured_aces is not None:
                         return True
 
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
-
                     if self.is_current_maximum_configurable_aces is not None:
                         return True
 
-                    if self.is_maximum_configurable_ac_ls is not None:
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
                         return True
 
                     if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2780,10 +2780,10 @@ class Ipv6AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.details is not None and self.details._has_data():
+            if self.access_list_summary is not None and self.access_list_summary._has_data():
                 return True
 
-            if self.prefix_list_summary is not None and self.prefix_list_summary._has_data():
+            if self.details is not None and self.details._has_data():
                 return True
 
             if self.oor_accesses is not None and self.oor_accesses._has_data():
@@ -2792,7 +2792,7 @@ class Ipv6AclAndPrefixList(object):
             if self.oor_prefixes is not None and self.oor_prefixes._has_data():
                 return True
 
-            if self.access_list_summary is not None and self.access_list_summary._has_data():
+            if self.prefix_list_summary is not None and self.prefix_list_summary._has_data():
                 return True
 
             return False

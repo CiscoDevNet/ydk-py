@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -80,18 +80,6 @@ _meta_table = {
                 ''',
                 'version_number',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
-            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options', 
-                [], [], 
-                '''                Specify options for exporting templates
-                ''',
-                'options',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('options-template-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
-                '''                Option template configuration options
-                ''',
-                'options_template_timeout',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('common-template-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(1, 604800)], [], 
                 '''                Specify custom timeout for the template
@@ -103,6 +91,18 @@ _meta_table = {
                 '''                Data template configuration options
                 ''',
                 'data_template_timeout',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options', 
+                [], [], 
+                '''                Specify options for exporting templates
+                ''',
+                'options',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('options-template-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(1, 604800)], [], 
+                '''                Option template configuration options
+                ''',
+                'options_template_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -167,6 +167,24 @@ _meta_table = {
                 ''',
                 'exporter_map_name',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
+            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowExporterMaps.FlowExporterMap.Destination', 
+                [], [], 
+                '''                Configure export destination (collector)
+                ''',
+                'destination',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 63)], [], 
+                '''                Specify DSCP value for export packets
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Configure source interface for collector
+                ''',
+                'source_interface',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('udp', REFERENCE_CLASS, 'Udp' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowExporterMaps.FlowExporterMap.Udp', 
                 [], [], 
                 '''                Use UDP as transport protocol
@@ -178,24 +196,6 @@ _meta_table = {
                 '''                Specify export version parameters
                 ''',
                 'versions',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowExporterMaps.FlowExporterMap.Destination', 
-                [], [], 
-                '''                Configure export destination (collector)
-                ''',
-                'destination',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Configure source interface for collector
-                ''',
-                'source_interface',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
-                '''                Specify DSCP value for export packets
-                ''',
-                'dscp',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -231,18 +231,18 @@ _meta_table = {
                 ''',
                 'mode',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Sampling interval in units of packets
+                ''',
+                'interval',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('sample-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of packets to be sampled in the
                 sampling interval
                 ''',
                 'sample_number',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Sampling interval in units of packets
-                ''',
-                'interval',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -371,6 +371,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record',
             False, 
             [
+            _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
+                [(1, 6)], [], 
+                '''                Enter label value for MPLS record type
+                ''',
+                'label',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('record-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                Flow record format (Either 'ipv4-raw'
@@ -378,12 +384,6 @@ _meta_table = {
                 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as')
                 ''',
                 'record_name',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
-                '''                Enter label value for MPLS record type
-                ''',
-                'label',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -402,30 +402,17 @@ _meta_table = {
                 ''',
                 'monitor_map_name',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
-            _MetaInfoClassMember('option', REFERENCE_CLASS, 'Option' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option', 
-                [], [], 
-                '''                Specify an option for the flow cache
-                ''',
-                'option',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('exporters', REFERENCE_CLASS, 'Exporters' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters', 
-                [], [], 
-                '''                Configure exporters to be used by the
-                monitor-map
-                ''',
-                'exporters',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('record', REFERENCE_CLASS, 'Record' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record', 
-                [], [], 
-                '''                Specify a flow record format
-                ''',
-                'record',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-update-aging-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cache-active-aging-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(1, 604800)], [], 
-                '''                Specify the update flow cache aging timeout
+                '''                Specify the active flow cache aging timeout
                 ''',
-                'cache_update_aging_timeout',
+                'cache_active_aging_timeout',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingModeEnum', 
+                [], [], 
+                '''                Specify the flow cache aging mode
+                ''',
+                'cache_aging_mode',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-entries', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 1000000)], [], 
@@ -439,12 +426,6 @@ _meta_table = {
                 ''',
                 'cache_inactive_aging_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-active-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
-                '''                Specify the active flow cache aging timeout
-                ''',
-                'cache_active_aging_timeout',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-timeout-rate-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 1000000)], [], 
                 '''                Specify the maximum number of entries to age
@@ -452,11 +433,30 @@ _meta_table = {
                 ''',
                 'cache_timeout_rate_limit',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingModeEnum', 
-                [], [], 
-                '''                Specify the flow cache aging mode
+            _MetaInfoClassMember('cache-update-aging-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(1, 604800)], [], 
+                '''                Specify the update flow cache aging timeout
                 ''',
-                'cache_aging_mode',
+                'cache_update_aging_timeout',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('exporters', REFERENCE_CLASS, 'Exporters' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters', 
+                [], [], 
+                '''                Configure exporters to be used by the
+                monitor-map
+                ''',
+                'exporters',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('option', REFERENCE_CLASS, 'Option' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option', 
+                [], [], 
+                '''                Specify an option for the flow cache
+                ''',
+                'option',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('record', REFERENCE_CLASS, 'Record' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record', 
+                [], [], 
+                '''                Specify a flow record format
+                ''',
+                'record',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -545,6 +545,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record',
             False, 
             [
+            _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
+                [(1, 6)], [], 
+                '''                Enter label value for MPLS record type
+                ''',
+                'label',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('record-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                Flow record format (Either 'ipv4-raw'
@@ -552,12 +558,6 @@ _meta_table = {
                 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as')
                 ''',
                 'record_name',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
-                '''                Enter label value for MPLS record type
-                ''',
-                'label',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -576,30 +576,17 @@ _meta_table = {
                 ''',
                 'monitor_map_name',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
-            _MetaInfoClassMember('option', REFERENCE_CLASS, 'Option' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option', 
-                [], [], 
-                '''                Specify an option for the flow cache
-                ''',
-                'option',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('exporters', REFERENCE_CLASS, 'Exporters' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters', 
-                [], [], 
-                '''                Configure exporters to be used by the
-                monitor-map
-                ''',
-                'exporters',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('record', REFERENCE_CLASS, 'Record' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record', 
-                [], [], 
-                '''                Specify a flow record format
-                ''',
-                'record',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-update-aging-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cache-active-aging-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(1, 604800)], [], 
-                '''                Specify the update flow cache aging timeout
+                '''                Specify the active flow cache aging timeout
                 ''',
-                'cache_update_aging_timeout',
+                'cache_active_aging_timeout',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingModeEnum', 
+                [], [], 
+                '''                Specify the flow cache aging mode
+                ''',
+                'cache_aging_mode',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-entries', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 1000000)], [], 
@@ -613,12 +600,6 @@ _meta_table = {
                 ''',
                 'cache_inactive_aging_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-active-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
-                '''                Specify the active flow cache aging timeout
-                ''',
-                'cache_active_aging_timeout',
-                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-timeout-rate-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 1000000)], [], 
                 '''                Specify the maximum number of entries to age
@@ -626,11 +607,30 @@ _meta_table = {
                 ''',
                 'cache_timeout_rate_limit',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingModeEnum', 
-                [], [], 
-                '''                Specify the flow cache aging mode
+            _MetaInfoClassMember('cache-update-aging-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(1, 604800)], [], 
+                '''                Specify the update flow cache aging timeout
                 ''',
-                'cache_aging_mode',
+                'cache_update_aging_timeout',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('exporters', REFERENCE_CLASS, 'Exporters' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters', 
+                [], [], 
+                '''                Configure exporters to be used by the
+                monitor-map
+                ''',
+                'exporters',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('option', REFERENCE_CLASS, 'Option' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option', 
+                [], [], 
+                '''                Specify an option for the flow cache
+                ''',
+                'option',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('record', REFERENCE_CLASS, 'Record' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record', 
+                [], [], 
+                '''                Specify a flow record format
+                ''',
+                'record',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',
@@ -666,11 +666,11 @@ _meta_table = {
                 ''',
                 'flow_exporter_maps',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('flow-sampler-maps', REFERENCE_CLASS, 'FlowSamplerMaps' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowSamplerMaps', 
+            _MetaInfoClassMember('flow-monitor-map-performance-table', REFERENCE_CLASS, 'FlowMonitorMapPerformanceTable' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable', 
                 [], [], 
-                '''                Flow sampler map configuration
+                '''                Configure a performance traffic flow monitor map
                 ''',
-                'flow_sampler_maps',
+                'flow_monitor_map_performance_table',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('flow-monitor-map-table', REFERENCE_CLASS, 'FlowMonitorMapTable' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapTable', 
                 [], [], 
@@ -678,11 +678,11 @@ _meta_table = {
                 ''',
                 'flow_monitor_map_table',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('flow-monitor-map-performance-table', REFERENCE_CLASS, 'FlowMonitorMapPerformanceTable' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowMonitorMapPerformanceTable', 
+            _MetaInfoClassMember('flow-sampler-maps', REFERENCE_CLASS, 'FlowSamplerMaps' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NetFlow.FlowSamplerMaps', 
                 [], [], 
-                '''                Configure a performance traffic flow monitor map
+                '''                Flow sampler map configuration
                 ''',
-                'flow_monitor_map_performance_table',
+                'flow_sampler_maps',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             ],
             'Cisco-IOS-XR-traffmon-netflow-cfg',

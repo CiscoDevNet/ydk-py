@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -33,10 +33,15 @@ class Lldp(object):
     """
     Enable LLDP, or configure global LLDP subcommands
     
-    .. attribute:: tlv_select
+    .. attribute:: enable
     
-    	Selection of LLDP TLVs to disable
-    	**type**\: :py:class:`TlvSelect <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect>`
+    	Enable or disable LLDP globally
+    	**type**\: bool
+    
+    .. attribute:: enable_subintf
+    
+    	Enable or disable LLDP on Sub\-interfaces as well globally
+    	**type**\: bool
     
     .. attribute:: holdtime
     
@@ -45,10 +50,12 @@ class Lldp(object):
     
     	**range:** 0..65535
     
-    .. attribute:: enable_subintf
+    .. attribute:: reinit
     
-    	Enable or disable LLDP on Sub\-interfaces as well globally
-    	**type**\: bool
+    	Delay (in sec) for LLDP initialization on any interface
+    	**type**\: int
+    
+    	**range:** 2..5
     
     .. attribute:: timer
     
@@ -57,17 +64,10 @@ class Lldp(object):
     
     	**range:** 5..65534
     
-    .. attribute:: reinit
+    .. attribute:: tlv_select
     
-    	Delay (in sec) for LLDP initialization on any interface
-    	**type**\: int
-    
-    	**range:** 2..5
-    
-    .. attribute:: enable
-    
-    	Enable or disable LLDP globally
-    	**type**\: bool
+    	Selection of LLDP TLVs to disable
+    	**type**\: :py:class:`TlvSelect <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect>`
     
     
 
@@ -77,22 +77,22 @@ class Lldp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.tlv_select = None
-        self.holdtime = None
-        self.enable_subintf = None
-        self.timer = None
-        self.reinit = None
         self.enable = None
+        self.enable_subintf = None
+        self.holdtime = None
+        self.reinit = None
+        self.timer = None
+        self.tlv_select = None
 
 
     class TlvSelect(object):
         """
         Selection of LLDP TLVs to disable
         
-        .. attribute:: system_name
+        .. attribute:: management_address
         
-        	System Name TLV
-        	**type**\: :py:class:`SystemName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemName>`
+        	Management Address TLV
+        	**type**\: :py:class:`ManagementAddress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.ManagementAddress>`
         
         .. attribute:: _is_presence
         
@@ -109,16 +109,6 @@ class Lldp(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: system_description
-        
-        	System Description TLV
-        	**type**\: :py:class:`SystemDescription <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemDescription>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: system_capabilities
         
         	System Capabilities TLV
@@ -129,10 +119,20 @@ class Lldp(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: management_address
+        .. attribute:: system_description
         
-        	Management Address TLV
-        	**type**\: :py:class:`ManagementAddress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.ManagementAddress>`
+        	System Description TLV
+        	**type**\: :py:class:`SystemDescription <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemDescription>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: system_name
+        
+        	System Name TLV
+        	**type**\: :py:class:`SystemName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemName>`
         
         .. attribute:: _is_presence
         
@@ -160,16 +160,16 @@ class Lldp(object):
 
         def __init__(self):
             self.parent = None
-            self.system_name = Lldp.TlvSelect.SystemName()
-            self.system_name.parent = self
-            self.port_description = Lldp.TlvSelect.PortDescription()
-            self.port_description.parent = self
-            self.system_description = Lldp.TlvSelect.SystemDescription()
-            self.system_description.parent = self
-            self.system_capabilities = Lldp.TlvSelect.SystemCapabilities()
-            self.system_capabilities.parent = self
             self.management_address = Lldp.TlvSelect.ManagementAddress()
             self.management_address.parent = self
+            self.port_description = Lldp.TlvSelect.PortDescription()
+            self.port_description.parent = self
+            self.system_capabilities = Lldp.TlvSelect.SystemCapabilities()
+            self.system_capabilities.parent = self
+            self.system_description = Lldp.TlvSelect.SystemDescription()
+            self.system_description.parent = self
+            self.system_name = Lldp.TlvSelect.SystemName()
+            self.system_name.parent = self
             self.tlv_select_enter = None
 
 
@@ -399,19 +399,19 @@ class Lldp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.system_name is not None and self.system_name._has_data():
+            if self.management_address is not None and self.management_address._has_data():
                 return True
 
             if self.port_description is not None and self.port_description._has_data():
                 return True
 
-            if self.system_description is not None and self.system_description._has_data():
-                return True
-
             if self.system_capabilities is not None and self.system_capabilities._has_data():
                 return True
 
-            if self.management_address is not None and self.management_address._has_data():
+            if self.system_description is not None and self.system_description._has_data():
+                return True
+
+            if self.system_name is not None and self.system_name._has_data():
                 return True
 
             if self.tlv_select_enter is not None:
@@ -436,22 +436,22 @@ class Lldp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.tlv_select is not None and self.tlv_select._has_data():
-            return True
-
-        if self.holdtime is not None:
+        if self.enable is not None:
             return True
 
         if self.enable_subintf is not None:
             return True
 
-        if self.timer is not None:
+        if self.holdtime is not None:
             return True
 
         if self.reinit is not None:
             return True
 
-        if self.enable is not None:
+        if self.timer is not None:
+            return True
+
+        if self.tlv_select is not None and self.tlv_select._has_data():
             return True
 
         return False

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -88,23 +88,18 @@ _meta_table = {
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
-                [], [], 
-                '''                Type of Path (PopAndLookup, CrossConnect)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next hop Interface with form
+                <Interface>R/S/I/P
                 ''',
-                'path_type',
+                'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
                 'label_type',
-                'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
-                '''                NH Label
-                ''',
-                'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('next-hop-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -125,12 +120,17 @@ _meta_table = {
                         'next_hop_address',
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop Interface with form
-                <Interface>R/S/I/P
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [(16, 1048575)], [], 
+                '''                NH Label
                 ''',
-                'interface_name',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
+                [], [], 
+                '''                Type of Path (PopAndLookup, CrossConnect)
+                ''',
+                'path_type',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
@@ -271,23 +271,18 @@ _meta_table = {
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
-                [], [], 
-                '''                Type of Path (PopAndLookup, CrossConnect)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next hop Interface with form
+                <Interface>R/S/I/P
                 ''',
-                'path_type',
+                'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
                 'label_type',
-                'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
-                '''                NH Label
-                ''',
-                'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('next-hop-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -308,12 +303,17 @@ _meta_table = {
                         'next_hop_address',
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop Interface with form
-                <Interface>R/S/I/P
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [(16, 1048575)], [], 
+                '''                NH Label
                 ''',
-                'interface_name',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
+                [], [], 
+                '''                Type of Path (PopAndLookup, CrossConnect)
+                ''',
+                'path_type',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
@@ -395,11 +395,11 @@ _meta_table = {
                 ''',
                 'afi',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
-            _MetaInfoClassMember('top-label-hash', REFERENCE_CLASS, 'TopLabelHash' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash', 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Top Label Hash
+                '''                MPLS Static Apply Enable
                 ''',
-                'top_label_hash',
+                'enable',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('local-labels', REFERENCE_CLASS, 'LocalLabels' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels', 
                 [], [], 
@@ -407,11 +407,11 @@ _meta_table = {
                 ''',
                 'local_labels',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('top-label-hash', REFERENCE_CLASS, 'TopLabelHash' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash', 
                 [], [], 
-                '''                MPLS Static Apply Enable
+                '''                Top Label Hash
                 ''',
-                'enable',
+                'top_label_hash',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
@@ -569,23 +569,18 @@ _meta_table = {
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
-                [], [], 
-                '''                Type of Path (PopAndLookup, CrossConnect)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next hop Interface with form
+                <Interface>R/S/I/P
                 ''',
-                'path_type',
+                'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
                 'label_type',
-                'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
-                '''                NH Label
-                ''',
-                'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('next-hop-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -606,12 +601,17 @@ _meta_table = {
                         'next_hop_address',
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop Interface with form
-                <Interface>R/S/I/P
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [(16, 1048575)], [], 
+                '''                NH Label
                 ''',
-                'interface_name',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
+                [], [], 
+                '''                Type of Path (PopAndLookup, CrossConnect)
+                ''',
+                'path_type',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
@@ -752,23 +752,18 @@ _meta_table = {
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
-                [], [], 
-                '''                Type of Path (PopAndLookup, CrossConnect)
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next hop Interface with form
+                <Interface>R/S/I/P
                 ''',
-                'path_type',
+                'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
                 'label_type',
-                'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
-                '''                NH Label
-                ''',
-                'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('next-hop-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -789,12 +784,17 @@ _meta_table = {
                         'next_hop_address',
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop Interface with form
-                <Interface>R/S/I/P
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [(16, 1048575)], [], 
+                '''                NH Label
                 ''',
-                'interface_name',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
+                [], [], 
+                '''                Type of Path (PopAndLookup, CrossConnect)
+                ''',
+                'path_type',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
@@ -876,11 +876,11 @@ _meta_table = {
                 ''',
                 'afi',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
-            _MetaInfoClassMember('top-label-hash', REFERENCE_CLASS, 'TopLabelHash' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.Afs.Af.TopLabelHash', 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Top Label Hash
+                '''                MPLS Static Apply Enable
                 ''',
-                'top_label_hash',
+                'enable',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('local-labels', REFERENCE_CLASS, 'LocalLabels' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.Afs.Af.LocalLabels', 
                 [], [], 
@@ -888,11 +888,11 @@ _meta_table = {
                 ''',
                 'local_labels',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('top-label-hash', REFERENCE_CLASS, 'TopLabelHash' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.Afs.Af.TopLabelHash', 
                 [], [], 
-                '''                MPLS Static Apply Enable
+                '''                Top Label Hash
                 ''',
-                'enable',
+                'top_label_hash',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
@@ -945,18 +945,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic',
             False, 
             [
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs', 
-                [], [], 
-                '''                VRF table
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Interfaces', 
-                [], [], 
-                '''                MPLS Static Interface Table
-                ''',
-                'interfaces',
-                'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf', 
                 [], [], 
                 '''                Default VRF
@@ -968,6 +956,18 @@ _meta_table = {
                 '''                MPLS Static Apply Enable
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Interfaces', 
+                [], [], 
+                '''                MPLS Static Interface Table
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs', 
+                [], [], 
+                '''                VRF table
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',

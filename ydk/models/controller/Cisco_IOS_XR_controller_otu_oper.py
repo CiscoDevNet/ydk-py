@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -631,150 +631,31 @@ class Otu(object):
                 """
                 OTU port operational data
                 
-                .. attribute:: local
-                
-                	TTI
-                	**type**\: :py:class:`Local <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
-                
-                .. attribute:: remote
-                
-                	Remote
-                	**type**\: :py:class:`Remote <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
-                
-                .. attribute:: tti_mode
-                
-                	OTU TTI
-                	**type**\: :py:class:`TtiMode <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
-                
-                .. attribute:: otu_alarm_info
-                
-                	OTU layer alarm Information
-                	**type**\: :py:class:`OtuAlarmInfo <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
-                
-                .. attribute:: proactive
-                
-                	Proactive Protection
-                	**type**\: :py:class:`Proactive <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
-                
-                .. attribute:: state
-                
-                	Admin State
-                	**type**\: :py:class:`OtuStateEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuStateEtEnum>`
-                
-                .. attribute:: name
-                
-                	Interface Name
-                	**type**\: str
-                
-                .. attribute:: sf
-                
-                	SF
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: sd
-                
-                	SD
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: loopback_mode
-                
-                	Loopback
-                	**type**\: :py:class:`OtuLoopBackModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackModeEnum>`
-                
-                .. attribute:: fec_mode
-                
-                	FEC
-                	**type**\: :py:class:`OtuG709FecModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuG709FecModeEnum>`
-                
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
                 	**type**\: :py:class:`OtuDerStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuDerStateEnum>`
                 
-                .. attribute:: sec_state
-                
-                	Sec State
-                	**type**\: :py:class:`OtuSecStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
-                
-                .. attribute:: gcc_mode
-                
-                	OTU GCC
-                	**type**\: bool
-                
-                .. attribute:: q
-                
-                	q value calculated
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: q_margin
-                
-                	q margin calculated
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: performance_monitoring
-                
-                	Performance Monitoring
-                	**type**\: :py:class:`OtuPerMonEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPerMonEnum>`
-                
                 .. attribute:: ec
                 
                 	Average bit errors corrected
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
-                
-                .. attribute:: uc
-                
-                	Uncorrected word count
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: pre_fec_val
-                
-                	Pre FEC BER Value in form 0.00
-                	**type**\: int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: pre_fec_mantissa
-                
-                	Pre FEC BER Mantissa in form E\-<mantisaa>
-                	**type**\: int
-                
-                	**range:** \-128..127
                 
                 .. attribute:: ec_value
                 
                 	EC value present
                 	**type**\: bool
                 
-                .. attribute:: uc_value
+                .. attribute:: fec_mode
                 
-                	Uc value present
-                	**type**\: bool
+                	FEC
+                	**type**\: :py:class:`OtuG709FecModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuG709FecModeEnum>`
                 
-                .. attribute:: pre_fec_ber_value
+                .. attribute:: gcc_mode
                 
-                	Pre fec val present 
-                	**type**\: bool
-                
-                .. attribute:: pre_fec_ber_mantissa
-                
-                	Pre fec val mantissa
-                	**type**\: bool
-                
-                .. attribute:: nv_optical_support
-                
-                	NV Optical support
+                	OTU GCC
                 	**type**\: bool
                 
                 .. attribute:: gmpls_tti_mode
@@ -789,12 +670,131 @@ class Otu(object):
                 
                 	**range:** 0..255
                 
+                .. attribute:: local
+                
+                	TTI
+                	**type**\: :py:class:`Local <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
+                
+                .. attribute:: loopback_mode
+                
+                	Loopback
+                	**type**\: :py:class:`OtuLoopBackModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackModeEnum>`
+                
+                .. attribute:: name
+                
+                	Interface Name
+                	**type**\: str
+                
                 .. attribute:: network_srlg
                 
                 	Network SRLG
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: nv_optical_support
+                
+                	NV Optical support
+                	**type**\: bool
+                
+                .. attribute:: otu_alarm_info
+                
+                	OTU layer alarm Information
+                	**type**\: :py:class:`OtuAlarmInfo <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
+                
+                .. attribute:: performance_monitoring
+                
+                	Performance Monitoring
+                	**type**\: :py:class:`OtuPerMonEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPerMonEnum>`
+                
+                .. attribute:: pre_fec_ber_mantissa
+                
+                	Pre fec val mantissa
+                	**type**\: bool
+                
+                .. attribute:: pre_fec_ber_value
+                
+                	Pre fec val present 
+                	**type**\: bool
+                
+                .. attribute:: pre_fec_mantissa
+                
+                	Pre FEC BER Mantissa in form E\-<mantisaa>
+                	**type**\: int
+                
+                	**range:** \-128..127
+                
+                .. attribute:: pre_fec_val
+                
+                	Pre FEC BER Value in form 0.00
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: proactive
+                
+                	Proactive Protection
+                	**type**\: :py:class:`Proactive <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
+                
+                .. attribute:: q
+                
+                	q value calculated
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: q_margin
+                
+                	q margin calculated
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: remote
+                
+                	Remote
+                	**type**\: :py:class:`Remote <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
+                
+                .. attribute:: sd
+                
+                	SD
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: sec_state
+                
+                	Sec State
+                	**type**\: :py:class:`OtuSecStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                
+                .. attribute:: sf
+                
+                	SF
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: state
+                
+                	Admin State
+                	**type**\: :py:class:`OtuStateEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuStateEtEnum>`
+                
+                .. attribute:: tti_mode
+                
+                	OTU TTI
+                	**type**\: :py:class:`TtiMode <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
+                
+                .. attribute:: uc
+                
+                	Uncorrected word count
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: uc_value
+                
+                	Uc value present
+                	**type**\: bool
                 
                 
 
@@ -805,58 +805,58 @@ class Otu(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.local = Otu.Controllers.Controller.Info.Local()
-                    self.local.parent = self
-                    self.remote = Otu.Controllers.Controller.Info.Remote()
-                    self.remote.parent = self
-                    self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
-                    self.tti_mode.parent = self
-                    self.otu_alarm_info = Otu.Controllers.Controller.Info.OtuAlarmInfo()
-                    self.otu_alarm_info.parent = self
-                    self.proactive = Otu.Controllers.Controller.Info.Proactive()
-                    self.proactive.parent = self
-                    self.state = None
-                    self.name = None
-                    self.sf = None
-                    self.sd = None
-                    self.loopback_mode = None
-                    self.fec_mode = None
                     self.derivedstate_mode = None
-                    self.sec_state = None
-                    self.gcc_mode = None
-                    self.q = None
-                    self.q_margin = None
-                    self.performance_monitoring = None
                     self.ec = None
-                    self.uc = None
-                    self.pre_fec_val = None
-                    self.pre_fec_mantissa = None
                     self.ec_value = None
-                    self.uc_value = None
-                    self.pre_fec_ber_value = None
-                    self.pre_fec_ber_mantissa = None
-                    self.nv_optical_support = None
+                    self.fec_mode = None
+                    self.gcc_mode = None
                     self.gmpls_tti_mode = None
                     self.gmpls_tvm_id = None
+                    self.local = Otu.Controllers.Controller.Info.Local()
+                    self.local.parent = self
+                    self.loopback_mode = None
+                    self.name = None
                     self.network_srlg = YLeafList()
                     self.network_srlg.parent = self
                     self.network_srlg.name = 'network_srlg'
+                    self.nv_optical_support = None
+                    self.otu_alarm_info = Otu.Controllers.Controller.Info.OtuAlarmInfo()
+                    self.otu_alarm_info.parent = self
+                    self.performance_monitoring = None
+                    self.pre_fec_ber_mantissa = None
+                    self.pre_fec_ber_value = None
+                    self.pre_fec_mantissa = None
+                    self.pre_fec_val = None
+                    self.proactive = Otu.Controllers.Controller.Info.Proactive()
+                    self.proactive.parent = self
+                    self.q = None
+                    self.q_margin = None
+                    self.remote = Otu.Controllers.Controller.Info.Remote()
+                    self.remote.parent = self
+                    self.sd = None
+                    self.sec_state = None
+                    self.sf = None
+                    self.state = None
+                    self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
+                    self.tti_mode.parent = self
+                    self.uc = None
+                    self.uc_value = None
 
 
                 class Local(object):
                     """
                     TTI
                     
-                    .. attribute:: router_id
+                    .. attribute:: if_index
                     
-                    	Router ID
+                    	IfIndex
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: if_index
+                    .. attribute:: router_id
                     
-                    	IfIndex
+                    	Router ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -870,13 +870,13 @@ class Otu(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.router_id = None
                         self.if_index = None
+                        self.router_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:local'
 
@@ -887,10 +887,10 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.router_id is not None:
+                        if self.if_index is not None:
                             return True
 
-                        if self.if_index is not None:
+                        if self.router_id is not None:
                             return True
 
                         return False
@@ -905,16 +905,16 @@ class Otu(object):
                     """
                     Remote
                     
-                    .. attribute:: router_id
+                    .. attribute:: if_index
                     
-                    	Router ID
+                    	IfIndex
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: if_index
+                    .. attribute:: router_id
                     
-                    	IfIndex
+                    	Router ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -928,13 +928,13 @@ class Otu(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.router_id = None
                         self.if_index = None
+                        self.router_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:remote'
 
@@ -945,10 +945,10 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.router_id is not None:
+                        if self.if_index is not None:
                             return True
 
-                        if self.if_index is not None:
+                        if self.router_id is not None:
                             return True
 
                         return False
@@ -963,25 +963,10 @@ class Otu(object):
                     """
                     OTU TTI
                     
-                    .. attribute:: tx
-                    
-                    	String Sent
-                    	**type**\: :py:class:`Tx <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
-                    
                     .. attribute:: exp
                     
                     	String Expected
                     	**type**\: :py:class:`Exp <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
-                    
-                    .. attribute:: rec
-                    
-                    	String Received
-                    	**type**\: :py:class:`Rec <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
-                    
-                    .. attribute:: g709tti_sent_mode
-                    
-                    	G709TTI sent
-                    	**type**\: :py:class:`OtuTtiEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: g709tti_exp_mode
                     
@@ -993,6 +978,21 @@ class Otu(object):
                     	G709TTI Recieved
                     	**type**\: :py:class:`OtuTtiEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
+                    .. attribute:: g709tti_sent_mode
+                    
+                    	G709TTI sent
+                    	**type**\: :py:class:`OtuTtiEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    
+                    .. attribute:: rec
+                    
+                    	String Received
+                    	**type**\: :py:class:`Rec <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
+                    
+                    .. attribute:: tx
+                    
+                    	String Sent
+                    	**type**\: :py:class:`Tx <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
+                    
                     
 
                     """
@@ -1002,27 +1002,20 @@ class Otu(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
-                        self.tx.parent = self
                         self.exp = Otu.Controllers.Controller.Info.TtiMode.Exp()
                         self.exp.parent = self
-                        self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
-                        self.rec.parent = self
-                        self.g709tti_sent_mode = None
                         self.g709tti_exp_mode = None
                         self.g709tti_rec_mode = None
+                        self.g709tti_sent_mode = None
+                        self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
+                        self.rec.parent = self
+                        self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
+                        self.tx.parent = self
 
 
                     class Tx(object):
                         """
                         String Sent
-                        
-                        .. attribute:: sapi
-                        
-                        	tx String 
-                        	**type**\: list of int
-                        
-                        	**range:** 0..255
                         
                         .. attribute:: dapi
                         
@@ -1038,6 +1031,13 @@ class Otu(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: sapi
+                        
+                        	tx String 
+                        	**type**\: list of int
+                        
+                        	**range:** 0..255
+                        
                         
 
                         """
@@ -1047,20 +1047,20 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.sapi = YLeafList()
-                            self.sapi.parent = self
-                            self.sapi.name = 'sapi'
                             self.dapi = YLeafList()
                             self.dapi.parent = self
                             self.dapi.name = 'dapi'
                             self.operator_specific = YLeafList()
                             self.operator_specific.parent = self
                             self.operator_specific.name = 'operator_specific'
+                            self.sapi = YLeafList()
+                            self.sapi.parent = self
+                            self.sapi.name = 'sapi'
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:tx'
 
@@ -1071,11 +1071,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.sapi is not None:
-                                for child in self.sapi:
-                                    if child is not None:
-                                        return True
-
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -1083,6 +1078,11 @@ class Otu(object):
 
                             if self.operator_specific is not None:
                                 for child in self.operator_specific:
+                                    if child is not None:
+                                        return True
+
+                            if self.sapi is not None:
+                                for child in self.sapi:
                                     if child is not None:
                                         return True
 
@@ -1098,13 +1098,6 @@ class Otu(object):
                         """
                         String Expected
                         
-                        .. attribute:: sapi
-                        
-                        	tx String 
-                        	**type**\: list of int
-                        
-                        	**range:** 0..255
-                        
                         .. attribute:: dapi
                         
                         	exp String 
@@ -1119,6 +1112,13 @@ class Otu(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: sapi
+                        
+                        	tx String 
+                        	**type**\: list of int
+                        
+                        	**range:** 0..255
+                        
                         
 
                         """
@@ -1128,20 +1128,20 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.sapi = YLeafList()
-                            self.sapi.parent = self
-                            self.sapi.name = 'sapi'
                             self.dapi = YLeafList()
                             self.dapi.parent = self
                             self.dapi.name = 'dapi'
                             self.operator_specific = YLeafList()
                             self.operator_specific.parent = self
                             self.operator_specific.name = 'operator_specific'
+                            self.sapi = YLeafList()
+                            self.sapi.parent = self
+                            self.sapi.name = 'sapi'
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:exp'
 
@@ -1152,11 +1152,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.sapi is not None:
-                                for child in self.sapi:
-                                    if child is not None:
-                                        return True
-
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -1164,6 +1159,11 @@ class Otu(object):
 
                             if self.operator_specific is not None:
                                 for child in self.operator_specific:
+                                    if child is not None:
+                                        return True
+
+                            if self.sapi is not None:
+                                for child in self.sapi:
                                     if child is not None:
                                         return True
 
@@ -1179,13 +1179,6 @@ class Otu(object):
                         """
                         String Received
                         
-                        .. attribute:: sapi
-                        
-                        	tx String 
-                        	**type**\: list of int
-                        
-                        	**range:** 0..255
-                        
                         .. attribute:: dapi
                         
                         	exp String 
@@ -1200,6 +1193,13 @@ class Otu(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: sapi
+                        
+                        	tx String 
+                        	**type**\: list of int
+                        
+                        	**range:** 0..255
+                        
                         
 
                         """
@@ -1209,20 +1209,20 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.sapi = YLeafList()
-                            self.sapi.parent = self
-                            self.sapi.name = 'sapi'
                             self.dapi = YLeafList()
                             self.dapi.parent = self
                             self.dapi.name = 'dapi'
                             self.operator_specific = YLeafList()
                             self.operator_specific.parent = self
                             self.operator_specific.name = 'operator_specific'
+                            self.sapi = YLeafList()
+                            self.sapi.parent = self
+                            self.sapi.name = 'sapi'
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:rec'
 
@@ -1233,11 +1233,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.sapi is not None:
-                                for child in self.sapi:
-                                    if child is not None:
-                                        return True
-
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -1245,6 +1240,11 @@ class Otu(object):
 
                             if self.operator_specific is not None:
                                 for child in self.operator_specific:
+                                    if child is not None:
+                                        return True
+
+                            if self.sapi is not None:
+                                for child in self.sapi:
                                     if child is not None:
                                         return True
 
@@ -1258,7 +1258,7 @@ class Otu(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:tti-mode'
 
@@ -1269,22 +1269,22 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tx is not None and self.tx._has_data():
-                            return True
-
                         if self.exp is not None and self.exp._has_data():
-                            return True
-
-                        if self.rec is not None and self.rec._has_data():
-                            return True
-
-                        if self.g709tti_sent_mode is not None:
                             return True
 
                         if self.g709tti_exp_mode is not None:
                             return True
 
                         if self.g709tti_rec_mode is not None:
+                            return True
+
+                        if self.g709tti_sent_mode is not None:
+                            return True
+
+                        if self.rec is not None and self.rec._has_data():
+                            return True
+
+                        if self.tx is not None and self.tx._has_data():
                             return True
 
                         return False
@@ -1299,55 +1299,25 @@ class Otu(object):
                     """
                     OTU layer alarm Information
                     
-                    .. attribute:: los
-                    
-                    	Loss of Signal
-                    	**type**\: :py:class:`Los <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
-                    
-                    .. attribute:: lof
-                    
-                    	Loss of Frame
-                    	**type**\: :py:class:`Lof <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
-                    
-                    .. attribute:: lom
-                    
-                    	Loss of MultiFrame
-                    	**type**\: :py:class:`Lom <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
-                    
-                    .. attribute:: oof
-                    
-                    	Out of Frame
-                    	**type**\: :py:class:`Oof <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
-                    
-                    .. attribute:: oom
-                    
-                    	Out of MultiFrame
-                    	**type**\: :py:class:`Oom <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
-                    
                     .. attribute:: ais
                     
                     	Alarm Indication Signal
                     	**type**\: :py:class:`Ais <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
-                    
-                    .. attribute:: iae
-                    
-                    	Incoming Alignment Error
-                    	**type**\: :py:class:`Iae <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
-                    
-                    .. attribute:: biae
-                    
-                    	Backward Incoming Alignment Error
-                    	**type**\: :py:class:`Biae <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
                     
                     .. attribute:: bdi
                     
                     	Backward Defect Indication
                     	**type**\: :py:class:`Bdi <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
                     
-                    .. attribute:: tim
+                    .. attribute:: biae
                     
-                    	Trace Identifier Mismatch
-                    	**type**\: :py:class:`Tim <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
+                    	Backward Incoming Alignment Error
+                    	**type**\: :py:class:`Biae <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
+                    
+                    .. attribute:: ec
+                    
+                    	EC alarm
+                    	**type**\: :py:class:`Ec <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
                     
                     .. attribute:: eoc
                     
@@ -1359,30 +1329,60 @@ class Otu(object):
                     	FEC mismatch alarm
                     	**type**\: :py:class:`FecMismatch <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
                     
-                    .. attribute:: sf_ber
+                    .. attribute:: fecunc
                     
-                    	SF BER alarm
-                    	**type**\: :py:class:`SfBer <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
+                    	FEC UnCorrected Word
+                    	**type**\: :py:class:`Fecunc <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
+                    
+                    .. attribute:: iae
+                    
+                    	Incoming Alignment Error
+                    	**type**\: :py:class:`Iae <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
+                    
+                    .. attribute:: lof
+                    
+                    	Loss of Frame
+                    	**type**\: :py:class:`Lof <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
+                    
+                    .. attribute:: lom
+                    
+                    	Loss of MultiFrame
+                    	**type**\: :py:class:`Lom <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
+                    
+                    .. attribute:: los
+                    
+                    	Loss of Signal
+                    	**type**\: :py:class:`Los <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
+                    
+                    .. attribute:: oof
+                    
+                    	Out of Frame
+                    	**type**\: :py:class:`Oof <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
+                    
+                    .. attribute:: oom
+                    
+                    	Out of MultiFrame
+                    	**type**\: :py:class:`Oom <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
                     
                     .. attribute:: sd_ber
                     
                     	SD BER alarm
                     	**type**\: :py:class:`SdBer <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
                     
-                    .. attribute:: ec
+                    .. attribute:: sf_ber
                     
-                    	EC alarm
-                    	**type**\: :py:class:`Ec <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
+                    	SF BER alarm
+                    	**type**\: :py:class:`SfBer <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
+                    
+                    .. attribute:: tim
+                    
+                    	Trace Identifier Mismatch
+                    	**type**\: :py:class:`Tim <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
                     
                     .. attribute:: uc
                     
                     	UC alarm
                     	**type**\: :py:class:`Uc <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
-                    
-                    .. attribute:: fecunc
-                    
-                    	FEC UnCorrected Word
-                    	**type**\: :py:class:`Fecunc <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
                     
                     
 
@@ -1393,49 +1393,56 @@ class Otu(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
-                        self.los.parent = self
-                        self.lof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof()
-                        self.lof.parent = self
-                        self.lom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom()
-                        self.lom.parent = self
-                        self.oof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof()
-                        self.oof.parent = self
-                        self.oom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom()
-                        self.oom.parent = self
                         self.ais = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais()
                         self.ais.parent = self
-                        self.iae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae()
-                        self.iae.parent = self
-                        self.biae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae()
-                        self.biae.parent = self
                         self.bdi = Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi()
                         self.bdi.parent = self
-                        self.tim = Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim()
-                        self.tim.parent = self
+                        self.biae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae()
+                        self.biae.parent = self
+                        self.ec = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec()
+                        self.ec.parent = self
                         self.eoc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc()
                         self.eoc.parent = self
                         self.fec_mismatch = Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch()
                         self.fec_mismatch.parent = self
-                        self.sf_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer()
-                        self.sf_ber.parent = self
-                        self.sd_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer()
-                        self.sd_ber.parent = self
-                        self.ec = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec()
-                        self.ec.parent = self
-                        self.uc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc()
-                        self.uc.parent = self
                         self.fecunc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc()
                         self.fecunc.parent = self
+                        self.iae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae()
+                        self.iae.parent = self
+                        self.lof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof()
+                        self.lof.parent = self
+                        self.lom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom()
+                        self.lom.parent = self
+                        self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
+                        self.los.parent = self
+                        self.oof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof()
+                        self.oof.parent = self
+                        self.oom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom()
+                        self.oom.parent = self
+                        self.sd_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer()
+                        self.sd_ber.parent = self
+                        self.sf_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer()
+                        self.sf_ber.parent = self
+                        self.tim = Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim()
+                        self.tim.parent = self
+                        self.uc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc()
+                        self.uc.parent = self
 
 
                     class Los(object):
                         """
                         Loss of Signal
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1443,17 +1450,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1464,15 +1464,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:los'
 
@@ -1483,16 +1483,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1507,9 +1507,16 @@ class Otu(object):
                         """
                         Loss of Frame
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1517,17 +1524,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1538,15 +1538,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:lof'
 
@@ -1557,16 +1557,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1581,9 +1581,16 @@ class Otu(object):
                         """
                         Loss of MultiFrame
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1591,17 +1598,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1612,15 +1612,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:lom'
 
@@ -1631,16 +1631,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1655,9 +1655,16 @@ class Otu(object):
                         """
                         Out of Frame
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1665,17 +1672,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1686,15 +1686,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:oof'
 
@@ -1705,16 +1705,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1729,9 +1729,16 @@ class Otu(object):
                         """
                         Out of MultiFrame
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1739,17 +1746,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1760,15 +1760,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:oom'
 
@@ -1779,16 +1779,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1803,9 +1803,16 @@ class Otu(object):
                         """
                         Alarm Indication Signal
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1813,17 +1820,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1834,15 +1834,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:ais'
 
@@ -1853,16 +1853,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1877,9 +1877,16 @@ class Otu(object):
                         """
                         Incoming Alignment Error
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1887,17 +1894,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1908,15 +1908,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:iae'
 
@@ -1927,16 +1927,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -1951,9 +1951,16 @@ class Otu(object):
                         """
                         Backward Incoming Alignment Error
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -1961,17 +1968,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1982,15 +1982,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:biae'
 
@@ -2001,16 +2001,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2025,9 +2025,16 @@ class Otu(object):
                         """
                         Backward Defect Indication
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2035,17 +2042,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2056,15 +2056,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:bdi'
 
@@ -2075,16 +2075,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2099,9 +2099,16 @@ class Otu(object):
                         """
                         Trace Identifier Mismatch
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2109,17 +2116,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2130,15 +2130,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:tim'
 
@@ -2149,16 +2149,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2173,9 +2173,16 @@ class Otu(object):
                         """
                         GCC End of Channel
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2183,17 +2190,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2204,15 +2204,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:eoc'
 
@@ -2223,16 +2223,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2247,9 +2247,16 @@ class Otu(object):
                         """
                         FEC mismatch alarm
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2257,17 +2264,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2278,15 +2278,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:fec-mismatch'
 
@@ -2297,16 +2297,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2321,9 +2321,16 @@ class Otu(object):
                         """
                         SF BER alarm
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2331,17 +2338,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2352,15 +2352,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:sf-ber'
 
@@ -2371,16 +2371,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2395,9 +2395,16 @@ class Otu(object):
                         """
                         SD BER alarm
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2405,17 +2412,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2426,15 +2426,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:sd-ber'
 
@@ -2445,16 +2445,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2469,9 +2469,16 @@ class Otu(object):
                         """
                         EC alarm
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2479,17 +2486,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2500,15 +2500,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:ec'
 
@@ -2519,16 +2519,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2543,9 +2543,16 @@ class Otu(object):
                         """
                         UC alarm
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2553,17 +2560,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2574,15 +2574,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:uc'
 
@@ -2593,16 +2593,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2617,9 +2617,16 @@ class Otu(object):
                         """
                         FEC UnCorrected Word
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: counter
                         
-                        	Is reporting enabled?
+                        	Alarm counter
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
                         	**type**\: bool
                         
                         .. attribute:: is_detected
@@ -2627,17 +2634,10 @@ class Otu(object):
                         	Is defect detected?
                         	**type**\: bool
                         
-                        .. attribute:: is_asserted
+                        .. attribute:: reporting_enabled
                         
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\: bool
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2648,15 +2648,15 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.reporting_enabled = None
-                            self.is_detected = None
-                            self.is_asserted = None
                             self.counter = None
+                            self.is_asserted = None
+                            self.is_detected = None
+                            self.reporting_enabled = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:fecunc'
 
@@ -2667,16 +2667,16 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            if self.is_detected is not None:
+                            if self.counter is not None:
                                 return True
 
                             if self.is_asserted is not None:
                                 return True
 
-                            if self.counter is not None:
+                            if self.is_detected is not None:
+                                return True
+
+                            if self.reporting_enabled is not None:
                                 return True
 
                             return False
@@ -2689,7 +2689,7 @@ class Otu(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:otu-alarm-info'
 
@@ -2700,34 +2700,16 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.los is not None and self.los._has_data():
-                            return True
-
-                        if self.lof is not None and self.lof._has_data():
-                            return True
-
-                        if self.lom is not None and self.lom._has_data():
-                            return True
-
-                        if self.oof is not None and self.oof._has_data():
-                            return True
-
-                        if self.oom is not None and self.oom._has_data():
-                            return True
-
                         if self.ais is not None and self.ais._has_data():
-                            return True
-
-                        if self.iae is not None and self.iae._has_data():
-                            return True
-
-                        if self.biae is not None and self.biae._has_data():
                             return True
 
                         if self.bdi is not None and self.bdi._has_data():
                             return True
 
-                        if self.tim is not None and self.tim._has_data():
+                        if self.biae is not None and self.biae._has_data():
+                            return True
+
+                        if self.ec is not None and self.ec._has_data():
                             return True
 
                         if self.eoc is not None and self.eoc._has_data():
@@ -2736,19 +2718,37 @@ class Otu(object):
                         if self.fec_mismatch is not None and self.fec_mismatch._has_data():
                             return True
 
-                        if self.sf_ber is not None and self.sf_ber._has_data():
+                        if self.fecunc is not None and self.fecunc._has_data():
+                            return True
+
+                        if self.iae is not None and self.iae._has_data():
+                            return True
+
+                        if self.lof is not None and self.lof._has_data():
+                            return True
+
+                        if self.lom is not None and self.lom._has_data():
+                            return True
+
+                        if self.los is not None and self.los._has_data():
+                            return True
+
+                        if self.oof is not None and self.oof._has_data():
+                            return True
+
+                        if self.oom is not None and self.oom._has_data():
                             return True
 
                         if self.sd_ber is not None and self.sd_ber._has_data():
                             return True
 
-                        if self.ec is not None and self.ec._has_data():
+                        if self.sf_ber is not None and self.sf_ber._has_data():
+                            return True
+
+                        if self.tim is not None and self.tim._has_data():
                             return True
 
                         if self.uc is not None and self.uc._has_data():
-                            return True
-
-                        if self.fecunc is not None and self.fecunc._has_data():
                             return True
 
                         return False
@@ -2763,39 +2763,27 @@ class Otu(object):
                     """
                     Proactive Protection
                     
-                    .. attribute:: proactive_status
+                    .. attribute:: proactive_fsm_if_state
                     
-                    	Proactive Status
-                    	**type**\: bool
-                    
-                    .. attribute:: sec_state
-                    
-                    	Secondary Admin State
-                    	**type**\: :py:class:`OtuSecStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    	Proactive FSM IF State
+                    	**type**\: :py:class:`OtuPpIntfStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfStateEnum>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
                     	**type**\: :py:class:`OtuPpFsmStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmStateEnum>`
                     
-                    .. attribute:: proactive_fsm_if_state
+                    .. attribute:: proactive_status
                     
-                    	Proactive FSM IF State
-                    	**type**\: :py:class:`OtuPpIntfStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfStateEnum>`
+                    	Proactive Status
+                    	**type**\: bool
                     
-                    .. attribute:: trig_thresh_coeff
+                    .. attribute:: revert_window
                     
-                    	Trigger threshold coefficient
+                    	Revert Integration Window
                     	**type**\: int
                     
-                    	**range:** 0..255
-                    
-                    .. attribute:: trig_thresh_power
-                    
-                    	Trigger threshold power
-                    	**type**\: int
-                    
-                    	**range:** 0..255
+                    	**range:** 0..4294967295
                     
                     .. attribute:: rvrt_thresh_coeff
                     
@@ -2811,16 +2799,28 @@ class Otu(object):
                     
                     	**range:** 0..255
                     
+                    .. attribute:: sec_state
+                    
+                    	Secondary Admin State
+                    	**type**\: :py:class:`OtuSecStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    
+                    .. attribute:: trig_thresh_coeff
+                    
+                    	Trigger threshold coefficient
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: trig_thresh_power
+                    
+                    	Trigger threshold power
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
                     .. attribute:: trigger_window
                     
                     	Trigger Integration window
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: revert_window
-                    
-                    	Revert Integration Window
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2834,21 +2834,21 @@ class Otu(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.proactive_status = None
-                        self.sec_state = None
-                        self.proactive_fsm_state = None
                         self.proactive_fsm_if_state = None
-                        self.trig_thresh_coeff = None
-                        self.trig_thresh_power = None
+                        self.proactive_fsm_state = None
+                        self.proactive_status = None
+                        self.revert_window = None
                         self.rvrt_thresh_coeff = None
                         self.rvrt_thresh_power = None
+                        self.sec_state = None
+                        self.trig_thresh_coeff = None
+                        self.trig_thresh_power = None
                         self.trigger_window = None
-                        self.revert_window = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:proactive'
 
@@ -2859,22 +2859,16 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.proactive_status is not None:
-                            return True
-
-                        if self.sec_state is not None:
+                        if self.proactive_fsm_if_state is not None:
                             return True
 
                         if self.proactive_fsm_state is not None:
                             return True
 
-                        if self.proactive_fsm_if_state is not None:
+                        if self.proactive_status is not None:
                             return True
 
-                        if self.trig_thresh_coeff is not None:
-                            return True
-
-                        if self.trig_thresh_power is not None:
+                        if self.revert_window is not None:
                             return True
 
                         if self.rvrt_thresh_coeff is not None:
@@ -2883,10 +2877,16 @@ class Otu(object):
                         if self.rvrt_thresh_power is not None:
                             return True
 
-                        if self.trigger_window is not None:
+                        if self.sec_state is not None:
                             return True
 
-                        if self.revert_window is not None:
+                        if self.trig_thresh_coeff is not None:
+                            return True
+
+                        if self.trig_thresh_power is not None:
+                            return True
+
+                        if self.trigger_window is not None:
                             return True
 
                         return False
@@ -2899,7 +2899,7 @@ class Otu(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:info'
 
@@ -2910,82 +2910,19 @@ class Otu(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.local is not None and self.local._has_data():
-                        return True
-
-                    if self.remote is not None and self.remote._has_data():
-                        return True
-
-                    if self.tti_mode is not None and self.tti_mode._has_data():
-                        return True
-
-                    if self.otu_alarm_info is not None and self.otu_alarm_info._has_data():
-                        return True
-
-                    if self.proactive is not None and self.proactive._has_data():
-                        return True
-
-                    if self.state is not None:
-                        return True
-
-                    if self.name is not None:
-                        return True
-
-                    if self.sf is not None:
-                        return True
-
-                    if self.sd is not None:
-                        return True
-
-                    if self.loopback_mode is not None:
-                        return True
-
-                    if self.fec_mode is not None:
-                        return True
-
                     if self.derivedstate_mode is not None:
-                        return True
-
-                    if self.sec_state is not None:
-                        return True
-
-                    if self.gcc_mode is not None:
-                        return True
-
-                    if self.q is not None:
-                        return True
-
-                    if self.q_margin is not None:
-                        return True
-
-                    if self.performance_monitoring is not None:
                         return True
 
                     if self.ec is not None:
                         return True
 
-                    if self.uc is not None:
-                        return True
-
-                    if self.pre_fec_val is not None:
-                        return True
-
-                    if self.pre_fec_mantissa is not None:
-                        return True
-
                     if self.ec_value is not None:
                         return True
 
-                    if self.uc_value is not None:
+                    if self.fec_mode is not None:
                         return True
 
-                    if self.pre_fec_ber_value is not None:
-                        return True
-
-                    if self.pre_fec_ber_mantissa is not None:
-                        return True
-
-                    if self.nv_optical_support is not None:
+                    if self.gcc_mode is not None:
                         return True
 
                     if self.gmpls_tti_mode is not None:
@@ -2994,10 +2931,73 @@ class Otu(object):
                     if self.gmpls_tvm_id is not None:
                         return True
 
+                    if self.local is not None and self.local._has_data():
+                        return True
+
+                    if self.loopback_mode is not None:
+                        return True
+
+                    if self.name is not None:
+                        return True
+
                     if self.network_srlg is not None:
                         for child in self.network_srlg:
                             if child is not None:
                                 return True
+
+                    if self.nv_optical_support is not None:
+                        return True
+
+                    if self.otu_alarm_info is not None and self.otu_alarm_info._has_data():
+                        return True
+
+                    if self.performance_monitoring is not None:
+                        return True
+
+                    if self.pre_fec_ber_mantissa is not None:
+                        return True
+
+                    if self.pre_fec_ber_value is not None:
+                        return True
+
+                    if self.pre_fec_mantissa is not None:
+                        return True
+
+                    if self.pre_fec_val is not None:
+                        return True
+
+                    if self.proactive is not None and self.proactive._has_data():
+                        return True
+
+                    if self.q is not None:
+                        return True
+
+                    if self.q_margin is not None:
+                        return True
+
+                    if self.remote is not None and self.remote._has_data():
+                        return True
+
+                    if self.sd is not None:
+                        return True
+
+                    if self.sec_state is not None:
+                        return True
+
+                    if self.sf is not None:
+                        return True
+
+                    if self.state is not None:
+                        return True
+
+                    if self.tti_mode is not None and self.tti_mode._has_data():
+                        return True
+
+                    if self.uc is not None:
+                        return True
+
+                    if self.uc_value is not None:
+                        return True
 
                     return False
 
@@ -3009,7 +3009,7 @@ class Otu(object):
             @property
             def _common_path(self):
                 if self.controller_name is None:
-                    raise YPYDataValidationError('Key property controller_name is None')
+                    raise YPYModelError('Key property controller_name is None')
 
                 return '/Cisco-IOS-XR-controller-otu-oper:otu/Cisco-IOS-XR-controller-otu-oper:controllers/Cisco-IOS-XR-controller-otu-oper:controller[Cisco-IOS-XR-controller-otu-oper:controller-name = ' + str(self.controller_name) + ']'
 

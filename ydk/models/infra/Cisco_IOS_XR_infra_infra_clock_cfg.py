@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -169,63 +169,9 @@ class Clock(object):
         """
         Configure summer (daylight savings) time
         
-        .. attribute:: time_zone_name
+        .. attribute:: end_hour
         
-        	Name of time zone in summer
-        	**type**\: str
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: mode
-        
-        	Summer time mode
-        	**type**\: :py:class:`ClockSummerTimeModeEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeModeEnum>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: start_week_number_or_start_date
-        
-        	 If Mode is set to 'Recurring' specify Week number of the Month to start (first and last strings are not allowed as they are in CLI) , if Mode is set to 'Date' specify Date to start 
-        	**type**\: int
-        
-        	**range:** 1..31
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: start_weekday_or_start_year
-        
-        	 If Mode is set to 'Recurring' specify Weekday to start , if Mode is set to 'Date' specify Year to start 
-        	**type**\: int
-        
-        	**range:** 0..2035
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: start_month
-        
-        	 Month to start 
-        	**type**\: :py:class:`ClockMonthEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: start_hour
-        
-        	Hour to start 
+        	Hour to end 
         	**type**\: int
         
         	**range:** 0..23
@@ -235,12 +181,22 @@ class Clock(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: start_minute
+        .. attribute:: end_minute
         
-        	Minute to start 
+        	Minute to end 
         	**type**\: int
         
         	**range:** 0..59
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: end_month
+        
+        	 Month to end 
+        	**type**\: :py:class:`ClockMonthEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
         
         .. attribute:: _is_presence
         
@@ -271,34 +227,10 @@ class Clock(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: end_month
+        .. attribute:: mode
         
-        	 Month to end 
-        	**type**\: :py:class:`ClockMonthEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: end_hour
-        
-        	Hour to end 
-        	**type**\: int
-        
-        	**range:** 0..23
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: end_minute
-        
-        	Minute to end 
-        	**type**\: int
-        
-        	**range:** 0..59
+        	Summer time mode
+        	**type**\: :py:class:`ClockSummerTimeModeEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeModeEnum>`
         
         .. attribute:: _is_presence
         
@@ -317,6 +249,74 @@ class Clock(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: start_hour
+        
+        	Hour to start 
+        	**type**\: int
+        
+        	**range:** 0..23
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: start_minute
+        
+        	Minute to start 
+        	**type**\: int
+        
+        	**range:** 0..59
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: start_month
+        
+        	 Month to start 
+        	**type**\: :py:class:`ClockMonthEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: start_week_number_or_start_date
+        
+        	 If Mode is set to 'Recurring' specify Week number of the Month to start (first and last strings are not allowed as they are in CLI) , if Mode is set to 'Date' specify Date to start 
+        	**type**\: int
+        
+        	**range:** 1..31
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: start_weekday_or_start_year
+        
+        	 If Mode is set to 'Recurring' specify Weekday to start , if Mode is set to 'Date' specify Year to start 
+        	**type**\: int
+        
+        	**range:** 0..2035
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: time_zone_name
+        
+        	Name of time zone in summer
+        	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -328,19 +328,19 @@ class Clock(object):
 
         def __init__(self):
             self.parent = None
-            self.time_zone_name = None
-            self.mode = None
-            self.start_week_number_or_start_date = None
-            self.start_weekday_or_start_year = None
-            self.start_month = None
-            self.start_hour = None
-            self.start_minute = None
-            self.end_week_number_or_end_date = None
-            self.end_weekday_or_end_year = None
-            self.end_month = None
             self.end_hour = None
             self.end_minute = None
+            self.end_month = None
+            self.end_week_number_or_end_date = None
+            self.end_weekday_or_end_year = None
+            self.mode = None
             self.offset = None
+            self.start_hour = None
+            self.start_minute = None
+            self.start_month = None
+            self.start_week_number_or_start_date = None
+            self.start_weekday_or_start_year = None
+            self.time_zone_name = None
 
         @property
         def _common_path(self):
@@ -354,25 +354,13 @@ class Clock(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.time_zone_name is not None:
+            if self.end_hour is not None:
                 return True
 
-            if self.mode is not None:
+            if self.end_minute is not None:
                 return True
 
-            if self.start_week_number_or_start_date is not None:
-                return True
-
-            if self.start_weekday_or_start_year is not None:
-                return True
-
-            if self.start_month is not None:
-                return True
-
-            if self.start_hour is not None:
-                return True
-
-            if self.start_minute is not None:
+            if self.end_month is not None:
                 return True
 
             if self.end_week_number_or_end_date is not None:
@@ -381,16 +369,28 @@ class Clock(object):
             if self.end_weekday_or_end_year is not None:
                 return True
 
-            if self.end_month is not None:
-                return True
-
-            if self.end_hour is not None:
-                return True
-
-            if self.end_minute is not None:
+            if self.mode is not None:
                 return True
 
             if self.offset is not None:
+                return True
+
+            if self.start_hour is not None:
+                return True
+
+            if self.start_minute is not None:
+                return True
+
+            if self.start_month is not None:
+                return True
+
+            if self.start_week_number_or_start_date is not None:
+                return True
+
+            if self.start_weekday_or_start_year is not None:
+                return True
+
+            if self.time_zone_name is not None:
                 return True
 
             return False
@@ -404,16 +404,6 @@ class Clock(object):
     class TimeZone(object):
         """
         Configure time zone
-        
-        .. attribute:: time_zone_name
-        
-        	Name of time zone
-        	**type**\: str
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
         
         .. attribute:: hour_offset
         
@@ -439,6 +429,16 @@ class Clock(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: time_zone_name
+        
+        	Name of time zone
+        	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -450,9 +450,9 @@ class Clock(object):
 
         def __init__(self):
             self.parent = None
-            self.time_zone_name = None
             self.hour_offset = None
             self.minute_offset = None
+            self.time_zone_name = None
 
         @property
         def _common_path(self):
@@ -466,13 +466,13 @@ class Clock(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.time_zone_name is not None:
-                return True
-
             if self.hour_offset is not None:
                 return True
 
             if self.minute_offset is not None:
+                return True
+
+            if self.time_zone_name is not None:
                 return True
 
             return False

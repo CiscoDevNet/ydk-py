@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -50,22 +50,22 @@ class NetconfYang(object):
         """
         NETCONF YANG agent configuration commands
         
-        .. attribute:: ssh
-        
-        	NETCONF YANG agent over SSH connection
-        	**type**\: :py:class:`Ssh <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
-        
-        .. attribute:: session
-        
-        	Session settings
-        	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
-        
         .. attribute:: rate_limit
         
         	Number of bytes to process per sec
         	**type**\: int
         
         	**range:** 4096..4294967295
+        
+        .. attribute:: session
+        
+        	Session settings
+        	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
+        
+        .. attribute:: ssh
+        
+        	NETCONF YANG agent over SSH connection
+        	**type**\: :py:class:`Ssh <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
         
         
 
@@ -76,11 +76,11 @@ class NetconfYang(object):
 
         def __init__(self):
             self.parent = None
-            self.ssh = NetconfYang.Agent.Ssh()
-            self.ssh.parent = self
+            self.rate_limit = None
             self.session = NetconfYang.Agent.Session()
             self.session.parent = self
-            self.rate_limit = None
+            self.ssh = NetconfYang.Agent.Ssh()
+            self.ssh.parent = self
 
 
         class Ssh(object):
@@ -130,13 +130,6 @@ class NetconfYang(object):
             """
             Session settings
             
-            .. attribute:: limit
-            
-            	Count of allowable concurrent netconf\-yang sessions
-            	**type**\: int
-            
-            	**range:** 1..1024
-            
             .. attribute:: absolute_timeout
             
             	Absolute timeout in minutes
@@ -151,6 +144,13 @@ class NetconfYang(object):
             
             	**range:** 1..1440
             
+            .. attribute:: limit
+            
+            	Count of allowable concurrent netconf\-yang sessions
+            	**type**\: int
+            
+            	**range:** 1..1024
+            
             
 
             """
@@ -160,9 +160,9 @@ class NetconfYang(object):
 
             def __init__(self):
                 self.parent = None
-                self.limit = None
                 self.absolute_timeout = None
                 self.idle_timeout = None
+                self.limit = None
 
             @property
             def _common_path(self):
@@ -176,13 +176,13 @@ class NetconfYang(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.limit is not None:
-                    return True
-
                 if self.absolute_timeout is not None:
                     return True
 
                 if self.idle_timeout is not None:
+                    return True
+
+                if self.limit is not None:
                     return True
 
                 return False
@@ -204,13 +204,13 @@ class NetconfYang(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.ssh is not None and self.ssh._has_data():
+            if self.rate_limit is not None:
                 return True
 
             if self.session is not None and self.session._has_data():
                 return True
 
-            if self.rate_limit is not None:
+            if self.ssh is not None and self.ssh._has_data():
                 return True
 
             return False

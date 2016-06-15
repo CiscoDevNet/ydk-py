@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -34,18 +34,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ExplicitPaths.Identifiers.Identifier.Address',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index number at which the path entry is inserted
-                or modified
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 unicast address
                 ''',
-                'index',
-                'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface Index of the path
-                ''',
-                'if_index',
+                'address',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'IepAddressEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepAddressEnum', 
                 [], [], 
@@ -60,11 +53,18 @@ _meta_table = {
                 ''',
                 'hop_type',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4 unicast address
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface Index of the path
                 ''',
-                'address',
+                'if_index',
+                'Cisco-IOS-XR-ip-iep-oper', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index number at which the path entry is inserted
+                or modified
+                ''',
+                'index',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             ],
             'Cisco-IOS-XR-ip-iep-oper',
@@ -83,18 +83,18 @@ _meta_table = {
                 ''',
                 'identifier_id',
                 'Cisco-IOS-XR-ip-iep-oper', True),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatusEnum', 
-                [], [], 
-                '''                Status of the path
-                ''',
-                'status',
-                'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'ExplicitPaths.Identifiers.Identifier.Address', 
                 [], [], 
                 '''                List of IP addresses configured in the explicit
                 path
                 ''',
                 'address',
+                'Cisco-IOS-XR-ip-iep-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatusEnum', 
+                [], [], 
+                '''                Status of the path
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             ],
             'Cisco-IOS-XR-ip-iep-oper',
@@ -125,18 +125,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ExplicitPaths.Names.Name.Address',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Index number at which the path entry is inserted
-                or modified
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 unicast address
                 ''',
-                'index',
-                'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface Index of the path
-                ''',
-                'if_index',
+                'address',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'IepAddressEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepAddressEnum', 
                 [], [], 
@@ -151,11 +144,18 @@ _meta_table = {
                 ''',
                 'hop_type',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4 unicast address
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface Index of the path
                 ''',
-                'address',
+                'if_index',
+                'Cisco-IOS-XR-ip-iep-oper', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Index number at which the path entry is inserted
+                or modified
+                ''',
+                'index',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             ],
             'Cisco-IOS-XR-ip-iep-oper',
@@ -174,18 +174,18 @@ _meta_table = {
                 ''',
                 'path_name',
                 'Cisco-IOS-XR-ip-iep-oper', True),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatusEnum', 
-                [], [], 
-                '''                Status of the path
-                ''',
-                'status',
-                'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'ExplicitPaths.Names.Name.Address', 
                 [], [], 
                 '''                List of IP addresses configured in the explicit
                 path
                 ''',
                 'address',
+                'Cisco-IOS-XR-ip-iep-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatusEnum', 
+                [], [], 
+                '''                Status of the path
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             ],
             'Cisco-IOS-XR-ip-iep-oper',

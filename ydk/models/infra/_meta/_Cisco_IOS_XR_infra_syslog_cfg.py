@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -139,17 +139,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue',
             False, 
             [
-            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
-                [], [], 
-                '''                Time
-                ''',
-                'time_stamp_value',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('msec', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Seconds
                 ''',
                 'msec',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
+                [], [], 
+                '''                Time
+                ''',
+                'time_stamp_value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('time-zone', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
@@ -197,17 +197,17 @@ _meta_table = {
                 ''',
                 'log_datetime',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('log-uptime', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Timestamp with systime uptime
-                ''',
-                'log_uptime',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('log-timestamp-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable timestamp log messages
                 ''',
                 'log_timestamp_disable',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('log-uptime', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Timestamp with systime uptime
+                ''',
+                'log_uptime',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -220,17 +220,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue',
             False, 
             [
-            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
-                [], [], 
-                '''                Time
-                ''',
-                'time_stamp_value',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('msec', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Seconds
                 ''',
                 'msec',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
+                [], [], 
+                '''                Time
+                ''',
+                'time_stamp_value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('time-zone', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
@@ -301,12 +301,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SyslogService.Timestamps',
             False, 
             [
-            _MetaInfoClassMember('log', REFERENCE_CLASS, 'Log' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'SyslogService.Timestamps.Log', 
-                [], [], 
-                '''                Timestamp log messages
-                ''',
-                'log',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('debug', REFERENCE_CLASS, 'Debug' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'SyslogService.Timestamps.Debug', 
                 [], [], 
                 '''                Timestamp debug messages
@@ -318,6 +312,12 @@ _meta_table = {
                 '''                Enable timestamp debug/log messages
                 ''',
                 'enable',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('log', REFERENCE_CLASS, 'Log' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'SyslogService.Timestamps.Log', 
+                [], [], 
+                '''                Timestamp log messages
+                ''',
+                'log',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -347,29 +347,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.MonitorLogging.MonitorDiscriminator',
             False, 
             [
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set monitor logging match2 discriminator
-                ''',
-                'match2',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set monitor logging no-match1 discriminator
-                ''',
-                'nomatch1',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set monitor logging match1 discriminator
                 ''',
                 'match1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set monitor logging no-match3 discriminator
+                '''                Set monitor logging match2 discriminator
                 ''',
-                'nomatch3',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -377,11 +365,23 @@ _meta_table = {
                 ''',
                 'match3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set monitor logging no-match1 discriminator
+                ''',
+                'nomatch1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set monitor logging no-match2 discriminator
                 ''',
                 'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set monitor logging no-match3 discriminator
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -394,17 +394,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.MonitorLogging',
             False, 
             [
-            _MetaInfoClassMember('monitor-discriminator', REFERENCE_CLASS, 'MonitorDiscriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.MonitorLogging.MonitorDiscriminator', 
-                [], [], 
-                '''                Set monitor logging discriminators
-                ''',
-                'monitor_discriminator',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevelsEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevelsEnum', 
                 [], [], 
                 '''                Monitor Logging Level
                 ''',
                 'logging_level',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('monitor-discriminator', REFERENCE_CLASS, 'MonitorDiscriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.MonitorLogging.MonitorDiscriminator', 
+                [], [], 
+                '''                Set monitor logging discriminators
+                ''',
+                'monitor_discriminator',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -474,29 +474,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.BufferedLogging.BufferedDiscriminator',
             False, 
             [
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set buffered logging match2 discriminator
-                ''',
-                'match2',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set buffered logging no-match1 discriminator
-                ''',
-                'nomatch1',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set buffered logging match1 discriminator
                 ''',
                 'match1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set buffered logging no-match3 discriminator
+                '''                Set buffered logging match2 discriminator
                 ''',
-                'nomatch3',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -504,11 +492,23 @@ _meta_table = {
                 ''',
                 'match3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set buffered logging no-match1 discriminator
+                ''',
+                'nomatch1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set buffered logging no-match2 discriminator
                 ''',
                 'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set buffered logging no-match3 discriminator
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -521,6 +521,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.BufferedLogging',
             False, 
             [
+            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 4294967295)], [], 
+                '''                Logging buffered size
+                ''',
+                'buffer_size',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('buffered-discriminator', REFERENCE_CLASS, 'BufferedDiscriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.BufferedLogging.BufferedDiscriminator', 
                 [], [], 
                 '''                Set buffered logging discriminators
@@ -533,12 +539,6 @@ _meta_table = {
                 ''',
                 'logging_level',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 4294967295)], [], 
-                '''                Logging buffered size
-                ''',
-                'buffer_size',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
             'buffered-logging',
@@ -550,17 +550,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort',
             False, 
             [
-            _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Severity for the logging host
-                ''',
-                'severity',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Port for the logging host
                 ''',
                 'port',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Severity for the logging host
+                ''',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -573,11 +573,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator',
             False, 
             [
-            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set IPv6 logging no-match2 discriminator
+                '''                Set IPv6 logging match1 discriminator
                 ''',
-                'nomatch2',
+                'match1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set IPv6 logging match2 discriminator
+                ''',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -585,29 +591,23 @@ _meta_table = {
                 ''',
                 'match3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set IPv6 logging no-match3 discriminator
-                ''',
-                'nomatch3',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set IPv6 logging match1 discriminator
-                ''',
-                'match1',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set IPv6 logging no-match1 discriminator
                 ''',
                 'nomatch1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set IPv6 logging match2 discriminator
+                '''                Set IPv6 logging no-match2 discriminator
                 ''',
-                'match2',
+                'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set IPv6 logging no-match3 discriminator
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -660,12 +660,6 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
-            _MetaInfoClassMember('ipv6-severity-port', REFERENCE_CLASS, 'Ipv6SeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort', 
-                [], [], 
-                '''                Severity/Port for the logging host
-                ''',
-                'ipv6_severity_port',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('ipv6-discriminator', REFERENCE_CLASS, 'Ipv6Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator', 
                 [], [], 
                 '''                Set IPv6 logging discriminators
@@ -677,6 +671,12 @@ _meta_table = {
                 '''                Severity container of the logging host
                 ''',
                 'ipv6_severity_levels',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('ipv6-severity-port', REFERENCE_CLASS, 'Ipv6SeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort', 
+                [], [], 
+                '''                Severity/Port for the logging host
+                ''',
+                'ipv6_severity_port',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -740,31 +740,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator',
             False, 
             [
-            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set hostname logging no-match2
-                discriminator
+                '''                Set hostname logging match1 discriminator
                 ''',
-                'nomatch2',
+                'match1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set hostname logging match2 discriminator
+                ''',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set hostname logging match3 discriminator
                 ''',
                 'match3',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set hostname logging no-match3
-                discriminator
-                ''',
-                'nomatch3',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set hostname logging match1 discriminator
-                ''',
-                'match1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -773,11 +765,19 @@ _meta_table = {
                 ''',
                 'nomatch1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set hostname logging match2 discriminator
+                '''                Set hostname logging no-match2
+                discriminator
                 ''',
-                'match2',
+                'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set hostname logging no-match3
+                discriminator
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -790,17 +790,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort',
             False, 
             [
-            _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Severity for the logging host
-                ''',
-                'severity',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Port for the logging host
                 ''',
                 'port',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Severity for the logging host
+                ''',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -819,17 +819,17 @@ _meta_table = {
                 ''',
                 'host_name',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
-            _MetaInfoClassMember('host-name-severities', REFERENCE_CLASS, 'HostNameSeverities' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities', 
-                [], [], 
-                '''                Severity container of the logging host
-                ''',
-                'host_name_severities',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('host-name-discriminator', REFERENCE_CLASS, 'HostNameDiscriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator', 
                 [], [], 
                 '''                Set Hostname logging discriminators
                 ''',
                 'host_name_discriminator',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('host-name-severities', REFERENCE_CLASS, 'HostNameSeverities' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities', 
+                [], [], 
+                '''                Severity container of the logging host
+                ''',
+                'host_name_severities',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('host-severity-port', REFERENCE_CLASS, 'HostSeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort', 
                 [], [], 
@@ -899,17 +899,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort',
             False, 
             [
-            _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Severity for the logging host
-                ''',
-                'severity',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Port for the logging host
                 ''',
                 'port',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Severity for the logging host
+                ''',
+                'severity',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -922,11 +922,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator',
             False, 
             [
-            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set IPv4 logging no-match2 discriminator
+                '''                Set IPv4 logging match1 discriminator
                 ''',
-                'nomatch2',
+                'match1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set IPv4 logging match2 discriminator
+                ''',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -934,29 +940,23 @@ _meta_table = {
                 ''',
                 'match3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set IPv4 logging no-match3 discriminator
-                ''',
-                'nomatch3',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set IPv4 logging match1 discriminator
-                ''',
-                'match1',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set IPv4 logging no-match1 discriminator
                 ''',
                 'nomatch1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set IPv4 logging match2 discriminator
+                '''                Set IPv4 logging no-match2 discriminator
                 ''',
-                'match2',
+                'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set IPv4 logging no-match3 discriminator
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -975,6 +975,12 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
+            _MetaInfoClassMember('ipv4-discriminator', REFERENCE_CLASS, 'Ipv4Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator', 
+                [], [], 
+                '''                Set IPv4 logging discriminators
+                ''',
+                'ipv4_discriminator',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('ipv4-severity-levels', REFERENCE_CLASS, 'Ipv4SeverityLevels' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels', 
                 [], [], 
                 '''                Severity container of the logging host
@@ -986,12 +992,6 @@ _meta_table = {
                 '''                Severity/Port for the logging host
                 ''',
                 'ipv4_severity_port',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv4-discriminator', REFERENCE_CLASS, 'Ipv4Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator', 
-                [], [], 
-                '''                Set IPv4 logging discriminators
-                ''',
-                'ipv4_discriminator',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1027,12 +1027,6 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
-            _MetaInfoClassMember('ipv6s', REFERENCE_CLASS, 'Ipv6S' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S', 
-                [], [], 
-                '''                List of the IPv6 logging host
-                ''',
-                'ipv6s',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Hosts', 
                 [], [], 
                 '''                List of the logging host
@@ -1044,6 +1038,12 @@ _meta_table = {
                 '''                List of the IPv4 logging host
                 ''',
                 'ipv4s',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('ipv6s', REFERENCE_CLASS, 'Ipv6S' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S', 
+                [], [], 
+                '''                List of the IPv6 logging host
+                ''',
+                'ipv6s',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1090,29 +1090,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.ConsoleLogging.ConsoleDiscriminator',
             False, 
             [
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set console logging match2 discriminator
-                ''',
-                'match2',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set console logging no-match1 discriminator
-                ''',
-                'nomatch1',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set console logging match1 discriminator
                 ''',
                 'match1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set console logging no-match3 discriminator
+                '''                Set console logging match2 discriminator
                 ''',
-                'nomatch3',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1120,11 +1108,23 @@ _meta_table = {
                 ''',
                 'match3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set console logging no-match1 discriminator
+                ''',
+                'nomatch1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set console logging no-match2 discriminator
                 ''',
                 'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set console logging no-match3 discriminator
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1160,17 +1160,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Files.File.FileSpecification',
             False, 
             [
-            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                File path
-                ''',
-                'path',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('max-file-size', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Maximum file size (in KB)
                 ''',
                 'max_file_size',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                File path
+                ''',
+                'path',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('severity', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -1189,11 +1189,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Files.File.FileLogDiscriminator',
             False, 
             [
-            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set file logging no match discriminator 2
+                '''                Set file logging match discriminator 1
                 ''',
-                'nomatch2',
+                'match1',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set file logging match discriminator 2
+                ''',
+                'match2',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('match3', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1201,29 +1207,23 @@ _meta_table = {
                 ''',
                 'match3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set file logging no match discriminator 3
-                ''',
-                'nomatch3',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Set file logging match discriminator 1
-                ''',
-                'match1',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('nomatch1', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Set file logging no match discriminator 1
                 ''',
                 'nomatch1',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('match2', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('nomatch2', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Set file logging match discriminator 2
+                '''                Set file logging no match discriminator 2
                 ''',
-                'match2',
+                'nomatch2',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('nomatch3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set file logging no match discriminator 3
+                ''',
+                'nomatch3',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1242,17 +1242,17 @@ _meta_table = {
                 ''',
                 'file_name',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
-            _MetaInfoClassMember('file-specification', REFERENCE_CLASS, 'FileSpecification' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Files.File.FileSpecification', 
-                [], [], 
-                '''                Specifications of the logging file destination
-                ''',
-                'file_specification',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('file-log-discriminator', REFERENCE_CLASS, 'FileLogDiscriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Files.File.FileLogDiscriminator', 
                 [], [], 
                 '''                Set File logging discriminators
                 ''',
                 'file_log_discriminator',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('file-specification', REFERENCE_CLASS, 'FileSpecification' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Files.File.FileSpecification', 
+                [], [], 
+                '''                Specifications of the logging file destination
+                ''',
+                'file_specification',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1337,31 +1337,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Ipv4.Tos',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTosEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTosEnum', 
-                [], [], 
-                '''                Logging TOS type DSCP or precedence
-                ''',
-                'type',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Logging precedence value
-                ''',
-                'precedence',
-                'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
-                        [], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                    _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                ]),
             _MetaInfoClassMember('dscp', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Logging DSCP value
@@ -1381,6 +1356,31 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-infra-syslog-cfg', False),
                 ]),
+            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Logging precedence value
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-infra-syslog-cfg', False, [
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
+                        [], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                    _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                ]),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTosEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTosEnum', 
+                [], [], 
+                '''                Logging TOS type DSCP or precedence
+                ''',
+                'type',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
             'tos',
@@ -1398,25 +1398,6 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('value', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Logging precedence value
-                ''',
-                'value',
-                'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
-                        [], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'value',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                    _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'value',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                ]),
             _MetaInfoClassMember('unused', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Unused
@@ -1436,6 +1417,25 @@ _meta_table = {
                         'unused',
                         'Cisco-IOS-XR-infra-syslog-cfg', False),
                 ]),
+            _MetaInfoClassMember('value', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Logging precedence value
+                ''',
+                'value',
+                'Cisco-IOS-XR-infra-syslog-cfg', False, [
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
+                        [], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'value',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                    _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'value',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                ]),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
             'precedence',
@@ -1453,17 +1453,17 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv4.Tos', 
-                [], [], 
-                '''                Type of service
-                ''',
-                'tos',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('precedence', REFERENCE_CLASS, 'Precedence' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv4.Precedence', 
                 [], [], 
                 '''                Precedence value
                 ''',
                 'precedence',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv4.Tos', 
+                [], [], 
+                '''                Type of service
+                ''',
+                'tos',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1476,11 +1476,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Archive',
             False, 
             [
-            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2047)], [], 
-                '''                The total size of the archive
+            _MetaInfoClassMember('device', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                '/disk0:' or '/disk1:' or '/harddisk:'
                 ''',
-                'size',
+                'device',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('file-size', ATTRIBUTE, 'int' , None, None, 
                 [(1, 2047)], [], 
@@ -1488,24 +1488,17 @@ _meta_table = {
                 ''',
                 'file_size',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('device', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                '/disk0:' or '/disk1:' or '/harddisk:'
-                ''',
-                'device',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 99)], [], 
-                '''                The size threshold at which a syslog is
-                generated
-                ''',
-                'threshold',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('frequency', REFERENCE_ENUM_CLASS, 'LogCollectFrequencyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogCollectFrequencyEnum', 
                 [], [], 
                 '''                The collection interval for logs
                 ''',
                 'frequency',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
+                [(1, 256)], [], 
+                '''                The maximum number of weeks of log to maintain
+                ''',
+                'length',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogMessageSeverityEnum', 
                 [], [], 
@@ -1513,11 +1506,18 @@ _meta_table = {
                 ''',
                 'severity',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(1, 256)], [], 
-                '''                The maximum number of weeks of log to maintain
+            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
+                [(1, 2047)], [], 
+                '''                The total size of the archive
                 ''',
-                'length',
+                'size',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
+                [(1, 99)], [], 
+                '''                The size threshold at which a syslog is
+                generated
+                ''',
+                'threshold',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1585,31 +1585,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Ipv6.TrafficClass',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTosEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTosEnum', 
-                [], [], 
-                '''                Logging TOS type DSCP or precedence
-                ''',
-                'type',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Logging precedence value
-                ''',
-                'precedence',
-                'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
-                        [], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                    _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                ]),
             _MetaInfoClassMember('dscp', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Logging DSCP value
@@ -1629,6 +1604,31 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-infra-syslog-cfg', False),
                 ]),
+            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Logging precedence value
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-infra-syslog-cfg', False, [
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
+                        [], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                    _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                ]),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTosEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTosEnum', 
+                [], [], 
+                '''                Logging TOS type DSCP or precedence
+                ''',
+                'type',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
             'traffic-class',
@@ -1646,25 +1646,6 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('value', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Logging precedence value
-                ''',
-                'value',
-                'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
-                        [], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'value',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                    _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Logging precedence value
-                        ''',
-                        'value',
-                        'Cisco-IOS-XR-infra-syslog-cfg', False),
-                ]),
             _MetaInfoClassMember('unused', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Unused
@@ -1684,6 +1665,25 @@ _meta_table = {
                         'unused',
                         'Cisco-IOS-XR-infra-syslog-cfg', False),
                 ]),
+            _MetaInfoClassMember('value', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Logging precedence value
+                ''',
+                'value',
+                'Cisco-IOS-XR-infra-syslog-cfg', False, [
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
+                        [], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'value',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                    _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Logging precedence value
+                        ''',
+                        'value',
+                        'Cisco-IOS-XR-infra-syslog-cfg', False),
+                ]),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
             'precedence',
@@ -1701,17 +1701,17 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('traffic-class', REFERENCE_CLASS, 'TrafficClass' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv6.TrafficClass', 
-                [], [], 
-                '''                Type of traffic class
-                ''',
-                'traffic_class',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('precedence', REFERENCE_CLASS, 'Precedence' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv6.Precedence', 
                 [], [], 
                 '''                Precedence value
                 ''',
                 'precedence',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('traffic-class', REFERENCE_CLASS, 'TrafficClass' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv6.TrafficClass', 
+                [], [], 
+                '''                Type of traffic class
+                ''',
+                'traffic_class',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
@@ -1816,18 +1816,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.AlarmLogger',
             False, 
             [
+            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
+                [(1024, 1024000)], [], 
+                '''                Set size of the local event buffer
+                ''',
+                'buffer_size',
+                'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
             _MetaInfoClassMember('severity-level', REFERENCE_ENUM_CLASS, 'AlarmLoggerSeverityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevelEnum', 
                 [], [], 
                 '''                Log all events with equal or higher (lower
                 level) severity than this
                 ''',
                 'severity_level',
-                'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
-            _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(1024, 1024000)], [], 
-                '''                Set size of the local event buffer
-                ''',
-                'buffer_size',
                 'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
             _MetaInfoClassMember('source-location', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1852,29 +1852,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog',
             False, 
             [
-            _MetaInfoClassMember('monitor-logging', REFERENCE_CLASS, 'MonitorLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.MonitorLogging', 
+            _MetaInfoClassMember('alarm-logger', REFERENCE_CLASS, 'AlarmLogger' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.AlarmLogger', 
                 [], [], 
-                '''                Set monitor logging
+                '''                Alarm Logger Properties
                 ''',
-                'monitor_logging',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('history-logging', REFERENCE_CLASS, 'HistoryLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HistoryLogging', 
+                'alarm_logger',
+                'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
+            _MetaInfoClassMember('archive', REFERENCE_CLASS, 'Archive' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Archive', 
                 [], [], 
-                '''                Set history logging
+                '''                Archive attributes configuration
                 ''',
-                'history_logging',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('logging-facilities', REFERENCE_CLASS, 'LoggingFacilities' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.LoggingFacilities', 
-                [], [], 
-                '''                Modify message logging facilities
-                ''',
-                'logging_facilities',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('trap-logging', REFERENCE_CLASS, 'TrapLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.TrapLogging', 
-                [], [], 
-                '''                Set trap logging
-                ''',
-                'trap_logging',
+                'archive',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('buffered-logging', REFERENCE_CLASS, 'BufferedLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.BufferedLogging', 
                 [], [], 
@@ -1882,59 +1870,11 @@ _meta_table = {
                 ''',
                 'buffered_logging',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('host-server', REFERENCE_CLASS, 'HostServer' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer', 
-                [], [], 
-                '''                Configure logging host
-                ''',
-                'host_server',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('console-logging', REFERENCE_CLASS, 'ConsoleLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.ConsoleLogging', 
                 [], [], 
                 '''                Set console logging
                 ''',
                 'console_logging',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('files', REFERENCE_CLASS, 'Files' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Files', 
-                [], [], 
-                '''                Configure logging file destination
-                ''',
-                'files',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv4', 
-                [], [], 
-                '''                Syslog TOS bit for outgoing messages
-                ''',
-                'ipv4',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('archive', REFERENCE_CLASS, 'Archive' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Archive', 
-                [], [], 
-                '''                Archive attributes configuration
-                ''',
-                'archive',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv6', 
-                [], [], 
-                '''                Syslog traffic class bit for outgoing messages
-                ''',
-                'ipv6',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('source-interface-table', REFERENCE_CLASS, 'SourceInterfaceTable' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.SourceInterfaceTable', 
-                [], [], 
-                '''                Configure source interface
-                ''',
-                'source_interface_table',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('host-name-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Hostname prefix to add on msgs to servers
-                ''',
-                'host_name_prefix',
-                'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('local-log-file-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Set size of the local log file
-                ''',
-                'local_log_file_size',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('enable-console-logging', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1942,18 +1882,78 @@ _meta_table = {
                 ''',
                 'enable_console_logging',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('files', REFERENCE_CLASS, 'Files' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Files', 
+                [], [], 
+                '''                Configure logging file destination
+                ''',
+                'files',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('history-logging', REFERENCE_CLASS, 'HistoryLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HistoryLogging', 
+                [], [], 
+                '''                Set history logging
+                ''',
+                'history_logging',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('host-name-prefix', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Hostname prefix to add on msgs to servers
+                ''',
+                'host_name_prefix',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('host-server', REFERENCE_CLASS, 'HostServer' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer', 
+                [], [], 
+                '''                Configure logging host
+                ''',
+                'host_server',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv4', 
+                [], [], 
+                '''                Syslog TOS bit for outgoing messages
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.Ipv6', 
+                [], [], 
+                '''                Syslog traffic class bit for outgoing messages
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('local-log-file-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Set size of the local log file
+                ''',
+                'local_log_file_size',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('logging-facilities', REFERENCE_CLASS, 'LoggingFacilities' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.LoggingFacilities', 
+                [], [], 
+                '''                Modify message logging facilities
+                ''',
+                'logging_facilities',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('monitor-logging', REFERENCE_CLASS, 'MonitorLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.MonitorLogging', 
+                [], [], 
+                '''                Set monitor logging
+                ''',
+                'monitor_logging',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
+            _MetaInfoClassMember('source-interface-table', REFERENCE_CLASS, 'SourceInterfaceTable' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.SourceInterfaceTable', 
+                [], [], 
+                '''                Configure source interface
+                ''',
+                'source_interface_table',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             _MetaInfoClassMember('suppress-duplicates', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Suppress consecutive duplicate messages
                 ''',
                 'suppress_duplicates',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('alarm-logger', REFERENCE_CLASS, 'AlarmLogger' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.AlarmLogger', 
+            _MetaInfoClassMember('trap-logging', REFERENCE_CLASS, 'TrapLogging' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.TrapLogging', 
                 [], [], 
-                '''                Alarm Logger Properties
+                '''                Set trap logging
                 ''',
-                'alarm_logger',
-                'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
+                'trap_logging',
+                'Cisco-IOS-XR-infra-syslog-cfg', False),
             ],
             'Cisco-IOS-XR-infra-syslog-cfg',
             'syslog',

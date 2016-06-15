@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -95,44 +95,10 @@ class RouterConvergence(object):
     """
     Configure Router Convergence Monitoring
     
-    .. attribute:: protocols
-    
-    	Table of Protocol
-    	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols>`
-    
-    .. attribute:: storage_location
-    
-    	Absolute directory path for saving the archive files. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
-    	**type**\: :py:class:`StorageLocation <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.StorageLocation>`
-    
-    .. attribute:: mpls_ldp
-    
-    	RCMD related configuration for MPLS\-LDP
-    	**type**\: :py:class:`MplsLdp <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp>`
-    
     .. attribute:: collect_diagnostics
     
     	Table of CollectDiagnostics
     	**type**\: :py:class:`CollectDiagnostics <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.CollectDiagnostics>`
-    
-    .. attribute:: nodes
-    
-    	Table of Node
-    	**type**\: :py:class:`Nodes <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Nodes>`
-    
-    .. attribute:: event_buffer_size
-    
-    	Event buffer size for storing event traces (as number of events)
-    	**type**\: int
-    
-    	**range:** 100..500
-    
-    .. attribute:: prefix_monitor_limit
-    
-    	Limits Individual Prefix Monitoring
-    	**type**\: int
-    
-    	**range:** 0..100
     
     .. attribute:: disable
     
@@ -143,6 +109,13 @@ class RouterConvergence(object):
     
     	Enable Configure Router Convergence Monitoring. Deletion of this object also causes deletion of all associated objects under RouterConvergence
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: event_buffer_size
+    
+    	Event buffer size for storing event traces (as number of events)
+    	**type**\: int
+    
+    	**range:** 100..500
     
     .. attribute:: max_events_stored
     
@@ -158,6 +131,33 @@ class RouterConvergence(object):
     
     	**range:** 5..120
     
+    .. attribute:: mpls_ldp
+    
+    	RCMD related configuration for MPLS\-LDP
+    	**type**\: :py:class:`MplsLdp <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp>`
+    
+    .. attribute:: nodes
+    
+    	Table of Node
+    	**type**\: :py:class:`Nodes <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Nodes>`
+    
+    .. attribute:: prefix_monitor_limit
+    
+    	Limits Individual Prefix Monitoring
+    	**type**\: int
+    
+    	**range:** 0..100
+    
+    .. attribute:: protocols
+    
+    	Table of Protocol
+    	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols>`
+    
+    .. attribute:: storage_location
+    
+    	Absolute directory path for saving the archive files. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
+    	**type**\: :py:class:`StorageLocation <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.StorageLocation>`
+    
     
 
     """
@@ -166,20 +166,20 @@ class RouterConvergence(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        self.collect_diagnostics = RouterConvergence.CollectDiagnostics()
+        self.collect_diagnostics.parent = self
+        self.disable = None
+        self.enable = None
+        self.event_buffer_size = None
+        self.max_events_stored = None
+        self.monitoring_interval = None
+        self.mpls_ldp = None
+        self.nodes = RouterConvergence.Nodes()
+        self.nodes.parent = self
+        self.prefix_monitor_limit = None
         self.protocols = RouterConvergence.Protocols()
         self.protocols.parent = self
         self.storage_location = None
-        self.mpls_ldp = None
-        self.collect_diagnostics = RouterConvergence.CollectDiagnostics()
-        self.collect_diagnostics.parent = self
-        self.nodes = RouterConvergence.Nodes()
-        self.nodes.parent = self
-        self.event_buffer_size = None
-        self.prefix_monitor_limit = None
-        self.disable = None
-        self.enable = None
-        self.max_events_stored = None
-        self.monitoring_interval = None
 
 
     class Protocols(object):
@@ -214,15 +214,15 @@ class RouterConvergence(object):
             	Specify the protocol
             	**type**\: :py:class:`ProtocolNameEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.ProtocolNameEnum>`
             
-            .. attribute:: priorities
-            
-            	Table of Priority
-            	**type**\: :py:class:`Priorities <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol.Priorities>`
-            
             .. attribute:: enable
             
             	Enable Protocol for which to configure RCMD parameters. Deletion of this object also causes deletion of all associated objects under Protocol
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: priorities
+            
+            	Table of Priority
+            	**type**\: :py:class:`Priorities <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol.Priorities>`
             
             
 
@@ -234,9 +234,9 @@ class RouterConvergence(object):
             def __init__(self):
                 self.parent = None
                 self.protocol_name = None
+                self.enable = None
                 self.priorities = RouterConvergence.Protocols.Protocol.Priorities()
                 self.priorities.parent = self
-                self.enable = None
 
 
             class Priorities(object):
@@ -271,20 +271,6 @@ class RouterConvergence(object):
                     	Specify the priority
                     	**type**\: :py:class:`RcmdPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RcmdPriorityEnum>`
                     
-                    .. attribute:: threshold
-                    
-                    	Threshold value for convergence (in msec)
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: leaf_networks
-                    
-                    	Specify the maximum number of leaf networks monitored
-                    	**type**\: int
-                    
-                    	**range:** 10..100
-                    
                     .. attribute:: disable
                     
                     	Disables the monitoring of route convergence for specified priority
@@ -302,6 +288,20 @@ class RouterConvergence(object):
                     
                     	**range:** 1..100
                     
+                    .. attribute:: leaf_networks
+                    
+                    	Specify the maximum number of leaf networks monitored
+                    	**type**\: int
+                    
+                    	**range:** 10..100
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold value for convergence (in msec)
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     
 
                     """
@@ -312,18 +312,18 @@ class RouterConvergence(object):
                     def __init__(self):
                         self.parent = None
                         self.rcmd_priority = None
-                        self.threshold = None
-                        self.leaf_networks = None
                         self.disable = None
                         self.enable = None
                         self.frr_threshold = None
+                        self.leaf_networks = None
+                        self.threshold = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.rcmd_priority is None:
-                            raise YPYDataValidationError('Key property rcmd_priority is None')
+                            raise YPYModelError('Key property rcmd_priority is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rcmd-cfg:priority[Cisco-IOS-XR-infra-rcmd-cfg:rcmd-priority = ' + str(self.rcmd_priority) + ']'
 
@@ -337,12 +337,6 @@ class RouterConvergence(object):
                         if self.rcmd_priority is not None:
                             return True
 
-                        if self.threshold is not None:
-                            return True
-
-                        if self.leaf_networks is not None:
-                            return True
-
                         if self.disable is not None:
                             return True
 
@@ -350,6 +344,12 @@ class RouterConvergence(object):
                             return True
 
                         if self.frr_threshold is not None:
+                            return True
+
+                        if self.leaf_networks is not None:
+                            return True
+
+                        if self.threshold is not None:
                             return True
 
                         return False
@@ -362,7 +362,7 @@ class RouterConvergence(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rcmd-cfg:priorities'
 
@@ -388,7 +388,7 @@ class RouterConvergence(object):
             @property
             def _common_path(self):
                 if self.protocol_name is None:
-                    raise YPYDataValidationError('Key property protocol_name is None')
+                    raise YPYModelError('Key property protocol_name is None')
 
                 return '/Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/Cisco-IOS-XR-infra-rcmd-cfg:protocols/Cisco-IOS-XR-infra-rcmd-cfg:protocol[Cisco-IOS-XR-infra-rcmd-cfg:protocol-name = ' + str(self.protocol_name) + ']'
 
@@ -402,10 +402,10 @@ class RouterConvergence(object):
                 if self.protocol_name is not None:
                     return True
 
-                if self.priorities is not None and self.priorities._has_data():
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.priorities is not None and self.priorities._has_data():
                     return True
 
                 return False
@@ -478,22 +478,22 @@ class RouterConvergence(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: reports_size
+        .. attribute:: reports
         
-        	Maximum size of reports dir (5% \- 80%) for local storage
-        	**type**\: int
-        
-        	**range:** 5..80
+        	Absolute directory path for storing reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
+        	**type**\: str
         
         .. attribute:: _is_presence
         
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: reports
+        .. attribute:: reports_size
         
-        	Absolute directory path for storing reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
-        	**type**\: str
+        	Maximum size of reports dir (5% \- 80%) for local storage
+        	**type**\: int
+        
+        	**range:** 5..80
         
         .. attribute:: _is_presence
         
@@ -514,8 +514,8 @@ class RouterConvergence(object):
             self.diagnostics = None
             self.diagnostics_size = None
             self.enable = None
-            self.reports_size = None
             self.reports = None
+            self.reports_size = None
 
         @property
         def _common_path(self):
@@ -538,10 +538,10 @@ class RouterConvergence(object):
             if self.enable is not None:
                 return True
 
-            if self.reports_size is not None:
+            if self.reports is not None:
                 return True
 
-            if self.reports is not None:
+            if self.reports_size is not None:
                 return True
 
             return False
@@ -556,20 +556,20 @@ class RouterConvergence(object):
         """
         RCMD related configuration for MPLS\-LDP
         
-        .. attribute:: remote_lfa
+        .. attribute:: enable
         
-        	Monitoring configuration for Remote LFA
-        	**type**\: :py:class:`RemoteLfa <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp.RemoteLfa>`
+        	Enable RCMD related configuration for MPLS\-LDP. Deletion of this object also causes deletion of all associated objects under MPLS\-LDP
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: _is_presence
         
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: enable
+        .. attribute:: remote_lfa
         
-        	Enable RCMD related configuration for MPLS\-LDP. Deletion of this object also causes deletion of all associated objects under MPLS\-LDP
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Monitoring configuration for Remote LFA
+        	**type**\: :py:class:`RemoteLfa <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp.RemoteLfa>`
         
         .. attribute:: _is_presence
         
@@ -587,13 +587,23 @@ class RouterConvergence(object):
 
         def __init__(self):
             self.parent = None
-            self.remote_lfa = None
             self.enable = None
+            self.remote_lfa = None
 
 
         class RemoteLfa(object):
             """
             Monitoring configuration for Remote LFA
+            
+            .. attribute:: enable
+            
+            	Enable Monitoring configuration for Remote LFA . Deletion of this object also causes deletion of all associated objects under RemoteLFA
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: threshold
             
@@ -601,16 +611,6 @@ class RouterConvergence(object):
             	**type**\: int
             
             	**range:** 1..100
-            
-            .. attribute:: _is_presence
-            
-            	Is present if this instance represents presence container else not
-            	**type**\: bool
-            
-            .. attribute:: enable
-            
-            	Enable Monitoring configuration for Remote LFA . Deletion of this object also causes deletion of all associated objects under RemoteLFA
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: _is_presence
             
@@ -628,8 +628,8 @@ class RouterConvergence(object):
 
             def __init__(self):
                 self.parent = None
-                self.threshold = None
                 self.enable = None
+                self.threshold = None
 
             @property
             def _common_path(self):
@@ -643,10 +643,10 @@ class RouterConvergence(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.threshold is not None:
+                if self.enable is not None:
                     return True
 
-                if self.enable is not None:
+                if self.threshold is not None:
                     return True
 
                 return False
@@ -668,10 +668,10 @@ class RouterConvergence(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.remote_lfa is not None and self.remote_lfa._has_data():
+            if self.enable is not None:
                 return True
 
-            if self.enable is not None:
+            if self.remote_lfa is not None and self.remote_lfa._has_data():
                 return True
 
             return False
@@ -736,7 +736,7 @@ class RouterConvergence(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/Cisco-IOS-XR-infra-rcmd-cfg:collect-diagnostics/Cisco-IOS-XR-infra-rcmd-cfg:collect-diagnostic[Cisco-IOS-XR-infra-rcmd-cfg:node-name = ' + str(self.node_name) + ']'
 
@@ -846,7 +846,7 @@ class RouterConvergence(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/Cisco-IOS-XR-infra-rcmd-cfg:nodes/Cisco-IOS-XR-infra-rcmd-cfg:node[Cisco-IOS-XR-infra-rcmd-cfg:node-name = ' + str(self.node_name) + ']'
 
@@ -909,25 +909,7 @@ class RouterConvergence(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.protocols is not None and self.protocols._has_data():
-            return True
-
-        if self.storage_location is not None and self.storage_location._has_data():
-            return True
-
-        if self.mpls_ldp is not None and self.mpls_ldp._has_data():
-            return True
-
         if self.collect_diagnostics is not None and self.collect_diagnostics._has_data():
-            return True
-
-        if self.nodes is not None and self.nodes._has_data():
-            return True
-
-        if self.event_buffer_size is not None:
-            return True
-
-        if self.prefix_monitor_limit is not None:
             return True
 
         if self.disable is not None:
@@ -936,10 +918,28 @@ class RouterConvergence(object):
         if self.enable is not None:
             return True
 
+        if self.event_buffer_size is not None:
+            return True
+
         if self.max_events_stored is not None:
             return True
 
         if self.monitoring_interval is not None:
+            return True
+
+        if self.mpls_ldp is not None and self.mpls_ldp._has_data():
+            return True
+
+        if self.nodes is not None and self.nodes._has_data():
+            return True
+
+        if self.prefix_monitor_limit is not None:
+            return True
+
+        if self.protocols is not None and self.protocols._has_data():
+            return True
+
+        if self.storage_location is not None and self.storage_location._has_data():
             return True
 
         return False

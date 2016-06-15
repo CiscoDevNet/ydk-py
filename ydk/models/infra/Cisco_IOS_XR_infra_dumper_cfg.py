@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -34,20 +34,15 @@ class Exception(object):
     	Preference of the dump location
     	**type**\: :py:class:`Choice1 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice1>`
     
-    .. attribute:: choice3
-    
-    	Preference of the dump location
-    	**type**\: :py:class:`Choice3 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
-    
     .. attribute:: choice2
     
     	Preference of the dump location
     	**type**\: :py:class:`Choice2 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice2>`
     
-    .. attribute:: sparse
+    .. attribute:: choice3
     
-    	Specify 'true' to enable sparse core dump, 'false' to disable sparse core dump
-    	**type**\: bool
+    	Preference of the dump location
+    	**type**\: :py:class:`Choice3 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
     
     .. attribute:: kernel_debugger
     
@@ -57,6 +52,11 @@ class Exception(object):
     .. attribute:: packet_memory
     
     	Specify 'true' to dump packet memory for all process, 'false' to disable dump of packet memory
+    	**type**\: bool
+    
+    .. attribute:: sparse
+    
+    	Specify 'true' to enable sparse core dump, 'false' to disable sparse core dump
     	**type**\: bool
     
     .. attribute:: sparse_size
@@ -75,11 +75,11 @@ class Exception(object):
 
     def __init__(self):
         self.choice1 = None
-        self.choice3 = None
         self.choice2 = None
-        self.sparse = None
+        self.choice3 = None
         self.kernel_debugger = None
         self.packet_memory = None
+        self.sparse = None
         self.sparse_size = None
 
 
@@ -91,30 +91,6 @@ class Exception(object):
         
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
         	**type**\: bool
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: lower_limit
-        
-        	Lower limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 0..4
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: higher_limit
-        
-        	Higher limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 5..64
         
         .. attribute:: _is_presence
         
@@ -141,6 +117,30 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: higher_limit
+        
+        	Higher limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 5..64
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: lower_limit
+        
+        	Lower limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -153,10 +153,10 @@ class Exception(object):
         def __init__(self):
             self.parent = None
             self.compress = None
-            self.lower_limit = None
-            self.higher_limit = None
             self.file_path = None
             self.filename = None
+            self.higher_limit = None
+            self.lower_limit = None
 
         @property
         def _common_path(self):
@@ -173,16 +173,16 @@ class Exception(object):
             if self.compress is not None:
                 return True
 
-            if self.lower_limit is not None:
+            if self.file_path is not None:
+                return True
+
+            if self.filename is not None:
                 return True
 
             if self.higher_limit is not None:
                 return True
 
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
+            if self.lower_limit is not None:
                 return True
 
             return False
@@ -207,30 +207,6 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: lower_limit
-        
-        	Lower limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 0..4
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: higher_limit
-        
-        	Higher limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 5..64
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: file_path
         
         	Protocol and directory
@@ -251,6 +227,30 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: higher_limit
+        
+        	Higher limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 5..64
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: lower_limit
+        
+        	Lower limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -263,10 +263,10 @@ class Exception(object):
         def __init__(self):
             self.parent = None
             self.compress = None
-            self.lower_limit = None
-            self.higher_limit = None
             self.file_path = None
             self.filename = None
+            self.higher_limit = None
+            self.lower_limit = None
 
         @property
         def _common_path(self):
@@ -283,16 +283,16 @@ class Exception(object):
             if self.compress is not None:
                 return True
 
-            if self.lower_limit is not None:
+            if self.file_path is not None:
+                return True
+
+            if self.filename is not None:
                 return True
 
             if self.higher_limit is not None:
                 return True
 
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
+            if self.lower_limit is not None:
                 return True
 
             return False
@@ -317,30 +317,6 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: lower_limit
-        
-        	Lower limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 0..4
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: higher_limit
-        
-        	Higher limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 5..64
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: file_path
         
         	Protocol and directory
@@ -361,6 +337,30 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: higher_limit
+        
+        	Higher limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 5..64
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: lower_limit
+        
+        	Lower limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -373,10 +373,10 @@ class Exception(object):
         def __init__(self):
             self.parent = None
             self.compress = None
-            self.lower_limit = None
-            self.higher_limit = None
             self.file_path = None
             self.filename = None
+            self.higher_limit = None
+            self.lower_limit = None
 
         @property
         def _common_path(self):
@@ -393,16 +393,16 @@ class Exception(object):
             if self.compress is not None:
                 return True
 
-            if self.lower_limit is not None:
+            if self.file_path is not None:
+                return True
+
+            if self.filename is not None:
                 return True
 
             if self.higher_limit is not None:
                 return True
 
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
+            if self.lower_limit is not None:
                 return True
 
             return False
@@ -427,19 +427,19 @@ class Exception(object):
         if self.choice1 is not None and self.choice1._has_data():
             return True
 
-        if self.choice3 is not None and self.choice3._has_data():
-            return True
-
         if self.choice2 is not None and self.choice2._has_data():
             return True
 
-        if self.sparse is not None:
+        if self.choice3 is not None and self.choice3._has_data():
             return True
 
         if self.kernel_debugger is not None:
             return True
 
         if self.packet_memory is not None:
+            return True
+
+        if self.sparse is not None:
             return True
 
         if self.sparse_size is not None:

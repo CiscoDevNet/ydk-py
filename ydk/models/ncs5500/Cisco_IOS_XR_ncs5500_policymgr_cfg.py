@@ -16,7 +16,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -364,11 +364,6 @@ class PolicyManager(object):
             """
             Class\-map configuration.
             
-            .. attribute:: type  <key>
-            
-            	Type of class\-map
-            	**type**\: :py:class:`ClassMapTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.ClassMapTypeEnum>`
-            
             .. attribute:: name  <key>
             
             	Name of class\-map
@@ -376,15 +371,25 @@ class PolicyManager(object):
             
             	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
             
-            .. attribute:: class_map_mode_match_any
+            .. attribute:: type  <key>
             
-            	Match all match criteria
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	Type of class\-map
+            	**type**\: :py:class:`ClassMapTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.ClassMapTypeEnum>`
             
             .. attribute:: class_map_mode_match_all
             
             	Match any match criteria
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: class_map_mode_match_any
+            
+            	Match all match criteria
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: description
+            
+            	Description for this policy\-map
+            	**type**\: str
             
             .. attribute:: match
             
@@ -396,11 +401,6 @@ class PolicyManager(object):
             	Match not rules
             	**type**\: :py:class:`MatchNot <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot>`
             
-            .. attribute:: description
-            
-            	Description for this policy\-map
-            	**type**\: str
-            
             
 
             """
@@ -410,197 +410,39 @@ class PolicyManager(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
                 self.name = None
-                self.class_map_mode_match_any = None
+                self.type = None
                 self.class_map_mode_match_all = None
+                self.class_map_mode_match_any = None
+                self.description = None
                 self.match = PolicyManager.ClassMaps.ClassMap.Match()
                 self.match.parent = self
                 self.match_not = PolicyManager.ClassMaps.ClassMap.MatchNot()
                 self.match_not.parent = self
-                self.description = None
 
 
             class Match(object):
                 """
                 Match rules.
                 
-                .. attribute:: ipv4_dscp
+                .. attribute:: atm_clp
                 
-                	Match IPv4 DSCP
-                	**type**\: list of str
+                	Match ATM CLP bit
+                	**type**\: int
                 
-                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                	**range:** 0..1
                 
-                .. attribute:: ipv6_dscp
+                .. attribute:: atm_oam
                 
-                	Match IPv6 DSCP
-                	**type**\: list of str
+                	Match ATM OAM
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                .. attribute:: authen_status
                 
-                .. attribute:: dscp
-                
-                	Match DSCP
-                	**type**\: list of str
-                
-                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
-                
-                .. attribute:: ipv4_precedence
-                
-                	Match IPv4 precedence
-                	**type**\: one of the below types:
-                
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                
-                ----
-                	**type**\: list of str
-                
-                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
-                
-                
-                ----
-                .. attribute:: ipv6_precedence
-                
-                	Match IPv6 precedence
-                	**type**\: one of the below types:
-                
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                
-                ----
-                	**type**\: list of str
-                
-                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
-                
-                
-                ----
-                .. attribute:: precedence
-                
-                	Match precedence
-                	**type**\: one of the below types:
-                
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                
-                ----
-                	**type**\: list of str
-                
-                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
-                
-                
-                ----
-                .. attribute:: qos_group
-                
-                	Match QoS group
-                	**type**\: list of int
-                
-                	**range:** 0..512
-                
-                .. attribute:: cos
-                
-                	Match CoS
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: inner_cos
-                
-                	Match inner CoS
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: protocol
-                
-                	Match protocol
-                	**type**\: list of str
-                
-                	**pattern:** ([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\|(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\\-([1\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5]))\|((ahp)\|(dhcpv4)\|(dhcpv6)\|(eigrp)\|(esp)\|(gre)\|(icmp)\|(igmp)\|(igrp)\|(ipinip)\|(ipv4)\|(ipv6)\|(ipv6icmp)\|(mpls)\|(nos)\|(ospf)\|(pcp)\|(pim)\|(ppp)\|(sctp)\|(tcp)\|(udp))
-                
-                .. attribute:: ipv4_acl
-                
-                	Match IPv4 ACL
+                	Match authentication status
                 	**type**\: str
                 
-                	**range:** 1..64
-                
-                .. attribute:: ipv6_acl
-                
-                	Match IPv6 ACL
-                	**type**\: str
-                
-                	**range:** 1..64
-                
-                .. attribute:: mpls_experimental_topmost
-                
-                	Match MPLS experimental topmost label
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: mpls_experimental_imposition
-                
-                	Match MPLS experimental imposition label
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: discard_class
-                
-                	Match discard class
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: ipv4_packet_length
-                
-                	Match IPv4 packet length. Should be value 0..65535 or range
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: ipv6_packet_length
-                
-                	Match IPv6 packet length.  Should be value 0..65535 or range
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: packet_length
-                
-                	Match packet length.  Should be value 0..65535 or range
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: mpls_disposition_ipv4_access_list
-                
-                	Match MPLS Label Disposition IPv4 access list
-                	**type**\: str
-                
-                	**range:** 1..32
-                
-                .. attribute:: mpls_disposition_ipv6_access_list
-                
-                	Match MPLS Label Disposition IPv6 access list
-                	**type**\: str
-                
-                	**range:** 1..32
-                
-                .. attribute:: vlan
-                
-                	Match VLAN ID
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                	**pattern:** (authenticated)\|(unauthenticated)
                 
                 .. attribute:: cac_admit
                 
@@ -612,12 +454,12 @@ class PolicyManager(object):
                 	Match CAC unadmitted
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: flow_tag
+                .. attribute:: cos
                 
-                	Match flow\-tag. Should be value 1..63 or range
-                	**type**\: list of str
+                	Match CoS
+                	**type**\: list of int
                 
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                	**range:** 0..7
                 
                 .. attribute:: destination_address_ipv4
                 
@@ -629,12 +471,57 @@ class PolicyManager(object):
                 	Match destination IPv6 address
                 	**type**\: list of :py:class:`DestinationAddressIpv6 <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6>`
                 
+                .. attribute:: destination_mac
+                
+                	Match destination MAC address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
                 .. attribute:: destination_port
                 
                 	Match destination port.  Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: discard_class
+                
+                	Match discard class
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: domain_name
+                
+                	Match domain name
+                	**type**\: list of :py:class:`DomainName <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainName>`
+                
+                .. attribute:: dscp
+                
+                	Match DSCP
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                
+                .. attribute:: flow
+                
+                	Match flow
+                	**type**\: :py:class:`Flow <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow>`
+                
+                .. attribute:: flow_tag
+                
+                	Match flow\-tag. Should be value 1..63 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: fr_de
+                
+                	Match FrameRelay DE bit
+                	**type**\: int
+                
+                	**range:** 0..1
                 
                 .. attribute:: fragment_type
                 
@@ -678,41 +565,161 @@ class PolicyManager(object):
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
-                .. attribute:: source_address_ipv4
+                .. attribute:: inner_cos
                 
-                	Match source IPv4 address
-                	**type**\: list of :py:class:`SourceAddressIpv4 <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4>`
+                	Match inner CoS
+                	**type**\: list of int
                 
-                .. attribute:: source_address_ipv6
+                	**range:** 0..7
                 
-                	Match source IPv6 address
-                	**type**\: list of :py:class:`SourceAddressIpv6 <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6>`
+                .. attribute:: inner_vlan
                 
-                .. attribute:: source_port
-                
-                	Match source port.  Should be value 0..65535 or range
+                	Match inner VLAN ID
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
-                .. attribute:: tcp_flag
+                .. attribute:: ipv4_acl
                 
-                	Match TCP flag
-                	**type**\: int
-                
-                	**range:** 1..4095
-                
-                .. attribute:: authen_status
-                
-                	Match authentication status
+                	Match IPv4 ACL
                 	**type**\: str
                 
-                	**pattern:** (authenticated)\|(unauthenticated)
+                	**range:** 1..64
                 
-                .. attribute:: domain_name
+                .. attribute:: ipv4_dscp
                 
-                	Match domain name
-                	**type**\: list of :py:class:`DomainName <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainName>`
+                	Match IPv4 DSCP
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                
+                .. attribute:: ipv4_packet_length
+                
+                	Match IPv4 packet length. Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: ipv4_precedence
+                
+                	Match IPv4 precedence
+                	**type**\: one of the below types:
+                
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                
+                ----
+                	**type**\: list of str
+                
+                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                
+                
+                ----
+                .. attribute:: ipv6_acl
+                
+                	Match IPv6 ACL
+                	**type**\: str
+                
+                	**range:** 1..64
+                
+                .. attribute:: ipv6_dscp
+                
+                	Match IPv6 DSCP
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                
+                .. attribute:: ipv6_packet_length
+                
+                	Match IPv6 packet length.  Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: ipv6_precedence
+                
+                	Match IPv6 precedence
+                	**type**\: one of the below types:
+                
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                
+                ----
+                	**type**\: list of str
+                
+                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                
+                
+                ----
+                .. attribute:: mpls_disposition_ipv4_access_list
+                
+                	Match MPLS Label Disposition IPv4 access list
+                	**type**\: str
+                
+                	**range:** 1..32
+                
+                .. attribute:: mpls_disposition_ipv6_access_list
+                
+                	Match MPLS Label Disposition IPv6 access list
+                	**type**\: str
+                
+                	**range:** 1..32
+                
+                .. attribute:: mpls_experimental_imposition
+                
+                	Match MPLS experimental imposition label
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: mpls_experimental_topmost
+                
+                	Match MPLS experimental topmost label
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: packet_length
+                
+                	Match packet length.  Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: precedence
+                
+                	Match precedence
+                	**type**\: one of the below types:
+                
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                
+                ----
+                	**type**\: list of str
+                
+                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                
+                
+                ----
+                .. attribute:: protocol
+                
+                	Match protocol
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\|(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\\-([1\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5]))\|((ahp)\|(dhcpv4)\|(dhcpv6)\|(eigrp)\|(esp)\|(gre)\|(icmp)\|(igmp)\|(igrp)\|(ipinip)\|(ipv4)\|(ipv6)\|(ipv6icmp)\|(mpls)\|(nos)\|(ospf)\|(pcp)\|(pim)\|(ppp)\|(sctp)\|(tcp)\|(udp))
+                
+                .. attribute:: qos_group
+                
+                	Match QoS group
+                	**type**\: list of int
+                
+                	**range:** 0..512
                 
                 .. attribute:: service_name
                 
@@ -727,6 +734,37 @@ class PolicyManager(object):
                 	**type**\: list of str
                 
                 	**range:** 1..32
+                
+                .. attribute:: source_address_ipv4
+                
+                	Match source IPv4 address
+                	**type**\: list of :py:class:`SourceAddressIpv4 <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4>`
+                
+                .. attribute:: source_address_ipv6
+                
+                	Match source IPv6 address
+                	**type**\: list of :py:class:`SourceAddressIpv6 <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6>`
+                
+                .. attribute:: source_mac
+                
+                	Match source MAC address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: source_port
+                
+                	Match source port.  Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: tcp_flag
+                
+                	Match TCP flag
+                	**type**\: int
+                
+                	**range:** 1..4095
                 
                 .. attribute:: timer
                 
@@ -756,50 +794,12 @@ class PolicyManager(object):
                 
                 	**range:** 1..32
                 
-                .. attribute:: source_mac
+                .. attribute:: vlan
                 
-                	Match source MAC address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: destination_mac
-                
-                	Match destination MAC address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: inner_vlan
-                
-                	Match inner VLAN ID
+                	Match VLAN ID
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: atm_clp
-                
-                	Match ATM CLP bit
-                	**type**\: int
-                
-                	**range:** 0..1
-                
-                .. attribute:: atm_oam
-                
-                	Match ATM OAM
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: flow
-                
-                	Match flow
-                	**type**\: :py:class:`Flow <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow>`
-                
-                .. attribute:: fr_de
-                
-                	Match FrameRelay DE bit
-                	**type**\: int
-                
-                	**range:** 0..1
                 
                 
 
@@ -810,75 +810,39 @@ class PolicyManager(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ipv4_dscp = YLeafList()
-                    self.ipv4_dscp.parent = self
-                    self.ipv4_dscp.name = 'ipv4_dscp'
-                    self.ipv6_dscp = YLeafList()
-                    self.ipv6_dscp.parent = self
-                    self.ipv6_dscp.name = 'ipv6_dscp'
-                    self.dscp = YLeafList()
-                    self.dscp.parent = self
-                    self.dscp.name = 'dscp'
-                    self.ipv4_precedence = YLeafList()
-                    self.ipv4_precedence.parent = self
-                    self.ipv4_precedence.name = 'ipv4_precedence'
-                    self.ipv6_precedence = YLeafList()
-                    self.ipv6_precedence.parent = self
-                    self.ipv6_precedence.name = 'ipv6_precedence'
-                    self.precedence = YLeafList()
-                    self.precedence.parent = self
-                    self.precedence.name = 'precedence'
-                    self.qos_group = YLeafList()
-                    self.qos_group.parent = self
-                    self.qos_group.name = 'qos_group'
+                    self.atm_clp = None
+                    self.atm_oam = None
+                    self.authen_status = None
+                    self.cac_admit = None
+                    self.cac_unadmit = None
                     self.cos = YLeafList()
                     self.cos.parent = self
                     self.cos.name = 'cos'
-                    self.inner_cos = YLeafList()
-                    self.inner_cos.parent = self
-                    self.inner_cos.name = 'inner_cos'
-                    self.protocol = YLeafList()
-                    self.protocol.parent = self
-                    self.protocol.name = 'protocol'
-                    self.ipv4_acl = None
-                    self.ipv6_acl = None
-                    self.mpls_experimental_topmost = YLeafList()
-                    self.mpls_experimental_topmost.parent = self
-                    self.mpls_experimental_topmost.name = 'mpls_experimental_topmost'
-                    self.mpls_experimental_imposition = YLeafList()
-                    self.mpls_experimental_imposition.parent = self
-                    self.mpls_experimental_imposition.name = 'mpls_experimental_imposition'
-                    self.discard_class = YLeafList()
-                    self.discard_class.parent = self
-                    self.discard_class.name = 'discard_class'
-                    self.ipv4_packet_length = YLeafList()
-                    self.ipv4_packet_length.parent = self
-                    self.ipv4_packet_length.name = 'ipv4_packet_length'
-                    self.ipv6_packet_length = YLeafList()
-                    self.ipv6_packet_length.parent = self
-                    self.ipv6_packet_length.name = 'ipv6_packet_length'
-                    self.packet_length = YLeafList()
-                    self.packet_length.parent = self
-                    self.packet_length.name = 'packet_length'
-                    self.mpls_disposition_ipv4_access_list = None
-                    self.mpls_disposition_ipv6_access_list = None
-                    self.vlan = YLeafList()
-                    self.vlan.parent = self
-                    self.vlan.name = 'vlan'
-                    self.cac_admit = None
-                    self.cac_unadmit = None
-                    self.flow_tag = YLeafList()
-                    self.flow_tag.parent = self
-                    self.flow_tag.name = 'flow_tag'
                     self.destination_address_ipv4 = YList()
                     self.destination_address_ipv4.parent = self
                     self.destination_address_ipv4.name = 'destination_address_ipv4'
                     self.destination_address_ipv6 = YList()
                     self.destination_address_ipv6.parent = self
                     self.destination_address_ipv6.name = 'destination_address_ipv6'
+                    self.destination_mac = None
                     self.destination_port = YLeafList()
                     self.destination_port.parent = self
                     self.destination_port.name = 'destination_port'
+                    self.discard_class = YLeafList()
+                    self.discard_class.parent = self
+                    self.discard_class.name = 'discard_class'
+                    self.domain_name = YList()
+                    self.domain_name.parent = self
+                    self.domain_name.name = 'domain_name'
+                    self.dscp = YLeafList()
+                    self.dscp.parent = self
+                    self.dscp.name = 'dscp'
+                    self.flow = PolicyManager.ClassMaps.ClassMap.Match.Flow()
+                    self.flow.parent = self
+                    self.flow_tag = YLeafList()
+                    self.flow_tag.parent = self
+                    self.flow_tag.name = 'flow_tag'
+                    self.fr_de = None
                     self.fragment_type = YLeafList()
                     self.fragment_type.parent = self
                     self.fragment_type.name = 'fragment_type'
@@ -897,26 +861,69 @@ class PolicyManager(object):
                     self.icmpv6_type = YLeafList()
                     self.icmpv6_type.parent = self
                     self.icmpv6_type.name = 'icmpv6_type'
-                    self.source_address_ipv4 = YList()
-                    self.source_address_ipv4.parent = self
-                    self.source_address_ipv4.name = 'source_address_ipv4'
-                    self.source_address_ipv6 = YList()
-                    self.source_address_ipv6.parent = self
-                    self.source_address_ipv6.name = 'source_address_ipv6'
-                    self.source_port = YLeafList()
-                    self.source_port.parent = self
-                    self.source_port.name = 'source_port'
-                    self.tcp_flag = None
-                    self.authen_status = None
-                    self.domain_name = YList()
-                    self.domain_name.parent = self
-                    self.domain_name.name = 'domain_name'
+                    self.inner_cos = YLeafList()
+                    self.inner_cos.parent = self
+                    self.inner_cos.name = 'inner_cos'
+                    self.inner_vlan = YLeafList()
+                    self.inner_vlan.parent = self
+                    self.inner_vlan.name = 'inner_vlan'
+                    self.ipv4_acl = None
+                    self.ipv4_dscp = YLeafList()
+                    self.ipv4_dscp.parent = self
+                    self.ipv4_dscp.name = 'ipv4_dscp'
+                    self.ipv4_packet_length = YLeafList()
+                    self.ipv4_packet_length.parent = self
+                    self.ipv4_packet_length.name = 'ipv4_packet_length'
+                    self.ipv4_precedence = YLeafList()
+                    self.ipv4_precedence.parent = self
+                    self.ipv4_precedence.name = 'ipv4_precedence'
+                    self.ipv6_acl = None
+                    self.ipv6_dscp = YLeafList()
+                    self.ipv6_dscp.parent = self
+                    self.ipv6_dscp.name = 'ipv6_dscp'
+                    self.ipv6_packet_length = YLeafList()
+                    self.ipv6_packet_length.parent = self
+                    self.ipv6_packet_length.name = 'ipv6_packet_length'
+                    self.ipv6_precedence = YLeafList()
+                    self.ipv6_precedence.parent = self
+                    self.ipv6_precedence.name = 'ipv6_precedence'
+                    self.mpls_disposition_ipv4_access_list = None
+                    self.mpls_disposition_ipv6_access_list = None
+                    self.mpls_experimental_imposition = YLeafList()
+                    self.mpls_experimental_imposition.parent = self
+                    self.mpls_experimental_imposition.name = 'mpls_experimental_imposition'
+                    self.mpls_experimental_topmost = YLeafList()
+                    self.mpls_experimental_topmost.parent = self
+                    self.mpls_experimental_topmost.name = 'mpls_experimental_topmost'
+                    self.packet_length = YLeafList()
+                    self.packet_length.parent = self
+                    self.packet_length.name = 'packet_length'
+                    self.precedence = YLeafList()
+                    self.precedence.parent = self
+                    self.precedence.name = 'precedence'
+                    self.protocol = YLeafList()
+                    self.protocol.parent = self
+                    self.protocol.name = 'protocol'
+                    self.qos_group = YLeafList()
+                    self.qos_group.parent = self
+                    self.qos_group.name = 'qos_group'
                     self.service_name = YLeafList()
                     self.service_name.parent = self
                     self.service_name.name = 'service_name'
                     self.service_name_regex = YLeafList()
                     self.service_name_regex.parent = self
                     self.service_name_regex.name = 'service_name_regex'
+                    self.source_address_ipv4 = YList()
+                    self.source_address_ipv4.parent = self
+                    self.source_address_ipv4.name = 'source_address_ipv4'
+                    self.source_address_ipv6 = YList()
+                    self.source_address_ipv6.parent = self
+                    self.source_address_ipv6.name = 'source_address_ipv6'
+                    self.source_mac = None
+                    self.source_port = YLeafList()
+                    self.source_port.parent = self
+                    self.source_port.name = 'source_port'
+                    self.tcp_flag = None
                     self.timer = YLeafList()
                     self.timer.parent = self
                     self.timer.name = 'timer'
@@ -929,16 +936,9 @@ class PolicyManager(object):
                     self.user_name_regex = YLeafList()
                     self.user_name_regex.parent = self
                     self.user_name_regex.name = 'user_name_regex'
-                    self.source_mac = None
-                    self.destination_mac = None
-                    self.inner_vlan = YLeafList()
-                    self.inner_vlan.parent = self
-                    self.inner_vlan.name = 'inner_vlan'
-                    self.atm_clp = None
-                    self.atm_oam = None
-                    self.flow = PolicyManager.ClassMaps.ClassMap.Match.Flow()
-                    self.flow.parent = self
-                    self.fr_de = None
+                    self.vlan = YLeafList()
+                    self.vlan.parent = self
+                    self.vlan.name = 'vlan'
 
 
                 class DestinationAddressIpv4(object):
@@ -974,11 +974,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.netmask is None:
-                            raise YPYDataValidationError('Key property netmask is None')
+                            raise YPYModelError('Key property netmask is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:destination-address-ipv4[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:netmask = ' + str(self.netmask) + ']'
 
@@ -1036,11 +1036,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.prefix_length is None:
-                            raise YPYDataValidationError('Key property prefix_length is None')
+                            raise YPYModelError('Key property prefix_length is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:destination-address-ipv6[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
@@ -1098,11 +1098,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.netmask is None:
-                            raise YPYDataValidationError('Key property netmask is None')
+                            raise YPYModelError('Key property netmask is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:source-address-ipv4[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:netmask = ' + str(self.netmask) + ']'
 
@@ -1160,11 +1160,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.prefix_length is None:
-                            raise YPYDataValidationError('Key property prefix_length is None')
+                            raise YPYModelError('Key property prefix_length is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:source-address-ipv6[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
@@ -1193,16 +1193,16 @@ class PolicyManager(object):
                     """
                     Match domain name.
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: format  <key>
                     
-                    	Domain name or regular expression
+                    	Domain\-format name
                     	**type**\: str
                     
                     	**range:** 1..32
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: name  <key>
                     
-                    	Domain\-format name
+                    	Domain name or regular expression
                     	**type**\: str
                     
                     	**range:** 1..32
@@ -1216,19 +1216,19 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
                         self.format = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.format is None:
-                            raise YPYDataValidationError('Key property format is None')
+                            raise YPYModelError('Key property format is None')
+                        if self.name is None:
+                            raise YPYModelError('Key property name is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:domain-name[Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:format = ' + str(self.format) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:domain-name[Cisco-IOS-XR-ncs5500-policymgr-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -1237,10 +1237,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
+                        if self.format is not None:
                             return True
 
-                        if self.format is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -1255,17 +1255,17 @@ class PolicyManager(object):
                     """
                     Match flow.
                     
+                    .. attribute:: flow_cache
+                    
+                    	Configure the flow\-cache parameters
+                    	**type**\: :py:class:`FlowCache <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache>`
+                    
                     .. attribute:: flow_key
                     
                     	Configure the flow\-key parameters
                     	**type**\: list of str
                     
                     	**pattern:** (SourceIP)\|(DestinationIP)\|(5Tuple)
-                    
-                    .. attribute:: flow_cache
-                    
-                    	Configure the flow\-cache parameters
-                    	**type**\: :py:class:`FlowCache <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache>`
                     
                     
 
@@ -1276,11 +1276,11 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.flow_cache = PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache()
+                        self.flow_cache.parent = self
                         self.flow_key = YLeafList()
                         self.flow_key.parent = self
                         self.flow_key.name = 'flow_key'
-                        self.flow_cache = PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache()
-                        self.flow_cache.parent = self
 
 
                     class FlowCache(object):
@@ -1308,7 +1308,7 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:flow-cache'
 
@@ -1332,7 +1332,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:flow'
 
@@ -1343,13 +1343,13 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.flow_cache is not None and self.flow_cache._has_data():
+                            return True
+
                         if self.flow_key is not None:
                             for child in self.flow_key:
                                 if child is not None:
                                     return True
-
-                        if self.flow_cache is not None and self.flow_cache._has_data():
-                            return True
 
                         return False
 
@@ -1361,7 +1361,7 @@ class PolicyManager(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:match'
 
@@ -1372,102 +1372,14 @@ class PolicyManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ipv4_dscp is not None:
-                        for child in self.ipv4_dscp:
-                            if child is not None:
-                                return True
-
-                    if self.ipv6_dscp is not None:
-                        for child in self.ipv6_dscp:
-                            if child is not None:
-                                return True
-
-                    if self.dscp is not None:
-                        for child in self.dscp:
-                            if child is not None:
-                                return True
-
-                    if self.ipv4_precedence is not None:
-                        for child in self.ipv4_precedence:
-                            if child is not None:
-                                return True
-
-                    if self.ipv6_precedence is not None:
-                        for child in self.ipv6_precedence:
-                            if child is not None:
-                                return True
-
-                    if self.precedence is not None:
-                        for child in self.precedence:
-                            if child is not None:
-                                return True
-
-                    if self.qos_group is not None:
-                        for child in self.qos_group:
-                            if child is not None:
-                                return True
-
-                    if self.cos is not None:
-                        for child in self.cos:
-                            if child is not None:
-                                return True
-
-                    if self.inner_cos is not None:
-                        for child in self.inner_cos:
-                            if child is not None:
-                                return True
-
-                    if self.protocol is not None:
-                        for child in self.protocol:
-                            if child is not None:
-                                return True
-
-                    if self.ipv4_acl is not None:
+                    if self.atm_clp is not None:
                         return True
 
-                    if self.ipv6_acl is not None:
+                    if self.atm_oam is not None:
                         return True
 
-                    if self.mpls_experimental_topmost is not None:
-                        for child in self.mpls_experimental_topmost:
-                            if child is not None:
-                                return True
-
-                    if self.mpls_experimental_imposition is not None:
-                        for child in self.mpls_experimental_imposition:
-                            if child is not None:
-                                return True
-
-                    if self.discard_class is not None:
-                        for child in self.discard_class:
-                            if child is not None:
-                                return True
-
-                    if self.ipv4_packet_length is not None:
-                        for child in self.ipv4_packet_length:
-                            if child is not None:
-                                return True
-
-                    if self.ipv6_packet_length is not None:
-                        for child in self.ipv6_packet_length:
-                            if child is not None:
-                                return True
-
-                    if self.packet_length is not None:
-                        for child in self.packet_length:
-                            if child is not None:
-                                return True
-
-                    if self.mpls_disposition_ipv4_access_list is not None:
+                    if self.authen_status is not None:
                         return True
-
-                    if self.mpls_disposition_ipv6_access_list is not None:
-                        return True
-
-                    if self.vlan is not None:
-                        for child in self.vlan:
-                            if child is not None:
-                                return True
 
                     if self.cac_admit is not None:
                         return True
@@ -1475,8 +1387,8 @@ class PolicyManager(object):
                     if self.cac_unadmit is not None:
                         return True
 
-                    if self.flow_tag is not None:
-                        for child in self.flow_tag:
+                    if self.cos is not None:
+                        for child in self.cos:
                             if child is not None:
                                 return True
 
@@ -1490,10 +1402,39 @@ class PolicyManager(object):
                             if child_ref._has_data():
                                 return True
 
+                    if self.destination_mac is not None:
+                        return True
+
                     if self.destination_port is not None:
                         for child in self.destination_port:
                             if child is not None:
                                 return True
+
+                    if self.discard_class is not None:
+                        for child in self.discard_class:
+                            if child is not None:
+                                return True
+
+                    if self.domain_name is not None:
+                        for child_ref in self.domain_name:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.dscp is not None:
+                        for child in self.dscp:
+                            if child is not None:
+                                return True
+
+                    if self.flow is not None and self.flow._has_data():
+                        return True
+
+                    if self.flow_tag is not None:
+                        for child in self.flow_tag:
+                            if child is not None:
+                                return True
+
+                    if self.fr_de is not None:
+                        return True
 
                     if self.fragment_type is not None:
                         for child in self.fragment_type:
@@ -1525,30 +1466,86 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
-                    if self.source_address_ipv4 is not None:
-                        for child_ref in self.source_address_ipv4:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.source_address_ipv6 is not None:
-                        for child_ref in self.source_address_ipv6:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.source_port is not None:
-                        for child in self.source_port:
+                    if self.inner_cos is not None:
+                        for child in self.inner_cos:
                             if child is not None:
                                 return True
 
-                    if self.tcp_flag is not None:
+                    if self.inner_vlan is not None:
+                        for child in self.inner_vlan:
+                            if child is not None:
+                                return True
+
+                    if self.ipv4_acl is not None:
                         return True
 
-                    if self.authen_status is not None:
+                    if self.ipv4_dscp is not None:
+                        for child in self.ipv4_dscp:
+                            if child is not None:
+                                return True
+
+                    if self.ipv4_packet_length is not None:
+                        for child in self.ipv4_packet_length:
+                            if child is not None:
+                                return True
+
+                    if self.ipv4_precedence is not None:
+                        for child in self.ipv4_precedence:
+                            if child is not None:
+                                return True
+
+                    if self.ipv6_acl is not None:
                         return True
 
-                    if self.domain_name is not None:
-                        for child_ref in self.domain_name:
-                            if child_ref._has_data():
+                    if self.ipv6_dscp is not None:
+                        for child in self.ipv6_dscp:
+                            if child is not None:
+                                return True
+
+                    if self.ipv6_packet_length is not None:
+                        for child in self.ipv6_packet_length:
+                            if child is not None:
+                                return True
+
+                    if self.ipv6_precedence is not None:
+                        for child in self.ipv6_precedence:
+                            if child is not None:
+                                return True
+
+                    if self.mpls_disposition_ipv4_access_list is not None:
+                        return True
+
+                    if self.mpls_disposition_ipv6_access_list is not None:
+                        return True
+
+                    if self.mpls_experimental_imposition is not None:
+                        for child in self.mpls_experimental_imposition:
+                            if child is not None:
+                                return True
+
+                    if self.mpls_experimental_topmost is not None:
+                        for child in self.mpls_experimental_topmost:
+                            if child is not None:
+                                return True
+
+                    if self.packet_length is not None:
+                        for child in self.packet_length:
+                            if child is not None:
+                                return True
+
+                    if self.precedence is not None:
+                        for child in self.precedence:
+                            if child is not None:
+                                return True
+
+                    if self.protocol is not None:
+                        for child in self.protocol:
+                            if child is not None:
+                                return True
+
+                    if self.qos_group is not None:
+                        for child in self.qos_group:
+                            if child is not None:
                                 return True
 
                     if self.service_name is not None:
@@ -1560,6 +1557,27 @@ class PolicyManager(object):
                         for child in self.service_name_regex:
                             if child is not None:
                                 return True
+
+                    if self.source_address_ipv4 is not None:
+                        for child_ref in self.source_address_ipv4:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.source_address_ipv6 is not None:
+                        for child_ref in self.source_address_ipv6:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.source_mac is not None:
+                        return True
+
+                    if self.source_port is not None:
+                        for child in self.source_port:
+                            if child is not None:
+                                return True
+
+                    if self.tcp_flag is not None:
+                        return True
 
                     if self.timer is not None:
                         for child in self.timer:
@@ -1581,28 +1599,10 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
-                    if self.source_mac is not None:
-                        return True
-
-                    if self.destination_mac is not None:
-                        return True
-
-                    if self.inner_vlan is not None:
-                        for child in self.inner_vlan:
+                    if self.vlan is not None:
+                        for child in self.vlan:
                             if child is not None:
                                 return True
-
-                    if self.atm_clp is not None:
-                        return True
-
-                    if self.atm_oam is not None:
-                        return True
-
-                    if self.flow is not None and self.flow._has_data():
-                        return True
-
-                    if self.fr_de is not None:
-                        return True
 
                     return False
 
@@ -1616,182 +1616,12 @@ class PolicyManager(object):
                 """
                 Match not rules.
                 
-                .. attribute:: ipv4_dscp
+                .. attribute:: authen_status
                 
-                	Match IPv4 DSCP
-                	**type**\: list of str
-                
-                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
-                
-                .. attribute:: ipv6_dscp
-                
-                	Match IPv6 DSCP
-                	**type**\: list of str
-                
-                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
-                
-                .. attribute:: dscp
-                
-                	Match DSCP
-                	**type**\: list of str
-                
-                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
-                
-                .. attribute:: ipv4_precedence
-                
-                	Match IPv4 precedence
-                	**type**\: one of the below types:
-                
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                
-                ----
-                	**type**\: list of str
-                
-                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
-                
-                
-                ----
-                .. attribute:: ipv6_precedence
-                
-                	Match IPv6 precedence
-                	**type**\: one of the below types:
-                
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                
-                ----
-                	**type**\: list of str
-                
-                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
-                
-                
-                ----
-                .. attribute:: precedence
-                
-                	Match precedence
-                	**type**\: one of the below types:
-                
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                
-                ----
-                	**type**\: list of str
-                
-                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
-                
-                
-                ----
-                .. attribute:: qos_group
-                
-                	Match QoS group
-                	**type**\: list of int
-                
-                	**range:** 0..512
-                
-                .. attribute:: cos
-                
-                	Match CoS
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: inner_cos
-                
-                	Match inner CoS
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: protocol
-                
-                	Match protocol
-                	**type**\: list of str
-                
-                	**pattern:** ([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\|(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\\-([1\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5]))\|((ahp)\|(dhcpv4)\|(dhcpv6)\|(eigrp)\|(esp)\|(gre)\|(icmp)\|(igmp)\|(igrp)\|(ipinip)\|(ipv4)\|(ipv6)\|(ipv6icmp)\|(mpls)\|(nos)\|(ospf)\|(pcp)\|(pim)\|(ppp)\|(sctp)\|(tcp)\|(udp))
-                
-                .. attribute:: ipv4_acl
-                
-                	Match IPv4 ACL
+                	Match authentication status
                 	**type**\: str
                 
-                	**range:** 1..64
-                
-                .. attribute:: ipv6_acl
-                
-                	Match IPv6 ACL
-                	**type**\: str
-                
-                	**range:** 1..64
-                
-                .. attribute:: mpls_experimental_topmost
-                
-                	Match MPLS experimental topmost label
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: mpls_experimental_imposition
-                
-                	Match MPLS experimental imposition label
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: discard_class
-                
-                	Match discard class
-                	**type**\: list of int
-                
-                	**range:** 0..7
-                
-                .. attribute:: ipv4_packet_length
-                
-                	Match IPv4 packet length. Should be value 0..65535 or range
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: ipv6_packet_length
-                
-                	Match IPv6 packet length.  Should be value 0..65535 or range
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: packet_length
-                
-                	Match packet length.  Should be value 0..65535 or range
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
-                
-                .. attribute:: mpls_disposition_ipv4_access_list
-                
-                	Match MPLS Label Disposition IPv4 access list
-                	**type**\: str
-                
-                	**range:** 1..32
-                
-                .. attribute:: mpls_disposition_ipv6_access_list
-                
-                	Match MPLS Label Disposition IPv6 access list
-                	**type**\: str
-                
-                	**range:** 1..32
-                
-                .. attribute:: vlan
-                
-                	Match VLAN ID
-                	**type**\: list of str
-                
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                	**pattern:** (authenticated)\|(unauthenticated)
                 
                 .. attribute:: cac_admit
                 
@@ -1803,12 +1633,12 @@ class PolicyManager(object):
                 	Match CAC unadmitted
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: flow_tag
+                .. attribute:: cos
                 
-                	Match flow\-tag. Should be value 1..63 or range
-                	**type**\: list of str
+                	Match CoS
+                	**type**\: list of int
                 
-                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                	**range:** 0..7
                 
                 .. attribute:: destination_address_ipv4
                 
@@ -1823,6 +1653,32 @@ class PolicyManager(object):
                 .. attribute:: destination_port
                 
                 	Match destination port.  Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: discard_class
+                
+                	Match discard class
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: domain_name
+                
+                	Match domain name
+                	**type**\: list of :py:class:`DomainName <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName>`
+                
+                .. attribute:: dscp
+                
+                	Match DSCP
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                
+                .. attribute:: flow_tag
+                
+                	Match flow\-tag. Should be value 1..63 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1869,6 +1725,169 @@ class PolicyManager(object):
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
+                .. attribute:: inner_cos
+                
+                	Match inner CoS
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: ipv4_acl
+                
+                	Match IPv4 ACL
+                	**type**\: str
+                
+                	**range:** 1..64
+                
+                .. attribute:: ipv4_dscp
+                
+                	Match IPv4 DSCP
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                
+                .. attribute:: ipv4_packet_length
+                
+                	Match IPv4 packet length. Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: ipv4_precedence
+                
+                	Match IPv4 precedence
+                	**type**\: one of the below types:
+                
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                
+                ----
+                	**type**\: list of str
+                
+                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                
+                
+                ----
+                .. attribute:: ipv6_acl
+                
+                	Match IPv6 ACL
+                	**type**\: str
+                
+                	**range:** 1..64
+                
+                .. attribute:: ipv6_dscp
+                
+                	Match IPv6 DSCP
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                
+                .. attribute:: ipv6_packet_length
+                
+                	Match IPv6 packet length.  Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: ipv6_precedence
+                
+                	Match IPv6 precedence
+                	**type**\: one of the below types:
+                
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                
+                ----
+                	**type**\: list of str
+                
+                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                
+                
+                ----
+                .. attribute:: mpls_disposition_ipv4_access_list
+                
+                	Match MPLS Label Disposition IPv4 access list
+                	**type**\: str
+                
+                	**range:** 1..32
+                
+                .. attribute:: mpls_disposition_ipv6_access_list
+                
+                	Match MPLS Label Disposition IPv6 access list
+                	**type**\: str
+                
+                	**range:** 1..32
+                
+                .. attribute:: mpls_experimental_imposition
+                
+                	Match MPLS experimental imposition label
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: mpls_experimental_topmost
+                
+                	Match MPLS experimental topmost label
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                .. attribute:: packet_length
+                
+                	Match packet length.  Should be value 0..65535 or range
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: precedence
+                
+                	Match precedence
+                	**type**\: one of the below types:
+                
+                	**type**\: list of int
+                
+                	**range:** 0..7
+                
+                
+                ----
+                	**type**\: list of str
+                
+                	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                
+                
+                ----
+                .. attribute:: protocol
+                
+                	Match protocol
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\|(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\\-([1\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5]))\|((ahp)\|(dhcpv4)\|(dhcpv6)\|(eigrp)\|(esp)\|(gre)\|(icmp)\|(igmp)\|(igrp)\|(ipinip)\|(ipv4)\|(ipv6)\|(ipv6icmp)\|(mpls)\|(nos)\|(ospf)\|(pcp)\|(pim)\|(ppp)\|(sctp)\|(tcp)\|(udp))
+                
+                .. attribute:: qos_group
+                
+                	Match QoS group
+                	**type**\: list of int
+                
+                	**range:** 0..512
+                
+                .. attribute:: service_name
+                
+                	Match servicve name
+                	**type**\: list of str
+                
+                	**range:** 1..32
+                
+                .. attribute:: service_name_regex
+                
+                	Match servicve name regular expression
+                	**type**\: list of str
+                
+                	**range:** 1..32
+                
                 .. attribute:: source_address_ipv4
                 
                 	Match source IPv4 address
@@ -1892,32 +1911,6 @@ class PolicyManager(object):
                 	**type**\: int
                 
                 	**range:** 1..4095
-                
-                .. attribute:: authen_status
-                
-                	Match authentication status
-                	**type**\: str
-                
-                	**pattern:** (authenticated)\|(unauthenticated)
-                
-                .. attribute:: domain_name
-                
-                	Match domain name
-                	**type**\: list of :py:class:`DomainName <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName>`
-                
-                .. attribute:: service_name
-                
-                	Match servicve name
-                	**type**\: list of str
-                
-                	**range:** 1..32
-                
-                .. attribute:: service_name_regex
-                
-                	Match servicve name regular expression
-                	**type**\: list of str
-                
-                	**range:** 1..32
                 
                 .. attribute:: timer
                 
@@ -1947,6 +1940,13 @@ class PolicyManager(object):
                 
                 	**range:** 1..32
                 
+                .. attribute:: vlan
+                
+                	Match VLAN ID
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
                 
 
                 """
@@ -1956,66 +1956,12 @@ class PolicyManager(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ipv4_dscp = YLeafList()
-                    self.ipv4_dscp.parent = self
-                    self.ipv4_dscp.name = 'ipv4_dscp'
-                    self.ipv6_dscp = YLeafList()
-                    self.ipv6_dscp.parent = self
-                    self.ipv6_dscp.name = 'ipv6_dscp'
-                    self.dscp = YLeafList()
-                    self.dscp.parent = self
-                    self.dscp.name = 'dscp'
-                    self.ipv4_precedence = YLeafList()
-                    self.ipv4_precedence.parent = self
-                    self.ipv4_precedence.name = 'ipv4_precedence'
-                    self.ipv6_precedence = YLeafList()
-                    self.ipv6_precedence.parent = self
-                    self.ipv6_precedence.name = 'ipv6_precedence'
-                    self.precedence = YLeafList()
-                    self.precedence.parent = self
-                    self.precedence.name = 'precedence'
-                    self.qos_group = YLeafList()
-                    self.qos_group.parent = self
-                    self.qos_group.name = 'qos_group'
+                    self.authen_status = None
+                    self.cac_admit = None
+                    self.cac_unadmit = None
                     self.cos = YLeafList()
                     self.cos.parent = self
                     self.cos.name = 'cos'
-                    self.inner_cos = YLeafList()
-                    self.inner_cos.parent = self
-                    self.inner_cos.name = 'inner_cos'
-                    self.protocol = YLeafList()
-                    self.protocol.parent = self
-                    self.protocol.name = 'protocol'
-                    self.ipv4_acl = None
-                    self.ipv6_acl = None
-                    self.mpls_experimental_topmost = YLeafList()
-                    self.mpls_experimental_topmost.parent = self
-                    self.mpls_experimental_topmost.name = 'mpls_experimental_topmost'
-                    self.mpls_experimental_imposition = YLeafList()
-                    self.mpls_experimental_imposition.parent = self
-                    self.mpls_experimental_imposition.name = 'mpls_experimental_imposition'
-                    self.discard_class = YLeafList()
-                    self.discard_class.parent = self
-                    self.discard_class.name = 'discard_class'
-                    self.ipv4_packet_length = YLeafList()
-                    self.ipv4_packet_length.parent = self
-                    self.ipv4_packet_length.name = 'ipv4_packet_length'
-                    self.ipv6_packet_length = YLeafList()
-                    self.ipv6_packet_length.parent = self
-                    self.ipv6_packet_length.name = 'ipv6_packet_length'
-                    self.packet_length = YLeafList()
-                    self.packet_length.parent = self
-                    self.packet_length.name = 'packet_length'
-                    self.mpls_disposition_ipv4_access_list = None
-                    self.mpls_disposition_ipv6_access_list = None
-                    self.vlan = YLeafList()
-                    self.vlan.parent = self
-                    self.vlan.name = 'vlan'
-                    self.cac_admit = None
-                    self.cac_unadmit = None
-                    self.flow_tag = YLeafList()
-                    self.flow_tag.parent = self
-                    self.flow_tag.name = 'flow_tag'
                     self.destination_address_ipv4 = YList()
                     self.destination_address_ipv4.parent = self
                     self.destination_address_ipv4.name = 'destination_address_ipv4'
@@ -2025,6 +1971,18 @@ class PolicyManager(object):
                     self.destination_port = YLeafList()
                     self.destination_port.parent = self
                     self.destination_port.name = 'destination_port'
+                    self.discard_class = YLeafList()
+                    self.discard_class.parent = self
+                    self.discard_class.name = 'discard_class'
+                    self.domain_name = YList()
+                    self.domain_name.parent = self
+                    self.domain_name.name = 'domain_name'
+                    self.dscp = YLeafList()
+                    self.dscp.parent = self
+                    self.dscp.name = 'dscp'
+                    self.flow_tag = YLeafList()
+                    self.flow_tag.parent = self
+                    self.flow_tag.name = 'flow_tag'
                     self.fragment_type = YLeafList()
                     self.fragment_type.parent = self
                     self.fragment_type.name = 'fragment_type'
@@ -2043,6 +2001,55 @@ class PolicyManager(object):
                     self.icmpv6_type = YLeafList()
                     self.icmpv6_type.parent = self
                     self.icmpv6_type.name = 'icmpv6_type'
+                    self.inner_cos = YLeafList()
+                    self.inner_cos.parent = self
+                    self.inner_cos.name = 'inner_cos'
+                    self.ipv4_acl = None
+                    self.ipv4_dscp = YLeafList()
+                    self.ipv4_dscp.parent = self
+                    self.ipv4_dscp.name = 'ipv4_dscp'
+                    self.ipv4_packet_length = YLeafList()
+                    self.ipv4_packet_length.parent = self
+                    self.ipv4_packet_length.name = 'ipv4_packet_length'
+                    self.ipv4_precedence = YLeafList()
+                    self.ipv4_precedence.parent = self
+                    self.ipv4_precedence.name = 'ipv4_precedence'
+                    self.ipv6_acl = None
+                    self.ipv6_dscp = YLeafList()
+                    self.ipv6_dscp.parent = self
+                    self.ipv6_dscp.name = 'ipv6_dscp'
+                    self.ipv6_packet_length = YLeafList()
+                    self.ipv6_packet_length.parent = self
+                    self.ipv6_packet_length.name = 'ipv6_packet_length'
+                    self.ipv6_precedence = YLeafList()
+                    self.ipv6_precedence.parent = self
+                    self.ipv6_precedence.name = 'ipv6_precedence'
+                    self.mpls_disposition_ipv4_access_list = None
+                    self.mpls_disposition_ipv6_access_list = None
+                    self.mpls_experimental_imposition = YLeafList()
+                    self.mpls_experimental_imposition.parent = self
+                    self.mpls_experimental_imposition.name = 'mpls_experimental_imposition'
+                    self.mpls_experimental_topmost = YLeafList()
+                    self.mpls_experimental_topmost.parent = self
+                    self.mpls_experimental_topmost.name = 'mpls_experimental_topmost'
+                    self.packet_length = YLeafList()
+                    self.packet_length.parent = self
+                    self.packet_length.name = 'packet_length'
+                    self.precedence = YLeafList()
+                    self.precedence.parent = self
+                    self.precedence.name = 'precedence'
+                    self.protocol = YLeafList()
+                    self.protocol.parent = self
+                    self.protocol.name = 'protocol'
+                    self.qos_group = YLeafList()
+                    self.qos_group.parent = self
+                    self.qos_group.name = 'qos_group'
+                    self.service_name = YLeafList()
+                    self.service_name.parent = self
+                    self.service_name.name = 'service_name'
+                    self.service_name_regex = YLeafList()
+                    self.service_name_regex.parent = self
+                    self.service_name_regex.name = 'service_name_regex'
                     self.source_address_ipv4 = YList()
                     self.source_address_ipv4.parent = self
                     self.source_address_ipv4.name = 'source_address_ipv4'
@@ -2053,16 +2060,6 @@ class PolicyManager(object):
                     self.source_port.parent = self
                     self.source_port.name = 'source_port'
                     self.tcp_flag = None
-                    self.authen_status = None
-                    self.domain_name = YList()
-                    self.domain_name.parent = self
-                    self.domain_name.name = 'domain_name'
-                    self.service_name = YLeafList()
-                    self.service_name.parent = self
-                    self.service_name.name = 'service_name'
-                    self.service_name_regex = YLeafList()
-                    self.service_name_regex.parent = self
-                    self.service_name_regex.name = 'service_name_regex'
                     self.timer = YLeafList()
                     self.timer.parent = self
                     self.timer.name = 'timer'
@@ -2075,6 +2072,9 @@ class PolicyManager(object):
                     self.user_name_regex = YLeafList()
                     self.user_name_regex.parent = self
                     self.user_name_regex.name = 'user_name_regex'
+                    self.vlan = YLeafList()
+                    self.vlan.parent = self
+                    self.vlan.name = 'vlan'
 
 
                 class DestinationAddressIpv4(object):
@@ -2110,11 +2110,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.netmask is None:
-                            raise YPYDataValidationError('Key property netmask is None')
+                            raise YPYModelError('Key property netmask is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:destination-address-ipv4[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:netmask = ' + str(self.netmask) + ']'
 
@@ -2172,11 +2172,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.prefix_length is None:
-                            raise YPYDataValidationError('Key property prefix_length is None')
+                            raise YPYModelError('Key property prefix_length is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:destination-address-ipv6[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
@@ -2234,11 +2234,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.netmask is None:
-                            raise YPYDataValidationError('Key property netmask is None')
+                            raise YPYModelError('Key property netmask is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:source-address-ipv4[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:netmask = ' + str(self.netmask) + ']'
 
@@ -2296,11 +2296,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.prefix_length is None:
-                            raise YPYDataValidationError('Key property prefix_length is None')
+                            raise YPYModelError('Key property prefix_length is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:source-address-ipv6[Cisco-IOS-XR-ncs5500-policymgr-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
@@ -2329,16 +2329,16 @@ class PolicyManager(object):
                     """
                     Match domain name.
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: format  <key>
                     
-                    	Domain name or regular expression
+                    	Domain\-format name
                     	**type**\: str
                     
                     	**range:** 1..32
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: name  <key>
                     
-                    	Domain\-format name
+                    	Domain name or regular expression
                     	**type**\: str
                     
                     	**range:** 1..32
@@ -2352,19 +2352,19 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
                         self.format = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.format is None:
-                            raise YPYDataValidationError('Key property format is None')
+                            raise YPYModelError('Key property format is None')
+                        if self.name is None:
+                            raise YPYModelError('Key property name is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:domain-name[Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:format = ' + str(self.format) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:domain-name[Cisco-IOS-XR-ncs5500-policymgr-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -2373,10 +2373,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
+                        if self.format is not None:
                             return True
 
-                        if self.format is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -2389,7 +2389,7 @@ class PolicyManager(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:match-not'
 
@@ -2400,102 +2400,8 @@ class PolicyManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ipv4_dscp is not None:
-                        for child in self.ipv4_dscp:
-                            if child is not None:
-                                return True
-
-                    if self.ipv6_dscp is not None:
-                        for child in self.ipv6_dscp:
-                            if child is not None:
-                                return True
-
-                    if self.dscp is not None:
-                        for child in self.dscp:
-                            if child is not None:
-                                return True
-
-                    if self.ipv4_precedence is not None:
-                        for child in self.ipv4_precedence:
-                            if child is not None:
-                                return True
-
-                    if self.ipv6_precedence is not None:
-                        for child in self.ipv6_precedence:
-                            if child is not None:
-                                return True
-
-                    if self.precedence is not None:
-                        for child in self.precedence:
-                            if child is not None:
-                                return True
-
-                    if self.qos_group is not None:
-                        for child in self.qos_group:
-                            if child is not None:
-                                return True
-
-                    if self.cos is not None:
-                        for child in self.cos:
-                            if child is not None:
-                                return True
-
-                    if self.inner_cos is not None:
-                        for child in self.inner_cos:
-                            if child is not None:
-                                return True
-
-                    if self.protocol is not None:
-                        for child in self.protocol:
-                            if child is not None:
-                                return True
-
-                    if self.ipv4_acl is not None:
+                    if self.authen_status is not None:
                         return True
-
-                    if self.ipv6_acl is not None:
-                        return True
-
-                    if self.mpls_experimental_topmost is not None:
-                        for child in self.mpls_experimental_topmost:
-                            if child is not None:
-                                return True
-
-                    if self.mpls_experimental_imposition is not None:
-                        for child in self.mpls_experimental_imposition:
-                            if child is not None:
-                                return True
-
-                    if self.discard_class is not None:
-                        for child in self.discard_class:
-                            if child is not None:
-                                return True
-
-                    if self.ipv4_packet_length is not None:
-                        for child in self.ipv4_packet_length:
-                            if child is not None:
-                                return True
-
-                    if self.ipv6_packet_length is not None:
-                        for child in self.ipv6_packet_length:
-                            if child is not None:
-                                return True
-
-                    if self.packet_length is not None:
-                        for child in self.packet_length:
-                            if child is not None:
-                                return True
-
-                    if self.mpls_disposition_ipv4_access_list is not None:
-                        return True
-
-                    if self.mpls_disposition_ipv6_access_list is not None:
-                        return True
-
-                    if self.vlan is not None:
-                        for child in self.vlan:
-                            if child is not None:
-                                return True
 
                     if self.cac_admit is not None:
                         return True
@@ -2503,8 +2409,8 @@ class PolicyManager(object):
                     if self.cac_unadmit is not None:
                         return True
 
-                    if self.flow_tag is not None:
-                        for child in self.flow_tag:
+                    if self.cos is not None:
+                        for child in self.cos:
                             if child is not None:
                                 return True
 
@@ -2520,6 +2426,26 @@ class PolicyManager(object):
 
                     if self.destination_port is not None:
                         for child in self.destination_port:
+                            if child is not None:
+                                return True
+
+                    if self.discard_class is not None:
+                        for child in self.discard_class:
+                            if child is not None:
+                                return True
+
+                    if self.domain_name is not None:
+                        for child_ref in self.domain_name:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.dscp is not None:
+                        for child in self.dscp:
+                            if child is not None:
+                                return True
+
+                    if self.flow_tag is not None:
+                        for child in self.flow_tag:
                             if child is not None:
                                 return True
 
@@ -2553,6 +2479,93 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
+                    if self.inner_cos is not None:
+                        for child in self.inner_cos:
+                            if child is not None:
+                                return True
+
+                    if self.ipv4_acl is not None:
+                        return True
+
+                    if self.ipv4_dscp is not None:
+                        for child in self.ipv4_dscp:
+                            if child is not None:
+                                return True
+
+                    if self.ipv4_packet_length is not None:
+                        for child in self.ipv4_packet_length:
+                            if child is not None:
+                                return True
+
+                    if self.ipv4_precedence is not None:
+                        for child in self.ipv4_precedence:
+                            if child is not None:
+                                return True
+
+                    if self.ipv6_acl is not None:
+                        return True
+
+                    if self.ipv6_dscp is not None:
+                        for child in self.ipv6_dscp:
+                            if child is not None:
+                                return True
+
+                    if self.ipv6_packet_length is not None:
+                        for child in self.ipv6_packet_length:
+                            if child is not None:
+                                return True
+
+                    if self.ipv6_precedence is not None:
+                        for child in self.ipv6_precedence:
+                            if child is not None:
+                                return True
+
+                    if self.mpls_disposition_ipv4_access_list is not None:
+                        return True
+
+                    if self.mpls_disposition_ipv6_access_list is not None:
+                        return True
+
+                    if self.mpls_experimental_imposition is not None:
+                        for child in self.mpls_experimental_imposition:
+                            if child is not None:
+                                return True
+
+                    if self.mpls_experimental_topmost is not None:
+                        for child in self.mpls_experimental_topmost:
+                            if child is not None:
+                                return True
+
+                    if self.packet_length is not None:
+                        for child in self.packet_length:
+                            if child is not None:
+                                return True
+
+                    if self.precedence is not None:
+                        for child in self.precedence:
+                            if child is not None:
+                                return True
+
+                    if self.protocol is not None:
+                        for child in self.protocol:
+                            if child is not None:
+                                return True
+
+                    if self.qos_group is not None:
+                        for child in self.qos_group:
+                            if child is not None:
+                                return True
+
+                    if self.service_name is not None:
+                        for child in self.service_name:
+                            if child is not None:
+                                return True
+
+                    if self.service_name_regex is not None:
+                        for child in self.service_name_regex:
+                            if child is not None:
+                                return True
+
                     if self.source_address_ipv4 is not None:
                         for child_ref in self.source_address_ipv4:
                             if child_ref._has_data():
@@ -2570,24 +2583,6 @@ class PolicyManager(object):
 
                     if self.tcp_flag is not None:
                         return True
-
-                    if self.authen_status is not None:
-                        return True
-
-                    if self.domain_name is not None:
-                        for child_ref in self.domain_name:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.service_name is not None:
-                        for child in self.service_name:
-                            if child is not None:
-                                return True
-
-                    if self.service_name_regex is not None:
-                        for child in self.service_name_regex:
-                            if child is not None:
-                                return True
 
                     if self.timer is not None:
                         for child in self.timer:
@@ -2609,6 +2604,11 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
+                    if self.vlan is not None:
+                        for child in self.vlan:
+                            if child is not None:
+                                return True
+
                     return False
 
                 @staticmethod
@@ -2618,12 +2618,12 @@ class PolicyManager(object):
 
             @property
             def _common_path(self):
-                if self.type is None:
-                    raise YPYDataValidationError('Key property type is None')
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
+                if self.type is None:
+                    raise YPYModelError('Key property type is None')
 
-                return '/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-manager/Cisco-IOS-XR-ncs5500-policymgr-cfg:class-maps/Cisco-IOS-XR-ncs5500-policymgr-cfg:class-map[Cisco-IOS-XR-ncs5500-policymgr-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + ']'
+                return '/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-manager/Cisco-IOS-XR-ncs5500-policymgr-cfg:class-maps/Cisco-IOS-XR-ncs5500-policymgr-cfg:class-map[Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:type = ' + str(self.type) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -2632,25 +2632,25 @@ class PolicyManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.name is not None:
+                    return True
+
                 if self.type is not None:
                     return True
 
-                if self.name is not None:
+                if self.class_map_mode_match_all is not None:
                     return True
 
                 if self.class_map_mode_match_any is not None:
                     return True
 
-                if self.class_map_mode_match_all is not None:
+                if self.description is not None:
                     return True
 
                 if self.match is not None and self.match._has_data():
                     return True
 
                 if self.match_not is not None and self.match_not._has_data():
-                    return True
-
-                if self.description is not None:
                     return True
 
                 return False
@@ -2712,17 +2712,22 @@ class PolicyManager(object):
             """
             Policy\-map configuration.
             
-            .. attribute:: type  <key>
-            
-            	Type of policy\-map
-            	**type**\: :py:class:`PolicyMapTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyMapTypeEnum>`
-            
             .. attribute:: name  <key>
             
             	Name of policy\-map
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
+            
+            .. attribute:: type  <key>
+            
+            	Type of policy\-map
+            	**type**\: :py:class:`PolicyMapTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyMapTypeEnum>`
+            
+            .. attribute:: description
+            
+            	Description for this policy\-map
+            	**type**\: str
             
             .. attribute:: event
             
@@ -2734,11 +2739,6 @@ class PolicyManager(object):
             	Class\-map rule
             	**type**\: list of :py:class:`PolicyMapRule <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule>`
             
-            .. attribute:: description
-            
-            	Description for this policy\-map
-            	**type**\: str
-            
             
 
             """
@@ -2748,15 +2748,15 @@ class PolicyManager(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
                 self.name = None
+                self.type = None
+                self.description = None
                 self.event = YList()
                 self.event.parent = self
                 self.event.name = 'event'
                 self.policy_map_rule = YList()
                 self.policy_map_rule.parent = self
                 self.policy_map_rule.name = 'policy_map_rule'
-                self.description = None
 
 
             class Event(object):
@@ -2768,6 +2768,11 @@ class PolicyManager(object):
                 	Event type
                 	**type**\: :py:class:`EventTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.EventTypeEnum>`
                 
+                .. attribute:: class_
+                
+                	Class\-map rule
+                	**type**\: list of :py:class:`Class <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class>`
+                
                 .. attribute:: event_mode_match_all
                 
                 	Execute all the matched classes
@@ -2777,11 +2782,6 @@ class PolicyManager(object):
                 
                 	Execute only the first matched class
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: class_
-                
-                	Class\-map rule
-                	**type**\: list of :py:class:`Class <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class>`
                 
                 
 
@@ -2793,11 +2793,11 @@ class PolicyManager(object):
                 def __init__(self):
                     self.parent = None
                     self.event_type = None
-                    self.event_mode_match_all = None
-                    self.event_modematch_first = None
                     self.class_ = YList()
                     self.class_.parent = self
                     self.class_.name = 'class_'
+                    self.event_mode_match_all = None
+                    self.event_modematch_first = None
 
 
                 class Class(object):
@@ -2816,15 +2816,15 @@ class PolicyManager(object):
                     	Type of class
                     	**type**\: :py:class:`PmapClassMapTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PmapClassMapTypeEnum>`
                     
-                    .. attribute:: class_execution_strategy
-                    
-                    	Class execution strategy
-                    	**type**\: :py:class:`ExecutionStrategyEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.ExecutionStrategyEnum>`
-                    
                     .. attribute:: action_rule
                     
                     	Action rule
                     	**type**\: list of :py:class:`ActionRule <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule>`
+                    
+                    .. attribute:: class_execution_strategy
+                    
+                    	Class execution strategy
+                    	**type**\: :py:class:`ExecutionStrategyEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.ExecutionStrategyEnum>`
                     
                     
 
@@ -2837,10 +2837,10 @@ class PolicyManager(object):
                         self.parent = None
                         self.class_name = None
                         self.class_type = None
-                        self.class_execution_strategy = None
                         self.action_rule = YList()
                         self.action_rule.parent = self
                         self.action_rule.name = 'action_rule'
+                        self.class_execution_strategy = None
 
 
                     class ActionRule(object):
@@ -2920,9 +2920,9 @@ class PolicyManager(object):
                             """
                             Activate dynamic templates.
                             
-                            .. attribute:: name
+                            .. attribute:: aaa_list
                             
-                            	Dynamic template name
+                            	Name of the AAA method list
                             	**type**\: str
                             
                             .. attribute:: _is_presence
@@ -2930,9 +2930,9 @@ class PolicyManager(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: aaa_list
+                            .. attribute:: name
                             
-                            	Name of the AAA method list
+                            	Dynamic template name
                             	**type**\: str
                             
                             .. attribute:: _is_presence
@@ -2951,13 +2951,13 @@ class PolicyManager(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.name = None
                                 self.aaa_list = None
+                                self.name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:activate-dynamic-template'
 
@@ -2968,10 +2968,10 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.name is not None:
+                                if self.aaa_list is not None:
                                     return True
 
-                                if self.aaa_list is not None:
+                                if self.name is not None:
                                     return True
 
                                 return False
@@ -3005,7 +3005,7 @@ class PolicyManager(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:authenticate'
 
@@ -3090,7 +3090,7 @@ class PolicyManager(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:authorize'
 
@@ -3125,9 +3125,9 @@ class PolicyManager(object):
                             """
                             Deactivate dynamic templates.
                             
-                            .. attribute:: name
+                            .. attribute:: aaa_list
                             
-                            	Dynamic template name
+                            	Name of the AAA method list
                             	**type**\: str
                             
                             .. attribute:: _is_presence
@@ -3135,9 +3135,9 @@ class PolicyManager(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: aaa_list
+                            .. attribute:: name
                             
-                            	Name of the AAA method list
+                            	Dynamic template name
                             	**type**\: str
                             
                             .. attribute:: _is_presence
@@ -3156,13 +3156,13 @@ class PolicyManager(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.name = None
                                 self.aaa_list = None
+                                self.name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:deactivate-dynamic-template'
 
@@ -3173,10 +3173,10 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.name is not None:
+                                if self.aaa_list is not None:
                                     return True
 
-                                if self.aaa_list is not None:
+                                if self.name is not None:
                                     return True
 
                                 return False
@@ -3231,7 +3231,7 @@ class PolicyManager(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:set-timer'
 
@@ -3279,7 +3279,7 @@ class PolicyManager(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:stop-timer'
 
@@ -3303,9 +3303,9 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.action_sequence_number is None:
-                                raise YPYDataValidationError('Key property action_sequence_number is None')
+                                raise YPYModelError('Key property action_sequence_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:action-rule[Cisco-IOS-XR-ncs5500-policymgr-cfg:action-sequence-number = ' + str(self.action_sequence_number) + ']'
 
@@ -3353,11 +3353,11 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.class_name is None:
-                            raise YPYDataValidationError('Key property class_name is None')
+                            raise YPYModelError('Key property class_name is None')
                         if self.class_type is None:
-                            raise YPYDataValidationError('Key property class_type is None')
+                            raise YPYModelError('Key property class_type is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:class[Cisco-IOS-XR-ncs5500-policymgr-cfg:class-name = ' + str(self.class_name) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:class-type = ' + str(self.class_type) + ']'
 
@@ -3374,13 +3374,13 @@ class PolicyManager(object):
                         if self.class_type is not None:
                             return True
 
-                        if self.class_execution_strategy is not None:
-                            return True
-
                         if self.action_rule is not None:
                             for child_ref in self.action_rule:
                                 if child_ref._has_data():
                                     return True
+
+                        if self.class_execution_strategy is not None:
+                            return True
 
                         return False
 
@@ -3392,9 +3392,9 @@ class PolicyManager(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.event_type is None:
-                        raise YPYDataValidationError('Key property event_type is None')
+                        raise YPYModelError('Key property event_type is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:event[Cisco-IOS-XR-ncs5500-policymgr-cfg:event-type = ' + str(self.event_type) + ']'
 
@@ -3408,16 +3408,16 @@ class PolicyManager(object):
                     if self.event_type is not None:
                         return True
 
+                    if self.class_ is not None:
+                        for child_ref in self.class_:
+                            if child_ref._has_data():
+                                return True
+
                     if self.event_mode_match_all is not None:
                         return True
 
                     if self.event_modematch_first is not None:
                         return True
-
-                    if self.class_ is not None:
-                        for child_ref in self.class_:
-                            if child_ref._has_data():
-                                return True
 
                     return False
 
@@ -3443,25 +3443,70 @@ class PolicyManager(object):
                 	Type of class\-map
                 	**type**\: :py:class:`PmapClassMapTypeEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PmapClassMapTypeEnum>`
                 
-                .. attribute:: shape
+                .. attribute:: bandwidth_remaining
                 
-                	Policy action shape
-                	**type**\: :py:class:`Shape <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape>`
+                	Policy action bandwidth remaining queue
+                	**type**\: :py:class:`BandwidthRemaining <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining>`
+                
+                .. attribute:: cac_local
+                
+                	Policy action CAC
+                	**type**\: :py:class:`CacLocal <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal>`
+                
+                .. attribute:: decap_gre
+                
+                	Policy action DECAP GRE
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: default_red
+                
+                	Default random early detection
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: flow_params
+                
+                	Policy flow monitoring action
+                	**type**\: :py:class:`FlowParams <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams>`
+                
+                .. attribute:: fragment
+                
+                	Policy action fragment. Fragment name
+                	**type**\: str
+                
+                .. attribute:: http_redirect
+                
+                	Policy action http redirect. Redirect to this url
+                	**type**\: str
+                
+                .. attribute:: metrics_ipcbr
+                
+                	Policy IP\-CBR metric action
+                	**type**\: :py:class:`MetricsIpcbr <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr>`
                 
                 .. attribute:: min_bandwidth
                 
                 	Policy action minimum bandwidth queue
                 	**type**\: :py:class:`MinBandwidth <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth>`
                 
-                .. attribute:: bandwidth_remaining
+                .. attribute:: pbr_drop
                 
-                	Policy action bandwidth remaining queue
-                	**type**\: :py:class:`BandwidthRemaining <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining>`
+                	Policy action PBR drop
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: queue_limit
+                .. attribute:: pbr_forward
                 
-                	Policy action queue limit
-                	**type**\: :py:class:`QueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit>`
+                	Policy action PBR forward
+                	**type**\: :py:class:`PbrForward <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward>`
+                
+                .. attribute:: pbr_transmit
+                
+                	Policy action PBR transmit
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: police
+                
+                	Configures traffic policing action
+                	**type**\: :py:class:`Police <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police>`
                 
                 .. attribute:: priority_level
                 
@@ -3470,85 +3515,40 @@ class PolicyManager(object):
                 
                 	**range:** 1..3
                 
-                .. attribute:: default_red
+                .. attribute:: queue_limit
                 
-                	Default random early detection
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Policy action queue limit
+                	**type**\: :py:class:`QueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit>`
                 
                 .. attribute:: random_detect
                 
                 	Random early detection. All RED profiles in a class must be based on the same field
                 	**type**\: list of :py:class:`RandomDetect <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect>`
                 
-                .. attribute:: set
-                
-                	Policy action packet marking
-                	**type**\: :py:class:`Set <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set>`
-                
-                .. attribute:: police
-                
-                	Configures traffic policing action
-                	**type**\: :py:class:`Police <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police>`
-                
-                .. attribute:: service_policy
-                
-                	Configure a child service policy
-                	**type**\: :py:class:`ServicePolicy <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy>`
-                
-                .. attribute:: cac_local
-                
-                	Policy action CAC
-                	**type**\: :py:class:`CacLocal <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal>`
-                
-                .. attribute:: flow_params
-                
-                	Policy flow monitoring action
-                	**type**\: :py:class:`FlowParams <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams>`
-                
-                .. attribute:: metrics_ipcbr
-                
-                	Policy IP\-CBR metric action
-                	**type**\: :py:class:`MetricsIpcbr <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr>`
-                
                 .. attribute:: react
                 
                 	Policy action react
                 	**type**\: :py:class:`React <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React>`
-                
-                .. attribute:: http_redirect
-                
-                	Policy action http redirect. Redirect to this url
-                	**type**\: str
-                
-                .. attribute:: pbr_transmit
-                
-                	Policy action PBR transmit
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: pbr_drop
-                
-                	Policy action PBR drop
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: decap_gre
-                
-                	Policy action DECAP GRE
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: pbr_forward
-                
-                	Policy action PBR forward
-                	**type**\: :py:class:`PbrForward <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward>`
                 
                 .. attribute:: service_fragment
                 
                 	Policy action service fragment.  Service fragment name
                 	**type**\: str
                 
-                .. attribute:: fragment
+                .. attribute:: service_policy
                 
-                	Policy action fragment. Fragment name
-                	**type**\: str
+                	Configure a child service policy
+                	**type**\: :py:class:`ServicePolicy <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy>`
+                
+                .. attribute:: set
+                
+                	Policy action packet marking
+                	**type**\: :py:class:`Set <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set>`
+                
+                .. attribute:: shape
+                
+                	Policy action shape
+                	**type**\: :py:class:`Shape <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape>`
                 
                 
 
@@ -3561,53 +3561,46 @@ class PolicyManager(object):
                     self.parent = None
                     self.class_name = None
                     self.class_type = None
-                    self.shape = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape()
-                    self.shape.parent = self
-                    self.min_bandwidth = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth()
-                    self.min_bandwidth.parent = self
                     self.bandwidth_remaining = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining()
                     self.bandwidth_remaining.parent = self
+                    self.cac_local = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal()
+                    self.cac_local.parent = self
+                    self.decap_gre = None
+                    self.default_red = None
+                    self.flow_params = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams()
+                    self.flow_params.parent = self
+                    self.fragment = None
+                    self.http_redirect = None
+                    self.metrics_ipcbr = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr()
+                    self.metrics_ipcbr.parent = self
+                    self.min_bandwidth = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth()
+                    self.min_bandwidth.parent = self
+                    self.pbr_drop = None
+                    self.pbr_forward = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward()
+                    self.pbr_forward.parent = self
+                    self.pbr_transmit = None
+                    self.police = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police()
+                    self.police.parent = self
+                    self.priority_level = None
                     self.queue_limit = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit()
                     self.queue_limit.parent = self
-                    self.priority_level = None
-                    self.default_red = None
                     self.random_detect = YList()
                     self.random_detect.parent = self
                     self.random_detect.name = 'random_detect'
-                    self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set()
-                    self.set.parent = self
-                    self.police = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police()
-                    self.police.parent = self
-                    self.service_policy = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy()
-                    self.service_policy.parent = self
-                    self.cac_local = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal()
-                    self.cac_local.parent = self
-                    self.flow_params = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams()
-                    self.flow_params.parent = self
-                    self.metrics_ipcbr = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr()
-                    self.metrics_ipcbr.parent = self
                     self.react = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React()
                     self.react.parent = self
-                    self.http_redirect = None
-                    self.pbr_transmit = None
-                    self.pbr_drop = None
-                    self.decap_gre = None
-                    self.pbr_forward = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward()
-                    self.pbr_forward.parent = self
                     self.service_fragment = None
-                    self.fragment = None
+                    self.service_policy = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy()
+                    self.service_policy.parent = self
+                    self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set()
+                    self.set.parent = self
+                    self.shape = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape()
+                    self.shape.parent = self
 
 
                 class Shape(object):
                     """
                     Policy action shape.
-                    
-                    .. attribute:: value
-                    
-                    	Shape bandwidth value
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: unit
                     
@@ -3615,6 +3608,13 @@ class PolicyManager(object):
                     	**type**\: str
                     
                     	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
+                    
+                    .. attribute:: value
+                    
+                    	Shape bandwidth value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -3625,13 +3625,13 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.value = None
                         self.unit = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:shape'
 
@@ -3642,10 +3642,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.value is not None:
+                        if self.unit is not None:
                             return True
 
-                        if self.unit is not None:
+                        if self.value is not None:
                             return True
 
                         return False
@@ -3660,19 +3660,19 @@ class PolicyManager(object):
                     """
                     Policy action minimum bandwidth queue.
                     
-                    .. attribute:: value
-                    
-                    	Minimum bandwidth value
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: unit
                     
                     	Minimum bandwidth units
                     	**type**\: str
                     
                     	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
+                    
+                    .. attribute:: value
+                    
+                    	Minimum bandwidth value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -3683,13 +3683,13 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.value = None
                         self.unit = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:min-bandwidth'
 
@@ -3700,10 +3700,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.value is not None:
+                        if self.unit is not None:
                             return True
 
-                        if self.unit is not None:
+                        if self.value is not None:
                             return True
 
                         return False
@@ -3718,19 +3718,19 @@ class PolicyManager(object):
                     """
                     Policy action bandwidth remaining queue.
                     
-                    .. attribute:: value
-                    
-                    	Remaining bandwidth value
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: unit
                     
                     	Remaining bandwidth units
                     	**type**\: str
                     
                     	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
+                    
+                    .. attribute:: value
+                    
+                    	Remaining bandwidth value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -3741,13 +3741,13 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.value = None
                         self.unit = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:bandwidth-remaining'
 
@@ -3758,10 +3758,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.value is not None:
+                        if self.unit is not None:
                             return True
 
-                        if self.unit is not None:
+                        if self.value is not None:
                             return True
 
                         return False
@@ -3776,19 +3776,19 @@ class PolicyManager(object):
                     """
                     Policy action queue limit.
                     
-                    .. attribute:: value
-                    
-                    	Remaining bandwidth value
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: unit
                     
                     	Remaining bandwidth units
                     	**type**\: str
                     
                     	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
+                    
+                    .. attribute:: value
+                    
+                    	Remaining bandwidth value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -3799,13 +3799,13 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.value = None
                         self.unit = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:queue-limit'
 
@@ -3816,10 +3816,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.value is not None:
+                        if self.unit is not None:
                             return True
 
-                        if self.unit is not None:
+                        if self.value is not None:
                             return True
 
                         return False
@@ -3836,16 +3836,9 @@ class PolicyManager(object):
                     All RED profiles in a class must be based
                     on the same field.
                     
-                    .. attribute:: threshold_min_value  <key>
+                    .. attribute:: threshold_max_units  <key>
                     
-                    	Minimum RED threshold value
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: threshold_min_units  <key>
-                    
-                    	Minimum RED threshold units
+                    	Maximum RED threshold units
                     	**type**\: str
                     
                     	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
@@ -3857,12 +3850,19 @@ class PolicyManager(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: threshold_max_units  <key>
+                    .. attribute:: threshold_min_units  <key>
                     
-                    	Maximum RED threshold units
+                    	Minimum RED threshold units
                     	**type**\: str
                     
                     	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
+                    
+                    .. attribute:: threshold_min_value  <key>
+                    
+                    	Minimum RED threshold value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: cos
                     
@@ -3870,6 +3870,13 @@ class PolicyManager(object):
                     	**type**\: list of str
                     
                     	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                    
+                    .. attribute:: dei
+                    
+                    	DEI based WRED
+                    	**type**\: int
+                    
+                    	**range:** 0..1
                     
                     .. attribute:: discard_class
                     
@@ -3884,6 +3891,11 @@ class PolicyManager(object):
                     	**type**\: list of str
                     
                     	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
+                    
+                    .. attribute:: ecn
+                    
+                    	ECN based WRED
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: mpls_exp
                     
@@ -3909,18 +3921,6 @@ class PolicyManager(object):
                     
                     
                     ----
-                    .. attribute:: dei
-                    
-                    	DEI based WRED
-                    	**type**\: int
-                    
-                    	**range:** 0..1
-                    
-                    .. attribute:: ecn
-                    
-                    	ECN based WRED
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     
 
                     """
@@ -3930,42 +3930,42 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.threshold_min_value = None
-                        self.threshold_min_units = None
-                        self.threshold_max_value = None
                         self.threshold_max_units = None
+                        self.threshold_max_value = None
+                        self.threshold_min_units = None
+                        self.threshold_min_value = None
                         self.cos = YLeafList()
                         self.cos.parent = self
                         self.cos.name = 'cos'
+                        self.dei = None
                         self.discard_class = YLeafList()
                         self.discard_class.parent = self
                         self.discard_class.name = 'discard_class'
                         self.dscp = YLeafList()
                         self.dscp.parent = self
                         self.dscp.name = 'dscp'
+                        self.ecn = None
                         self.mpls_exp = YLeafList()
                         self.mpls_exp.parent = self
                         self.mpls_exp.name = 'mpls_exp'
                         self.precedence = YLeafList()
                         self.precedence.parent = self
                         self.precedence.name = 'precedence'
-                        self.dei = None
-                        self.ecn = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.threshold_min_value is None:
-                            raise YPYDataValidationError('Key property threshold_min_value is None')
-                        if self.threshold_min_units is None:
-                            raise YPYDataValidationError('Key property threshold_min_units is None')
-                        if self.threshold_max_value is None:
-                            raise YPYDataValidationError('Key property threshold_max_value is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.threshold_max_units is None:
-                            raise YPYDataValidationError('Key property threshold_max_units is None')
+                            raise YPYModelError('Key property threshold_max_units is None')
+                        if self.threshold_max_value is None:
+                            raise YPYModelError('Key property threshold_max_value is None')
+                        if self.threshold_min_units is None:
+                            raise YPYModelError('Key property threshold_min_units is None')
+                        if self.threshold_min_value is None:
+                            raise YPYModelError('Key property threshold_min_value is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:random-detect[Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-min-value = ' + str(self.threshold_min_value) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-min-units = ' + str(self.threshold_min_units) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-max-value = ' + str(self.threshold_max_value) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-max-units = ' + str(self.threshold_max_units) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:random-detect[Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-max-units = ' + str(self.threshold_max_units) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-max-value = ' + str(self.threshold_max_value) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-min-units = ' + str(self.threshold_min_units) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:threshold-min-value = ' + str(self.threshold_min_value) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -3974,22 +3974,25 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.threshold_min_value is not None:
-                            return True
-
-                        if self.threshold_min_units is not None:
+                        if self.threshold_max_units is not None:
                             return True
 
                         if self.threshold_max_value is not None:
                             return True
 
-                        if self.threshold_max_units is not None:
+                        if self.threshold_min_units is not None:
+                            return True
+
+                        if self.threshold_min_value is not None:
                             return True
 
                         if self.cos is not None:
                             for child in self.cos:
                                 if child is not None:
                                     return True
+
+                        if self.dei is not None:
+                            return True
 
                         if self.discard_class is not None:
                             for child in self.discard_class:
@@ -4001,6 +4004,9 @@ class PolicyManager(object):
                                 if child is not None:
                                     return True
 
+                        if self.ecn is not None:
+                            return True
+
                         if self.mpls_exp is not None:
                             for child in self.mpls_exp:
                                 if child is not None:
@@ -4010,12 +4016,6 @@ class PolicyManager(object):
                             for child in self.precedence:
                                 if child is not None:
                                     return True
-
-                        if self.dei is not None:
-                            return True
-
-                        if self.ecn is not None:
-                            return True
 
                         return False
 
@@ -4029,30 +4029,9 @@ class PolicyManager(object):
                     """
                     Policy action packet marking.
                     
-                    .. attribute:: dscp
+                    .. attribute:: cos
                     
-                    	Marks a packet by setting the DSCP in the ToS byte
-                    	**type**\: int
-                    
-                    	**range:** 0..63
-                    
-                    .. attribute:: qos_group
-                    
-                    	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                    	**type**\: int
-                    
-                    	**range:** 0..512
-                    
-                    .. attribute:: discard_class
-                    
-                    	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: forward_class
-                    
-                    	Sets the discard class
+                    	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4064,37 +4043,23 @@ class PolicyManager(object):
                     
                     	**range:** 0..1
                     
-                    .. attribute:: cos
+                    .. attribute:: discard_class
                     
-                    	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                    	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
                     	**type**\: int
                     
                     	**range:** 0..7
                     
-                    .. attribute:: precedence
+                    .. attribute:: dscp
                     
-                    	Sets the precedence value in the IP header
+                    	Marks a packet by setting the DSCP in the ToS byte
                     	**type**\: int
                     
-                    	**range:** 0..7
+                    	**range:** 0..63
                     
-                    .. attribute:: mpls_experimental_top_most
+                    .. attribute:: forward_class
                     
-                    	Sets the experimental value of the MPLS packet top\-most labels
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: mpls_experimental_imposition
-                    
-                    	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: srp_priority
-                    
-                    	Sets the spatial reuse protocol priority value of an  outgoing packet
+                    	Sets the discard class
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4106,6 +4071,41 @@ class PolicyManager(object):
                     
                     	**range:** 0..1
                     
+                    .. attribute:: mpls_experimental_imposition
+                    
+                    	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: mpls_experimental_top_most
+                    
+                    	Sets the experimental value of the MPLS packet top\-most labels
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: precedence
+                    
+                    	Sets the precedence value in the IP header
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: qos_group
+                    
+                    	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
+                    	**type**\: int
+                    
+                    	**range:** 0..512
+                    
+                    .. attribute:: srp_priority
+                    
+                    	Sets the spatial reuse protocol priority value of an  outgoing packet
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
                     
 
                     """
@@ -4115,22 +4115,22 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.dscp = None
-                        self.qos_group = None
-                        self.discard_class = None
-                        self.forward_class = None
-                        self.df = None
                         self.cos = None
-                        self.precedence = None
-                        self.mpls_experimental_top_most = None
-                        self.mpls_experimental_imposition = None
-                        self.srp_priority = None
+                        self.df = None
+                        self.discard_class = None
+                        self.dscp = None
+                        self.forward_class = None
                         self.fr_de = None
+                        self.mpls_experimental_imposition = None
+                        self.mpls_experimental_top_most = None
+                        self.precedence = None
+                        self.qos_group = None
+                        self.srp_priority = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:set'
 
@@ -4141,37 +4141,37 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.dscp is not None:
-                            return True
-
-                        if self.qos_group is not None:
-                            return True
-
-                        if self.discard_class is not None:
-                            return True
-
-                        if self.forward_class is not None:
+                        if self.cos is not None:
                             return True
 
                         if self.df is not None:
                             return True
 
-                        if self.cos is not None:
+                        if self.discard_class is not None:
                             return True
 
-                        if self.precedence is not None:
+                        if self.dscp is not None:
                             return True
 
-                        if self.mpls_experimental_top_most is not None:
+                        if self.forward_class is not None:
+                            return True
+
+                        if self.fr_de is not None:
                             return True
 
                         if self.mpls_experimental_imposition is not None:
                             return True
 
-                        if self.srp_priority is not None:
+                        if self.mpls_experimental_top_most is not None:
                             return True
 
-                        if self.fr_de is not None:
+                        if self.precedence is not None:
+                            return True
+
+                        if self.qos_group is not None:
+                            return True
+
+                        if self.srp_priority is not None:
                             return True
 
                         return False
@@ -4186,25 +4186,10 @@ class PolicyManager(object):
                     """
                     Configures traffic policing action.
                     
-                    .. attribute:: rate
-                    
-                    	Rate configuration
-                    	**type**\: :py:class:`Rate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate>`
-                    
-                    .. attribute:: peak_rate
-                    
-                    	Peak rate configuration
-                    	**type**\: :py:class:`PeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate>`
-                    
                     .. attribute:: burst
                     
                     	Burst configuration
                     	**type**\: :py:class:`Burst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst>`
-                    
-                    .. attribute:: peak_burst
-                    
-                    	Peak burst configuration
-                    	**type**\: :py:class:`PeakBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst>`
                     
                     .. attribute:: conform_action
                     
@@ -4215,6 +4200,21 @@ class PolicyManager(object):
                     
                     	Configures the action to take on packets that exceed  the rate limit
                     	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
+                    
+                    .. attribute:: peak_burst
+                    
+                    	Peak burst configuration
+                    	**type**\: :py:class:`PeakBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst>`
+                    
+                    .. attribute:: peak_rate
+                    
+                    	Peak rate configuration
+                    	**type**\: :py:class:`PeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate>`
+                    
+                    .. attribute:: rate
+                    
+                    	Rate configuration
+                    	**type**\: :py:class:`Rate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate>`
                     
                     .. attribute:: violate_action
                     
@@ -4230,18 +4230,18 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate()
-                        self.rate.parent = self
-                        self.peak_rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate()
-                        self.peak_rate.parent = self
                         self.burst = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst()
                         self.burst.parent = self
-                        self.peak_burst = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst()
-                        self.peak_burst.parent = self
                         self.conform_action = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction()
                         self.conform_action.parent = self
                         self.exceed_action = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction()
                         self.exceed_action.parent = self
+                        self.peak_burst = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst()
+                        self.peak_burst.parent = self
+                        self.peak_rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate()
+                        self.peak_rate.parent = self
+                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate()
+                        self.rate.parent = self
                         self.violate_action = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction()
                         self.violate_action.parent = self
 
@@ -4250,19 +4250,19 @@ class PolicyManager(object):
                         """
                         Rate configuration.
                         
-                        .. attribute:: value
-                        
-                        	Rate value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: units
                         
                         	Rate units
                         	**type**\: str
                         
                         	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(pps)\|(percent)
+                        
+                        .. attribute:: value
+                        
+                        	Rate value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -4273,13 +4273,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.value = None
                             self.units = None
+                            self.value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:rate'
 
@@ -4290,10 +4290,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.value is not None:
+                            if self.units is not None:
                                 return True
 
-                            if self.units is not None:
+                            if self.value is not None:
                                 return True
 
                             return False
@@ -4308,19 +4308,19 @@ class PolicyManager(object):
                         """
                         Peak rate configuration.
                         
-                        .. attribute:: value
-                        
-                        	Peak rate value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: units
                         
                         	Peak rate units
                         	**type**\: str
                         
                         	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(pps)\|(percent)
+                        
+                        .. attribute:: value
+                        
+                        	Peak rate value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -4331,13 +4331,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.value = None
                             self.units = None
+                            self.value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:peak-rate'
 
@@ -4348,10 +4348,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.value is not None:
+                            if self.units is not None:
                                 return True
 
-                            if self.units is not None:
+                            if self.value is not None:
                                 return True
 
                             return False
@@ -4366,19 +4366,19 @@ class PolicyManager(object):
                         """
                         Burst configuration.
                         
-                        .. attribute:: value
-                        
-                        	Burst value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: units
                         
                         	Burst units
                         	**type**\: str
                         
                         	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
+                        
+                        .. attribute:: value
+                        
+                        	Burst value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -4389,13 +4389,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.value = None
                             self.units = None
+                            self.value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:burst'
 
@@ -4406,10 +4406,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.value is not None:
+                            if self.units is not None:
                                 return True
 
-                            if self.units is not None:
+                            if self.value is not None:
                                 return True
 
                             return False
@@ -4424,19 +4424,19 @@ class PolicyManager(object):
                         """
                         Peak burst configuration.
                         
-                        .. attribute:: value
-                        
-                        	Peak burst value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: units
                         
                         	Peak burst units
                         	**type**\: str
                         
                         	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
+                        
+                        .. attribute:: value
+                        
+                        	Peak burst value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -4447,13 +4447,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.value = None
                             self.units = None
+                            self.value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:peak-burst'
 
@@ -4464,10 +4464,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.value is not None:
+                            if self.units is not None:
                                 return True
 
-                            if self.units is not None:
+                            if self.value is not None:
                                 return True
 
                             return False
@@ -4483,11 +4483,6 @@ class PolicyManager(object):
                         Configures the action to take on packets that conform 
                         to the rate limit.
                         
-                        .. attribute:: transmit
-                        
-                        	Police action transmit
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: drop
                         
                         	Police action drop
@@ -4498,6 +4493,11 @@ class PolicyManager(object):
                         	Police action packet marking
                         	**type**\: :py:class:`Set <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set>`
                         
+                        .. attribute:: transmit
+                        
+                        	Police action transmit
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         
 
                         """
@@ -4507,40 +4507,19 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.transmit = None
                             self.drop = None
                             self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set()
                             self.set.parent = self
+                            self.transmit = None
 
 
                         class Set(object):
                             """
                             Police action packet marking.
                             
-                            .. attribute:: dscp
+                            .. attribute:: cos
                             
-                            	Marks a packet by setting the DSCP in the ToS byte
-                            	**type**\: int
-                            
-                            	**range:** 0..63
-                            
-                            .. attribute:: qos_group
-                            
-                            	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..512
-                            
-                            .. attribute:: discard_class
-                            
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: forward_class
-                            
-                            	Sets the discard class
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4552,37 +4531,23 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
-                            .. attribute:: cos
+                            .. attribute:: discard_class
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
-                            .. attribute:: precedence
+                            .. attribute:: dscp
                             
-                            	Sets the precedence value in the IP header
+                            	Marks a packet by setting the DSCP in the ToS byte
                             	**type**\: int
                             
-                            	**range:** 0..7
+                            	**range:** 0..63
                             
-                            .. attribute:: mpls_experimental_top_most
+                            .. attribute:: forward_class
                             
-                            	Sets the experimental value of the MPLS packet top\-most labels
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: mpls_experimental_imposition
-                            
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: srp_priority
-                            
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the discard class
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4594,6 +4559,41 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
+                            .. attribute:: mpls_experimental_imposition
+                            
+                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: mpls_experimental_top_most
+                            
+                            	Sets the experimental value of the MPLS packet top\-most labels
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: precedence
+                            
+                            	Sets the precedence value in the IP header
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: qos_group
+                            
+                            	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
+                            	**type**\: int
+                            
+                            	**range:** 0..512
+                            
+                            .. attribute:: srp_priority
+                            
+                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
                             
 
                             """
@@ -4603,22 +4603,22 @@ class PolicyManager(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.dscp = None
-                                self.qos_group = None
-                                self.discard_class = None
-                                self.forward_class = None
-                                self.df = None
                                 self.cos = None
-                                self.precedence = None
-                                self.mpls_experimental_top_most = None
-                                self.mpls_experimental_imposition = None
-                                self.srp_priority = None
+                                self.df = None
+                                self.discard_class = None
+                                self.dscp = None
+                                self.forward_class = None
                                 self.fr_de = None
+                                self.mpls_experimental_imposition = None
+                                self.mpls_experimental_top_most = None
+                                self.precedence = None
+                                self.qos_group = None
+                                self.srp_priority = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:set'
 
@@ -4629,37 +4629,37 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.dscp is not None:
-                                    return True
-
-                                if self.qos_group is not None:
-                                    return True
-
-                                if self.discard_class is not None:
-                                    return True
-
-                                if self.forward_class is not None:
+                                if self.cos is not None:
                                     return True
 
                                 if self.df is not None:
                                     return True
 
-                                if self.cos is not None:
+                                if self.discard_class is not None:
                                     return True
 
-                                if self.precedence is not None:
+                                if self.dscp is not None:
                                     return True
 
-                                if self.mpls_experimental_top_most is not None:
+                                if self.forward_class is not None:
+                                    return True
+
+                                if self.fr_de is not None:
                                     return True
 
                                 if self.mpls_experimental_imposition is not None:
                                     return True
 
-                                if self.srp_priority is not None:
+                                if self.mpls_experimental_top_most is not None:
                                     return True
 
-                                if self.fr_de is not None:
+                                if self.precedence is not None:
+                                    return True
+
+                                if self.qos_group is not None:
+                                    return True
+
+                                if self.srp_priority is not None:
                                     return True
 
                                 return False
@@ -4672,7 +4672,7 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:conform-action'
 
@@ -4683,13 +4683,13 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.transmit is not None:
-                                return True
-
                             if self.drop is not None:
                                 return True
 
                             if self.set is not None and self.set._has_data():
+                                return True
+
+                            if self.transmit is not None:
                                 return True
 
                             return False
@@ -4705,11 +4705,6 @@ class PolicyManager(object):
                         Configures the action to take on packets that exceed 
                         the rate limit.
                         
-                        .. attribute:: transmit
-                        
-                        	Police action transmit
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: drop
                         
                         	Police action drop
@@ -4720,6 +4715,11 @@ class PolicyManager(object):
                         	Police action packet marking
                         	**type**\: :py:class:`Set <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set>`
                         
+                        .. attribute:: transmit
+                        
+                        	Police action transmit
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         
 
                         """
@@ -4729,40 +4729,19 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.transmit = None
                             self.drop = None
                             self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set()
                             self.set.parent = self
+                            self.transmit = None
 
 
                         class Set(object):
                             """
                             Police action packet marking.
                             
-                            .. attribute:: dscp
+                            .. attribute:: cos
                             
-                            	Marks a packet by setting the DSCP in the ToS byte
-                            	**type**\: int
-                            
-                            	**range:** 0..63
-                            
-                            .. attribute:: qos_group
-                            
-                            	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..512
-                            
-                            .. attribute:: discard_class
-                            
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: forward_class
-                            
-                            	Sets the discard class
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4774,37 +4753,23 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
-                            .. attribute:: cos
+                            .. attribute:: discard_class
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
-                            .. attribute:: precedence
+                            .. attribute:: dscp
                             
-                            	Sets the precedence value in the IP header
+                            	Marks a packet by setting the DSCP in the ToS byte
                             	**type**\: int
                             
-                            	**range:** 0..7
+                            	**range:** 0..63
                             
-                            .. attribute:: mpls_experimental_top_most
+                            .. attribute:: forward_class
                             
-                            	Sets the experimental value of the MPLS packet top\-most labels
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: mpls_experimental_imposition
-                            
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: srp_priority
-                            
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the discard class
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4816,6 +4781,41 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
+                            .. attribute:: mpls_experimental_imposition
+                            
+                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: mpls_experimental_top_most
+                            
+                            	Sets the experimental value of the MPLS packet top\-most labels
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: precedence
+                            
+                            	Sets the precedence value in the IP header
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: qos_group
+                            
+                            	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
+                            	**type**\: int
+                            
+                            	**range:** 0..512
+                            
+                            .. attribute:: srp_priority
+                            
+                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
                             
 
                             """
@@ -4825,22 +4825,22 @@ class PolicyManager(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.dscp = None
-                                self.qos_group = None
-                                self.discard_class = None
-                                self.forward_class = None
-                                self.df = None
                                 self.cos = None
-                                self.precedence = None
-                                self.mpls_experimental_top_most = None
-                                self.mpls_experimental_imposition = None
-                                self.srp_priority = None
+                                self.df = None
+                                self.discard_class = None
+                                self.dscp = None
+                                self.forward_class = None
                                 self.fr_de = None
+                                self.mpls_experimental_imposition = None
+                                self.mpls_experimental_top_most = None
+                                self.precedence = None
+                                self.qos_group = None
+                                self.srp_priority = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:set'
 
@@ -4851,37 +4851,37 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.dscp is not None:
-                                    return True
-
-                                if self.qos_group is not None:
-                                    return True
-
-                                if self.discard_class is not None:
-                                    return True
-
-                                if self.forward_class is not None:
+                                if self.cos is not None:
                                     return True
 
                                 if self.df is not None:
                                     return True
 
-                                if self.cos is not None:
+                                if self.discard_class is not None:
                                     return True
 
-                                if self.precedence is not None:
+                                if self.dscp is not None:
                                     return True
 
-                                if self.mpls_experimental_top_most is not None:
+                                if self.forward_class is not None:
+                                    return True
+
+                                if self.fr_de is not None:
                                     return True
 
                                 if self.mpls_experimental_imposition is not None:
                                     return True
 
-                                if self.srp_priority is not None:
+                                if self.mpls_experimental_top_most is not None:
                                     return True
 
-                                if self.fr_de is not None:
+                                if self.precedence is not None:
+                                    return True
+
+                                if self.qos_group is not None:
+                                    return True
+
+                                if self.srp_priority is not None:
                                     return True
 
                                 return False
@@ -4894,7 +4894,7 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:exceed-action'
 
@@ -4905,13 +4905,13 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.transmit is not None:
-                                return True
-
                             if self.drop is not None:
                                 return True
 
                             if self.set is not None and self.set._has_data():
+                                return True
+
+                            if self.transmit is not None:
                                 return True
 
                             return False
@@ -4927,11 +4927,6 @@ class PolicyManager(object):
                         Configures the action to take on packets that violate
                         the rate limit.
                         
-                        .. attribute:: transmit
-                        
-                        	Police action transmit
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: drop
                         
                         	Police action drop
@@ -4942,6 +4937,11 @@ class PolicyManager(object):
                         	Police action packet marking
                         	**type**\: :py:class:`Set <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set>`
                         
+                        .. attribute:: transmit
+                        
+                        	Police action transmit
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         
 
                         """
@@ -4951,40 +4951,19 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.transmit = None
                             self.drop = None
                             self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set()
                             self.set.parent = self
+                            self.transmit = None
 
 
                         class Set(object):
                             """
                             Police action packet marking.
                             
-                            .. attribute:: dscp
+                            .. attribute:: cos
                             
-                            	Marks a packet by setting the DSCP in the ToS byte
-                            	**type**\: int
-                            
-                            	**range:** 0..63
-                            
-                            .. attribute:: qos_group
-                            
-                            	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..512
-                            
-                            .. attribute:: discard_class
-                            
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: forward_class
-                            
-                            	Sets the discard class
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4996,37 +4975,23 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
-                            .. attribute:: cos
+                            .. attribute:: discard_class
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
-                            .. attribute:: precedence
+                            .. attribute:: dscp
                             
-                            	Sets the precedence value in the IP header
+                            	Marks a packet by setting the DSCP in the ToS byte
                             	**type**\: int
                             
-                            	**range:** 0..7
+                            	**range:** 0..63
                             
-                            .. attribute:: mpls_experimental_top_most
+                            .. attribute:: forward_class
                             
-                            	Sets the experimental value of the MPLS packet top\-most labels
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: mpls_experimental_imposition
-                            
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: srp_priority
-                            
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the discard class
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5038,6 +5003,41 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
+                            .. attribute:: mpls_experimental_imposition
+                            
+                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: mpls_experimental_top_most
+                            
+                            	Sets the experimental value of the MPLS packet top\-most labels
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: precedence
+                            
+                            	Sets the precedence value in the IP header
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
+                            .. attribute:: qos_group
+                            
+                            	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
+                            	**type**\: int
+                            
+                            	**range:** 0..512
+                            
+                            .. attribute:: srp_priority
+                            
+                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	**type**\: int
+                            
+                            	**range:** 0..7
+                            
                             
 
                             """
@@ -5047,22 +5047,22 @@ class PolicyManager(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.dscp = None
-                                self.qos_group = None
-                                self.discard_class = None
-                                self.forward_class = None
-                                self.df = None
                                 self.cos = None
-                                self.precedence = None
-                                self.mpls_experimental_top_most = None
-                                self.mpls_experimental_imposition = None
-                                self.srp_priority = None
+                                self.df = None
+                                self.discard_class = None
+                                self.dscp = None
+                                self.forward_class = None
                                 self.fr_de = None
+                                self.mpls_experimental_imposition = None
+                                self.mpls_experimental_top_most = None
+                                self.precedence = None
+                                self.qos_group = None
+                                self.srp_priority = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:set'
 
@@ -5073,37 +5073,37 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.dscp is not None:
-                                    return True
-
-                                if self.qos_group is not None:
-                                    return True
-
-                                if self.discard_class is not None:
-                                    return True
-
-                                if self.forward_class is not None:
+                                if self.cos is not None:
                                     return True
 
                                 if self.df is not None:
                                     return True
 
-                                if self.cos is not None:
+                                if self.discard_class is not None:
                                     return True
 
-                                if self.precedence is not None:
+                                if self.dscp is not None:
                                     return True
 
-                                if self.mpls_experimental_top_most is not None:
+                                if self.forward_class is not None:
+                                    return True
+
+                                if self.fr_de is not None:
                                     return True
 
                                 if self.mpls_experimental_imposition is not None:
                                     return True
 
-                                if self.srp_priority is not None:
+                                if self.mpls_experimental_top_most is not None:
                                     return True
 
-                                if self.fr_de is not None:
+                                if self.precedence is not None:
+                                    return True
+
+                                if self.qos_group is not None:
+                                    return True
+
+                                if self.srp_priority is not None:
                                     return True
 
                                 return False
@@ -5116,7 +5116,7 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:violate-action'
 
@@ -5127,13 +5127,13 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.transmit is not None:
-                                return True
-
                             if self.drop is not None:
                                 return True
 
                             if self.set is not None and self.set._has_data():
+                                return True
+
+                            if self.transmit is not None:
                                 return True
 
                             return False
@@ -5146,7 +5146,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:police'
 
@@ -5157,22 +5157,22 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.rate is not None and self.rate._has_data():
-                            return True
-
-                        if self.peak_rate is not None and self.peak_rate._has_data():
-                            return True
-
                         if self.burst is not None and self.burst._has_data():
-                            return True
-
-                        if self.peak_burst is not None and self.peak_burst._has_data():
                             return True
 
                         if self.conform_action is not None and self.conform_action._has_data():
                             return True
 
                         if self.exceed_action is not None and self.exceed_action._has_data():
+                            return True
+
+                        if self.peak_burst is not None and self.peak_burst._has_data():
+                            return True
+
+                        if self.peak_rate is not None and self.peak_rate._has_data():
+                            return True
+
+                        if self.rate is not None and self.rate._has_data():
                             return True
 
                         if self.violate_action is not None and self.violate_action._has_data():
@@ -5219,7 +5219,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:service-policy'
 
@@ -5248,16 +5248,6 @@ class PolicyManager(object):
                     """
                     Policy action CAC.
                     
-                    .. attribute:: rate
-                    
-                    	The rate allocated for all flows
-                    	**type**\: :py:class:`Rate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate>`
-                    
-                    .. attribute:: flow_rate
-                    
-                    	The rate allocated per flow
-                    	**type**\: :py:class:`FlowRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate>`
-                    
                     .. attribute:: flow_idle_timeout
                     
                     	The interval after which a flow is removed,  if there is no activity. If timeout is 0 this flow does not expire
@@ -5275,6 +5265,16 @@ class PolicyManager(object):
                     
                     
                     ----
+                    .. attribute:: flow_rate
+                    
+                    	The rate allocated per flow
+                    	**type**\: :py:class:`FlowRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate>`
+                    
+                    .. attribute:: rate
+                    
+                    	The rate allocated for all flows
+                    	**type**\: :py:class:`Rate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate>`
+                    
                     
 
                     """
@@ -5284,23 +5284,16 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate()
-                        self.rate.parent = self
+                        self.flow_idle_timeout = None
                         self.flow_rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate()
                         self.flow_rate.parent = self
-                        self.flow_idle_timeout = None
+                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate()
+                        self.rate.parent = self
 
 
                     class Rate(object):
                         """
                         The rate allocated for all flows.
-                        
-                        .. attribute:: value
-                        
-                        	Rate value
-                        	**type**\: int
-                        
-                        	**range:** 1..4294967295
                         
                         .. attribute:: units
                         
@@ -5308,6 +5301,13 @@ class PolicyManager(object):
                         	**type**\: str
                         
                         	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(cellsps)
+                        
+                        .. attribute:: value
+                        
+                        	Rate value
+                        	**type**\: int
+                        
+                        	**range:** 1..4294967295
                         
                         
 
@@ -5318,13 +5318,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.value = None
                             self.units = None
+                            self.value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:rate'
 
@@ -5335,10 +5335,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.value is not None:
+                            if self.units is not None:
                                 return True
 
-                            if self.units is not None:
+                            if self.value is not None:
                                 return True
 
                             return False
@@ -5353,19 +5353,19 @@ class PolicyManager(object):
                         """
                         The rate allocated per flow.
                         
-                        .. attribute:: value
-                        
-                        	Rate value
-                        	**type**\: int
-                        
-                        	**range:** 1..4294967295
-                        
                         .. attribute:: units
                         
                         	Rate units
                         	**type**\: str
                         
                         	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(cellsps)
+                        
+                        .. attribute:: value
+                        
+                        	Rate value
+                        	**type**\: int
+                        
+                        	**range:** 1..4294967295
                         
                         
 
@@ -5376,13 +5376,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.value = None
                             self.units = None
+                            self.value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:flow-rate'
 
@@ -5393,10 +5393,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.value is not None:
+                            if self.units is not None:
                                 return True
 
-                            if self.units is not None:
+                            if self.value is not None:
                                 return True
 
                             return False
@@ -5409,7 +5409,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:cac-local'
 
@@ -5420,13 +5420,13 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.rate is not None and self.rate._has_data():
+                        if self.flow_idle_timeout is not None:
                             return True
 
                         if self.flow_rate is not None and self.flow_rate._has_data():
                             return True
 
-                        if self.flow_idle_timeout is not None:
+                        if self.rate is not None and self.rate._has_data():
                             return True
 
                         return False
@@ -5441,12 +5441,12 @@ class PolicyManager(object):
                     """
                     Policy flow monitoring action.
                     
-                    .. attribute:: max_flow
+                    .. attribute:: history
                     
-                    	Max simultaneous flows monitored per policy class
+                    	Keep stats/metrics on box for so many intervals
                     	**type**\: int
                     
-                    	**range:** 0..4096
+                    	**range:** 0..4294967295
                     
                     .. attribute:: interval_duration
                     
@@ -5455,12 +5455,12 @@ class PolicyManager(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: history
+                    .. attribute:: max_flow
                     
-                    	Keep stats/metrics on box for so many intervals
+                    	Max simultaneous flows monitored per policy class
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..4096
                     
                     .. attribute:: timeout
                     
@@ -5478,15 +5478,15 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.max_flow = None
-                        self.interval_duration = None
                         self.history = None
+                        self.interval_duration = None
+                        self.max_flow = None
                         self.timeout = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:flow-params'
 
@@ -5497,13 +5497,13 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.max_flow is not None:
+                        if self.history is not None:
                             return True
 
                         if self.interval_duration is not None:
                             return True
 
-                        if self.history is not None:
+                        if self.max_flow is not None:
                             return True
 
                         if self.timeout is not None:
@@ -5521,15 +5521,15 @@ class PolicyManager(object):
                     """
                     Policy IP\-CBR metric action.
                     
-                    .. attribute:: rate
-                    
-                    	Nominal per\-flow data rate
-                    	**type**\: :py:class:`Rate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate>`
-                    
                     .. attribute:: media_packet
                     
                     	Media\-packet structure
                     	**type**\: :py:class:`MediaPacket <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket>`
+                    
+                    .. attribute:: rate
+                    
+                    	Nominal per\-flow data rate
+                    	**type**\: :py:class:`Rate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate>`
                     
                     
 
@@ -5540,10 +5540,10 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate()
-                        self.rate.parent = self
                         self.media_packet = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket()
                         self.media_packet.parent = self
+                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate()
+                        self.rate.parent = self
 
 
                     class Rate(object):
@@ -5557,19 +5557,19 @@ class PolicyManager(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: packet
-                        
-                        	Nominal IP layer packet rate (in pps)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: media
                         
                         	Nominal data rate of the media flow (ip payload)
                         	**type**\: int
                         
                         	**range:** 1..3000000000
+                        
+                        .. attribute:: packet
+                        
+                        	Nominal IP layer packet rate (in pps)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -5581,13 +5581,13 @@ class PolicyManager(object):
                         def __init__(self):
                             self.parent = None
                             self.layer3 = None
-                            self.packet = None
                             self.media = None
+                            self.packet = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:rate'
 
@@ -5601,10 +5601,10 @@ class PolicyManager(object):
                             if self.layer3 is not None:
                                 return True
 
-                            if self.packet is not None:
+                            if self.media is not None:
                                 return True
 
-                            if self.media is not None:
+                            if self.packet is not None:
                                 return True
 
                             return False
@@ -5619,19 +5619,19 @@ class PolicyManager(object):
                         """
                         Media\-packet structure.
                         
-                        .. attribute:: size
-                        
-                        	Nominal size of the media\-packet
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
                         .. attribute:: count_in_layer3
                         
                         	Nominal number of media packets in an IP payload
                         	**type**\: int
                         
                         	**range:** 1..64
+                        
+                        .. attribute:: size
+                        
+                        	Nominal size of the media\-packet
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
                         
                         
 
@@ -5642,13 +5642,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.size = None
                             self.count_in_layer3 = None
+                            self.size = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:media-packet'
 
@@ -5659,10 +5659,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.size is not None:
+                            if self.count_in_layer3 is not None:
                                 return True
 
-                            if self.count_in_layer3 is not None:
+                            if self.size is not None:
                                 return True
 
                             return False
@@ -5675,7 +5675,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:metrics-ipcbr'
 
@@ -5686,10 +5686,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.rate is not None and self.rate._has_data():
+                        if self.media_packet is not None and self.media_packet._has_data():
                             return True
 
-                        if self.media_packet is not None and self.media_packet._has_data():
+                        if self.rate is not None and self.rate._has_data():
                             return True
 
                         return False
@@ -5704,11 +5704,6 @@ class PolicyManager(object):
                     """
                     Policy action react.
                     
-                    .. attribute:: descrition
-                    
-                    	String describing the react statement
-                    	**type**\: str
-                    
                     .. attribute:: action
                     
                     	Action on alert
@@ -5719,14 +5714,14 @@ class PolicyManager(object):
                     	Alaram settings
                     	**type**\: :py:class:`Alarm <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm>`
                     
-                    .. attribute:: treshold
-                    
-                    	Alarm threshold settings
-                    	**type**\: :py:class:`Treshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold>`
-                    
                     .. attribute:: criterion_delay_factor
                     
                     	React criterion delay factor
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: criterion_flow_count
+                    
+                    	React criterion flow count
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: criterion_media_stop
@@ -5739,15 +5734,20 @@ class PolicyManager(object):
                     	React criterion mrv
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: criterion_flow_count
-                    
-                    	React criterion flow count
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: criterion_packet_rate
                     
                     	React criterion packet rate
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: descrition
+                    
+                    	String describing the react statement
+                    	**type**\: str
+                    
+                    .. attribute:: treshold
+                    
+                    	Alarm threshold settings
+                    	**type**\: :py:class:`Treshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold>`
                     
                     
 
@@ -5758,32 +5758,32 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.descrition = None
                         self.action = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action()
                         self.action.parent = self
                         self.alarm = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm()
                         self.alarm.parent = self
-                        self.treshold = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold()
-                        self.treshold.parent = self
                         self.criterion_delay_factor = None
+                        self.criterion_flow_count = None
                         self.criterion_media_stop = None
                         self.criterion_mrv = None
-                        self.criterion_flow_count = None
                         self.criterion_packet_rate = None
+                        self.descrition = None
+                        self.treshold = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold()
+                        self.treshold.parent = self
 
 
                     class Action(object):
                         """
                         Action on alert.
                         
-                        .. attribute:: syslog
-                        
-                        	Syslog
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: snmp
                         
                         	SNMP
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: syslog
+                        
+                        	Syslog
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
@@ -5795,13 +5795,13 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.syslog = None
                             self.snmp = None
+                            self.syslog = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:action'
 
@@ -5812,10 +5812,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.syslog is not None:
+                            if self.snmp is not None:
                                 return True
 
-                            if self.snmp is not None:
+                            if self.syslog is not None:
                                 return True
 
                             return False
@@ -5830,17 +5830,17 @@ class PolicyManager(object):
                         """
                         Alaram settings.
                         
-                        .. attribute:: type
-                        
-                        	Alarm type
-                        	**type**\: :py:class:`Type <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type>`
-                        
                         .. attribute:: severity
                         
                         	Severity of the alarm
                         	**type**\: str
                         
                         	**pattern:** (informational)\|(notification)\|(warning)\|(error)\|(critical)\|(alert)\|(emergency)
+                        
+                        .. attribute:: type
+                        
+                        	Alarm type
+                        	**type**\: :py:class:`Type <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type>`
                         
                         
 
@@ -5851,9 +5851,9 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.severity = None
                             self.type = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type()
                             self.type.parent = self
-                            self.severity = None
 
 
                         class Type(object):
@@ -5895,7 +5895,7 @@ class PolicyManager(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:type'
 
@@ -5925,7 +5925,7 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:alarm'
 
@@ -5936,10 +5936,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None and self.type._has_data():
+                            if self.severity is not None:
                                 return True
 
-                            if self.severity is not None:
+                            if self.type is not None and self.type._has_data():
                                 return True
 
                             return False
@@ -5954,15 +5954,15 @@ class PolicyManager(object):
                         """
                         Alarm threshold settings.
                         
-                        .. attribute:: trigger_value
-                        
-                        	Alarm trigger value settings
-                        	**type**\: :py:class:`TriggerValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerValue>`
-                        
                         .. attribute:: trigger_type
                         
                         	Alarm trigger type settings
                         	**type**\: :py:class:`TriggerType <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerType>`
+                        
+                        .. attribute:: trigger_value
+                        
+                        	Alarm trigger value settings
+                        	**type**\: :py:class:`TriggerValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerValue>`
                         
                         
 
@@ -5973,10 +5973,10 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.trigger_value = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerValue()
-                            self.trigger_value.parent = self
                             self.trigger_type = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerType()
                             self.trigger_type.parent = self
+                            self.trigger_value = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerValue()
+                            self.trigger_value.parent = self
 
 
                         class TriggerValue(object):
@@ -6026,7 +6026,7 @@ class PolicyManager(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:trigger-value'
 
@@ -6064,17 +6064,17 @@ class PolicyManager(object):
                             """
                             Alarm trigger type settings.
                             
-                            .. attribute:: immediate
-                            
-                            	Immediate trigger
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: average
                             
                             	Trigger averaged over N intervals
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: immediate
+                            
+                            	Immediate trigger
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
 
@@ -6085,13 +6085,13 @@ class PolicyManager(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.immediate = None
                                 self.average = None
+                                self.immediate = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:trigger-type'
 
@@ -6102,10 +6102,10 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.immediate is not None:
+                                if self.average is not None:
                                     return True
 
-                                if self.average is not None:
+                                if self.immediate is not None:
                                     return True
 
                                 return False
@@ -6118,7 +6118,7 @@ class PolicyManager(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:treshold'
 
@@ -6129,10 +6129,10 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.trigger_value is not None and self.trigger_value._has_data():
+                            if self.trigger_type is not None and self.trigger_type._has_data():
                                 return True
 
-                            if self.trigger_type is not None and self.trigger_type._has_data():
+                            if self.trigger_value is not None and self.trigger_value._has_data():
                                 return True
 
                             return False
@@ -6145,7 +6145,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:react'
 
@@ -6156,19 +6156,16 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.descrition is not None:
-                            return True
-
                         if self.action is not None and self.action._has_data():
                             return True
 
                         if self.alarm is not None and self.alarm._has_data():
                             return True
 
-                        if self.treshold is not None and self.treshold._has_data():
+                        if self.criterion_delay_factor is not None:
                             return True
 
-                        if self.criterion_delay_factor is not None:
+                        if self.criterion_flow_count is not None:
                             return True
 
                         if self.criterion_media_stop is not None:
@@ -6177,10 +6174,13 @@ class PolicyManager(object):
                         if self.criterion_mrv is not None:
                             return True
 
-                        if self.criterion_flow_count is not None:
+                        if self.criterion_packet_rate is not None:
                             return True
 
-                        if self.criterion_packet_rate is not None:
+                        if self.descrition is not None:
+                            return True
+
+                        if self.treshold is not None and self.treshold._has_data():
                             return True
 
                         return False
@@ -6230,11 +6230,6 @@ class PolicyManager(object):
                            4. v4 address
                            5. v6 address
                         
-                        .. attribute:: vrf
-                        
-                        	VRF name
-                        	**type**\: str
-                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
@@ -6249,6 +6244,11 @@ class PolicyManager(object):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: vrf
+                        
+                        	VRF name
+                        	**type**\: str
+                        
                         
 
                         """
@@ -6258,14 +6258,14 @@ class PolicyManager(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.vrf = None
                             self.ipv4_address = None
                             self.ipv6_address = None
+                            self.vrf = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:next-hop'
 
@@ -6276,13 +6276,13 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.vrf is not None:
-                                return True
-
                             if self.ipv4_address is not None:
                                 return True
 
                             if self.ipv6_address is not None:
+                                return True
+
+                            if self.vrf is not None:
                                 return True
 
                             return False
@@ -6295,7 +6295,7 @@ class PolicyManager(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:pbr-forward'
 
@@ -6322,11 +6322,11 @@ class PolicyManager(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.class_name is None:
-                        raise YPYDataValidationError('Key property class_name is None')
+                        raise YPYModelError('Key property class_name is None')
                     if self.class_type is None:
-                        raise YPYDataValidationError('Key property class_type is None')
+                        raise YPYModelError('Key property class_type is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-map-rule[Cisco-IOS-XR-ncs5500-policymgr-cfg:class-name = ' + str(self.class_name) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:class-type = ' + str(self.class_type) + ']'
 
@@ -6343,22 +6343,49 @@ class PolicyManager(object):
                     if self.class_type is not None:
                         return True
 
-                    if self.shape is not None and self.shape._has_data():
+                    if self.bandwidth_remaining is not None and self.bandwidth_remaining._has_data():
+                        return True
+
+                    if self.cac_local is not None and self.cac_local._has_data():
+                        return True
+
+                    if self.decap_gre is not None:
+                        return True
+
+                    if self.default_red is not None:
+                        return True
+
+                    if self.flow_params is not None and self.flow_params._has_data():
+                        return True
+
+                    if self.fragment is not None:
+                        return True
+
+                    if self.http_redirect is not None:
+                        return True
+
+                    if self.metrics_ipcbr is not None and self.metrics_ipcbr._has_data():
                         return True
 
                     if self.min_bandwidth is not None and self.min_bandwidth._has_data():
                         return True
 
-                    if self.bandwidth_remaining is not None and self.bandwidth_remaining._has_data():
+                    if self.pbr_drop is not None:
                         return True
 
-                    if self.queue_limit is not None and self.queue_limit._has_data():
+                    if self.pbr_forward is not None and self.pbr_forward._has_data():
+                        return True
+
+                    if self.pbr_transmit is not None:
+                        return True
+
+                    if self.police is not None and self.police._has_data():
                         return True
 
                     if self.priority_level is not None:
                         return True
 
-                    if self.default_red is not None:
+                    if self.queue_limit is not None and self.queue_limit._has_data():
                         return True
 
                     if self.random_detect is not None:
@@ -6366,46 +6393,19 @@ class PolicyManager(object):
                             if child_ref._has_data():
                                 return True
 
-                    if self.set is not None and self.set._has_data():
-                        return True
-
-                    if self.police is not None and self.police._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    if self.cac_local is not None and self.cac_local._has_data():
-                        return True
-
-                    if self.flow_params is not None and self.flow_params._has_data():
-                        return True
-
-                    if self.metrics_ipcbr is not None and self.metrics_ipcbr._has_data():
-                        return True
-
                     if self.react is not None and self.react._has_data():
-                        return True
-
-                    if self.http_redirect is not None:
-                        return True
-
-                    if self.pbr_transmit is not None:
-                        return True
-
-                    if self.pbr_drop is not None:
-                        return True
-
-                    if self.decap_gre is not None:
-                        return True
-
-                    if self.pbr_forward is not None and self.pbr_forward._has_data():
                         return True
 
                     if self.service_fragment is not None:
                         return True
 
-                    if self.fragment is not None:
+                    if self.service_policy is not None and self.service_policy._has_data():
+                        return True
+
+                    if self.set is not None and self.set._has_data():
+                        return True
+
+                    if self.shape is not None and self.shape._has_data():
                         return True
 
                     return False
@@ -6417,12 +6417,12 @@ class PolicyManager(object):
 
             @property
             def _common_path(self):
-                if self.type is None:
-                    raise YPYDataValidationError('Key property type is None')
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
+                if self.type is None:
+                    raise YPYModelError('Key property type is None')
 
-                return '/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-manager/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-maps/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-map[Cisco-IOS-XR-ncs5500-policymgr-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + ']'
+                return '/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-manager/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-maps/Cisco-IOS-XR-ncs5500-policymgr-cfg:policy-map[Cisco-IOS-XR-ncs5500-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-ncs5500-policymgr-cfg:type = ' + str(self.type) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -6431,10 +6431,13 @@ class PolicyManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.name is not None:
+                    return True
+
                 if self.type is not None:
                     return True
 
-                if self.name is not None:
+                if self.description is not None:
                     return True
 
                 if self.event is not None:
@@ -6446,9 +6449,6 @@ class PolicyManager(object):
                     for child_ref in self.policy_map_rule:
                         if child_ref._has_data():
                             return True
-
-                if self.description is not None:
-                    return True
 
                 return False
 

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaBucketsSizeUnitsEnumEnum
@@ -133,25 +133,25 @@ class Sla(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: statistics
+                    .. attribute:: packet_type
                     
-                    	Statistics configuration for the SLA profile
-                    	**type**\: :py:class:`Statistics <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics>`
-                    
-                    .. attribute:: schedule
-                    
-                    	Schedule to use for probes within an operation
-                    	**type**\: :py:class:`Schedule <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Schedule>`
+                    	The possible packet types are cfm\-loopback, cfm\-delay\-measurement, cfm\-delay\-measurement\-version\-0 and cfm\-synthetic\-loss\-measurement
+                    	**type**\: str
                     
                     .. attribute:: probe
                     
                     	Probe configuration for the SLA profile
                     	**type**\: :py:class:`Probe <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe>`
                     
-                    .. attribute:: packet_type
+                    .. attribute:: schedule
                     
-                    	The possible packet types are cfm\-loopback, cfm\-delay\-measurement, cfm\-delay\-measurement\-version\-0 and cfm\-synthetic\-loss\-measurement
-                    	**type**\: str
+                    	Schedule to use for probes within an operation
+                    	**type**\: :py:class:`Schedule <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Schedule>`
+                    
+                    .. attribute:: statistics
+                    
+                    	Statistics configuration for the SLA profile
+                    	**type**\: :py:class:`Statistics <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics>`
                     
                     
 
@@ -163,12 +163,12 @@ class Sla(object):
                     def __init__(self):
                         self.parent = None
                         self.profile_name = None
-                        self.statistics = Sla.Protocols.Ethernet.Profiles.Profile.Statistics()
-                        self.statistics.parent = self
-                        self.schedule = None
+                        self.packet_type = None
                         self.probe = Sla.Protocols.Ethernet.Profiles.Profile.Probe()
                         self.probe.parent = self
-                        self.packet_type = None
+                        self.schedule = None
+                        self.statistics = Sla.Protocols.Ethernet.Profiles.Profile.Statistics()
+                        self.statistics.parent = self
 
 
                     class Statistics(object):
@@ -203,20 +203,10 @@ class Sla(object):
                             	The type of statistic to measure
                             	**type**\: :py:class:`SlaStatisticTypeEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnumEnum>`
                             
-                            .. attribute:: buckets_size
-                            
-                            	Size of the buckets into which statistics are collected
-                            	**type**\: :py:class:`BucketsSize <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize>`
-                            
                             .. attribute:: aggregation
                             
                             	Aggregation to apply to results for the statistic
                             	**type**\: :py:class:`Aggregation <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation>`
-                            
-                            .. attribute:: enable
-                            
-                            	Enable statistic gathering of the metric
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             .. attribute:: buckets_archive
                             
@@ -224,6 +214,16 @@ class Sla(object):
                             	**type**\: int
                             
                             	**range:** 1..100
+                            
+                            .. attribute:: buckets_size
+                            
+                            	Size of the buckets into which statistics are collected
+                            	**type**\: :py:class:`BucketsSize <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize>`
+                            
+                            .. attribute:: enable
+                            
+                            	Enable statistic gathering of the metric
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             
 
@@ -235,10 +235,10 @@ class Sla(object):
                             def __init__(self):
                                 self.parent = None
                                 self.statistic_name = None
-                                self.buckets_size = None
                                 self.aggregation = None
-                                self.enable = None
                                 self.buckets_archive = None
+                                self.buckets_size = None
+                                self.enable = None
 
 
                             class BucketsSize(object):
@@ -285,7 +285,7 @@ class Sla(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:buckets-size'
 
@@ -369,7 +369,7 @@ class Sla(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:aggregation'
 
@@ -399,9 +399,9 @@ class Sla(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.statistic_name is None:
-                                    raise YPYDataValidationError('Key property statistic_name is None')
+                                    raise YPYModelError('Key property statistic_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:statistic[Cisco-IOS-XR-ethernet-cfm-cfg:statistic-name = ' + str(self.statistic_name) + ']'
 
@@ -415,16 +415,16 @@ class Sla(object):
                                 if self.statistic_name is not None:
                                     return True
 
-                                if self.buckets_size is not None and self.buckets_size._has_data():
-                                    return True
-
                                 if self.aggregation is not None and self.aggregation._has_data():
                                     return True
 
-                                if self.enable is not None:
+                                if self.buckets_archive is not None:
                                     return True
 
-                                if self.buckets_archive is not None:
+                                if self.buckets_size is not None and self.buckets_size._has_data():
+                                    return True
+
+                                if self.enable is not None:
                                     return True
 
                                 return False
@@ -437,7 +437,7 @@ class Sla(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:statistics'
 
@@ -465,6 +465,28 @@ class Sla(object):
                         """
                         Schedule to use for probes within an
                         operation
+                        
+                        .. attribute:: probe_duration
+                        
+                        	Duration of each probe.  This must be specified if, and only if, ProbeDurationUnit is specified
+                        	**type**\: int
+                        
+                        	**range:** 1..3600
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: probe_duration_unit
+                        
+                        	Time unit associated with the ProbeDuration. The value must not be 'Once'
+                        	**type**\: :py:class:`SlaProbeDurationUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnumEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: probe_interval
                         
@@ -534,28 +556,6 @@ class Sla(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: probe_duration
-                        
-                        	Duration of each probe.  This must be specified if, and only if, ProbeDurationUnit is specified
-                        	**type**\: int
-                        
-                        	**range:** 1..3600
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: probe_duration_unit
-                        
-                        	Time unit associated with the ProbeDuration. The value must not be 'Once'
-                        	**type**\: :py:class:`SlaProbeDurationUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnumEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -567,19 +567,19 @@ class Sla(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.probe_duration = None
+                            self.probe_duration_unit = None
                             self.probe_interval = None
                             self.probe_interval_day = None
                             self.probe_interval_unit = None
                             self.start_time_hour = None
                             self.start_time_minute = None
                             self.start_time_second = None
-                            self.probe_duration = None
-                            self.probe_duration_unit = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:schedule'
 
@@ -590,6 +590,12 @@ class Sla(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.probe_duration is not None:
+                                return True
+
+                            if self.probe_duration_unit is not None:
+                                return True
+
                             if self.probe_interval is not None:
                                 return True
 
@@ -608,12 +614,6 @@ class Sla(object):
                             if self.start_time_second is not None:
                                 return True
 
-                            if self.probe_duration is not None:
-                                return True
-
-                            if self.probe_duration_unit is not None:
-                                return True
-
                             return False
 
                         @staticmethod
@@ -626,11 +626,6 @@ class Sla(object):
                         """
                         Probe configuration for the SLA profile
                         
-                        .. attribute:: send
-                        
-                        	Schedule to use for packets within a burst.  The default value is to send a single packet once
-                        	**type**\: :py:class:`Send <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
-                        
                         .. attribute:: packet_size_and_padding
                         
                         	Minimum size to pad outgoing packet to
@@ -642,6 +637,11 @@ class Sla(object):
                         	**type**\: int
                         
                         	**range:** 0..7
+                        
+                        .. attribute:: send
+                        
+                        	Schedule to use for packets within a burst.  The default value is to send a single packet once
+                        	**type**\: :py:class:`Send <ydk.models.infra.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
                         
                         .. attribute:: synthetic_loss_calculation_packets
                         
@@ -659,9 +659,9 @@ class Sla(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.send = None
                             self.packet_size_and_padding = None
                             self.priority = None
+                            self.send = None
                             self.synthetic_loss_calculation_packets = None
 
 
@@ -693,6 +693,18 @@ class Sla(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
+                            .. attribute:: packet_count
+                            
+                            	The number of packets in each burst.  This must be specified if, and only if, the SendType is 'Burst'
+                            	**type**\: int
+                            
+                            	**range:** 2..1200
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: packet_interval
                             
                             	Interval between packets
@@ -709,18 +721,6 @@ class Sla(object):
                             
                             	Time unit associated with the PacketInterval, must not be 'Once'
                             	**type**\: :py:class:`SlaPacketIntervalUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnumEnum>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: packet_count
-                            
-                            	The number of packets in each burst.  This must be specified if, and only if, the SendType is 'Burst'
-                            	**type**\: int
-                            
-                            	**range:** 2..1200
                             
                             .. attribute:: _is_presence
                             
@@ -750,15 +750,15 @@ class Sla(object):
                                 self.parent = None
                                 self.burst_interval = None
                                 self.burst_interval_unit = None
+                                self.packet_count = None
                                 self.packet_interval = None
                                 self.packet_interval_unit = None
-                                self.packet_count = None
                                 self.send_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:send'
 
@@ -775,13 +775,13 @@ class Sla(object):
                                 if self.burst_interval_unit is not None:
                                     return True
 
+                                if self.packet_count is not None:
+                                    return True
+
                                 if self.packet_interval is not None:
                                     return True
 
                                 if self.packet_interval_unit is not None:
-                                    return True
-
-                                if self.packet_count is not None:
                                     return True
 
                                 if self.send_type is not None:
@@ -798,18 +798,6 @@ class Sla(object):
                         class PacketSizeAndPadding(object):
                             """
                             Minimum size to pad outgoing packet to
-                            
-                            .. attribute:: size
-                            
-                            	Minimum size to pad outgoing packet to
-                            	**type**\: int
-                            
-                            	**range:** 1..9000
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
                             
                             .. attribute:: padding_type
                             
@@ -833,6 +821,18 @@ class Sla(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
+                            .. attribute:: size
+                            
+                            	Minimum size to pad outgoing packet to
+                            	**type**\: int
+                            
+                            	**range:** 1..9000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -844,14 +844,14 @@ class Sla(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.size = None
                                 self.padding_type = None
                                 self.padding_value = None
+                                self.size = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:packet-size-and-padding'
 
@@ -862,13 +862,13 @@ class Sla(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.size is not None:
-                                    return True
-
                                 if self.padding_type is not None:
                                     return True
 
                                 if self.padding_value is not None:
+                                    return True
+
+                                if self.size is not None:
                                     return True
 
                                 return False
@@ -881,7 +881,7 @@ class Sla(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:probe'
 
@@ -892,13 +892,13 @@ class Sla(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.send is not None and self.send._has_data():
-                                return True
-
                             if self.packet_size_and_padding is not None and self.packet_size_and_padding._has_data():
                                 return True
 
                             if self.priority is not None:
+                                return True
+
+                            if self.send is not None and self.send._has_data():
                                 return True
 
                             if self.synthetic_loss_calculation_packets is not None:
@@ -914,7 +914,7 @@ class Sla(object):
                     @property
                     def _common_path(self):
                         if self.profile_name is None:
-                            raise YPYDataValidationError('Key property profile_name is None')
+                            raise YPYModelError('Key property profile_name is None')
 
                         return '/Cisco-IOS-XR-infra-sla-cfg:sla/Cisco-IOS-XR-infra-sla-cfg:protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/Cisco-IOS-XR-ethernet-cfm-cfg:profiles/Cisco-IOS-XR-ethernet-cfm-cfg:profile[Cisco-IOS-XR-ethernet-cfm-cfg:profile-name = ' + str(self.profile_name) + ']'
 
@@ -928,16 +928,16 @@ class Sla(object):
                         if self.profile_name is not None:
                             return True
 
-                        if self.statistics is not None and self.statistics._has_data():
-                            return True
-
-                        if self.schedule is not None and self.schedule._has_data():
+                        if self.packet_type is not None:
                             return True
 
                         if self.probe is not None and self.probe._has_data():
                             return True
 
-                        if self.packet_type is not None:
+                        if self.schedule is not None and self.schedule._has_data():
+                            return True
+
+                        if self.statistics is not None and self.statistics._has_data():
                             return True
 
                         return False

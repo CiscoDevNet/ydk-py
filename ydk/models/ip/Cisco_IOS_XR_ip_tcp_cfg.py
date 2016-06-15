@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -30,21 +30,6 @@ class IpTcp(object):
     """
     Global IP TCP configuration
     
-    .. attribute:: directory
-    
-    	TCP directory details
-    	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Directory>`
-    
-    .. attribute:: throttle
-    
-    	Throttle TCP receive buffer (in percentage)
-    	**type**\: :py:class:`Throttle <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Throttle>`
-    
-    .. attribute:: num_thread
-    
-    	TCP InQueue and OutQueue threads
-    	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.NumThread>`
-    
     .. attribute:: accept_rate
     
     	TCP connection accept rate
@@ -52,9 +37,57 @@ class IpTcp(object):
     
     	**range:** 1..1000
     
+    .. attribute:: directory
+    
+    	TCP directory details
+    	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Directory>`
+    
+    .. attribute:: maximum_segment_size
+    
+    	TCP initial maximum segment size
+    	**type**\: int
+    
+    	**range:** 68..10000
+    
+    .. attribute:: num_thread
+    
+    	TCP InQueue and OutQueue threads
+    	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.NumThread>`
+    
+    .. attribute:: path_mtu_discovery
+    
+    	Aging time; 0 for infinite, and range be (10,30)
+    	**type**\: int
+    
+    	**range:** \-2147483648..2147483647
+    
+    .. attribute:: receive_q
+    
+    	TCP receive Queue Size
+    	**type**\: int
+    
+    	**range:** 40..800
+    
     .. attribute:: selective_ack
     
     	Enable TCP selective\-ACK
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: syn_wait_time
+    
+    	Time to wait on new TCP connections in seconds
+    	**type**\: int
+    
+    	**range:** 5..30
+    
+    .. attribute:: throttle
+    
+    	Throttle TCP receive buffer (in percentage)
+    	**type**\: :py:class:`Throttle <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Throttle>`
+    
+    .. attribute:: timestamp
+    
+    	Enable TCP timestamp option
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: window_size
@@ -64,39 +97,6 @@ class IpTcp(object):
     
     	**range:** 2048..65535
     
-    .. attribute:: receive_q
-    
-    	TCP receive Queue Size
-    	**type**\: int
-    
-    	**range:** 40..800
-    
-    .. attribute:: maximum_segment_size
-    
-    	TCP initial maximum segment size
-    	**type**\: int
-    
-    	**range:** 68..10000
-    
-    .. attribute:: syn_wait_time
-    
-    	Time to wait on new TCP connections in seconds
-    	**type**\: int
-    
-    	**range:** 5..30
-    
-    .. attribute:: timestamp
-    
-    	Enable TCP timestamp option
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: path_mtu_discovery
-    
-    	Aging time; 0 for infinite, and range be (10,30)
-    	**type**\: int
-    
-    	**range:** \-2147483648..2147483647
-    
     
 
     """
@@ -105,17 +105,17 @@ class IpTcp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.directory = None
-        self.throttle = None
-        self.num_thread = None
         self.accept_rate = None
-        self.selective_ack = None
-        self.window_size = None
-        self.receive_q = None
+        self.directory = None
         self.maximum_segment_size = None
-        self.syn_wait_time = None
-        self.timestamp = None
+        self.num_thread = None
         self.path_mtu_discovery = None
+        self.receive_q = None
+        self.selective_ack = None
+        self.syn_wait_time = None
+        self.throttle = None
+        self.timestamp = None
+        self.window_size = None
 
 
     class Directory(object):
@@ -204,9 +204,9 @@ class IpTcp(object):
         """
         Throttle TCP receive buffer (in percentage)
         
-        .. attribute:: tcpmin_throttle
+        .. attribute:: tcpmaxthrottle
         
-        	Min throttle
+        	Max throttle
         	**type**\: int
         
         	**range:** 0..100
@@ -216,9 +216,9 @@ class IpTcp(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: tcpmaxthrottle
+        .. attribute:: tcpmin_throttle
         
-        	Max throttle
+        	Min throttle
         	**type**\: int
         
         	**range:** 0..100
@@ -239,8 +239,8 @@ class IpTcp(object):
 
         def __init__(self):
             self.parent = None
-            self.tcpmin_throttle = None
             self.tcpmaxthrottle = None
+            self.tcpmin_throttle = None
 
         @property
         def _common_path(self):
@@ -254,10 +254,10 @@ class IpTcp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.tcpmin_throttle is not None:
+            if self.tcpmaxthrottle is not None:
                 return True
 
-            if self.tcpmaxthrottle is not None:
+            if self.tcpmin_throttle is not None:
                 return True
 
             return False
@@ -347,37 +347,37 @@ class IpTcp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.directory is not None and self.directory._has_data():
-            return True
-
-        if self.throttle is not None and self.throttle._has_data():
-            return True
-
-        if self.num_thread is not None and self.num_thread._has_data():
-            return True
-
         if self.accept_rate is not None:
             return True
 
-        if self.selective_ack is not None:
-            return True
-
-        if self.window_size is not None:
-            return True
-
-        if self.receive_q is not None:
+        if self.directory is not None and self.directory._has_data():
             return True
 
         if self.maximum_segment_size is not None:
             return True
 
+        if self.num_thread is not None and self.num_thread._has_data():
+            return True
+
+        if self.path_mtu_discovery is not None:
+            return True
+
+        if self.receive_q is not None:
+            return True
+
+        if self.selective_ack is not None:
+            return True
+
         if self.syn_wait_time is not None:
+            return True
+
+        if self.throttle is not None and self.throttle._has_data():
             return True
 
         if self.timestamp is not None:
             return True
 
-        if self.path_mtu_discovery is not None:
+        if self.window_size is not None:
             return True
 
         return False
@@ -447,15 +447,15 @@ class Ip(object):
             	IPV4 related services
             	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4>`
             
-            .. attribute:: vrfs
-            
-            	VRF table
-            	**type**\: :py:class:`Vrfs <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs>`
-            
             .. attribute:: ipv6
             
             	IPV6 related services
             	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6>`
+            
+            .. attribute:: vrfs
+            
+            	VRF table
+            	**type**\: :py:class:`Vrfs <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs>`
             
             
 
@@ -468,10 +468,10 @@ class Ip(object):
                 self.parent = None
                 self.ipv4 = Ip.Cinetd.Services.Ipv4()
                 self.ipv4.parent = self
-                self.vrfs = Ip.Cinetd.Services.Vrfs()
-                self.vrfs.parent = self
                 self.ipv6 = Ip.Cinetd.Services.Ipv6()
                 self.ipv6.parent = self
+                self.vrfs = Ip.Cinetd.Services.Vrfs()
+                self.vrfs.parent = self
 
 
             class Ipv4(object):
@@ -737,15 +737,15 @@ class Ip(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: ipv6
-                    
-                    	IPV6 related services
-                    	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6>`
-                    
                     .. attribute:: ipv4
                     
                     	IPV4 related services
                     	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4>`
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPV6 related services
+                    	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6>`
                     
                     
 
@@ -757,10 +757,10 @@ class Ip(object):
                     def __init__(self):
                         self.parent = None
                         self.vrf_name = None
-                        self.ipv6 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6()
-                        self.ipv6.parent = self
                         self.ipv4 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4()
                         self.ipv4.parent = self
+                        self.ipv6 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6()
+                        self.ipv6.parent = self
 
 
                     class Ipv6(object):
@@ -856,7 +856,7 @@ class Ip(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tcp'
 
@@ -883,7 +883,7 @@ class Ip(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:telnet'
 
@@ -940,12 +940,12 @@ class Ip(object):
                                 	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
-                                .. attribute:: maximum_server
+                                .. attribute:: dscp_value
                                 
-                                	Set number of allowable servers, 0 for no\-limit
+                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
                                 	**type**\: int
                                 
-                                	**range:** 0..2147483647
+                                	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: _is_presence
                                 
@@ -962,12 +962,12 @@ class Ip(object):
                                 	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
-                                .. attribute:: dscp_value
+                                .. attribute:: maximum_server
                                 
-                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
+                                	Set number of allowable servers, 0 for no\-limit
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..2147483647
                                 
                                 .. attribute:: _is_presence
                                 
@@ -986,14 +986,14 @@ class Ip(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.access_list_name = None
-                                    self.maximum_server = None
-                                    self.home_directory = None
                                     self.dscp_value = None
+                                    self.home_directory = None
+                                    self.maximum_server = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:udp'
 
@@ -1007,13 +1007,13 @@ class Ip(object):
                                     if self.access_list_name is not None:
                                         return True
 
-                                    if self.maximum_server is not None:
+                                    if self.dscp_value is not None:
                                         return True
 
                                     if self.home_directory is not None:
                                         return True
 
-                                    if self.dscp_value is not None:
+                                    if self.maximum_server is not None:
                                         return True
 
                                     return False
@@ -1026,7 +1026,7 @@ class Ip(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tftp'
 
@@ -1050,7 +1050,7 @@ class Ip(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:ipv6'
 
@@ -1168,7 +1168,7 @@ class Ip(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tcp'
 
@@ -1195,7 +1195,7 @@ class Ip(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:telnet'
 
@@ -1252,12 +1252,12 @@ class Ip(object):
                                 	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
-                                .. attribute:: maximum_server
+                                .. attribute:: dscp_value
                                 
-                                	Set number of allowable servers, 0 for no\-limit
+                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
                                 	**type**\: int
                                 
-                                	**range:** 0..2147483647
+                                	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1274,12 +1274,12 @@ class Ip(object):
                                 	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
-                                .. attribute:: dscp_value
+                                .. attribute:: maximum_server
                                 
-                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
+                                	Set number of allowable servers, 0 for no\-limit
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..2147483647
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1298,14 +1298,14 @@ class Ip(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.access_list_name = None
-                                    self.maximum_server = None
-                                    self.home_directory = None
                                     self.dscp_value = None
+                                    self.home_directory = None
+                                    self.maximum_server = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:udp'
 
@@ -1319,13 +1319,13 @@ class Ip(object):
                                     if self.access_list_name is not None:
                                         return True
 
-                                    if self.maximum_server is not None:
+                                    if self.dscp_value is not None:
                                         return True
 
                                     if self.home_directory is not None:
                                         return True
 
-                                    if self.dscp_value is not None:
+                                    if self.maximum_server is not None:
                                         return True
 
                                     return False
@@ -1338,7 +1338,7 @@ class Ip(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tftp'
 
@@ -1362,7 +1362,7 @@ class Ip(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:ipv4'
 
@@ -1389,7 +1389,7 @@ class Ip(object):
                     @property
                     def _common_path(self):
                         if self.vrf_name is None:
-                            raise YPYDataValidationError('Key property vrf_name is None')
+                            raise YPYModelError('Key property vrf_name is None')
 
                         return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:vrfs/Cisco-IOS-XR-ip-tcp-cfg:vrf[Cisco-IOS-XR-ip-tcp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1403,10 +1403,10 @@ class Ip(object):
                         if self.vrf_name is not None:
                             return True
 
-                        if self.ipv6 is not None and self.ipv6._has_data():
+                        if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
-                        if self.ipv4 is not None and self.ipv4._has_data():
+                        if self.ipv6 is not None and self.ipv6._has_data():
                             return True
 
                         return False
@@ -1609,10 +1609,10 @@ class Ip(object):
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs._has_data():
+                if self.ipv6 is not None and self.ipv6._has_data():
                     return True
 
-                if self.ipv6 is not None and self.ipv6._has_data():
+                if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
                 return False
@@ -1672,15 +1672,15 @@ class Ip(object):
             """
             Packets to a specific UDP port
             
-            .. attribute:: ports
-            
-            	Port configuration
-            	**type**\: :py:class:`Ports <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports>`
-            
             .. attribute:: disable
             
             	Disable IP Forward Protocol UDP
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: ports
+            
+            	Port configuration
+            	**type**\: :py:class:`Ports <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports>`
             
             
 
@@ -1691,9 +1691,9 @@ class Ip(object):
 
             def __init__(self):
                 self.parent = None
+                self.disable = None
                 self.ports = Ip.ForwardProtocol.Udp.Ports()
                 self.ports.parent = self
-                self.disable = None
 
 
             class Ports(object):
@@ -1752,7 +1752,7 @@ class Ip(object):
                     @property
                     def _common_path(self):
                         if self.port_id is None:
-                            raise YPYDataValidationError('Key property port_id is None')
+                            raise YPYModelError('Key property port_id is None')
 
                         return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/Cisco-IOS-XR-ip-udp-cfg:udp/Cisco-IOS-XR-ip-udp-cfg:ports/Cisco-IOS-XR-ip-udp-cfg:port[Cisco-IOS-XR-ip-udp-cfg:port-id = ' + str(self.port_id) + ']'
 
@@ -1812,10 +1812,10 @@ class Ip(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.ports is not None and self.ports._has_data():
+                if self.disable is not None:
                     return True
 
-                if self.disable is not None:
+                if self.ports is not None and self.ports._has_data():
                     return True
 
                 return False

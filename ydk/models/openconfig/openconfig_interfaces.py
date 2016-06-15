@@ -17,16 +17,16 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.ietf.ietf_interfaces import InterfaceType_Identity
+from ydk.models.ietf.ietf_interfaces import InterfaceTypeIdentity
 from ydk.models.openconfig.openconfig_if_aggregate import AggregationTypeEnum
 from ydk.models.openconfig.openconfig_if_aggregate import LacpActivityTypeEnum
 from ydk.models.openconfig.openconfig_if_aggregate import LacpPeriodTypeEnum
 from ydk.models.openconfig.openconfig_if_aggregate import LacpSynchronizationTypeEnum
 from ydk.models.openconfig.openconfig_if_aggregate import LacpTimeoutTypeEnum
-from ydk.models.openconfig.openconfig_if_ethernet import EthernetSpeed_Identity
+from ydk.models.openconfig.openconfig_if_ethernet import EthernetSpeedIdentity
 from ydk.models.openconfig.openconfig_if_ip import IpAddressOriginEnum
 from ydk.models.openconfig.openconfig_if_ip import NeighborOriginEnum
 from ydk.models.openconfig.openconfig_vlan import VlanModeTypeEnum
@@ -64,40 +64,40 @@ class Interfaces(object):
         	References the configured name of the interface
         	**type**\: str
         
+        .. attribute:: aggregation
+        
+        	Options for logical interfaces representing aggregates
+        	**type**\: :py:class:`Aggregation <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation>`
+        
         .. attribute:: config
         
         	Configurable items at the global, physical interface level
         	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Config>`
-        
-        .. attribute:: state
-        
-        	Operational state data at the global interface level
-        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State>`
-        
-        .. attribute:: hold_time
-        
-        	Top\-level container for hold\-time settings to enable dampening advertisements of interface transitions
-        	**type**\: :py:class:`HoldTime <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime>`
-        
-        .. attribute:: subinterfaces
-        
-        	Enclosing container for the list of subinterfaces associated with a physical interface
-        	**type**\: :py:class:`Subinterfaces <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces>`
         
         .. attribute:: ethernet
         
         	Top\-level container for ethernet configuration and state
         	**type**\: :py:class:`Ethernet <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet>`
         
-        .. attribute:: aggregation
+        .. attribute:: hold_time
         
-        	Options for logical interfaces representing aggregates
-        	**type**\: :py:class:`Aggregation <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation>`
+        	Top\-level container for hold\-time settings to enable dampening advertisements of interface transitions
+        	**type**\: :py:class:`HoldTime <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime>`
         
         .. attribute:: routed_vlan
         
         	Top\-level container for routed vlan interfaces.  These logical interfaces are also known as SVI (switched virtual interface), IRB (integrated routing and bridging), RVI (routed VLAN interface)
         	**type**\: :py:class:`RoutedVlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan>`
+        
+        .. attribute:: state
+        
+        	Operational state data at the global interface level
+        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State>`
+        
+        .. attribute:: subinterfaces
+        
+        	Enclosing container for the list of subinterfaces associated with a physical interface
+        	**type**\: :py:class:`Subinterfaces <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces>`
         
         
 
@@ -109,19 +109,19 @@ class Interfaces(object):
         def __init__(self):
             self.parent = None
             self.name = None
+            self.aggregation = None
             self.config = Interfaces.Interface.Config()
             self.config.parent = self
-            self.state = Interfaces.Interface.State()
-            self.state.parent = self
-            self.hold_time = Interfaces.Interface.HoldTime()
-            self.hold_time.parent = self
-            self.subinterfaces = Interfaces.Interface.Subinterfaces()
-            self.subinterfaces.parent = self
             self.ethernet = Interfaces.Interface.Ethernet()
             self.ethernet.parent = self
-            self.aggregation = None
+            self.hold_time = Interfaces.Interface.HoldTime()
+            self.hold_time.parent = self
             self.routed_vlan = Interfaces.Interface.RoutedVlan()
             self.routed_vlan.parent = self
+            self.state = Interfaces.Interface.State()
+            self.state.parent = self
+            self.subinterfaces = Interfaces.Interface.Subinterfaces()
+            self.subinterfaces.parent = self
 
 
         class Config(object):
@@ -129,10 +129,15 @@ class Interfaces(object):
             Configurable items at the global, physical interface
             level
             
-            .. attribute:: type
+            .. attribute:: description
             
-            	[adapted from IETF interfaces model (RFC 7223)]  The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-            	**type**\: :py:class:`InterfaceType_Identity <ydk.models.ietf.ietf_interfaces.InterfaceType_Identity>`
+            	[adapted from IETF interfaces model (RFC 7223)]  A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
+            	**type**\: str
+            
+            .. attribute:: enabled
+            
+            	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
+            	**type**\: bool
             
             .. attribute:: mtu
             
@@ -146,15 +151,10 @@ class Interfaces(object):
             	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
             	**type**\: str
             
-            .. attribute:: description
+            .. attribute:: type
             
-            	[adapted from IETF interfaces model (RFC 7223)]  A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
-            	**type**\: str
-            
-            .. attribute:: enabled
-            
-            	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
-            	**type**\: bool
+            	[adapted from IETF interfaces model (RFC 7223)]  The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
+            	**type**\: :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
             
             
 
@@ -165,16 +165,16 @@ class Interfaces(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
-                self.mtu = None
-                self.name = None
                 self.description = None
                 self.enabled = None
+                self.mtu = None
+                self.name = None
+                self.type = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-interfaces:config'
 
@@ -185,7 +185,10 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.description is not None:
+                    return True
+
+                if self.enabled is not None:
                     return True
 
                 if self.mtu is not None:
@@ -194,10 +197,7 @@ class Interfaces(object):
                 if self.name is not None:
                     return True
 
-                if self.description is not None:
-                    return True
-
-                if self.enabled is not None:
+                if self.type is not None:
                     return True
 
                 return False
@@ -212,10 +212,44 @@ class Interfaces(object):
             """
             Operational state data at the global interface level
             
-            .. attribute:: type
+            .. attribute:: admin_status
             
-            	[adapted from IETF interfaces model (RFC 7223)]  The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-            	**type**\: :py:class:`InterfaceType_Identity <ydk.models.ietf.ietf_interfaces.InterfaceType_Identity>`
+            	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
+            	**type**\: :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatusEnum>`
+            
+            .. attribute:: counters
+            
+            	A collection of interface\-related statistics objects
+            	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.Counters>`
+            
+            .. attribute:: description
+            
+            	[adapted from IETF interfaces model (RFC 7223)]  A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
+            	**type**\: str
+            
+            .. attribute:: enabled
+            
+            	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
+            	**type**\: bool
+            
+            .. attribute:: hardware_port
+            
+            	References the hardware port in the device inventory
+            	**type**\: str
+            
+            .. attribute:: ifindex
+            
+            	System assigned number for each interface.  Corresponds to ifIndex object in SNMP Interface MIB
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: last_change
+            
+            	Date and time of the last state change of the interface (e.g., up\-to\-down transition).   This corresponds to the ifLastChange object in the standard interface MIB
+            	**type**\: int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: mtu
             
@@ -229,49 +263,15 @@ class Interfaces(object):
             	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
             	**type**\: str
             
-            .. attribute:: description
-            
-            	[adapted from IETF interfaces model (RFC 7223)]  A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
-            	**type**\: str
-            
-            .. attribute:: enabled
-            
-            	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
-            	**type**\: bool
-            
-            .. attribute:: ifindex
-            
-            	System assigned number for each interface.  Corresponds to ifIndex object in SNMP Interface MIB
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: admin_status
-            
-            	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
-            	**type**\: :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatusEnum>`
-            
             .. attribute:: oper_status
             
             	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
             	**type**\: :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.OperStatusEnum>`
             
-            .. attribute:: last_change
+            .. attribute:: type
             
-            	Date and time of the last state change of the interface (e.g., up\-to\-down transition).   This corresponds to the ifLastChange object in the standard interface MIB
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: counters
-            
-            	A collection of interface\-related statistics objects
-            	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.Counters>`
-            
-            .. attribute:: hardware_port
-            
-            	References the hardware port in the device inventory
-            	**type**\: str
+            	[adapted from IETF interfaces model (RFC 7223)]  The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
+            	**type**\: :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
             
             
 
@@ -282,18 +282,18 @@ class Interfaces(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
-                self.mtu = None
-                self.name = None
-                self.description = None
-                self.enabled = None
-                self.ifindex = None
                 self.admin_status = None
-                self.oper_status = None
-                self.last_change = None
                 self.counters = Interfaces.Interface.State.Counters()
                 self.counters.parent = self
+                self.description = None
+                self.enabled = None
                 self.hardware_port = None
+                self.ifindex = None
+                self.last_change = None
+                self.mtu = None
+                self.name = None
+                self.oper_status = None
+                self.type = None
 
             class AdminStatusEnum(Enum):
                 """
@@ -404,45 +404,45 @@ class Interfaces(object):
                 """
                 A collection of interface\-related statistics objects.
                 
-                .. attribute:: in_octets
-                
-                	[adapted from IETF interfaces model (RFC 7223)]  The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: in_unicast_pkts
-                
-                	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: in_broadcast_pkts
                 
                 	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: in_multicast_pkts
-                
-                	[adapted from IETF interfaces model (RFC 7223)]   The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: in_discards
                 
                 	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher\-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: in_errors
                 
                 	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher\-layer protocol.  For character\- oriented or fixed\-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher\-layer protocol.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_multicast_pkts
+                
+                	[adapted from IETF interfaces model (RFC 7223)]   The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_octets
+                
+                	[adapted from IETF interfaces model (RFC 7223)]  The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_unicast_pkts
+                
+                	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
@@ -453,54 +453,54 @@ class Interfaces(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: out_octets
-                
-                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: out_unicast_pkts
-                
-                	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: out_broadcast_pkts
-                
-                	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: out_multicast_pkts
-                
-                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: out_discards
-                
-                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: out_errors
-                
-                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: last_clear
                 
                 	Indicates the last time the interface counters were cleared
                 	**type**\: str
                 
                 	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                
+                .. attribute:: out_broadcast_pkts
+                
+                	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_discards
+                
+                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_errors
+                
+                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_multicast_pkts
+                
+                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_octets
+                
+                	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_unicast_pkts
+                
+                	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
                 
                 
 
@@ -511,25 +511,25 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.in_octets = None
-                    self.in_unicast_pkts = None
                     self.in_broadcast_pkts = None
-                    self.in_multicast_pkts = None
                     self.in_discards = None
                     self.in_errors = None
+                    self.in_multicast_pkts = None
+                    self.in_octets = None
+                    self.in_unicast_pkts = None
                     self.in_unknown_protos = None
-                    self.out_octets = None
-                    self.out_unicast_pkts = None
+                    self.last_clear = None
                     self.out_broadcast_pkts = None
-                    self.out_multicast_pkts = None
                     self.out_discards = None
                     self.out_errors = None
-                    self.last_clear = None
+                    self.out_multicast_pkts = None
+                    self.out_octets = None
+                    self.out_unicast_pkts = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-interfaces:counters'
 
@@ -540,16 +540,7 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.in_octets is not None:
-                        return True
-
-                    if self.in_unicast_pkts is not None:
-                        return True
-
                     if self.in_broadcast_pkts is not None:
-                        return True
-
-                    if self.in_multicast_pkts is not None:
                         return True
 
                     if self.in_discards is not None:
@@ -558,19 +549,22 @@ class Interfaces(object):
                     if self.in_errors is not None:
                         return True
 
+                    if self.in_multicast_pkts is not None:
+                        return True
+
+                    if self.in_octets is not None:
+                        return True
+
+                    if self.in_unicast_pkts is not None:
+                        return True
+
                     if self.in_unknown_protos is not None:
                         return True
 
-                    if self.out_octets is not None:
-                        return True
-
-                    if self.out_unicast_pkts is not None:
+                    if self.last_clear is not None:
                         return True
 
                     if self.out_broadcast_pkts is not None:
-                        return True
-
-                    if self.out_multicast_pkts is not None:
                         return True
 
                     if self.out_discards is not None:
@@ -579,7 +573,13 @@ class Interfaces(object):
                     if self.out_errors is not None:
                         return True
 
-                    if self.last_clear is not None:
+                    if self.out_multicast_pkts is not None:
+                        return True
+
+                    if self.out_octets is not None:
+                        return True
+
+                    if self.out_unicast_pkts is not None:
                         return True
 
                     return False
@@ -592,7 +592,7 @@ class Interfaces(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-interfaces:state'
 
@@ -603,13 +603,10 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.admin_status is not None:
                     return True
 
-                if self.mtu is not None:
-                    return True
-
-                if self.name is not None:
+                if self.counters is not None and self.counters._has_data():
                     return True
 
                 if self.description is not None:
@@ -618,22 +615,25 @@ class Interfaces(object):
                 if self.enabled is not None:
                     return True
 
+                if self.hardware_port is not None:
+                    return True
+
                 if self.ifindex is not None:
-                    return True
-
-                if self.admin_status is not None:
-                    return True
-
-                if self.oper_status is not None:
                     return True
 
                 if self.last_change is not None:
                     return True
 
-                if self.counters is not None and self.counters._has_data():
+                if self.mtu is not None:
                     return True
 
-                if self.hardware_port is not None:
+                if self.name is not None:
+                    return True
+
+                if self.oper_status is not None:
+                    return True
+
+                if self.type is not None:
                     return True
 
                 return False
@@ -678,16 +678,16 @@ class Interfaces(object):
                 """
                 Configuration data for interface hold\-time settings.
                 
-                .. attribute:: up
+                .. attribute:: down
                 
-                	Dampens advertisement when the interface transitions from down to up.  A zero value means dampening is turned off, i.e., immediate notification
+                	Dampens advertisement when the interface transitions from up to down.  A zero value means dampening is turned off, i.e., immediate notification
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: down
+                .. attribute:: up
                 
-                	Dampens advertisement when the interface transitions from up to down.  A zero value means dampening is turned off, i.e., immediate notification
+                	Dampens advertisement when the interface transitions from down to up.  A zero value means dampening is turned off, i.e., immediate notification
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -701,13 +701,13 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.up = None
                     self.down = None
+                    self.up = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-interfaces:config'
 
@@ -718,10 +718,10 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.up is not None:
+                    if self.down is not None:
                         return True
 
-                    if self.down is not None:
+                    if self.up is not None:
                         return True
 
                     return False
@@ -736,16 +736,16 @@ class Interfaces(object):
                 """
                 Operational state data for interface hold\-time.
                 
-                .. attribute:: up
+                .. attribute:: down
                 
-                	Dampens advertisement when the interface transitions from down to up.  A zero value means dampening is turned off, i.e., immediate notification
+                	Dampens advertisement when the interface transitions from up to down.  A zero value means dampening is turned off, i.e., immediate notification
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: down
+                .. attribute:: up
                 
-                	Dampens advertisement when the interface transitions from up to down.  A zero value means dampening is turned off, i.e., immediate notification
+                	Dampens advertisement when the interface transitions from down to up.  A zero value means dampening is turned off, i.e., immediate notification
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -759,13 +759,13 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.up = None
                     self.down = None
+                    self.up = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-interfaces:state'
 
@@ -776,10 +776,10 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.up is not None:
+                    if self.down is not None:
                         return True
 
-                    if self.down is not None:
+                    if self.up is not None:
                         return True
 
                     return False
@@ -792,7 +792,7 @@ class Interfaces(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-interfaces:hold-time'
 
@@ -858,16 +858,6 @@ class Interfaces(object):
                 	Configurable items at the subinterface level
                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Config>`
                 
-                .. attribute:: state
-                
-                	Operational state data for logical interfaces
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State>`
-                
-                .. attribute:: vlan
-                
-                	Enclosing container for VLAN interface\-specific data on subinterfaces
-                	**type**\: :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan>`
-                
                 .. attribute:: ipv4
                 
                 	Parameters for the IPv4 address family
@@ -877,6 +867,16 @@ class Interfaces(object):
                 
                 	Parameters for the IPv6 address family
                 	**type**\: :py:class:`Ipv6 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6>`
+                
+                .. attribute:: state
+                
+                	Operational state data for logical interfaces
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State>`
+                
+                .. attribute:: vlan
+                
+                	Enclosing container for VLAN interface\-specific data on subinterfaces
+                	**type**\: :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan>`
                 
                 
 
@@ -890,36 +890,17 @@ class Interfaces(object):
                     self.index = None
                     self.config = Interfaces.Interface.Subinterfaces.Subinterface.Config()
                     self.config.parent = self
+                    self.ipv4 = None
+                    self.ipv6 = None
                     self.state = Interfaces.Interface.Subinterfaces.Subinterface.State()
                     self.state.parent = self
                     self.vlan = Interfaces.Interface.Subinterfaces.Subinterface.Vlan()
                     self.vlan.parent = self
-                    self.ipv4 = None
-                    self.ipv6 = None
 
 
                 class Config(object):
                     """
                     Configurable items at the subinterface level
-                    
-                    .. attribute:: index
-                    
-                    	The index of the subinterface, or logical interface number. On systems with no support for subinterfaces, or not using subinterfaces, this value should default to 0, i.e., the default subinterface
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unnumbered
-                    
-                    	Indicates that the subinterface is unnumbered, and provides a reference to the subinterface that provides the IP address information (v4, v6 or both) for the current subinterface
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: name
-                    
-                    	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
-                    	**type**\: str
                     
                     .. attribute:: description
                     
@@ -931,6 +912,25 @@ class Interfaces(object):
                     	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
                     	**type**\: bool
                     
+                    .. attribute:: index
+                    
+                    	The index of the subinterface, or logical interface number. On systems with no support for subinterfaces, or not using subinterfaces, this value should default to 0, i.e., the default subinterface
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: name
+                    
+                    	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
+                    	**type**\: str
+                    
+                    .. attribute:: unnumbered
+                    
+                    	Indicates that the subinterface is unnumbered, and provides a reference to the subinterface that provides the IP address information (v4, v6 or both) for the current subinterface
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -940,16 +940,16 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.index = None
-                        self.unnumbered = None
-                        self.name = None
                         self.description = None
                         self.enabled = None
+                        self.index = None
+                        self.name = None
+                        self.unnumbered = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-interfaces:config'
 
@@ -960,19 +960,19 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.index is not None:
+                        if self.description is not None:
                             return True
 
-                        if self.unnumbered is not None:
+                        if self.enabled is not None:
+                            return True
+
+                        if self.index is not None:
                             return True
 
                         if self.name is not None:
                             return True
 
-                        if self.description is not None:
-                            return True
-
-                        if self.enabled is not None:
+                        if self.unnumbered is not None:
                             return True
 
                         return False
@@ -987,24 +987,15 @@ class Interfaces(object):
                     """
                     Operational state data for logical interfaces
                     
-                    .. attribute:: index
+                    .. attribute:: admin_status
                     
-                    	The index of the subinterface, or logical interface number. On systems with no support for subinterfaces, or not using subinterfaces, this value should default to 0, i.e., the default subinterface
-                    	**type**\: int
+                    	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
+                    	**type**\: :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum>`
                     
-                    	**range:** 0..4294967295
+                    .. attribute:: counters
                     
-                    .. attribute:: unnumbered
-                    
-                    	Indicates that the subinterface is unnumbered, and provides a reference to the subinterface that provides the IP address information (v4, v6 or both) for the current subinterface
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: name
-                    
-                    	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
-                    	**type**\: str
+                    	A collection of interface\-related statistics objects
+                    	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.Counters>`
                     
                     .. attribute:: description
                     
@@ -1023,15 +1014,12 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: admin_status
+                    .. attribute:: index
                     
-                    	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
-                    	**type**\: :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum>`
+                    	The index of the subinterface, or logical interface number. On systems with no support for subinterfaces, or not using subinterfaces, this value should default to 0, i.e., the default subinterface
+                    	**type**\: int
                     
-                    .. attribute:: oper_status
-                    
-                    	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-                    	**type**\: :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum>`
+                    	**range:** 0..4294967295
                     
                     .. attribute:: last_change
                     
@@ -1040,10 +1028,22 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: counters
+                    .. attribute:: name
                     
-                    	A collection of interface\-related statistics objects
-                    	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.Counters>`
+                    	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
+                    	**type**\: str
+                    
+                    .. attribute:: oper_status
+                    
+                    	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
+                    	**type**\: :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum>`
+                    
+                    .. attribute:: unnumbered
+                    
+                    	Indicates that the subinterface is unnumbered, and provides a reference to the subinterface that provides the IP address information (v4, v6 or both) for the current subinterface
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -1054,17 +1054,17 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.index = None
-                        self.unnumbered = None
-                        self.name = None
+                        self.admin_status = None
+                        self.counters = Interfaces.Interface.Subinterfaces.Subinterface.State.Counters()
+                        self.counters.parent = self
                         self.description = None
                         self.enabled = None
                         self.ifindex = None
-                        self.admin_status = None
-                        self.oper_status = None
+                        self.index = None
                         self.last_change = None
-                        self.counters = Interfaces.Interface.Subinterfaces.Subinterface.State.Counters()
-                        self.counters.parent = self
+                        self.name = None
+                        self.oper_status = None
+                        self.unnumbered = None
 
                     class AdminStatusEnum(Enum):
                         """
@@ -1175,45 +1175,45 @@ class Interfaces(object):
                         """
                         A collection of interface\-related statistics objects.
                         
-                        .. attribute:: in_octets
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)]  The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_unicast_pkts
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: in_broadcast_pkts
                         
                         	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: in_multicast_pkts
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)]   The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_discards
                         
                         	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher\-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_errors
                         
                         	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher\-layer protocol.  For character\- oriented or fixed\-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher\-layer protocol.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_multicast_pkts
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)]   The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_octets
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)]  The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_unicast_pkts
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1224,54 +1224,54 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: out_octets
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_unicast_pkts
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_broadcast_pkts
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_multicast_pkts
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_discards
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: out_errors
-                        
-                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: last_clear
                         
                         	Indicates the last time the interface counters were cleared
                         	**type**\: str
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                        
+                        .. attribute:: out_broadcast_pkts
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_discards
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_errors
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_multicast_pkts
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_octets
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_unicast_pkts
+                        
+                        	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1282,25 +1282,25 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.in_octets = None
-                            self.in_unicast_pkts = None
                             self.in_broadcast_pkts = None
-                            self.in_multicast_pkts = None
                             self.in_discards = None
                             self.in_errors = None
+                            self.in_multicast_pkts = None
+                            self.in_octets = None
+                            self.in_unicast_pkts = None
                             self.in_unknown_protos = None
-                            self.out_octets = None
-                            self.out_unicast_pkts = None
+                            self.last_clear = None
                             self.out_broadcast_pkts = None
-                            self.out_multicast_pkts = None
                             self.out_discards = None
                             self.out_errors = None
-                            self.last_clear = None
+                            self.out_multicast_pkts = None
+                            self.out_octets = None
+                            self.out_unicast_pkts = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-interfaces:counters'
 
@@ -1311,16 +1311,7 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.in_octets is not None:
-                                return True
-
-                            if self.in_unicast_pkts is not None:
-                                return True
-
                             if self.in_broadcast_pkts is not None:
-                                return True
-
-                            if self.in_multicast_pkts is not None:
                                 return True
 
                             if self.in_discards is not None:
@@ -1329,19 +1320,22 @@ class Interfaces(object):
                             if self.in_errors is not None:
                                 return True
 
+                            if self.in_multicast_pkts is not None:
+                                return True
+
+                            if self.in_octets is not None:
+                                return True
+
+                            if self.in_unicast_pkts is not None:
+                                return True
+
                             if self.in_unknown_protos is not None:
                                 return True
 
-                            if self.out_octets is not None:
-                                return True
-
-                            if self.out_unicast_pkts is not None:
+                            if self.last_clear is not None:
                                 return True
 
                             if self.out_broadcast_pkts is not None:
-                                return True
-
-                            if self.out_multicast_pkts is not None:
                                 return True
 
                             if self.out_discards is not None:
@@ -1350,7 +1344,13 @@ class Interfaces(object):
                             if self.out_errors is not None:
                                 return True
 
-                            if self.last_clear is not None:
+                            if self.out_multicast_pkts is not None:
+                                return True
+
+                            if self.out_octets is not None:
+                                return True
+
+                            if self.out_unicast_pkts is not None:
                                 return True
 
                             return False
@@ -1363,7 +1363,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-interfaces:state'
 
@@ -1374,13 +1374,10 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.index is not None:
+                        if self.admin_status is not None:
                             return True
 
-                        if self.unnumbered is not None:
-                            return True
-
-                        if self.name is not None:
+                        if self.counters is not None and self.counters._has_data():
                             return True
 
                         if self.description is not None:
@@ -1392,16 +1389,19 @@ class Interfaces(object):
                         if self.ifindex is not None:
                             return True
 
-                        if self.admin_status is not None:
-                            return True
-
-                        if self.oper_status is not None:
+                        if self.index is not None:
                             return True
 
                         if self.last_change is not None:
                             return True
 
-                        if self.counters is not None and self.counters._has_data():
+                        if self.name is not None:
+                            return True
+
+                        if self.oper_status is not None:
+                            return True
+
+                        if self.unnumbered is not None:
                             return True
 
                         return False
@@ -1493,7 +1493,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-vlan:config'
 
@@ -1569,7 +1569,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-vlan:state'
 
@@ -1596,7 +1596,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-vlan:vlan'
 
@@ -1635,20 +1635,20 @@ class Interfaces(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: neighbor
+                    .. attribute:: config
                     
-                    	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
-                    	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor>`
+                    	Top\-level IPv4 configuration data for the interface
+                    	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: config
+                    .. attribute:: neighbor
                     
-                    	Top\-level IPv4 configuration data for the interface
-                    	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config>`
+                    	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
+                    	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor>`
                     
                     .. attribute:: _is_presence
                     
@@ -1679,11 +1679,11 @@ class Interfaces(object):
                         self.address = YList()
                         self.address.parent = self
                         self.address.name = 'address'
+                        self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config()
+                        self.config.parent = self
                         self.neighbor = YList()
                         self.neighbor.parent = self
                         self.neighbor.name = 'neighbor'
-                        self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config()
-                        self.config.parent = self
                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State()
                         self.state.parent = self
 
@@ -1766,7 +1766,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -1803,17 +1803,17 @@ class Interfaces(object):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            .. attribute:: origin
+                            
+                            	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
+                            	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                            
                             .. attribute:: prefix_length
                             
                             	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
                             	**type**\: int
                             
                             	**range:** 0..32
-                            
-                            .. attribute:: origin
-                            
-                            	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
-                            	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             
 
@@ -1825,13 +1825,13 @@ class Interfaces(object):
                             def __init__(self):
                                 self.parent = None
                                 self.ip = None
-                                self.prefix_length = None
                                 self.origin = None
+                                self.prefix_length = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -1845,10 +1845,10 @@ class Interfaces(object):
                                 if self.ip is not None:
                                     return True
 
-                                if self.prefix_length is not None:
+                                if self.origin is not None:
                                     return True
 
-                                if self.origin is not None:
+                                if self.prefix_length is not None:
                                     return True
 
                                 return False
@@ -1899,15 +1899,15 @@ class Interfaces(object):
                                 	Configuration data for the VRRP group
                                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config>`
                                 
-                                .. attribute:: state
-                                
-                                	Operational state data for the VRRP group
-                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State>`
-                                
                                 .. attribute:: interface_tracking
                                 
                                 	Top\-level container for VRRP interface tracking
                                 	**type**\: :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                                
+                                .. attribute:: state
+                                
+                                	Operational state data for the VRRP group
+                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State>`
                                 
                                 
 
@@ -1921,58 +1921,15 @@ class Interfaces(object):
                                     self.virtual_router_id = None
                                     self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config()
                                     self.config.parent = self
-                                    self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State()
-                                    self.state.parent = self
                                     self.interface_tracking = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                     self.interface_tracking.parent = self
+                                    self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State()
+                                    self.state.parent = self
 
 
                                 class Config(object):
                                     """
                                     Configuration data for the VRRP group
-                                    
-                                    .. attribute:: virtual_router_id
-                                    
-                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
-                                    	**type**\: int
-                                    
-                                    	**range:** 1..255
-                                    
-                                    .. attribute:: virtual_address
-                                    
-                                    	Configure one or more virtual addresses for the VRRP group
-                                    	**type**\: one of the below types:
-                                    
-                                    	**type**\: list of str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-                                    ----
-                                    	**type**\: list of str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-                                    ----
-                                    .. attribute:: priority
-                                    
-                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
-                                    	**type**\: int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    .. attribute:: preempt
-                                    
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: preempt_delay
-                                    
-                                    	Set the delay the higher priority router waits before preempting
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..3600
                                     
                                     .. attribute:: accept_mode
                                     
@@ -1986,80 +1943,24 @@ class Interfaces(object):
                                     
                                     	**range:** 1..4095
                                     
+                                    .. attribute:: preempt
                                     
-
-                                    """
-
-                                    _prefix = 'ocip'
-                                    _revision = '2015-11-20'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.virtual_router_id = None
-                                        self.virtual_address = YLeafList()
-                                        self.virtual_address.parent = self
-                                        self.virtual_address.name = 'virtual_address'
-                                        self.priority = None
-                                        self.preempt = None
-                                        self.preempt_delay = None
-                                        self.accept_mode = None
-                                        self.advertisement_interval = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/openconfig-if-ip:config'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.virtual_router_id is not None:
-                                            return True
-
-                                        if self.virtual_address is not None:
-                                            for child in self.virtual_address:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.priority is not None:
-                                            return True
-
-                                        if self.preempt is not None:
-                                            return True
-
-                                        if self.preempt_delay is not None:
-                                            return True
-
-                                        if self.accept_mode is not None:
-                                            return True
-
-                                        if self.advertisement_interval is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                                        return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config']['meta_info']
-
-
-                                class State(object):
-                                    """
-                                    Operational state data for the VRRP group
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	**type**\: bool
                                     
-                                    .. attribute:: virtual_router_id
+                                    .. attribute:: preempt_delay
                                     
-                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                    	Set the delay the higher priority router waits before preempting
                                     	**type**\: int
                                     
-                                    	**range:** 1..255
+                                    	**range:** 0..3600
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..254
                                     
                                     .. attribute:: virtual_address
                                     
@@ -2078,24 +1979,80 @@ class Interfaces(object):
                                     
                                     
                                     ----
-                                    .. attribute:: priority
+                                    .. attribute:: virtual_router_id
                                     
-                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
                                     	**type**\: int
                                     
-                                    	**range:** 1..254
+                                    	**range:** 1..255
                                     
-                                    .. attribute:: preempt
                                     
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: preempt_delay
-                                    
-                                    	Set the delay the higher priority router waits before preempting
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..3600
+
+                                    """
+
+                                    _prefix = 'ocip'
+                                    _revision = '2015-11-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.accept_mode = None
+                                        self.advertisement_interval = None
+                                        self.preempt = None
+                                        self.preempt_delay = None
+                                        self.priority = None
+                                        self.virtual_address = YLeafList()
+                                        self.virtual_address.parent = self
+                                        self.virtual_address.name = 'virtual_address'
+                                        self.virtual_router_id = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/openconfig-if-ip:config'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.accept_mode is not None:
+                                            return True
+
+                                        if self.advertisement_interval is not None:
+                                            return True
+
+                                        if self.preempt is not None:
+                                            return True
+
+                                        if self.preempt_delay is not None:
+                                            return True
+
+                                        if self.priority is not None:
+                                            return True
+
+                                        if self.virtual_address is not None:
+                                            for child in self.virtual_address:
+                                                if child is not None:
+                                                    return True
+
+                                        if self.virtual_router_id is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.openconfig._meta import _openconfig_interfaces as meta
+                                        return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config']['meta_info']
+
+
+                                class State(object):
+                                    """
+                                    Operational state data for the VRRP group
                                     
                                     .. attribute:: accept_mode
                                     
@@ -2116,6 +2073,49 @@ class Interfaces(object):
                                     
                                     	**range:** 0..255
                                     
+                                    .. attribute:: preempt
+                                    
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: preempt_delay
+                                    
+                                    	Set the delay the higher priority router waits before preempting
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..3600
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..254
+                                    
+                                    .. attribute:: virtual_address
+                                    
+                                    	Configure one or more virtual addresses for the VRRP group
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    .. attribute:: virtual_router_id
+                                    
+                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
                                     
 
                                     """
@@ -2125,21 +2125,21 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.virtual_router_id = None
-                                        self.virtual_address = YLeafList()
-                                        self.virtual_address.parent = self
-                                        self.virtual_address.name = 'virtual_address'
-                                        self.priority = None
-                                        self.preempt = None
-                                        self.preempt_delay = None
                                         self.accept_mode = None
                                         self.advertisement_interval = None
                                         self.current_priority = None
+                                        self.preempt = None
+                                        self.preempt_delay = None
+                                        self.priority = None
+                                        self.virtual_address = YLeafList()
+                                        self.virtual_address.parent = self
+                                        self.virtual_address.name = 'virtual_address'
+                                        self.virtual_router_id = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -2150,15 +2150,13 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.virtual_router_id is not None:
+                                        if self.accept_mode is not None:
                                             return True
 
-                                        if self.virtual_address is not None:
-                                            for child in self.virtual_address:
-                                                if child is not None:
-                                                    return True
+                                        if self.advertisement_interval is not None:
+                                            return True
 
-                                        if self.priority is not None:
+                                        if self.current_priority is not None:
                                             return True
 
                                         if self.preempt is not None:
@@ -2167,13 +2165,15 @@ class Interfaces(object):
                                         if self.preempt_delay is not None:
                                             return True
 
-                                        if self.accept_mode is not None:
+                                        if self.priority is not None:
                                             return True
 
-                                        if self.advertisement_interval is not None:
-                                            return True
+                                        if self.virtual_address is not None:
+                                            for child in self.virtual_address:
+                                                if child is not None:
+                                                    return True
 
-                                        if self.current_priority is not None:
+                                        if self.virtual_router_id is not None:
                                             return True
 
                                         return False
@@ -2217,17 +2217,17 @@ class Interfaces(object):
                                         """
                                         Configuration data for VRRP interface tracking
                                         
-                                        .. attribute:: track_interface
-                                        
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
-                                        
                                         .. attribute:: priority_decrement
                                         
                                         	Set the value to subtract from priority when the tracked interface goes down
                                         	**type**\: int
                                         
                                         	**range:** 0..254
+                                        
+                                        .. attribute:: track_interface
+                                        
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	**type**\: str
                                         
                                         
 
@@ -2238,13 +2238,13 @@ class Interfaces(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.track_interface = None
                                             self.priority_decrement = None
+                                            self.track_interface = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -2255,10 +2255,10 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.track_interface is not None:
+                                            if self.priority_decrement is not None:
                                                 return True
 
-                                            if self.priority_decrement is not None:
+                                            if self.track_interface is not None:
                                                 return True
 
                                             return False
@@ -2273,17 +2273,17 @@ class Interfaces(object):
                                         """
                                         Operational state data for VRRP interface tracking
                                         
-                                        .. attribute:: track_interface
-                                        
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
-                                        
                                         .. attribute:: priority_decrement
                                         
                                         	Set the value to subtract from priority when the tracked interface goes down
                                         	**type**\: int
                                         
                                         	**range:** 0..254
+                                        
+                                        .. attribute:: track_interface
+                                        
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	**type**\: str
                                         
                                         
 
@@ -2294,13 +2294,13 @@ class Interfaces(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.track_interface = None
                                             self.priority_decrement = None
+                                            self.track_interface = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -2311,10 +2311,10 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.track_interface is not None:
+                                            if self.priority_decrement is not None:
                                                 return True
 
-                                            if self.priority_decrement is not None:
+                                            if self.track_interface is not None:
                                                 return True
 
                                             return False
@@ -2327,7 +2327,7 @@ class Interfaces(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:interface-tracking'
 
@@ -2354,9 +2354,9 @@ class Interfaces(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.virtual_router_id is None:
-                                        raise YPYDataValidationError('Key property virtual_router_id is None')
+                                        raise YPYModelError('Key property virtual_router_id is None')
 
                                     return self.parent._common_path +'/openconfig-if-ip:vrrp-group[openconfig-if-ip:virtual-router-id = ' + str(self.virtual_router_id) + ']'
 
@@ -2373,10 +2373,10 @@ class Interfaces(object):
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.state is not None and self.state._has_data():
+                                    if self.interface_tracking is not None and self.interface_tracking._has_data():
                                         return True
 
-                                    if self.interface_tracking is not None and self.interface_tracking._has_data():
+                                    if self.state is not None and self.state._has_data():
                                         return True
 
                                     return False
@@ -2389,7 +2389,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:vrrp'
 
@@ -2415,9 +2415,9 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip is None:
-                                raise YPYDataValidationError('Key property ip is None')
+                                raise YPYModelError('Key property ip is None')
 
                             return self.parent._common_path +'/openconfig-if-ip:address[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -2523,7 +2523,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -2588,7 +2588,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -2618,9 +2618,9 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip is None:
-                                raise YPYDataValidationError('Key property ip is None')
+                                raise YPYModelError('Key property ip is None')
 
                             return self.parent._common_path +'/openconfig-if-ip:neighbor[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -2679,7 +2679,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -2735,7 +2735,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -2762,7 +2762,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:ipv4'
 
@@ -2778,13 +2778,13 @@ class Interfaces(object):
                                 if child_ref._has_data():
                                     return True
 
+                        if self.config is not None and self.config._has_data():
+                            return True
+
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
                                     return True
-
-                        if self.config is not None and self.config._has_data():
-                            return True
 
                         if self.state is not None and self.state._has_data():
                             return True
@@ -2811,10 +2811,10 @@ class Interfaces(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: neighbor
+                    .. attribute:: autoconf
                     
-                    	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
-                    	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor>`
+                    	Top\-level container for IPv6 autoconf
+                    	**type**\: :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
                     
                     .. attribute:: _is_presence
                     
@@ -2831,20 +2831,20 @@ class Interfaces(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: state
+                    .. attribute:: neighbor
                     
-                    	Top\-level operational state data for the IPv6 interface
-                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
+                    	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
+                    	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: autoconf
+                    .. attribute:: state
                     
-                    	Top\-level container for IPv6 autoconf
-                    	**type**\: :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
+                    	Top\-level operational state data for the IPv6 interface
+                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
                     
                     .. attribute:: _is_presence
                     
@@ -2865,15 +2865,15 @@ class Interfaces(object):
                         self.address = YList()
                         self.address.parent = self
                         self.address.name = 'address'
+                        self.autoconf = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf()
+                        self.autoconf.parent = self
+                        self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config()
+                        self.config.parent = self
                         self.neighbor = YList()
                         self.neighbor.parent = self
                         self.neighbor.name = 'neighbor'
-                        self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config()
-                        self.config.parent = self
                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State()
                         self.state.parent = self
-                        self.autoconf = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf()
-                        self.autoconf.parent = self
 
 
                     class Address(object):
@@ -2954,7 +2954,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -2991,17 +2991,17 @@ class Interfaces(object):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            .. attribute:: origin
+                            
+                            	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
+                            	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                            
                             .. attribute:: prefix_length
                             
                             	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
                             	**type**\: int
                             
                             	**range:** 0..128
-                            
-                            .. attribute:: origin
-                            
-                            	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
-                            	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             .. attribute:: status
                             
@@ -3018,8 +3018,8 @@ class Interfaces(object):
                             def __init__(self):
                                 self.parent = None
                                 self.ip = None
-                                self.prefix_length = None
                                 self.origin = None
+                                self.prefix_length = None
                                 self.status = None
 
                             class StatusEnum(Enum):
@@ -3120,7 +3120,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -3134,10 +3134,10 @@ class Interfaces(object):
                                 if self.ip is not None:
                                     return True
 
-                                if self.prefix_length is not None:
+                                if self.origin is not None:
                                     return True
 
-                                if self.origin is not None:
+                                if self.prefix_length is not None:
                                     return True
 
                                 if self.status is not None:
@@ -3191,15 +3191,15 @@ class Interfaces(object):
                                 	Configuration data for the VRRP group
                                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config>`
                                 
-                                .. attribute:: state
-                                
-                                	Operational state data for the VRRP group
-                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State>`
-                                
                                 .. attribute:: interface_tracking
                                 
                                 	Top\-level container for VRRP interface tracking
                                 	**type**\: :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                                
+                                .. attribute:: state
+                                
+                                	Operational state data for the VRRP group
+                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State>`
                                 
                                 
 
@@ -3213,22 +3213,46 @@ class Interfaces(object):
                                     self.virtual_router_id = None
                                     self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config()
                                     self.config.parent = self
-                                    self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State()
-                                    self.state.parent = self
                                     self.interface_tracking = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                     self.interface_tracking.parent = self
+                                    self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State()
+                                    self.state.parent = self
 
 
                                 class Config(object):
                                     """
                                     Configuration data for the VRRP group
                                     
-                                    .. attribute:: virtual_router_id
+                                    .. attribute:: accept_mode
                                     
-                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                    	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: advertisement_interval
+                                    
+                                    	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
                                     	**type**\: int
                                     
-                                    	**range:** 1..255
+                                    	**range:** 1..4095
+                                    
+                                    .. attribute:: preempt
+                                    
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: preempt_delay
+                                    
+                                    	Set the delay the higher priority router waits before preempting
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..3600
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..254
                                     
                                     .. attribute:: virtual_address
                                     
@@ -3247,37 +3271,6 @@ class Interfaces(object):
                                     
                                     
                                     ----
-                                    .. attribute:: priority
-                                    
-                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
-                                    	**type**\: int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    .. attribute:: preempt
-                                    
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: preempt_delay
-                                    
-                                    	Set the delay the higher priority router waits before preempting
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..3600
-                                    
-                                    .. attribute:: accept_mode
-                                    
-                                    	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: advertisement_interval
-                                    
-                                    	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
-                                    	**type**\: int
-                                    
-                                    	**range:** 1..4095
-                                    
                                     .. attribute:: virtual_link_local
                                     
                                     	For VRRP on IPv6 interfaces, sets the virtual link local address
@@ -3295,6 +3288,13 @@ class Interfaces(object):
                                     
                                     
                                     ----
+                                    .. attribute:: virtual_router_id
+                                    
+                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
                                     
 
                                     """
@@ -3304,21 +3304,21 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.virtual_router_id = None
+                                        self.accept_mode = None
+                                        self.advertisement_interval = None
+                                        self.preempt = None
+                                        self.preempt_delay = None
+                                        self.priority = None
                                         self.virtual_address = YLeafList()
                                         self.virtual_address.parent = self
                                         self.virtual_address.name = 'virtual_address'
-                                        self.priority = None
-                                        self.preempt = None
-                                        self.preempt_delay = None
-                                        self.accept_mode = None
-                                        self.advertisement_interval = None
                                         self.virtual_link_local = None
+                                        self.virtual_router_id = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -3329,15 +3329,10 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.virtual_router_id is not None:
+                                        if self.accept_mode is not None:
                                             return True
 
-                                        if self.virtual_address is not None:
-                                            for child in self.virtual_address:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.priority is not None:
+                                        if self.advertisement_interval is not None:
                                             return True
 
                                         if self.preempt is not None:
@@ -3346,13 +3341,18 @@ class Interfaces(object):
                                         if self.preempt_delay is not None:
                                             return True
 
-                                        if self.accept_mode is not None:
+                                        if self.priority is not None:
                                             return True
 
-                                        if self.advertisement_interval is not None:
-                                            return True
+                                        if self.virtual_address is not None:
+                                            for child in self.virtual_address:
+                                                if child is not None:
+                                                    return True
 
                                         if self.virtual_link_local is not None:
+                                            return True
+
+                                        if self.virtual_router_id is not None:
                                             return True
 
                                         return False
@@ -3366,49 +3366,6 @@ class Interfaces(object):
                                 class State(object):
                                     """
                                     Operational state data for the VRRP group
-                                    
-                                    .. attribute:: virtual_router_id
-                                    
-                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
-                                    	**type**\: int
-                                    
-                                    	**range:** 1..255
-                                    
-                                    .. attribute:: virtual_address
-                                    
-                                    	Configure one or more virtual addresses for the VRRP group
-                                    	**type**\: one of the below types:
-                                    
-                                    	**type**\: list of str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-                                    ----
-                                    	**type**\: list of str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-                                    ----
-                                    .. attribute:: priority
-                                    
-                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
-                                    	**type**\: int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    .. attribute:: preempt
-                                    
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: preempt_delay
-                                    
-                                    	Set the delay the higher priority router waits before preempting
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..3600
                                     
                                     .. attribute:: accept_mode
                                     
@@ -3429,6 +3386,42 @@ class Interfaces(object):
                                     
                                     	**range:** 0..255
                                     
+                                    .. attribute:: preempt
+                                    
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: preempt_delay
+                                    
+                                    	Set the delay the higher priority router waits before preempting
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..3600
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..254
+                                    
+                                    .. attribute:: virtual_address
+                                    
+                                    	Configure one or more virtual addresses for the VRRP group
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
                                     .. attribute:: virtual_link_local
                                     
                                     	For VRRP on IPv6 interfaces, sets the virtual link local address
@@ -3446,6 +3439,13 @@ class Interfaces(object):
                                     
                                     
                                     ----
+                                    .. attribute:: virtual_router_id
+                                    
+                                    	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
                                     
 
                                     """
@@ -3455,22 +3455,22 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.virtual_router_id = None
-                                        self.virtual_address = YLeafList()
-                                        self.virtual_address.parent = self
-                                        self.virtual_address.name = 'virtual_address'
-                                        self.priority = None
-                                        self.preempt = None
-                                        self.preempt_delay = None
                                         self.accept_mode = None
                                         self.advertisement_interval = None
                                         self.current_priority = None
+                                        self.preempt = None
+                                        self.preempt_delay = None
+                                        self.priority = None
+                                        self.virtual_address = YLeafList()
+                                        self.virtual_address.parent = self
+                                        self.virtual_address.name = 'virtual_address'
                                         self.virtual_link_local = None
+                                        self.virtual_router_id = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -3481,23 +3481,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.virtual_router_id is not None:
-                                            return True
-
-                                        if self.virtual_address is not None:
-                                            for child in self.virtual_address:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.priority is not None:
-                                            return True
-
-                                        if self.preempt is not None:
-                                            return True
-
-                                        if self.preempt_delay is not None:
-                                            return True
-
                                         if self.accept_mode is not None:
                                             return True
 
@@ -3507,7 +3490,24 @@ class Interfaces(object):
                                         if self.current_priority is not None:
                                             return True
 
+                                        if self.preempt is not None:
+                                            return True
+
+                                        if self.preempt_delay is not None:
+                                            return True
+
+                                        if self.priority is not None:
+                                            return True
+
+                                        if self.virtual_address is not None:
+                                            for child in self.virtual_address:
+                                                if child is not None:
+                                                    return True
+
                                         if self.virtual_link_local is not None:
+                                            return True
+
+                                        if self.virtual_router_id is not None:
                                             return True
 
                                         return False
@@ -3551,17 +3551,17 @@ class Interfaces(object):
                                         """
                                         Configuration data for VRRP interface tracking
                                         
-                                        .. attribute:: track_interface
-                                        
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
-                                        
                                         .. attribute:: priority_decrement
                                         
                                         	Set the value to subtract from priority when the tracked interface goes down
                                         	**type**\: int
                                         
                                         	**range:** 0..254
+                                        
+                                        .. attribute:: track_interface
+                                        
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	**type**\: str
                                         
                                         
 
@@ -3572,13 +3572,13 @@ class Interfaces(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.track_interface = None
                                             self.priority_decrement = None
+                                            self.track_interface = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -3589,10 +3589,10 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.track_interface is not None:
+                                            if self.priority_decrement is not None:
                                                 return True
 
-                                            if self.priority_decrement is not None:
+                                            if self.track_interface is not None:
                                                 return True
 
                                             return False
@@ -3607,17 +3607,17 @@ class Interfaces(object):
                                         """
                                         Operational state data for VRRP interface tracking
                                         
-                                        .. attribute:: track_interface
-                                        
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
-                                        
                                         .. attribute:: priority_decrement
                                         
                                         	Set the value to subtract from priority when the tracked interface goes down
                                         	**type**\: int
                                         
                                         	**range:** 0..254
+                                        
+                                        .. attribute:: track_interface
+                                        
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	**type**\: str
                                         
                                         
 
@@ -3628,13 +3628,13 @@ class Interfaces(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.track_interface = None
                                             self.priority_decrement = None
+                                            self.track_interface = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -3645,10 +3645,10 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.track_interface is not None:
+                                            if self.priority_decrement is not None:
                                                 return True
 
-                                            if self.priority_decrement is not None:
+                                            if self.track_interface is not None:
                                                 return True
 
                                             return False
@@ -3661,7 +3661,7 @@ class Interfaces(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:interface-tracking'
 
@@ -3688,9 +3688,9 @@ class Interfaces(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.virtual_router_id is None:
-                                        raise YPYDataValidationError('Key property virtual_router_id is None')
+                                        raise YPYModelError('Key property virtual_router_id is None')
 
                                     return self.parent._common_path +'/openconfig-if-ip:vrrp-group[openconfig-if-ip:virtual-router-id = ' + str(self.virtual_router_id) + ']'
 
@@ -3707,10 +3707,10 @@ class Interfaces(object):
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.state is not None and self.state._has_data():
+                                    if self.interface_tracking is not None and self.interface_tracking._has_data():
                                         return True
 
-                                    if self.interface_tracking is not None and self.interface_tracking._has_data():
+                                    if self.state is not None and self.state._has_data():
                                         return True
 
                                     return False
@@ -3723,7 +3723,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:vrrp'
 
@@ -3749,9 +3749,9 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip is None:
-                                raise YPYDataValidationError('Key property ip is None')
+                                raise YPYModelError('Key property ip is None')
 
                             return self.parent._common_path +'/openconfig-if-ip:address[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -3857,7 +3857,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -3894,6 +3894,11 @@ class Interfaces(object):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            .. attribute:: is_router
+                            
+                            	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
                             .. attribute:: link_layer_address
                             
                             	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
@@ -3901,20 +3906,15 @@ class Interfaces(object):
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
-                            .. attribute:: origin
-                            
-                            	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
-                            	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
-                            
-                            .. attribute:: is_router
-                            
-                            	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
                             .. attribute:: neighbor_state
                             
                             	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
                             	**type**\: :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum>`
+                            
+                            .. attribute:: origin
+                            
+                            	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
+                            	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                             
                             
 
@@ -3926,10 +3926,10 @@ class Interfaces(object):
                             def __init__(self):
                                 self.parent = None
                                 self.ip = None
-                                self.link_layer_address = None
-                                self.origin = None
                                 self.is_router = None
+                                self.link_layer_address = None
                                 self.neighbor_state = None
+                                self.origin = None
 
                             class NeighborStateEnum(Enum):
                                 """
@@ -4007,7 +4007,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -4021,16 +4021,16 @@ class Interfaces(object):
                                 if self.ip is not None:
                                     return True
 
-                                if self.link_layer_address is not None:
-                                    return True
-
-                                if self.origin is not None:
-                                    return True
-
                                 if self.is_router is not None:
                                     return True
 
+                                if self.link_layer_address is not None:
+                                    return True
+
                                 if self.neighbor_state is not None:
+                                    return True
+
+                                if self.origin is not None:
                                     return True
 
                                 return False
@@ -4043,9 +4043,9 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip is None:
-                                raise YPYDataValidationError('Key property ip is None')
+                                raise YPYModelError('Key property ip is None')
 
                             return self.parent._common_path +'/openconfig-if-ip:neighbor[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -4077,6 +4077,13 @@ class Interfaces(object):
                         """
                         Top\-level config data for the IPv6 interface
                         
+                        .. attribute:: dup_addr_detect_transmits
+                        
+                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: enabled
                         
                         	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
@@ -4089,13 +4096,6 @@ class Interfaces(object):
                         
                         	**range:** 1280..4294967295
                         
-                        .. attribute:: dup_addr_detect_transmits
-                        
-                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         
 
                         """
@@ -4105,14 +4105,14 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.dup_addr_detect_transmits = None
                             self.enabled = None
                             self.mtu = None
-                            self.dup_addr_detect_transmits = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -4123,13 +4123,13 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.dup_addr_detect_transmits is not None:
+                                return True
+
                             if self.enabled is not None:
                                 return True
 
                             if self.mtu is not None:
-                                return True
-
-                            if self.dup_addr_detect_transmits is not None:
                                 return True
 
                             return False
@@ -4144,6 +4144,13 @@ class Interfaces(object):
                         """
                         Top\-level operational state data for the IPv6 interface
                         
+                        .. attribute:: dup_addr_detect_transmits
+                        
+                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: enabled
                         
                         	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
@@ -4156,13 +4163,6 @@ class Interfaces(object):
                         
                         	**range:** 1280..4294967295
                         
-                        .. attribute:: dup_addr_detect_transmits
-                        
-                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         
 
                         """
@@ -4172,14 +4172,14 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.dup_addr_detect_transmits = None
                             self.enabled = None
                             self.mtu = None
-                            self.dup_addr_detect_transmits = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -4190,13 +4190,13 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.dup_addr_detect_transmits is not None:
+                                return True
+
                             if self.enabled is not None:
                                 return True
 
                             if self.mtu is not None:
-                                return True
-
-                            if self.dup_addr_detect_transmits is not None:
                                 return True
 
                             return False
@@ -4253,16 +4253,16 @@ class Interfaces(object):
                             	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                             	**type**\: bool
                             
-                            .. attribute:: temporary_valid_lifetime
+                            .. attribute:: temporary_preferred_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: temporary_preferred_lifetime
+                            .. attribute:: temporary_valid_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4278,13 +4278,13 @@ class Interfaces(object):
                                 self.parent = None
                                 self.create_global_addresses = None
                                 self.create_temporary_addresses = None
-                                self.temporary_valid_lifetime = None
                                 self.temporary_preferred_lifetime = None
+                                self.temporary_valid_lifetime = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -4301,10 +4301,10 @@ class Interfaces(object):
                                 if self.create_temporary_addresses is not None:
                                     return True
 
-                                if self.temporary_valid_lifetime is not None:
+                                if self.temporary_preferred_lifetime is not None:
                                     return True
 
-                                if self.temporary_preferred_lifetime is not None:
+                                if self.temporary_valid_lifetime is not None:
                                     return True
 
                                 return False
@@ -4329,16 +4329,16 @@ class Interfaces(object):
                             	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                             	**type**\: bool
                             
-                            .. attribute:: temporary_valid_lifetime
+                            .. attribute:: temporary_preferred_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: temporary_preferred_lifetime
+                            .. attribute:: temporary_valid_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4354,13 +4354,13 @@ class Interfaces(object):
                                 self.parent = None
                                 self.create_global_addresses = None
                                 self.create_temporary_addresses = None
-                                self.temporary_valid_lifetime = None
                                 self.temporary_preferred_lifetime = None
+                                self.temporary_valid_lifetime = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -4377,10 +4377,10 @@ class Interfaces(object):
                                 if self.create_temporary_addresses is not None:
                                     return True
 
-                                if self.temporary_valid_lifetime is not None:
+                                if self.temporary_preferred_lifetime is not None:
                                     return True
 
-                                if self.temporary_preferred_lifetime is not None:
+                                if self.temporary_valid_lifetime is not None:
                                     return True
 
                                 return False
@@ -4393,7 +4393,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:autoconf'
 
@@ -4420,7 +4420,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:ipv6'
 
@@ -4436,18 +4436,18 @@ class Interfaces(object):
                                 if child_ref._has_data():
                                     return True
 
+                        if self.autoconf is not None and self.autoconf._has_data():
+                            return True
+
+                        if self.config is not None and self.config._has_data():
+                            return True
+
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
                                     return True
 
-                        if self.config is not None and self.config._has_data():
-                            return True
-
                         if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.autoconf is not None and self.autoconf._has_data():
                             return True
 
                         return False
@@ -4460,9 +4460,9 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.index is None:
-                        raise YPYDataValidationError('Key property index is None')
+                        raise YPYModelError('Key property index is None')
 
                     return self.parent._common_path +'/openconfig-interfaces:subinterface[openconfig-interfaces:index = ' + str(self.index) + ']'
 
@@ -4479,16 +4479,16 @@ class Interfaces(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.vlan is not None and self.vlan._has_data():
-                        return True
-
                     if self.ipv4 is not None and self.ipv4._has_data():
                         return True
 
                     if self.ipv6 is not None and self.ipv6._has_data():
+                        return True
+
+                    if self.state is not None and self.state._has_data():
+                        return True
+
+                    if self.vlan is not None and self.vlan._has_data():
                         return True
 
                     return False
@@ -4501,7 +4501,7 @@ class Interfaces(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-interfaces:subinterfaces'
 
@@ -4566,12 +4566,10 @@ class Interfaces(object):
                 """
                 Configuration data for ethernet interfaces
                 
-                .. attribute:: mac_address
+                .. attribute:: aggregate_id
                 
-                	Assigns a MAC address to the Ethernet interface.  If not specified, the corresponding operational state leaf is expected to show the system\-assigned MAC address
+                	Specify the logical aggregate interface to which this interface belongs
                 	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: auto_negotiate
                 
@@ -4583,20 +4581,22 @@ class Interfaces(object):
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
                 	**type**\: :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.DuplexModeEnum>`
                 
-                .. attribute:: port_speed
-                
-                	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ethernet\-speed identities
-                	**type**\: :py:class:`EthernetSpeed_Identity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeed_Identity>`
-                
                 .. attribute:: enable_flow_control
                 
                 	Enable or disable flow control for this interface. Ethernet flow control is a mechanism by which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto\-negotiated flow control settings.  If left unspecified, and auto\-negotiate is TRUE, flow control mode is negotiated with the peer interface
                 	**type**\: bool
                 
-                .. attribute:: aggregate_id
+                .. attribute:: mac_address
                 
-                	Specify the logical aggregate interface to which this interface belongs
+                	Assigns a MAC address to the Ethernet interface.  If not specified, the corresponding operational state leaf is expected to show the system\-assigned MAC address
                 	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: port_speed
+                
+                	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ethernet\-speed identities
+                	**type**\: :py:class:`EthernetSpeedIdentity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeedIdentity>`
                 
                 
 
@@ -4607,12 +4607,12 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.mac_address = None
+                    self.aggregate_id = None
                     self.auto_negotiate = None
                     self.duplex_mode = None
-                    self.port_speed = None
                     self.enable_flow_control = None
-                    self.aggregate_id = None
+                    self.mac_address = None
+                    self.port_speed = None
 
                 class DuplexModeEnum(Enum):
                     """
@@ -4652,7 +4652,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-ethernet:config'
 
@@ -4663,7 +4663,7 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.mac_address is not None:
+                    if self.aggregate_id is not None:
                         return True
 
                     if self.auto_negotiate is not None:
@@ -4672,13 +4672,13 @@ class Interfaces(object):
                     if self.duplex_mode is not None:
                         return True
 
-                    if self.port_speed is not None:
-                        return True
-
                     if self.enable_flow_control is not None:
                         return True
 
-                    if self.aggregate_id is not None:
+                    if self.mac_address is not None:
+                        return True
+
+                    if self.port_speed is not None:
                         return True
 
                     return False
@@ -4693,27 +4693,25 @@ class Interfaces(object):
                 """
                 State variables for Ethernet interfaces
                 
-                .. attribute:: mac_address
+                .. attribute:: aggregate_id
                 
-                	Assigns a MAC address to the Ethernet interface.  If not specified, the corresponding operational state leaf is expected to show the system\-assigned MAC address
+                	Specify the logical aggregate interface to which this interface belongs
                 	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: auto_negotiate
                 
                 	Set to TRUE to request the interface to auto\-negotiate transmission parameters with its peer interface.  When set to FALSE, the transmission parameters are specified manually
                 	**type**\: bool
                 
+                .. attribute:: counters
+                
+                	Ethernet interface counters
+                	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.Counters>`
+                
                 .. attribute:: duplex_mode
                 
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
                 	**type**\: :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.DuplexModeEnum>`
-                
-                .. attribute:: port_speed
-                
-                	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ethernet\-speed identities
-                	**type**\: :py:class:`EthernetSpeed_Identity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeed_Identity>`
                 
                 .. attribute:: enable_flow_control
                 
@@ -4727,15 +4725,17 @@ class Interfaces(object):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
-                .. attribute:: counters
+                .. attribute:: mac_address
                 
-                	Ethernet interface counters
-                	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.Counters>`
-                
-                .. attribute:: aggregate_id
-                
-                	Specify the logical aggregate interface to which this interface belongs
+                	Assigns a MAC address to the Ethernet interface.  If not specified, the corresponding operational state leaf is expected to show the system\-assigned MAC address
                 	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: port_speed
+                
+                	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ethernet\-speed identities
+                	**type**\: :py:class:`EthernetSpeedIdentity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeedIdentity>`
                 
                 
 
@@ -4746,15 +4746,15 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.mac_address = None
+                    self.aggregate_id = None
                     self.auto_negotiate = None
-                    self.duplex_mode = None
-                    self.port_speed = None
-                    self.enable_flow_control = None
-                    self.hw_mac_address = None
                     self.counters = Interfaces.Interface.Ethernet.State.Counters()
                     self.counters.parent = self
-                    self.aggregate_id = None
+                    self.duplex_mode = None
+                    self.enable_flow_control = None
+                    self.hw_mac_address = None
+                    self.mac_address = None
+                    self.port_speed = None
 
                 class DuplexModeEnum(Enum):
                     """
@@ -4796,73 +4796,73 @@ class Interfaces(object):
                     """
                     Ethernet interface counters
                     
-                    .. attribute:: in_mac_control_frames
-                    
-                    	MAC layer control frames received on the interface
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_mac_pause_frames
-                    
-                    	MAC layer PAUSE frames received on the interface
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_oversize_frames
-                    
-                    	Number of oversize frames received on the interface
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_jabber_frames
-                    
-                    	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_fragment_frames
-                    
-                    	Number of fragment frames received on the interface
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: in_8021q_frames
                     
                     	Number of 802.1q tagged frames received on the interface
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_crc_errors
                     
                     	Number of receive error events due to FCS/CRC check failure
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: out_mac_control_frames
+                    .. attribute:: in_fragment_frames
                     
-                    	MAC layer control frames sent on the interface
-                    	**type**\: int
+                    	Number of fragment frames received on the interface
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: out_mac_pause_frames
+                    .. attribute:: in_jabber_frames
                     
-                    	MAC layer PAUSE frames sent on the interface
-                    	**type**\: int
+                    	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: in_mac_control_frames
+                    
+                    	MAC layer control frames received on the interface
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: in_mac_pause_frames
+                    
+                    	MAC layer PAUSE frames received on the interface
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: in_oversize_frames
+                    
+                    	Number of oversize frames received on the interface
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: out_8021q_frames
                     
                     	Number of 802.1q tagged frames sent on the interface
-                    	**type**\: int
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: out_mac_control_frames
+                    
+                    	MAC layer control frames sent on the interface
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: out_mac_pause_frames
+                    
+                    	MAC layer PAUSE frames sent on the interface
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4875,21 +4875,21 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.in_8021q_frames = None
+                        self.in_crc_errors = None
+                        self.in_fragment_frames = None
+                        self.in_jabber_frames = None
                         self.in_mac_control_frames = None
                         self.in_mac_pause_frames = None
                         self.in_oversize_frames = None
-                        self.in_jabber_frames = None
-                        self.in_fragment_frames = None
-                        self.in_8021q_frames = None
-                        self.in_crc_errors = None
+                        self.out_8021q_frames = None
                         self.out_mac_control_frames = None
                         self.out_mac_pause_frames = None
-                        self.out_8021q_frames = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ethernet:counters'
 
@@ -4900,6 +4900,18 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.in_8021q_frames is not None:
+                            return True
+
+                        if self.in_crc_errors is not None:
+                            return True
+
+                        if self.in_fragment_frames is not None:
+                            return True
+
+                        if self.in_jabber_frames is not None:
+                            return True
+
                         if self.in_mac_control_frames is not None:
                             return True
 
@@ -4909,25 +4921,13 @@ class Interfaces(object):
                         if self.in_oversize_frames is not None:
                             return True
 
-                        if self.in_jabber_frames is not None:
-                            return True
-
-                        if self.in_fragment_frames is not None:
-                            return True
-
-                        if self.in_8021q_frames is not None:
-                            return True
-
-                        if self.in_crc_errors is not None:
+                        if self.out_8021q_frames is not None:
                             return True
 
                         if self.out_mac_control_frames is not None:
                             return True
 
                         if self.out_mac_pause_frames is not None:
-                            return True
-
-                        if self.out_8021q_frames is not None:
                             return True
 
                         return False
@@ -4940,7 +4940,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-ethernet:state'
 
@@ -4951,16 +4951,16 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.mac_address is not None:
+                    if self.aggregate_id is not None:
                         return True
 
                     if self.auto_negotiate is not None:
                         return True
 
-                    if self.duplex_mode is not None:
+                    if self.counters is not None and self.counters._has_data():
                         return True
 
-                    if self.port_speed is not None:
+                    if self.duplex_mode is not None:
                         return True
 
                     if self.enable_flow_control is not None:
@@ -4969,10 +4969,10 @@ class Interfaces(object):
                     if self.hw_mac_address is not None:
                         return True
 
-                    if self.counters is not None and self.counters._has_data():
+                    if self.mac_address is not None:
                         return True
 
-                    if self.aggregate_id is not None:
+                    if self.port_speed is not None:
                         return True
 
                     return False
@@ -5017,14 +5017,9 @@ class Interfaces(object):
                     """
                     Configuration parameters for VLANs
                     
-                    .. attribute:: interface_mode
+                    .. attribute:: access_vlan
                     
-                    	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
-                    
-                    .. attribute:: native_vlan
-                    
-                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
+                    	Assign the access vlan to the access port
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -5039,9 +5034,14 @@ class Interfaces(object):
                     
                     
                     ----
-                    .. attribute:: access_vlan
+                    .. attribute:: interface_mode
                     
-                    	Assign the access vlan to the access port
+                    	Set the interface to access or trunk mode for VLANs
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    
+                    .. attribute:: native_vlan
+                    
+                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -5102,9 +5102,9 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.access_vlan = None
                         self.interface_mode = None
                         self.native_vlan = None
-                        self.access_vlan = None
                         self.trunk_vlans = YLeafList()
                         self.trunk_vlans.parent = self
                         self.trunk_vlans.name = 'trunk_vlans'
@@ -5112,7 +5112,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-vlan:config'
 
@@ -5123,13 +5123,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.access_vlan is not None:
+                            return True
+
                         if self.interface_mode is not None:
                             return True
 
                         if self.native_vlan is not None:
-                            return True
-
-                        if self.access_vlan is not None:
                             return True
 
                         if self.trunk_vlans is not None:
@@ -5149,14 +5149,9 @@ class Interfaces(object):
                     """
                     State variables for VLANs
                     
-                    .. attribute:: interface_mode
+                    .. attribute:: access_vlan
                     
-                    	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
-                    
-                    .. attribute:: native_vlan
-                    
-                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
+                    	Assign the access vlan to the access port
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -5171,9 +5166,14 @@ class Interfaces(object):
                     
                     
                     ----
-                    .. attribute:: access_vlan
+                    .. attribute:: interface_mode
                     
-                    	Assign the access vlan to the access port
+                    	Set the interface to access or trunk mode for VLANs
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    
+                    .. attribute:: native_vlan
+                    
+                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -5234,9 +5234,9 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.access_vlan = None
                         self.interface_mode = None
                         self.native_vlan = None
-                        self.access_vlan = None
                         self.trunk_vlans = YLeafList()
                         self.trunk_vlans.parent = self
                         self.trunk_vlans.name = 'trunk_vlans'
@@ -5244,7 +5244,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-vlan:state'
 
@@ -5255,13 +5255,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.access_vlan is not None:
+                            return True
+
                         if self.interface_mode is not None:
                             return True
 
                         if self.native_vlan is not None:
-                            return True
-
-                        if self.access_vlan is not None:
                             return True
 
                         if self.trunk_vlans is not None:
@@ -5279,7 +5279,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-vlan:vlan'
 
@@ -5306,7 +5306,7 @@ class Interfaces(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-if-ethernet:ethernet'
 
@@ -5349,20 +5349,20 @@ class Interfaces(object):
             	Is present if this instance represents presence container else not
             	**type**\: bool
             
-            .. attribute:: state
+            .. attribute:: lacp
             
-            	Operational state variables for logical aggregate / LAG interfaces
-            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.State>`
+            	Configuration for LACP protocol operation on the aggregate interface
+            	**type**\: :py:class:`Lacp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp>`
             
             .. attribute:: _is_presence
             
             	Is present if this instance represents presence container else not
             	**type**\: bool
             
-            .. attribute:: lacp
+            .. attribute:: state
             
-            	Configuration for LACP protocol operation on the aggregate interface
-            	**type**\: :py:class:`Lacp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp>`
+            	Operational state variables for logical aggregate / LAG interfaces
+            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.State>`
             
             .. attribute:: _is_presence
             
@@ -5392,9 +5392,9 @@ class Interfaces(object):
                 self.parent = None
                 self.config = Interfaces.Interface.Aggregation.Config()
                 self.config.parent = self
+                self.lacp = None
                 self.state = Interfaces.Interface.Aggregation.State()
                 self.state.parent = self
-                self.lacp = None
                 self.vlan = Interfaces.Interface.Aggregation.Vlan()
                 self.vlan.parent = self
 
@@ -5431,7 +5431,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-aggregate:config'
 
@@ -5466,17 +5466,17 @@ class Interfaces(object):
                 	Sets the type of LAG, i.e., how it is configured / maintained
                 	**type**\: :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
                 
+                .. attribute:: members
+                
+                	List of current member interfaces for the aggregate, expressed as references to existing interfaces
+                	**type**\: list of str
+                
                 .. attribute:: min_links
                 
                 	Specifies the mininum number of member interfaces that must be active for the aggregate interface to be available
                 	**type**\: int
                 
                 	**range:** 0..65535
-                
-                .. attribute:: members
-                
-                	List of current member interfaces for the aggregate, expressed as references to existing interfaces
-                	**type**\: list of str
                 
                 
 
@@ -5488,15 +5488,15 @@ class Interfaces(object):
                 def __init__(self):
                     self.parent = None
                     self.lag_type = None
-                    self.min_links = None
                     self.members = YLeafList()
                     self.members.parent = self
                     self.members.name = 'members'
+                    self.min_links = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-aggregate:state'
 
@@ -5510,13 +5510,13 @@ class Interfaces(object):
                     if self.lag_type is not None:
                         return True
 
-                    if self.min_links is not None:
-                        return True
-
                     if self.members is not None:
                         for child in self.members:
                             if child is not None:
                                 return True
+
+                    if self.min_links is not None:
+                        return True
 
                     return False
 
@@ -5541,20 +5541,20 @@ class Interfaces(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: state
+                .. attribute:: members
                 
-                	Operational state data for LACP
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.State>`
+                	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
+                	**type**\: :py:class:`Members <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members>`
                 
                 .. attribute:: _is_presence
                 
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: members
+                .. attribute:: state
                 
-                	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
-                	**type**\: :py:class:`Members <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members>`
+                	Operational state data for LACP
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.State>`
                 
                 .. attribute:: _is_presence
                 
@@ -5574,10 +5574,10 @@ class Interfaces(object):
                     self.parent = None
                     self.config = Interfaces.Interface.Aggregation.Lacp.Config()
                     self.config.parent = self
-                    self.state = Interfaces.Interface.Aggregation.Lacp.State()
-                    self.state.parent = self
                     self.members = Interfaces.Interface.Aggregation.Lacp.Members()
                     self.members.parent = self
+                    self.state = Interfaces.Interface.Aggregation.Lacp.State()
+                    self.state.parent = self
 
 
                 class Config(object):
@@ -5625,7 +5625,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-aggregate:config'
 
@@ -5701,7 +5701,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-aggregate:state'
 
@@ -5792,25 +5792,10 @@ class Interfaces(object):
                             """
                             Operational state data for aggregate members
                             
-                            .. attribute:: interface
-                            
-                            	Interface member of the LACP aggregate
-                            	**type**\: str
-                            
                             .. attribute:: activity
                             
                             	Indicates participant is active or passive
                             	**type**\: :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
-                            
-                            .. attribute:: timeout
-                            
-                            	The timeout type (short or long) used by the participant
-                            	**type**\: :py:class:`LacpTimeoutTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpTimeoutTypeEnum>`
-                            
-                            .. attribute:: synchronization
-                            
-                            	Indicates whether the participant is in\-sync or out\-of\-sync
-                            	**type**\: :py:class:`LacpSynchronizationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpSynchronizationTypeEnum>`
                             
                             .. attribute:: aggregatable
                             
@@ -5822,17 +5807,20 @@ class Interfaces(object):
                             	If true, the participant is collecting incoming frames on the link, otherwise false
                             	**type**\: bool
                             
+                            .. attribute:: counters
+                            
+                            	LACP protocol counters
+                            	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters>`
+                            
                             .. attribute:: distributing
                             
                             	When true, the participant is distributing outgoing frames; when false, distribution is disabled
                             	**type**\: bool
                             
-                            .. attribute:: system_id
+                            .. attribute:: interface
                             
-                            	MAC address that defines the local system ID for the aggregate interface
+                            	Interface member of the LACP aggregate
                             	**type**\: str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: oper_key
                             
@@ -5855,10 +5843,22 @@ class Interfaces(object):
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: counters
+                            .. attribute:: synchronization
                             
-                            	LACP protocol counters
-                            	**type**\: :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters>`
+                            	Indicates whether the participant is in\-sync or out\-of\-sync
+                            	**type**\: :py:class:`LacpSynchronizationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpSynchronizationTypeEnum>`
+                            
+                            .. attribute:: system_id
+                            
+                            	MAC address that defines the local system ID for the aggregate interface
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: timeout
+                            
+                            	The timeout type (short or long) used by the participant
+                            	**type**\: :py:class:`LacpTimeoutTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpTimeoutTypeEnum>`
                             
                             
 
@@ -5869,64 +5869,64 @@ class Interfaces(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.interface = None
                                 self.activity = None
-                                self.timeout = None
-                                self.synchronization = None
                                 self.aggregatable = None
                                 self.collecting = None
+                                self.counters = Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters()
+                                self.counters.parent = self
                                 self.distributing = None
-                                self.system_id = None
+                                self.interface = None
                                 self.oper_key = None
                                 self.partner_id = None
                                 self.partner_key = None
-                                self.counters = Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters()
-                                self.counters.parent = self
+                                self.synchronization = None
+                                self.system_id = None
+                                self.timeout = None
 
 
                             class Counters(object):
                                 """
                                 LACP protocol counters
                                 
+                                .. attribute:: lacp_errors
+                                
+                                	Number of LACPDU illegal packet errors
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: lacp_in_pkts
                                 
                                 	Number of LACPDUs received
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lacp_out_pkts
                                 
                                 	Number of LACPDUs transmitted
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lacp_rx_errors
                                 
                                 	Number of LACPDU receive packet errors
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lacp_tx_errors
                                 
                                 	Number of LACPDU transmit packet errors
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lacp_unknown_errors
                                 
                                 	Number of LACPDU unknown packet errors
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: lacp_errors
-                                
-                                	Number of LACPDU illegal packet errors
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5939,17 +5939,17 @@ class Interfaces(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.lacp_errors = None
                                     self.lacp_in_pkts = None
                                     self.lacp_out_pkts = None
                                     self.lacp_rx_errors = None
                                     self.lacp_tx_errors = None
                                     self.lacp_unknown_errors = None
-                                    self.lacp_errors = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-if-aggregate:counters'
 
@@ -5960,6 +5960,9 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.lacp_errors is not None:
+                                        return True
+
                                     if self.lacp_in_pkts is not None:
                                         return True
 
@@ -5975,9 +5978,6 @@ class Interfaces(object):
                                     if self.lacp_unknown_errors is not None:
                                         return True
 
-                                    if self.lacp_errors is not None:
-                                        return True
-
                                     return False
 
                                 @staticmethod
@@ -5988,7 +5988,7 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/openconfig-if-aggregate:state'
 
@@ -5999,16 +5999,7 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.interface is not None:
-                                    return True
-
                                 if self.activity is not None:
-                                    return True
-
-                                if self.timeout is not None:
-                                    return True
-
-                                if self.synchronization is not None:
                                     return True
 
                                 if self.aggregatable is not None:
@@ -6017,10 +6008,13 @@ class Interfaces(object):
                                 if self.collecting is not None:
                                     return True
 
+                                if self.counters is not None and self.counters._has_data():
+                                    return True
+
                                 if self.distributing is not None:
                                     return True
 
-                                if self.system_id is not None:
+                                if self.interface is not None:
                                     return True
 
                                 if self.oper_key is not None:
@@ -6032,7 +6026,13 @@ class Interfaces(object):
                                 if self.partner_key is not None:
                                     return True
 
-                                if self.counters is not None and self.counters._has_data():
+                                if self.synchronization is not None:
+                                    return True
+
+                                if self.system_id is not None:
+                                    return True
+
+                                if self.timeout is not None:
                                     return True
 
                                 return False
@@ -6045,9 +6045,9 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface is None:
-                                raise YPYDataValidationError('Key property interface is None')
+                                raise YPYModelError('Key property interface is None')
 
                             return self.parent._common_path +'/openconfig-if-aggregate:member[openconfig-if-aggregate:interface = ' + str(self.interface) + ']'
 
@@ -6074,7 +6074,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-aggregate:members'
 
@@ -6100,7 +6100,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-aggregate:lacp'
 
@@ -6114,10 +6114,10 @@ class Interfaces(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
+                    if self.members is not None and self.members._has_data():
                         return True
 
-                    if self.members is not None and self.members._has_data():
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -6162,14 +6162,9 @@ class Interfaces(object):
                     """
                     Configuration parameters for VLANs
                     
-                    .. attribute:: interface_mode
+                    .. attribute:: access_vlan
                     
-                    	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
-                    
-                    .. attribute:: native_vlan
-                    
-                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
+                    	Assign the access vlan to the access port
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -6184,9 +6179,14 @@ class Interfaces(object):
                     
                     
                     ----
-                    .. attribute:: access_vlan
+                    .. attribute:: interface_mode
                     
-                    	Assign the access vlan to the access port
+                    	Set the interface to access or trunk mode for VLANs
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    
+                    .. attribute:: native_vlan
+                    
+                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -6247,9 +6247,9 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.access_vlan = None
                         self.interface_mode = None
                         self.native_vlan = None
-                        self.access_vlan = None
                         self.trunk_vlans = YLeafList()
                         self.trunk_vlans.parent = self
                         self.trunk_vlans.name = 'trunk_vlans'
@@ -6257,7 +6257,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-vlan:config'
 
@@ -6268,13 +6268,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.access_vlan is not None:
+                            return True
+
                         if self.interface_mode is not None:
                             return True
 
                         if self.native_vlan is not None:
-                            return True
-
-                        if self.access_vlan is not None:
                             return True
 
                         if self.trunk_vlans is not None:
@@ -6294,14 +6294,9 @@ class Interfaces(object):
                     """
                     State variables for VLANs
                     
-                    .. attribute:: interface_mode
+                    .. attribute:: access_vlan
                     
-                    	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
-                    
-                    .. attribute:: native_vlan
-                    
-                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
+                    	Assign the access vlan to the access port
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -6316,9 +6311,14 @@ class Interfaces(object):
                     
                     
                     ----
-                    .. attribute:: access_vlan
+                    .. attribute:: interface_mode
                     
-                    	Assign the access vlan to the access port
+                    	Set the interface to access or trunk mode for VLANs
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    
+                    .. attribute:: native_vlan
+                    
+                    	Set the native VLAN id for untagged frames arriving on a trunk interface.  This configuration is only valid on a trunk interface
                     	**type**\: one of the below types:
                     
                     	**type**\: int
@@ -6379,9 +6379,9 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.access_vlan = None
                         self.interface_mode = None
                         self.native_vlan = None
-                        self.access_vlan = None
                         self.trunk_vlans = YLeafList()
                         self.trunk_vlans.parent = self
                         self.trunk_vlans.name = 'trunk_vlans'
@@ -6389,7 +6389,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-vlan:state'
 
@@ -6400,13 +6400,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.access_vlan is not None:
+                            return True
+
                         if self.interface_mode is not None:
                             return True
 
                         if self.native_vlan is not None:
-                            return True
-
-                        if self.access_vlan is not None:
                             return True
 
                         if self.trunk_vlans is not None:
@@ -6424,7 +6424,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-vlan:vlan'
 
@@ -6451,7 +6451,7 @@ class Interfaces(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-if-aggregate:aggregation'
 
@@ -6465,10 +6465,10 @@ class Interfaces(object):
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.state is not None and self.state._has_data():
+                if self.lacp is not None and self.lacp._has_data():
                     return True
 
-                if self.lacp is not None and self.lacp._has_data():
+                if self.state is not None and self.state._has_data():
                     return True
 
                 if self.vlan is not None and self.vlan._has_data():
@@ -6494,11 +6494,6 @@ class Interfaces(object):
             	Configuration data for routed vlan interfaces
             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Config>`
             
-            .. attribute:: state
-            
-            	Operational state data 
-            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.State>`
-            
             .. attribute:: ipv4
             
             	Parameters for the IPv4 address family
@@ -6508,6 +6503,11 @@ class Interfaces(object):
             
             	Parameters for the IPv6 address family
             	**type**\: :py:class:`Ipv6 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6>`
+            
+            .. attribute:: state
+            
+            	Operational state data 
+            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.State>`
             
             
 
@@ -6520,10 +6520,10 @@ class Interfaces(object):
                 self.parent = None
                 self.config = Interfaces.Interface.RoutedVlan.Config()
                 self.config.parent = self
-                self.state = Interfaces.Interface.RoutedVlan.State()
-                self.state.parent = self
                 self.ipv4 = None
                 self.ipv6 = None
+                self.state = Interfaces.Interface.RoutedVlan.State()
+                self.state.parent = self
 
 
             class Config(object):
@@ -6559,7 +6559,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-vlan:config'
 
@@ -6614,7 +6614,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-vlan:state'
 
@@ -6650,20 +6650,20 @@ class Interfaces(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: neighbor
+                .. attribute:: config
                 
-                	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
-                	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor>`
+                	Top\-level IPv4 configuration data for the interface
+                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Config>`
                 
                 .. attribute:: _is_presence
                 
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: config
+                .. attribute:: neighbor
                 
-                	Top\-level IPv4 configuration data for the interface
-                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Config>`
+                	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
+                	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor>`
                 
                 .. attribute:: _is_presence
                 
@@ -6694,11 +6694,11 @@ class Interfaces(object):
                     self.address = YList()
                     self.address.parent = self
                     self.address.name = 'address'
+                    self.config = Interfaces.Interface.RoutedVlan.Ipv4.Config()
+                    self.config.parent = self
                     self.neighbor = YList()
                     self.neighbor.parent = self
                     self.neighbor.name = 'neighbor'
-                    self.config = Interfaces.Interface.RoutedVlan.Ipv4.Config()
-                    self.config.parent = self
                     self.state = Interfaces.Interface.RoutedVlan.Ipv4.State()
                     self.state.parent = self
 
@@ -6781,7 +6781,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -6818,17 +6818,17 @@ class Interfaces(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: origin
+                        
+                        	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
+                        	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                        
                         .. attribute:: prefix_length
                         
                         	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
                         	**type**\: int
                         
                         	**range:** 0..32
-                        
-                        .. attribute:: origin
-                        
-                        	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
-                        	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         
 
@@ -6840,13 +6840,13 @@ class Interfaces(object):
                         def __init__(self):
                             self.parent = None
                             self.ip = None
-                            self.prefix_length = None
                             self.origin = None
+                            self.prefix_length = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -6860,10 +6860,10 @@ class Interfaces(object):
                             if self.ip is not None:
                                 return True
 
-                            if self.prefix_length is not None:
+                            if self.origin is not None:
                                 return True
 
-                            if self.origin is not None:
+                            if self.prefix_length is not None:
                                 return True
 
                             return False
@@ -6914,15 +6914,15 @@ class Interfaces(object):
                             	Configuration data for the VRRP group
                             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config>`
                             
-                            .. attribute:: state
-                            
-                            	Operational state data for the VRRP group
-                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State>`
-                            
                             .. attribute:: interface_tracking
                             
                             	Top\-level container for VRRP interface tracking
                             	**type**\: :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data for the VRRP group
+                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State>`
                             
                             
 
@@ -6936,58 +6936,15 @@ class Interfaces(object):
                                 self.virtual_router_id = None
                                 self.config = Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config()
                                 self.config.parent = self
-                                self.state = Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State()
-                                self.state.parent = self
                                 self.interface_tracking = Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                 self.interface_tracking.parent = self
+                                self.state = Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State()
+                                self.state.parent = self
 
 
                             class Config(object):
                                 """
                                 Configuration data for the VRRP group
-                                
-                                .. attribute:: virtual_router_id
-                                
-                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
-                                	**type**\: int
-                                
-                                	**range:** 1..255
-                                
-                                .. attribute:: virtual_address
-                                
-                                	Configure one or more virtual addresses for the VRRP group
-                                	**type**\: one of the below types:
-                                
-                                	**type**\: list of str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\: list of str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                .. attribute:: priority
-                                
-                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
-                                	**type**\: int
-                                
-                                	**range:** 1..254
-                                
-                                .. attribute:: preempt
-                                
-                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                	**type**\: bool
-                                
-                                .. attribute:: preempt_delay
-                                
-                                	Set the delay the higher priority router waits before preempting
-                                	**type**\: int
-                                
-                                	**range:** 0..3600
                                 
                                 .. attribute:: accept_mode
                                 
@@ -7001,80 +6958,24 @@ class Interfaces(object):
                                 
                                 	**range:** 1..4095
                                 
+                                .. attribute:: preempt
                                 
-
-                                """
-
-                                _prefix = 'ocip'
-                                _revision = '2015-11-20'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.virtual_router_id = None
-                                    self.virtual_address = YLeafList()
-                                    self.virtual_address.parent = self
-                                    self.virtual_address.name = 'virtual_address'
-                                    self.priority = None
-                                    self.preempt = None
-                                    self.preempt_delay = None
-                                    self.accept_mode = None
-                                    self.advertisement_interval = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/openconfig-if-ip:config'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.virtual_router_id is not None:
-                                        return True
-
-                                    if self.virtual_address is not None:
-                                        for child in self.virtual_address:
-                                            if child is not None:
-                                                return True
-
-                                    if self.priority is not None:
-                                        return True
-
-                                    if self.preempt is not None:
-                                        return True
-
-                                    if self.preempt_delay is not None:
-                                        return True
-
-                                    if self.accept_mode is not None:
-                                        return True
-
-                                    if self.advertisement_interval is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                                    return meta._meta_table['Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config']['meta_info']
-
-
-                            class State(object):
-                                """
-                                Operational state data for the VRRP group
+                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                	**type**\: bool
                                 
-                                .. attribute:: virtual_router_id
+                                .. attribute:: preempt_delay
                                 
-                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                	Set the delay the higher priority router waits before preempting
                                 	**type**\: int
                                 
-                                	**range:** 1..255
+                                	**range:** 0..3600
+                                
+                                .. attribute:: priority
+                                
+                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                	**type**\: int
+                                
+                                	**range:** 1..254
                                 
                                 .. attribute:: virtual_address
                                 
@@ -7093,24 +6994,80 @@ class Interfaces(object):
                                 
                                 
                                 ----
-                                .. attribute:: priority
+                                .. attribute:: virtual_router_id
                                 
-                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
                                 	**type**\: int
                                 
-                                	**range:** 1..254
+                                	**range:** 1..255
                                 
-                                .. attribute:: preempt
                                 
-                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                	**type**\: bool
-                                
-                                .. attribute:: preempt_delay
-                                
-                                	Set the delay the higher priority router waits before preempting
-                                	**type**\: int
-                                
-                                	**range:** 0..3600
+
+                                """
+
+                                _prefix = 'ocip'
+                                _revision = '2015-11-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.accept_mode = None
+                                    self.advertisement_interval = None
+                                    self.preempt = None
+                                    self.preempt_delay = None
+                                    self.priority = None
+                                    self.virtual_address = YLeafList()
+                                    self.virtual_address.parent = self
+                                    self.virtual_address.name = 'virtual_address'
+                                    self.virtual_router_id = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/openconfig-if-ip:config'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.accept_mode is not None:
+                                        return True
+
+                                    if self.advertisement_interval is not None:
+                                        return True
+
+                                    if self.preempt is not None:
+                                        return True
+
+                                    if self.preempt_delay is not None:
+                                        return True
+
+                                    if self.priority is not None:
+                                        return True
+
+                                    if self.virtual_address is not None:
+                                        for child in self.virtual_address:
+                                            if child is not None:
+                                                return True
+
+                                    if self.virtual_router_id is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.openconfig._meta import _openconfig_interfaces as meta
+                                    return meta._meta_table['Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config']['meta_info']
+
+
+                            class State(object):
+                                """
+                                Operational state data for the VRRP group
                                 
                                 .. attribute:: accept_mode
                                 
@@ -7131,6 +7088,49 @@ class Interfaces(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: preempt
+                                
+                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                	**type**\: bool
+                                
+                                .. attribute:: preempt_delay
+                                
+                                	Set the delay the higher priority router waits before preempting
+                                	**type**\: int
+                                
+                                	**range:** 0..3600
+                                
+                                .. attribute:: priority
+                                
+                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                	**type**\: int
+                                
+                                	**range:** 1..254
+                                
+                                .. attribute:: virtual_address
+                                
+                                	Configure one or more virtual addresses for the VRRP group
+                                	**type**\: one of the below types:
+                                
+                                	**type**\: list of str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                	**type**\: list of str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                .. attribute:: virtual_router_id
+                                
+                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                	**type**\: int
+                                
+                                	**range:** 1..255
+                                
                                 
 
                                 """
@@ -7140,21 +7140,21 @@ class Interfaces(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.virtual_router_id = None
-                                    self.virtual_address = YLeafList()
-                                    self.virtual_address.parent = self
-                                    self.virtual_address.name = 'virtual_address'
-                                    self.priority = None
-                                    self.preempt = None
-                                    self.preempt_delay = None
                                     self.accept_mode = None
                                     self.advertisement_interval = None
                                     self.current_priority = None
+                                    self.preempt = None
+                                    self.preempt_delay = None
+                                    self.priority = None
+                                    self.virtual_address = YLeafList()
+                                    self.virtual_address.parent = self
+                                    self.virtual_address.name = 'virtual_address'
+                                    self.virtual_router_id = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -7165,15 +7165,13 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.virtual_router_id is not None:
+                                    if self.accept_mode is not None:
                                         return True
 
-                                    if self.virtual_address is not None:
-                                        for child in self.virtual_address:
-                                            if child is not None:
-                                                return True
+                                    if self.advertisement_interval is not None:
+                                        return True
 
-                                    if self.priority is not None:
+                                    if self.current_priority is not None:
                                         return True
 
                                     if self.preempt is not None:
@@ -7182,13 +7180,15 @@ class Interfaces(object):
                                     if self.preempt_delay is not None:
                                         return True
 
-                                    if self.accept_mode is not None:
+                                    if self.priority is not None:
                                         return True
 
-                                    if self.advertisement_interval is not None:
-                                        return True
+                                    if self.virtual_address is not None:
+                                        for child in self.virtual_address:
+                                            if child is not None:
+                                                return True
 
-                                    if self.current_priority is not None:
+                                    if self.virtual_router_id is not None:
                                         return True
 
                                     return False
@@ -7232,17 +7232,17 @@ class Interfaces(object):
                                     """
                                     Configuration data for VRRP interface tracking
                                     
-                                    .. attribute:: track_interface
-                                    
-                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                    	**type**\: str
-                                    
                                     .. attribute:: priority_decrement
                                     
                                     	Set the value to subtract from priority when the tracked interface goes down
                                     	**type**\: int
                                     
                                     	**range:** 0..254
+                                    
+                                    .. attribute:: track_interface
+                                    
+                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                    	**type**\: str
                                     
                                     
 
@@ -7253,13 +7253,13 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.track_interface = None
                                         self.priority_decrement = None
+                                        self.track_interface = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -7270,10 +7270,10 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.track_interface is not None:
+                                        if self.priority_decrement is not None:
                                             return True
 
-                                        if self.priority_decrement is not None:
+                                        if self.track_interface is not None:
                                             return True
 
                                         return False
@@ -7288,17 +7288,17 @@ class Interfaces(object):
                                     """
                                     Operational state data for VRRP interface tracking
                                     
-                                    .. attribute:: track_interface
-                                    
-                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                    	**type**\: str
-                                    
                                     .. attribute:: priority_decrement
                                     
                                     	Set the value to subtract from priority when the tracked interface goes down
                                     	**type**\: int
                                     
                                     	**range:** 0..254
+                                    
+                                    .. attribute:: track_interface
+                                    
+                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                    	**type**\: str
                                     
                                     
 
@@ -7309,13 +7309,13 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.track_interface = None
                                         self.priority_decrement = None
+                                        self.track_interface = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -7326,10 +7326,10 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.track_interface is not None:
+                                        if self.priority_decrement is not None:
                                             return True
 
-                                        if self.priority_decrement is not None:
+                                        if self.track_interface is not None:
                                             return True
 
                                         return False
@@ -7342,7 +7342,7 @@ class Interfaces(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-if-ip:interface-tracking'
 
@@ -7369,9 +7369,9 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.virtual_router_id is None:
-                                    raise YPYDataValidationError('Key property virtual_router_id is None')
+                                    raise YPYModelError('Key property virtual_router_id is None')
 
                                 return self.parent._common_path +'/openconfig-if-ip:vrrp-group[openconfig-if-ip:virtual-router-id = ' + str(self.virtual_router_id) + ']'
 
@@ -7388,10 +7388,10 @@ class Interfaces(object):
                                 if self.config is not None and self.config._has_data():
                                     return True
 
-                                if self.state is not None and self.state._has_data():
+                                if self.interface_tracking is not None and self.interface_tracking._has_data():
                                     return True
 
-                                if self.interface_tracking is not None and self.interface_tracking._has_data():
+                                if self.state is not None and self.state._has_data():
                                     return True
 
                                 return False
@@ -7404,7 +7404,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:vrrp'
 
@@ -7430,9 +7430,9 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.ip is None:
-                            raise YPYDataValidationError('Key property ip is None')
+                            raise YPYModelError('Key property ip is None')
 
                         return self.parent._common_path +'/openconfig-if-ip:address[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -7538,7 +7538,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -7603,7 +7603,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -7633,9 +7633,9 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.ip is None:
-                            raise YPYDataValidationError('Key property ip is None')
+                            raise YPYModelError('Key property ip is None')
 
                         return self.parent._common_path +'/openconfig-if-ip:neighbor[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -7694,7 +7694,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -7750,7 +7750,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -7777,7 +7777,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-ip:ipv4'
 
@@ -7793,13 +7793,13 @@ class Interfaces(object):
                             if child_ref._has_data():
                                 return True
 
+                    if self.config is not None and self.config._has_data():
+                        return True
+
                     if self.neighbor is not None:
                         for child_ref in self.neighbor:
                             if child_ref._has_data():
                                 return True
-
-                    if self.config is not None and self.config._has_data():
-                        return True
 
                     if self.state is not None and self.state._has_data():
                         return True
@@ -7826,10 +7826,10 @@ class Interfaces(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: neighbor
+                .. attribute:: autoconf
                 
-                	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
-                	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor>`
+                	Top\-level container for IPv6 autoconf
+                	**type**\: :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf>`
                 
                 .. attribute:: _is_presence
                 
@@ -7846,20 +7846,20 @@ class Interfaces(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: state
+                .. attribute:: neighbor
                 
-                	Top\-level operational state data for the IPv6 interface
-                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State>`
+                	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
+                	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor>`
                 
                 .. attribute:: _is_presence
                 
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: autoconf
+                .. attribute:: state
                 
-                	Top\-level container for IPv6 autoconf
-                	**type**\: :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf>`
+                	Top\-level operational state data for the IPv6 interface
+                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State>`
                 
                 .. attribute:: _is_presence
                 
@@ -7880,15 +7880,15 @@ class Interfaces(object):
                     self.address = YList()
                     self.address.parent = self
                     self.address.name = 'address'
+                    self.autoconf = Interfaces.Interface.RoutedVlan.Ipv6.Autoconf()
+                    self.autoconf.parent = self
+                    self.config = Interfaces.Interface.RoutedVlan.Ipv6.Config()
+                    self.config.parent = self
                     self.neighbor = YList()
                     self.neighbor.parent = self
                     self.neighbor.name = 'neighbor'
-                    self.config = Interfaces.Interface.RoutedVlan.Ipv6.Config()
-                    self.config.parent = self
                     self.state = Interfaces.Interface.RoutedVlan.Ipv6.State()
                     self.state.parent = self
-                    self.autoconf = Interfaces.Interface.RoutedVlan.Ipv6.Autoconf()
-                    self.autoconf.parent = self
 
 
                 class Address(object):
@@ -7969,7 +7969,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -8006,17 +8006,17 @@ class Interfaces(object):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: origin
+                        
+                        	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
+                        	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                        
                         .. attribute:: prefix_length
                         
                         	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
                         	**type**\: int
                         
                         	**range:** 0..128
-                        
-                        .. attribute:: origin
-                        
-                        	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
-                        	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         .. attribute:: status
                         
@@ -8033,8 +8033,8 @@ class Interfaces(object):
                         def __init__(self):
                             self.parent = None
                             self.ip = None
-                            self.prefix_length = None
                             self.origin = None
+                            self.prefix_length = None
                             self.status = None
 
                         class StatusEnum(Enum):
@@ -8135,7 +8135,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -8149,10 +8149,10 @@ class Interfaces(object):
                             if self.ip is not None:
                                 return True
 
-                            if self.prefix_length is not None:
+                            if self.origin is not None:
                                 return True
 
-                            if self.origin is not None:
+                            if self.prefix_length is not None:
                                 return True
 
                             if self.status is not None:
@@ -8206,15 +8206,15 @@ class Interfaces(object):
                             	Configuration data for the VRRP group
                             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config>`
                             
-                            .. attribute:: state
-                            
-                            	Operational state data for the VRRP group
-                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State>`
-                            
                             .. attribute:: interface_tracking
                             
                             	Top\-level container for VRRP interface tracking
                             	**type**\: :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state data for the VRRP group
+                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State>`
                             
                             
 
@@ -8228,22 +8228,46 @@ class Interfaces(object):
                                 self.virtual_router_id = None
                                 self.config = Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config()
                                 self.config.parent = self
-                                self.state = Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State()
-                                self.state.parent = self
                                 self.interface_tracking = Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                 self.interface_tracking.parent = self
+                                self.state = Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State()
+                                self.state.parent = self
 
 
                             class Config(object):
                                 """
                                 Configuration data for the VRRP group
                                 
-                                .. attribute:: virtual_router_id
+                                .. attribute:: accept_mode
                                 
-                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
+                                	**type**\: bool
+                                
+                                .. attribute:: advertisement_interval
+                                
+                                	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
                                 	**type**\: int
                                 
-                                	**range:** 1..255
+                                	**range:** 1..4095
+                                
+                                .. attribute:: preempt
+                                
+                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                	**type**\: bool
+                                
+                                .. attribute:: preempt_delay
+                                
+                                	Set the delay the higher priority router waits before preempting
+                                	**type**\: int
+                                
+                                	**range:** 0..3600
+                                
+                                .. attribute:: priority
+                                
+                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                	**type**\: int
+                                
+                                	**range:** 1..254
                                 
                                 .. attribute:: virtual_address
                                 
@@ -8262,37 +8286,6 @@ class Interfaces(object):
                                 
                                 
                                 ----
-                                .. attribute:: priority
-                                
-                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
-                                	**type**\: int
-                                
-                                	**range:** 1..254
-                                
-                                .. attribute:: preempt
-                                
-                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                	**type**\: bool
-                                
-                                .. attribute:: preempt_delay
-                                
-                                	Set the delay the higher priority router waits before preempting
-                                	**type**\: int
-                                
-                                	**range:** 0..3600
-                                
-                                .. attribute:: accept_mode
-                                
-                                	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
-                                	**type**\: bool
-                                
-                                .. attribute:: advertisement_interval
-                                
-                                	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
-                                	**type**\: int
-                                
-                                	**range:** 1..4095
-                                
                                 .. attribute:: virtual_link_local
                                 
                                 	For VRRP on IPv6 interfaces, sets the virtual link local address
@@ -8310,6 +8303,13 @@ class Interfaces(object):
                                 
                                 
                                 ----
+                                .. attribute:: virtual_router_id
+                                
+                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                	**type**\: int
+                                
+                                	**range:** 1..255
+                                
                                 
 
                                 """
@@ -8319,21 +8319,21 @@ class Interfaces(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.virtual_router_id = None
+                                    self.accept_mode = None
+                                    self.advertisement_interval = None
+                                    self.preempt = None
+                                    self.preempt_delay = None
+                                    self.priority = None
                                     self.virtual_address = YLeafList()
                                     self.virtual_address.parent = self
                                     self.virtual_address.name = 'virtual_address'
-                                    self.priority = None
-                                    self.preempt = None
-                                    self.preempt_delay = None
-                                    self.accept_mode = None
-                                    self.advertisement_interval = None
                                     self.virtual_link_local = None
+                                    self.virtual_router_id = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -8344,15 +8344,10 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.virtual_router_id is not None:
+                                    if self.accept_mode is not None:
                                         return True
 
-                                    if self.virtual_address is not None:
-                                        for child in self.virtual_address:
-                                            if child is not None:
-                                                return True
-
-                                    if self.priority is not None:
+                                    if self.advertisement_interval is not None:
                                         return True
 
                                     if self.preempt is not None:
@@ -8361,13 +8356,18 @@ class Interfaces(object):
                                     if self.preempt_delay is not None:
                                         return True
 
-                                    if self.accept_mode is not None:
+                                    if self.priority is not None:
                                         return True
 
-                                    if self.advertisement_interval is not None:
-                                        return True
+                                    if self.virtual_address is not None:
+                                        for child in self.virtual_address:
+                                            if child is not None:
+                                                return True
 
                                     if self.virtual_link_local is not None:
+                                        return True
+
+                                    if self.virtual_router_id is not None:
                                         return True
 
                                     return False
@@ -8381,49 +8381,6 @@ class Interfaces(object):
                             class State(object):
                                 """
                                 Operational state data for the VRRP group
-                                
-                                .. attribute:: virtual_router_id
-                                
-                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
-                                	**type**\: int
-                                
-                                	**range:** 1..255
-                                
-                                .. attribute:: virtual_address
-                                
-                                	Configure one or more virtual addresses for the VRRP group
-                                	**type**\: one of the below types:
-                                
-                                	**type**\: list of str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\: list of str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                .. attribute:: priority
-                                
-                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
-                                	**type**\: int
-                                
-                                	**range:** 1..254
-                                
-                                .. attribute:: preempt
-                                
-                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
-                                	**type**\: bool
-                                
-                                .. attribute:: preempt_delay
-                                
-                                	Set the delay the higher priority router waits before preempting
-                                	**type**\: int
-                                
-                                	**range:** 0..3600
                                 
                                 .. attribute:: accept_mode
                                 
@@ -8444,6 +8401,42 @@ class Interfaces(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: preempt
+                                
+                                	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                	**type**\: bool
+                                
+                                .. attribute:: preempt_delay
+                                
+                                	Set the delay the higher priority router waits before preempting
+                                	**type**\: int
+                                
+                                	**range:** 0..3600
+                                
+                                .. attribute:: priority
+                                
+                                	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
+                                	**type**\: int
+                                
+                                	**range:** 1..254
+                                
+                                .. attribute:: virtual_address
+                                
+                                	Configure one or more virtual addresses for the VRRP group
+                                	**type**\: one of the below types:
+                                
+                                	**type**\: list of str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                	**type**\: list of str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
                                 .. attribute:: virtual_link_local
                                 
                                 	For VRRP on IPv6 interfaces, sets the virtual link local address
@@ -8461,6 +8454,13 @@ class Interfaces(object):
                                 
                                 
                                 ----
+                                .. attribute:: virtual_router_id
+                                
+                                	Set the virtual router id for use by the VRRP group.  This usually also determines the virtual MAC address that is generated for the VRRP group
+                                	**type**\: int
+                                
+                                	**range:** 1..255
+                                
                                 
 
                                 """
@@ -8470,22 +8470,22 @@ class Interfaces(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.virtual_router_id = None
-                                    self.virtual_address = YLeafList()
-                                    self.virtual_address.parent = self
-                                    self.virtual_address.name = 'virtual_address'
-                                    self.priority = None
-                                    self.preempt = None
-                                    self.preempt_delay = None
                                     self.accept_mode = None
                                     self.advertisement_interval = None
                                     self.current_priority = None
+                                    self.preempt = None
+                                    self.preempt_delay = None
+                                    self.priority = None
+                                    self.virtual_address = YLeafList()
+                                    self.virtual_address.parent = self
+                                    self.virtual_address.name = 'virtual_address'
                                     self.virtual_link_local = None
+                                    self.virtual_router_id = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -8496,23 +8496,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.virtual_router_id is not None:
-                                        return True
-
-                                    if self.virtual_address is not None:
-                                        for child in self.virtual_address:
-                                            if child is not None:
-                                                return True
-
-                                    if self.priority is not None:
-                                        return True
-
-                                    if self.preempt is not None:
-                                        return True
-
-                                    if self.preempt_delay is not None:
-                                        return True
-
                                     if self.accept_mode is not None:
                                         return True
 
@@ -8522,7 +8505,24 @@ class Interfaces(object):
                                     if self.current_priority is not None:
                                         return True
 
+                                    if self.preempt is not None:
+                                        return True
+
+                                    if self.preempt_delay is not None:
+                                        return True
+
+                                    if self.priority is not None:
+                                        return True
+
+                                    if self.virtual_address is not None:
+                                        for child in self.virtual_address:
+                                            if child is not None:
+                                                return True
+
                                     if self.virtual_link_local is not None:
+                                        return True
+
+                                    if self.virtual_router_id is not None:
                                         return True
 
                                     return False
@@ -8566,17 +8566,17 @@ class Interfaces(object):
                                     """
                                     Configuration data for VRRP interface tracking
                                     
-                                    .. attribute:: track_interface
-                                    
-                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                    	**type**\: str
-                                    
                                     .. attribute:: priority_decrement
                                     
                                     	Set the value to subtract from priority when the tracked interface goes down
                                     	**type**\: int
                                     
                                     	**range:** 0..254
+                                    
+                                    .. attribute:: track_interface
+                                    
+                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                    	**type**\: str
                                     
                                     
 
@@ -8587,13 +8587,13 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.track_interface = None
                                         self.priority_decrement = None
+                                        self.track_interface = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -8604,10 +8604,10 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.track_interface is not None:
+                                        if self.priority_decrement is not None:
                                             return True
 
-                                        if self.priority_decrement is not None:
+                                        if self.track_interface is not None:
                                             return True
 
                                         return False
@@ -8622,17 +8622,17 @@ class Interfaces(object):
                                     """
                                     Operational state data for VRRP interface tracking
                                     
-                                    .. attribute:: track_interface
-                                    
-                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                    	**type**\: str
-                                    
                                     .. attribute:: priority_decrement
                                     
                                     	Set the value to subtract from priority when the tracked interface goes down
                                     	**type**\: int
                                     
                                     	**range:** 0..254
+                                    
+                                    .. attribute:: track_interface
+                                    
+                                    	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                    	**type**\: str
                                     
                                     
 
@@ -8643,13 +8643,13 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.track_interface = None
                                         self.priority_decrement = None
+                                        self.track_interface = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -8660,10 +8660,10 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.track_interface is not None:
+                                        if self.priority_decrement is not None:
                                             return True
 
-                                        if self.priority_decrement is not None:
+                                        if self.track_interface is not None:
                                             return True
 
                                         return False
@@ -8676,7 +8676,7 @@ class Interfaces(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/openconfig-if-ip:interface-tracking'
 
@@ -8703,9 +8703,9 @@ class Interfaces(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.virtual_router_id is None:
-                                    raise YPYDataValidationError('Key property virtual_router_id is None')
+                                    raise YPYModelError('Key property virtual_router_id is None')
 
                                 return self.parent._common_path +'/openconfig-if-ip:vrrp-group[openconfig-if-ip:virtual-router-id = ' + str(self.virtual_router_id) + ']'
 
@@ -8722,10 +8722,10 @@ class Interfaces(object):
                                 if self.config is not None and self.config._has_data():
                                     return True
 
-                                if self.state is not None and self.state._has_data():
+                                if self.interface_tracking is not None and self.interface_tracking._has_data():
                                     return True
 
-                                if self.interface_tracking is not None and self.interface_tracking._has_data():
+                                if self.state is not None and self.state._has_data():
                                     return True
 
                                 return False
@@ -8738,7 +8738,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:vrrp'
 
@@ -8764,9 +8764,9 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.ip is None:
-                            raise YPYDataValidationError('Key property ip is None')
+                            raise YPYModelError('Key property ip is None')
 
                         return self.parent._common_path +'/openconfig-if-ip:address[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -8872,7 +8872,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -8909,6 +8909,11 @@ class Interfaces(object):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: is_router
+                        
+                        	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
                         .. attribute:: link_layer_address
                         
                         	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
@@ -8916,20 +8921,15 @@ class Interfaces(object):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
-                        .. attribute:: origin
-                        
-                        	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
-                        	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
-                        
-                        .. attribute:: is_router
-                        
-                        	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: neighbor_state
                         
                         	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
                         	**type**\: :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum>`
+                        
+                        .. attribute:: origin
+                        
+                        	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
+                        	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                         
                         
 
@@ -8941,10 +8941,10 @@ class Interfaces(object):
                         def __init__(self):
                             self.parent = None
                             self.ip = None
-                            self.link_layer_address = None
-                            self.origin = None
                             self.is_router = None
+                            self.link_layer_address = None
                             self.neighbor_state = None
+                            self.origin = None
 
                         class NeighborStateEnum(Enum):
                             """
@@ -9022,7 +9022,7 @@ class Interfaces(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -9036,16 +9036,16 @@ class Interfaces(object):
                             if self.ip is not None:
                                 return True
 
-                            if self.link_layer_address is not None:
-                                return True
-
-                            if self.origin is not None:
-                                return True
-
                             if self.is_router is not None:
                                 return True
 
+                            if self.link_layer_address is not None:
+                                return True
+
                             if self.neighbor_state is not None:
+                                return True
+
+                            if self.origin is not None:
                                 return True
 
                             return False
@@ -9058,9 +9058,9 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.ip is None:
-                            raise YPYDataValidationError('Key property ip is None')
+                            raise YPYModelError('Key property ip is None')
 
                         return self.parent._common_path +'/openconfig-if-ip:neighbor[openconfig-if-ip:ip = ' + str(self.ip) + ']'
 
@@ -9092,6 +9092,13 @@ class Interfaces(object):
                     """
                     Top\-level config data for the IPv6 interface
                     
+                    .. attribute:: dup_addr_detect_transmits
+                    
+                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: enabled
                     
                     	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
@@ -9104,13 +9111,6 @@ class Interfaces(object):
                     
                     	**range:** 1280..4294967295
                     
-                    .. attribute:: dup_addr_detect_transmits
-                    
-                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     
 
                     """
@@ -9120,14 +9120,14 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.dup_addr_detect_transmits = None
                         self.enabled = None
                         self.mtu = None
-                        self.dup_addr_detect_transmits = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -9138,13 +9138,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.dup_addr_detect_transmits is not None:
+                            return True
+
                         if self.enabled is not None:
                             return True
 
                         if self.mtu is not None:
-                            return True
-
-                        if self.dup_addr_detect_transmits is not None:
                             return True
 
                         return False
@@ -9159,6 +9159,13 @@ class Interfaces(object):
                     """
                     Top\-level operational state data for the IPv6 interface
                     
+                    .. attribute:: dup_addr_detect_transmits
+                    
+                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: enabled
                     
                     	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
@@ -9171,13 +9178,6 @@ class Interfaces(object):
                     
                     	**range:** 1280..4294967295
                     
-                    .. attribute:: dup_addr_detect_transmits
-                    
-                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     
 
                     """
@@ -9187,14 +9187,14 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.dup_addr_detect_transmits = None
                         self.enabled = None
                         self.mtu = None
-                        self.dup_addr_detect_transmits = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -9205,13 +9205,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.dup_addr_detect_transmits is not None:
+                            return True
+
                         if self.enabled is not None:
                             return True
 
                         if self.mtu is not None:
-                            return True
-
-                        if self.dup_addr_detect_transmits is not None:
                             return True
 
                         return False
@@ -9268,16 +9268,16 @@ class Interfaces(object):
                         	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                         	**type**\: bool
                         
-                        .. attribute:: temporary_valid_lifetime
+                        .. attribute:: temporary_preferred_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: temporary_preferred_lifetime
+                        .. attribute:: temporary_valid_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -9293,13 +9293,13 @@ class Interfaces(object):
                             self.parent = None
                             self.create_global_addresses = None
                             self.create_temporary_addresses = None
-                            self.temporary_valid_lifetime = None
                             self.temporary_preferred_lifetime = None
+                            self.temporary_valid_lifetime = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:config'
 
@@ -9316,10 +9316,10 @@ class Interfaces(object):
                             if self.create_temporary_addresses is not None:
                                 return True
 
-                            if self.temporary_valid_lifetime is not None:
+                            if self.temporary_preferred_lifetime is not None:
                                 return True
 
-                            if self.temporary_preferred_lifetime is not None:
+                            if self.temporary_valid_lifetime is not None:
                                 return True
 
                             return False
@@ -9344,16 +9344,16 @@ class Interfaces(object):
                         	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                         	**type**\: bool
                         
-                        .. attribute:: temporary_valid_lifetime
+                        .. attribute:: temporary_preferred_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: temporary_preferred_lifetime
+                        .. attribute:: temporary_valid_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -9369,13 +9369,13 @@ class Interfaces(object):
                             self.parent = None
                             self.create_global_addresses = None
                             self.create_temporary_addresses = None
-                            self.temporary_valid_lifetime = None
                             self.temporary_preferred_lifetime = None
+                            self.temporary_valid_lifetime = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/openconfig-if-ip:state'
 
@@ -9392,10 +9392,10 @@ class Interfaces(object):
                             if self.create_temporary_addresses is not None:
                                 return True
 
-                            if self.temporary_valid_lifetime is not None:
+                            if self.temporary_preferred_lifetime is not None:
                                 return True
 
-                            if self.temporary_preferred_lifetime is not None:
+                            if self.temporary_valid_lifetime is not None:
                                 return True
 
                             return False
@@ -9408,7 +9408,7 @@ class Interfaces(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/openconfig-if-ip:autoconf'
 
@@ -9435,7 +9435,7 @@ class Interfaces(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/openconfig-if-ip:ipv6'
 
@@ -9451,18 +9451,18 @@ class Interfaces(object):
                             if child_ref._has_data():
                                 return True
 
+                    if self.autoconf is not None and self.autoconf._has_data():
+                        return True
+
+                    if self.config is not None and self.config._has_data():
+                        return True
+
                     if self.neighbor is not None:
                         for child_ref in self.neighbor:
                             if child_ref._has_data():
                                 return True
 
-                    if self.config is not None and self.config._has_data():
-                        return True
-
                     if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.autoconf is not None and self.autoconf._has_data():
                         return True
 
                     return False
@@ -9475,7 +9475,7 @@ class Interfaces(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/openconfig-vlan:routed-vlan'
 
@@ -9489,13 +9489,13 @@ class Interfaces(object):
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.state is not None and self.state._has_data():
-                    return True
-
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
                 if self.ipv6 is not None and self.ipv6._has_data():
+                    return True
+
+                if self.state is not None and self.state._has_data():
                     return True
 
                 return False
@@ -9508,7 +9508,7 @@ class Interfaces(object):
         @property
         def _common_path(self):
             if self.name is None:
-                raise YPYDataValidationError('Key property name is None')
+                raise YPYModelError('Key property name is None')
 
             return '/openconfig-interfaces:interfaces/openconfig-interfaces:interface[openconfig-interfaces:name = ' + str(self.name) + ']'
 
@@ -9522,25 +9522,25 @@ class Interfaces(object):
             if self.name is not None:
                 return True
 
+            if self.aggregation is not None and self.aggregation._has_data():
+                return True
+
             if self.config is not None and self.config._has_data():
-                return True
-
-            if self.state is not None and self.state._has_data():
-                return True
-
-            if self.hold_time is not None and self.hold_time._has_data():
-                return True
-
-            if self.subinterfaces is not None and self.subinterfaces._has_data():
                 return True
 
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
-            if self.aggregation is not None and self.aggregation._has_data():
+            if self.hold_time is not None and self.hold_time._has_data():
                 return True
 
             if self.routed_vlan is not None and self.routed_vlan._has_data():
+                return True
+
+            if self.state is not None and self.state._has_data():
+                return True
+
+            if self.subinterfaces is not None and self.subinterfaces._has_data():
                 return True
 
             return False

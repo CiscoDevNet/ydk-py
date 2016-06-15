@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -111,17 +111,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.Local',
             False, 
             [
-            _MetaInfoClassMember('router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Router ID
-                ''',
-                'router_id',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                IfIndex
                 ''',
                 'if_index',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('router-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Router ID
+                ''',
+                'router_id',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -134,17 +134,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.Remote',
             False, 
             [
-            _MetaInfoClassMember('router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Router ID
-                ''',
-                'router_id',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                IfIndex
                 ''',
                 'if_index',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('router-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Router ID
+                ''',
+                'router_id',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -157,12 +157,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.TtiMode.Tx',
             False, 
             [
-            _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                tx String 
-                ''',
-                'sapi',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('dapi', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                exp String 
@@ -174,6 +168,12 @@ _meta_table = {
                 '''                rec String 
                 ''',
                 'operator_specific',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                tx String 
+                ''',
+                'sapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -186,12 +186,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.TtiMode.Exp',
             False, 
             [
-            _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                tx String 
-                ''',
-                'sapi',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('dapi', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                exp String 
@@ -203,6 +197,12 @@ _meta_table = {
                 '''                rec String 
                 ''',
                 'operator_specific',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                tx String 
+                ''',
+                'sapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -215,12 +215,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.TtiMode.Rec',
             False, 
             [
-            _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                tx String 
-                ''',
-                'sapi',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('dapi', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                exp String 
@@ -233,6 +227,12 @@ _meta_table = {
                 ''',
                 'operator_specific',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                tx String 
+                ''',
+                'sapi',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
             'rec',
@@ -244,29 +244,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.TtiMode',
             False, 
             [
-            _MetaInfoClassMember('tx', REFERENCE_CLASS, 'Tx' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode.Tx', 
-                [], [], 
-                '''                String Sent
-                ''',
-                'tx',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('exp', REFERENCE_CLASS, 'Exp' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode.Exp', 
                 [], [], 
                 '''                String Expected
                 ''',
                 'exp',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('rec', REFERENCE_CLASS, 'Rec' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode.Rec', 
-                [], [], 
-                '''                String Received
-                ''',
-                'rec',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('g709tti-sent-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEtEnum', 
-                [], [], 
-                '''                G709TTI sent
-                ''',
-                'g709tti_sent_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('g709tti-exp-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEtEnum', 
                 [], [], 
@@ -280,6 +262,24 @@ _meta_table = {
                 ''',
                 'g709tti_rec_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('g709tti-sent-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEtEnum', 
+                [], [], 
+                '''                G709TTI sent
+                ''',
+                'g709tti_sent_mode',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('rec', REFERENCE_CLASS, 'Rec' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode.Rec', 
+                [], [], 
+                '''                String Received
+                ''',
+                'rec',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('tx', REFERENCE_CLASS, 'Tx' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode.Tx', 
+                [], [], 
+                '''                String Sent
+                ''',
+                'tx',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
             'tti-mode',
@@ -291,17 +291,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Los',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -309,11 +303,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -326,17 +326,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -344,11 +338,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -361,17 +361,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -379,11 +373,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -396,17 +396,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -414,11 +408,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -431,17 +431,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -449,11 +443,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -466,17 +466,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -484,11 +478,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -501,17 +501,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -519,11 +513,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -536,17 +536,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -554,11 +548,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -571,17 +571,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -589,11 +583,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -606,17 +606,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -624,11 +618,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -641,17 +641,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -659,11 +653,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -676,17 +676,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -694,11 +688,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -711,17 +711,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -729,11 +723,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -746,17 +746,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -764,11 +758,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -781,17 +781,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -799,11 +793,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -816,17 +816,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -834,11 +828,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -851,17 +851,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc',
             False, 
             [
-            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is reporting enabled?
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Alarm counter
                 ''',
-                'reporting_enabled',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is defect detected?
-                ''',
-                'is_detected',
+                'counter',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('is-asserted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -869,11 +863,17 @@ _meta_table = {
                 ''',
                 'is_asserted',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Alarm counter
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
                 ''',
-                'counter',
+                'is_detected',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('reporting-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is reporting enabled?
+                ''',
+                'reporting_enabled',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -886,53 +886,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo',
             False, 
             [
-            _MetaInfoClassMember('los', REFERENCE_CLASS, 'Los' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Los', 
-                [], [], 
-                '''                Loss of Signal
-                ''',
-                'los',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('lof', REFERENCE_CLASS, 'Lof' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof', 
-                [], [], 
-                '''                Loss of Frame
-                ''',
-                'lof',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('lom', REFERENCE_CLASS, 'Lom' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom', 
-                [], [], 
-                '''                Loss of MultiFrame
-                ''',
-                'lom',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('oof', REFERENCE_CLASS, 'Oof' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof', 
-                [], [], 
-                '''                Out of Frame
-                ''',
-                'oof',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('oom', REFERENCE_CLASS, 'Oom' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom', 
-                [], [], 
-                '''                Out of MultiFrame
-                ''',
-                'oom',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('ais', REFERENCE_CLASS, 'Ais' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais', 
                 [], [], 
                 '''                Alarm Indication Signal
                 ''',
                 'ais',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('iae', REFERENCE_CLASS, 'Iae' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae', 
-                [], [], 
-                '''                Incoming Alignment Error
-                ''',
-                'iae',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('biae', REFERENCE_CLASS, 'Biae' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae', 
-                [], [], 
-                '''                Backward Incoming Alignment Error
-                ''',
-                'biae',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('bdi', REFERENCE_CLASS, 'Bdi' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi', 
                 [], [], 
@@ -940,11 +898,17 @@ _meta_table = {
                 ''',
                 'bdi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('tim', REFERENCE_CLASS, 'Tim' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim', 
+            _MetaInfoClassMember('biae', REFERENCE_CLASS, 'Biae' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae', 
                 [], [], 
-                '''                Trace Identifier Mismatch
+                '''                Backward Incoming Alignment Error
                 ''',
-                'tim',
+                'biae',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('ec', REFERENCE_CLASS, 'Ec' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec', 
+                [], [], 
+                '''                EC alarm
+                ''',
+                'ec',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('eoc', REFERENCE_CLASS, 'Eoc' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc', 
                 [], [], 
@@ -958,11 +922,47 @@ _meta_table = {
                 ''',
                 'fec_mismatch',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sf-ber', REFERENCE_CLASS, 'SfBer' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer', 
+            _MetaInfoClassMember('fecunc', REFERENCE_CLASS, 'Fecunc' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc', 
                 [], [], 
-                '''                SF BER alarm
+                '''                FEC UnCorrected Word
                 ''',
-                'sf_ber',
+                'fecunc',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('iae', REFERENCE_CLASS, 'Iae' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae', 
+                [], [], 
+                '''                Incoming Alignment Error
+                ''',
+                'iae',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('lof', REFERENCE_CLASS, 'Lof' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof', 
+                [], [], 
+                '''                Loss of Frame
+                ''',
+                'lof',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('lom', REFERENCE_CLASS, 'Lom' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom', 
+                [], [], 
+                '''                Loss of MultiFrame
+                ''',
+                'lom',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('los', REFERENCE_CLASS, 'Los' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Los', 
+                [], [], 
+                '''                Loss of Signal
+                ''',
+                'los',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('oof', REFERENCE_CLASS, 'Oof' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof', 
+                [], [], 
+                '''                Out of Frame
+                ''',
+                'oof',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('oom', REFERENCE_CLASS, 'Oom' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom', 
+                [], [], 
+                '''                Out of MultiFrame
+                ''',
+                'oom',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sd-ber', REFERENCE_CLASS, 'SdBer' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer', 
                 [], [], 
@@ -970,23 +970,23 @@ _meta_table = {
                 ''',
                 'sd_ber',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('ec', REFERENCE_CLASS, 'Ec' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec', 
+            _MetaInfoClassMember('sf-ber', REFERENCE_CLASS, 'SfBer' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer', 
                 [], [], 
-                '''                EC alarm
+                '''                SF BER alarm
                 ''',
-                'ec',
+                'sf_ber',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('tim', REFERENCE_CLASS, 'Tim' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim', 
+                [], [], 
+                '''                Trace Identifier Mismatch
+                ''',
+                'tim',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('uc', REFERENCE_CLASS, 'Uc' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc', 
                 [], [], 
                 '''                UC alarm
                 ''',
                 'uc',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('fecunc', REFERENCE_CLASS, 'Fecunc' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc', 
-                [], [], 
-                '''                FEC UnCorrected Word
-                ''',
-                'fecunc',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -999,17 +999,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.Proactive',
             False, 
             [
-            _MetaInfoClassMember('proactive-status', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('proactive-fsm-if-state', REFERENCE_ENUM_CLASS, 'OtuPpIntfStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpIntfStateEnum', 
                 [], [], 
-                '''                Proactive Status
+                '''                Proactive FSM IF State
                 ''',
-                'proactive_status',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
-                [], [], 
-                '''                Secondary Admin State
-                ''',
-                'sec_state',
+                'proactive_fsm_if_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('proactive-fsm-state', REFERENCE_ENUM_CLASS, 'OtuPpFsmStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpFsmStateEnum', 
                 [], [], 
@@ -1017,23 +1011,17 @@ _meta_table = {
                 ''',
                 'proactive_fsm_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('proactive-fsm-if-state', REFERENCE_ENUM_CLASS, 'OtuPpIntfStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpIntfStateEnum', 
+            _MetaInfoClassMember('proactive-status', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Proactive FSM IF State
+                '''                Proactive Status
                 ''',
-                'proactive_fsm_if_state',
+                'proactive_status',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('trig-thresh-coeff', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Trigger threshold coefficient
+            _MetaInfoClassMember('revert-window', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Revert Integration Window
                 ''',
-                'trig_thresh_coeff',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('trig-thresh-power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Trigger threshold power
-                ''',
-                'trig_thresh_power',
+                'revert_window',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('rvrt-thresh-coeff', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -1047,17 +1035,29 @@ _meta_table = {
                 ''',
                 'rvrt_thresh_power',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
+                [], [], 
+                '''                Secondary Admin State
+                ''',
+                'sec_state',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('trig-thresh-coeff', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Trigger threshold coefficient
+                ''',
+                'trig_thresh_coeff',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('trig-thresh-power', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Trigger threshold power
+                ''',
+                'trig_thresh_power',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('trigger-window', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Trigger Integration window
                 ''',
                 'trigger_window',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('revert-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Revert Integration Window
-                ''',
-                'revert_window',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
@@ -1070,131 +1070,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info',
             False, 
             [
-            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Local', 
-                [], [], 
-                '''                TTI
-                ''',
-                'local',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('remote', REFERENCE_CLASS, 'Remote' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Remote', 
-                [], [], 
-                '''                Remote
-                ''',
-                'remote',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('tti-mode', REFERENCE_CLASS, 'TtiMode' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode', 
-                [], [], 
-                '''                OTU TTI
-                ''',
-                'tti_mode',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('otu-alarm-info', REFERENCE_CLASS, 'OtuAlarmInfo' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo', 
-                [], [], 
-                '''                OTU layer alarm Information
-                ''',
-                'otu_alarm_info',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('proactive', REFERENCE_CLASS, 'Proactive' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Proactive', 
-                [], [], 
-                '''                Proactive Protection
-                ''',
-                'proactive',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'OtuStateEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuStateEtEnum', 
-                [], [], 
-                '''                Admin State
-                ''',
-                'state',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Interface Name
-                ''',
-                'name',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sf', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                SF
-                ''',
-                'sf',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sd', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                SD
-                ''',
-                'sd',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('loopback-mode', REFERENCE_ENUM_CLASS, 'OtuLoopBackModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuLoopBackModeEnum', 
-                [], [], 
-                '''                Loopback
-                ''',
-                'loopback_mode',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('fec-mode', REFERENCE_ENUM_CLASS, 'OtuG709FecModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuG709FecModeEnum', 
-                [], [], 
-                '''                FEC
-                ''',
-                'fec_mode',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('derivedstate-mode', REFERENCE_ENUM_CLASS, 'OtuDerStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuDerStateEnum', 
                 [], [], 
                 '''                Derived State
                 ''',
                 'derivedstate_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
-                [], [], 
-                '''                Sec State
-                ''',
-                'sec_state',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('gcc-mode', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                OTU GCC
-                ''',
-                'gcc_mode',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('q', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                q value calculated
-                ''',
-                'q',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('q-margin', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                q margin calculated
-                ''',
-                'q_margin',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtuPerMonEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPerMonEnum', 
-                [], [], 
-                '''                Performance Monitoring
-                ''',
-                'performance_monitoring',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('ec', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('ec', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Average bit errors corrected
                 ''',
                 'ec',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('uc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Uncorrected word count
-                ''',
-                'uc',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('pre-fec-val', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Pre FEC BER Value in form 0.00
-                ''',
-                'pre_fec_val',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('pre-fec-mantissa', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
-                '''                Pre FEC BER Mantissa in form E-<mantisaa>
-                ''',
-                'pre_fec_mantissa',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('ec-value', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1202,29 +1088,17 @@ _meta_table = {
                 ''',
                 'ec_value',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('uc-value', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('fec-mode', REFERENCE_ENUM_CLASS, 'OtuG709FecModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuG709FecModeEnum', 
                 [], [], 
-                '''                Uc value present
+                '''                FEC
                 ''',
-                'uc_value',
+                'fec_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('pre-fec-ber-value', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('gcc-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Pre fec val present 
+                '''                OTU GCC
                 ''',
-                'pre_fec_ber_value',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('pre-fec-ber-mantissa', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Pre fec val mantissa
-                ''',
-                'pre_fec_ber_mantissa',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('nv-optical-support', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                NV Optical support
-                ''',
-                'nv_optical_support',
+                'gcc_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('gmpls-tti-mode', REFERENCE_ENUM_CLASS, 'GmplsOtuTtiModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'GmplsOtuTtiModeEnum', 
                 [], [], 
@@ -1238,12 +1112,138 @@ _meta_table = {
                 ''',
                 'gmpls_tvm_id',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Local', 
+                [], [], 
+                '''                TTI
+                ''',
+                'local',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('loopback-mode', REFERENCE_ENUM_CLASS, 'OtuLoopBackModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuLoopBackModeEnum', 
+                [], [], 
+                '''                Loopback
+                ''',
+                'loopback_mode',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface Name
+                ''',
+                'name',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('network-srlg', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Network SRLG
                 ''',
                 'network_srlg',
                 'Cisco-IOS-XR-controller-otu-oper', False, max_elements=100),
+            _MetaInfoClassMember('nv-optical-support', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                NV Optical support
+                ''',
+                'nv_optical_support',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('otu-alarm-info', REFERENCE_CLASS, 'OtuAlarmInfo' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuAlarmInfo', 
+                [], [], 
+                '''                OTU layer alarm Information
+                ''',
+                'otu_alarm_info',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtuPerMonEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPerMonEnum', 
+                [], [], 
+                '''                Performance Monitoring
+                ''',
+                'performance_monitoring',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('pre-fec-ber-mantissa', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Pre fec val mantissa
+                ''',
+                'pre_fec_ber_mantissa',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('pre-fec-ber-value', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Pre fec val present 
+                ''',
+                'pre_fec_ber_value',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('pre-fec-mantissa', ATTRIBUTE, 'int' , None, None, 
+                [(-128, 127)], [], 
+                '''                Pre FEC BER Mantissa in form E-<mantisaa>
+                ''',
+                'pre_fec_mantissa',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('pre-fec-val', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Pre FEC BER Value in form 0.00
+                ''',
+                'pre_fec_val',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('proactive', REFERENCE_CLASS, 'Proactive' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Proactive', 
+                [], [], 
+                '''                Proactive Protection
+                ''',
+                'proactive',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('q', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                q value calculated
+                ''',
+                'q',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('q-margin', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                q margin calculated
+                ''',
+                'q_margin',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('remote', REFERENCE_CLASS, 'Remote' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Remote', 
+                [], [], 
+                '''                Remote
+                ''',
+                'remote',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sd', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                SD
+                ''',
+                'sd',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
+                [], [], 
+                '''                Sec State
+                ''',
+                'sec_state',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('sf', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                SF
+                ''',
+                'sf',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'OtuStateEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuStateEtEnum', 
+                [], [], 
+                '''                Admin State
+                ''',
+                'state',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('tti-mode', REFERENCE_CLASS, 'TtiMode' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode', 
+                [], [], 
+                '''                OTU TTI
+                ''',
+                'tti_mode',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('uc', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Uncorrected word count
+                ''',
+                'uc',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('uc-value', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Uc value present
+                ''',
+                'uc_value',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             ],
             'Cisco-IOS-XR-controller-otu-oper',
             'info',
