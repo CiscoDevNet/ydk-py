@@ -10,7 +10,7 @@ Overview:
 YDK or YANG Development Kit is a Software Development Kit that provides API's that are modeled
 in YANG. The main goal of YDK is to reduce the learning curve by expressing the model semantics
 in API and abstracting protocol/encoding details. The API's are generated from YANG models found
-in this profile file `https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/ydk/ydk_0_4_2.json` using the ydk-gen tool `https://github.com/CiscoDevNet/ydk-gen` .
+in this `profile file <https://github.com/CiscoDevNet/ydkgen/blob/master/profiles/ydk/ydk_0_4_2.json>`_ using the `ydk-gen tool <http://github.com/CiscoDevNet/ydk-gen>`_.
 
 System Requirements:
 --------------------
